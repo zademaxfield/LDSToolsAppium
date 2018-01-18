@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite hostname="Zade-Maxfield-MacBook-Pro" failures="0" tests="1" name="LDSToolsAppiumTest.LoginPageTest" time="148.839" errors="0" timestamp="18 Jan 2018 22:03:23 GMT">
-  <testcase classname="LDSToolsAppiumTest.LoginPageTest" name="loginPageSimple" time="87.949"/>
-</testsuite>

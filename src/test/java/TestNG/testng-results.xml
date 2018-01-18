@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results>
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2018-01-18T15:00:54Z" name="Android Login Page Test" finished-at="2018-01-18T15:03:23Z" duration-ms="148839">
+    <groups>
+    </groups>
+    <test started-at="2018-01-18T15:00:54Z" name="Android Login Page Test " finished-at="2018-01-18T15:03:23Z" duration-ms="148839">
+      <class name="LDSToolsAppiumTest.LoginPageTest">
+        <test-method is-config="true" signature="setUp(java.lang.String, java.lang.String, java.lang.String, int)" started-at="2018-01-18T15:00:54Z" name="setUp" finished-at="2018-01-18T15:01:53Z" duration-ms="58957" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[android]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ldstools-alpha.apk]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[STF-Pool]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+        <test-method signature="loginPageSimple()" started-at="2018-01-18T15:01:53Z" name="loginPageSimple" finished-at="2018-01-18T15:03:21Z" duration-ms="87949" status="PASS">
+        </test-method>
+        <test-method is-config="true" signature="teardown()" started-at="2018-01-18T15:03:21Z" name="teardown" finished-at="2018-01-18T15:03:23Z" duration-ms="1927" status="PASS">
+        </test-method>
+      </class>
+      <class name="LDSToolsAppium.BaseDriver">
+        <test-method is-config="true" signature="afterAllTests()" started-at="2018-01-18T15:03:23Z" name="afterAllTests" finished-at="2018-01-18T15:03:26Z" duration-ms="3141" status="PASS">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

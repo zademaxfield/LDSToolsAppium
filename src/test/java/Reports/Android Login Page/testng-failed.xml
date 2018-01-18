@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Android Login Page]" guice-stage="DEVELOPMENT">
+  <parameter name="fileName" value="ldstools-alpha.apk"/>
+  <parameter name="os" value="android"/>
+  <parameter name="testDevice" value="STF-Pool"/>
+  <parameter name="startSleepTime" value="1000"/>
+  <test name="Android Login Page Test(failed)">
+    <parameter name="fileName" value="ldstools-alpha.apk"/>
+    <parameter name="os" value="android"/>
+    <parameter name="testDevice" value="STF-Pool"/>
+    <parameter name="startSleepTime" value="1000"/>
+    <classes>
+      <class name="LDSToolsAppiumTest.LoginPageTest">
+        <methods>
+          <include name="loginPageSimple"/>
+          <include name="teardown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- LoginPageTest -->
+    </classes>
+  </test> <!-- Android Login Page Test(failed) -->
+</suite> <!-- Failed suite [Android Login Page] -->

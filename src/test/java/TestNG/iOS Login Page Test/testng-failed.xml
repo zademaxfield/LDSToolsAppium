@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite configfailurepolicy="continue" parallel="false" name="Failed suite [iOS Login Page Test]">
+  <parameter name="fileName" value="LDS Tools.app"/>
+  <parameter name="os" value="ios"/>
+  <parameter name="testDevice" value="iPhone X Test"/>
+  <parameter name="startSleepTime" value="0200"/>
+  <test name="iOS Login Page Test (failed)" preserve-order="false">
+    <parameter name="fileName" value="LDS Tools.app"/>
+    <parameter name="os" value="ios"/>
+    <parameter name="testDevice" value="iPhone X Test"/>
+    <parameter name="startSleepTime" value="0200"/>
+    <classes>
+      <class name="LDSToolsAppiumTest.LoginPageTest">
+        <methods>
+          <include name="teardown"/>
+          <include name="setUp"/>
+          <include name="loginPageSimple"/>
+        </methods>
+      </class>
+      <class name="LDSToolsAppium.BaseDriver">
+        <methods>
+          <include name="afterAllTests"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>

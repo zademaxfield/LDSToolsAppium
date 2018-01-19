@@ -51,4 +51,6 @@ public class LoginPageScreen extends BasePage {
     @iOSFindBy(xpath = "//XCUIElementTypeCell[8]")
     public static MobileElement enterDeveloperButton;
 
+
+
 }

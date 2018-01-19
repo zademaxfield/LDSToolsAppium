@@ -33,7 +33,7 @@ public class PinScreen extends BasePage {
 
     //Alert Dialog Message
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/md_content")
-    @iOSFindBy(xpath = "//XCUIElementTypeAlert//XCUIElementTypeStaticText[1]")
+    @iOSFindBy(xpath = "//XCUIElementTypeAlert//XCUIElementTypeStaticText[2]")
     public static MobileElement pinAlertDialogMessage;
 
     //Alert Dialog Not Now
@@ -139,6 +139,12 @@ public class PinScreen extends BasePage {
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinHintTextView")
     @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
     public static MobileElement pinKeyMessage;
+
+    //Pin Key Error Message
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/attemptsTextView")
+    @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
+    public static MobileElement pinKeyErrorMessage;
+
 
     //Pin Key Sign Out
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/signOutButton")

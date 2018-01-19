@@ -13,8 +13,8 @@ public class AppiumService {
 
 
 	public static void startAppiumService(String os, int myPort) throws Exception {
-		System.out.println("OS: " + os);
-		System.out.println("PORT: " + myPort);
+		//System.out.println("OS: " + os);
+		//System.out.println("PORT: " + myPort);
 
 		System.out.println("Creating Appium Service");
 		File appiumLogFile = new File("screenshot/myAppiumLog.txt");

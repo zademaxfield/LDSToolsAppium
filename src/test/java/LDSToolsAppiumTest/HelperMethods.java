@@ -80,21 +80,60 @@ public class HelperMethods extends BasePage {
             PinScreen.pinAlertDialogOK.click();
         }
 
-        PinScreen.pinKey1.click();
-        PinScreen.pinKey1.click();
-        PinScreen.pinKey3.click();
-        PinScreen.pinKey3.click();
+        pressPinKeys(firstNumber);
+        pressPinKeys(secondNumber);
+        pressPinKeys(thirdNumber);
+        pressPinKeys(fourthNumber);
 
         Thread.sleep(2000);
 
-        PinScreen.pinKey1.click();
-        PinScreen.pinKey1.click();
-        PinScreen.pinKey3.click();
-        PinScreen.pinKey3.click();
+        pressPinKeys(firstNumber);
+        pressPinKeys(secondNumber);
+        pressPinKeys(thirdNumber);
+        pressPinKeys(fourthNumber);
 
         Thread.sleep(2000);
 
 
+    }
+
+
+    public void pressPinKeys(String keyNumber) {
+        switch (keyNumber) {
+            case "1" :
+                PinScreen.pinKey1.click();
+                break;
+            case "2" :
+                PinScreen.pinKey2.click();
+                break;
+            case "3" :
+                PinScreen.pinKey3.click();
+                break;
+            case "4" :
+                PinScreen.pinKey4.click();
+                break;
+            case "5" :
+                PinScreen.pinKey5.click();
+                break;
+            case "6" :
+                PinScreen.pinKey6.click();
+                break;
+            case "7" :
+                PinScreen.pinKey7.click();
+                break;
+            case "8" :
+                PinScreen.pinKey8.click();
+                break;
+            case "9" :
+                PinScreen.pinKey9.click();
+                break;
+            case "0" :
+                PinScreen.pinKey0.click();
+                break;
+            case "Delete" :
+                PinScreen.pinKeyDelete.click();
+                break;
+        }
     }
 
 

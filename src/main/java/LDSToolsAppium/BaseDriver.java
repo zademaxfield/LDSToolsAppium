@@ -41,8 +41,8 @@ public class BaseDriver {
         System.out.println("Sleep Time: " + startSleepTime);
         Thread.sleep(startSleepTime);
 
-        System.out.println("OS: " + os);
-        System.out.println("Port: " + myPort);
+        //System.out.println("OS: " + os);
+        //System.out.println("Port: " + myPort);
         //Start Appium Server for iOS or Android with the Random Port
         //AppiumService.startAppiumService(os, myPort);
         myAppiumService.startAppiumService(os, myPort);
@@ -54,9 +54,20 @@ public class BaseDriver {
         
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void teardown() throws Exception {
-        driver.quit();
+        if(getRunningOS().equals("mac")) {
+            Thread.sleep(2000);
+            driver.resetApp();
+            Thread.sleep(5000);
+
+        } else {
+            System.out.println("Clear App");
+            adbCommand("clearApp");
+            Thread.sleep(5000);
+            driver.launchApp();
+            Thread.sleep(5000);
+        }
     }
 
 
@@ -526,6 +537,38 @@ public class BaseDriver {
         myOs = myOs.toLowerCase();
         //System.out.println("MY OS: "  + myOs);
         return myOs;
+    }
+
+    private void adbCommand(String myCommand) throws Exception {
+        String pathToADB = "../../../android-sdks/platform-tools/adb";
+
+
+
+        if (myCommand.equals("stopApp")) {
+            //String cmd = "adb shell am force-stop org.lds.ldstools.dev";
+            Runtime run = Runtime.getRuntime();
+            Process pr = run.exec(new String[] {pathToADB, "shell", "am", "force-stop", "org.lds.ldstools.dev"});
+            //Process pr = run.exec(cmd);
+            pr.waitFor();
+            BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            String line = "";
+            while ((line=buf.readLine())!=null) {
+                System.out.println(line);
+            }
+        }
+
+        if (myCommand.equals("clearApp")) {
+            //String cmd = "adb shell am force-stop org.lds.ldstools.dev";
+            Runtime run = Runtime.getRuntime();
+            Process pr = run.exec(new String[] { pathToADB, "shell", "pm", "clear", "org.lds.ldstools.dev"});
+            //Process pr = run.exec(cmd);
+            pr.waitFor();
+            BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+            String line = "";
+            while ((line=buf.readLine())!=null) {
+                System.out.println(line);
+            }
+        }
     }
 
 }

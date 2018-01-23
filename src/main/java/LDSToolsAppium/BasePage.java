@@ -190,6 +190,7 @@ public class BasePage {
     }
 
     public void rightsCheck(String myItem, int itemVisibility, int rights, String pageSource) {
+        System.out.println("Checking: " + myItem);
         if (rights <= itemVisibility) {
             Assert.assertTrue(checkNoCaseList(myItem, pageSource, "Contains"));
         } else {
@@ -217,9 +218,10 @@ public class BasePage {
         //System.out.println("Stop Checking for Element");
     }
 
+    //TODO: Need a faster way to do this.
     public boolean checkForElement(MobileElement myElement ) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 2);
+            WebDriverWait wait = new WebDriverWait(driver, 1);
             wait.until(ExpectedConditions.elementToBeClickable(myElement));
             return true;
         } catch (Exception e) {

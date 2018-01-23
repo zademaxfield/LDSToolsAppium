@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -21,57 +22,57 @@ public class MenuScreen extends BasePage {
 
     //Directory
     @AndroidFindBy(xpath = "//*[@resource-id='org.lds.ldstools.dev:id/design_menu_item_text'][@text='Directory']")
-    @iOSFindBy(uiAutomator = "name == 'Directory'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Directory'")
     public static MobileElement directory;
 
     //Organizations
     @AndroidFindBy(xpath = "//*[@text='Organizations']")
-    @iOSFindBy(uiAutomator = "name == 'Organizations'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Organizations'")
     public static MobileElement organizations;
 
     //Calendar
     @AndroidFindBy(xpath = "//*[@text='Calendar']")
-    @iOSFindBy(uiAutomator = "name == 'Calendar'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Calendar'")
     public static MobileElement calendar;
 
     //Reports
     @AndroidFindBy(xpath = "//*[@text='Reports']")
-    @iOSFindBy(uiAutomator = "name == 'Reports'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Reports'")
     public static MobileElement reports;
 
     //Lists
     @AndroidFindBy(xpath = "//*[@text='Lists']")
-    @iOSFindBy(uiAutomator = "name == 'Lists'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Lists'")
     public static MobileElement lists;
 
     //Missionary
     @AndroidFindBy(xpath = "//*[@text='Missionary']")
-    @iOSFindBy(uiAutomator = "name == 'Missionary'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Missionary'")
     public static MobileElement missionary;
 
     //Meetinghouses
     @AndroidFindBy(xpath = "//*[@text='Meetinghouses']")
-    @iOSFindBy(uiAutomator = "name == 'Meetinghouses'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Meetinghouses'")
     public static MobileElement meetinghouses;
 
     //Temples
     @AndroidFindBy(xpath = "//*[@text='Temples']")
-    @iOSFindBy(uiAutomator = "name == 'Temples'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Temples'")
     public static MobileElement temples;
 
     //Sync
     @AndroidFindBy(xpath = "//*[@text='Sync']")
-    @iOSFindBy(uiAutomator = "name == 'Sync'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Sync'")
     public static MobileElement sync;
 
     //Settings
     @AndroidFindBy(xpath = "//*[@text='Settings']")
-    @iOSFindBy(uiAutomator = "name == 'Settings'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Settings'")
     public static MobileElement settings;
 
     //Help
     @AndroidFindBy(xpath = "//*[@text='Help']")
-    @iOSFindBy(uiAutomator = "name == 'Help'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Help'")
     public static MobileElement help;
 
     // ********** Android Only **********
@@ -87,6 +88,23 @@ public class MenuScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.LinearLayout[@resource-id='org.lds.ldstools.dev:id/drawer_update_info_later_layout']/android.widget.TextView")
     public static MobileElement drawerMessage;
 
+    // ********** iOs Only **********
+    //More Button
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'More'")
+    public static MobileElement moreMenu;
 
+    public void selectMenu(MobileElement myElement) throws Exception {
+        //Check for Element
+        if (checkForElement(myElement)) {
+            myElement.click();
+        } else {
+            if (getOS().equals("mac")) {
+                moreMenu.click();
+            } else {
+                scrollDownTEST(200);
+            }
+            myElement.click();
+        }
+    }
 
 }

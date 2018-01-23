@@ -46,6 +46,11 @@ public class PinScreen extends BasePage {
     @iOSFindBy(accessibility = "OK")
     public static MobileElement pinAlertDialogOK;
 
+    //Alert Dialog Yes
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/md_buttonDefaultPositive")
+    @iOSFindBy(accessibility = "Yes")
+    public static MobileElement pinAlertDialogYes;
+
 
     // ****************** PIN Page ******************
     //Splash Icon

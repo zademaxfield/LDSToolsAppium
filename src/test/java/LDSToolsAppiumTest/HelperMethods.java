@@ -3,6 +3,7 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.LoginPageScreen;
+import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.PinScreen;
 import LDSToolsAppium.Screen.SettingsScreen;
 import io.appium.java_client.AppiumDriver;
@@ -16,7 +17,7 @@ public class HelperMethods extends BasePage {
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
         PinScreen myPinScreen = new PinScreen(driver);
-        //HelperMethods myHelper = new HelperMethods(driver);
+        MenuScreen myMenuScreen = new MenuScreen(driver);
 
     }
 
@@ -76,8 +77,13 @@ public class HelperMethods extends BasePage {
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);
 
-        if (PinScreen.pinAlertDialogOK.isDisplayed()) {
+        if (checkForElement(PinScreen.pinAlertDialogOK)) {
             PinScreen.pinAlertDialogOK.click();
+        }
+
+        //This is for iOS on a non leader login
+        if (checkForElement(PinScreen.pinAlertDialogYes)) {
+            PinScreen.pinAlertDialogYes.click();
         }
 
         pressPinKeys(firstNumber);
@@ -93,6 +99,11 @@ public class HelperMethods extends BasePage {
         pressPinKeys(fourthNumber);
 
         Thread.sleep(2000);
+
+        if(getOS().equals("android")) {
+            MenuScreen.laterButton.click();
+        }
+        MenuScreen.directory.click();
 
 
     }

@@ -20,7 +20,7 @@ public class MenuScreen extends BasePage {
     }
 
     //Directory
-    @AndroidFindBy(xpath = "//*[@text='Directory']")
+    @AndroidFindBy(xpath = "//*[@resource-id='org.lds.ldstools.dev:id/design_menu_item_text'][@text='Directory']")
     @iOSFindBy(uiAutomator = "name == 'Directory'")
     public static MobileElement directory;
 
@@ -74,8 +74,18 @@ public class MenuScreen extends BasePage {
     @iOSFindBy(uiAutomator = "name == 'Help'")
     public static MobileElement help;
 
+    // ********** Android Only **********
+    //Later Button
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/drawer_update_info_later_button")
+    public static MobileElement laterButton;
 
+    //Update My Info Button
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/drawer_update_info_button")
+    public static MobileElement updateMyInfo;
 
+    //Drawer Message
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@resource-id='org.lds.ldstools.dev:id/drawer_update_info_later_layout']/android.widget.TextView")
+    public static MobileElement drawerMessage;
 
 
 

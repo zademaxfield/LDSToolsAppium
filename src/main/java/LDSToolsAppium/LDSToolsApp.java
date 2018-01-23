@@ -1,11 +1,9 @@
 package LDSToolsAppium;
 
-import LDSToolsAppium.Screen.LoginPageScreen;
-import LDSToolsAppium.Screen.MenuScreen;
-import LDSToolsAppium.Screen.PinScreen;
-import LDSToolsAppium.Screen.SettingsScreen;
+import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import javafx.stage.Screen;
 
 public class LDSToolsApp {
     private final AppiumDriver<MobileElement> driver;
@@ -32,6 +30,11 @@ public class LDSToolsApp {
     //PIN Screen
     public PinScreen pinScreen() {
         return new PinScreen(driver);
+    }
+
+    //Directory Screen
+    public DirectoryScreen directoryScreenScreen() {
+        return new DirectoryScreen(driver);
     }
 
 }

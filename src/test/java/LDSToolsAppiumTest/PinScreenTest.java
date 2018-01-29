@@ -11,12 +11,12 @@ public class PinScreenTest extends BaseDriver {
     @Test
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-
+        PinScreen myPinScreen = new PinScreen(driver);
         myHelper.loginUAT("LDSTools2", "toolstester");
 
 
-        if (PinScreen.pinAlertDialogOK.isDisplayed()) {
-            PinScreen.pinAlertDialogOK.click();
+        if (myPinScreen.pinAlertDialogOK.isDisplayed()) {
+            myPinScreen.pinAlertDialogOK.click();
         }
 
         //All four of the same number
@@ -32,11 +32,11 @@ public class PinScreenTest extends BaseDriver {
             myHelper.pressPinKeys("1");
             myHelper.pressPinKeys("1");
 
-            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", PinScreen.pinKeyErrorMessage.getText());
+            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
 
         } else {
-            Assert.assertEquals("Passcode must not repeat a number three times.", PinScreen.pinAlertDialogMessage.getText());
-            PinScreen.pinAlertDialogOK.click();
+            Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
+            myPinScreen.pinAlertDialogOK.click();
         }
 
         //3 of the same number in a row
@@ -52,11 +52,11 @@ public class PinScreenTest extends BaseDriver {
             myHelper.pressPinKeys("6");
             myHelper.pressPinKeys("6");
 
-            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", PinScreen.pinKeyErrorMessage.getText());
+            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
 
         } else {
-            Assert.assertEquals("Passcode must not repeat a number three times.", PinScreen.pinAlertDialogMessage.getText());
-            PinScreen.pinAlertDialogOK.click();
+            Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
+            myPinScreen.pinAlertDialogOK.click();
         }
 
     }
@@ -64,12 +64,12 @@ public class PinScreenTest extends BaseDriver {
     @Test
     public void pinNoMatchTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-
+        PinScreen myPinScreen = new PinScreen(driver);
         myHelper.loginUAT("LDSTools2", "toolstester");
 
 
-        if (PinScreen.pinAlertDialogOK.isDisplayed()) {
-            PinScreen.pinAlertDialogOK.click();
+        if (myPinScreen.pinAlertDialogOK.isDisplayed()) {
+            myPinScreen.pinAlertDialogOK.click();
         }
         //All four of the same number
         myHelper.pressPinKeys("3");
@@ -84,10 +84,10 @@ public class PinScreenTest extends BaseDriver {
         myHelper.pressPinKeys("1");
 
         if (getRunningOS().equals("android")) {
-            Assert.assertEquals("PINs do not match.", PinScreen.pinKeyErrorMessage.getText());
+            Assert.assertEquals("PINs do not match.", myPinScreen.pinKeyErrorMessage.getText());
         } else {
-            Assert.assertEquals("Passcodes do not match.", PinScreen.pinAlertDialogMessage.getText());
-            PinScreen.pinAlertDialogOK.click();
+            Assert.assertEquals("Passcodes do not match.", myPinScreen.pinAlertDialogMessage.getText());
+            myPinScreen.pinAlertDialogOK.click();
         }
 
     }
@@ -95,12 +95,12 @@ public class PinScreenTest extends BaseDriver {
     @Test
     public void pinSequentialTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-
+        PinScreen myPinScreen = new PinScreen(driver);
         myHelper.loginUAT("LDSTools2", "toolstester");
 
 
-        if (PinScreen.pinAlertDialogOK.isDisplayed()) {
-            PinScreen.pinAlertDialogOK.click();
+        if (myPinScreen.pinAlertDialogOK.isDisplayed()) {
+            myPinScreen.pinAlertDialogOK.click();
         }
 
         //Sequential Numbers
@@ -117,11 +117,11 @@ public class PinScreenTest extends BaseDriver {
             myHelper.pressPinKeys("3");
             myHelper.pressPinKeys("4");
 
-            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", PinScreen.pinKeyErrorMessage.getText());
+            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
 
         } else {
-            Assert.assertEquals("Passcode can't have sequential numbers.", PinScreen.pinAlertDialogMessage.getText());
-            PinScreen.pinAlertDialogOK.click();
+            Assert.assertEquals("Passcode can't have sequential numbers.", myPinScreen.pinAlertDialogMessage.getText());
+            myPinScreen.pinAlertDialogOK.click();
         }
 
         //Sequential Numbers
@@ -138,11 +138,11 @@ public class PinScreenTest extends BaseDriver {
             myHelper.pressPinKeys("7");
             myHelper.pressPinKeys("6");
 
-            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", PinScreen.pinKeyErrorMessage.getText());
+            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
 
         } else {
-            Assert.assertEquals("Passcode can't have sequential numbers.", PinScreen.pinAlertDialogMessage.getText());
-            PinScreen.pinAlertDialogOK.click();
+            Assert.assertEquals("Passcode can't have sequential numbers.", myPinScreen.pinAlertDialogMessage.getText());
+            myPinScreen.pinAlertDialogOK.click();
         }
 
 

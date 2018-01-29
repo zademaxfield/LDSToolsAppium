@@ -23,13 +23,6 @@ public class DirectoryScreenTest extends BaseDriver {
     //3 = Special?
     //4 = No Calling
 
-//    @DataProvider(name = "Members")
-//    public static Object[][] credentials() {
-//        return new Object[][] { { "LDSTools2", "toolstester", 1},
-//                {"LDSTools5", "toolstester", 4},
-//                {"LDSTools16", "password1", 2} };
-//    }
-
     @DataProvider(name = "Members")
     public Iterator<Object []> provider( ) throws InterruptedException {
         String myFileName = "src/main/java/LDSToolsAppium/membersSmall.csv";

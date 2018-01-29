@@ -21,35 +21,35 @@ public class LoginPageScreen extends BasePage {
     //Login Name
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/login_username")
     @iOSFindBy(xpath = "//XCUIElementTypeCell/XCUIElementTypeTextField")
-    public static MobileElement loginName;
+    public  MobileElement loginName;
 
     //Password
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/login_password")
     @iOSFindBy(xpath = "//XCUIElementTypeCell/XCUIElementTypeSecureTextField")
-    public static MobileElement passWord;
+    public  MobileElement passWord;
 
     //Sign In Button
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/login_signin")
     @iOSFindBy(accessibility = "Sign In")
-    public static MobileElement signInButton;
+    public  MobileElement signInButton;
 
     //Sync Message
     @AndroidFindBy(xpath = "//*[@text='Sync Progress']")
     @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
-    public static MobileElement syncMessage;
+    public  MobileElement syncMessage;
 
     //Menu
     @AndroidFindBy(xpath = "//*[@content-desc='More options']")
     @iOSFindBy(accessibility = "Help")
-    public static MobileElement overflowMenu;
+    public  MobileElement overflowMenu;
 
     //Overflow Settings
     @AndroidFindBy(xpath = "//*[@text='Settings']")
-    public static MobileElement overflowSettings;
+    public  MobileElement overflowSettings;
 
     //Enter Developer Button
     @iOSFindBy(xpath = "//XCUIElementTypeCell[8]")
-    public static MobileElement enterDeveloperButton;
+    public  MobileElement enterDeveloperButton;
 
 
 

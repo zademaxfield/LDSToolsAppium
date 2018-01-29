@@ -28,12 +28,12 @@ public class DirectoryScreen extends BasePage {
     //Search Directory
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/filterEditText")
     @iOSFindBy(accessibility = "Search")
-    public static MobileElement searchBar;
+    public  MobileElement searchBar;
 
     //Clear Search
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/clearTextImageButton")
     @iOSFindBy(accessibility = "Cancel")
-    public static MobileElement searchCancel;
+    public  MobileElement searchCancel;
 
 
 
@@ -41,58 +41,58 @@ public class DirectoryScreen extends BasePage {
     //Sort Button
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/menu_item_default_directory")
     @iOSFindBy(accessibility = "Sort Options")
-    public static MobileElement directorySort;
+    public  MobileElement directorySort;
 
     //Households
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Households']")
     @iOSFindBy(accessibility = "Household")
-    public static MobileElement sortHousehold;
+    public  MobileElement sortHousehold;
 
     //Individuals
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Individuals']")
     @iOSFindBy(accessibility = "Individual")
-    public static MobileElement sortIndividual;
+    public  MobileElement sortIndividual;
 
 
 
     // ********** iOS Expand Buttons **********
     //Household Members
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'HOUSEHOLD MEMBERSOpen Drawer' AND type == 'XCUIElementTypeButton'")
-    public static MobileElement householdMembers;
+    public  MobileElement householdMembers;
 
     //Home Teaching Visiting Teaching
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'HOME AND VISITING TEACHINGOpen Drawer' AND type == 'XCUIElementTypeButton'")
-    public static MobileElement htvt;
+    public  MobileElement htvt;
 
     //Callings and Classes
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'CALLINGS AND CLASSESOpen Drawer' AND type == 'XCUIElementTypeButton'")
-    public static MobileElement callingsAndClasses;
+    public  MobileElement callingsAndClasses;
 
     //Membership Information
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'MEMBERSHIP INFORMATIONOpen Drawer' AND type == 'XCUIElementTypeButton'")
-    public static MobileElement memebershipInformation;
+    public  MobileElement memebershipInformation;
 
 
     // ********** Android Elements **********
     //Tab Contact
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"contact\")]")
-    public static MobileElement tabContact;
+    public  MobileElement tabContact;
 
     //Tab Household
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"household\")]")
-    public static MobileElement tabHousehold;
+    public  MobileElement tabHousehold;
 
     //Tab Callings
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"callings and classes\")]")
-    public static MobileElement tabCallings;
+    public  MobileElement tabCallings;
 
     //Tab Home and Visiting Teaching
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"home and visiting teaching\")]")
-    public static MobileElement tabHTVT;
+    public  MobileElement tabHTVT;
 
     //Tab Membership
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"membership information\")]")
-    public static MobileElement tabMembership;
+    public  MobileElement tabMembership;
 
 
     public void clickDirectoryUser(String myUser) throws Exception {

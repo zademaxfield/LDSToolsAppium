@@ -110,9 +110,31 @@ public class BasePage {
 
             Thread.sleep(5000);
         }
+    }
 
+    private void scrollDownSlow(int scrollDistance) throws Exception {
+        Dimension dimensions = driver.manage().window().getSize();
+        int screenWidth = dimensions.getWidth();
+        int screenHeight = dimensions.getHeight();
+
+
+        screenWidth = screenWidth / 3;
+        screenHeight = screenHeight - 70;
+        scrollDistance = screenHeight - scrollDistance;
+
+        System.out.println("Width: " + screenWidth);
+        System.out.println("Height: " + screenHeight);
+        System.out.println("Distance: " + scrollDistance);
+
+        TouchAction mySwipe = new TouchAction(driver);
+        //mySwipe.tap(screenWidth,screenHeight).moveTo(screenWidth, scrollDistance).waitAction(Duration.ofMillis(2000)).release().perform();
+        mySwipe.press(screenWidth,screenHeight).moveTo(screenWidth, scrollDistance).release().perform();
+        //driver.swipe(screenWidth, screenHeight, screenWidth, scrollDistance, 2000);
+
+        Thread.sleep(2000);
 
     }
+
 
 
 
@@ -250,8 +272,158 @@ public class BasePage {
         return myString;
     }
 
+    public void compareWebData(List<String> myList, List<String> androidList, Boolean onePage) throws Exception {
+        String pageSource = null;
+        int pageSize;
+        String lastMember;
+        String lastMemberCheck;
+
+        String memberToSelect;
+
+        if (getOS().equals("mac")){
+            pageSource = getSourceOfPage();
+            scrollDownIOS();
+            pageSource = pageSource + getSourceOfPage();
+            //System.out.println("*************************************");
+            //System.out.println(pageSource);
+            //System.out.println("*************************************");
+            for(String oneUser : myList){
+                System.out.println("USER: " + oneUser);
+                //TODO: When "Out of Unit" bug is fixed remove the check
+                if ((oneUser.contains("Jr")) || (oneUser.contains("Salvador")) || (oneUser.contains("Junior") || (oneUser.contains("Farley")
+                        || (oneUser.contains("Raymundo") || (oneUser.contains("Sarwar") ||(oneUser.contains("Dylan") || (oneUser.contains("Siteni")
+                        || (oneUser.contains("Ah Kam") || (oneUser.contains("Peterson") || (oneUser.contains("Latu") ||(oneUser.contains("Morgan")
+                        || (oneUser.contains("Nouata") || (oneUser.contains("Lili") || (oneUser.contains("Lott") || (oneUser.contains("Wilson, Tina")))))))))))))))){
+                    System.out.println("Skipping: " + oneUser);
+                } else {
+                    Assert.assertTrue(checkNoCaseList(oneUser, pageSource, "Contains"));
+                }
+
+            }
+
+        } else {
+
+            if (onePage == false ) {
+                pageSize = driver.manage().window().getSize().getHeight();
+                //System.out.println("Page Size: " + pageSize);
+                //pageSize = pageSize - 20;
+                //System.out.println("Orig Page Size: " + pageSize);
+                //pageSize = pageSize / 2;
+                pageSize = pageSize / 2;
+                //System.out.println("Page Size: " + pageSize);
+                //pageSize = (pageSize / 2 ) + pageSize;
+                //System.out.println("3/4 Page Size: " + pageSize);
+                //pageSize = -pageSize;
 
 
+
+                //This will scroll through the android pages and get all of the data.
+                do {
+                    pageSource = getSourceOfPage();
+                    androidList = createUserList(androidList, pageSource);
+                    if (androidList.size() == 0) {
+                        lastMember = "none";
+                        lastMemberCheck = "none";
+                    } else {
+                        lastMember = androidList.get(androidList.size() - 1 );
+
+                        scrollDownSlow(pageSize);
+                        Thread.sleep(1000);
+                        pageSource = pageSource + getSourceOfPage();
+                        androidList = createUserList(androidList, pageSource);
+                        lastMemberCheck = androidList.get(androidList.size() - 1 );
+                        //System.out.println("Last Member: " + lastMember);
+                        //System.out.println("Last Member Check: " + lastMemberCheck);
+                    }
+
+                } while (!lastMember.equals(lastMemberCheck));
+
+
+                //System.out.println("***************************");
+                //pageSource = getSourceOfPage();
+                //androidList = createUserList(androidList, pageSource);
+                //System.out.println("***************************");
+
+                for(String oneUser : myList) {
+                    System.out.println("USER: " + oneUser);
+                    if ((oneUser.contains("Jr")) || (oneUser.contains("Salvador")) || (oneUser.contains("Junior") || (oneUser.contains("Farley")
+                            || (oneUser.contains("Raymundo") || (oneUser.contains("Dylan") || (oneUser.contains("Siteni")
+                            || (oneUser.contains("Morgan") || (oneUser.contains("Lott")|| (oneUser.contains("Wilson, Tina")))))))))){
+                        System.out.println("Skipping: " + oneUser);
+                    } else {
+                        Assert.assertTrue(androidList.contains(oneUser));
+                    }
+                }
+            } else {
+                //driver.getPageSource();
+                pageSource = getSourceOfPage();
+                androidList.clear();
+                androidList = createUserList(androidList, pageSource);
+                //androidList = getAllText();
+				/*
+				for(String oneUser : androidList) {
+					System.out.println("USER: " + oneUser);
+					if ((oneUser.contains("Jr")) || (oneUser.contains("Salvador")) || (oneUser.contains("Junior"))){
+						System.out.println("Skipping: " + oneUser);
+					} else {
+						Assert.assertTrue(myList.contains(oneUser));
+					}
+				}
+				*/
+                //System.out.println("###### Printing List #######");
+                //for (int x = 0 ; x < myList.size() ; x++ )	{
+                //	System.out.println(myList.get(x));
+                //}
+                //System.out.println("###### Done Printing List #######");
+                System.out.println("****** Android Users ******");
+                if(!myList.isEmpty()) {
+                    for(int myCounter = 0 ; myCounter < androidList.size() ; myCounter++) {
+                        if ((myList.get(myCounter).contains("Jr")) || (myList.get(myCounter).contains("Salvador"))
+                                || (myList.get(myCounter).contains("Joseph")) || (myList.get(myCounter).contains("Junior"))) {
+                            System.out.println("Skipping: " + myList.get(myCounter));
+                        } else {
+                            System.out.println("Android USER: " + androidList.get(myCounter));
+                            Assert.assertTrue(myList.contains(androidList.get(myCounter)));
+                        }
+                    }
+                }
+                System.out.println("****** Done Android Users ******");
+            }
+
+
+        }
+    }
+
+    public List<String> createUserList(List<String> userList, String pageSource){
+        Document doc = Jsoup.parse(pageSource);
+        Elements myTest = doc.getAllElements();
+        String foundText;
+
+        for (Element myElement : myTest ) {
+            //System.out.println("Searching for user: ");
+            //System.out.println(myElement.attributes().get("value"));
+            if (!myElement.attributes().get("text").equals("")) {
+                foundText = myElement.attributes().get("text");
+                //foundText = foundText.toLowerCase();
+                if ((!foundText.isEmpty()) && (foundText.contains(","))){
+                    if ((foundText.contains("2015")) || (foundText.contains("2016"))){
+                        //System.out.println("Date? :" + foundText);
+                    } else {
+                        userList.add(foundText);
+                        System.out.println("Adding User: " + foundText);
+                    }
+
+                }
+
+
+                //System.out.println("******************************");
+                //System.out.println("Found Text:" + foundText);
+                //System.out.println("Text To Check: " + textToCheck);
+                //System.out.println("******************************");
+            }
+        }
+        return userList;
+    }
 
 
 }

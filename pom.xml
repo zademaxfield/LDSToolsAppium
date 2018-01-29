@@ -24,7 +24,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>5.14.10</version>
+            <version>RELEASE</version>
         </dependency>
 
         <dependency>
@@ -44,7 +44,16 @@
             <artifactId>jsoup</artifactId>
             <version>1.9.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>LATEST</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>RELEASE</version>
+        </dependency>
 
 
     </dependencies>

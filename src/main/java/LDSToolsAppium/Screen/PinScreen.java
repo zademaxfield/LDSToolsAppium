@@ -24,136 +24,136 @@ public class PinScreen extends BasePage {
     //Alert Dialog
     @AndroidFindBy(id = "android:id/content")
     @iOSXCUITFindBy(iOSNsPredicate = "type =='XCUIElementTypeAlert'")
-    public static MobileElement pinAlertDialog;
+    public  MobileElement pinAlertDialog;
 
     //Alert Dialog Title
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/md_titleFrame")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeAlert'")
-    public static MobileElement pinAlertDialogTitle;
+    public  MobileElement pinAlertDialogTitle;
 
     //Alert Dialog Message
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/md_content")
-    @iOSFindBy(xpath = "//XCUIElementTypeAlert//XCUIElementTypeStaticText[2]")
-    public static MobileElement pinAlertDialogMessage;
+    @iOSFindBy(xpath = "//XCUIElementTypeAlert//XCUIElementTypeText[2]")
+    public  MobileElement pinAlertDialogMessage;
 
     //Alert Dialog Not Now
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/md_buttonDefaultNegative")
     @iOSFindBy(accessibility = "Not Now")
-    public static MobileElement pinAlertDialogNotNow;
+    public  MobileElement pinAlertDialogNotNow;
 
     //Alert Dialog OK
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/md_buttonDefaultPositive")
     @iOSFindBy(accessibility = "OK")
-    public static MobileElement pinAlertDialogOK;
+    public  MobileElement pinAlertDialogOK;
 
     //Alert Dialog Yes
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/md_buttonDefaultPositive")
     @iOSFindBy(accessibility = "Yes")
-    public static MobileElement pinAlertDialogYes;
+    public  MobileElement pinAlertDialogYes;
 
 
     // ****************** PIN Page ******************
     //Splash Icon
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/splashIcon")
     @iOSFindBy(accessibility = "lt-icon-lg-iPhone")
-    public static MobileElement pinSplashIcon;
+    public  MobileElement pinSplashIcon;
 
     //When PIN dot is filled out the attribute will be selected = "true"
     //Pin Dot 1
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinDot1")
     @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
-    public static MobileElement pinDot1;
+    public  MobileElement pinDot1;
 
     //Pin Dot 2
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinDot2")
     @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
-    public static MobileElement pinDot2;
+    public  MobileElement pinDot2;
 
     //Pin Dot 3
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinDot3")
     @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
-    public static MobileElement pinDot3;
+    public  MobileElement pinDot3;
 
     //Pin Dot 4
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinDot4")
     @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
-    public static MobileElement pinDot4;
+    public  MobileElement pinDot4;
 
 
     //Pin Key 1
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKey1")
     @iOSFindBy(accessibility = "1")
-    public static MobileElement pinKey1;
+    public  MobileElement pinKey1;
 
     //Pin Key 2
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKey2")
     @iOSFindBy(accessibility = "2")
-    public static MobileElement pinKey2;
+    public  MobileElement pinKey2;
 
     //Pin Key 3
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKey3")
     @iOSFindBy(accessibility = "3")
-    public static MobileElement pinKey3;
+    public  MobileElement pinKey3;
 
     //Pin Key 4
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKey4")
     @iOSFindBy(accessibility = "4")
-    public static MobileElement pinKey4;
+    public  MobileElement pinKey4;
 
     //Pin Key 5
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKey5")
     @iOSFindBy(accessibility = "5")
-    public static MobileElement pinKey5;
+    public  MobileElement pinKey5;
 
     //Pin Key 6
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKey6")
     @iOSFindBy(accessibility = "6")
-    public static MobileElement pinKey6;
+    public  MobileElement pinKey6;
 
     //Pin Key 7
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKey7")
     @iOSFindBy(accessibility = "7")
-    public static MobileElement pinKey7;
+    public  MobileElement pinKey7;
 
     //Pin Key 8
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKey8")
     @iOSFindBy(accessibility = "8")
-    public static MobileElement pinKey8;
+    public  MobileElement pinKey8;
 
     //Pin Key 9
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKey9")
     @iOSFindBy(accessibility = "9")
-    public static MobileElement pinKey9;
+    public  MobileElement pinKey9;
 
     //Pin Key 0
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKey0")
     @iOSFindBy(accessibility = "0")
-    public static MobileElement pinKey0;
+    public  MobileElement pinKey0;
 
     //Pin Key Visibility
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKeyVisibility")
     @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
-    public static MobileElement pinKeyVisibility;
+    public  MobileElement pinKeyVisibility;
 
     //Pin Key Delete
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinKeyVisibility")
     @iOSFindBy(accessibility = "DELETE")
-    public static MobileElement pinKeyDelete;
+    public  MobileElement pinKeyDelete;
 
     //Pin Key Message
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/pinHintTextView")
     @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
-    public static MobileElement pinKeyMessage;
+    public  MobileElement pinKeyMessage;
 
     //Pin Key Error Message
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/attemptsTextView")
     @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
-    public static MobileElement pinKeyErrorMessage;
+    public  MobileElement pinKeyErrorMessage;
 
 
     //Pin Key Sign Out
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/signOutButton")
     @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
-    public static MobileElement pinKeySignOut;
+    public  MobileElement pinKeySignOut;
 
 }

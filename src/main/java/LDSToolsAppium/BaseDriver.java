@@ -57,7 +57,7 @@ public class BaseDriver {
     @DataProvider(name = "Members")
     public Iterator<Object []> provider( ) throws InterruptedException {
         //String myFileName = "src/main/java/LDSToolsAppium/membersSmall.csv";
-        String myFileName = "src/main/java/LDSToolsAppium/membersSmall.csv";
+        String myFileName = "src/main/java/LDSToolsAppium/membersOne.csv";
         BufferedReader br = null;
         String line;
         String splitBy = ",";

@@ -5,6 +5,7 @@ import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.OrganizationsScreen;
+import io.appium.java_client.MobileElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -485,9 +486,12 @@ public class OrganizationsScreenTest extends BaseDriver {
     }
 
 
-/*
 
-    public void getSundaySchoolInfo() throws Exception {
+
+    public void getSundaySchoolInfo(int rights) throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        OrganizationsScreen myOrg = new OrganizationsScreen(driver);
         //LDSWeb myWeb = new LDSWeb();
         //Data from Web page
         List<String> myList = new ArrayList<String>();
@@ -495,32 +499,40 @@ public class OrganizationsScreenTest extends BaseDriver {
         //Data from android list
         List<String> androidList = new ArrayList<String>();
 
-        clickButtonByXpathTitleName("Sunday School");
-        clickButtonByXpathTitleName("Sunday School Presidency");
+        myOrg.sundaySchoolOrg.click();
+        myOrg.sundaySchoolPresidency.click();
         Thread.sleep(1000);
 
+        if (rights <= 3) {
+            //Check web data vs LDS Tools
+            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Sunday School", "SundaySchoolPresidency", false);
+            myBasePage.compareWebData(myList, androidList, true);
+            myBasePage.backButton.click();
+            sundaySchoolClassSub(myOrg.gospelDoctrine, "GospelDoctrine");
+            //sundaySchoolClassSub("Course 17", "Course17");
+            sundaySchoolClassSub(myOrg.course16, "Course16");
+            sundaySchoolClassSub(myOrg.course15, "Course15");
+            sundaySchoolClassSub(myOrg.course14, "Course14");
+            sundaySchoolClassSub(myOrg.course13, "Course13");
+            sundaySchoolClassSub(myOrg.course12, "Course12");
 
-        //Check web data vs LDS Tools
-        myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Sunday School", "SundaySchoolPresidency", false);
-        compareWebData(myList, androidList, true);
-        pressBackKey();
-
-        sundaySchoolClassSub("Gospel Doctrine", "GospelDoctrine");
-        //sundaySchoolClassSub("Course 17", "Course17");
-        sundaySchoolClassSub("Course 16", "Course16");
-        sundaySchoolClassSub("Course 15", "Course15");
-        sundaySchoolClassSub("Course 14", "Course14");
-        sundaySchoolClassSub("Course 13", "Course13");
-        sundaySchoolClassSub("Course 12", "Course12");
+        } else {
+            //Todo: need test for this.
+        }
 
 
         Thread.sleep(1000);
-        pressBackKey();
+        myBasePage.backButton.click();
 
 
     }
 
-    public void sundaySchoolClassSub(String className, String subReport) throws Exception {
+
+
+    public void sundaySchoolClassSub(MobileElement className, String subReport) throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        OrganizationsScreen myOrg = new OrganizationsScreen(driver);
         List<String> myList = new ArrayList<String>();
         //Data from android list
         List<String> androidList = new ArrayList<String>();
@@ -528,28 +540,23 @@ public class OrganizationsScreenTest extends BaseDriver {
         String classAllMembers = subReport + "Members";
 
 
-        clickButtonByXpathTitleName(className);
-
+        className.click();
         myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Sunday School", subReport, false);
-        compareWebData(myList, androidList, true);
+        myBasePage.compareWebData(myList, androidList, true);
 
-
-        if (getRunningOS().equals("mac")) {
-            clickButtonByXpathTitleName(macAllMembers);
-        } else {
-            clickButton("AllMembers", "xpath", "xpath");
-        }
-
-
+        //Select all members
+        myOrg.generalAllMembers.click();
         myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Sunday School", classAllMembers, false);
-        compareWebData(myList, androidList, true);
+        myBasePage.compareWebData(myList, androidList, true);
+
+        //Back to Sunday School
         if (getRunningOS().equals("mac")) {
-            pressBackKey();
+            myBasePage.backButton.click();
         }
-        pressBackKey();
-
-
+        myBasePage.backButton.click();
     }
+
+    /*
 
     public void getPrimaryInfo() throws Exception {
         //LDSWeb myWeb = new LDSWeb();

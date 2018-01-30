@@ -56,6 +56,7 @@ public class BaseDriver {
 
     @DataProvider(name = "Members")
     public Iterator<Object []> provider( ) throws InterruptedException {
+        //String myFileName = "src/main/java/LDSToolsAppium/membersSmall.csv";
         String myFileName = "src/main/java/LDSToolsAppium/membersSmall.csv";
         BufferedReader br = null;
         String line;
@@ -97,7 +98,18 @@ public class BaseDriver {
             driver.launchApp();
             Thread.sleep(5000);
         }
+
+        System.out.println("Check to see if web is running");
+        if (myWeb.isRunning() == null) {
+            System.out.println("Web is not running!");
+        } else {
+            myWeb.tearDown();
+        }
+
+        System.out.println("End teardown");
     }
+
+
 
 
     @AfterSuite(alwaysRun = true)

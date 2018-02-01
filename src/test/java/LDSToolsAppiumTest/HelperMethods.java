@@ -2,10 +2,7 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
-import LDSToolsAppium.Screen.LoginPageScreen;
-import LDSToolsAppium.Screen.MenuScreen;
-import LDSToolsAppium.Screen.PinScreen;
-import LDSToolsAppium.Screen.SettingsScreen;
+import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
@@ -20,6 +17,7 @@ public class HelperMethods extends BasePage {
         SettingsScreen mySettings = new SettingsScreen(driver);
         PinScreen myPinScreen = new PinScreen(driver);
         MenuScreen myMenuScreen = new MenuScreen(driver);
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
 
     }
 
@@ -83,7 +81,7 @@ public class HelperMethods extends BasePage {
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPin = new PinScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
+
 
         if (checkForElement(myPin.pinAlertDialogOK)) {
             myPin.pinAlertDialogOK.click();
@@ -108,12 +106,18 @@ public class HelperMethods extends BasePage {
 
         Thread.sleep(2000);
 
+    }
+
+    public void whatsNewPressDone() {
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+
+        myWhatsNew.whatsNewDone.click();
+
         if(getOS().equals("android")) {
             myMenu.laterButton.click();
         }
         myMenu.directory.click();
-
-
     }
 
 

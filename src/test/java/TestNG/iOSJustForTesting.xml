@@ -8,9 +8,15 @@
         <parameter name="testDevice" value="iPhone X Test" />
         <parameter name="startSleepTime" value="0200" />
 
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
         </classes>
     </test> <!-- Default test -->
 </suite> <!-- Default suite -->

@@ -1,6 +1,5 @@
 package LDSToolsAppium.Screen;
 
-import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -185,7 +184,7 @@ public class SettingsScreen extends BasePage {
 
     //Network Environment
     @AndroidFindBy(xpath = "//*[contains(@text, 'Network Environment')]")
-    @iOSFindBy(xpath = "//XCUIElementTypeText[contains(@name, 'Environment')]")
+    @iOSFindBy(xpath = "//*[contains(@name, 'Environment')]")
     public  MobileElement networkEnvironment;
 
         //Production

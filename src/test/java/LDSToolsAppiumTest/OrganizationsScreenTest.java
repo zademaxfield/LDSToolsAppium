@@ -24,20 +24,19 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
     @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
-    public void organizationTest(String userName, String passWord, String rightsString) throws Exception {
+    public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
-       // DirectoryScreen myDirectory = new DirectoryScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
-        //OrganizationsScreen myOrg = new OrganizationsScreen(driver);
-        //BasePage myBasePage = new BasePage(driver);
+
 
         //Login and enter in PIN
         myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
+        myHelper.whatsNewPressDone();
 
         myMenu.selectMenu(myMenu.organizations);
         if (rights <= 3) {
@@ -351,7 +350,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             }
             myBasePage.backButton.click();
 
-            myOrg.teachersQuorum.click();
+            //myOrg.teachersQuorum.click();
             //if (getRunningOS().equals("mac")) {
             //	clickButtonByXpathTitleName("Teachers Quorum Presidency");
             //}
@@ -365,11 +364,15 @@ public class OrganizationsScreenTest extends BaseDriver {
             //myBasePage.backButton.click();
 
             //myOrg.teachersQuorum.click();
+            //if (getRunningOS().equals("mac")) {
+            //    myOrg.teachersQuorumPresidency.click();
+
+            //}
+
+            myOrg.deaconsQuorum.click();
             if (getRunningOS().equals("mac")) {
-                myOrg.teachersQuorumPresidency.click();
-
+                myOrg.deaconsQuorumPresidency.click();
             }
-
 
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Men", "DeaconsQuorum", false);
             myBasePage.compareWebData(myList, androidList, true);
@@ -380,8 +383,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
             myBasePage.backButton.click();
             Thread.sleep(1000);
-            myBasePage.backButton.click();
-            Thread.sleep(1000);
+
 
             
         } else {
@@ -397,6 +399,9 @@ public class OrganizationsScreenTest extends BaseDriver {
             Thread.sleep(1000);
             
         }
+
+        myBasePage.backButton.click();
+        Thread.sleep(1000);
 
 
     }

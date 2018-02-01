@@ -2,16 +2,13 @@ package LDSToolsAppium.Screen;
 
 import LDSToolsAppium.BasePage;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-import java.time.Year;
 import java.util.concurrent.TimeUnit;
 
 
@@ -112,7 +109,7 @@ public class OrganizationsScreen extends BasePage {
     // ****************** Relief Society ******************
     //Relief Society Presidency
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Relief Society Presidency']")
-    @iOSFindBy(accessibility = "Relief SocietyPresidency")
+    @iOSFindBy(accessibility = "Relief Society Presidency")
     public MobileElement reliefSocietyPresidency;
 
     //Relief Society Visiting Teaching
@@ -210,7 +207,7 @@ public class OrganizationsScreen extends BasePage {
 
     //Mia Maid
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Mia Maid']")
-    @iOSFindBy(accessibility = "TMia Maid")
+    @iOSFindBy(accessibility = "Mia Maid")
     public MobileElement miaMaid;
 
     //Mia Maid Presidency
@@ -372,14 +369,9 @@ public class OrganizationsScreen extends BasePage {
 
 
 
-
-
-
-
-
     //General All Members
     @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"all members\")]")
-    @iOSFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"all members\")]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS 'Members'")
     public MobileElement generalAllMembers;
 
 

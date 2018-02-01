@@ -42,4 +42,14 @@ public class LDSToolsApp {
         return new OrganizationsScreen(driver);
     }
 
+    //Calendars Screen
+    public CalendarsScreen calendarsScreen() {
+        return new CalendarsScreen(driver);
+    }
+
+    //Whats New Screen
+    public WhatsNewScreen whatsNewScreen() {
+        return new WhatsNewScreen(driver);
+    }
+
 }

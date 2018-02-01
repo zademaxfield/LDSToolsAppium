@@ -11,6 +11,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.Year;
 import java.util.concurrent.TimeUnit;
 
 
@@ -283,6 +284,91 @@ public class OrganizationsScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Course 12']")
     @iOSFindBy(accessibility = "Course 12")
     public MobileElement course12;
+
+
+    // ****************** Primary ******************
+    //Primary Presidency
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Primary Presidency']")
+    @iOSFindBy(accessibility = "Primary Presidency")
+    public MobileElement primaryPresidency;
+
+    //Music
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Music']")
+    @iOSFindBy(accessibility = "Gospel Doctrine")
+    public MobileElement primaryMusic;
+
+    //Valiant 10
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Valiant 10']")
+    @iOSFindBy(accessibility = "Valiant 10")
+    public MobileElement valiant10;
+
+    //Valiant 11
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Valiant 11']")
+    @iOSFindBy(accessibility = "Valiant 11")
+    public MobileElement valiant11;
+
+    //Valiant 9
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Valiant 9']")
+    @iOSFindBy(accessibility = "Valiant 9")
+    public MobileElement valiant9;
+
+    //Valiant 8
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Valiant 8']")
+    @iOSFindBy(accessibility = "Valiant 8")
+    public MobileElement valiant8;
+
+    //CTR 7
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='CTR 7']")
+    @iOSFindBy(accessibility = "CTR 7")
+    public MobileElement ctr7;
+
+    //CTR 6
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='CTR 6']")
+    @iOSFindBy(accessibility = "CTR 6")
+    public MobileElement ctr6;
+
+    //CTR 5
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='CTR 5']")
+    @iOSFindBy(accessibility = "CTR 5")
+    public MobileElement ctr5;
+
+    //CTR 4
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='CTR 4']")
+    @iOSFindBy(accessibility = "CTR 4")
+    public MobileElement ctr4;
+
+    //Sunbeam
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Sunbeam']")
+    @iOSFindBy(accessibility = "Sunbeam")
+    public MobileElement sunbeam;
+
+    //Nursery
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Nursery']")
+    @iOSFindBy(accessibility = "Nursery")
+    public MobileElement nursery;
+
+    //Cub Scouts
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Cub Scouts']")
+    @iOSFindBy(accessibility = "Cub Scouts")
+    public MobileElement cubScouts;
+
+    //Eleven-Year-Old Scouts
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Eleven-Year-Old Scouts']")
+    @iOSFindBy(accessibility = "Eleven-Year-Old Scouts")
+    public MobileElement elevenYearOldScouts;
+
+    //Activity Days
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Activity Days']")
+    @iOSFindBy(accessibility = "Activity Days")
+    public MobileElement activityDays;
+
+
+
+    // ****************** Other ******************
+    //Music
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Music']")
+    @iOSFindBy(accessibility = "Music")
+    public MobileElement otherMusic;
 
 
 

@@ -2,7 +2,7 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
-import LDSToolsAppium.Screen.DirectoryScreen;
+
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.OrganizationsScreen;
 import io.appium.java_client.MobileElement;
@@ -24,16 +24,16 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
     @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
-    public void organizationTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
-        String pageSource;
+    public void organizationTest(String userName, String passWord, String rightsString) throws Exception {
+        //String pageSource;
         int rights = Integer.parseInt(rightsString);
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+       // DirectoryScreen myDirectory = new DirectoryScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
-        OrganizationsScreen myOrg = new OrganizationsScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
+        //OrganizationsScreen myOrg = new OrganizationsScreen(driver);
+        //BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
         myHelper.loginUAT(userName, passWord);
@@ -57,21 +57,24 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         getYoungWomenInfo(rights);
 
+        getSundaySchoolInfo(rights);
 
+        getPrimaryInfo(rights);
 
+        getOtherInfo(rights);
 
     }
 
-    public void getBishopricInfo(int rights) throws Exception {
+    private void getBishopricInfo(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
 
         //Data from Web page
-        List<String> myList = new ArrayList<String>();
+        List<String> myList;
 
         //Data from android list
-        List<String> androidList = new ArrayList<String>();
+        ArrayList<String> androidList = new ArrayList<>();
 
         myOrg.bishopricOrg.click();
 
@@ -102,7 +105,7 @@ public class OrganizationsScreenTest extends BaseDriver {
     }
 
 
-    public void getHighPriestsGroupInfo(int rights) throws Exception {
+    private void getHighPriestsGroupInfo(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
@@ -179,11 +182,11 @@ public class OrganizationsScreenTest extends BaseDriver {
     }
 
 
-    public void getEldersQuorum(int rights) throws Exception {
+    private void getEldersQuorum(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
-        //LDSWeb myWeb = new LDSWeb();
+
         //Data from Web page
         List<String> myList = new ArrayList<String>();
 
@@ -246,7 +249,7 @@ public class OrganizationsScreenTest extends BaseDriver {
     }
 
 
-    public void getReliefSociety(int rights) throws Exception {
+    private void getReliefSociety(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
@@ -313,7 +316,7 @@ public class OrganizationsScreenTest extends BaseDriver {
     }
 
 
-    public void getYoungMenInfo(int rights) throws Exception {
+    private void getYoungMenInfo(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
@@ -400,7 +403,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    public void getYoungWomenInfo(int rights) throws Exception {
+    private void getYoungWomenInfo(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
@@ -488,7 +491,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    public void getSundaySchoolInfo(int rights) throws Exception {
+    private void getSundaySchoolInfo(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
@@ -507,6 +510,8 @@ public class OrganizationsScreenTest extends BaseDriver {
             //Check web data vs LDS Tools
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Sunday School", "SundaySchoolPresidency", false);
             myBasePage.compareWebData(myList, androidList, true);
+
+
             myBasePage.backButton.click();
             sundaySchoolClassSub(myOrg.gospelDoctrine, "GospelDoctrine");
             //sundaySchoolClassSub("Course 17", "Course17");
@@ -529,7 +534,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    public void sundaySchoolClassSub(MobileElement className, String subReport) throws Exception {
+    private void sundaySchoolClassSub(MobileElement className, String subReport) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
@@ -556,9 +561,11 @@ public class OrganizationsScreenTest extends BaseDriver {
         myBasePage.backButton.click();
     }
 
-    /*
 
-    public void getPrimaryInfo() throws Exception {
+    private void getPrimaryInfo(int rights) throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        OrganizationsScreen myOrg = new OrganizationsScreen(driver);
         //LDSWeb myWeb = new LDSWeb();
         //Data from Web page
         List<String> myList = new ArrayList<String>();
@@ -566,28 +573,61 @@ public class OrganizationsScreenTest extends BaseDriver {
         //Data from android list
         List<String> androidList = new ArrayList<String>();
 
-        clickButtonByXpathTitleName("Primary");
-        clickButtonByXpathTitleName("Primary Presidency");
+        myOrg.primaryOrg.click();
+        myOrg.primaryPresidency.click();
         Thread.sleep(1000);
 
+        if (rights <= 3) {
+            //Check web data vs LDS Tools
+            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Primary", "PrimaryPresidency", true);
+            myBasePage.compareWebData(myList, androidList, true);
 
-        //Check web data vs LDS Tools
-        myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Primary", "PrimaryPresidency", true);
-        compareWebData(myList, androidList, true);
+            myBasePage.backButton.click();
 
-        pressBackKey();
 
-        //Need to get info on each of the classes....
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Faamoe", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Talalelagi", pageSource, "Contains"));
+
+            myBasePage.backButton.click();
+
+        }
+
+
+        //Todo: Need to get info on each of the classes....
         //Right now iOS and Android are showing the data differently
-        //If there is no teacher the class is not showing up in Android
+
 
 
 
         Thread.sleep(1000);
-        pressBackKey();
+        myBasePage.backButton.click();
+
+    }
+
+    private void getOtherInfo(int rights) throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        OrganizationsScreen myOrg = new OrganizationsScreen(driver);
+
+        myOrg.otherCallingsOrg.click();
+        myOrg.otherMusic.click();
+        Thread.sleep(1000);
+
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Adviser", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Frost", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Maria", pageSource, "Contains"));
+
+        myBasePage.backButton.click();
 
 
-    }*/
+        Thread.sleep(1000);
+        myBasePage.backButton.click();
+
+    }
 
 
 }

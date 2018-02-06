@@ -21,8 +21,8 @@ public class CalendarsScreen extends BasePage {
 
     // ****************** Calendars Main Screen ******************
 
-    //Bishopric
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Bishopric']")
+    //Edit
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Edit']")
     @iOSFindBy(accessibility = "Edit")
     public MobileElement editCalendar;
 

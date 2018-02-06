@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class LoginPageTest extends BaseDriver {
 
-    @Test
+    @Test( groups = {"all1", "all"})
     public void loginPageSimple() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
 
@@ -15,7 +15,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-
+    //Todo: Need more tests!!!!!
 
 
 

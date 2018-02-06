@@ -23,29 +23,8 @@ public class DirectoryScreenTest extends BaseDriver {
     //3 = Special?
     //4 = No Calling
 
-    @DataProvider(name = "Members")
-    public Iterator<Object []> provider( ) throws InterruptedException {
-        String myFileName = "src/main/java/LDSToolsAppium/membersSmall.csv";
-        BufferedReader br = null;
-        String line;
-        String splitBy = ",";
-        String[] data = null;
-        List<Object []> testCases = new ArrayList<>();
 
-        try {
-            br = new BufferedReader(new FileReader(myFileName));
-            while ((line = br.readLine()) != null) {
-                data = line.split(splitBy);
-                testCases.add(data);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return testCases.iterator();
-    }
-
-    @Test(dataProvider = "Members")
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
     public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

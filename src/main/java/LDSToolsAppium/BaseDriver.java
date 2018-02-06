@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -55,8 +56,17 @@ public class BaseDriver {
 
 
     @DataProvider(name = "Members")
-    public Iterator<Object []> provider( ) throws InterruptedException {
-        String myFileName = "src/main/java/LDSToolsAppium/membersSmall.csv";
+    public Iterator<Object []> provider(ITestContext context) throws InterruptedException {
+        String myFileName = "src/main/java/LDSToolsAppium/membersOne.csv";;
+        List<String> includedGroups = Arrays.asList(context.getIncludedGroups());
+        if (includedGroups.contains("smoke")) {
+            myFileName = "src/main/java/LDSToolsAppium/membersSmall.csv";
+        } else if (includedGroups.contains("all")) {
+            myFileName = "src/main/java/LDSToolsAppium/members.csv";
+        }
+
+
+
         //String myFileName = "src/main/java/LDSToolsAppium/membersOne.csv";
         BufferedReader br = null;
         String line;

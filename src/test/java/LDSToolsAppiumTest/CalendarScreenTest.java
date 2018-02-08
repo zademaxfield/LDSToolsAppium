@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test ( groups = {"all1", "all", "smoke", "smoke1"})
+    @Test ( groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void calendarSimple() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);
@@ -23,9 +23,19 @@ public class CalendarScreenTest extends BaseDriver {
 
         myHelper.loginUAT("LDSTools2", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
-        myWhatsNew.whatsNewDone.click();
+        if (myBasePage.getOS().equals("mac")) {
+            myWhatsNew.whatsNewDone.click();
+        }
+
 
         myMenu.calendar.click();
+
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Calendar", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Edit", pageSource, "Contains"));
+
+        //Todo: Check calendar items... not sure how to do this
 
 
     }

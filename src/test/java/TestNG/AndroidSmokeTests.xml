@@ -10,13 +10,18 @@
 
         <groups>
             <run>
-                <include name="jft"/>
+                <include name="smoke"/>
             </run>
         </groups>
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
             <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
         </classes>
     </test> <!-- Default test -->
 </suite> <!-- Default suite -->

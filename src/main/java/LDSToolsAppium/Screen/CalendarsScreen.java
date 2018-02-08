@@ -26,6 +26,15 @@ public class CalendarsScreen extends BasePage {
     @iOSFindBy(accessibility = "Edit")
     public MobileElement editCalendar;
 
+    //Calendars to display
+    //Select None
+    //This is broken for iOS appium cannot see select none or subscriptions
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Edit']")
+    @iOSFindBy(accessibility = "Edit")
+    public MobileElement selectNoneCalendar;
+
+
+
 
 
 

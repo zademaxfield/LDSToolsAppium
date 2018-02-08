@@ -32,7 +32,7 @@ public class MenuScreen extends BasePage {
 
     //Calendar
     @AndroidFindBy(xpath = "//*[@text='Calendar']")
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Calendar'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Calendars'")
     public  MobileElement calendar;
 
     //Reports

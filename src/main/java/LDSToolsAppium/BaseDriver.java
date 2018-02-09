@@ -107,6 +107,7 @@ public class BaseDriver {
             Thread.sleep(5000);
             driver.launchApp();
             Thread.sleep(5000);
+            System.out.println("SERIAL NUMBER: " + deviceSerial);
         }
 
         System.out.println("Check to see if web is running");
@@ -119,6 +120,18 @@ public class BaseDriver {
         System.out.println("End teardown");
     }
 
+    @AfterClass(alwaysRun = true)
+    public void afterClass() throws Exception {
+        if (!getRunningOS().equals("mac")) {
+            driver.quit();
+            if (!deviceSerial.equals("")) {
+                STFService mySTFService = new STFService("http://10.109.33.175:7100", "5ac32afb2fa24289945dea68380877d0be396916fbf04a65b30e8b46e6fda014");
+                DeviceApi myDevice = new DeviceApi(mySTFService);
+                System.out.println("SERIAL NUMBER: " + deviceSerial);
+                myDevice.releaseDevice(deviceSerial);
+            }
+        }
+    }
 
 
 
@@ -144,6 +157,7 @@ public class BaseDriver {
             //driver.quit();
             STFService mySTFService = new STFService("http://10.109.33.175:7100", "5ac32afb2fa24289945dea68380877d0be396916fbf04a65b30e8b46e6fda014");
             DeviceApi myDevice = new DeviceApi(mySTFService);
+
             System.out.println("SERIAL NUMBER: " + deviceSerial);
             if (!deviceSerial.isEmpty()) {
                 myDevice.releaseDevice(deviceSerial);
@@ -177,7 +191,7 @@ public class BaseDriver {
 
 
                 String[] parts = testDevice.split("-");
-                //String part1 = parts[0];
+               // String part1 = parts[0];
 
 
                 deviceSerial = parts[1];
@@ -193,6 +207,7 @@ public class BaseDriver {
                     deviceSerial = deviceList.get(new Random().nextInt(deviceList.size()));
                     System.out.println("DEVICE TO USE: " + deviceSerial);
                     deviceSerial = deviceSerial.replace("\"", "");
+                    System.out.println("SERIAL NUMBER: " + deviceSerial);
                 }
 
 

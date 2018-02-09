@@ -52,4 +52,8 @@ public class LDSToolsApp {
         return new WhatsNewScreen(driver);
     }
 
+    //Reports Screen
+    public ReportsScreen reportsScreen() { return new ReportsScreen(driver);
+    }
+
 }

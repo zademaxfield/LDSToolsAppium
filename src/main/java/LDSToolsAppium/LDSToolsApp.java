@@ -37,6 +37,11 @@ public class LDSToolsApp {
         return new DirectoryScreen(driver);
     }
 
+    //Directory Edit Screen
+    public DirectoryEditScreen directoryEditScreen() {
+        return new DirectoryEditScreen(driver);
+    }
+
     //Organizations Screen
     public OrganizationsScreen organizationsScreen() {
         return new OrganizationsScreen(driver);

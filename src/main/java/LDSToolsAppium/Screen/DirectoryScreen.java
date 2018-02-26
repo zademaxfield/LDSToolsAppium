@@ -54,6 +54,13 @@ public class DirectoryScreen extends BasePage {
     public  MobileElement sortIndividual;
 
 
+    // ****************** Edit ******************
+    //Edit Button
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/edit_fab")
+    @iOSFindBy(accessibility = "Edit")
+    public  MobileElement directoryEdit;
+
+
 
     // ********** iOS Expand Buttons **********
     //Household Members

@@ -51,6 +51,18 @@ public class PinScreen extends BasePage {
     @iOSFindBy(accessibility = "Yes")
     public  MobileElement pinAlertDialogYes;
 
+    // ****************** Face and Touch ID ******************
+    // Disable Face ID
+    @iOSFindBy(accessibility = "Disable Face ID")
+    public MobileElement pinDisableFaceID;
+
+    // Disable Touch ID
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Disable Touch ID'")
+    public MobileElement pinDisableTouchID;
+
+
+
+
 
     // ****************** PIN Page ******************
     //Splash Icon

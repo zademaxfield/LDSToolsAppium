@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.apache.tools.ant.types.resources.Last;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.Set;
@@ -150,6 +151,125 @@ public class ReportsScreen extends BasePage {
     @iOSFindBy(accessibility = "Other")
     public  MobileElement otherSort;
 
+    //*************************************************************************************
+    //********************* Missionary Progress Record ************************************
+    //*************************************************************************************
+
+    //Missionary Progress Filter
+    @AndroidFindBy(accessibility = "Filters")
+    @iOSFindBy(accessibility = "Filter")
+    public  MobileElement missionaryProgressFilter;
+
+    //Missionary Progress Investigators with Baptism Date
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterInvestigatorsWithBaptismDateSwitchCompat")
+    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label='Investigators with Baptism Date']")
+    public  MobileElement mpInvestigatorsWithBaptismDate;
+
+    //Missionary Progress Progressing Investigators
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterProgressingInvestigatorsSwitchCompat")
+    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Progressing Investigators\"]")
+    public  MobileElement mpProgressingInvestigators;
+
+    //Missionary Progress New Investigators
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterNewInvestigatorsSwitchCompat")
+    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"New Investigators\"]")
+    public  MobileElement mpNewInvestigators;
+
+    //Missionary Progress Other Investigators
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterOtherInvestigatorsSwitchCompat")
+    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Other Investigators\"]")
+    public  MobileElement mpOtherInvestigators;
+
+    //Missionary Progress Potential Investigators
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterPotentialInvestigatorsSwitchCompat")
+    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Potential Investigators\"]")
+    public  MobileElement mpPotentialInvestigators;
+
+    //Missionary Progress Recent Converts
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterRecentConvertsSwitchCompat")
+    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Recent Converts\"]")
+    public  MobileElement mpRecentConverts;
+
+
+    //Missionary Progress Members Being Taught
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterMembersBeingTaughtSwitchCompat")
+    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Members Being Taught\"]")
+    public  MobileElement mpMembersBeingTaught;
+
+    //Missionary Progress Save
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/menu_item_save")
+    public  MobileElement mpSave;
+
+    //Missionary Progress Expand Filter
+    @AndroidFindBy(id = "\torg.lds.ldstools.dev:id/filterHeaderArrow")
+    public  MobileElement mpExpandFilter;
+
+
+    //Missionary Progress Remove Filter Button
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/removeFiltersButton")
+    @iOSFindBy(accessibility = "Remove")
+    public  MobileElement mpRemoveFilterButton;
+
+    //Missionary Progress Received a Visit
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterReceivedAVisitTextView")
+    @iOSFindBy(accessibility = "Received a Visit")
+    public  MobileElement mpReceivedAVisit;
+
+    //Missionary Progress Attended Sacrament
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterSacramentAttendanceTextView")
+    @iOSFindBy(accessibility = "Attended Sacrament")
+    public  MobileElement mpAttendedSacrament;
+
+    //Missionary Progress Assigned
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterFellowshippersTextView")
+    @iOSFindBy(accessibility = "Assigned")
+    public  MobileElement mpAssigned;
+
+    //Missionary Progress Last Week
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Last Week\"]")
+    @iOSFindBy(accessibility = "Last Week")
+    public  MobileElement mpLastWeek;
+
+    //Missionary Progress Last 2 Weeks
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Last 2 Weeks\"]")
+    @iOSFindBy(accessibility = "Last 2 Weeks")
+    public  MobileElement mpLast2Weeks;
+
+    //Missionary Progress Last 3 Weeks
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Last 3 Weeks\"]")
+    @iOSFindBy(accessibility = "Last 3 Weeks")
+    public  MobileElement mpLast3Weeks;
+
+    //Missionary Progress Last 4 Weeks
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Last 4 Weeks\"]")
+    @iOSFindBy(accessibility = "Last 4 Weeks")
+    public  MobileElement mpLast4Weeks;
+
+    //Missionary Progress Last 5 Weeks
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Last 5 Weeks\"]")
+    @iOSFindBy(accessibility = "Last 5 Weeks")
+    public  MobileElement mpLast5Weeks;
+
+    //Missionary Progress All
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"All\"]")
+    @iOSFindBy(accessibility = "All")
+    public  MobileElement mpAll;
+
+    //Missionary Progress Cancel
+    @AndroidFindBy(xpath = "//*[@text=\"Cancel\"]")
+    @iOSFindBy(accessibility = "Cancel")
+    public  MobileElement mpCancel;
+
+
+    public void saveMissonaryProgressFilter() throws Exception {
+        if (getOS().equals("mac")) {
+            backButton.click();
+        } else {
+            mpSave.click();
+            mpExpandFilter.click();
+        }
+
+    }
 
 
     public void selectSort(MobileElement myElement) throws Exception {

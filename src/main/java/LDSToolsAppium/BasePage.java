@@ -1,9 +1,13 @@
 package LDSToolsAppium;
 
+import LDSToolsAppium.Screen.DirectoryEditScreen;
+import LDSToolsAppium.Screen.DirectoryScreen;
+import LDSToolsAppium.Screen.MenuScreen;
 import io.appium.java_client.*;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.jsoup.Jsoup;
@@ -13,6 +17,7 @@ import org.jsoup.select.Elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -41,8 +46,31 @@ public class BasePage {
     @AndroidFindBy(accessibility = "Navigate up")
     public MobileElement drawerButton;
 
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/clearTextImageButton")
+    public MobileElement searchCollapse;
+
     @iOSFindBy(accessibility = "More")
     public MobileElement moreButton;
+
+    //OK
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"OK\"]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'OK'")
+    public MobileElement alertOK;
+
+    //Cancel
+    @AndroidFindBy(accessibility = "Cancel")
+    @iOSFindBy(accessibility = "Cancel")
+    public MobileElement cancel;
+
+    //Alert check
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]")
+    @iOSFindBy(xpath = "//UIAAlert")
+    public MobileElement alertCheck;
+
+    //Menu Title
+    @AndroidFindBy(xpath = "//*[@resource-id=\"org.lds.ldstools.dev:id/ab_toolbar\"]//android.widget.TextView")
+    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeStaticText/XCUIElementTypeStaticText")
+    public MobileElement menuTitle;
 
 
 
@@ -134,6 +162,14 @@ public class BasePage {
         Thread.sleep(2000);
 
     }
+    public void scrollUpIOS() throws Exception {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        HashMap<String, String> scrollObject = new HashMap<String, String>();
+        scrollObject.put("direction", "up");
+        js.executeScript("mobile: scroll", scrollObject);
+
+    }
+
 
 
 
@@ -424,6 +460,132 @@ public class BasePage {
         }
         return userList;
     }
+
+    public List<String> swapLastName(List<String> listToSwitch) throws Exception {
+        String userSwitch;
+
+        for (int myCounter = 0; myCounter < listToSwitch.size(); myCounter++) {
+            String[] parts = listToSwitch.get(myCounter).split(" ");
+            if (parts.length == 1) {
+                listToSwitch.set(myCounter, parts[0]);
+            } else {
+                String part1 = parts[0];
+                //part1 = part1.replace(",", "");
+                String part2 = parts[1];
+                userSwitch = part2 + ", " + part1;
+                System.out.println("SWITCH: " + userSwitch);
+                listToSwitch.set(myCounter, userSwitch);
+            }
+
+        }
+
+        return listToSwitch;
+
+    }
+
+    public boolean checkForAlert() throws Exception {
+        //Check to see if we are getting a warning
+        if (checkForElement(alertCheck)) {
+            return true;
+        }
+        return false;
+    }
+
+    public void backToDirectory() throws Exception {
+        Thread.sleep(2000);
+        if (getOS().equals("mac")) {
+            pressBackToRoot();
+            Thread.sleep(2000);
+            System.out.println("Try to clear text");
+            clickByCords("Clear text");
+            cancel.click();
+
+        } else {
+            //System.out.println("Start of Back To Root");
+            pressBackToRoot();
+            //System.out.println("End of Back To Root");
+            Thread.sleep(3000);
+            //System.out.println("Start of Search Collapse");
+            searchCollapse.click();
+            //System.out.println("End of Search Collapse");
+        }
+        Thread.sleep(2000);
+    }
+
+    public void pressBackToRoot() throws Exception {
+        Boolean backButtonCheck;
+        String myMenuTitle;
+        int myCounter = 1;
+        //backButtonCheck = checkElementExistsByXpath("TopBack");
+        backButtonCheck = checkForElement(backButton);
+        System.out.println("Back Button Check - before loop: " + backButtonCheck);
+
+        while ((backButtonCheck) && (myCounter < 5 ))  {
+            Thread.sleep(1000);
+            System.out.println("Pressing Back Key " + myCounter);
+            backButton.click();
+            Thread.sleep(2000);
+            System.out.println("Back Key pressed");
+            //System.out.println("Checking for back key....");
+            //backButtonCheck = checkElementExistsByXpath("TopBack");
+            //backButtonCheck = checkElementExistsByXpath("NewBackButton");
+            //printPageSource();
+            if (checkForElement(menuTitle)) {
+                myMenuTitle = menuTitle.getText();
+            } else {
+                myMenuTitle = "No Title";
+            }
+
+            System.out.println("MENU TITLE: " + myMenuTitle);
+
+            switch (myMenuTitle) {
+                case "Directory" :
+                    backButtonCheck = false;
+                    break;
+                case "Organizations" :
+                    backButtonCheck = false;
+                    break;
+                case "Calendar" :
+                    backButtonCheck = false;
+                    break;
+                case "Reports" :
+                    backButtonCheck = false;
+                    break;
+                case "Lists" :
+                    backButtonCheck = false;
+                    break;
+                case "Missionary" :
+                    backButtonCheck = false;
+                    break;
+                case "Meetinghouses" :
+                    backButtonCheck = false;
+                    break;
+                case "Temples" :
+                    backButtonCheck = false;
+                    break;
+                default :
+                    backButtonCheck = true;
+            }
+
+            Thread.sleep(2000);
+            System.out.println("Back Button Check in loop: "+ myCounter + " Check: " + backButtonCheck);
+            myCounter++;
+        }
+
+        //System.out.println("Press Back Key Done");
+
+    }
+
+    public void clickByCords(String elementName) throws Exception {
+        MobileElement myElement = null;
+        TouchAction myAction = new TouchAction(driver);
+
+        myElement = driver.findElement(By.name(elementName));
+        Point myPoint = myElement.getLocation();
+        myAction.press(PointOption.point(myPoint.x, myPoint.y)).release();
+        driver.performTouchAction(myAction);
+    }
+
 
 
 }

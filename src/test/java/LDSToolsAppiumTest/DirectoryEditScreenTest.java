@@ -50,9 +50,6 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         savingMemberInfo();
 
-        if (getRunningOS().equals("mac")) {
-            myDirectory.clickDirectoryUser("LDS44 Tools (38)");
-        }
         pageSource = myDirectory.getDirectoryUserData();
 
         //pageSource = getSourceOfPage();
@@ -70,9 +67,6 @@ public class DirectoryEditScreenTest extends BaseDriver {
         //Search for logged in user
         myDirectory.searchAndClick("Tools, LDS44");
 
-        if (getRunningOS().equals("mac")) {
-            myDirectory.clickDirectoryUser("LDS44 Tools (38)");
-        }
         pageSource = myDirectory.getDirectoryUserData();
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS44", pageSource, "Contains"));
@@ -95,9 +89,6 @@ public class DirectoryEditScreenTest extends BaseDriver {
         //Search for logged in user
         myDirectory.searchAndClick("Tools, LDS44");
 
-        if (getRunningOS().equals("mac")) {
-            myDirectory.clickDirectoryUser("LDS44 Tools (38)");
-        }
         pageSource = myDirectory.getDirectoryUserData();
         Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS44", pageSource, "Contains"));
 

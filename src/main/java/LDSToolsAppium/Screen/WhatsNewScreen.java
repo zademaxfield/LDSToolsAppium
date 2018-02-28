@@ -32,7 +32,7 @@ public class WhatsNewScreen extends BasePage {
     public MobileElement whatsNewTitleSub;
 
     //Done Button
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Bishopric']")  //NEED TO CHANGE
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/done")
     @iOSFindBy(accessibility = "Done")
     public MobileElement whatsNewDone;
 

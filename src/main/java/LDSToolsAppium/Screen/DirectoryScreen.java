@@ -4,11 +4,13 @@ import LDSToolsAppium.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -45,12 +47,12 @@ public class DirectoryScreen extends BasePage {
 
     //Households
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Households']")
-    @iOSFindBy(accessibility = "Household")
+    @iOSFindBy(xpath = "//*[contains(@name, \"Household\")]")
     public  MobileElement sortHousehold;
 
     //Individuals
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Individuals']")
-    @iOSFindBy(accessibility = "Individual")
+    @iOSFindBy(xpath = "//*[contains(@name, \"Individual\")]")
     public  MobileElement sortIndividual;
 
 
@@ -105,15 +107,28 @@ public class DirectoryScreen extends BasePage {
     public void clickDirectoryUser(String myUser) throws Exception {
         if (getOS().equals("mac")) {
             driver.findElement(MobileBy.AccessibilityId(myUser)).click();
+            //driver.findElement(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[contains(@value, '" + myUser + "')]"));
         } else {
             driver.findElement(By.xpath("//android.widget.TextView[@resource-id='org.lds.ldstools.dev:id/name'][@text='" + myUser + "']")).click();
         }
     }
 
     public void searchAndClick(String myUser) throws Exception {
+        String tempMyUser = myUser.toLowerCase();
+
         directorySort.click();
         sortIndividual.click();
-        searchBar.sendKeys(myUser);
+
+        //
+        if (tempMyUser.contains("tools")) {
+            String[] parts = myUser.split(", ");
+            String part1 = parts[0];
+            String part2 = parts[1];
+            searchBar.sendKeys(part2);
+        } else {
+            searchBar.sendKeys(myUser);
+        }
+
         clickDirectoryUser(myUser);
 
     }

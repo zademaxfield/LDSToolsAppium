@@ -33,5 +33,9 @@ public class SyncScreen extends BasePage {
     @iOSFindBy(accessibility = "Update")
     public  MobileElement updateButton;
 
+    //Sync Now Button
+    @iOSFindBy(accessibility = "Sync Now")
+    public  MobileElement syncNowButton;
+
 
 }

@@ -110,6 +110,7 @@ public class HelperMethods extends BasePage {
             myPin.pinAlertDialogOK.click();
         }
 
+        dismissWhatsNewPage();
 
         pressPinKeys(firstNumber);
         pressPinKeys(secondNumber);
@@ -124,6 +125,8 @@ public class HelperMethods extends BasePage {
         pressPinKeys(fourthNumber);
 
         Thread.sleep(2000);
+
+        dismissWhatsNewPage();
 
     }
 
@@ -203,7 +206,6 @@ public class HelperMethods extends BasePage {
 
 
         if (getOS().equals("mac")) {
-            //clickButtonByXpath("DrawerMore");
             myMenu.moreButton.click();
 
             //Check to see if the sync page is displayed
@@ -219,7 +221,7 @@ public class HelperMethods extends BasePage {
 
             //This will probably change
             Thread.sleep(1000);
-            mySyncScreen.syncButton.click();
+            mySyncScreen.syncNowButton.click();
             Thread.sleep(3000);
 
             //waitForTextToDisappear("DownloadingSync", 500 );
@@ -253,5 +255,23 @@ public class HelperMethods extends BasePage {
         if (myBasePage.checkForAlert()) {
             myBasePage.alertOK.click();
         }
+    }
+
+    public void dismissWhatsNewPage() throws Exception {
+        // ********* Constructor **********
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Check for Whats New Page
+        if (myBasePage.checkForElement(myWhatsNew.whatsNewDone)) {
+            myWhatsNew.whatsNewDone.click();
+            if (!myBasePage.getOS().equals("mac")) {
+                if (myBasePage.checkForElement(myBasePage.allowButton)) {
+                    myBasePage.allowButton.click();
+                    myBasePage.allowButton.click();
+                }
+            }
+        }
+
     }
 }

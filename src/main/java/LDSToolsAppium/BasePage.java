@@ -62,6 +62,10 @@ public class BasePage {
     @iOSFindBy(accessibility = "Cancel")
     public MobileElement cancel;
 
+    //Allow button
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"com.android.packageinstaller:id/permission_allow_button\"]")
+    public MobileElement allowButton;
+
     //Alert check
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]")
     @iOSFindBy(xpath = "//UIAAlert")
@@ -181,6 +185,11 @@ public class BasePage {
 
         if (options.isEmpty()) {
             myReturnStatus = false;
+            //Sometimes iOS doesn't have text but has text under value
+            options = driver.findElements(By.xpath("//*[contains(@value, '" + myElement + "')]"));
+            if (!options.isEmpty()) {
+                myReturnStatus = true;
+            }
         } else {
             myReturnStatus = true;
         }
@@ -580,10 +589,12 @@ public class BasePage {
         MobileElement myElement = null;
         TouchAction myAction = new TouchAction(driver);
 
+        System.out.println("Start Click by Cords");
         myElement = driver.findElement(By.name(elementName));
         Point myPoint = myElement.getLocation();
         myAction.press(PointOption.point(myPoint.x, myPoint.y)).release();
         driver.performTouchAction(myAction);
+        System.out.println("End Click by Cords");
     }
 
 

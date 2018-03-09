@@ -41,7 +41,7 @@ public class DirectoryScreen extends BasePage {
 
     // ****************** Sort ******************
     //Sort Button
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/menu_item_default_directory")
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/filterMenuImageButton")
     @iOSFindBy(accessibility = "Sort Options")
     public  MobileElement directorySort;
 

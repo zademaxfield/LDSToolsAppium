@@ -81,6 +81,7 @@ public class HelperMethods extends BasePage {
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPin = new PinScreen(driver);
+        MenuScreen myMenuScreen = new MenuScreen(driver);
 
 
         if (checkForElement(myPin.pinAlertDialogOK)) {
@@ -128,6 +129,22 @@ public class HelperMethods extends BasePage {
 
         dismissWhatsNewPage();
 
+        // Click on Later then Directory
+        if (!getOS().equals("mac")) {
+            Thread.sleep(2000);
+            checkForLater();
+            Thread.sleep(2000);
+            myMenuScreen.directory.click();
+            Thread.sleep(2000);
+        }
+
+    }
+
+    public void checkForLater() throws Exception {
+        MenuScreen myMenuScreen = new MenuScreen(driver);
+        if (checkForElement(myMenuScreen.laterButton)) {
+            myMenuScreen.laterButton.click();
+        }
     }
 
     public void enterCurrentPin(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
@@ -242,7 +259,7 @@ public class HelperMethods extends BasePage {
             if (myBasePage.checkTextOnPage("Later")) {
                 myMenu.laterButton.click();
             }
-            myBasePage.scrollToText("Sync");
+            myBasePage.scrollToTextNavMenu("Sync");
 
             Thread.sleep(4000);
             myBasePage.alertOK.click();

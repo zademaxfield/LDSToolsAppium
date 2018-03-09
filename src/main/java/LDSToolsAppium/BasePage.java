@@ -67,7 +67,7 @@ public class BasePage {
     public MobileElement allowButton;
 
     //Alert check
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.view.ViewGroup")
     @iOSFindBy(xpath = "//UIAAlert")
     public MobileElement alertCheck;
 
@@ -88,6 +88,35 @@ public class BasePage {
 
         if (!checkTextOnPage(myElement)) {
             MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/list"));
+            MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+                    + "new UiSelector().text(\"" + myElement + "\"));"));
+
+            while (myLoopStatus == 0) {
+                System.out.println("OVERFLOW SCROLL: " + myCounter);
+                radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+                        + "new UiSelector().text(\"" + myElement + "\"));"));
+
+
+                if (radioGroup.isDisplayed()) {
+                    myLoopStatus = 1;
+                }
+
+                if (myCounter > 5) {
+                    myLoopStatus = 1;
+                }
+
+                myCounter++;
+            }
+            Assert.assertNotNull(radioGroup.getLocation());
+        }
+    }
+
+    public void scrollToTextNavMenu(String myElement) throws Exception {
+        int myCounter = 1;
+        int myLoopStatus = 0;
+
+        if (!checkTextOnPage(myElement)) {
+            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/navigation_menu"));
             MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                     + "new UiSelector().text(\"" + myElement + "\"));"));
 

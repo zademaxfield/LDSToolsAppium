@@ -21,7 +21,7 @@ public class MenuScreen extends BasePage {
     }
 
     //Directory
-    @AndroidFindBy(xpath = "//*[@resource-id='org.lds.ldstools.dev:id/design_menu_item_text'][@text='Directory']")
+    @AndroidFindBy(xpath = "//android.widget.CheckedTextView[@text='Directory']")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Directory'")
     public  MobileElement directory;
 

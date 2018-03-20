@@ -4,16 +4,8 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.LoginPageScreen;
 import org.testng.Assert;
-import org.testng.annotations.NoInjection;
-import org.testng.annotations.Test;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Attribute;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.testng.annotations.Test;
 
 
 public class LoginPageTest extends BaseDriver {
@@ -28,7 +20,7 @@ public class LoginPageTest extends BaseDriver {
     }
 
     @Test (groups = {"all2", "all"})
-    public void validateLoginPage() throws Exception {
+    public void validateLoginPage() {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
 
@@ -53,10 +45,6 @@ public class LoginPageTest extends BaseDriver {
 
     @Test (groups = {"all3", "all"})
     public void invalidPasswordTest() throws Exception {
-        String myPageSource;
-        BasePage myBasePage = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
-
         invalidCheck("LDSTools2", "<login>");
         invalidCheck("LDSTools2", "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
         invalidCheck("LDSTools2", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
@@ -67,10 +55,6 @@ public class LoginPageTest extends BaseDriver {
 
     @Test (groups = {"all4", "all", "jft"})
     public void invalidUsernameTest() throws Exception {
-        String myPageSource;
-        BasePage myBasePage = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
-
         invalidCheck("LDSTools20", "toolstester");
         invalidCheck("LDSTools2", "password1");
         invalidCheck("********", "isjlsdkj");
@@ -79,7 +63,7 @@ public class LoginPageTest extends BaseDriver {
         invalidCheck("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", "password1");
     }
 
-    public void invalidCheck(String userName, String passWord) throws Exception {
+    private void invalidCheck(String userName, String passWord) throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         clearLoginPassword();
 
@@ -89,17 +73,9 @@ public class LoginPageTest extends BaseDriver {
     }
 
 
-    public void checkInvalidAlert() throws Exception {
+    private void checkInvalidAlert() {
         BasePage myBasePage = new BasePage(driver);
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
-        String errorMessage;
-
-
-        if (getRunningOS().equals("mac")) {
-            errorMessage = "Sign-In Failed";
-        } else {
-            errorMessage = "Incorrect username or password";
-        }
 
         if (myBasePage.checkForElement(myLoginPage.errorMessageService)) {
             Assert.assertTrue(myBasePage.checkForElement(myLoginPage.loginErrorMessage));

@@ -11,6 +11,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -24,6 +25,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -284,6 +286,33 @@ public class BasePage {
         }
         return false;
     }
+
+
+    public Elements getAllElementsOnPage(String myPageSource ) {
+        Document doc = Jsoup.parse(myPageSource);
+        Elements myTest = doc.getAllElements();
+        List<Attribute> elementAttributes = new ArrayList<Attribute>();
+
+//        for (Element myElement : myTest ) {
+//
+//            System.out.println("*********************************************************************");
+//            elementAttributes = myElement.attributes().asList();
+//            for (Attribute myAttribute : elementAttributes ) {
+//                System.out.println("To String: " + myAttribute.toString());
+//                System.out.println("Get Key: " + myAttribute.getKey());
+//                System.out.println("Get Value: " + myAttribute.getValue());
+//                System.out.println("Get HTML: " + myAttribute.html());
+//                System.out.println("Get Class: " + myAttribute.getClass());
+//            }
+//
+//            System.out.println("*********************************************************************");
+//
+//        }
+
+        return myTest;
+    }
+
+
 
     public void rightsCheck(String myItem, int itemVisibility, int rights, String pageSource) {
         System.out.println("Checking: " + myItem);

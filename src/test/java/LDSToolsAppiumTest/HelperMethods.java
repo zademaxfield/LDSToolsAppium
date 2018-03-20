@@ -28,6 +28,9 @@ public class HelperMethods extends BasePage {
         setupUAT();
 
 
+        myLoginPage.loginName.clear();
+        myLoginPage.passWord.clear();
+
         myLoginPage.loginName.sendKeys(userName);
         myLoginPage.passWord.sendKeys(password);
         myLoginPage.signInButton.click();
@@ -45,11 +48,16 @@ public class HelperMethods extends BasePage {
     public void setupUAT() throws Exception {
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
+
         if (getOS().equals("mac")) {
             myLoginPage.overflowMenu.click();
 
-            for (int x = 1; x <= 5; x++) {
-                myLoginPage.enterDeveloperButton.click();
+            if (checkForElement(myLoginPage.developerButton)) {
+                myLoginPage.developerButton.click();
+            } else {
+                for (int x = 1; x <= 5; x++) {
+                    myLoginPage.enterDeveloperButton.click();
+                }
             }
 
             mySettings.networkEnvironment.click();

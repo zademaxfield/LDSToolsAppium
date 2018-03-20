@@ -51,6 +51,21 @@ public class LoginPageScreen extends BasePage {
     @iOSFindBy(xpath = "//XCUIElementTypeCell[9]")
     public  MobileElement enterDeveloperButton;
 
+    //Developer Button Displayed
+    @iOSFindBy(accessibility = "Developer Settings")
+    public MobileElement developerButton;
+
+
+    //Error Message Service
+    @AndroidFindBy(xpath = "//*[@text='Error']")
+    @iOSFindBy(xpath = "//*[value='Error']")
+    public MobileElement errorMessageService;
+
+    //Error Message
+    @AndroidFindBy(xpath = "//*[@text='Incorrect username or password']")
+    @iOSFindBy(xpath = "//*[@value='Sign-In Failed']")
+    public MobileElement loginErrorMessage;
+
 
 
 }

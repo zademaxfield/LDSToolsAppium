@@ -10,16 +10,16 @@ import org.testng.annotations.Test;
 
 public class LoginPageTest extends BaseDriver {
 
-   @Test( groups = {"all1", "all"})
-    public void loginPageSimple() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+//   @Test( groups = {"all1", "all", "login"})
+//    public void loginPageSimple() throws Exception {
+//        HelperMethods myHelper = new HelperMethods(driver);
+//
+//        myHelper.loginUAT("LDSTools2", "toolstester");
+//        myHelper.enterPin("1", "1", "3", "3");
+//
+//    }
 
-        myHelper.loginUAT("LDSTools2", "toolstester");
-        myHelper.enterPin("1", "1", "3", "3");
-
-    }
-
-    @Test (groups = {"all2", "all"})
+    @Test (groups = {"all2", "all", "login"})
     public void validateLoginPage() {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -33,9 +33,11 @@ public class LoginPageTest extends BaseDriver {
         } else {
             Assert.assertTrue(myPageSource.contains("LDS Tools"));
             Assert.assertTrue(myPageSource.contains("Sign in to your LDS Account"));
-            Assert.assertTrue(myPageSource.contains("SIGN IN"));
-            Assert.assertTrue(myPageSource.contains("FORGOT USERNAME OR PASSWORD"));
-            Assert.assertTrue(myPageSource.contains("CREATE AN LDS ACCOUNT"));
+
+            //Have to do a case insensitive test for Android 5.0 doesn't handle case correctly
+            Assert.assertTrue(myPageSource.toLowerCase().contains("sign in"));
+            Assert.assertTrue(myPageSource.toLowerCase().contains("forgot username or password"));
+            Assert.assertTrue(myPageSource.toLowerCase().contains("create an lds account"));
         }
 
         Assert.assertTrue(myPageSource.contains("Username"));
@@ -43,25 +45,115 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all"})
-    public void invalidPasswordTest() throws Exception {
+    // ******************* Invalid Password Tests *******************
+    @Test (groups = {"all3", "all", "login"})
+    public void invalidPasswordTest1() throws Exception {
         invalidCheck("LDSTools2", "<login>");
+    }
+
+    @Test (groups = {"all4", "all", "login"})
+    public void invalidPasswordTest2() throws Exception {
         invalidCheck("LDSTools2", "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+    }
+
+    @Test (groups = {"all1", "all", "login"})
+    public void invalidPasswordTest3() throws Exception {
         invalidCheck("LDSTools2", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    }
+
+    @Test (groups = {"all2", "all", "login"})
+    public void invalidPasswordTest4() throws Exception {
         invalidCheck("LDSTools2", "/password/");
+    }
+
+    @Test (groups = {"all3", "all", "login"})
+    public void invalidPasswordTest5() throws Exception {
         invalidCheck("LDSTools2", "!@#$%%^&**())__+_!@@!#!$%#@%^*&%&*(^*()(&(&*(%^&$#%@$!#$%$#^#$%^^&*(^%}|{|{|}{|}{|}{}|{|}{}|{|}{||||}|{}{|}{");
+    }
+
+    @Test (groups = {"all4", "all", "login"})
+    public void invalidPasswordTest6() throws Exception {
         invalidCheck("LDSTools2", "select * from directory");
     }
 
-    @Test (groups = {"all4", "all", "jft"})
-    public void invalidUsernameTest() throws Exception {
+    @Test (groups = {"all1", "all", "login"})
+    public void invalidPasswordTest7() throws Exception {
+        invalidCheck("LDSTools2", " toolstester");
+    }
+
+
+    // ******************* Invalid Username Tests *******************
+    @Test (groups = {"all4", "all", "login"})
+    public void invalidUsernameTest1() throws Exception {
         invalidCheck("LDSTools20", "toolstester");
+    }
+
+    @Test (groups = {"all1", "all", "login"})
+    public void invalidUsernameTest2() throws Exception {
         invalidCheck("LDSTools2", "password1");
+    }
+
+    @Test (groups = {"all2", "all", "login"})
+    public void invalidUsernameTest3() throws Exception {
         invalidCheck("********", "isjlsdkj");
+    }
+
+    @Test (groups = {"all3", "all", "login"})
+    public void invalidUsernameTest4() throws Exception {
         invalidCheck("select * from directory", "password1");
+    }
+
+    @Test (groups = {"all4", "all", "login"})
+    public void invalidUsernameTest5() throws Exception {
         invalidCheck("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", "password1");
+    }
+
+    @Test (groups = {"all1", "all", "login"})
+    public void invalidUsernameTest6() throws Exception {
         invalidCheck("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", "password1");
     }
+
+    @Test (groups = {"all2", "all", "login"})
+    public void invalidUsernameTest7() throws Exception {
+        invalidCheck(" LDSTools2", "toolstester");
+    }
+
+
+
+
+
+    // ******************* Invalid Username and Password Tests *******************
+    @Test (groups = {"all1", "all", "login"})
+    public void invalidUsernameAndPasswordTest1() throws Exception {
+        invalidCheck("sfjksdjissldjskldjslfjslfj", "toolste@#@$#^#$&%*%*&ster");
+    }
+
+    @Test (groups = {"all2", "all", "login"})
+    public void invalidUsernameAndPasswordTest2() throws Exception {
+        invalidCheck("HanSolo", "<><><><><><><><><>");
+    }
+
+    @Test (groups = {"all3", "all", "login"})
+    public void invalidUsernameAndPasswordTest3() throws Exception {
+        invalidCheck("This is a bad username test", "This is a bad password test");
+    }
+
+    @Test (groups = {"all4", "all", "login"})
+    public void invalidUsernameAndPasswordTest4() throws Exception {
+        invalidCheck("select * from directory", "^^^^^^^^^^^^");
+    }
+
+    @Test (groups = {"all1", "all", "login"})
+    public void invalidUsernameAndPasswordTest5() throws Exception {
+        invalidCheck("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+    }
+
+    @Test (groups = {"all2", "all", "login"})
+    public void invalidUsernameAndPasswordTest6() throws Exception {
+        invalidCheck("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    }
+
+
 
     private void invalidCheck(String userName, String passWord) throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);

@@ -1,23 +1,21 @@
 package LDSToolsAppiumTest;
 
-import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
-import java.awt.*;
 
 
 public class HelperMethods extends BasePage {
 
     public HelperMethods(AppiumDriver<MobileElement> driver) {
         super(driver);
-        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
-        SettingsScreen mySettings = new SettingsScreen(driver);
-        PinScreen myPinScreen = new PinScreen(driver);
-        MenuScreen myMenuScreen = new MenuScreen(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+//        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+//        SettingsScreen mySettings = new SettingsScreen(driver);
+//        PinScreen myPinScreen = new PinScreen(driver);
+//        MenuScreen myMenuScreen = new MenuScreen(driver);
+//        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
 
     }
 
@@ -45,7 +43,7 @@ public class HelperMethods extends BasePage {
         Thread.sleep(3000);
     }
 
-    public void setupUAT() throws Exception {
+    private void setupUAT() throws Exception {
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
 
@@ -148,16 +146,14 @@ public class HelperMethods extends BasePage {
 
     }
 
-    public void checkForLater() throws Exception {
+    private void checkForLater() {
         MenuScreen myMenuScreen = new MenuScreen(driver);
         if (checkForElement(myMenuScreen.laterButton)) {
             myMenuScreen.laterButton.click();
         }
     }
 
-    public void enterCurrentPin(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
-        // ********** Page Instantiations **********
-        PinScreen myPin = new PinScreen(driver);
+    private void enterCurrentPin(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
 
         pressPinKeys(firstNumber);
         pressPinKeys(secondNumber);
@@ -223,8 +219,6 @@ public class HelperMethods extends BasePage {
 
     public void runSync() throws Exception {
         // ********* Constructor **********
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         SyncScreen mySyncScreen = new SyncScreen(driver);
@@ -282,7 +276,7 @@ public class HelperMethods extends BasePage {
         }
     }
 
-    public void dismissWhatsNewPage() throws Exception {
+    private void dismissWhatsNewPage() {
         // ********* Constructor **********
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         BasePage myBasePage = new BasePage(driver);

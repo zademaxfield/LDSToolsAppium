@@ -1,8 +1,6 @@
 package LDSToolsAppium;
 
-import LDSToolsAppium.Screen.DirectoryEditScreen;
-import LDSToolsAppium.Screen.DirectoryScreen;
-import LDSToolsAppium.Screen.MenuScreen;
+
 import io.appium.java_client.*;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -28,7 +26,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage {
@@ -352,6 +349,8 @@ public class BasePage {
         } catch (Exception e) {
             return false;
         }
+
+
     }
 
     public String getOS() {

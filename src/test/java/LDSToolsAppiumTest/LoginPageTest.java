@@ -19,6 +19,8 @@ public class LoginPageTest extends BaseDriver {
 //
 //    }
 
+
+
     @Test (groups = {"all2", "all", "login"})
     public void validateLoginPage() {
         String myPageSource;
@@ -187,6 +189,56 @@ public class LoginPageTest extends BaseDriver {
         myLoginPage.passWord.clear();
         Thread.sleep(2000);
     }
+
+/*
+    @Test (groups = { "jft"})
+    public void loginPageJustForTesting() throws Exception {
+        String myPageSource;
+        BasePage myBasePage = new BasePage(driver);
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        long startTime;
+        long stopTime;
+        long myTime;
+
+        myPageSource = myBasePage.getSourceOfPage();
+        Thread.sleep(2000);
+
+        startTime = System.currentTimeMillis();
+        myBasePage.checkForElement(myLoginPage.loginName);
+        stopTime = System.currentTimeMillis();
+        myTime = stopTime - startTime;
+
+        System.out.println("Check For Element (BasePage): " + myTime);
+
+        startTime = System.currentTimeMillis();
+        myBasePage.checkForElement(myLoginPage.alertOK);
+        stopTime = System.currentTimeMillis();
+        myTime = stopTime - startTime;
+
+        System.out.println("Check For Element (BasePage not found): " + myTime);
+
+        startTime = System.currentTimeMillis();
+        assert myLoginPage.loginName.isDisplayed();
+        stopTime = System.currentTimeMillis();
+        myTime = stopTime - startTime;
+
+        System.out.println("Check For Element (isDisplayed): " + myTime);
+
+        startTime = System.currentTimeMillis();
+        myLoginPage.loginName.isDisplayed();
+        stopTime = System.currentTimeMillis();
+        myTime = stopTime - startTime;
+
+        System.out.println("Check For Element ( no assert isDisplayed): " + myTime);
+
+        startTime = System.currentTimeMillis();
+        assert myLoginPage.loginName.isEnabled();
+        stopTime = System.currentTimeMillis();
+        myTime = stopTime - startTime;
+
+        System.out.println("Check For Element (isEnabled): " + myTime);
+    }*/
 
 
 

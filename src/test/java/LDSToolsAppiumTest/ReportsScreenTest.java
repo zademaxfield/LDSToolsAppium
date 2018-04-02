@@ -103,7 +103,8 @@ public class ReportsScreenTest extends BaseDriver {
 
 
         if (rights <= 2) {
-            myMenu.reports.click();
+            myMenu.selectMenu(myMenu.reports);
+            //myMenu.reports.click();
 
             checkMissionaryProgressRecord();
             checkMissionaryProgressRecordVisits();

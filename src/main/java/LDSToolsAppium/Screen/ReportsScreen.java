@@ -201,7 +201,7 @@ public class ReportsScreen extends BasePage {
     public  MobileElement mpSave;
 
     //Missionary Progress Expand Filter
-    @AndroidFindBy(id = "\torg.lds.ldstools.dev:id/filterHeaderArrow")
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/filterHeaderArrow")
     public  MobileElement mpExpandFilter;
 
 

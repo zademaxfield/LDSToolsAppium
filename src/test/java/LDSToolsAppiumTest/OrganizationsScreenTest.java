@@ -46,7 +46,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         getBishopricInfo(rights);
 
-        getHighPriestsGroupInfo(rights);
+        //getHighPriestsGroupInfo(rights);
 
         getEldersQuorum(rights);
 

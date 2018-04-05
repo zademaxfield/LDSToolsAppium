@@ -42,6 +42,7 @@ public class DirectoryScreen extends BasePage {
     // ****************** Sort ******************
     //Sort Button
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/filterMenuImageButton")
+    //@AndroidFindBy(xpath = "//*[@resource-id='org.lds.ldstools.dev:id/filterMenuImageButton']")
     @iOSFindBy(accessibility = "Sort Options")
     public  MobileElement directorySort;
 
@@ -111,6 +112,11 @@ public class DirectoryScreen extends BasePage {
         } else {
             driver.findElement(By.xpath("//android.widget.TextView[@resource-id='org.lds.ldstools.dev:id/name'][@text='" + myUser + "']")).click();
         }
+    }
+
+    public void sortToHousehold() {
+        directorySort.click();
+        sortHousehold.click();
     }
 
     public void searchAndClick(String myUser) throws Exception {

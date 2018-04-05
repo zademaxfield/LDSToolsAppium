@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Android Smoke Test" configfailurepolicy="continue" verbose="2">
+<suite name="iOS Smoke Test Suite" configfailurepolicy="continue" verbose="2">
+    <listeners>
+        <listener class-name="LDSToolsAppium.RetryListener"/>
+        <listener class-name= "LDSToolsAppium.CustomReporter" />
+        <listener class-name="LDSToolsAppium.TestListener" />
+    </listeners>
 
-    <test name="Android Smoke Test">
-        <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="STF-Pool" />
+    <test name="iOS Smoke Test" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDS Tools.app" />
+        <parameter name="testDevice" value="iPhone X Test" />
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -27,5 +32,5 @@
             <class name="LDSToolsAppiumTest.ReportsScreenTest" />
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
         </classes>
-    </test> <!-- Default test -->
-</suite> <!-- Default suite -->
+    </test>
+</suite>

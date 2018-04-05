@@ -2,669 +2,668 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
-import LDSToolsAppium.Screen.MenuScreen;
-import LDSToolsAppium.Screen.PinScreen;
-import LDSToolsAppium.Screen.ReportsScreen;
-import LDSToolsAppium.Screen.WhatsNewScreen;
+import LDSToolsAppium.Screen.*;
 import io.appium.java_client.MobileElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class MinisteringScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"}, enabled = false)
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"} )
     public void ministeringBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
 
 
         HelperMethods myHelper = new HelperMethods(driver);
-        PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
         myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
 
-        if (myBasePage.getOS().equals("mac")) {
-            myWhatsNew.whatsNewDone.click();
-        }
-
-
         if (rights <= 3) {
-            myMenu.reports.click();
+            myMenu.selectMenu(myMenu.reports);
+            myMinistering.ministeringReport.click();
 
 
             pageSource = myBasePage.getSourceOfPage();
 
-            if (getRunningOS().equals("mac")) {
-                pageSource = myBasePage.getSourceOfPage();
-            } else {
-                pageSource = pageSource + myBasePage.getSourceOfPage();
-                myBasePage.scrollDownTEST(800);
-                pageSource = pageSource + myBasePage.getSourceOfPage();
-            }
+            Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum", pageSource, "Contains"));
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Households", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Households", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Companionships", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Potential Ministering Brothers", pageSource, "Contains"));
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("Relief Society", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Sisters", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Sisters", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Potential Ministering Sisters", pageSource, "Contains"));
 
 
-            myBasePage.rightsCheck("Action and Interview List", 2, rights, pageSource);
-            myBasePage.rightsCheck("Birthday List", 2, rights, pageSource);
-            myBasePage.rightsCheck("Home Teaching", 2, rights, pageSource);
-            myBasePage.rightsCheck("Members Moved In", 2, rights, pageSource);
-            myBasePage.rightsCheck("Members Moved Out", 2, rights, pageSource);
-            myBasePage.rightsCheck("Members with Callings", 2, rights, pageSource);
-            myBasePage.rightsCheck("Members without Callings", 2, rights, pageSource);
-            myBasePage.rightsCheck("Missionary Progress Record", 2, rights, pageSource);
-            myBasePage.rightsCheck("New Members", 2, rights, pageSource);
-            myBasePage.rightsCheck("Temple Recommend Status", 1, rights, pageSource);
-            myBasePage.rightsCheck("Unit Statistics", 2, rights, pageSource);
-            myBasePage.rightsCheck("Visiting Teaching", 2, rights, pageSource);
-
-            getMembersMovedInReport(rights);
-            getMembersMovedOutReport(rights);
-            getMembersWithCallings(rights);
-            getMembersWithOutCallings(rights);
-            getNewMembers(rights);
-            getUnitStats(rights);
-
-            //Bishopric Only Reports
-            if (rights <= 1 ) {
-                getTempleRecommendStatus(rights);
-            }
-
-
+            Assert.assertFalse(myBasePage.checkNoCaseList("Home Teaching", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Visiting Teaching", pageSource, "Contains"));
 
         } else {
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
         }
-
-
     }
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
-    public void reportsMissionaryProgressRecord(String userName, String passWord, String rightsString, String calling) throws Exception {
+
+
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
+    public void ministeringUnassignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
 
 
         HelperMethods myHelper = new HelperMethods(driver);
-        PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
         myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
-        if (myBasePage.getOS().equals("mac")) {
-            myWhatsNew.whatsNewDone.click();
-        }
 
 
-        if (rights <= 2) {
+
+        if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
-            //myMenu.reports.click();
+            myMinistering.ministeringReport.click();
+            myMinistering.unassignedHouseholds.click();
 
-            checkMissionaryProgressRecord();
-            checkMissionaryProgressRecordVisits();
-            checkMissionaryProgressRecordSacMeeting();
-            MissionaryProgressRecordDetails();
+            Thread.sleep(2000);
+
+            pageSource = myBasePage.getSourceOfPage();
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
 
         } else {
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
         }
-
-
     }
 
-    private void getMembersMovedInReport(int rights) throws Exception {
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    public void ministeringHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
+        int rights = Integer.parseInt(rightsString);
+
+
+        HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
-        myReports.membersMovedInReport.click();
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Luke", pageSource, "Equals"));
 
-        Thread.sleep(1000);
-        myBasePage.backButton.click();
-        Thread.sleep(1000);
+        myHelper.loginUAT(userName, passWord);
+        myHelper.enterPin("1", "1", "3", "3");
 
+
+
+        if (rights <= 3) {
+            myMenu.selectMenu(myMenu.reports);
+            myMinistering.ministeringReport.click();
+            myMinistering.households.click();
+
+            pageSource = myBasePage.getSourceOfPage();
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+            //Check Filters
+            assignedMinisteringBrothers();
+            notAssignedMinisteringBrothers();
+            newAndMovedInMembers();
+            ssAges18to30();
+            ssAge32AndOlder();
+            sbAges18to30();
+            sbAge32AndOlder();
+
+
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
     }
 
-    private void getMembersMovedOutReport(int rights) throws Exception {
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
+    public void companionshipsElders(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
+        int rights = Integer.parseInt(rightsString);
+
+
+        HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
-        myReports.membersMovedOutReport.click();
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Wilson", 2, rights, pageSource);
-        myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
-        myBasePage.rightsCheck("Saipipi", 1, rights, pageSource);
 
-        Thread.sleep(1000);
-        myBasePage.backButton.click();
-        Thread.sleep(1000);
+        myHelper.loginUAT(userName, passWord);
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+
+        if (rights <= 3) {
+            myMenu.selectMenu(myMenu.reports);
+            myMinistering.ministeringReport.click();
+            myMinistering.companionshipsBrothers.click();
+
+            myMinistering.validateDistrict("District 1");
+            myMinistering.validateDistrict("District 2");
+            myMinistering.validateDistrict("District 3");
+
+
+            //Select District 1
+            myMinistering.selectDistrict("District 1");
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("LDS51", pageSource, "Contains"));
+
+            if (getRunningOS().equals("mac")) {
+                myBasePage.backButton.click();
+            }
+
+            //Select District 2
+            myMinistering.selectDistrict("District 2");
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("LDS51", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
+
+            if (getRunningOS().equals("mac")) {
+                myBasePage.backButton.click();
+            }
+
+            //Select District 3
+            myMinistering.selectDistrict("District 3");
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
+
+            if (getRunningOS().equals("mac")) {
+                myBasePage.backButton.click();
+            }
+
+
+
+
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
     }
 
-    private void getMembersWithCallings(int rights) throws Exception {
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
+    public void potentialMinisteringBrothers(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
+        int rights = Integer.parseInt(rightsString);
+
+
+        HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
-
-        myReports.membersWithCallingsReport.click();
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron, Jane", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Relief Society", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Anakin", pageSource, "Equals"));
-
-        myReports.selectSort(myReports.organizationSort);
-        Thread.sleep(2000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ward Clerk", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Kitara, Lafaele", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ami, Samu", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi, Obi-Wan", pageSource, "Equals"));
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        myReports.selectSort(myReports.durationSort);
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sunday School President", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lealaiauloto, Uana Iosefa Sao", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Amidala, Padme", pageSource, "Contains"));
+        myHelper.loginUAT(userName, passWord);
+        myHelper.enterPin("1", "1", "3", "3");
 
 
-        myReports.selectSort(myReports.notSetApartSort);
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("High Priests Group First Assistant", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS17", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("P0, C3", pageSource, "Contains"));
+
+        if (rights <= 3) {
+            myMenu.selectMenu(myMenu.reports);
+            myMinistering.ministeringReport.click();
+            myMinistering.potentialMinisteringBrothers.click();
+
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("AFPSix", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
 
 
-        Thread.sleep(1000);
-        myBasePage.backButton.click();
-        Thread.sleep(1000);
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
     }
 
-    private void getMembersWithOutCallings(int rights) throws Exception {
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
+    public void unassignedSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
+        int rights = Integer.parseInt(rightsString);
+
+
+        HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
-
-        myReports.membersWithOutCallingsReport.click();
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEleven, Member", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("D2, R2", pageSource, "Contains"));
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        myReports.selectSort(myReports.maleSort);
-        Thread.sleep(2000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEleven, Member", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPMisc, Member1", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Binks, Jarjar", pageSource, "Contains"));
+        myHelper.loginUAT(userName, passWord);
+        myHelper.enterPin("1", "1", "3", "3");
 
 
-        myReports.selectSort(myReports.femaleSort);
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Organa, Leia", pageSource, "Contains"));
+
+        if (rights <= 3) {
+            myMenu.selectMenu(myMenu.reports);
+            myMinistering.ministeringReport.click();
+            myMinistering.unassignedSisters.click();
+
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
 
 
-        Thread.sleep(1000);
-        myBasePage.backButton.click();
-        Thread.sleep(1000);
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
     }
 
-    private void getNewMembers(int rights) throws Exception {
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
+    public void ministeringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
+        int rights = Integer.parseInt(rightsString);
+
+
+        HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
-        myReports.newMembersReport.click();
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Manumalo, Siui", 2, rights, pageSource);
-        myBasePage.rightsCheck("32", 2, rights, pageSource);
-        myBasePage.rightsCheck("April 16, 2017", 1, rights, pageSource);
 
-        Thread.sleep(1000);
-        myBasePage.backButton.click();
-        Thread.sleep(1000);
+        myHelper.loginUAT(userName, passWord);
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+
+        if (rights <= 3) {
+            myMenu.selectMenu(myMenu.reports);
+            myMinistering.ministeringReport.click();
+            myMinistering.sisters.click();
+
+            pageSource = myBasePage.getSourceOfPage();
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+
+            //Check Filters
+            assignedMinisteringSisters();
+            notAssignedMinisteringSisters();
+            newAndMovedInMembersSisters();
+            ssAges18to30Sisters();
+            ssAge32AndOlderSisters();
+
+
+
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
     }
 
-    //Todo: need more tests
-    private void getUnitStats(int rights) throws Exception {
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
+    public void companionshipsSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
+        int rights = Integer.parseInt(rightsString);
+
+
+        HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
-
-        myReports.unitStatisticsReport.click();
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("19", 2, rights, pageSource);
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        Thread.sleep(1000);
-        myBasePage.backButton.click();
-        Thread.sleep(1000);
-    }
-
-    private void getTempleRecommendStatus(int rights) throws Exception {
-        String pageSource;
-        BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
-
-        myReports.templeRecommendStatusReport.click();
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPSix, Husband", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Ahsoka, Tano", pageSource, "Contains"));
+        myHelper.loginUAT(userName, passWord);
+        myHelper.enterPin("1", "1", "3", "3");
 
 
-        myReports.selectSort(myReports.activeSort);
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ami, Faleatafa", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Maul, Darth", pageSource, "Contains"));
 
-        myReports.selectSort(myReports.expiringSort);
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertFalse(myBasePage.checkNoCaseList("Windu, Mace", pageSource, "Contains"));
+        if (rights <= 3) {
+            myMenu.selectMenu(myMenu.reports);
+            myMinistering.ministeringReport.click();
+            myMinistering.companionshipsSisters.click();
 
-        myReports.selectSort(myReports.expiredSort);
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Kitara, Seigafo", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
-
-        myReports.selectSort(myReports.otherSort);
-        Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Kitara, June", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Calrissian, Lando", pageSource, "Contains"));
+            myMinistering.validateDistrict("District 1");
+            myMinistering.validateDistrict("District 2");
+            myMinistering.validateDistrict("Fagamalo Districts");
 
 
-        Thread.sleep(1000);
-        myBasePage.backButton.click();
-        Thread.sleep(1000);
+            //Select District 1
+            myMinistering.selectDistrict("District 1");
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("LDS52", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
+
+            if (getRunningOS().equals("mac")) {
+                myBasePage.backButton.click();
+            }
+
+            //Select District 2
+            myMinistering.selectDistrict("District 2");
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("LDS53", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
+
+            if (getRunningOS().equals("mac")) {
+                myBasePage.backButton.click();
+            }
+
+
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
     }
 
 
-
-    private void checkMissionaryProgressRecord() throws Exception {
-        //*************************************************************************************
-        //********************* Missionary Progress Record ************************************
-        //*************************************************************************************
-        List<String> myList = new ArrayList<String>();
-        List<String> androidList = new ArrayList<String>();
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
+    public void potentialMinisteringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
+        int rights = Integer.parseInt(rightsString);
+
+
+        HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        Thread.sleep(2000);
-        myReports.missionaryProgressRecordReport.click();
+        myHelper.loginUAT(userName, passWord);
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+
+        if (rights <= 3) {
+            myMenu.selectMenu(myMenu.reports);
+            myMinistering.ministeringReport.click();
+            myMinistering.potentialMinisteringSisters.click();
+
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+
+
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
+    }
+
+
+
+
+
+
+
+
+    private void assignedMinisteringBrothers() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myMinistering.filters.click();
+        myMinistering.assignedMinisteringBrothers.click();
+        myMinistering.saveMissonaryProgressFilter();
+
+        //Check Data
         pageSource = myBasePage.getSourceOfPage();
-        //Assert.assertTrue(checkNoCaseList("Potential Investigator", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Malcolm Reynolds", pageSource, "Contains"));
-
-        myWeb.WPRopenPageLogIn("https://missionary-stage.lds.org/ward-missionary-tools", "ab253", "pa$$w0rd0");
-        myList = myWeb.WPRgetUsers("none", false);
-        myList = myBasePage.swapLastName(myList);
-
-
-        myBasePage.compareWebData(myList, androidList, false);
-
-        //Investigators with Baptism Date
-        myReports.missionaryProgressFilter.click();
-        myReports.mpInvestigatorsWithBaptismDate.click();
-
-        myReports.saveMissonaryProgressFilter();
-
-        myList = myWeb.WPRgetUsers("Investigators with Baptism Date", false);
-        myList = myBasePage.swapLastName(myList);
-
-        myBasePage.compareWebData(myList, androidList, false);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Investigators with Baptism Date", pageSource, "Contains"));
-
-        myReports.mpRemoveFilterButton.click();
-
-
-        //Progressing Investigators
-        myReports.missionaryProgressFilter.click();
-        myReports.mpProgressingInvestigators.click();
-
-        myReports.saveMissonaryProgressFilter();
-
-        myList = myWeb.WPRgetUsers("Progressing Investigators", false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Progressing Investigators", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("AFPTen", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
-        myReports.mpRemoveFilterButton.click();
+        //Clear Filter
+        clearFilter(myMinistering.assignedMinisteringBrothers);
 
+    }
 
-        //New Investigators
-        myReports.missionaryProgressFilter.click();
-        myReports.mpNewInvestigators.click();
+    private void notAssignedMinisteringBrothers() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
 
-        myReports.saveMissonaryProgressFilter();
+        myMinistering.filters.click();
+        myMinistering.notAssignedMinisteringBrothers.click();
+        myMinistering.saveMissonaryProgressFilter();
 
-        myList = myWeb.WPRgetUsers("New Investigators", false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
+        //Check Data
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("New Investigators", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Han Solo", pageSource, "Contains"));
 
-        myReports.mpRemoveFilterButton.click();
+        //Clear Filter
+        clearFilter(myMinistering.notAssignedMinisteringBrothers);
 
-        //Other Investigators
-        myReports.missionaryProgressFilter.click();
-        myReports.mpOtherInvestigators.click();
+    }
 
-        myReports.saveMissonaryProgressFilter();
+    private void newAndMovedInMembers() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
 
-        myList = myWeb.WPRgetUsers("Other Investigators", false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
+        myMinistering.filters.click();
+        myMinistering.newAndMovedInMembers.click();
+        myMinistering.saveMissonaryProgressFilter();
+
+        //Check Data
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Other Investigators", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
 
-        myReports.mpRemoveFilterButton.click();
+        //Clear Filter
+        clearFilter(myMinistering.newAndMovedInMembers);
 
+    }
 
+    private void ssAges18to30() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
 
-        //Potential Investigators
-        myReports.missionaryProgressFilter.click();
-        myReports.mpPotentialInvestigators.click();
+        myMinistering.filters.click();
+        myMinistering.singleSistersAges18to30.click();
+        myMinistering.saveMissonaryProgressFilter();
 
-        myReports.saveMissonaryProgressFilter();
-
-
-        myList = myWeb.WPRgetUsers("Potential Investigators", false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
+        //Check Data
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Potential Investigators", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Fagaesea", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Yoda", pageSource, "Contains"));
+
+        //Clear Filter
+        clearFilter(myMinistering.singleSistersAges18to30);
+
+    }
+
+    private void ssAge32AndOlder() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myMinistering.filters.click();
+        myMinistering.singleSistersAge31AndOver.click();
+        myMinistering.saveMissonaryProgressFilter();
+
+        //Check Data
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Mace", pageSource, "Contains"));
+
+        //Clear Filter
+        clearFilter(myMinistering.singleSistersAge31AndOver);
+
+    }
+
+    private void sbAges18to30() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myMinistering.filters.click();
+        myMinistering.singleBrothersAges18to30.click();
+        myMinistering.saveMissonaryProgressFilter();
+
+        //Check Data
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi", pageSource, "Contains"));
+
+        //Clear Filter
+        clearFilter(myMinistering.singleBrothersAges18to30);
+
+    }
+
+    private void sbAge32AndOlder() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myMinistering.filters.click();
+        myMinistering.singleBrothersAge31AndOver.click();
+        myMinistering.saveMissonaryProgressFilter();
+
+        //Check Data
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEleven", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
+
+        //Clear Filter
+        clearFilter(myMinistering.singleBrothersAge31AndOver);
+
+    }
+
+
+
+    //******************* SISTERS **************************
+
+
+    private void assignedMinisteringSisters() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myMinistering.filters.click();
+        myMinistering.assignedMinisteringSisters.click();
+        myMinistering.saveMissonaryProgressFilter();
+
+        //Check Data
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Bond", pageSource, "Contains"));
+
+        //Clear Filter
+        clearFilter(myMinistering.assignedMinisteringSisters);
+
+    }
+
+    private void notAssignedMinisteringSisters() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myMinistering.filters.click();
+        myMinistering.notAssignedMinisteringSisters.click();
+        myMinistering.saveMissonaryProgressFilter();
+
+        //Check Data
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+
+        //Clear Filter
+        clearFilter(myMinistering.notAssignedMinisteringSisters);
+
+    }
+
+    private void newAndMovedInMembersSisters() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myMinistering.filters.click();
+        myMinistering.newAndMovedInMembers.click();
+        myMinistering.saveMissonaryProgressFilter();
+
+        //Check Data
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Faauma", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+
+        //Clear Filter
+        clearFilter(myMinistering.newAndMovedInMembers);
+
+    }
+
+    private void ssAges18to30Sisters() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myMinistering.filters.click();
+        myMinistering.singleSistersAges18to30.click();
+        myMinistering.saveMissonaryProgressFilter();
+
+        //Check Data
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+
+        //Clear Filter
+        clearFilter(myMinistering.singleSistersAges18to30);
+
+    }
+
+    private void ssAge32AndOlderSisters() {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myMinistering.filters.click();
+        myMinistering.singleSistersAge31AndOver.click();
+        myMinistering.saveMissonaryProgressFilter();
+
+        //Check Data
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+
+        //Clear Filter
+        clearFilter(myMinistering.singleSistersAge31AndOver);
+
+    }
+
+
+
+
+    private void clearFilter(MobileElement myElement)  {
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
         if (getRunningOS().equals("mac")) {
-            myBasePage.scrollUpIOS();
-        }
-
-        myReports.mpRemoveFilterButton.click();
-
-        //Recent Converts
-        myReports.missionaryProgressFilter.click();
-        myReports.mpRecentConverts.click();
-
-        myReports.saveMissonaryProgressFilter();
-
-
-        myList = myWeb.WPRgetUsers("Recent Converts", false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Recent Converts", pageSource, "Contains"));
-
-        myReports.mpRemoveFilterButton.click();
-
-        //Members Being Taught
-        myReports.missionaryProgressFilter.click();
-        myReports.mpMembersBeingTaught.click();
-
-        myReports.saveMissonaryProgressFilter();
-
-        myList = myWeb.WPRgetUsers("Members", true);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Members Being Taught", pageSource, "Contains"));
-
-        myReports.mpRemoveFilterButton.click();
-
-
-        Thread.sleep(1000);
-        myBasePage.backButton.click();
-
-        //*************************************************************************************
-        //*************************************************************************************
-        //*************************************************************************************
-    }
-
-
-    private void checkMissionaryProgressRecordVisits() throws Exception {
-
-        String pageSource;
-        List<String> myList = new ArrayList<String>();
-        List<String> androidList = new ArrayList<String>();
-
-        BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
-
-
-        Thread.sleep(2000);
-        myReports.missionaryProgressRecordReport.click();
-
-        pageSource = myBasePage.getSourceOfPage();
-
-        myWeb.WPRopenPageLogIn("https://missionary-stage.lds.org/ward-missionary-tools", "ab253", "pa$$w0rd0");
-
-        //******************
-        //Visits - Last Week
-        //******************
-        myReports.missionaryProgressFilter.click();
-        myReports.mpReceivedAVisit.click();
-        myReports.mpLastWeek.click();
-
-        myReports.saveMissonaryProgressFilter();
-
-
-        myList = myWeb.WPRgetUsersVisits("WPRLastWeek", false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
-
-        myReports.mpRemoveFilterButton.click();
-
-        //******************
-        //Visits - Last 2 weeks
-        //******************
-        myReports.missionaryProgressFilter.click();
-        myReports.mpReceivedAVisit.click();
-        myReports.mpLast2Weeks.click();
-
-        myReports.saveMissonaryProgressFilter();
-
-
-        myList = myWeb.WPRgetUsersVisits("WPRLast2Weeks", false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
-
-        myReports.mpRemoveFilterButton.click();
-
-        //******************
-        //Visits - Last 3 weeks
-        //******************
-        myReports.missionaryProgressFilter.click();
-        myReports.mpReceivedAVisit.click();
-        myReports.mpLast3Weeks.click();
-
-        myReports.saveMissonaryProgressFilter();
-
-        myList = myWeb.WPRgetUsersVisits("WPRLast3Weeks", false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
-
-        myReports.mpRemoveFilterButton.click();
-
-        //******************
-        //Visits - Last 4 weeks
-        //******************
-        myReports.missionaryProgressFilter.click();
-        myReports.mpReceivedAVisit.click();
-        myReports.mpLast4Weeks.click();
-
-        myReports.saveMissonaryProgressFilter();
-
-        myList = myWeb.WPRgetUsersVisits("WPRLast4Weeks", false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
-
-        myReports.mpRemoveFilterButton.click();
-
-        //******************
-        //Visits - Last 5 weeks
-        //******************
-        myReports.missionaryProgressFilter.click();
-        myReports.mpReceivedAVisit.click();
-        myReports.mpLast5Weeks.click();
-
-        myReports.saveMissonaryProgressFilter();
-
-        myList = myWeb.WPRgetUsersVisits("WPRLast5Weeks", true);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
-
-        myReports.mpRemoveFilterButton.click();
-
-        Thread.sleep(1000);
-        myBasePage.backButton.click();
-        Thread.sleep(1000);
-
-    }
-
-    private void MissionaryProgressRecordDetails() throws Exception {
-        String pageSource;
-        List<String> myList = new ArrayList<String>();
-        List<String> androidList = new ArrayList<String>();
-        BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
-
-
-        Thread.sleep(2000);
-        myReports.missionaryProgressRecordReport.click();
-
-        pageSource = myBasePage.getSourceOfPage();
-
-        myWeb.WPRopenPageLogIn("https://missionary-stage.lds.org/ward-missionary-tools", "ab253", "pa$$w0rd0");
-        myList = myWeb.WPRgetUsers("none", false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
-
-        //Todo: need to check for record then select that record
-//        for(String oneUser : myList){
-//            myBasePage.scrollDownTEST(400);
-//            clickButton(oneUser, "text", "nameContains");
-//
-//            pageSource = myBasePage.getSourceOfPage();
-//            if (getRunningOS().equals("mac")) {
-//                //Assert.assertTrue(checkNoCaseList("Add to Contacts", pageSource, "Contains"));
-//            } else {
-//                //Assert.assertTrue(checkNoCaseList("Contact Information", pageSource, "Contains"));
-//            }
-//
-//
-//        }
-        myBasePage.backButton.click();
-    }
-
-
-
-    private void scrollToSacMeetingAttendance() throws Exception {
-        BasePage myBasePage = new BasePage(driver);
-        if (!getRunningOS().equals("mac")) {
-            myBasePage.scrollToText("Attended Sacrament");
+            myMinistering.filters.click();
+            myElement.click();
+            myBasePage.backButton.click();
+        } else {
+            myMinistering.ministeringExpandFilter.click();
+            myMinistering.ministeringRemoveFilter.click();
         }
     }
 
-    private void checkMissionaryProgressFilterVisitsSub(MobileElement appFilter, String webFitler) throws Exception {
-        List<String> myList = new ArrayList<String>();
-        List<String> androidList = new ArrayList<String>();
-        BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
-
-        myReports.missionaryProgressFilter.click();
-        scrollToSacMeetingAttendance();
-        myReports.mpAttendedSacrament.click();
-        appFilter.click();
-
-        myReports.saveMissonaryProgressFilter();
-
-        myList = myWeb.WPRgetSacMeeting(webFitler, false);
-        myList = myBasePage.swapLastName(myList);
-        myBasePage.compareWebData(myList, androidList, false);
-
-        myReports.mpRemoveFilterButton.click();
-    }
-
-
-
-    private void checkMissionaryProgressRecordSacMeeting() throws Exception {
-        String pageSource;
-        List<String> myList = new ArrayList<String>();
-        List<String> androidList = new ArrayList<String>();
-        BasePage myBasePage = new BasePage(driver);
-        ReportsScreen myReports = new ReportsScreen(driver);
-
-
-        Thread.sleep(2000);
-        myReports.missionaryProgressRecordReport.click();
-
-
-        myWeb.WPRopenPageLogIn("https://missionary-stage.lds.org/ward-missionary-tools", "ab253", "pa$$w0rd0");
-
-        //******************
-        //Sacrament Meeting Attendance - Last Week
-        //******************
-        checkMissionaryProgressFilterVisitsSub(myReports.mpLastWeek, "WPRSacLastSunday");
-
-        //******************
-        //Sacrament Meeting Attendance - Last 2 weeks
-        //******************
-        checkMissionaryProgressFilterVisitsSub(myReports.mpLast2Weeks, "WPRSacLast2Weeks");
-
-        //******************
-        //Sacrament Meeting Attendance - Last 3 weeks
-        //******************
-        checkMissionaryProgressFilterVisitsSub(myReports.mpLast3Weeks, "WPRSacLast3Weeks");
-
-        //******************
-        //Sacrament Meeting Attendance - Last 4 weeks
-        //******************
-        checkMissionaryProgressFilterVisitsSub(myReports.mpLast4Weeks, "WPRSacLast4Weeks");
-
-        //******************
-        //Sacrament Meeting Attendance - Last 5 weeks
-        //******************
-        checkMissionaryProgressFilterVisitsSub(myReports.mpLast5Weeks, "WPRSacLast5Weeks");
-
-
-        Thread.sleep(1000);
-        myBasePage.backButton.click();
-        Thread.sleep(1000);
-
-    }
 
 
 

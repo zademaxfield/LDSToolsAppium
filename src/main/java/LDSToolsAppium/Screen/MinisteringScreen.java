@@ -127,13 +127,29 @@ public class MinisteringScreen extends BasePage {
 
 
 
+    //Assigned Ministering Sisters
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_assigned")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Assigned Ministering Sisters' AND type == 'XCUIElementTypeSwitch'")
+    public MobileElement assignedMinisteringSisters;
+
+    //Not Assigned Ministering Sisters
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_not_assigned")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Not Assigned Ministering Sisters' AND type == 'XCUIElementTypeSwitch'")
+    public MobileElement notAssignedMinisteringSisters;
+
+
+
     //Save Button for Filter
-    @AndroidFindBy(id ="\torg.lds.ldstools.dev:id/menu_item_save")
+    @AndroidFindBy(id ="org.lds.ldstools.dev:id/menu_item_save")
     public MobileElement ministeringFilterSave;
 
     //Expand filter button
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/filterHeaderArrow")
     public MobileElement ministeringExpandFilter;
+
+    //Remove filter button
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/removeFiltersButton")
+    public MobileElement ministeringRemoveFilter;
 
 
     public boolean validateDistrict( String districtToCheck ) {
@@ -158,7 +174,7 @@ public class MinisteringScreen extends BasePage {
     }
 
 
-    public void saveMissonaryProgressFilter() throws Exception {
+    public void saveMissonaryProgressFilter() {
         if (getOS().equals("mac")) {
             backButton.click();
         } else {
@@ -167,7 +183,7 @@ public class MinisteringScreen extends BasePage {
         }
 
     }
-    
+
 
 
 }

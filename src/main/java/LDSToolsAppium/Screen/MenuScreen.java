@@ -10,6 +10,7 @@ import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
@@ -109,5 +110,24 @@ public class MenuScreen extends BasePage {
             myElement.click();
         }
     }
+
+    public void menuLogOut() throws Exception {
+        SettingsScreen mySettings = new SettingsScreen(driver);
+
+        Thread.sleep(2000);
+        selectMenu(settings);
+
+        mySettings.signOut.click();
+
+        if (checkForElement(alertOK)) {
+            alertOK.click();
+        }
+
+
+        if (getOS().equals("mac")) {
+            driver.resetApp();
+        }
+    }
+
 
 }

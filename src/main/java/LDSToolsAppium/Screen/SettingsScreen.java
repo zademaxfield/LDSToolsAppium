@@ -19,6 +19,11 @@ public class SettingsScreen extends BasePage {
         PageFactory.initElements(new AppiumFieldDecorator(driver,10, TimeUnit.SECONDS), this);
     }
 
+    //Sign Out
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Sign Out')]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Sign Out'")
+    public  MobileElement signOut;
+
     // ********* Calendar *********
     //Months to Show
     @AndroidFindBy(xpath = "//*[contains(@text, 'Months to Show')]")

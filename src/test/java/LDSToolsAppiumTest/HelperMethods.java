@@ -119,6 +119,8 @@ public class HelperMethods extends BasePage {
 
         dismissWhatsNewPage();
 
+        Thread.sleep(2000);
+
         pressPinKeys(firstNumber);
         pressPinKeys(secondNumber);
         pressPinKeys(thirdNumber);
@@ -264,7 +266,10 @@ public class HelperMethods extends BasePage {
             myBasePage.scrollToTextNavMenu("Sync");
 
             Thread.sleep(4000);
-            myBasePage.alertOK.click();
+            if (myBasePage.checkForElement(myBasePage.alertOK)) {
+                myBasePage.alertOK.click();
+            }
+
 
             Thread.sleep(4000);
             myBasePage.waitUnitlTextIsGone("UAT");

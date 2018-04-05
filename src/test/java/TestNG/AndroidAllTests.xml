@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Android Login Page Test" configfailurepolicy="continue" verbose="2">
+<suite name="Android All Tests Suite" configfailurepolicy="continue" verbose="2">
 
-    <test name="Android Login Page Test">
+    <test name="Android All Tests">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="STF-Pool" />
@@ -16,11 +16,15 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+
             <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
             <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
             <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
             <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
         </classes>
     </test> <!-- Default test -->

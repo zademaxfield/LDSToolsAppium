@@ -5,7 +5,6 @@ import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.DirectoryEditScreen;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
-import org.apache.commons.collections.functors.ExceptionPredicate;
 import org.testng.Assert;
 import org.testng.annotations.NoInjection;
 import org.testng.annotations.Test;
@@ -22,14 +21,12 @@ public class DirectoryEditScreenTest extends BaseDriver {
     @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
     public void editCurrentUser(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
-        int myCounter = 0;
-        int rights = Integer.parseInt(rightsString);
+
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
@@ -106,14 +103,11 @@ public class DirectoryEditScreenTest extends BaseDriver {
     @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
     public void editCurrentUserCancel(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
-        int myCounter = 0;
-        int rights = Integer.parseInt(rightsString);
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
@@ -149,8 +143,6 @@ public class DirectoryEditScreenTest extends BaseDriver {
     @Test(dataProvider = "Members", groups = {"smoke4", "smoke", "all4", "all"})
     public void editOtherUser(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
-        int myCounter = 0;
-        int rights = Integer.parseInt(rightsString);
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
@@ -294,7 +286,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
     public void editEmailInvalid(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
 
         // ********* Constructor **********
@@ -379,7 +371,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
 
 
-    private void saveInvalid() throws Exception {
+    private void saveInvalid() {
         boolean failedFound;
 
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
@@ -402,7 +394,6 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         do {

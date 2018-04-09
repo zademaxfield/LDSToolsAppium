@@ -7,7 +7,7 @@
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
 
-    <test name="Android Smoke Test 1" thread-count="4" parallel="false" >
+    <test name="Android Smoke Test 1" thread-count="1" parallel="instances" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="ZX1G229FWM" />
@@ -34,7 +34,7 @@
         </classes>
     </test>
 
-    <test name="Android Smoke Test 2" thread-count="4" parallel="false" >
+    <test name="Android Smoke Test 2" thread-count="1" parallel="instances" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="8XV5T15A30006448" />
@@ -61,7 +61,7 @@
         </classes>
     </test>
 
-    <test name="Android Smoke Test 3" thread-count="4" parallel="false" >
+    <test name="Android Smoke Test 3" thread-count="1" parallel="instances" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="03aadbed215c8e5f" />
@@ -88,7 +88,7 @@
         </classes>
     </test>
 
-    <test name="Android Smoke Test 4" thread-count="4" parallel="false" >
+    <test name="Android Smoke Test 4" thread-count="1" parallel="instances" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="HT6AN0200005" />

@@ -38,7 +38,7 @@
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="8XV5T15A30006448" />
-        <parameter name="startSleepTime" value="0200" />
+        <parameter name="startSleepTime" value="30000" />
 
         <groups>
             <run>
@@ -65,7 +65,7 @@
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="03aadbed215c8e5f" />
-        <parameter name="startSleepTime" value="0200" />
+        <parameter name="startSleepTime" value="60000" />
 
         <groups>
             <run>
@@ -92,7 +92,7 @@
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="HT6AN0200005" />
-        <parameter name="startSleepTime" value="0200" />
+        <parameter name="startSleepTime" value="90000" />
 
         <groups>
             <run>

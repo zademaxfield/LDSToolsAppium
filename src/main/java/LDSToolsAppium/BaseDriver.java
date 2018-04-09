@@ -46,7 +46,7 @@ public class BaseDriver {
         //System.out.println("Port: " + myPort);
         //Start Appium Server for iOS or Android with the Random Port
         //AppiumService.startAppiumService(os, myPort);
-        myAppiumService.startAppiumService(os, myPort);
+        AppiumService.startAppiumService(os, myPort);
 
         driver = appiumCapabilities(os, fileName, testDevice, myPort);
 

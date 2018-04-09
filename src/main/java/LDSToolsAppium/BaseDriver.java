@@ -34,12 +34,13 @@ public class BaseDriver {
         int myPort;
         testOS = os;
 
-        //Get Random Port Number
-        myPort = getRandomPort();
-
         //Sleep so when multiple tests start they don't break
         System.out.println("Sleep Time: " + startSleepTime);
         Thread.sleep(startSleepTime);
+
+        //Get Random Port Number
+        myPort = getRandomPort();
+
 
         //System.out.println("OS: " + os);
         //System.out.println("Port: " + myPort);

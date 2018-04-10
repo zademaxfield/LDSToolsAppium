@@ -37,11 +37,10 @@ import org.junit.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 //import bsh.org.objectweb.asm.Type;
@@ -188,11 +187,11 @@ public class LDSWeb {
 		
 		openPageLogIn(url, userName, passWord);
 		
-		//setupMembers();
-		//setupAJcalling();
-		setupCallings();
-		setupDistricts();
-		addCompanionHousehold();
+//		setupMembers();
+//		setupAJcalling();
+//		setupCallings();
+//		setupDistricts();
+//		addCompanionHousehold();
 		addJaneAaronToClass();
 	}
 	
@@ -214,7 +213,7 @@ public class LDSWeb {
 		clickElement("Organizations", "linkText");
 		Thread.sleep(4000);
 		//clickElement("High Priests Group", "linkText");
-		clickElement("Home Teaching", "linkText");
+		clickElement("Elders Quorum", "linkText");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		//clickElement("HomeTeachingDropDown", "xpath");
@@ -223,11 +222,44 @@ public class LDSWeb {
 		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
 		Thread.sleep(2000);
 
+
 		clickElement("QuorumAuxSelect", "xpath");
-		clickElement("QuorumAuxHighPriest", "xpath");
+		clickElement("QuorumAuxElders", "xpath");
 		Thread.sleep(4000);
-		
+
 		selectDistrictHTVT("District 1");
+
+		// Create Companionship
+		addCompanionshipHTVT("lds21");
+		addCompanionshipHTVT("lds22");
+
+		//Add Households to Companionship
+		addHouseholdHTVT("afpten");
+		addHouseholdHTVT("lds23");
+		addHouseholdHTVT("lds24");
+		addHouseholdHTVT("lds5");
+		addHouseholdHTVT("lds11");
+
+		clickDistrictSaveButton("District 1");
+		//clickElement("MemberSave", "xpath");
+
+		selectDistrictHTVT("District 2");
+
+		// Create Companionship
+		addCompanionshipHTVT("lds11");
+		addCompanionshipHTVT("lds23");
+
+		//Add Households to Companionship
+		addHouseholdHTVT("lds14");
+		addHouseholdHTVT("lds15");
+
+		//clickElement("MemberSave", "xpath");
+		clickDistrictSaveButton("District 2");
+
+
+
+
+		selectDistrictHTVT("District 3");
 		
 		// Create Companionship
 		addCompanionshipHTVT("lds16");
@@ -238,7 +270,7 @@ public class LDSWeb {
 		addHouseholdHTVT("lds18");
 		addHouseholdHTVT("lds19");
 		
-		clickDistrictSaveButton("District 1");
+		clickDistrictSaveButton("District 3");
 		//clickElement("MemberSave", "xpath");
 		
 		clickElement("QuorumAuxSelect", "xpath");
@@ -250,6 +282,7 @@ public class LDSWeb {
 		// Create Companionship
 		addCompanionshipHTVT("lds26");
 		addCompanionshipHTVT("lds27");
+		addCompanionshipHTVT("lds12");
 		
 		//Add Households to Companionship
 		addHouseholdHTVT("lds38");
@@ -274,25 +307,7 @@ public class LDSWeb {
 		//clickElement("MemberSave", "xpath");
 		clickDistrictSaveButton("District 2");
 		
-		
-		clickElement("QuorumAuxSelect", "xpath");
-		clickElement("QuorumAuxElders", "xpath");
-		Thread.sleep(4000);
-		
-		selectDistrictHTVT("District 1");
-		
-		// Create Companionship
-		addCompanionshipHTVT("lds21");
-		addCompanionshipHTVT("lds22");
-		
-		//Add Households to Companionship
-		addHouseholdHTVT("afpten");
-		addHouseholdHTVT("lds23");
-		addHouseholdHTVT("lds24");
-		
-		clickDistrictSaveButton("District 1");
-		//clickElement("MemberSave", "xpath");
-		
+
 		Thread.sleep(2000);
 		clickElement("LCRHomeButton", "xpath");
 	}
@@ -326,7 +341,7 @@ public class LDSWeb {
 		clickElement("Organizations", "linkText");
 		Thread.sleep(4000);
 		//clickElement("High Priests Group", "linkText");
-		clickElement("Home Teaching", "linkText");
+		clickElement("Elders Quorum", "linkText");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		//clickElement("HomeTeachingDropDown", "xpath");
@@ -335,11 +350,18 @@ public class LDSWeb {
 		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
 		Thread.sleep(2000);
 
+//		clickElement("QuorumAuxSelect", "xpath");
+//		clickElement("QuorumAuxHighPriest", "xpath");
+//		Thread.sleep(4000);
+
 		clickElement("QuorumAuxSelect", "xpath");
-		clickElement("QuorumAuxHighPriest", "xpath");
+		clickElement("QuorumAuxElders", "xpath");
 		Thread.sleep(4000);
 
-		addDistrict("District 1", "Tools, LDS50" );
+
+		addDistrict("District 1", "Tools, LDS24" );
+		addDistrict("District 2", "Tools, LDS51" );
+		addDistrict("District 3", "Tools, LDS22" );
 
 		clickElement("QuorumAuxSelect", "xpath");
 		clickElement("QuorumAuxReliefSociety", "xpath");
@@ -348,11 +370,8 @@ public class LDSWeb {
 		addDistrict("District 1", "Tools, LDS52" );
 		addDistrict("District 2", "Tools, LDS53" );
 		
-		clickElement("QuorumAuxSelect", "xpath");
-		clickElement("QuorumAuxElders", "xpath");
-		Thread.sleep(4000);
-		
-		addDistrict("District 1", "Tools, LDS51" );
+
+
 		
 		Thread.sleep(2000);
 		clickElement("LCRHomeButton", "xpath");
@@ -370,33 +389,33 @@ public class LDSWeb {
 	}
 	
 	public void setupCallings() throws Exception {
-		
-		clickElement("Organizations", "linkText");
-		Thread.sleep(4000);
-		clickElement("High Priests Group", "linkText");
-		Thread.sleep(2000);
-		waitForTextToDisappear("Loading", 500, "id" );
-		clickElement("High Priests Group Leadership", "linkText");
-		
-		
-		addMemberToCalling("First Assistant", "lds17");
-		addMemberToCalling("Second Assistant", "lds18");
-		addMemberToCalling("Group Secretary", "lds19");
-		clickElement("Clear Filters", "linkText");
-		
-	
-		
-		clickElement("Organizations", "linkText");
-		Thread.sleep(4000);
-		clickElement("High Priests Group", "linkText");
-		Thread.sleep(2000);
-		waitForTextToDisappear("Loading", 500, "id" );
-		clickElement("Home Teaching District Supervisors", "linkText");
-		
-		addMemberToCalling("District Supervisor", "lds50");
-		clickElement("Clear Filters", "linkText");
-		
-		
+//
+//		clickElement("Organizations", "linkText");
+//		Thread.sleep(4000);
+//		clickElement("High Priests Group", "linkText");
+//		Thread.sleep(2000);
+//		waitForTextToDisappear("Loading", 500, "id" );
+//		clickElement("High Priests Group Leadership", "linkText");
+//
+//
+//		addMemberToCalling("First Assistant", "lds17");
+//		addMemberToCalling("Second Assistant", "lds18");
+//		addMemberToCalling("Group Secretary", "lds19");
+//		clickElement("Clear Filters", "linkText");
+//
+//
+//
+//		clickElement("Organizations", "linkText");
+//		Thread.sleep(4000);
+//		clickElement("High Priests Group", "linkText");
+//		Thread.sleep(2000);
+//		waitForTextToDisappear("Loading", 500, "id" );
+//		clickElement("Home Teaching District Supervisors", "linkText");
+//
+//		addMemberToCalling("District Supervisor", "Enele Wilson");
+//		clickElement("Clear Filters", "linkText");
+
+
 		
 		
 		clickElement("Organizations", "linkText");
@@ -406,7 +425,7 @@ public class LDSWeb {
 		waitForTextToDisappear("Loading", 500, "id" );
 		clickElement("Elders Quorum Presidency", "linkText");
 		
-		//addMemberToCalling("Elders Quorum President", "lds21");
+		addMemberToCalling("Elders Quorum President", "lds21");
 		addMemberToCalling("First Counselor", "lds22");
 		addMemberToCalling("Second Counselor", "lds23");
 		addMemberToCalling("Quorum Secretary", "lds24");
@@ -418,7 +437,7 @@ public class LDSWeb {
 		clickElement("Elders Quorum", "linkText");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
-		clickElement("Home Teaching District Supervisors", "linkText");
+		clickElement("home teaching district supervisors", "linkText");
 		
 		addMemberToCalling("District Supervisor", "lds51");
 		clickElement("Clear Filters", "linkText");
@@ -473,27 +492,32 @@ public class LDSWeb {
 	
 	public void setupMembers() throws Exception {
 		//Browse to the Membership page
-		clickElement("Organizations", "linkText");
-		Thread.sleep(4000);
-		clickElement("High Priests Group", "linkText");
-		Thread.sleep(2000);
-		waitForTextToDisappear("Loading", 500, "id" );
-		clickElement("Members", "linkText");
-		
-		addMemberToOrg("lds16");
-		addMemberToOrg("lds17");
-		addMemberToOrg("lds18");
-		addMemberToOrg("lds19");
-		addMemberToOrg("lds20");
-		addMemberToOrg("lds50");
-		
+//		clickElement("Organizations", "linkText");
+//		Thread.sleep(4000);
+//		clickElement("High Priests Group", "linkText");
+//		Thread.sleep(2000);
+//		waitForTextToDisappear("Loading", 500, "id" );
+//		clickElement("Members", "linkText");
+//
+//		addMemberToOrg("lds16");
+//		addMemberToOrg("lds17");
+//		addMemberToOrg("lds18");
+//		addMemberToOrg("lds19");
+//		addMemberToOrg("lds20");
+//		//addMemberToOrg("lds50");
+
 		clickElement("Organizations", "linkText");
 		Thread.sleep(4000);
 		clickElement("Elders Quorum", "linkText");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		clickElement("Members", "linkText");
-		
+
+		addMemberToOrg("lds16");
+		addMemberToOrg("lds17");
+		addMemberToOrg("lds18");
+		addMemberToOrg("lds19");
+		addMemberToOrg("lds20");
 		addMemberToOrg("lds21");
 		addMemberToOrg("lds22");
 		addMemberToOrg("lds23");
@@ -502,6 +526,9 @@ public class LDSWeb {
 		addMemberToOrg("lds51");
 		addMemberToOrg("lds31");
 		addMemberToOrg("lds32");
+		addMemberToOrg("lds5");
+		addMemberToOrg("lds6");
+		addMemberToOrg("lds11");
 		
 		
 		clickElement("Organizations", "linkText");
@@ -518,7 +545,8 @@ public class LDSWeb {
 		addMemberToOrg("lds30");
 		addMemberToOrg("lds52");
 		addMemberToOrg("lds53");
-		
+
+		addMemberToOrg("lds12");
 		
 		addMemberToOrg("aaron");
 		
@@ -589,6 +617,8 @@ public class LDSWeb {
 		
 		//openWebPage("https://www.lds.org");
 		Thread.sleep(2000);
+		System.out.println("User Name: " + userName);
+		System.out.println("Password: " + passWord);
 
 		driver.findElement(By.id(this.prop.getProperty("UserName"))).sendKeys(userName);
 		//Thread.sleep(1000);

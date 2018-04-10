@@ -146,7 +146,7 @@ public class BaseDriver {
 
 
 
-    @AfterTest(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void afterAllTests() throws Exception {
         System.out.println("Stopping the driver");
         if (getRunningOS().equals("mac")) {

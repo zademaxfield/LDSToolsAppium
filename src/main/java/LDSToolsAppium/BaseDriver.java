@@ -23,7 +23,9 @@ public class BaseDriver {
     public AppiumDriver<MobileElement> driver;
     public String deviceSerial = "";
     public String testOS = "";
-    public AppiumService myAppiumService;
+    //public AppiumService myAppiumService;
+    public AppiumService myAppiumService = new AppiumService();
+
     protected LDSToolsApp app;
     public LDSWeb myWeb = new LDSWeb();
 
@@ -31,6 +33,7 @@ public class BaseDriver {
     @BeforeClass(alwaysRun = true)
     @Parameters({"os", "fileName", "testDevice", "startSleepTime"})
     public void setUp(String os, String fileName, String testDevice, int startSleepTime) throws Exception {
+
         int myPort;
         testOS = os;
 
@@ -45,8 +48,15 @@ public class BaseDriver {
         //System.out.println("OS: " + os);
         //System.out.println("Port: " + myPort);
         //Start Appium Server for iOS or Android with the Random Port
-        //AppiumService.startAppiumService(os, myPort);
+        //myAppiumService.startAppiumService(os, myPort);
         AppiumService.startAppiumService(os, myPort);
+
+
+        //AppiumService.startAppiumService(os, myPort);
+
+
+
+
 
         driver = appiumCapabilities(os, fileName, testDevice, myPort);
 
@@ -136,7 +146,7 @@ public class BaseDriver {
 
 
 
-    @AfterSuite(alwaysRun = true)
+    @AfterTest(alwaysRun = true)
     public void afterAllTests() throws Exception {
         System.out.println("Stopping the driver");
         if (getRunningOS().equals("mac")) {
@@ -170,7 +180,7 @@ public class BaseDriver {
         System.out.println("Killing Chrome and chromedriver");
         killProcess("Chrome");
         killProcess("chromedriver");
-        AppiumService.stopAppiumService();
+        myAppiumService.stopAppiumService();
 
         Thread.sleep(1000);
         System.out.println("Killing the Appium Service");
@@ -237,6 +247,7 @@ public class BaseDriver {
             }
 
             capabilities.setCapability("deviceName", testDevice);
+            capabilities.setCapability("udid", testDevice);
             capabilities.setCapability("platformName", "android");
             capabilities.setCapability("automationName","uiautomator2");
             capabilities.setCapability("appPackage", myAppPackage);

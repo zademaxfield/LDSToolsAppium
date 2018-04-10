@@ -13,8 +13,8 @@ public class AppiumService {
 
 
 	public static void startAppiumService(String os, int myPort) throws Exception {
-		//System.out.println("OS: " + os);
-		//System.out.println("PORT: " + myPort);
+		System.out.println("OS: " + os);
+		System.out.println("PORT: " + myPort);
 
 		System.out.println("Creating Appium Service");
 		File appiumLogFile = new File("screenshot/myAppiumLog.txt");
@@ -24,14 +24,16 @@ public class AppiumService {
 				.usingPort(myPort)
 				.withIPAddress("127.0.0.1")
 				.withLogFile(appiumLogFile)
+				.withArgument(GeneralServerFlag.SESSION_OVERRIDE)
 				.withArgument(GeneralServerFlag.LOG_LEVEL, "error")
 				.build();
 		System.out.println("Starting Appium");
 		myAppiumService.start();
+		Thread.sleep(3000);
 
 	}
 	
-	public static boolean appiumServiceRunning() {
+	public boolean appiumServiceRunning() {
 		boolean runningStatus = false;
 		
 		runningStatus = myAppiumService.isRunning();
@@ -41,7 +43,7 @@ public class AppiumService {
 		
 	}
 	
-	public static String appiumServiceURL() {
+	public String appiumServiceURL() {
 		String stringURL;
 		
 		stringURL = myAppiumService.getUrl().toString();
@@ -51,7 +53,7 @@ public class AppiumService {
 		
 	}
 	
-	public static void stopAppiumService() {
+	public void stopAppiumService() {
 		myAppiumService.stop();
 	}
 

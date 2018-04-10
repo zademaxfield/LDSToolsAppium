@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">-->
-<suite name="Android Smoke Test" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
+<suite name="iOS Smoke Test" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
     <listeners>
         <listener class-name="LDSToolsAppium.RetryListener"/>
         <listener class-name= "LDSToolsAppium.CustomReporter" />
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
 
-    <test name="Android Smoke Test 1" thread-count="1" parallel="false" >
-        <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="ZX1G229FWM" />
+    <test name="iOS Smoke Test 1" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDS Tools.app" />
+        <parameter name="testDevice" value="REAL-Z6plus" />
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -34,10 +34,10 @@
         </classes>
     </test>
 
-    <test name="Android Smoke Test 2" thread-count="1" parallel="false" >
-        <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="8XV5T15A30006448" />
+    <test name="iOS Smoke Test 2" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDS Tools.app" />
+        <parameter name="testDevice" value="REAL-Z6Splus" />
         <parameter name="startSleepTime" value="60000" />
 
         <groups>
@@ -61,10 +61,10 @@
         </classes>
     </test>
 
-    <test name="Android Smoke Test 3" thread-count="1" parallel="false" >
-        <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="03aadbed215c8e5f" />
+    <test name="iOS Smoke Test 3" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDS Tools.app" />
+        <parameter name="testDevice" value="REAL-ZiPhone7" />
         <parameter name="startSleepTime" value="120000" />
 
         <groups>
@@ -88,10 +88,10 @@
         </classes>
     </test>
 
-    <test name="Android Smoke Test 4" thread-count="1" parallel="false" >
-        <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="HT6AN0200005" />
+    <test name="iOS Smoke Test 4" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDS Tools.app" />
+        <parameter name="testDevice" value="REAL-ZiPhone7plus" />
         <parameter name="startSleepTime" value="180000" />
 
         <groups>

@@ -100,7 +100,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void editCurrentUserCancel(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
 
@@ -128,6 +128,9 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("home@gmail.com");
 
         myEditDirectory.cancelButton.click();
+        if (!getRunningOS().equals("mac")) {
+            myBasePage.alertOK.click();
+        }
 
         Thread.sleep(3000);
         pageSource = myDirectory.getDirectoryUserData();
@@ -343,7 +346,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     }
 
     //Todo: needs more work
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
     public void editVisibility(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
 
         // ********* Constructor **********

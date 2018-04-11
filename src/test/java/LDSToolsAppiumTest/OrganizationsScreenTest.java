@@ -23,7 +23,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -36,7 +36,6 @@ public class OrganizationsScreenTest extends BaseDriver {
         //Login and enter in PIN
         myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
-        myHelper.whatsNewPressDone();
 
         myMenu.selectMenu(myMenu.organizations);
         if (rights <= 3) {

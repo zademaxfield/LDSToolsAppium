@@ -112,9 +112,9 @@ public class OrganizationsScreen extends BasePage {
     @iOSFindBy(accessibility = "Relief Society Presidency")
     public MobileElement reliefSocietyPresidency;
 
-    //Relief Society Visiting Teaching
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Visiting Teaching']")
-    @iOSFindBy(accessibility = "Visiting Teaching")
+    //Relief Society Ministering
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ministering']")
+    @iOSFindBy(accessibility = "Ministering")
     public MobileElement reliefSocietyVisitingTeaching;
 
     //Relief Society Music

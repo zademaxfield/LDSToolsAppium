@@ -84,7 +84,7 @@ public class MinisteringScreenTest extends BaseDriver {
             pageSource = myBasePage.getSourceOfPage();
 
             Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
         } else {
             pageSource = myBasePage.getSourceOfPage();
@@ -265,7 +265,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
 
         } else {
@@ -274,7 +274,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -300,7 +300,7 @@ public class MinisteringScreenTest extends BaseDriver {
             pageSource = myBasePage.getSourceOfPage();
 
             Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
 
             //Check Filters
             assignedMinisteringSisters();
@@ -373,7 +373,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
     public void potentialMinisteringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -463,7 +463,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Faapili", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
 
         //Clear Filter
@@ -583,7 +583,7 @@ public class MinisteringScreenTest extends BaseDriver {
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
         //Clear Filter
         clearFilter(myMinistering.notAssignedMinisteringSisters);
@@ -602,7 +602,7 @@ public class MinisteringScreenTest extends BaseDriver {
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Faauma", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
         //Clear Filter
         clearFilter(myMinistering.newAndMovedInMembers);
@@ -621,7 +621,7 @@ public class MinisteringScreenTest extends BaseDriver {
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
         //Clear Filter
         clearFilter(myMinistering.singleSistersAges18to30);
@@ -640,7 +640,7 @@ public class MinisteringScreenTest extends BaseDriver {
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
         //Clear Filter
         clearFilter(myMinistering.singleSistersAge31AndOver);

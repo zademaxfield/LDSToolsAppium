@@ -18,7 +18,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
     public void editCurrentUser(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
 
@@ -47,6 +47,8 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("home@gmail.com");
 
         savingMemberInfo();
+
+        Thread.sleep(4000);
 
         pageSource = myDirectory.getDirectoryUserData();
 
@@ -100,7 +102,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
     public void editCurrentUserCancel(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
 

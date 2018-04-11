@@ -148,6 +148,61 @@ public class HelperMethods extends BasePage {
 
     }
 
+    public void enterPinKeepWhatsNew(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
+        // ********** Page Instantiations **********
+        //HelperMethods myHelper = new HelperMethods(driver);
+        PinScreen myPin = new PinScreen(driver);
+        MenuScreen myMenuScreen = new MenuScreen(driver);
+
+
+        if (checkForElement(myPin.pinAlertDialogOK)) {
+            myPin.pinAlertDialogOK.click();
+        }
+
+        //This is for iOS on a non leader login
+        if (checkForElement(myPin.pinAlertDialogYes)) {
+            myPin.pinAlertDialogYes.click();
+        }
+
+        //Check for Face ID then Disable Face ID
+        System.out.println("Checking for Face ID");
+        if (checkTextOnPage("Face ID")) {
+            System.out.println("Face ID found hitting disable");
+            myPin.pinDisableFaceID.click();
+            Thread.sleep(2000);
+            myPin.pinAlertDialogOK.click();
+        }
+
+        //Check for Touch ID then press the ID
+        System.out.println("Checking for Touch ID");
+        if (checkTextOnPage("Touch ID")) {
+            System.out.println("Enable Touch ID Button found, hitting the button");
+            myPin.pinDisableTouchID.click();
+            Thread.sleep(2000);
+            myPin.pinAlertDialogOK.click();
+        }
+
+
+        Thread.sleep(2000);
+
+        pressPinKeys(firstNumber);
+        pressPinKeys(secondNumber);
+        pressPinKeys(thirdNumber);
+        pressPinKeys(fourthNumber);
+
+        Thread.sleep(2000);
+
+        pressPinKeys(firstNumber);
+        pressPinKeys(secondNumber);
+        pressPinKeys(thirdNumber);
+        pressPinKeys(fourthNumber);
+
+        Thread.sleep(2000);
+
+
+
+    }
+
     private void checkForLater() {
         MenuScreen myMenuScreen = new MenuScreen(driver);
         if (checkForElement(myMenuScreen.laterButton)) {

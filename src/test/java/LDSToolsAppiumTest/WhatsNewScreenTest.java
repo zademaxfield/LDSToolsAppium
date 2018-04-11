@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class WhatsNewScreenTest extends BaseDriver {
 
-    @Test ( groups = {"all1", "all", "smoke", "smoke1"})
+    @Test ( groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void whatsNewSimple() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);
@@ -20,12 +20,13 @@ public class WhatsNewScreenTest extends BaseDriver {
 
 
         myHelper.loginUAT("LDSTools2", "toolstester");
-        myHelper.enterPin("1", "1", "3", "3");
+        myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
 
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Version 3.3.2", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adjust your location on a map", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Version 3.4.1", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Caller ID", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ministering", pageSource, "Contains"));
 
 
         myWhatsNew.whatsNewDone.click();

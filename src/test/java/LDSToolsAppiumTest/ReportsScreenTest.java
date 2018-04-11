@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"}, enabled = false)
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"}, enabled = false)
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -97,9 +97,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
-        if (myBasePage.getOS().equals("mac")) {
-            myWhatsNew.whatsNewDone.click();
-        }
+
 
 
         if (rights <= 2) {

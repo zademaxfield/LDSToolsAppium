@@ -3,13 +3,14 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.Screen.PinScreen;
 import org.testng.Assert;
+import org.testng.annotations.NoInjection;
 import org.testng.annotations.Test;
 
 
 public class PinScreenTest extends BaseDriver {
 
-    @Test ( groups = {"all1", "all"})
-    public void pinRepeatTest() throws Exception {
+    @Test ( dataProvider = "Members", groups = {"all1", "all"})
+    public void pinRepeatTest(@NoInjection String userName) throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
         myHelper.loginUAT("LDSTools2", "toolstester");
@@ -61,8 +62,8 @@ public class PinScreenTest extends BaseDriver {
 
     }
 
-    @Test ( groups = {"all1", "all"})
-    public void pinNoMatchTest() throws Exception {
+    @Test (dataProvider = "Members",  groups = {"all1", "all"})
+    public void pinNoMatchTest(@NoInjection String userName) throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
         myHelper.loginUAT("LDSTools2", "toolstester");
@@ -92,8 +93,8 @@ public class PinScreenTest extends BaseDriver {
 
     }
 
-    @Test ( groups = {"all1", "all"})
-    public void pinSequentialTest() throws Exception {
+    @Test (dataProvider = "Members",  groups = {"all1", "all"})
+    public void pinSequentialTest(@NoInjection String userName) throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
         myHelper.loginUAT("LDSTools2", "toolstester");

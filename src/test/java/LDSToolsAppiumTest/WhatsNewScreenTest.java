@@ -5,13 +5,14 @@ import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.PinScreen;
 import LDSToolsAppium.Screen.WhatsNewScreen;
 import org.testng.Assert;
+import org.testng.annotations.NoInjection;
 import org.testng.annotations.Test;
 
 
 public class WhatsNewScreenTest extends BaseDriver {
 
-    @Test ( groups = {"all1", "all", "smoke", "smoke1", "jft"})
-    public void whatsNewSimple() throws Exception {
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
+    public void whatsNewSimple(@NoInjection String userName) throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);

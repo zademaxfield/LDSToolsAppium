@@ -190,7 +190,8 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.selectDistrict("District 2");
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS51", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("LDS11", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("LDS23", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
 
             if (getRunningOS().equals("mac")) {
@@ -378,7 +379,7 @@ public class MinisteringScreenTest extends BaseDriver {
             //Select District 1
             myMinistering.selectDistrict("District 1");
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS52", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("LDS12", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 
             if (getRunningOS().equals("mac")) {

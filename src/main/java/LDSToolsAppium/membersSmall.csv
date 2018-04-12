@@ -1,3 +1,5 @@
 LDSTools2,toolstester,1,bishopric
 LDSTools5,toolstester,4,member
-LDSTools16,password1,2,highpriest
+LDSTools21,password1,2,elders
+LDSTools26,password1,2,reliefsociety
+LDSTools31,password1,2,wardcouncil

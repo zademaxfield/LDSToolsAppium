@@ -145,7 +145,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(dataProvider = "Members", groups = {"smoke4", "smoke", "all4", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke4", "smoke", "all4", "all", "jft"})
     public void editOtherUser(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
 
@@ -348,7 +348,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     }
 
     //Todo: needs more work
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
     public void editVisibility(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
 
         // ********* Constructor **********

@@ -187,11 +187,11 @@ public class LDSWeb {
 		
 		openPageLogIn(url, userName, passWord);
 		
-//		setupMembers();
-//		setupAJcalling();
-//		setupCallings();
-//		setupDistricts();
-//		addCompanionHousehold();
+		setupMembers();
+		setupAJcalling();
+		setupCallings();
+		setupDistricts();
+		addCompanionHousehold();
 		addJaneAaronToClass();
 	}
 	
@@ -213,7 +213,8 @@ public class LDSWeb {
 		clickElement("Organizations", "linkText");
 		Thread.sleep(4000);
 		//clickElement("High Priests Group", "linkText");
-		clickElement("Elders Quorum", "linkText");
+		//clickElement("Elders Quorum", "linkText");
+		clickElement("EldersMinistering", "xpath");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		//clickElement("HomeTeachingDropDown", "xpath");
@@ -341,7 +342,8 @@ public class LDSWeb {
 		clickElement("Organizations", "linkText");
 		Thread.sleep(4000);
 		//clickElement("High Priests Group", "linkText");
-		clickElement("Elders Quorum", "linkText");
+		//clickElement("Elders Quorum", "linkText");
+		clickElement("EldersMinistering", "xpath");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		//clickElement("HomeTeachingDropDown", "xpath");
@@ -349,6 +351,7 @@ public class LDSWeb {
 		Thread.sleep(2000);
 		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
 		Thread.sleep(2000);
+
 
 //		clickElement("QuorumAuxSelect", "xpath");
 //		clickElement("QuorumAuxHighPriest", "xpath");
@@ -360,7 +363,7 @@ public class LDSWeb {
 
 
 		addDistrict("District 1", "Tools, LDS24" );
-		addDistrict("District 2", "Tools, LDS51" );
+		addDistrict("District 2", "Tools, LDS31" );
 		addDistrict("District 3", "Tools, LDS22" );
 
 		clickElement("QuorumAuxSelect", "xpath");
@@ -437,20 +440,22 @@ public class LDSWeb {
 		clickElement("Elders Quorum", "linkText");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
-		clickElement("home teaching district supervisors", "linkText");
-		
-		addMemberToCalling("District Supervisor", "lds51");
+		clickElement("Ministering", "linkText");
+
+		addMemberToCalling("Elders Quorum Ministering Coordinator", "lds51");
+		addMemberToCalling("Elders Quorum Ministering Supervisor", "lds31");
 		clickElement("Clear Filters", "linkText");
 		
+
 		clickElement("Organizations", "linkText");
 		Thread.sleep(4000);
 		clickElement("Relief Society", "linkText");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
-		clickElement("Visiting Teaching", "linkText");
+		clickElement("Ministering", "linkText");
 		
-		addMemberToCalling("Teaching Coordinator", "lds52");
-		addMemberToCalling("Teaching District Supervisor", "lds53");
+		addMemberToCalling("Relief Society Ministering Coordinator", "lds52");
+		addMemberToCalling("Relief Society Ministering Supervisor", "lds53");
 		clickElement("Clear Filters", "linkText");
 		
 		Thread.sleep(2000);

@@ -56,7 +56,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringUnassignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -83,8 +83,13 @@ public class MinisteringScreenTest extends BaseDriver {
 
             pageSource = myBasePage.getSourceOfPage();
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            if (calling.equals("reliefsociety") || (calling.equals("wardcouncil"))) {
+                Assert.assertFalse(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            } else {
+                Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            }
 
         } else {
             pageSource = myBasePage.getSourceOfPage();
@@ -117,17 +122,23 @@ public class MinisteringScreenTest extends BaseDriver {
 
             pageSource = myBasePage.getSourceOfPage();
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
-            //Check Filters
-            assignedMinisteringBrothers();
-            notAssignedMinisteringBrothers();
-            newAndMovedInMembers();
-            ssAges18to30();
-            ssAge32AndOlder();
-            sbAges18to30();
-            sbAge32AndOlder();
+            if (calling.equals("reliefsociety") || (calling.equals("wardcouncil"))) {
+                Assert.assertFalse(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            } else {
+                Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+                //Check Filters
+                assignedMinisteringBrothers();
+                notAssignedMinisteringBrothers();
+                newAndMovedInMembers();
+                ssAges18to30();
+                ssAge32AndOlder();
+                sbAges18to30();
+                sbAge32AndOlder();
+            }
 
 
         } else {
@@ -230,8 +241,16 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.potentialMinisteringBrothers.click();
 
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("AFPSix", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
+
+
+            if (calling.equals("reliefsociety") || (calling.equals("wardcouncil"))) {
+                Assert.assertFalse(myBasePage.checkNoCaseList("AFPSix", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
+            } else {
+                Assert.assertTrue(myBasePage.checkNoCaseList("AFPSix", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
+            }
+
 
 
         } else {
@@ -264,8 +283,14 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.unassignedSisters.click();
 
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+            if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
+                Assert.assertFalse(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            } else {
+                Assert.assertTrue(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            }
 
 
         } else {
@@ -274,7 +299,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
     public void ministeringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -299,16 +324,21 @@ public class MinisteringScreenTest extends BaseDriver {
 
             pageSource = myBasePage.getSourceOfPage();
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
 
-            //Check Filters
-            assignedMinisteringSisters();
-            notAssignedMinisteringSisters();
-            newAndMovedInMembersSisters();
-            ssAges18to30Sisters();
-            ssAge32AndOlderSisters();
+            if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
+                Assert.assertFalse(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
+            } else {
+                Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
 
+                //Check Filters
+                assignedMinisteringSisters();
+                notAssignedMinisteringSisters();
+                newAndMovedInMembersSisters();
+                ssAges18to30Sisters();
+                ssAge32AndOlderSisters();
+            }
 
 
         } else {
@@ -397,8 +427,14 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.potentialMinisteringSisters.click();
 
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+            if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
+                Assert.assertFalse(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            } else {
+                Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            }
 
 
         } else {

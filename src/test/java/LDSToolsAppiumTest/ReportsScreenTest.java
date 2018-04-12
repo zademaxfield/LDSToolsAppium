@@ -28,9 +28,6 @@ public class ReportsScreenTest extends BaseDriver {
 
         myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
-        if (myBasePage.getOS().equals("mac")) {
-            myWhatsNew.whatsNewDone.click();
-        }
 
 
         if (rights <= 3) {
@@ -59,6 +56,9 @@ public class ReportsScreenTest extends BaseDriver {
             myBasePage.rightsCheck("Temple Recommend Status", 1, rights, pageSource);
             myBasePage.rightsCheck("Unit Statistics", 2, rights, pageSource);
             myBasePage.rightsCheck("Visiting Teaching", 2, rights, pageSource);
+
+            //This will need to be removed soon
+            Assert.assertFalse(myBasePage.checkNoCaseList("quarterly", pageSource, "Contains"));
 
             getMembersMovedInReport(rights);
             getMembersMovedOutReport(rights);

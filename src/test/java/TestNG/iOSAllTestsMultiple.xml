@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">-->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="iOS All Test" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
     <listeners>
         <listener class-name="LDSToolsAppium.RetryListener"/>
@@ -37,7 +37,7 @@
     <test name="iOS All Test 2" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
-        <parameter name="testDevice" value="REAL-Z6Splus" />
+        <parameter name="testDevice" value="REAL-Z6SPlus" />
         <parameter name="startSleepTime" value="60000" />
 
         <groups>
@@ -91,7 +91,7 @@
     <test name="iOS All Test 4" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
-        <parameter name="testDevice" value="REAL-ZiPhone7plus" />
+        <parameter name="testDevice" value="REAL-Ziphone7plus" />
         <parameter name="startSleepTime" value="180000" />
 
         <groups>

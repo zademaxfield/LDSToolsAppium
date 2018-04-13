@@ -18,8 +18,8 @@ public class DirectoryEditScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
-    public void editCurrentUser(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+    @Test(groups = {"smoke2", "smoke", "all2", "all"})
+    public void editCurrentUser() throws Exception {
         String pageSource;
 
 
@@ -102,8 +102,8 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
-    public void editCurrentUserCancel(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+    @Test(groups = {"smoke3", "smoke", "all3", "all"})
+    public void editCurrentUserCancel() throws Exception {
         String pageSource;
 
         // ********* Constructor **********
@@ -145,8 +145,8 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(dataProvider = "Members", groups = {"smoke4", "smoke", "all4", "all", "jft"})
-    public void editOtherUser(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+    @Test(groups = {"smoke4", "smoke", "all4", "all"})
+    public void editOtherUser() throws Exception {
         String pageSource;
 
         // ********* Constructor **********
@@ -235,8 +235,8 @@ public class DirectoryEditScreenTest extends BaseDriver {
     }
 
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
-    public void editPhoneInvalid(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+    @Test(groups = {"smoke1", "smoke", "all1", "all"})
+    public void editPhoneInvalid() throws Exception {
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
@@ -291,8 +291,8 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
-    public void editEmailInvalid(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+    @Test(groups = {"smoke1", "smoke", "all1", "all"})
+    public void editEmailInvalid() throws Exception {
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
@@ -348,8 +348,8 @@ public class DirectoryEditScreenTest extends BaseDriver {
     }
 
     //Todo: needs more work
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
-    public void editVisibility(@NoInjection String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    public void editVisibility() throws Exception {
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);

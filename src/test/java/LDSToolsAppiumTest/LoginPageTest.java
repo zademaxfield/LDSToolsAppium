@@ -21,8 +21,8 @@ public class LoginPageTest extends BaseDriver {
 //    }
 
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "login"})
-    public void validateLoginPage(@NoInjection String userName) {
+    @Test (groups = {"all2", "all", "login"})
+    public void validateLoginPage() {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
 
@@ -48,75 +48,75 @@ public class LoginPageTest extends BaseDriver {
     }
 
     // ******************* Invalid Password Tests *******************
-    @Test (dataProvider = "Members", groups = {"all3", "all", "login"})
-    public void invalidPasswordTest1(@NoInjection String userName) throws Exception {
+    @Test (groups = {"all3", "all", "login"})
+    public void invalidPasswordTest1() throws Exception {
         invalidCheck("LDSTools2", "<login>");
     }
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "login"})
-    public void invalidPasswordTest2(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all4", "all", "login"})
+    public void invalidPasswordTest2() throws Exception {
         invalidCheck("LDSTools2", "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
     }
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "login"})
-    public void invalidPasswordTest3(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all1", "all", "login"})
+    public void invalidPasswordTest3() throws Exception {
         invalidCheck("LDSTools2", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "login"})
-    public void invalidPasswordTest4(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all2", "all", "login"})
+    public void invalidPasswordTest4() throws Exception {
         invalidCheck("LDSTools2", "/password/");
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "login"})
-    public void invalidPasswordTest5(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all3", "all", "login"})
+    public void invalidPasswordTest5() throws Exception {
         invalidCheck("LDSTools2", "!@#$%%^&**())__+_!@@!#!$%#@%^*&%&*(^*()(&(&*(%^&$#%@$!#$%$#^#$%^^&*(^%}|{|{|}{|}{|}{}|{|}{}|{|}{||||}|{}{|}{");
     }
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "login"})
-    public void invalidPasswordTest6(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all4", "all", "login"})
+    public void invalidPasswordTest6() throws Exception {
         invalidCheck("LDSTools2", "select * from directory");
     }
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "login"})
-    public void invalidPasswordTest7(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all1", "all", "login"})
+    public void invalidPasswordTest7() throws Exception {
         invalidCheck("LDSTools2", " toolstester");
     }
 
 
     // ******************* Invalid Username Tests *******************
-    @Test (dataProvider = "Members", groups = {"all4", "all", "login"})
-    public void invalidUsernameTest1(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all4", "all", "login"})
+    public void invalidUsernameTest1() throws Exception {
         invalidCheck("LDSTools20", "toolstester");
     }
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "login"})
-    public void invalidUsernameTest2(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all1", "all", "login"})
+    public void invalidUsernameTest2() throws Exception {
         invalidCheck("LDSTools2", "password1");
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "login"})
-    public void invalidUsernameTest3(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all2", "all", "login"})
+    public void invalidUsernameTest3() throws Exception {
         invalidCheck("********", "isjlsdkj");
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "login"})
-    public void invalidUsernameTest4(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all3", "all", "login"})
+    public void invalidUsernameTest4() throws Exception {
         invalidCheck("select * from directory", "password1");
     }
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "login"})
-    public void invalidUsernameTest5(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all4", "all", "login"})
+    public void invalidUsernameTest5() throws Exception {
         invalidCheck("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", "password1");
     }
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "login"})
-    public void invalidUsernameTest6(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all1", "all", "login"})
+    public void invalidUsernameTest6() throws Exception {
         invalidCheck("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", "password1");
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "login"})
-    public void invalidUsernameTest7(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all2", "all", "login"})
+    public void invalidUsernameTest7() throws Exception {
         invalidCheck(" LDSTools2", "toolstester");
     }
 
@@ -125,33 +125,33 @@ public class LoginPageTest extends BaseDriver {
 
 
     // ******************* Invalid Username and Password Tests *******************
-    @Test (dataProvider = "Members", groups = {"all1", "all", "login"})
-    public void invalidUsernameAndPasswordTest1(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all1", "all", "login"})
+    public void invalidUsernameAndPasswordTest1() throws Exception {
         invalidCheck("sfjksdjissldjskldjslfjslfj", "toolste@#@$#^#$&%*%*&ster");
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "login"})
-    public void invalidUsernameAndPasswordTest2(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all2", "all", "login"})
+    public void invalidUsernameAndPasswordTest2() throws Exception {
         invalidCheck("HanSolo", "<><><><><><><><><>");
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "login"})
-    public void invalidUsernameAndPasswordTest3(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all3", "all", "login"})
+    public void invalidUsernameAndPasswordTest3() throws Exception {
         invalidCheck("This is a bad username test", "This is a bad password test");
     }
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "login"})
-    public void invalidUsernameAndPasswordTest4(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all4", "all", "login"})
+    public void invalidUsernameAndPasswordTest4() throws Exception {
         invalidCheck("select * from directory", "^^^^^^^^^^^^");
     }
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "login"})
-    public void invalidUsernameAndPasswordTest5(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all1", "all", "login"})
+    public void invalidUsernameAndPasswordTest5() throws Exception {
         invalidCheck("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "login"})
-    public void invalidUsernameAndPasswordTest6(@NoInjection String userName) throws Exception {
+    @Test ( groups = {"all2", "all", "login"})
+    public void invalidUsernameAndPasswordTest6() throws Exception {
         invalidCheck("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
     }
 

@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 
 public class WhatsNewScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
-    public void whatsNewSimple(@NoInjection String userName) throws Exception {
+    @Test (groups = {"all1", "all", "smoke", "smoke1", "jft"})
+    public void whatsNewSimple() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);

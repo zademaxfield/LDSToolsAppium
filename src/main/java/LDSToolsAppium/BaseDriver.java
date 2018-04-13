@@ -74,10 +74,10 @@ public class BaseDriver {
         myGroup = includedGroups.toString();
         System.out.println("GROUP: " + myGroup);
         if (myGroup.contains("smoke")) {
-            System.out.println("Found smoke");
+            System.out.println("Found smoke ");
             myFileName = "src/main/java/LDSToolsAppium/membersSmall.csv";
         } else if (myGroup.contains("all")) {
-            System.out.println("Found all");
+            System.out.println("Found all ");
             myFileName = "src/main/java/LDSToolsAppium/members.csv";
         }
 

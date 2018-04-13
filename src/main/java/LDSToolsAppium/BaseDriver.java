@@ -70,9 +70,12 @@ public class BaseDriver {
     public Iterator<Object []> provider(ITestContext context) throws InterruptedException {
         String myFileName = "src/main/java/LDSToolsAppium/membersOne.csv";;
         List<String> includedGroups = Arrays.asList(context.getIncludedGroups());
+        System.out.println("GROUP: " + includedGroups);
         if (includedGroups.contains("smoke")) {
+            System.out.println("Found smoke");
             myFileName = "src/main/java/LDSToolsAppium/membersSmall.csv";
         } else if (includedGroups.contains("all")) {
+            System.out.println("Found all");
             myFileName = "src/main/java/LDSToolsAppium/members.csv";
         }
 

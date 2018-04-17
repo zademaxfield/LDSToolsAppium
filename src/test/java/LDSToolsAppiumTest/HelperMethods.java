@@ -74,6 +74,7 @@ public class HelperMethods extends BasePage {
             }
             backButton.click();
             scrollToText("Network Environment");
+            //mySettings.resetWhatsNewPrompt.click();
 
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();

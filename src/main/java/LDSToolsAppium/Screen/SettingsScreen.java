@@ -178,6 +178,10 @@ public class SettingsScreen extends BasePage {
     @AndroidFindBy(xpath = "//*[contains(@text, 'Minutes Between Profile Prompts')]")
     public  MobileElement minutesBetweenProfilePrompts;
 
+    //Reset What's New Prompt
+    @AndroidFindBy(xpath = "//*[contains(@text, 'New Prompt')]")
+    public  MobileElement resetWhatsNewPrompt;
+
     //Network Environment
     @AndroidFindBy(xpath = "//*[contains(@text, 'Network Environment')]")
     @iOSFindBy(xpath = "//*[contains(@name, 'Environment')]")

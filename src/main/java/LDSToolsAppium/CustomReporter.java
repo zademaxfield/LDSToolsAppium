@@ -51,14 +51,6 @@ public class CustomReporter implements IReporter{
 					print("<b>" + testResult.getName() + "</b>");
 					print(" " + testResult.getThrowable());
 					print("<br />");
-					print("<b> Instance Name: " + testResult.getInstanceName() + "</b>");
-					print("<b> Instance Host: " + testResult.getHost() + "</b>");
-					print("<b> Instance Test Name: " + testResult.getTestName() + "</b>");
-					print("<b> Instance Get Method Name: " + testResult.getMethod().getMethodName() + "</b>");
-					print("<b> Instance Get Method Description: " + testResult.getMethod().getDescription() + "</b>");
-					print("<b> Instance Get Method ID: " + testResult.getMethod().getId() + "</b>");
-					print("<b> Instance Get Method Qualified Name: " + testResult.getMethod().getQualifiedName() + "</b>");
-					print("<br />");
 				}
 				
 				//Passed Tests
@@ -68,14 +60,6 @@ public class CustomReporter implements IReporter{
 				print("Passed: " + testsPassed.size());
 				for (ITestResult testResult : testsPassed) {
 					print(" " + testResult.getName() + " took: " + (testResult.getEndMillis() - testResult.getStartMillis()) + "ms");
-					print("<br />");
-					print("<b> Instance Name: " + testResult.getInstanceName() + "</b>");
-					print("<b> Instance Host: " + testResult.getHost() + "</b>");
-					print("<b> Instance Test Name: " + testResult.getTestName() + "</b>");
-					print("<b> Instance Get Method Name: " + testResult.getMethod().getMethodName() + "</b>");
-					print("<b> Instance Get Method Description: " + testResult.getMethod().getDescription() + "</b>");
-					print("<b> Instance Get Method ID: " + testResult.getMethod().getId() + "</b>");
-					print("<b> Instance Get Method Qualified Name: " + testResult.getMethod().getQualifiedName() + "</b>");
 					print("<br />");
 				}
 				

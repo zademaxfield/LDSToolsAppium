@@ -334,6 +334,7 @@ public class HelperMethods extends BasePage {
         if (myBasePage.checkForAlert()) {
             myBasePage.alertOK.click();
         }
+
     }
 
     private void dismissWhatsNewPage() {

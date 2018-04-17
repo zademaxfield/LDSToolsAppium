@@ -18,7 +18,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(groups = {"smoke2", "smoke", "all2", "all"})
+    @Test(groups = {"smoke2", "smoke", "all2", "all", "jft"})
     public void editCurrentUser() throws Exception {
         String pageSource;
 
@@ -28,6 +28,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
         BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
 
         //Login and enter in PIN
         myHelper.loginUAT("LDSTools44", "password1");
@@ -62,7 +63,11 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myBasePage.backToDirectory();
 
 
-        myHelper.runSync();
+        //myHelper.runSync();
+        myMenu.menuLogOut();
+        myHelper.loginUAT("LDSTools44", "password1");
+        myHelper.enterPin("1", "1", "3", "3");
+
 
         //Search for logged in user
         myDirectory.searchAndClick("Tools, LDS44");
@@ -348,7 +353,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     }
 
     //Todo: needs more work
-    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all"})
     public void editVisibility() throws Exception {
 
         // ********* Constructor **********

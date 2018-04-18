@@ -261,35 +261,35 @@ public class DirectoryEditScreenTest extends BaseDriver {
         Thread.sleep(2000);
 
         myEditDirectory.directoryEditPersonalPhone.sendKeys("123456789012345678901234567890123456789012345678901234567890badbadleroybrown");
-        saveInvalid();
+        saveInvalid("phone");
         myEditDirectory.directoryEditPersonalPhone.clear();
 
         myEditDirectory.directoryEditPersonalPhone.sendKeys("##################$$$$$$$$$$$$$$$&&&&&&&&&&&&&&&&&*************())()()()(()())(()()(@!@@");
-        saveInvalid();
+        saveInvalid("phone");
         myEditDirectory.directoryEditPersonalPhone.clear();
 
         myEditDirectory.directoryEditPersonalPhone.sendKeys("     801     867             5309$");
-        saveInvalid();
+        saveInvalid("phone");
         myEditDirectory.directoryEditPersonalPhone.clear();
 
         myEditDirectory.directoryEditPersonalPhone.sendKeys("!@#$%^&*()_+!@#@#$$%$%^%*^*&(&*)");
-        saveInvalid();
+        saveInvalid("phone");
         myEditDirectory.directoryEditPersonalPhone.clear();
 
         myEditDirectory.directoryEditHouseholdPhone.sendKeys("123456789012345678901234567890123456789012345678901234567890badbadleroybrown");
-        saveInvalid();
+        saveInvalid("phone");
         myEditDirectory.directoryEditHouseholdPhone.clear();
 
         myEditDirectory.directoryEditHouseholdPhone.sendKeys("##################$$$$$$$$$$$$$$$&&&&&&&&&&&&&&&&&*************())()()()(()())(()()(@!@@");
-        saveInvalid();
+        saveInvalid("phone");
         myEditDirectory.directoryEditHouseholdPhone.clear();
 
         myEditDirectory.directoryEditHouseholdPhone.sendKeys("     801     867             5309$");
-        saveInvalid();
+        saveInvalid("phone");
         myEditDirectory.directoryEditHouseholdPhone.clear();
 
         myEditDirectory.directoryEditHouseholdPhone.sendKeys("!@#$%^&*()_+!@#@#$$%$%^%*^*&(&*)");
-        saveInvalid();
+        saveInvalid("phone");
         myEditDirectory.directoryEditHouseholdPhone.clear();
 
         savingMemberInfo();
@@ -317,35 +317,35 @@ public class DirectoryEditScreenTest extends BaseDriver {
         Thread.sleep(2000);
 
         myEditDirectory.directoryEditPersonalEmail.sendKeys("hello there");
-        saveInvalid();
+        saveInvalid("email");
         myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditPersonalEmail.sendKeys("notatsign.com");
-        saveInvalid();
+        saveInvalid("email");
         myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditPersonalEmail.sendKeys("nodotafterthe@sign");
-        saveInvalid();
+        saveInvalid("email");
         myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditPersonalEmail.sendKeys("!@#$%^&*()_+!@#@#$$%$%^%*^*&(&*)");
-        saveInvalid();
+        saveInvalid("email");
         myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("hello there");
-        saveInvalid();
+        saveInvalid("email");
         myEditDirectory.directoryEditHouseholdEmail.clear();
 
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("notatsign.com");
-        saveInvalid();
+        saveInvalid("email");
         myEditDirectory.directoryEditHouseholdEmail.clear();
 
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("nodotafterthe@sign");
-        saveInvalid();
+        saveInvalid("email");
         myEditDirectory.directoryEditHouseholdEmail.clear();
 
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("!@#$%^&*()_+!@#@#$$%$%^%*^*&(&*)");
-        saveInvalid();
+        saveInvalid("email");
         myEditDirectory.directoryEditHouseholdEmail.clear();
 
         savingMemberInfo();
@@ -381,18 +381,35 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
 
 
-    private void saveInvalid() {
+    private void saveInvalid(String myType) throws Exception {
         boolean failedFound;
+        String pageSource;
 
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        myEditDirectory.menuSave.click();
+        if (getRunningOS().equals("mac")) {
+            myEditDirectory.menuSave.click();
+        }
 
-        failedFound = myBasePage.checkForElement(myEditDirectory.saveFailedDialog);
-        Assert.assertTrue(failedFound);
+        Thread.sleep(2000);
 
-        myBasePage.alertOK.click();
+        if (myType.equals("phone")) {
+            failedFound = myBasePage.checkForElement(myEditDirectory.saveFailedDialog);
+            Assert.assertTrue(failedFound);
+        } else {
+            if (getRunningOS().equals("mac")) {
+                failedFound = myBasePage.checkForElement(myEditDirectory.invalidEmail);
+            } else {
+                pageSource = myBasePage.getSourceOfPage();
+                failedFound = myBasePage.checkNoCaseList("you must provide a valid email address", pageSource, "Contains");
+            }
+            Assert.assertTrue(failedFound);
+        }
+
+        if (getRunningOS().equals("mac")) {
+            myBasePage.alertOK.click();
+        }
 
 
     }

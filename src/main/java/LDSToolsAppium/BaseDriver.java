@@ -29,6 +29,20 @@ public class BaseDriver {
     protected LDSToolsApp app;
     public LDSWeb myWeb = new LDSWeb();
 
+    @BeforeSuite(alwaysRun = true)
+    public void removeFilesBeforeTest() {
+         File reportsDirectory = new File ("/Users/zmaxfield/Documents/workspace/LDSToolsAppium/src/test/java/Reports");
+        File screenshotDirectory = new File ("/Users/zmaxfield/Documents/workspace/LDSToolsAppium/screenshot");
+
+        System.out.println("Start clean directories");
+        try {
+            FileUtils.cleanDirectory(reportsDirectory);
+            FileUtils.cleanDirectory(screenshotDirectory);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @BeforeClass(alwaysRun = true)
     @Parameters({"os", "fileName", "testDevice", "startSleepTime"})

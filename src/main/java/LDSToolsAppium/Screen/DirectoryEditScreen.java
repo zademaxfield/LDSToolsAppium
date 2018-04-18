@@ -86,10 +86,15 @@ public class DirectoryEditScreen extends BasePage {
     public MobileElement cancelButton;
 
     //Save Failed
-    //@AndroidFindBy(xpath = "//*[contains(@text, 'Save failed')]")
-    @AndroidFindBy(xpath = "//*[contains(@text, 'provide a valid')]")
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Save failed')]")
+    //@AndroidFindBy(xpath = "//*[contains(@text, 'provide a valid')]")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Warning'")
     public MobileElement saveFailedDialog;
+
+    //Invalid email
+    @AndroidFindBy(xpath = "//*[contains(@text, 'You must provide a valid email address.')]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Warning'")
+    public MobileElement invalidEmail;
 
 
     // **************************** Privacy Settings ****************************

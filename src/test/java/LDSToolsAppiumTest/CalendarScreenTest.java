@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test ( dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
+    @Test ( dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void calendarSimple(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);

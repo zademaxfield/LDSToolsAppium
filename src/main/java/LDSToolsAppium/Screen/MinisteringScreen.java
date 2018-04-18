@@ -166,10 +166,15 @@ public class MinisteringScreen extends BasePage {
     }
 
     public void selectDistrict(String districtToSelect ) {
+        String myPageSource;
         if (getOS().equals("mac")) {
             driver.findElementByAccessibilityId(districtToSelect).click();
         } else {
-            driver.findElement(By.xpath("//android.widget.TextView[@text='" + districtToSelect + "']")).click();
+            //myPageSource = getSourceOfPage();
+            //System.out.println(myPageSource);
+            districtToSelect = districtToSelect.toUpperCase();
+            driver.findElement(By.xpath("//*[@text='" + districtToSelect + "']")).click();
+            //driver.findElement(By.xpath("//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '" + districtToSelect +"')]")).click();
         }
     }
 

@@ -371,6 +371,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         Thread.sleep(2000);
 
         //Reset Visibility
+        myEditDirectory.resetVisibility();
 
 
     }

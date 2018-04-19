@@ -70,7 +70,7 @@ public class DirectoryEditScreen extends BasePage {
     public  MobileElement directoryPhotosTab;
 
     //Privacy Tab
-    @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"photos\")]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"privacy\")]")
     public  MobileElement directoryPrivacyTab;
 
 
@@ -180,12 +180,12 @@ public class DirectoryEditScreen extends BasePage {
     //Address
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibility_edit_hh_address")
     @iOSFindBy(accessibility = "Address")
-    public MobileElement emailAddress;
+    public MobileElement physicalAddress;
 
     //Show on Map
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibility_edit_hh_map")
     @iOSFindBy(accessibility = "Show on Map")
-    public MobileElement emailShowOnMap;
+    public MobileElement showOnMap;
 
 
 
@@ -250,7 +250,90 @@ public class DirectoryEditScreen extends BasePage {
 
     }
 
+    public void resetVisibility() throws Exception {
+        BasePage myBase = new BasePage(driver);
+        int myCheck;
+        String textCheck;
 
+        if (getOS().equals("mac")) {
+            textCheck = householdVisibilityLimit.getText();
+            if (!textCheck.contains("Stake")) {
+                householdVisibilityLimit.click();
+                Thread.sleep(2000);
+                stakeVisibility.click();
+                Thread.sleep(1000);
+            }
+
+            textCheck = personalVisibility.getText();
+            System.out.println("TEXT: " + textCheck);
+            if (!textCheck.contains("Stake")) {
+                personalVisibility.click();
+                Thread.sleep(2000);
+                setAllToPersonal.click();
+                stakeVisibility.click();
+
+                Thread.sleep(1000);
+                doneButton.click();
+
+            }
+
+            textCheck = householdVisibility.getText();
+            if (!textCheck.contains("Stake")) {
+                householdVisibility.click();
+                setAllToHousehold.click();
+                stakeVisibility.click();
+                Thread.sleep(1000);
+                doneButton.click();
+            }
+
+        } else {
+            directoryPrivacyTab.click();
+            textCheck = householdVisibilityLimit.getText();
+
+            if (!textCheck.contains("Stake")) {
+                householdVisibilityLimit.click();
+                stakeVisibility.click();
+                setLimit.click();
+                Thread.sleep(1000);
+                Thread.sleep(1000);
+            }
+
+            imagePersonal.click();
+            popUpStake.click();
+
+            phonePersonal.click();
+            popUpStake.click();
+
+            emailPersonal.click();
+            popUpStake.click();
+
+            Thread.sleep(1000);
+            myBase.scrollToText("Show on Map");
+
+            imageHousehold.click();
+            popUpStake.click();
+
+            phoneHousehold.click();
+            popUpStake.click();
+
+            emailHousehold.click();
+            popUpStake.click();
+
+            physicalAddress.click();
+            popUpStake.click();
+
+            showOnMap.click();
+            popUpStake.click();
+
+        }
+
+        Thread.sleep(4000);
+        menuSave.click();
+        Thread.sleep(4000);
+
+
+
+    }
 
 
 

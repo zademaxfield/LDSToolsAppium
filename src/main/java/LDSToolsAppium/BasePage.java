@@ -110,6 +110,35 @@ public class BasePage {
         }
     }
 
+    public void scrollToTextTopLayout(String myElement) throws Exception {
+        int myCounter = 1;
+        int myLoopStatus = 0;
+
+        if (!checkTextOnPage(myElement)) {
+            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/top_layout"));
+            MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+                    + "new UiSelector().text(\"" + myElement + "\"));"));
+
+            while (myLoopStatus == 0) {
+                System.out.println("OVERFLOW SCROLL: " + myCounter);
+                radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+                        + "new UiSelector().text(\"" + myElement + "\"));"));
+
+
+                if (radioGroup.isDisplayed()) {
+                    myLoopStatus = 1;
+                }
+
+                if (myCounter > 5) {
+                    myLoopStatus = 1;
+                }
+
+                myCounter++;
+            }
+            Assert.assertNotNull(radioGroup.getLocation());
+        }
+    }
+
     public void scrollToTextNavMenu(String myElement) throws Exception {
         int myCounter = 1;
         int myLoopStatus = 0;

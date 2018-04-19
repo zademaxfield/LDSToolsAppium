@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"}, enabled = false)
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -31,7 +31,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
         if (rights <= 3) {
-            myMenu.reports.click();
+            myMenu.selectMenu(myMenu.reports);
 
             pageSource = myBasePage.getSourceOfPage();
 
@@ -46,7 +46,7 @@ public class ReportsScreenTest extends BaseDriver {
 
             myBasePage.rightsCheck("Action and Interview List", 2, rights, pageSource);
             myBasePage.rightsCheck("Birthday List", 2, rights, pageSource);
-            myBasePage.rightsCheck("Home Teaching", 2, rights, pageSource);
+            myBasePage.rightsCheck("Ministering", 2, rights, pageSource);
             myBasePage.rightsCheck("Members Moved In", 2, rights, pageSource);
             myBasePage.rightsCheck("Members Moved Out", 2, rights, pageSource);
             myBasePage.rightsCheck("Members with Callings", 2, rights, pageSource);
@@ -55,7 +55,6 @@ public class ReportsScreenTest extends BaseDriver {
             myBasePage.rightsCheck("New Members", 2, rights, pageSource);
             myBasePage.rightsCheck("Temple Recommend Status", 1, rights, pageSource);
             myBasePage.rightsCheck("Unit Statistics", 2, rights, pageSource);
-            myBasePage.rightsCheck("Visiting Teaching", 2, rights, pageSource);
 
             //This will need to be removed soon
             Assert.assertFalse(myBasePage.checkNoCaseList("quarterly", pageSource, "Contains"));
@@ -125,7 +124,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedInReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Young", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Luke", pageSource, "Equals"));
 
         Thread.sleep(1000);
@@ -142,7 +141,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedOutReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Wilson", 2, rights, pageSource);
+        myBasePage.rightsCheck("Faamoe", 2, rights, pageSource);
         myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
         myBasePage.rightsCheck("Saipipi", 1, rights, pageSource);
 
@@ -168,7 +167,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Ward Clerk", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Kitara, Lafaele", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tutunoa", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Ami, Samu", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi, Obi-Wan", pageSource, "Equals"));
@@ -185,8 +184,8 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.selectSort(myReports.notSetApartSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("High Priests Group First Assistant", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS17", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum President", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS21", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("P0, C3", pageSource, "Contains"));
 
 
@@ -253,7 +252,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.unitStatisticsReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("19", 2, rights, pageSource);
+        myBasePage.rightsCheck("17", 2, rights, pageSource);
 
 
         Thread.sleep(1000);
@@ -587,7 +586,9 @@ public class ReportsScreenTest extends BaseDriver {
     private void scrollToSacMeetingAttendance() throws Exception {
         BasePage myBasePage = new BasePage(driver);
         if (!getRunningOS().equals("mac")) {
-            myBasePage.scrollToText("Attended Sacrament");
+            //myBasePage.scrollToText("Attended Sacrament");
+            myBasePage. scrollToTextTopLayout("Attended Sacrament");
+
         }
     }
 
@@ -598,6 +599,7 @@ public class ReportsScreenTest extends BaseDriver {
         ReportsScreen myReports = new ReportsScreen(driver);
 
         myReports.missionaryProgressFilter.click();
+        Thread.sleep(2000);
         scrollToSacMeetingAttendance();
         myReports.mpAttendedSacrament.click();
         appFilter.click();

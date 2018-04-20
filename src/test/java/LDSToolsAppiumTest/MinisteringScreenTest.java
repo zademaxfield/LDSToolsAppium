@@ -56,7 +56,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
     public void ministeringUnassignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -64,7 +64,6 @@ public class MinisteringScreenTest extends BaseDriver {
 
         HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
@@ -115,7 +114,6 @@ public class MinisteringScreenTest extends BaseDriver {
 
         HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
@@ -165,7 +163,6 @@ public class MinisteringScreenTest extends BaseDriver {
 
         HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
@@ -236,7 +233,6 @@ public class MinisteringScreenTest extends BaseDriver {
 
         HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
@@ -270,7 +266,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
     public void unassignedSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -278,7 +274,6 @@ public class MinisteringScreenTest extends BaseDriver {
 
         HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
@@ -291,14 +286,20 @@ public class MinisteringScreenTest extends BaseDriver {
         if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringReport.click();
-            myMinistering.unassignedSisters.click();
-
-            pageSource = myBasePage.getSourceOfPage();
 
             if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
-                Assert.assertFalse(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+                if (getRunningOS().equals("mac")) {
+                    myMinistering.unassignedSisters.click();
+                    pageSource = myBasePage.getSourceOfPage();
+                    Assert.assertFalse(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
+                    Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+                } else {
+                    pageSource = myBasePage.getSourceOfPage();
+                    Assert.assertFalse(myBasePage.checkNoCaseList("Unassigned Households", pageSource, "Contains"));
+                }
             } else {
+                myMinistering.unassignedSisters.click();
+                pageSource = myBasePage.getSourceOfPage();
                 Assert.assertTrue(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
                 Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
             }
@@ -318,7 +319,6 @@ public class MinisteringScreenTest extends BaseDriver {
 
         HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
@@ -366,7 +366,6 @@ public class MinisteringScreenTest extends BaseDriver {
 
         HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
@@ -422,7 +421,6 @@ public class MinisteringScreenTest extends BaseDriver {
 
         HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 

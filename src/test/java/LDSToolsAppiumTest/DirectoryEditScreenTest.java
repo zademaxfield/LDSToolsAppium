@@ -389,27 +389,29 @@ public class DirectoryEditScreenTest extends BaseDriver {
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        if (getRunningOS().equals("mac")) {
-            myEditDirectory.menuSave.click();
-        }
+//        if (getRunningOS().equals("mac")) {
+//            myEditDirectory.menuSave.click();
+//        }
 
         Thread.sleep(2000);
 
         if (myType.equals("phone")) {
+            myEditDirectory.menuSave.click();
             failedFound = myBasePage.checkForElement(myEditDirectory.saveFailedDialog);
             Assert.assertTrue(failedFound);
+            myBasePage.alertOK.click();
         } else {
             if (getRunningOS().equals("mac")) {
+                myEditDirectory.menuSave.click();
                 failedFound = myBasePage.checkForElement(myEditDirectory.invalidEmail);
             } else {
                 pageSource = myBasePage.getSourceOfPage();
                 failedFound = myBasePage.checkNoCaseList("you must provide a valid email address", pageSource, "Contains");
             }
             Assert.assertTrue(failedFound);
-        }
-
-        if (getRunningOS().equals("mac")) {
-            myBasePage.alertOK.click();
+            if (getRunningOS().equals("mac")) {
+                myBasePage.alertOK.click();
+            }
         }
 
 

@@ -65,4 +65,8 @@ public class LDSToolsApp {
     public MinisteringScreen ministeringScreen() { return new MinisteringScreen(driver);
     }
 
+    //Temples Screen
+    public TemplesScreen templesScreen() { return new TemplesScreen(driver);
+    }
+
 }

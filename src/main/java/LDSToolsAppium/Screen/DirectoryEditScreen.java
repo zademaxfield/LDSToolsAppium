@@ -12,14 +12,19 @@ import javafx.scene.control.Tab;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
 public class DirectoryEditScreen extends BasePage {
 
+
     public DirectoryEditScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
-        PageFactory.initElements(new AppiumFieldDecorator(driver,10, TimeUnit.SECONDS), this);
+        Duration myDuration = Duration.ofSeconds(10);
+        //PageFactory.initElements(new AppiumFieldDecorator(driver,10, TimeUnit.SECONDS), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
+
     }
 
 
@@ -100,7 +105,7 @@ public class DirectoryEditScreen extends BasePage {
     // **************************** Privacy Settings ****************************
     //Household Visibility Limit
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Household Visibility Limit']")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[[contains(@name, 'HOUSEHOLD VISIBILITY')]")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'HOUSEHOLD VISIBILITY')]")
     public MobileElement householdVisibilityLimit;
 
     //Personal Visibility Limit
@@ -268,8 +273,8 @@ public class DirectoryEditScreen extends BasePage {
             System.out.println("TEXT: " + textCheck);
             if (!textCheck.contains("Stake")) {
                 personalVisibility.click();
-                Thread.sleep(2000);
                 setAllToPersonal.click();
+                Thread.sleep(2000);
                 stakeVisibility.click();
 
                 Thread.sleep(1000);

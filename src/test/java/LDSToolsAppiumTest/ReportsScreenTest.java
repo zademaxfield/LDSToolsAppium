@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -41,6 +41,8 @@ public class ReportsScreenTest extends BaseDriver {
                 pageSource = pageSource + myBasePage.getSourceOfPage();
                 myBasePage.scrollDownTEST(800);
                 pageSource = pageSource + myBasePage.getSourceOfPage();
+                myBasePage.scrollUp(300);
+
             }
 
 
@@ -81,7 +83,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
     public void reportsMissionaryProgressRecord(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -143,7 +145,7 @@ public class ReportsScreenTest extends BaseDriver {
         pageSource = myBasePage.getSourceOfPage();
         myBasePage.rightsCheck("Faamoe", 2, rights, pageSource);
         myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
-        myBasePage.rightsCheck("Saipipi", 1, rights, pageSource);
+        myBasePage.rightsCheck("Venasio", 1, rights, pageSource);
 
         Thread.sleep(1000);
         myBasePage.backButton.click();
@@ -236,7 +238,7 @@ public class ReportsScreenTest extends BaseDriver {
         pageSource = myBasePage.getSourceOfPage();
         myBasePage.rightsCheck("Manumalo, Siui", 2, rights, pageSource);
         myBasePage.rightsCheck("32", 2, rights, pageSource);
-        myBasePage.rightsCheck("April 16, 2017", 1, rights, pageSource);
+        myBasePage.rightsCheck("April 15, 2018", 1, rights, pageSource);
 
         Thread.sleep(1000);
         myBasePage.backButton.click();
@@ -248,6 +250,11 @@ public class ReportsScreenTest extends BaseDriver {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
+
+        if (!getRunningOS().equals("mac")) {
+            myBasePage.scrollToTextRecyclerView("Unit Statistics");
+        }
+
 
         myReports.unitStatisticsReport.click();
         Thread.sleep(1000);
@@ -286,7 +293,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.selectSort(myReports.expiredSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Kitara, Seigafo", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sitivi", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
 
         myReports.selectSort(myReports.otherSort);

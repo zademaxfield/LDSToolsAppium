@@ -168,6 +168,35 @@ public class BasePage {
         }
     }
 
+    public void scrollToTextRecyclerView(String myElement) throws Exception {
+        int myCounter = 1;
+        int myLoopStatus = 0;
+
+        if (!checkTextOnPage(myElement)) {
+            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/recycler_view"));
+            MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+                    + "new UiSelector().text(\"" + myElement + "\"));"));
+
+            while (myLoopStatus == 0) {
+                System.out.println("OVERFLOW SCROLL: " + myCounter);
+                radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+                        + "new UiSelector().text(\"" + myElement + "\"));"));
+
+
+                if (radioGroup.isDisplayed()) {
+                    myLoopStatus = 1;
+                }
+
+                if (myCounter > 5) {
+                    myLoopStatus = 1;
+                }
+
+                myCounter++;
+            }
+            Assert.assertNotNull(radioGroup.getLocation());
+        }
+    }
+
     public void scrollToTextNavMenu(String myElement) throws Exception {
         int myCounter = 1;
         int myLoopStatus = 0;
@@ -218,6 +247,31 @@ public class BasePage {
             screenHeight = screenHeight - 200;
             scrollDistance = screenHeight / 2;
             scrollDistance = -scrollDistance;
+
+            TouchAction actions = new TouchAction(driver);
+            actions.press(PointOption.point(screenWidth, screenHeight))
+                    .moveTo(PointOption.point(screenWidth, scrollDistance))
+                    .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
+                    .release()
+                    .perform();
+
+            Thread.sleep(5000);
+        }
+    }
+
+    public void scrollUp(int scrollDistance ) throws Exception {
+        if (getOS().equals("mac")) {
+            scrollUpIOS();
+        } else {
+            Dimension dimensions = driver.manage().window().getSize();
+            int screenWidth = dimensions.getWidth();
+            int screenHeight = dimensions.getHeight();
+
+            screenWidth = screenWidth / 2;
+            scrollDistance = screenHeight - 20;
+            screenHeight = screenHeight / 2;
+
+            //scrollDistance = -scrollDistance;
 
             TouchAction actions = new TouchAction(driver);
             actions.press(PointOption.point(screenWidth, screenHeight))

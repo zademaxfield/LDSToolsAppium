@@ -266,7 +266,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
     public void unassignedSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -311,7 +311,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -331,15 +331,17 @@ public class MinisteringScreenTest extends BaseDriver {
         if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringReport.click();
-            myMinistering.sisters.click();
+            //myMinistering.sisters.click();
 
-            pageSource = myBasePage.getSourceOfPage();
+            //pageSource = myBasePage.getSourceOfPage();
 
 
             if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
-                Assert.assertFalse(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
+                pageSource = myBasePage.getSourceOfPage();
+                Assert.assertFalse(myBasePage.checkNoCaseList("Sisters", pageSource, "Contains"));
             } else {
+                myMinistering.sisters.click();
+                pageSource = myBasePage.getSourceOfPage();
                 Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
                 Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
 

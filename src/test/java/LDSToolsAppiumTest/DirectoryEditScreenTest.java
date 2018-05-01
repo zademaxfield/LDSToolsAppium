@@ -360,6 +360,11 @@ public class DirectoryEditScreenTest extends BaseDriver {
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
+        BasePage myBase = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+
+        Boolean foundMember;
+
 
         //Login and enter in PIN
         myHelper.loginUAT("LDSTools5", "toolstester");
@@ -372,6 +377,55 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         //Reset Visibility
         myEditDirectory.resetVisibility();
+        myEditDirectory.editUserOpen();
+
+        myEditDirectory.setVisibilityHousehold(myEditDirectory.privateLeadershipOnly);
+
+        //myEditDirectory.menuSave.click();
+
+        myBase.backToDirectory();
+
+        myMenu.menuLogOut();
+
+
+        //Make sure members without callings cannot see the members info
+        myHelper.loginUAT("LDSTools6", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        foundMember = myDirectory.searchForMemberCheckResults("Tools, LDS5");
+        Assert.assertFalse(foundMember);
+        myMenu.menuLogOut();
+
+        //Check Ward Council Access
+        myHelper.loginUAT("LDSTools25", "password1");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        foundMember = myDirectory.searchForMemberCheckResults("Tools, LDS5");
+        Assert.assertTrue(foundMember);
+        myMenu.menuLogOut();
+
+        //Reset visibility settings back to normal
+        myHelper.loginUAT("LDSTools5", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myDirectory.searchAndClick("Tools, LDS5");
+
+        myEditDirectory.editUserOpen();
+        Thread.sleep(2000);
+
+        //Reset Visibility
+        myEditDirectory.resetVisibility();
+        myEditDirectory.menuSave.click();
+        myBase.backToDirectory();
+
+        myMenu.menuLogOut();
+
+        //Make sure members without callings cannot see the members info
+        myHelper.loginUAT("LDSTools6", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        foundMember = myDirectory.searchForMemberCheckResults("Tools, LDS5");
+        Assert.assertTrue(foundMember);
 
 
     }

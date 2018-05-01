@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 
@@ -136,6 +137,37 @@ public class DirectoryScreen extends BasePage {
         }
 
         clickDirectoryUser(myUser);
+
+    }
+
+    public Boolean searchForMemberCheckResults(String myUser) {
+        String tempMyUser = myUser.toLowerCase();
+        Boolean myReturnStatus;
+        List<MobileElement> options;
+
+        directorySort.click();
+        sortIndividual.click();
+
+        if (tempMyUser.contains("tools")) {
+            String[] parts = myUser.split(", ");
+            String part1 = parts[0];
+            String part2 = parts[1];
+            searchBar.sendKeys(part2);
+        } else {
+            searchBar.sendKeys(myUser);
+        }
+
+
+
+        if (getOS().equals("mac")) {
+            options= driver.findElements(By.xpath("//*[@value='" + myUser + "']"));
+        } else {
+            options= driver.findElements(By.xpath("//*[@text='" + myUser + "']"));
+        }
+
+        myReturnStatus = !options.isEmpty();
+
+        return myReturnStatus;
 
     }
 

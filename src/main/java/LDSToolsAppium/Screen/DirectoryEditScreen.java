@@ -104,16 +104,16 @@ public class DirectoryEditScreen extends BasePage {
 
     // **************************** Privacy Settings ****************************
     //Household Visibility Limit
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Household Visibility Limit']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Household Visibility Limit']/following-sibling::android.widget.TextView")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'HOUSEHOLD VISIBILITY')]")
     public MobileElement householdVisibilityLimit;
 
     //Personal Visibility Limit
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'PERSONAL')]")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'PERSONAL ')]")
     public MobileElement personalVisibility;
 
     //Household Visibility
-    @iOSFindBy(xpath = "//XCUIElementTypeCell[8]")
+    @iOSFindBy(xpath = "//XCUIElementTypeCell[8]/XCUIElementTypeStaticText")
     public MobileElement householdVisibility;
 
     // **************************** Limit visibility for household  ****************************
@@ -198,17 +198,17 @@ public class DirectoryEditScreen extends BasePage {
 
     // **************************** POP UP Visibility ****************************
     //Stake Visibility
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stake Visibility'")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stake Visibility']")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Stake Visibility')]")
     public MobileElement popUpStake;
 
     //Ward Visibility
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ward Visibility'")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ward Visibilit']")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Ward Visibility')]")
     public MobileElement popUpWard;
 
     //Private—Leadership Only Visibility
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Private—Leadership Only'")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Private—Leadership Only']")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Private—Leadership Only')]")
     public MobileElement popUpPrivatLeadershipOnly;
 
@@ -304,30 +304,42 @@ public class DirectoryEditScreen extends BasePage {
             }
 
             imagePersonal.click();
+            Thread.sleep(1000);
             popUpStake.click();
 
             phonePersonal.click();
+            Thread.sleep(1000);
             popUpStake.click();
 
             emailPersonal.click();
+            Thread.sleep(1000);
             popUpStake.click();
 
             Thread.sleep(1000);
-            myBase.scrollToText("Show on Map");
+            //myBase.scrollToText("Show on Map");
+            myBase.scrollToTextScollArea("Show on Map");
+            //myBase.scrollToTextTopLayout("Show on Map");
+
+
 
             imageHousehold.click();
+            Thread.sleep(1000);
             popUpStake.click();
 
             phoneHousehold.click();
+            Thread.sleep(1000);
             popUpStake.click();
 
             emailHousehold.click();
+            Thread.sleep(1000);
             popUpStake.click();
 
             physicalAddress.click();
+            Thread.sleep(1000);
             popUpStake.click();
 
             showOnMap.click();
+            Thread.sleep(1000);
             popUpStake.click();
 
         }
@@ -340,6 +352,31 @@ public class DirectoryEditScreen extends BasePage {
 
     }
 
+
+    public void setVisibilityHousehold(MobileElement elementVisiblity) throws Exception {
+
+        if (getOS().equals("mac")) {
+            householdVisibilityLimit.click();
+            Thread.sleep(2000);
+            elementVisiblity.click();
+            Thread.sleep(1000);
+
+        } else {
+            directoryPrivacyTab.click();
+            householdVisibilityLimit.click();
+            elementVisiblity.click();
+            setLimit.click();
+            Thread.sleep(1000);
+
+        }
+
+        Thread.sleep(4000);
+        menuSave.click();
+        Thread.sleep(4000);
+
+
+
+    }
 
 
 

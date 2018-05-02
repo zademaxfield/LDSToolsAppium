@@ -174,7 +174,7 @@ public class MinisteringScreen extends BasePage {
             //System.out.println(myPageSource);
             districtToSelect = districtToSelect.toUpperCase();
             driver.findElement(By.xpath("//*[@text='" + districtToSelect + "']")).click();
-            //driver.findElement(By.xpath("//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '" + districtToSelect +"')]")).click();
+            //driver.findElement(By.xpath("//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '" + districtToSelect + "')]")).click();
         }
     }
 

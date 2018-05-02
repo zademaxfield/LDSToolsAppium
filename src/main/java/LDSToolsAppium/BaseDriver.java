@@ -276,7 +276,7 @@ public class BaseDriver {
 
             capabilities.setCapability("unicodeKeyboard", "true");
             capabilities.setCapability("resetKeyboard", "true");
-            capabilities.setCapability("deviceReadyTimeout", "60");
+            capabilities.setCapability("deviceReadyTimeout", 60);
             capabilities.setCapability("noSign", true);
 
             capabilities.setCapability("fullReset", false);

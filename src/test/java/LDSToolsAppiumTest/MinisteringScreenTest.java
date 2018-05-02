@@ -327,6 +327,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
         myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
+        Thread.sleep(2000);
 
 
 

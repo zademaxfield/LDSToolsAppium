@@ -95,7 +95,7 @@ public class MenuScreen extends BasePage {
     public  MobileElement moreMenu;
 
     public void selectMenu(MobileElement myElement) throws Exception {
-        if (getOS().equals("android")) {
+        if (!getOS().equals("mac")) {
             drawerButton.click();
         }
         //Check for Element

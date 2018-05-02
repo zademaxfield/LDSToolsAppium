@@ -106,7 +106,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -127,6 +127,8 @@ public class MinisteringScreenTest extends BaseDriver {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringReport.click();
             myMinistering.households.click();
+
+            Thread.sleep(1000);
 
             pageSource = myBasePage.getSourceOfPage();
 
@@ -415,7 +417,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
     public void potentialMinisteringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -463,7 +465,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    private void assignedMinisteringBrothers() {
+    private void assignedMinisteringBrothers() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -471,6 +473,8 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.filters.click();
         myMinistering.assignedMinisteringBrothers.click();
         myMinistering.saveMissonaryProgressFilter();
+
+        Thread.sleep(1000);
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
@@ -482,7 +486,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    private void notAssignedMinisteringBrothers() {
+    private void notAssignedMinisteringBrothers() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -490,6 +494,8 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.filters.click();
         myMinistering.notAssignedMinisteringBrothers.click();
         myMinistering.saveMissonaryProgressFilter();
+
+        Thread.sleep(1000);
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
@@ -501,7 +507,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    private void newAndMovedInMembers() {
+    private void newAndMovedInMembers() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -510,9 +516,11 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.newAndMovedInMembers.click();
         myMinistering.saveMissonaryProgressFilter();
 
+        Thread.sleep(1000);
+
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Faapili", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Faauma", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
 
         //Clear Filter
@@ -520,7 +528,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    private void ssAges18to30() {
+    private void ssAges18to30() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -528,6 +536,8 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.filters.click();
         myMinistering.singleSistersAges18to30.click();
         myMinistering.saveMissonaryProgressFilter();
+
+        Thread.sleep(1000);
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
@@ -539,7 +549,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    private void ssAge32AndOlder() {
+    private void ssAge32AndOlder() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -548,6 +558,7 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.singleSistersAge31AndOver.click();
         myMinistering.saveMissonaryProgressFilter();
 
+        Thread.sleep(1000);
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
@@ -558,7 +569,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    private void sbAges18to30() {
+    private void sbAges18to30() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -566,6 +577,8 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.filters.click();
         myMinistering.singleBrothersAges18to30.click();
         myMinistering.saveMissonaryProgressFilter();
+
+        Thread.sleep(1000);
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
@@ -577,7 +590,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    private void sbAge32AndOlder() {
+    private void sbAge32AndOlder() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -585,6 +598,8 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.filters.click();
         myMinistering.singleBrothersAge31AndOver.click();
         myMinistering.saveMissonaryProgressFilter();
+
+        Thread.sleep(1000);
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
@@ -601,7 +616,7 @@ public class MinisteringScreenTest extends BaseDriver {
     //******************* SISTERS **************************
 
 
-    private void assignedMinisteringSisters() {
+    private void assignedMinisteringSisters() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -609,6 +624,8 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.filters.click();
         myMinistering.assignedMinisteringSisters.click();
         myMinistering.saveMissonaryProgressFilter();
+
+        Thread.sleep(1000);
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
@@ -620,7 +637,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    private void notAssignedMinisteringSisters() {
+    private void notAssignedMinisteringSisters() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -628,6 +645,8 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.filters.click();
         myMinistering.notAssignedMinisteringSisters.click();
         myMinistering.saveMissonaryProgressFilter();
+
+        Thread.sleep(1000);
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
@@ -639,7 +658,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    private void newAndMovedInMembersSisters() {
+    private void newAndMovedInMembersSisters() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -647,6 +666,8 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.filters.click();
         myMinistering.newAndMovedInMembers.click();
         myMinistering.saveMissonaryProgressFilter();
+
+        Thread.sleep(1000);
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
@@ -658,7 +679,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    private void ssAges18to30Sisters() {
+    private void ssAges18to30Sisters() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -666,6 +687,9 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.filters.click();
         myMinistering.singleSistersAges18to30.click();
         myMinistering.saveMissonaryProgressFilter();
+
+        Thread.sleep(1000);
+
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
@@ -677,7 +701,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    private void ssAge32AndOlderSisters() {
+    private void ssAge32AndOlderSisters() throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
@@ -685,6 +709,8 @@ public class MinisteringScreenTest extends BaseDriver {
         myMinistering.filters.click();
         myMinistering.singleSistersAge31AndOver.click();
         myMinistering.saveMissonaryProgressFilter();
+
+        Thread.sleep(1000);
 
         //Check Data
         pageSource = myBasePage.getSourceOfPage();
@@ -699,7 +725,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    private void clearFilter(MobileElement myElement)  {
+    private void clearFilter(MobileElement myElement) throws Exception {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
@@ -708,7 +734,9 @@ public class MinisteringScreenTest extends BaseDriver {
             myElement.click();
             myBasePage.backButton.click();
         } else {
-            myMinistering.ministeringExpandFilter.click();
+            Thread.sleep(1000);
+            //myMinistering.ministeringExpandFilter.click();
+            //Thread.sleep(9000);
             myMinistering.ministeringRemoveFilter.click();
         }
     }

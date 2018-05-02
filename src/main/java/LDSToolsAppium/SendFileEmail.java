@@ -72,7 +72,7 @@ public class SendFileEmail
 
          // Part two is attachment
          messageBodyPart = new MimeBodyPart();
-         String filename = "/src/test/java/Reports/custom-report.html";
+         String filename = "/Users/zmaxfield/Documents/workspace/LDSToolsAppium/src/test/java/Reports/custom-report.html";
          DataSource source = new FileDataSource(filename);
          messageBodyPart.setDataHandler(new DataHandler(source));
          messageBodyPart.setFileName(filename);

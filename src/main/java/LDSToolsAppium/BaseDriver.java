@@ -281,7 +281,7 @@ public class BaseDriver {
 
             capabilities.setCapability("fullReset", false);
             capabilities.setCapability("dontStopAppOnReset", true);
-            capabilities.setCapability("maxTypingFrequency", "8");
+            //capabilities.setCapability("maxTypingFrequency", "8");
 
             driver = new AndroidDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"), capabilities);
 
@@ -357,7 +357,7 @@ public class BaseDriver {
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("clearSystemFiles", true);
             capabilities.setCapability("allowTouchIdEnroll", true);
-            capabilities.setCapability("maxTypingFrequency", "8");
+            //capabilities.setCapability("maxTypingFrequency", "8");
             capabilities.setCapability("appPackage", myAppPackage);
 
 

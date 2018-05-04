@@ -117,7 +117,6 @@ public class ScannerScreen extends BasePage {
 
     public boolean quickCheckForElements(List<Element> listToCheck, String attributeCheck ) {
 
-
         boolean elementFound = false;
         List<Attribute> elementAttributes = new ArrayList<Attribute>();
         for (Element oneElement : listToCheck) {

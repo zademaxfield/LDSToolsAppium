@@ -38,7 +38,7 @@ public class HelperMethods extends BasePage {
         myLoginPage.loginName.sendKeys(userName);
         myLoginPage.passWord.sendKeys(password);
         myLoginPage.signInButton.click();
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         if (getOS().equals("mac")) {
             waitUnitlTextIsGone("Stop Sync");
         } else {
@@ -46,7 +46,7 @@ public class HelperMethods extends BasePage {
         }
 
 
-        Thread.sleep(3000);
+        Thread.sleep(6000);
     }
 
     private void setupUAT() throws Exception {
@@ -96,33 +96,35 @@ public class HelperMethods extends BasePage {
         PinScreen myPin = new PinScreen(driver);
         MenuScreen myMenuScreen = new MenuScreen(driver);
 
+        Thread.sleep(4000);
+        checkForAlertsBeforePin();
 
-        if (checkForElement(myPin.pinAlertDialogOK)) {
-            myPin.pinAlertDialogOK.click();
-        }
-
-        //This is for iOS on a non leader login
-        if (checkForElement(myPin.pinAlertDialogYes)) {
-            myPin.pinAlertDialogYes.click();
-        }
-
-        //Check for Face ID then Disable Face ID
-        System.out.println("Checking for Face ID");
-        if (checkTextOnPage("Face ID")) {
-            System.out.println("Face ID found hitting disable");
-            myPin.pinDisableFaceID.click();
-            Thread.sleep(2000);
-            myPin.pinAlertDialogOK.click();
-        }
-
-        //Check for Touch ID then press the ID
-        System.out.println("Checking for Touch ID");
-        if (checkTextOnPage("Touch ID")) {
-            System.out.println("Enable Touch ID Button found, hitting the button");
-            myPin.pinDisableTouchID.click();
-            Thread.sleep(2000);
-            myPin.pinAlertDialogOK.click();
-        }
+//        if (checkForElement(myPin.pinAlertDialogOK)) {
+//            myPin.pinAlertDialogOK.click();
+//        }
+//
+//        //This is for iOS on a non leader login
+//        if (checkForElement(myPin.pinAlertDialogYes)) {
+//            myPin.pinAlertDialogYes.click();
+//        }
+//
+//        //Check for Face ID then Disable Face ID
+//        System.out.println("Checking for Face ID");
+//        if (checkTextOnPage("Face ID")) {
+//            System.out.println("Face ID found hitting disable");
+//            myPin.pinDisableFaceID.click();
+//            Thread.sleep(2000);
+//            myPin.pinAlertDialogOK.click();
+//        }
+//
+//        //Check for Touch ID then press the ID
+//        System.out.println("Checking for Touch ID");
+//        if (checkTextOnPage("Touch ID")) {
+//            System.out.println("Enable Touch ID Button found, hitting the button");
+//            myPin.pinDisableTouchID.click();
+//            Thread.sleep(2000);
+//            myPin.pinAlertDialogOK.click();
+//        }
 
         dismissWhatsNewPage();
 
@@ -367,12 +369,15 @@ public class HelperMethods extends BasePage {
     private void checkForAlertsBeforePin() throws Exception {
         ScannerScreen myScanner = new ScannerScreen(driver) ;
         PinScreen myPin = new PinScreen(driver);
+        BasePage myBase = new BasePage(driver);
 
         Boolean myCheck = false;
 
 
         List<Element> myUsableElements = new ArrayList<Element>();
 
+
+        //System.out.println(myBase.getSourceOfPage());
 
         myUsableElements = myScanner.getClickableElements();
         myCheck = myScanner.quickCheckForElements(myUsableElements, "md_buttonDefaultPositive");

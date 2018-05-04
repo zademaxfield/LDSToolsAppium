@@ -428,7 +428,7 @@ public class LDSWeb {
 		waitForTextToDisappear("Loading", 500, "id" );
 		clickElement("Elders Quorum Presidency", "linkText");
 		
-		addMemberToCalling("Elders Quorum President", "lds21");
+		//addMemberToCalling("Elders Quorum President", "lds21");
 		addMemberToCalling("First Counselor", "lds22");
 		addMemberToCalling("Second Counselor", "lds23");
 		addMemberToCalling("Quorum Secretary", "lds24");

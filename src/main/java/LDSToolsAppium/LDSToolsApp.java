@@ -69,4 +69,11 @@ public class LDSToolsApp {
     public TemplesScreen templesScreen() { return new TemplesScreen(driver);
     }
 
+
+
+
+    //Scanner Screen
+    public ScannerScreen scannerScreen() { return new ScannerScreen(driver);
+    }
+
 }

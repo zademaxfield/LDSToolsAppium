@@ -109,7 +109,7 @@ public class DirectoryEditScreen extends BasePage {
     public MobileElement householdVisibilityLimit;
 
     //Personal Visibility Limit
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'PERSONAL ')]")
+    @iOSFindBy(xpath = "//XCUIElementTypeCell/XCUIElementTypeStaticText[contains(@name, 'PERSONAL')]")
     public MobileElement personalVisibility;
 
     //Household Visibility

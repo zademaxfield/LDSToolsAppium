@@ -462,8 +462,35 @@ public class BasePage {
             return false;
         }
 
-
     }
+
+    public Boolean checkElementExists(String textElement) {
+        Boolean myReturnStatus;
+        List<MobileElement> options = null;
+        if (getOS().equals("mac")) {
+            //options = driver.findElements(By.xpath("//*[@value='" + textElement + "']"));
+            options = driver.findElements(MobileBy.AccessibilityId(textElement));
+        } else {
+            options = driver.findElements(By.xpath("//*[@text='" + textElement + "']"));
+        }
+
+
+
+        if (options != null) {
+            if (options.isEmpty()) {
+                myReturnStatus = false;
+            } else {
+                myReturnStatus = true;
+            }
+        } else {
+            myReturnStatus = false;
+        }
+
+        //System.out.println("Searching for " + textElement + " Found: " + myReturnStatus);
+
+        return myReturnStatus;
+    }
+
 
     public String getOS() {
         String osName = "test";

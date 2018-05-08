@@ -3,11 +3,15 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,11 +43,20 @@ public class HelperMethods extends BasePage {
         myLoginPage.passWord.sendKeys(password);
         myLoginPage.signInButton.click();
         Thread.sleep(10000);
+
+        long startTime = System.nanoTime();
+
+
         if (getOS().equals("mac")) {
             waitUnitlTextIsGone("Stop Sync");
         } else {
             waitUnitlTextIsGone("Sync Progress");
         }
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        duration = duration / 1000000;
+        System.out.println("Done waiting for Text to disappear: Sync Took: " + duration);
 
 
         Thread.sleep(6000);
@@ -52,17 +65,26 @@ public class HelperMethods extends BasePage {
     private void setupUAT() throws Exception {
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
+        ScannerScreen myScanner = new ScannerScreen(driver);
 
         if (getOS().equals("mac")) {
             myLoginPage.overflowMenu.click();
 
-            if (checkForElement(myLoginPage.developerButton)) {
+            if (myScanner.scannerCheckForText("Developer Settings") ) {
                 myLoginPage.developerButton.click();
             } else {
                 for (int x = 1; x <= 5; x++) {
                     myLoginPage.enterDeveloperButton.click();
                 }
             }
+
+//            if (checkForElement(myLoginPage.developerButton)) {
+//                myLoginPage.developerButton.click();
+//            } else {
+//                for (int x = 1; x <= 5; x++) {
+//                    myLoginPage.enterDeveloperButton.click();
+//                }
+//            }
 
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
@@ -128,6 +150,9 @@ public class HelperMethods extends BasePage {
 
         dismissWhatsNewPage();
 
+        //Android needs this. 
+        checkForAlertsAfterPin();
+
         Thread.sleep(2000);
 
         pressPinKeys(firstNumber);
@@ -145,6 +170,10 @@ public class HelperMethods extends BasePage {
         Thread.sleep(2000);
 
         dismissWhatsNewPage();
+
+        checkForAlertsAfterPin();
+
+
 
         // Click on Later then Directory
         if (!getOS().equals("mac")) {
@@ -351,9 +380,11 @@ public class HelperMethods extends BasePage {
         // ********* Constructor **********
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         BasePage myBasePage = new BasePage(driver);
+        ScannerScreen myScanner = new ScannerScreen(driver);
 
         //Check for Whats New Page
-        if (myBasePage.checkForElement(myWhatsNew.whatsNewDone)) {
+//      if (myBasePage.checkForElement(myWhatsNew.whatsNewDone)) {
+        if (myBasePage.checkElementExists("Done") || (myBasePage.checkElementExists("DONE")) ){
             myWhatsNew.whatsNewDone.click();
             if (!myBasePage.getOS().equals("mac")) {
                 if (myBasePage.checkForElement(myBasePage.allowButton)) {
@@ -366,7 +397,7 @@ public class HelperMethods extends BasePage {
     }
 
 
-    private void checkForAlertsBeforePin() throws Exception {
+    private void checkForAlertsBeforePinTEST() throws Exception {
         ScannerScreen myScanner = new ScannerScreen(driver) ;
         PinScreen myPin = new PinScreen(driver);
         BasePage myBase = new BasePage(driver);
@@ -378,8 +409,8 @@ public class HelperMethods extends BasePage {
 
 
         //System.out.println(myBase.getSourceOfPage());
-
         myUsableElements = myScanner.getClickableElements();
+        //myCheck = myScanner.checkForElementsTEST("md_buttonDefaultPositive");
         myCheck = myScanner.quickCheckForElements(myUsableElements, "md_buttonDefaultPositive");
         if (myCheck) {
             myPin.pinAlertDialogOK.click();
@@ -421,6 +452,64 @@ public class HelperMethods extends BasePage {
             myPin.pinDisableTouchID.click();
             Thread.sleep(2000);
             myPin.pinAlertDialogOK.click();
+        }
+
+
+    }
+
+    private void checkForAlertsBeforePin() throws Exception {
+        PinScreen myPin = new PinScreen(driver);
+        BasePage myBase = new BasePage(driver);
+
+        Boolean myCheck = false;
+
+        myCheck = myBase.checkElementExists("OK");
+        if (myCheck) {
+            myPin.pinAlertDialogOK.click();
+        }
+
+        myCheck = myBase.checkElementExists("Yes");
+        if (myCheck) {
+            myPin.pinAlertDialogYes.click();
+        }
+
+        System.out.println("Checking for Face ID");
+        myCheck = myBase.checkElementExists("Disable Face ID");
+        if (myCheck) {
+            System.out.println("Face ID found hitting disable");
+            myPin.pinDisableFaceID.click();
+            Thread.sleep(2000);
+            myPin.pinAlertDialogOK.click();
+        }
+
+        System.out.println("Checking for Touch ID");
+        myCheck = myBase.checkElementExists("Disable Touch ID");
+        if (myCheck) {
+            System.out.println("Enable Touch ID Button found, hitting the button");
+            myPin.pinDisableTouchID.click();
+            Thread.sleep(2000);
+            myPin.pinAlertDialogOK.click();
+        }
+
+
+    }
+
+
+    private void checkForAlertsAfterPin() throws Exception {
+        ScannerScreen myScanner = new ScannerScreen(driver) ;
+        PinScreen myPin = new PinScreen(driver);
+        BasePage myBase = new BasePage(driver);
+
+        Boolean myCheck = false;
+
+        myCheck = myBase.checkElementExists("OK");
+        if (myCheck) {
+            myPin.pinAlertDialogOK.click();
+        }
+
+        myCheck = myBase.checkElementExists("Yes");
+        if (myCheck) {
+            myPin.pinAlertDialogYes.click();
         }
 
 

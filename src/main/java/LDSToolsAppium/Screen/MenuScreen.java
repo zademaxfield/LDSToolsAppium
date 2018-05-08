@@ -91,10 +91,11 @@ public class MenuScreen extends BasePage {
 
     // ********** iOs Only **********
     //More Button
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'More'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'More' AND type = 'XCUIElementTypeButton'")
     public  MobileElement moreMenu;
 
     public void selectMenu(MobileElement myElement) throws Exception {
+        BasePage myBase = new BasePage(driver);
         if (!getOS().equals("mac")) {
             drawerButton.click();
         }
@@ -103,6 +104,8 @@ public class MenuScreen extends BasePage {
             myElement.click();
         } else {
             if (getOS().equals("mac")) {
+                //System.out.println("Clicking More....");
+                //System.out.println(myBase.getSourceOfPage());
                 moreMenu.click();
             } else {
                 scrollDownTEST(200);
@@ -114,7 +117,7 @@ public class MenuScreen extends BasePage {
     public void menuLogOut() throws Exception {
         SettingsScreen mySettings = new SettingsScreen(driver);
 
-        Thread.sleep(2000);
+        //Thread.sleep(6000);
         selectMenu(settings);
 
         mySettings.signOut.click();

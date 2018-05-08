@@ -115,6 +115,29 @@ public class ScannerScreen extends BasePage {
         return clickableElements;
     }
 
+    public boolean checkForElementsTEST(String attributeCheck ) {
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+        boolean elementFound = false;
+        List<Attribute> elementAttributes = new ArrayList<Attribute>();
+
+        pageSource = myBasePage.getSourceOfPage();
+        Document doc = Jsoup.parse(pageSource);
+        Elements myTest = doc.getAllElements();
+
+        for (Element oneElement : myTest) {
+            elementAttributes = oneElement.attributes().asList();
+
+            for (Attribute myAttribute : elementAttributes ) {
+                if (myAttribute.toString().contains(attributeCheck)) {
+                    elementFound = true;
+                }
+            }
+
+        }
+        return elementFound;
+    }
+
     public boolean quickCheckForElements(List<Element> listToCheck, String attributeCheck ) {
 
         boolean elementFound = false;
@@ -124,6 +147,25 @@ public class ScannerScreen extends BasePage {
 
             for (Attribute myAttribute : elementAttributes ) {
                 if (myAttribute.toString().contains(attributeCheck)) {
+                    elementFound = true;
+                }
+            }
+
+        }
+        return elementFound;
+    }
+
+    public boolean scannerCheckForText( String searchText ) {
+        List<Element> clickableElements = new ArrayList<Element>();
+        clickableElements = getClickableElements();
+        boolean elementFound = false;
+        List<Attribute> elementAttributes = new ArrayList<Attribute>();
+
+        for (Element oneElement : clickableElements) {
+            elementAttributes = oneElement.attributes().asList();
+
+            for (Attribute myAttribute : elementAttributes ) {
+                if (myAttribute.toString().contains(searchText)) {
                     elementFound = true;
                 }
             }

@@ -394,6 +394,8 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         foundMember = myDirectory.searchForMemberCheckResults("Tools, LDS5");
         Assert.assertFalse(foundMember);
+        Thread.sleep(2000);
+        myBase.backToDirectory();
         myMenu.menuLogOut();
 
         //Check Ward Council Access
@@ -402,6 +404,8 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         foundMember = myDirectory.searchForMemberCheckResults("Tools, LDS5");
         Assert.assertTrue(foundMember);
+        Thread.sleep(2000);
+        myBase.backToDirectory();
         myMenu.menuLogOut();
 
         //Reset visibility settings back to normal
@@ -415,7 +419,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         //Reset Visibility
         myEditDirectory.resetVisibility();
-        myEditDirectory.menuSave.click();
+        //myEditDirectory.menuSave.click();
         myBase.backToDirectory();
 
         myMenu.menuLogOut();

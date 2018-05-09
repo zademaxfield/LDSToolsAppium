@@ -150,7 +150,7 @@ public class HelperMethods extends BasePage {
 
         dismissWhatsNewPage();
 
-        //Android needs this. 
+        //Android needs this.
         checkForAlertsAfterPin();
 
         Thread.sleep(2000);

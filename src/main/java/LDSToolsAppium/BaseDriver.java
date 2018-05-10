@@ -5,7 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -420,9 +420,26 @@ public class BaseDriver {
         return myIPPort;
     }
 
+    private String getAndroidHomePath() throws Exception {
+        Runtime run = Runtime.getRuntime();
+        Process pr = run.exec(new String[] {"/bin/echo $ANDROID_HOME"});
+        //Process pr = run.exec(cmd);
+        pr.waitFor();
+        BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        String line;
+
+        line = buf.readLine();
+        System.out.println(line);
+
+        return line;
+    }
+
 
     private void adbRemoteConnect(String ipPort) throws Exception {
-        String pathToADB = "../../../android-sdks/platform-tools/adb";
+        //String pathToADB = "../../../android-sdks/platform-tools/adb";
+        //String androidHome = getAndroidHomePath();
+        String androidHome = System.getenv("ANDROID_HOME");
+        String pathToADB = androidHome + "/platform-tools/adb";
 
         //String cmd
         // = "adb shell am force-stop org.lds.ldstools.dev";

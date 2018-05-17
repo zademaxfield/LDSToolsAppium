@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
@@ -14,7 +15,8 @@ public class MinisteringScreen extends BasePage {
 
     public MinisteringScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
-        PageFactory.initElements(new AppiumFieldDecorator(driver,10, TimeUnit.SECONDS), this);
+        Duration myDuration = Duration.ofSeconds(10);
+        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
     }
 
 

@@ -246,7 +246,7 @@ public class BasePage {
             screenWidth = screenWidth / 4;
             scrollDistance = screenHeight / 2;
             screenHeight = screenHeight - 100;
-            scrollDistance = -scrollDistance;
+            //scrollDistance = -scrollDistance;
 
             TouchAction actions = new TouchAction(driver);
             actions.press(PointOption.point(screenWidth, screenHeight))

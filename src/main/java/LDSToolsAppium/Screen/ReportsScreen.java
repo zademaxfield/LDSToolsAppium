@@ -10,6 +10,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.apache.tools.ant.types.resources.Last;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.Duration;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +19,8 @@ public class ReportsScreen extends BasePage {
 
     public ReportsScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
-        PageFactory.initElements(new AppiumFieldDecorator(driver,10, TimeUnit.SECONDS), this);
+        Duration myDuration = Duration.ofSeconds(10);
+        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
     }
 
 

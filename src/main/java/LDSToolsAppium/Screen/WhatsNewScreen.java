@@ -8,6 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 
@@ -15,7 +16,8 @@ public class WhatsNewScreen extends BasePage {
 
     public WhatsNewScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
-        PageFactory.initElements(new AppiumFieldDecorator(driver,10, TimeUnit.SECONDS), this);
+        Duration myDuration = Duration.ofSeconds(10);
+        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
     }
 
 

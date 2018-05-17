@@ -244,13 +244,12 @@ public class BasePage {
             int screenHeight = dimensions.getHeight();
 
             screenWidth = screenWidth / 4;
-            screenHeight = screenHeight - 100;
             scrollDistance = screenHeight / 2;
+            screenHeight = screenHeight - 100;
             scrollDistance = -scrollDistance;
 
             TouchAction actions = new TouchAction(driver);
             actions.press(PointOption.point(screenWidth, screenHeight))
-                    .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
                     .moveTo(PointOption.point(screenWidth, scrollDistance))
                     .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
                     .release()

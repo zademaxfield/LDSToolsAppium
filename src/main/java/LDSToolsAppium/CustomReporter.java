@@ -32,12 +32,14 @@ public class CustomReporter implements IReporter{
 		
 		
 		startHtml();
-		print("Suites run: " + suites.size());
+		print("<h1> Suites run: " + suites.size() + "</h1>");
 		for (ISuite suite : suites) {
-			print("Suite: " + suite.getName());
+			print("<h1> Suite: " + suite.getName() + "</h1>");
 			Map<String, ISuiteResult> suiteResults = suite.getResults();
 			for (String testName : suiteResults.keySet()) {
-				print("Test: " + testName);
+				print("<br />");
+				print("--------------------------------------------------------");
+				print("<h2> Test: " + testName + "<h2>");
 				
 				//Failed Tests
 				mOut.println(" <br />");
@@ -73,6 +75,8 @@ public class CustomReporter implements IReporter{
 					print(" " + testResult.getThrowable());
 					print("<br />");
 
+					print("<br />");
+					print("--------------------------------------------------------");
 					print("<br />");
 				}
 

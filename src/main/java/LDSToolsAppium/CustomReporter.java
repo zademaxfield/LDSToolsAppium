@@ -39,7 +39,7 @@ public class CustomReporter implements IReporter{
 			for (String testName : suiteResults.keySet()) {
 				print("<br />");
 				print("--------------------------------------------------------");
-				print("<h2> Test: " + testName + "<h2>");
+				print("<h2> Test: " + testName + "</h2>");
 				
 				//Failed Tests
 				mOut.println(" <br />");

@@ -57,9 +57,10 @@ public class ReportsScreenTest extends BaseDriver {
             myBasePage.rightsCheck("New Members", 2, rights, pageSource);
             myBasePage.rightsCheck("Temple Recommend Status", 1, rights, pageSource);
             myBasePage.rightsCheck("Unit Statistics", 2, rights, pageSource);
+            myBasePage.rightsCheck("Quarterly Report", 2, rights, pageSource);
 
             //This will need to be removed soon
-            Assert.assertFalse(myBasePage.checkNoCaseList("quarterly", pageSource, "Contains"));
+            //Assert.assertFalse(myBasePage.checkNoCaseList("quarterly", pageSource, "Contains"));
 
             getMembersMovedInReport(rights);
             getMembersMovedOutReport(rights);
@@ -176,7 +177,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
         myReports.selectSort(myReports.durationSort);
-        Thread.sleep(1000);
+        Thread.sleep(4000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Sunday School President", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Lealaiauloto, Uana Iosefa Sao", pageSource, "Contains"));

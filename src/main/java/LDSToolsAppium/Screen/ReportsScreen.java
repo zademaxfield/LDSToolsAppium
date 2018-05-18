@@ -81,6 +81,11 @@ public class ReportsScreen extends BasePage {
     @iOSFindBy(accessibility = "Unit Statistics")
     public MobileElement unitStatisticsReport;
 
+    //Quarterly Report
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Quarterly Report']")
+    @iOSFindBy(accessibility = "Quarterly Report")
+    public MobileElement quarterlyReport;
+
     //Visiting Teaching
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Visiting Teaching']")
     @iOSFindBy(accessibility = "Visiting Teaching")

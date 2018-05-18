@@ -10,7 +10,7 @@
     <test name="iOS All Test 1" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
-        <parameter name="testDevice" value="REAL-Z6plus" />
+        <parameter name="testDevice" value="REAL-Ziphone8plus" />
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -91,7 +91,7 @@
     <test name="iOS All Test 4" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
-        <parameter name="testDevice" value="REAL-Ziphone7plus" />
+        <parameter name="testDevice" value="REAL-Z6iphone" />
         <parameter name="startSleepTime" value="180000" />
 
         <groups>

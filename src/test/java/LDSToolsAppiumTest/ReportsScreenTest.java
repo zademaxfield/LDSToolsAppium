@@ -177,7 +177,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
         myReports.selectSort(myReports.durationSort);
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Sunday School President", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Lealaiauloto, Uana Iosefa Sao", pageSource, "Contains"));

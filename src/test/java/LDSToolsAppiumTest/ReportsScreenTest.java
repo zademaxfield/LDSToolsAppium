@@ -36,12 +36,14 @@ public class ReportsScreenTest extends BaseDriver {
             pageSource = myBasePage.getSourceOfPage();
 
             if (getRunningOS().equals("mac")) {
-                pageSource = myBasePage.getSourceOfPage();
+                //pageSource = myBasePage.getSourceOfPage();
             } else {
+                //pageSource = pageSource + myBasePage.getSourceOfPage();
+                //myBasePage.scrollDownTEST(800);
+                myBasePage.scrollDownAndroidUIAutomator("0");
                 pageSource = pageSource + myBasePage.getSourceOfPage();
-                myBasePage.scrollDownTEST(800);
-                pageSource = pageSource + myBasePage.getSourceOfPage();
-                myBasePage.scrollUp(300);
+                //myBasePage.scrollUp(300);
+                myBasePage.scrollUpAndroidUIAutomator("0");
 
             }
 
@@ -144,7 +146,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedOutReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Faamoe", 2, rights, pageSource);
+        myBasePage.rightsCheck("Young", 2, rights, pageSource);
         myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
         myBasePage.rightsCheck("Venasio", 1, rights, pageSource);
 
@@ -187,8 +189,8 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.selectSort(myReports.notSetApartSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum President", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS21", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum First Counselor", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS22", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("P0, C3", pageSource, "Contains"));
 
 
@@ -260,7 +262,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.unitStatisticsReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("17", 2, rights, pageSource);
+        myBasePage.rightsCheck("18", 2, rights, pageSource);
 
 
         Thread.sleep(1000);

@@ -56,7 +56,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
     public void ministeringUnassignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -227,7 +227,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4", "jft"})
     public void potentialMinisteringBrothers(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -248,6 +248,7 @@ public class MinisteringScreenTest extends BaseDriver {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringReport.click();
             myMinistering.potentialMinisteringBrothers.click();
+            Thread.sleep(2000);
 
             pageSource = myBasePage.getSourceOfPage();
 

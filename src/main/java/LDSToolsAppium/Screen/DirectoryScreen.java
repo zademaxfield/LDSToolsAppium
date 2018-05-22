@@ -175,6 +175,8 @@ public class DirectoryScreen extends BasePage {
 
 
     public String getDirectoryUserData() throws Exception {
+        BasePage myBasePage = new BasePage(driver);
+
         String pageSource = null;
         if (getOS().equals("mac")) {
             scrollDownIOS();
@@ -217,7 +219,8 @@ public class DirectoryScreen extends BasePage {
             Thread.sleep(1000);
             pageSource = getSourceOfPage();
 
-            scrollDownTEST(200);
+            myBasePage.scrollDownAndroidUIAutomator("1");
+            //scrollDownTEST(200);
 
             tabHousehold.click();
             Thread.sleep(1000);
@@ -228,7 +231,8 @@ public class DirectoryScreen extends BasePage {
                 tabMembership.click();
                 Thread.sleep(1000);
                 pageSource = pageSource + getSourceOfPage();
-                scrollDownTEST(800);
+                //scrollDownTEST(800);
+                myBasePage.scrollDownAndroidUIAutomator("1");
                 pageSource = pageSource + getSourceOfPage();
             }
 

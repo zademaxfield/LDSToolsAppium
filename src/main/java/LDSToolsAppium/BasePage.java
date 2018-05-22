@@ -226,6 +226,24 @@ public class BasePage {
         }
     }
 
+    public void scrollDownAndroidUIAutomator(String myInstance) throws Exception {
+        try {
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(" + myInstance + ")).flingForward();"));
+        } catch (Exception ignored) {
+
+        }
+
+    }
+
+    public void scrollUpAndroidUIAutomator(String myInstance) throws Exception {
+        try {
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(" + myInstance + ")).flingBackward();"));
+        } catch (Exception ignored) {
+
+        }
+
+    }
+
 
     public void scrollDownIOS() throws Exception {
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -243,10 +261,17 @@ public class BasePage {
             int screenWidth = dimensions.getWidth();
             int screenHeight = dimensions.getHeight();
 
-            screenWidth = screenWidth / 4;
-            scrollDistance = screenHeight / 2;
+            screenWidth = screenWidth / 3;
             screenHeight = screenHeight - 100;
+            scrollDistance = screenHeight / 2;
+            scrollDistance = scrollDistance / 2;
             //scrollDistance = -scrollDistance;
+            //scrollDistance = 0;
+
+            System.out.println("Width: " + screenWidth);
+            System.out.println("Height: " + screenHeight);
+            System.out.println("Distance: " + scrollDistance);
+
 
             TouchAction actions = new TouchAction(driver);
             actions.press(PointOption.point(screenWidth, screenHeight))

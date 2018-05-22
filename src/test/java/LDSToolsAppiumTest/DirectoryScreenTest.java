@@ -83,4 +83,31 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
+
+
+    @Test(dataProvider = "Members", groups = {"goat"})
+    public void directoryScrollTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+        String pageSource;
+        int rights = Integer.parseInt(rightsString);
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Login and enter in PIN
+        myHelper.loginUAT(userName, passWord);
+        myHelper.enterPin("1", "1", "3", "3");
+
+        //myBasePage.scrollDownTEST(100);
+
+
+        myBasePage.scrollDownAndroidUIAutomator("0");
+        Thread.sleep(10000);
+        myBasePage.scrollUpAndroidUIAutomator("0");
+
+
+    }
+
 }

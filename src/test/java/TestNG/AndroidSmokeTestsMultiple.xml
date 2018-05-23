@@ -91,7 +91,7 @@
     <test name="Android Smoke Test 4" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="8XV5T15A30006448" />
+        <parameter name="testDevice" value="HT6AN0200005" />
         <parameter name="startSleepTime" value="180000" />
 
         <groups>

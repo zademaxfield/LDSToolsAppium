@@ -146,7 +146,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedOutReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Young", 2, rights, pageSource);
+        myBasePage.rightsCheck("Patiole", 2, rights, pageSource);
         myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
         myBasePage.rightsCheck("Venasio", 1, rights, pageSource);
 
@@ -262,7 +262,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.unitStatisticsReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("18", 2, rights, pageSource);
+        myBasePage.rightsCheck("17", 2, rights, pageSource);
 
 
         Thread.sleep(1000);

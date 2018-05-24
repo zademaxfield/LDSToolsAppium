@@ -169,6 +169,9 @@ public class HelperMethods extends BasePage {
 
         Thread.sleep(2000);
 
+        //Sometimes there is a warning before the Whats new screen
+        //checkForAlertsAfterPin();
+
         dismissWhatsNewPage();
 
         checkForAlertsAfterPin();

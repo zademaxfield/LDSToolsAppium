@@ -290,6 +290,46 @@ public class SettingsScreen extends BasePage {
         public  MobileElement ignore;
 
 
+    //Enter Days until recommend expires
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='android:id/input']")
+    @iOSXCUITFindBy(iOSNsPredicate = "value == 'Days until expiration'")
+    public MobileElement templeDaysUntilExpiration;
+
+
+    // Android Show Temple Recommend Expiration
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Show Temple Recommend Expiration']")
+    public MobileElement templeShowTempleRecommendExpiration;
+
+    //Temple Weeks
+    // 2 Weeks
+    @AndroidFindBy(xpath = "//*[contains(@text, \"2 weeks\")]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == '2 weeks before expiration'")
+    public MobileElement temple2Weeks;
+
+    // 4 Weeks
+    @AndroidFindBy(xpath = "//*[contains(@text, \"4 weeks\")]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == '4 weeks before expiration'")
+    public MobileElement temple4Weeks;
+
+    // 6 Weeks
+    @AndroidFindBy(xpath = "//*[contains(@text, \"6 weeks\")]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == '6 weeks before expiration'")
+    public MobileElement temple6Weeks;
+
+    // 8 Weeks
+    @AndroidFindBy(xpath = "//*[contains(@text, \"8 weeks\")]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == '8 weeks before expiration'")
+    public MobileElement temple8Weeks;
+
+
+
+
+    //Temple Recommend Reminder
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Remind me']")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, \"Temple Recommend Reminder\")]")
+    public MobileElement templeRecommendReminder;
+
+
     //Cancel
     @AndroidFindBy(id = "button2")
     @iOSFindBy(accessibility = "Cancel")

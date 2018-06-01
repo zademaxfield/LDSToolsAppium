@@ -7,10 +7,13 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.jsoup.Connection;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+
+import org.testng.Assert;
 
 
 public class TemplesScreen extends BasePage {
@@ -65,5 +68,103 @@ public class TemplesScreen extends BasePage {
     //Temple Tab All
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='ALL']")
     public MobileElement allTab;
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void enableTempleRecommendReminder(String numberOfDays, MobileElement recommendStatus, MobileElement numberOfWeeks) throws Exception {
+        BasePage myBasePage = new BasePage(driver);
+        SettingsScreen mySettings = new SettingsScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        ScannerScreen myScanner = new ScannerScreen(driver);
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        if (myBasePage.getOS().equals("mac")) {
+            //Go to Developer Settings
+            myMenu.selectMenu(myMenu.help);
+
+            if (myScanner.scannerCheckForText("Developer Settings") ) {
+                myLoginPage.developerButton.click();
+            } else {
+                for (int x = 1; x <= 5; x++) {
+                    myLoginPage.enterDeveloperButton.click();
+                }
+            }
+
+
+            //Set the Temple Recommend Status
+            mySettings.templeRecommendStatus.click();
+
+            recommendStatus.click();
+
+
+            //Set the number of Days until expired
+            mySettings.overrideTempleRecommendExpiration.click();
+            mySettings.templeDaysUntilExpiration.setValue(numberOfDays);
+            mySettings.alertOK.click();
+
+            myBasePage.backButton.click();
+            myBasePage.backButton.click();
+
+
+            //Open Settings
+            myMenu.selectMenu(myMenu.settings);
+            mySettings.templeRecommendReminder.click();
+
+            numberOfWeeks.click();
+
+            myMenu.selectMenu(myMenu.temples);
+
+            Thread.sleep(4000);
+            Assert.assertTrue(myBasePage.checkTextOnPage("Set a Temple Recommend Expiration Reminder"));
+            Assert.assertTrue(myBasePage.checkTextOnPage("Would you like to be reminded before your temple recommend expires?"));
+
+            yesRemindMe.click();
+
+
+        } else {
+            //Open Settings
+            myMenu.selectMenu(myMenu.settings);
+
+            //Scroll down and Reset Temple Preferences
+            myMenu.scrollToText("Temple Recommend Status");
+            mySettings.resetAllTempelPreferences.click();
+            Thread.sleep(2000);
+
+            //Set the Recommend Status
+            mySettings.templeRecommendStatus.click();
+            recommendStatus.click();
+            Thread.sleep(2000);
+
+
+            //Set the Number of days for the expiration
+            mySettings.overrideTempleRecommendExpiration.click();
+            Thread.sleep(3000);
+            templeDaysExpiration.setValue(numberOfDays);
+            mySettings.alertOK.click();
+            myBasePage.backButton.click();
+
+            //Open Settings and enable Recommend
+            myMenu.selectMenu(myMenu.settings);
+
+            mySettings.templeShowTempleRecommendExpiration.click();
+            mySettings.templeRecommendReminder.click();
+
+            numberOfWeeks.click();
+
+            myBasePage.backButton.click();
+            myMenu.selectMenu(myMenu.temples);
+
+        }
+    }
 
 }

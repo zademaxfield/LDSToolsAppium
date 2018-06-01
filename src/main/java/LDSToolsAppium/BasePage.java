@@ -538,6 +538,22 @@ public class BasePage {
         return myString;
     }
 
+    public void checkSourceString(String pageSource, String textToCheck) throws Exception {
+        if (pageSource.contains(textToCheck)){
+            Assert.assertTrue(true);
+        } else {
+            System.out.println("Not Found: " + textToCheck);
+            Assert.assertTrue(false);
+        }
+    }
+
+    public void checkSource(String pageSource, List<String> myList) throws Exception {
+        for(String oneLine : myList){
+            //System.out.println("TEXT: " + oneLine);
+            checkSourceString(pageSource, oneLine);
+        }
+    }
+
     public void compareWebData(List<String> myList, List<String> androidList, Boolean onePage) throws Exception {
         String pageSource = null;
         int pageSize;

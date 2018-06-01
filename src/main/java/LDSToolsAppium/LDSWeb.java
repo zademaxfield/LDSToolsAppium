@@ -70,6 +70,11 @@ public class LDSWeb {
 	
 	@Test
 	public void simpleTest() throws Exception {
+
+		setupAfterUATReset();
+
+//		MyTemplePageLogIn("https://uat.lds.org/mls/mbr/?lang=eng", "LDSTools21", "password1");
+//		TempleGetName();
 		
 		/*
 		String url = "https://uat.lds.org/directory/";
@@ -150,7 +155,7 @@ public class LDSWeb {
 		*/
 		
 		
-		setupAfterUATReset();
+
 		//AreaBookSetup();
 
 		//getAllMembersInHTVTReport("Elders Quorum",  "HouseholdsNotVisited", "ngiBPC1", "password1", "Bishopric");
@@ -3188,8 +3193,8 @@ public class LDSWeb {
 	public String TempleGetName() throws Exception {
 		String templeName;
 		templeName = getText("TempleTitle", "xpath");
-		//System.out.println("Temple Name");
-		//System.out.println(templeName);
+//		System.out.println("Temple Name");
+//		System.out.println(templeName);
 		
 		return templeName;
 		

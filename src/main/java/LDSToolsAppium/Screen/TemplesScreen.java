@@ -130,6 +130,9 @@ public class TemplesScreen extends BasePage {
 
             yesRemindMe.click();
 
+            myMenu.selectMenu(myMenu.directory);
+            myMenu.selectMenu(myMenu.temples);
+
 
         } else {
             //Open Settings
@@ -163,6 +166,7 @@ public class TemplesScreen extends BasePage {
 
             myBasePage.backButton.click();
             myMenu.selectMenu(myMenu.temples);
+
 
         }
     }

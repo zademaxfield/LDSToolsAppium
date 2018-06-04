@@ -66,7 +66,7 @@ public class TemplesScreenTest extends BaseDriver {
         SettingsScreen mySettings = new SettingsScreen(driver);
 
 
-        myHelper.loginUAT("LDSTools21", "password1");
+        myHelper.loginUAT("ngibpc1", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
 

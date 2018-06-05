@@ -112,6 +112,49 @@ public class HelperMethods extends BasePage {
 
     }
 
+
+    private void setupProxy() throws Exception {
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+        SettingsScreen mySettings = new SettingsScreen(driver);
+        ScannerScreen myScanner = new ScannerScreen(driver);
+
+        if (getOS().equals("mac")) {
+            myLoginPage.overflowMenu.click();
+
+            if (myScanner.scannerCheckForText("Developer Settings") ) {
+                myLoginPage.developerButton.click();
+            } else {
+                for (int x = 1; x <= 5; x++) {
+                    myLoginPage.enterDeveloperButton.click();
+                }
+            }
+
+            mySettings.networkEnvironment.click();
+            mySettings.proxy.click();
+            backButton.click();
+            backButton.click();
+            backButton.click();
+
+        } else {
+            myLoginPage.overflowMenu.click();
+            myLoginPage.overflowSettings.click();
+            scrollToText("About");
+            mySettings.about.click();
+            for (int x = 1 ; x <= 7 ; x++ ) {
+                mySettings.aboutLogo.click();
+            }
+            backButton.click();
+            scrollToText("Network Environment");
+            //mySettings.resetWhatsNewPrompt.click();
+
+            mySettings.networkEnvironment.click();
+            mySettings.proxy.click();
+
+            backButton.click();
+        }
+
+    }
+
     public void enterPin(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);

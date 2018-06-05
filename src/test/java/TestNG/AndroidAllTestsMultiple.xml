@@ -112,6 +112,7 @@
             <class name="LDSToolsAppiumTest.PinScreenTest" />
             <class name="LDSToolsAppiumTest.ReportsScreenTest" />
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
         </classes>
     </test>
 

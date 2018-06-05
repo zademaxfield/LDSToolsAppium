@@ -72,15 +72,6 @@ public class TemplesScreen extends BasePage {
 
 
 
-
-
-
-
-
-
-
-
-
     public void enableTempleRecommendReminder(String numberOfDays, MobileElement recommendStatus, MobileElement numberOfWeeks) throws Exception {
         BasePage myBasePage = new BasePage(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);

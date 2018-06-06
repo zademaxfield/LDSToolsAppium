@@ -21,11 +21,6 @@ public class HelperMethods extends BasePage {
 
     public HelperMethods(AppiumDriver<MobileElement> driver) {
         super(driver);
-//        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
-//        SettingsScreen mySettings = new SettingsScreen(driver);
-//        PinScreen myPinScreen = new PinScreen(driver);
-//        MenuScreen myMenuScreen = new MenuScreen(driver);
-//        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
 
     }
 
@@ -35,6 +30,39 @@ public class HelperMethods extends BasePage {
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         setupUAT();
 
+
+        myLoginPage.loginName.clear();
+        myLoginPage.passWord.clear();
+
+        myLoginPage.loginName.sendKeys(userName);
+        myLoginPage.passWord.sendKeys(password);
+        myLoginPage.signInButton.click();
+        Thread.sleep(10000);
+
+        long startTime = System.nanoTime();
+
+
+        if (getOS().equals("mac")) {
+            waitUnitlTextIsGone("Stop Sync");
+        } else {
+            waitUnitlTextIsGone("Sync Progress");
+        }
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        duration = duration / 1000000;
+        System.out.println("Done waiting for Text to disappear: Sync Took: " + duration);
+
+
+        Thread.sleep(6000);
+    }
+
+    public void loginProxy(String myId, String myUnit, String myPosition) throws Exception {
+        //Enable Developer Settings and set the Network Environment to Proxy
+        String userName = "paigekrebs";
+        String password = "sweets2005";
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+        setupProxy(myId, myUnit, myPosition);
 
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();
@@ -113,10 +141,11 @@ public class HelperMethods extends BasePage {
     }
 
 
-    private void setupProxy() throws Exception {
+    private void setupProxy(String myId, String myUnit, String myPosition) throws Exception {
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
         ScannerScreen myScanner = new ScannerScreen(driver);
+
 
         if (getOS().equals("mac")) {
             myLoginPage.overflowMenu.click();
@@ -131,7 +160,24 @@ public class HelperMethods extends BasePage {
 
             mySettings.networkEnvironment.click();
             mySettings.proxy.click();
+            Thread.sleep(1000);
             backButton.click();
+
+            mySettings.proxyId.click();
+            mySettings.proxyEditField.setValue(myId);
+            mySettings.proxyDone.click();
+
+            scrollDownIOS();
+
+            mySettings.proxyUnits.click();
+            mySettings.proxyEditField.setValue(myUnit);
+            mySettings.proxyDone.click();
+
+            mySettings.proxyPositions.click();
+            mySettings.proxyEditField.setValue(myPosition);
+            mySettings.proxyDone.click();
+
+
             backButton.click();
             backButton.click();
 
@@ -150,6 +196,24 @@ public class HelperMethods extends BasePage {
             mySettings.networkEnvironment.click();
             mySettings.proxy.click();
 
+            scrollToText("px_i");
+
+            mySettings.proxyId.click();
+            mySettings.proxyEditField.setValue(myId);
+            mySettings.proxyDone.click();
+
+            scrollToText("px_u");
+
+            mySettings.proxyUnits.click();
+            mySettings.proxyEditField.setValue(myUnit);
+            mySettings.proxyDone.click();
+
+            scrollToText("px_p");
+
+            mySettings.proxyPositions.click();
+            mySettings.proxyEditField.setValue(myPosition);
+            mySettings.proxyDone.click();
+
             backButton.click();
         }
 
@@ -164,32 +228,6 @@ public class HelperMethods extends BasePage {
         Thread.sleep(4000);
         checkForAlertsBeforePin();
 
-//        if (checkForElement(myPin.pinAlertDialogOK)) {
-//            myPin.pinAlertDialogOK.click();
-//        }
-//
-//        //This is for iOS on a non leader login
-//        if (checkForElement(myPin.pinAlertDialogYes)) {
-//            myPin.pinAlertDialogYes.click();
-//        }
-//
-//        //Check for Face ID then Disable Face ID
-//        System.out.println("Checking for Face ID");
-//        if (checkTextOnPage("Face ID")) {
-//            System.out.println("Face ID found hitting disable");
-//            myPin.pinDisableFaceID.click();
-//            Thread.sleep(2000);
-//            myPin.pinAlertDialogOK.click();
-//        }
-//
-//        //Check for Touch ID then press the ID
-//        System.out.println("Checking for Touch ID");
-//        if (checkTextOnPage("Touch ID")) {
-//            System.out.println("Enable Touch ID Button found, hitting the button");
-//            myPin.pinDisableTouchID.click();
-//            Thread.sleep(2000);
-//            myPin.pinAlertDialogOK.click();
-//        }
 
         dismissWhatsNewPage();
 
@@ -213,7 +251,7 @@ public class HelperMethods extends BasePage {
         Thread.sleep(2000);
 
         //Sometimes there is a warning before the Whats new screen
-        //checkForAlertsAfterPin();
+        checkForAlertsAfterPin();
 
         dismissWhatsNewPage();
 

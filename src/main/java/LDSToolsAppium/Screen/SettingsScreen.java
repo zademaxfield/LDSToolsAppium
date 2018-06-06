@@ -212,17 +212,33 @@ public class SettingsScreen extends BasePage {
     //px_i
     @AndroidFindBy(xpath = "//*[contains(@text, 'px_i')]")
     @iOSFindBy(accessibility = "Id")
-    public  MobileElement px_i;
+    public  MobileElement proxyId;
 
     //px_u
     @AndroidFindBy(xpath = "//*[contains(@text, 'px_u')]")
     @iOSFindBy(accessibility = "Units")
-    public  MobileElement px_u;
+    public  MobileElement proxyUnits;
 
     //px_p
     @AndroidFindBy(xpath = "//*[contains(@text, 'px_p')]")
     @iOSFindBy(accessibility = "Positions")
-    public  MobileElement px_p;
+    public  MobileElement proxyPositions;
+
+
+        //Proxy Edit Field
+        @AndroidFindBy(id = "android:id/edit")
+        @iOSFindBy(xpath = "//XCUIElementTypeTextField")
+        public MobileElement proxyEditField;
+
+
+
+        //Done ios OK android
+        @AndroidFindBy(id = "android:id/button1")
+        @iOSFindBy(accessibility = "Done")
+        public MobileElement proxyDone;
+
+
+
 
     //Prototypes
     @AndroidFindBy(xpath = "//*[contains(@text, 'Prototypes')]")

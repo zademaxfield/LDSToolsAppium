@@ -14,8 +14,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
-import java.util.List;
+
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+
+import org.testng.Assert;
 
 
 public class DirectoryScreen extends BasePage {
@@ -28,6 +31,18 @@ public class DirectoryScreen extends BasePage {
 
 
     // ****************** Directory Main Screen ******************
+
+    // ****************** Directory Dropdown ******************
+    //Directory Dropdown
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Directory']")
+    @iOSFindBy(accessibility = "Directory")
+    public  MobileElement directoryDropdown;
+
+    //Unit Selected
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@resouce-id='org.lds.ldstools.dev:id/ab_toolbar']/android.widget.TextView[2]")
+    @iOSFindBy(xpath = "//*[@name='LDS_Tools.DirectoryView']//XCUIElementTypeStaticText[2]")
+    public MobileElement unitSelected;
+
 
     // ****************** Search ******************
     //Search Directory
@@ -274,6 +289,122 @@ public class DirectoryScreen extends BasePage {
 
         return pageSource;
 
+    }
+
+
+    public void checkAllWardDirectories() throws Exception {
+        List<String> StakeWard = new ArrayList<String>();
+        List<MobileElement> options;
+
+        BasePage myBasePage = new BasePage(driver);
+        
+        
+        int pageSize;
+        int myCounter = 1;
+        Thread.sleep(2000);
+
+        if (myBasePage.getOS().equals("mac")) {
+            //directoryDropdown.click();
+            unitSelected.click();
+
+            //Get Stake and all Wards
+            //options= driver.findElements(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell/UIAStaticText"));
+            options= driver.findElements(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText"));
+
+            for (int i = 0 ; i < options.size(); i++ ) {
+                //System.out.println(options.get(i).getText());
+                StakeWard.add(options.get(i).getText());
+            }
+
+            searchCancel.click();
+
+
+
+            //Go through each Stake and Ward to make sure it isn't blank
+            for(String StakeWardItem : StakeWard){
+
+                Thread.sleep(2000);
+                //directoryDropdown.click();
+                unitSelected.click();
+                Thread.sleep(2000);
+
+                driver.findElement(By.xpath("//*[@name='" + StakeWardItem + "']"));
+
+                //displayAllTextViewElements();
+                Thread.sleep(6000);
+                //This will check to see if the first user has text.  
+                Assert.assertTrue(checkFirstDirectoryUser());
+
+                if(myCounter == 5){
+                    break; // Don't like this need a better solution. 
+                }
+
+                myCounter++;
+            }
+
+        } else {
+            directoryDropdown.click();
+
+            //Get Stake and all Wards
+            //options = driver.findElements(By.xpath("//*[@id='list_item']/*[@id='text1']"));
+            options = driver.findElements(By.xpath("//android.widget.LinearLayout[@resource-id='org.lds.ldstools.dev:id/list_item']/android.widget.TextView[@resource-id='org.lds.ldstools.dev:id/unitNameTextView']"));
+            //options = driver.findElements(By.xpath("//android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout/android.widget.TextView"));
+            for (int i = 0 ; i < options.size(); i++ ) {
+                System.out.println(options.get(i).getText());
+                StakeWard.add(options.get(i).getText());
+            }
+            Thread.sleep(1000);
+            directoryDropdown.click();
+
+            //Thread.sleep(1000);
+            //pressBackKey();
+            Thread.sleep(1000);
+
+            //Go through each Stake and Ward to make sure it isn't blank
+            for(String StakeWardItem : StakeWard){
+                directoryDropdown.click();
+
+                Thread.sleep(2000);
+                driver.findElement(By.xpath("//*[@text='" + StakeWardItem + "']"));
+
+                Assert.assertTrue(checkFirstDirectoryUser());
+
+
+            }
+
+
+        }
+
+    }
+
+
+    public Boolean checkFirstDirectoryUser() {
+        Boolean myReturnStatus;
+        String myString;
+
+        BasePage myBasePage = new BasePage(driver);
+
+
+        //String myString = driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]")).getText();
+        if (myBasePage.getOS().equals("mac")) {
+            //myString = driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]")).getText();
+            myString = driver.findElement(By.xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")).getText();
+            //XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]
+        } else {
+            //myString = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='org.lds.ldstools.dev:id/text1'][1]")).getText();
+            myString = driver.findElement(By.xpath("//android.widget.RelativeLayout[@resource-id='org.lds.ldstools.dev:id/top_layout']//android.widget.TextView")).getText();
+        }
+
+
+
+        if (myString.isEmpty()) {
+            myReturnStatus = false;
+        } else {
+            myReturnStatus = true;
+            //System.out.println("FOUND USER: " + myString);
+        }
+
+        return myReturnStatus;
     }
 
 

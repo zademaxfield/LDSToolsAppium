@@ -295,7 +295,7 @@ public class DirectoryScreen extends BasePage {
     public void checkAllWardDirectories() throws Exception {
         List<String> StakeWard = new ArrayList<String>();
         List<MobileElement> options;
-
+        String myUnit;
         BasePage myBasePage = new BasePage(driver);
         
         
@@ -312,28 +312,31 @@ public class DirectoryScreen extends BasePage {
             options= driver.findElements(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText"));
 
             for (int i = 0 ; i < options.size(); i++ ) {
-                //System.out.println(options.get(i).getText());
-                StakeWard.add(options.get(i).getText());
+                System.out.println(options.get(i).getText());
+                myUnit = options.get(i).getText();
+                myUnit = myUnit.trim();
+                System.out.println(myUnit);
+                StakeWard.add(myUnit);
             }
 
             searchCancel.click();
-
+            Thread.sleep(2000);
 
 
             //Go through each Stake and Ward to make sure it isn't blank
             for(String StakeWardItem : StakeWard){
 
-                Thread.sleep(2000);
-                //directoryDropdown.click();
-                unitSelected.click();
-                Thread.sleep(2000);
-
-                driver.findElement(By.xpath("//*[@name='" + StakeWardItem + "']"));
-
-                //displayAllTextViewElements();
-                Thread.sleep(6000);
-                //This will check to see if the first user has text.  
-                Assert.assertTrue(checkFirstDirectoryUser());
+                if (!StakeWardItem.contains("Stake")) {
+                    Thread.sleep(2000);
+                    //directoryDropdown.click();
+                    unitSelected.click();
+                    Thread.sleep(2000);
+                    driver.findElement(By.xpath("//*[contains(@name,'" + StakeWardItem + "')]")).click();
+                    //displayAllTextViewElements();
+                    Thread.sleep(6000);
+                    //This will check to see if the first user has text.
+                    Assert.assertTrue(checkFirstDirectoryUser());
+                }
 
                 if(myCounter == 5){
                     break; // Don't like this need a better solution. 
@@ -362,13 +365,15 @@ public class DirectoryScreen extends BasePage {
 
             //Go through each Stake and Ward to make sure it isn't blank
             for(String StakeWardItem : StakeWard){
-                directoryDropdown.click();
 
-                Thread.sleep(2000);
-                driver.findElement(By.xpath("//*[@text='" + StakeWardItem + "']"));
+                if (!StakeWardItem.contains("Stake")) {
+                    directoryDropdown.click();
 
-                Assert.assertTrue(checkFirstDirectoryUser());
+                    Thread.sleep(2000);
+                    driver.findElement(By.xpath("//*[@text='" + StakeWardItem + "']")).click();
 
+                    Assert.assertTrue(checkFirstDirectoryUser());
+                }
 
             }
 

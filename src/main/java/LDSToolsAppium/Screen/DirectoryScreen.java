@@ -383,12 +383,13 @@ public class DirectoryScreen extends BasePage {
     }
 
 
-    public Boolean checkFirstDirectoryUser() {
+    public Boolean checkFirstDirectoryUser() throws Exception{
         Boolean myReturnStatus;
         String myString;
 
         BasePage myBasePage = new BasePage(driver);
 
+        Thread.sleep(6000);
 
         //String myString = driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]")).getText();
         if (myBasePage.getOS().equals("mac")) {
@@ -397,7 +398,7 @@ public class DirectoryScreen extends BasePage {
             //XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]
         } else {
             //myString = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='org.lds.ldstools.dev:id/text1'][1]")).getText();
-            myString = driver.findElement(By.xpath("//android.widget.RelativeLayout[@resource-id='org.lds.ldstools.dev:id/top_layout']//android.widget.TextView")).getText();
+            myString = driver.findElement(By.xpath("//*[@resource-id='org.lds.ldstools.dev:id/recycler_view']/android.widget.FrameLayout/android.widget.TextView[@resource-id='org.lds.ldstools.dev:id/name']")).getText();
         }
 
 

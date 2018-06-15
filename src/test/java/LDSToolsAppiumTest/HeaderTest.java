@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class HeaderTest extends BaseDriver {
 
 
-    @Test (groups = {"all2", "all", "header", "jft"})
+    @Test (groups = {"all2", "all", "header",})
     public void simpleHeaderTest() throws Exception {
         String pageSource;
 
@@ -32,9 +32,33 @@ public class HeaderTest extends BaseDriver {
 
         myDirectory.checkAllWardDirectories();
 
+    }
+
+
+    @Test(dataProvider = "Header", groups = {"all2", "all", "header", "jft"})
+    public void headerSyncTest(String memberId, String memberUnit, String memberPositions, String memberName) throws Exception {
+        String pageSource;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+
+        //Login and enter in PIN
+        System.out.println("Header Name: " + memberName);
+        myHelper.loginProxy(memberId,
+                memberUnit,
+                memberPositions);
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myDirectory.checkAllWardDirectories();
 
 
     }
+
+
 
 
 

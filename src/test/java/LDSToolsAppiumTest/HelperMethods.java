@@ -197,6 +197,7 @@ public class HelperMethods extends BasePage {
             mySettings.proxy.click();
 
             scrollToText("px_i");
+            //scrollToText("px_u");
 
             mySettings.proxyId.click();
             mySettings.proxyEditField.setValue(myId);

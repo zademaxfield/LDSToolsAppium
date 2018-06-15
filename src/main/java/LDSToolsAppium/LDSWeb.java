@@ -186,7 +186,8 @@ public class LDSWeb {
 	}
 	
 	public void setupAfterUATReset() throws Exception {
-		String url = "https://uat.lds.org/mls/mbr/?lang=eng";
+		//String url = "https://uat.lds.org/mls/mbr/?lang=eng";
+		String url = "https://test.lds.org/mls/mbr/?lang=eng";
 		String userName = "LDSTools2";
 		String passWord = "toolstester";
 		

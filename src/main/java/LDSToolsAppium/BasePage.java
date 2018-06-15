@@ -84,6 +84,7 @@ public class BasePage {
     public void scrollToText(String myElement) throws Exception {
         int myCounter = 1;
         int myLoopStatus = 0;
+        flingUp();
 
         if (!checkTextOnPage(myElement)) {
             MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/list"));
@@ -107,6 +108,14 @@ public class BasePage {
                 myCounter++;
             }
             Assert.assertNotNull(radioGroup.getLocation());
+        }
+    }
+
+    public void flingUp() throws Exception {
+        try {
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).flingBackward();"));
+        } catch (Exception ignored) {
+
         }
     }
 

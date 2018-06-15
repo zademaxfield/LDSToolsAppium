@@ -117,6 +117,29 @@ public class BaseDriver {
         return testCases.iterator();
     }
 
+    @DataProvider(name = "Header")
+    public Iterator<Object []> providerHeader(ITestContext context) throws InterruptedException {
+        String myFileName = "src/main/java/LDSToolsAppium/header.csv";
+
+        BufferedReader br = null;
+        String line;
+        String splitBy = ",";
+        String[] data = null;
+        List<Object []> testCases = new ArrayList<>();
+
+        try {
+            br = new BufferedReader(new FileReader(myFileName));
+            while ((line = br.readLine()) != null) {
+                data = line.split(splitBy);
+                testCases.add(data);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return testCases.iterator();
+    }
+
     @AfterMethod(alwaysRun = true)
     public void teardown(ITestResult result) throws Exception {
         System.out.println("Start teardown");

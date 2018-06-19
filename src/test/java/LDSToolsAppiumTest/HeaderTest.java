@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class HeaderTest extends BaseDriver {
 
 
-    @Test (groups = {"all2", "all", "header",})
+    @Test (groups = {"all3", "all", "header", "smoke", "smoke3"})
     public void simpleHeaderTest() throws Exception {
         String pageSource;
 

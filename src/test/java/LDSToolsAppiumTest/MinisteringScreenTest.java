@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class MinisteringScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"} )
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"} )
     public void ministeringBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -27,26 +27,34 @@ public class MinisteringScreenTest extends BaseDriver {
 
         if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
-            myMinistering.ministeringReport.click();
+            pageSource = myBasePage.getSourceOfPage();
+            Thread.sleep(2000);
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+
+
+            myMinistering.ministeringBrothersReport.click();
 
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum", pageSource, "Contains"));
-
+            Assert.assertTrue(myBasePage.checkNoCaseList("Total Interviews", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Assigned Households", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Households", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Households", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Companionships", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Potential Ministering Brothers", pageSource, "Contains"));
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Relief Society", pageSource, "Contains"));
+            myBasePage.backButton.click();
+
+            myMinistering.ministeringSistersReport.click();
+
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("Total Interviews", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Assigned Sisters", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Sisters", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Sisters", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Potential Ministering Sisters", pageSource, "Contains"));
 
-
-            Assert.assertFalse(myBasePage.checkNoCaseList("Home Teaching", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Visiting Teaching", pageSource, "Contains"));
+            myBasePage.backButton.click();
 
         } else {
             pageSource = myBasePage.getSourceOfPage();
@@ -366,7 +374,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
     public void companionshipsSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

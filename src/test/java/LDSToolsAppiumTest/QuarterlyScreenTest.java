@@ -41,7 +41,7 @@ public class QuarterlyScreenTest extends BaseDriver {
 
             Assert.assertTrue(myBasePage.checkNoCaseList("Individuals who are sealed to a spouse in the temple", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("35 / 73", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("48%", pageSource, "Contains"));
+            //Assert.assertTrue(myBasePage.checkNoCaseList("48", pageSource, "Contains"));
 
 
 

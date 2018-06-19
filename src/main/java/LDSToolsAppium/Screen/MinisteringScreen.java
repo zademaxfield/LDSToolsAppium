@@ -27,6 +27,17 @@ public class MinisteringScreen extends BasePage {
     @iOSFindBy(accessibility = "Ministering")
     public MobileElement ministeringReport;
 
+    //Ministering Brothers
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ministering Brothers']")
+    @iOSFindBy(accessibility = "Ministering Brothers")
+    public MobileElement ministeringBrothersReport;
+
+    //Ministering Sisters
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ministering Sisters']")
+    @iOSFindBy(accessibility = "Ministering Sisters")
+    public MobileElement ministeringSistersReport;
+
+
     // ****************** Elders Quorum ******************
     //Unassigned Households
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Unassigned Households']")

@@ -73,6 +73,8 @@ public class LDSWeb {
 
 		setupAfterUATReset();
 
+		//setupMinstering();
+
 //		MyTemplePageLogIn("https://uat.lds.org/mls/mbr/?lang=eng", "LDSTools21", "password1");
 //		TempleGetName();
 		
@@ -200,6 +202,18 @@ public class LDSWeb {
 		addCompanionHousehold();
 		addJaneAaronToClass();
 	}
+
+	public void setupMinstering() throws Exception {
+		String url = "https://lcr-test.lds.org";
+		String userName = "LDSTools2";
+		String passWord = "toolstester";
+
+		openPageLogIn(url, userName, passWord);
+
+		//setupDistrictsMinistering();
+		addCompanionHouseholdMinistering();
+
+	}
 	
 	public void addJaneAaronToClass() throws Exception {
 		
@@ -318,10 +332,120 @@ public class LDSWeb {
 		Thread.sleep(2000);
 		clickElement("LCRHomeButton", "xpath");
 	}
+
+
+	public void addCompanionHouseholdMinistering() throws Exception {
+		clickElement("Ministering", "linkText");
+		Thread.sleep(4000);
+		clickElement("Elders Quorum", "linkText");
+		Thread.sleep(2000);
+		waitForTextToDisappear("Loading", 500, "id" );
+		//clickElement("HomeTeachingDropDown", "xpath");
+		clickElement("AssignmentsTab", "id");
+		Thread.sleep(2000);
+		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
+		Thread.sleep(2000);
+
+
+		selectDistrictMinistering("District 1");
+
+		// Create Companionship
+		Thread.sleep(2000);
+		addCompanionshipMinistering("lds21");
+		addCompanionshipMinistering("lds22");
+
+		//Add Households to Companionship
+		addHouseholdMinistering("afpten");
+		addHouseholdMinistering("lds23");
+		addHouseholdMinistering("lds24");
+		addHouseholdMinistering("lds5");
+		addHouseholdMinistering("lds11");
+
+		clickElement("MinisteringSaveAssignment", "xpath");
+
+		selectDistrictMinistering("District 2");
+
+		// Create Companionship
+		addCompanionshipMinistering("lds11");
+		addCompanionshipMinistering("lds23");
+
+		//Add Households to Companionship
+		addHouseholdMinistering("lds14");
+		addHouseholdMinistering("lds15");
+
+		//clickElement("MemberSave", "xpath");
+		clickElement("MinisteringSaveAssignment", "xpath");
+
+
+
+
+		selectDistrictMinistering("District 3");
+
+		// Create Companionship
+		addCompanionshipMinistering("lds16");
+		addCompanionshipMinistering("lds17");
+
+		//Add Households to Companionship
+		addHouseholdMinistering("aaron");
+		addHouseholdMinistering("lds18");
+		addHouseholdMinistering("lds19");
+
+		clickElement("MinisteringSaveAssignment", "xpath");
+
+
+		clickElement("Ministering", "linkText");
+		Thread.sleep(4000);
+		clickElement("Relief Society", "linkText");
+		Thread.sleep(2000);
+		waitForTextToDisappear("Loading", 500, "id" );
+		//clickElement("HomeTeachingDropDown", "xpath");
+		clickElement("AssignmentsTab", "id");
+		Thread.sleep(2000);
+		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
+		Thread.sleep(2000);
+
+		selectDistrictMinistering("District 1");
+
+		// Create Companionship
+		addCompanionshipMinistering("lds26");
+		addCompanionshipMinistering("lds27");
+		addCompanionshipMinistering("lds12");
+
+		//Add Households to Companionship
+		addHouseholdMinistering("lds38");
+		addHouseholdMinistering("lds28");
+		addHouseholdMinistering("lds29");
+		addHouseholdMinistering("aaron");
+
+		clickElement("MinisteringSaveAssignment", "xpath");
+
+		selectDistrictMinistering("District 2");
+
+		// Create Companionship
+		addCompanionshipMinistering("lds35");
+		addCompanionshipMinistering("lds36");
+
+		//Add Households to Companionship
+		addHouseholdMinistering("lds12");
+		addHouseholdMinistering("lds26");
+		addHouseholdMinistering("lds27");
+
+		clickElement("MinisteringSaveAssignment", "xpath");
+
+
+		Thread.sleep(2000);
+		clickElement("NewLCRHomeButton", "xpath");
+	}
 	
 	
 	public void selectDistrictHTVT(String districtToSelect) throws Exception {
 		driver.findElement(By.xpath("//span[contains(text(), '" + districtToSelect + "')]/../../following-sibling::div//a[contains(text(), 'Create new companionship')]")).click();
+		Thread.sleep(2000);
+	}
+
+	public void selectDistrictMinistering(String districtToSelect) throws Exception {
+		driver.findElement(By.xpath("//div[contains(text(), '" + districtToSelect + "')]/..//a[contains(text(), 'Add Companionship')]")).click();
+
 		Thread.sleep(2000);
 	}
 	
@@ -336,12 +460,26 @@ public class LDSWeb {
 		Thread.sleep(2000);
 		clickElement("FoundMember", "xpath");
 	}
+
+	public void addCompanionshipMinistering(String companionToAdd) throws Exception {
+
+		enterText("AddNewCompanionMinistering", "xpath", companionToAdd);
+		Thread.sleep(2000);
+		clickElement("FoundMemberMinistering", "xpath");
+	}
 	
 	public void addHouseholdHTVT(String householdToAdd) throws Exception {
 		clickElement("AddNewAssignment", "xpath");
 		enterText("SearchForHousehold", "xpath", householdToAdd);
 		Thread.sleep(2000);
 		clickElement("FoundMember", "xpath");
+	}
+
+	public void addHouseholdMinistering(String householdToAdd) throws Exception {
+
+		enterText("AddNewAssignmentMinistering", "xpath", householdToAdd);
+		Thread.sleep(2000);
+		clickElement("FoundMemberMinistering", "xpath");
 	}
 	
 	public void setupDistricts() throws Exception {
@@ -384,6 +522,45 @@ public class LDSWeb {
 		
 		Thread.sleep(2000);
 		clickElement("LCRHomeButton", "xpath");
+	}
+
+	public void setupDistrictsMinistering() throws Exception {
+		clickElement("Ministering", "linkText");
+		Thread.sleep(4000);
+		clickElement("Elders Quorum", "linkText");
+		Thread.sleep(2000);
+		waitForTextToDisappear("Loading", 500, "id" );
+		//clickElement("HomeTeachingDropDown", "xpath");
+		clickElement("AssignmentsTab", "id");
+		Thread.sleep(2000);
+		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
+		Thread.sleep(2000);
+
+
+		addDistrictMinistering("District 1", "Tools, LDS24" );
+		addDistrictMinistering("District 2", "Tools, LDS23" );
+		addDistrictMinistering("District 3", "Tools, LDS22" );
+
+		clickElement("Ministering", "linkText");
+		Thread.sleep(4000);
+		clickElement("Relief Society", "linkText");
+		Thread.sleep(2000);
+		waitForTextToDisappear("Loading", 500, "id" );
+		//clickElement("HomeTeachingDropDown", "xpath");
+		clickElement("AssignmentsTab", "id");
+		Thread.sleep(2000);
+		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
+		Thread.sleep(2000);
+
+
+		addDistrictMinistering("District 1", "Wilson, Tina" );
+		addDistrictMinistering("District 2", "Tulia, Faagalo" );
+
+
+
+
+		Thread.sleep(2000);
+		clickElement("NewLCRHomeButton", "xpath");
 	}
 	
 	public void addMemberToCalling(String memberCalling, String memberToAdd) throws Exception {
@@ -1088,6 +1265,33 @@ public class LDSWeb {
 		//testSelect.selectByValue(districtSupervisor);
 		testSelect.selectByVisibleText(districtSupervisor);
 		clickElement("EditDistrictsDone", "id");
+		Thread.sleep(3000);
+	}
+
+	public void addDistrictMinistering(String districtName, String districtSupervisor ) throws Exception {
+		WebElement myElement;
+		//List<WebElement> options= driver.findElements(By.id(this.prop.getProperty("EditDistricts")));
+		//myElement = driver.findElement(By.id(this.prop.getProperty("EditDistricts")));
+		//myElement.isDisplayed();
+
+
+		clickElement("MinisteringAddDistricts", "xpath");
+
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(this.prop.getProperty("MinisteringNewDistrictTitle"))).clear();
+		driver.findElement(By.xpath(this.prop.getProperty("MinisteringNewDistrictTitle"))).sendKeys(districtName);
+		Thread.sleep(1000);
+
+
+		//WebElement mySelect = driver.findElement(By.xpath("//input[contains(@value, '" + districtName + "')]/../following-sibling::td/select[@ng-model='district.districtLeader']"));
+		WebElement mySelect = driver.findElement(By.xpath("//*[@id=\"assignments-tabpane\"]/div/div[1]/div[3]/div[2]/select"));
+		//WebElement mySelect = driver.findElement(By.xpath(this.prop.getProperty("DistrictSupervisorSelect")));
+		Select testSelect = new Select(mySelect);
+
+
+
+		testSelect.selectByVisibleText(districtSupervisor);
+		clickElement("MinisteringSave", "xpath");
 		Thread.sleep(3000);
 	}
 	

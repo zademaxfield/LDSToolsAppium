@@ -88,13 +88,20 @@ public class QuarterlyScreenTest extends BaseDriver {
     public void checkQuarterlyReport(String myReport) throws Exception {
         String pageSource;
         List<String> myList;
-        ArrayList<String> androidList = new ArrayList<>();
+        //ArrayList<String> androidList = new ArrayList<>();
         BasePage myBasePage = new BasePage(driver);
 
         pageSource = myBasePage.getSourceOfPage();
 
         myList = myWeb.getQuarterlyReportsDetails(myReport);
-        myBasePage.compareWebData(myList, androidList, true);
+
+        for(String reportData : myList){
+            System.out.println("Data to test: " + reportData);
+            Assert.assertTrue(myBasePage.checkNoCaseList(reportData, pageSource, "Contains"));
+        }
+
+
+       // myBasePage.compareWebData(myList, androidList, true);
     }
 
 

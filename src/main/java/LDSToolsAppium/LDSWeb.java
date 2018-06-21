@@ -73,13 +73,13 @@ public class LDSWeb {
 
 		//setupAfterUATReset();
 
-		//setupMinstering();
+		setupMinstering();
 
-		String pageSource;
-		quarterlyReportLogIn("ldstools2", "toolstester");
-		Thread.sleep(6000);
-		pageSource = driver.getPageSource();
-		getQuarterlyReport(pageSource, "Converts");
+//		String pageSource;
+//		quarterlyReportLogIn("ldstools2", "toolstester");
+//		Thread.sleep(6000);
+//		pageSource = driver.getPageSource();
+//		getQuarterlyReport(pageSource, "Converts");
 
 
 

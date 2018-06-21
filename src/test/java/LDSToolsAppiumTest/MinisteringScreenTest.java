@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class MinisteringScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"} )
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"} )
     public void ministeringBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -27,8 +27,9 @@ public class MinisteringScreenTest extends BaseDriver {
 
         if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
-            pageSource = myBasePage.getSourceOfPage();
             Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+
 
             Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
@@ -64,7 +65,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringUnassignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -83,30 +84,25 @@ public class MinisteringScreenTest extends BaseDriver {
 
         if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
-            myMinistering.ministeringReport.click();
-
-            if (calling.equals("reliefsociety") || (calling.equals("wardcouncil"))) {
-                if (getRunningOS().equals("mac")) {
-                    myMinistering.unassignedHouseholds.click();
-                    Thread.sleep(2000);
-                    pageSource = myBasePage.getSourceOfPage();
-                    Assert.assertFalse(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-                    Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-                } else {
-                    pageSource = myBasePage.getSourceOfPage();
-                    Assert.assertFalse(myBasePage.checkNoCaseList("Unassigned Households", pageSource, "Contains"));
-                }
+            myMinistering.ministeringBrothersReport.click();
 
 
-            } else {
-                myMinistering.unassignedHouseholds.click();
+            myMinistering.unassignedHouseholds.click();
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            myBasePage.backButton.click();
 
-                Thread.sleep(2000);
-                pageSource = myBasePage.getSourceOfPage();
 
-                Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-            }
+            myMinistering.ministeringSistersReport.click();
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            myBasePage.backButton.click();
+
+
 
         } else {
             pageSource = myBasePage.getSourceOfPage();

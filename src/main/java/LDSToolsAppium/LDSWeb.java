@@ -71,9 +71,20 @@ public class LDSWeb {
 	@Test
 	public void simpleTest() throws Exception {
 
-		setupAfterUATReset();
+		//setupAfterUATReset();
 
 		//setupMinstering();
+
+		String pageSource;
+		quarterlyReportLogIn("ldstools2", "toolstester");
+		Thread.sleep(6000);
+		pageSource = driver.getPageSource();
+		getQuarterlyReport(pageSource, "Converts");
+
+
+
+
+
 
 //		MyTemplePageLogIn("https://uat.lds.org/mls/mbr/?lang=eng", "LDSTools21", "password1");
 //		TempleGetName();
@@ -212,6 +223,18 @@ public class LDSWeb {
 
 		//setupDistrictsMinistering();
 		addCompanionHouseholdMinistering();
+
+	}
+
+	public List<String> getQuarterlyReportsDetails(String myReport) throws Exception {
+		String pageSource;
+		List<String> quarterlyReportData = new ArrayList<String>();
+
+		Thread.sleep(6000);
+		pageSource = driver.getPageSource();
+		quarterlyReportData = getQuarterlyReport(pageSource, myReport);
+
+		return quarterlyReportData;
 
 	}
 	
@@ -754,7 +777,7 @@ public class LDSWeb {
 		clickElement("Add Member", "linkText");
 		
 		enterText("AddMemberText", "xpath", addMember);
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		clickElement("MemberMatch", "xpath");
 		clickElement("MemberSave", "xpath");
 	}
@@ -956,6 +979,25 @@ public class LDSWeb {
 		clickElement("SignIn", "id");
 		clickElement("MyAccountAndWard", "id");
 		clickElement("My Temple", "linkText");
+	}
+
+	public void quarterlyReportLogIn(String userName, String passWord) throws Exception {
+		openGuiMap();
+		setUp();
+
+
+
+		Thread.sleep(4000);
+
+		openPageLogIn("https://uat.lds.org/mls/mbr", userName, passWord);
+
+		Thread.sleep(4000);
+
+		clickElement("Reports", "linkText");
+		clickElement("Quarterly Report", "linkText");
+
+
+
 	}
 	
 	
@@ -1394,6 +1436,72 @@ public class LDSWeb {
 
 		return foundUsers;
 		
+	}
+
+
+	private List<String> getQuarterlyReport(String pageSource, String myReport){
+		List<String> foundUsers = new ArrayList<String>();
+		Document doc = Jsoup.parse(pageSource);
+		Elements myTest;
+		String outerHTML;
+
+
+
+
+
+		switch(myReport) {
+			case "Indicators":
+				myTest = doc.select("tbody:nth-of-type(1) a[href]");
+				break;
+
+			case "Members" :
+				myTest = doc.select("tbody:nth-of-type(2) a[href]");
+				break;
+
+			case "Adults" :
+				myTest = doc.select("tbody:nth-of-type(3) a[href]");
+				break;
+
+			case "Youth" :
+				myTest = doc.select("tbody:nth-of-type(4) a[href]");
+				break;
+
+			case "Children" :
+				myTest = doc.select("tbody:nth-of-type(5) a[href]");
+				break;
+
+			case "Converts" :
+				myTest = doc.select("tbody:nth-of-type(6) a[href]");
+				break;
+
+			default:
+				myTest = doc.select("tbody a[href]");
+				break;
+
+		}
+
+
+
+		for (Element myElement : myTest ) {
+			outerHTML = myElement.text();
+			if (myReport.contains("Indicators")) {
+				if (!outerHTML.contains(",")) {
+					foundUsers.add(outerHTML);
+				}
+			} else {
+				foundUsers.add(outerHTML);
+			}
+
+
+		}
+
+		for(String oneUser : foundUsers){
+			System.out.println("Quarterly Report: " + oneUser);
+
+		}
+
+		return foundUsers;
+
 	}
 	
 	private List<String> getAllTemples(String pageSource){

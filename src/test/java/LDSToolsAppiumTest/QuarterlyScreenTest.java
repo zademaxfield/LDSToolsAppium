@@ -10,14 +10,16 @@ import io.appium.java_client.MobileElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class QuarterlyScreenTest extends BaseDriver {
 
     @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"} )
-    public void ministeringBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
+    public void quarterlyReportBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
-
 
         HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
@@ -26,25 +28,56 @@ public class QuarterlyScreenTest extends BaseDriver {
         QuarterlyReportScreen myQuarterly = new QuarterlyReportScreen(driver);
 
 
-
         myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
 
         if (rights <= 3) {
+            myWeb.quarterlyReportLogIn( userName, passWord);
+
             myMenu.selectMenu(myMenu.reports);
+            if (!myBasePage.checkForElement(myReport.quarterlyReport)) {
+                myBasePage.scrollToTextRecyclerView("Quarterly Report");
+            }
             myReport.quarterlyReport.click();
 
+            //Quarterly Report Indicators
             myQuarterly.indicatorsOfConversionAndChurchGrowth.click();
-
             Thread.sleep(2000);
-            pageSource = myBasePage.getSourceOfPage();
+            checkQuarterlyReport("Indicators");
+            myBasePage.backButton.click();
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Individuals who are sealed to a spouse in the temple", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("35 / 73", pageSource, "Contains"));
-            //Assert.assertTrue(myBasePage.checkNoCaseList("48", pageSource, "Contains"));
+            //Quarterly Report Members
+            myQuarterly.membersFamilies.click();
+            Thread.sleep(2000);
+            checkQuarterlyReport("Members");
+            myBasePage.backButton.click();
+
+            //Quarterly Report Adults
+            myQuarterly.adults.click();
+            Thread.sleep(2000);
+            checkQuarterlyReport("Adults");
+            myBasePage.backButton.click();
+
+            //Quarterly Report Youth
+            myQuarterly.youth.click();
+            Thread.sleep(2000);
+            checkQuarterlyReport("Youth");
+            myBasePage.backButton.click();
+
+            //Quarterly Report Children
+            myQuarterly.children.click();
+            Thread.sleep(2000);
+            checkQuarterlyReport("Children");
+            myBasePage.backButton.click();
+
+            //Quarterly Report Converts
+            myQuarterly.convertsPast12Months.click();
+            Thread.sleep(2000);
+            checkQuarterlyReport("Converts");
+            myBasePage.backButton.click();
 
 
-
+            myWeb.tearDown();
 
         } else {
             pageSource = myBasePage.getSourceOfPage();
@@ -52,6 +85,17 @@ public class QuarterlyScreenTest extends BaseDriver {
         }
     }
 
+    public void checkQuarterlyReport(String myReport) throws Exception {
+        String pageSource;
+        List<String> myList;
+        ArrayList<String> androidList = new ArrayList<>();
+        BasePage myBasePage = new BasePage(driver);
+
+        pageSource = myBasePage.getSourceOfPage();
+
+        myList = myWeb.getQuarterlyReportsDetails(myReport);
+        myBasePage.compareWebData(myList, androidList, true);
+    }
 
 
 

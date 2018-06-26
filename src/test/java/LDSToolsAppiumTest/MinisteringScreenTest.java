@@ -65,7 +65,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
     public void ministeringUnassignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -111,7 +111,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
     @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
-    public void ministeringHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
+    public void ministeringAssignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
 
@@ -129,30 +129,17 @@ public class MinisteringScreenTest extends BaseDriver {
 
         if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
-            myMinistering.ministeringReport.click();
-            myMinistering.households.click();
+            myMinistering.ministeringBrothersReport.click();
+            myMinistering.assignedHouseholds.click();
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             pageSource = myBasePage.getSourceOfPage();
 
 
-            if (calling.equals("reliefsociety") || (calling.equals("wardcouncil"))) {
-                Assert.assertFalse(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-            } else {
-                Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("AFPTen", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
-                //Check Filters
-                assignedMinisteringBrothers();
-                notAssignedMinisteringBrothers();
-                newAndMovedInMembers();
-                ssAges18to30();
-                ssAge32AndOlder();
-                sbAges18to30();
-                sbAge32AndOlder();
-            }
 
 
         } else {
@@ -180,8 +167,8 @@ public class MinisteringScreenTest extends BaseDriver {
 
         if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
-            myMinistering.ministeringReport.click();
-            myMinistering.companionshipsBrothers.click();
+            myMinistering.ministeringBrothersReport.click();
+
 
             myMinistering.validateDistrict("District 1");
             myMinistering.validateDistrict("District 2");
@@ -231,7 +218,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"}, enabled = false)
     public void potentialMinisteringBrothers(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -273,7 +260,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"}, enabled = false)
     public void unassignedSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -320,7 +307,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
     @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke4"})
-    public void ministeringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
+    public void ministeringAssignedSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
 
@@ -339,29 +326,14 @@ public class MinisteringScreenTest extends BaseDriver {
 
         if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
-            myMinistering.ministeringReport.click();
+            myMinistering.ministeringSistersReport.click();
+            myMinistering.assignedSisters.click();
+
             //myMinistering.sisters.click();
-
-            //pageSource = myBasePage.getSourceOfPage();
-
-
-            if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
-                pageSource = myBasePage.getSourceOfPage();
-                Assert.assertFalse(myBasePage.checkNoCaseList("Sisters", pageSource, "Contains"));
-            } else {
-                myMinistering.sisters.click();
-                Thread.sleep(2000);
-                pageSource = myBasePage.getSourceOfPage();
-                Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
-
-                //Check Filters
-                assignedMinisteringSisters();
-                notAssignedMinisteringSisters();
-                newAndMovedInMembersSisters();
-                ssAges18to30Sisters();
-                ssAge32AndOlderSisters();
-            }
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
 
 
         } else {
@@ -370,7 +342,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
     public void companionshipsSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -389,12 +361,12 @@ public class MinisteringScreenTest extends BaseDriver {
 
         if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
-            myMinistering.ministeringReport.click();
-            myMinistering.companionshipsSisters.click();
+            myMinistering.ministeringSistersReport.click();
+
 
             myMinistering.validateDistrict("District 1");
             myMinistering.validateDistrict("District 2");
-            myMinistering.validateDistrict("Fagamalo Districts");
+           // myMinistering.validateDistrict("Fagamalo Districts");
 
 
             //Select District 1
@@ -410,7 +382,7 @@ public class MinisteringScreenTest extends BaseDriver {
             //Select District 2
             myMinistering.selectDistrict("District 2");
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS53", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("LDS35", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 
             if (getRunningOS().equals("mac")) {
@@ -425,7 +397,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"}, enabled = false)
     public void potentialMinisteringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

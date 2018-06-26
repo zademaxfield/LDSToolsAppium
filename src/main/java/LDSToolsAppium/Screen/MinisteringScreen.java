@@ -44,6 +44,11 @@ public class MinisteringScreen extends BasePage {
     @iOSFindBy(accessibility = "Unassigned Households")
     public MobileElement unassignedHouseholds;
 
+    //Assigned Households
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Assigned Households']")
+    @iOSFindBy(accessibility = "Assigned Households")
+    public MobileElement assignedHouseholds;
+
     //Households
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Households']")
     @iOSFindBy(accessibility = "Households")
@@ -64,6 +69,12 @@ public class MinisteringScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Unassigned Sisters']")
     @iOSFindBy(accessibility = "Unassigned Sisters")
     public MobileElement unassignedSisters;
+
+    //Assigned Sisters
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Assigned Sisters']")
+    @iOSFindBy(accessibility = "Assigned Sisters")
+    public MobileElement assignedSisters;
+
 
     //Sisters
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Sisters']")

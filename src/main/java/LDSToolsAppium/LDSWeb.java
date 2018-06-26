@@ -71,9 +71,9 @@ public class LDSWeb {
 	@Test
 	public void simpleTest() throws Exception {
 
-		setupAfterUATReset();
+		//setupAfterUATReset();
 
-		//setupMinstering();
+		setupMinstering();
 
 //		String pageSource;
 //		quarterlyReportLogIn("ldstools2", "toolstester");
@@ -221,7 +221,7 @@ public class LDSWeb {
 
 		openPageLogIn(url, userName, passWord);
 
-		//setupDistrictsMinistering();
+		setupDistrictsMinistering();
 		addCompanionHouseholdMinistering();
 
 	}
@@ -383,6 +383,21 @@ public class LDSWeb {
 		addHouseholdMinistering("lds24");
 		addHouseholdMinistering("lds5");
 		addHouseholdMinistering("lds11");
+
+		clickElement("MinisteringSaveAssignment", "xpath");
+
+		selectDistrictMinistering("District 1");
+
+		// Create Companionship
+		Thread.sleep(2000);
+		addCompanionshipMinistering("lds31");
+		addCompanionshipMinistering("lds47");
+
+		//Add Households to Companionship
+		addHouseholdMinistering("lds33");
+		addHouseholdMinistering("lds34");
+		addHouseholdMinistering("lds35");
+
 
 		clickElement("MinisteringSaveAssignment", "xpath");
 

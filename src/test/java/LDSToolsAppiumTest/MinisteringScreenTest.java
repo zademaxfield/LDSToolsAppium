@@ -85,23 +85,23 @@ public class MinisteringScreenTest extends BaseDriver {
         if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringBrothersReport.click();
-
-
             myMinistering.unassignedHouseholds.click();
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
             myBasePage.backButton.click();
+            myBasePage.backButton.click();
 
 
             myMinistering.ministeringSistersReport.click();
+            myMinistering.unassignedSisters.click();
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
             myBasePage.backButton.click();
-
+            myBasePage.backButton.click();
 
 
         } else {

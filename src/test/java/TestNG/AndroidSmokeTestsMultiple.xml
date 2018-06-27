@@ -33,6 +33,7 @@
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
             <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
         </classes>
     </test>
 
@@ -62,6 +63,7 @@
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
             <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
         </classes>
     </test>
 
@@ -91,6 +93,7 @@
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
             <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
         </classes>
     </test>
 

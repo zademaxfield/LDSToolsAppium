@@ -182,7 +182,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS51", pageSource, "Contains"));
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myBasePage.backButton.click();
             }
 
@@ -194,7 +194,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS23", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myBasePage.backButton.click();
             }
 
@@ -205,7 +205,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myBasePage.backButton.click();
             }
 
@@ -282,7 +282,7 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.ministeringReport.click();
 
             if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
-                if (getRunningOS().equals("mac")) {
+                if (getRunningOS().equals("ios")) {
                     myMinistering.unassignedSisters.click();
                     pageSource = myBasePage.getSourceOfPage();
                     Assert.assertFalse(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
@@ -371,23 +371,23 @@ public class MinisteringScreenTest extends BaseDriver {
 
             //Select District 1
             myMinistering.selectDistrict("District 1");
-            Thread.sleep(2000);
+            Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS12", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myBasePage.backButton.click();
             }
 
             //Select District 2
             myMinistering.selectDistrict("District 2");
-            Thread.sleep(2000);
+            Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS35", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myBasePage.backButton.click();
             }
 
@@ -711,7 +711,7 @@ public class MinisteringScreenTest extends BaseDriver {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        if (getRunningOS().equals("mac")) {
+        if (getRunningOS().equals("ios")) {
             myMinistering.filters.click();
             myElement.click();
             myBasePage.backButton.click();

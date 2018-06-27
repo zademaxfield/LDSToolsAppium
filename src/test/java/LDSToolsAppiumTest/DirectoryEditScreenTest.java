@@ -135,7 +135,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("home@gmail.com");
 
         myEditDirectory.cancelButton.click();
-        if (!getRunningOS().equals("mac")) {
+        if (!getRunningOS().equals("ios")) {
             myBasePage.alertOK.click();
         }
 
@@ -447,7 +447,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-//        if (getRunningOS().equals("mac")) {
+//        if (getRunningOS().equals("ios")) {
 //            myEditDirectory.menuSave.click();
 //        }
 
@@ -459,7 +459,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
             Assert.assertTrue(failedFound);
             myBasePage.alertOK.click();
         } else {
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myEditDirectory.menuSave.click();
                 failedFound = myBasePage.checkForElement(myEditDirectory.invalidEmail);
             } else {
@@ -467,7 +467,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
                 failedFound = myBasePage.checkNoCaseList("you must provide a valid email address", pageSource, "Contains");
             }
             Assert.assertTrue(failedFound);
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myBasePage.alertOK.click();
             }
         }

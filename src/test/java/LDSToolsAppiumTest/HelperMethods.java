@@ -42,7 +42,7 @@ public class HelperMethods extends BasePage {
         long startTime = System.nanoTime();
 
 
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             waitUnitlTextIsGone("Stop Sync");
         } else {
             waitUnitlTextIsGone("Sync Progress");
@@ -75,7 +75,7 @@ public class HelperMethods extends BasePage {
         long startTime = System.nanoTime();
 
 
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             waitUnitlTextIsGone("Stop Sync");
         } else {
             waitUnitlTextIsGone("Sync Progress");
@@ -95,7 +95,7 @@ public class HelperMethods extends BasePage {
         SettingsScreen mySettings = new SettingsScreen(driver);
         ScannerScreen myScanner = new ScannerScreen(driver);
 
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             myLoginPage.overflowMenu.click();
 
             if (myScanner.scannerCheckForText("Developer Settings") ) {
@@ -147,7 +147,7 @@ public class HelperMethods extends BasePage {
         ScannerScreen myScanner = new ScannerScreen(driver);
 
 
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             myLoginPage.overflowMenu.click();
 
             if (myScanner.scannerCheckForText("Developer Settings") ) {
@@ -261,7 +261,7 @@ public class HelperMethods extends BasePage {
 
 
         // Click on Later then Directory
-        if (!getOS().equals("mac")) {
+        if (!getOS().equals("ios")) {
             Thread.sleep(2000);
             checkForLater();
             Thread.sleep(2000);
@@ -405,7 +405,7 @@ public class HelperMethods extends BasePage {
         SyncScreen mySyncScreen = new SyncScreen(driver);
 
 
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             myMenu.moreButton.click();
 
             //Check to see if the sync page is displayed
@@ -471,7 +471,7 @@ public class HelperMethods extends BasePage {
 //      if (myBasePage.checkForElement(myWhatsNew.whatsNewDone)) {
         if (myBasePage.checkElementExists("Done") || (myBasePage.checkElementExists("DONE")) ){
             myWhatsNew.whatsNewDone.click();
-            if (!myBasePage.getOS().equals("mac")) {
+            if (!myBasePage.getOS().equals("ios")) {
                 if (myBasePage.checkForElement(myBasePage.allowButton)) {
                     myBasePage.allowButton.click();
                     myBasePage.allowButton.click();

@@ -170,7 +170,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         }
 
 
-        if(getRunningOS().equals("mac")) {
+        if(getRunningOS().equals("ios")) {
             myBasePage.backButton.click();
             Thread.sleep(1000);
         }
@@ -237,7 +237,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         }
 
-        if(getRunningOS().equals("mac")) {
+        if(getRunningOS().equals("ios")) {
             myBasePage.backButton.click();
             Thread.sleep(1000);
         }
@@ -304,7 +304,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             Thread.sleep(1000);
         }
 
-        if(getRunningOS().equals("mac")) {
+        if(getRunningOS().equals("ios")) {
             myBasePage.backButton.click();
             Thread.sleep(1000);
         }
@@ -335,7 +335,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
             myBasePage.backButton.click();
             myOrg.priestsQuorum.click();
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myOrg.priestsQuorumPresidency.click();
             }
 
@@ -344,39 +344,39 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Men", "PriestsQuorum", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myBasePage.backButton.click();
             }
             myBasePage.backButton.click();
 
             //myOrg.teachersQuorum.click();
-            //if (getRunningOS().equals("mac")) {
+            //if (getRunningOS().equals("ios")) {
             //	clickButtonByXpathTitleName("Teachers Quorum Presidency");
             //}
 
             //myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Men", "TeachersQuorum", false);
             //compareWebData(myList, androidList, true);
 
-            //if (getRunningOS().equals("mac")) {
+            //if (getRunningOS().equals("ios")) {
             //	pressBackKey();
             //}
             //myBasePage.backButton.click();
 
             //myOrg.teachersQuorum.click();
-            //if (getRunningOS().equals("mac")) {
+            //if (getRunningOS().equals("ios")) {
             //    myOrg.teachersQuorumPresidency.click();
 
             //}
 
             myOrg.deaconsQuorum.click();
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myOrg.deaconsQuorumPresidency.click();
             }
 
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Men", "DeaconsQuorum", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myBasePage.backButton.click();
             }
 
@@ -430,7 +430,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             myBasePage.backButton.click();
             myOrg.laurel.click();
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myOrg.laurelPresidency.click();
             }
 
@@ -438,13 +438,13 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Women", "Laurel", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myBasePage.backButton.click();
             }
             myBasePage.backButton.click();
 
             myOrg.miaMaid.click();
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myOrg.miaMaidPresidency.click();
             }
 
@@ -452,13 +452,13 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Women", "MiaMaid", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myBasePage.backButton.click();
             }
             myBasePage.backButton.click();
 
             myOrg.beehive.click();
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 myOrg.beehivePresidency.click();
             }
 
@@ -482,7 +482,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         }
 
 
-        if (getRunningOS().equals("mac")) {
+        if (getRunningOS().equals("ios")) {
             myBasePage.backButton.click();
         }
 
@@ -559,7 +559,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         myBasePage.compareWebData(myList, androidList, true);
 
         //Back to Sunday School
-        if (getRunningOS().equals("mac")) {
+        if (getRunningOS().equals("ios")) {
             myBasePage.backButton.click();
         }
         myBasePage.backButton.click();

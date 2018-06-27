@@ -192,7 +192,7 @@ public class MinisteringScreen extends BasePage {
     public void selectDistrict(String districtToSelect ) {
         BasePage myBase = new BasePage(driver);
         //String myPageSource;
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             driver.findElementByAccessibilityId(districtToSelect).click();
         } else {
             //myPageSource = getSourceOfPage();
@@ -214,7 +214,7 @@ public class MinisteringScreen extends BasePage {
 
 
     public void saveMissonaryProgressFilter() {
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             backButton.click();
         } else {
             ministeringFilterSave.click();

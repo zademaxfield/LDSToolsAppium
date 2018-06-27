@@ -269,7 +269,7 @@ public class ReportsScreen extends BasePage {
 
 
     public void saveMissonaryProgressFilter() throws Exception {
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             backButton.click();
         } else {
             mpSave.click();
@@ -280,7 +280,7 @@ public class ReportsScreen extends BasePage {
 
 
     public void selectSort(MobileElement myElement) throws Exception {
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             sortReport.click();
             myElement.click();
         } else {

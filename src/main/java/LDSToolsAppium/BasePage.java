@@ -265,7 +265,7 @@ public class BasePage {
     }
 
     public void scrollDownTEST(int scrollDistance ) throws Exception {
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             scrollDownIOS();
         } else {
             Dimension dimensions = driver.manage().window().getSize();
@@ -296,7 +296,7 @@ public class BasePage {
     }
 
     public void scrollUp(int scrollDistance ) throws Exception {
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             scrollUpIOS();
         } else {
             Dimension dimensions = driver.manage().window().getSize();
@@ -387,7 +387,7 @@ public class BasePage {
         String myOs;
         textToCheck = textToCheck.toLowerCase();
         myOs = getOS();
-        if (myOs.equals("mac")){
+        if (myOs.equals("ios")){
             for (Element myElement : myTest ) {
                 //if (myElement.attributes().get("shown").equals("true")) {
                 //System.out.println("Name: ");
@@ -486,7 +486,7 @@ public class BasePage {
     public void waitUnitlTextIsGone(String myText) {
         //System.out.println("Start Checking for Element");
         WebDriverWait wait = new WebDriverWait(driver, 300);
-        if(getOS().equals("mac")) {
+        if(getOS().equals("ios")) {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@value='" + myText + "']")));
         } else {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@text='" + myText + "']")));
@@ -510,7 +510,7 @@ public class BasePage {
     public Boolean checkElementExists(String textElement) {
         Boolean myReturnStatus;
         List<MobileElement> options = null;
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             //options = driver.findElements(By.xpath("//*[@value='" + textElement + "']"));
             options = driver.findElements(MobileBy.AccessibilityId(textElement));
         } else {
@@ -580,7 +580,7 @@ public class BasePage {
 
         String memberToSelect;
 
-        if (getOS().equals("mac")){
+        if (getOS().equals("ios")){
             pageSource = getSourceOfPage();
             scrollDownIOS();
             pageSource = pageSource + getSourceOfPage();
@@ -757,7 +757,7 @@ public class BasePage {
 
     public void backToDirectory() throws Exception {
         Thread.sleep(2000);
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             pressBackToRoot();
             Thread.sleep(2000);
             System.out.println("Try to clear text");

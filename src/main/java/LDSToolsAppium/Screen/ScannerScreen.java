@@ -73,7 +73,7 @@ public class ScannerScreen extends BasePage {
         for (Element myElement : myTest ) {
             elementAttributes = myElement.attributes().asList();
             for (Attribute myAttribute : elementAttributes ) {
-                if(getOS().equals("mac")) {
+                if(getOS().equals("ios")) {
                     if (myAttribute.toString().equals("visible=\"true\"")) {
                         clickableElements.add(myElement);
                     }

@@ -28,7 +28,7 @@ public class LoginPageTest extends BaseDriver {
 
         myPageSource = myBasePage.getSourceOfPage();
 
-        if (myBasePage.getOS().equals("mac")) {
+        if (myBasePage.getOS().equals("ios")) {
             Assert.assertTrue(myPageSource.contains("LDS Account"));
             Assert.assertTrue(myPageSource.contains("Help"));
             Assert.assertTrue(myPageSource.contains("Sign In"));

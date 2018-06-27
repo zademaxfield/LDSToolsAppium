@@ -124,7 +124,7 @@ public class DirectoryScreen extends BasePage {
 
 
     public void clickDirectoryUser(String myUser) throws Exception {
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             driver.findElement(MobileBy.AccessibilityId(myUser)).click();
             //driver.findElement(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[contains(@value, '" + myUser + "')]"));
         } else {
@@ -176,7 +176,7 @@ public class DirectoryScreen extends BasePage {
 
 
 
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             options= driver.findElements(By.xpath("//*[@value='" + myUser + "']"));
         } else {
             options= driver.findElements(By.xpath("//*[@text='" + myUser + "']"));
@@ -193,7 +193,7 @@ public class DirectoryScreen extends BasePage {
         BasePage myBasePage = new BasePage(driver);
 
         String pageSource = null;
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             scrollDownIOS();
             boolean checkForLabel;
 
@@ -303,7 +303,7 @@ public class DirectoryScreen extends BasePage {
         int myCounter = 1;
         Thread.sleep(2000);
 
-        if (myBasePage.getOS().equals("mac")) {
+        if (myBasePage.getOS().equals("ios")) {
             //directoryDropdown.click();
             unitSelected.click();
 
@@ -392,7 +392,7 @@ public class DirectoryScreen extends BasePage {
         Thread.sleep(6000);
 
         //String myString = driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]")).getText();
-        if (myBasePage.getOS().equals("mac")) {
+        if (myBasePage.getOS().equals("ios")) {
             //myString = driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]")).getText();
             myString = driver.findElement(By.xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")).getText();
             //XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]

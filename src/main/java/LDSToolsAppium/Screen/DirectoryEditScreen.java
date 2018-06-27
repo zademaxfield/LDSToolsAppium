@@ -260,7 +260,7 @@ public class DirectoryEditScreen extends BasePage {
         int myCheck;
         String textCheck;
 
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             textCheck = householdVisibilityLimit.getText();
             if (!textCheck.contains("Stake")) {
                 householdVisibilityLimit.click();
@@ -355,7 +355,7 @@ public class DirectoryEditScreen extends BasePage {
 
     public void setVisibilityHousehold(MobileElement elementVisiblity) throws Exception {
 
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             householdVisibilityLimit.click();
             Thread.sleep(2000);
             elementVisiblity.click();

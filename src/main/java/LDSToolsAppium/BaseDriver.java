@@ -149,7 +149,7 @@ public class BaseDriver {
             takeScreenShot();
         }
 
-        if(getRunningOS().equals("mac")) {
+        if(getRunningOS().equals("ios")) {
             Thread.sleep(2000);
             driver.resetApp();
             Thread.sleep(5000);
@@ -175,7 +175,7 @@ public class BaseDriver {
 
     @AfterClass(alwaysRun = true)
     public void afterClass() throws Exception {
-        if (!getRunningOS().equals("mac")) {
+        if (!getRunningOS().equals("ios")) {
             driver.quit();
             if (!deviceSerial.equals("")) {
                 STFService mySTFService = new STFService("http://10.109.45.162:7100", "4e625e83995b4d0d85279844dd0839b547283386c7a84b0787abeb080cc45828");
@@ -191,7 +191,7 @@ public class BaseDriver {
     @AfterSuite(alwaysRun = true)
     public void afterAllTests() throws Exception {
         System.out.println("Stopping the driver");
-        if (getRunningOS().equals("mac")) {
+        if (getRunningOS().equals("ios")) {
 
             //I don't think this is needed anymore
             //driver.quit();
@@ -668,7 +668,7 @@ public class BaseDriver {
         }
 
         if (testOS.equalsIgnoreCase("ios")) {
-            myOs = "mac";
+            myOs = "ios";
         }
 
         myOs = myOs.toLowerCase();

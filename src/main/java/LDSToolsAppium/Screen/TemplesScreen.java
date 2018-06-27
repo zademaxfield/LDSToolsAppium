@@ -79,7 +79,7 @@ public class TemplesScreen extends BasePage {
         ScannerScreen myScanner = new ScannerScreen(driver);
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
 
-        if (myBasePage.getOS().equals("mac")) {
+        if (myBasePage.getOS().equals("ios")) {
             //Go to Developer Settings
             myMenu.selectMenu(myMenu.help);
 

@@ -98,14 +98,14 @@ public class MenuScreen extends BasePage {
 
     public void selectMenu(MobileElement myElement) throws Exception {
         BasePage myBase = new BasePage(driver);
-        if (!getOS().equals("mac")) {
+        if (!getOS().equals("ios")) {
             drawerButton.click();
         }
         //Check for Element
         if (checkForElement(myElement)) {
             myElement.click();
         } else {
-            if (getOS().equals("mac")) {
+            if (getOS().equals("ios")) {
                 //System.out.println("Clicking More....");
                 //System.out.println(myBase.getSourceOfPage());
                 moreMenu.click();
@@ -129,7 +129,7 @@ public class MenuScreen extends BasePage {
         }
 
 
-        if (getOS().equals("mac")) {
+        if (getOS().equals("ios")) {
             driver.resetApp();
         }
     }

@@ -20,7 +20,7 @@ public class WhatsNewScreenTest extends BaseDriver {
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
 
         //Todo: Android won't pop up the Whats New Page with automation
-        if (getRunningOS().equals("mac")) {
+        if (getRunningOS().equals("ios")) {
             myHelper.loginUAT("LDSTools22", "password1");
             myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
 

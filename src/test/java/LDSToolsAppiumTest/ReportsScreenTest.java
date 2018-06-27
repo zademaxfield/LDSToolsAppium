@@ -35,7 +35,7 @@ public class ReportsScreenTest extends BaseDriver {
 
             pageSource = myBasePage.getSourceOfPage();
 
-            if (getRunningOS().equals("mac")) {
+            if (getRunningOS().equals("ios")) {
                 //pageSource = myBasePage.getSourceOfPage();
             } else {
                 //pageSource = pageSource + myBasePage.getSourceOfPage();
@@ -254,7 +254,7 @@ public class ReportsScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
 
-        if (!getRunningOS().equals("mac")) {
+        if (!getRunningOS().equals("ios")) {
             myBasePage.scrollToTextRecyclerView("Unit Statistics");
         }
 
@@ -411,7 +411,7 @@ public class ReportsScreenTest extends BaseDriver {
         myBasePage.compareWebData(myList, androidList, false);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Potential Investigators", pageSource, "Contains"));
-        if (getRunningOS().equals("mac")) {
+        if (getRunningOS().equals("ios")) {
             myBasePage.scrollUpIOS();
         }
 
@@ -580,7 +580,7 @@ public class ReportsScreenTest extends BaseDriver {
 //            clickButton(oneUser, "text", "nameContains");
 //
 //            pageSource = myBasePage.getSourceOfPage();
-//            if (getRunningOS().equals("mac")) {
+//            if (getRunningOS().equals("ios")) {
 //                //Assert.assertTrue(checkNoCaseList("Add to Contacts", pageSource, "Contains"));
 //            } else {
 //                //Assert.assertTrue(checkNoCaseList("Contact Information", pageSource, "Contains"));
@@ -595,7 +595,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     private void scrollToSacMeetingAttendance() throws Exception {
         BasePage myBasePage = new BasePage(driver);
-        if (!getRunningOS().equals("mac")) {
+        if (!getRunningOS().equals("ios")) {
             //myBasePage.scrollToText("Attended Sacrament");
             myBasePage. scrollToTextTopLayout("Attended Sacrament");
 

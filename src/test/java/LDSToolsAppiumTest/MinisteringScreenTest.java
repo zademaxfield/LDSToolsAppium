@@ -376,9 +376,9 @@ public class MinisteringScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS12", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 
-            if (getRunningOS().equals("ios")) {
-                myBasePage.backButton.click();
-            }
+
+            myBasePage.backButton.click();
+
 
             //Select District 2
             myMinistering.selectDistrict("District 2");
@@ -387,9 +387,9 @@ public class MinisteringScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS35", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 
-            if (getRunningOS().equals("ios")) {
-                myBasePage.backButton.click();
-            }
+
+            myBasePage.backButton.click();
+
 
 
         } else {

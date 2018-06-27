@@ -33,7 +33,9 @@ public class BasePage {
 
     public BasePage(AppiumDriver<MobileElement> driver) {
         this.driver = driver;
-        PageFactory.initElements(new AppiumFieldDecorator(driver,10, TimeUnit.SECONDS), this);
+        Duration myDuration = Duration.ofSeconds(10);
+        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
+
     }
 
 
@@ -334,7 +336,14 @@ public class BasePage {
 
         TouchAction mySwipe = new TouchAction(driver);
         //mySwipe.tap(screenWidth,screenHeight).moveTo(screenWidth, scrollDistance).waitAction(Duration.ofMillis(2000)).release().perform();
-        mySwipe.press(screenWidth,screenHeight).moveTo(screenWidth, scrollDistance).release().perform();
+        //mySwipe.press(screenWidth,screenHeight).moveTo(screenWidth, scrollDistance).release().perform();
+
+        mySwipe.press(PointOption.point(screenWidth, screenHeight))
+                .moveTo(PointOption.point(screenWidth, scrollDistance))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
+                .release()
+                .perform();
+
         //driver.swipe(screenWidth, screenHeight, screenWidth, scrollDistance, 2000);
 
         Thread.sleep(2000);

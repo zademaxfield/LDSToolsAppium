@@ -71,9 +71,9 @@ public class LDSWeb {
 	@Test
 	public void simpleTest() throws Exception {
 
-		//setupAfterUATReset();
+		setupAfterUATReset();
 
-		setupMinstering();
+		//setupMinstering();
 
 //		String pageSource;
 //		quarterlyReportLogIn("ldstools2", "toolstester");
@@ -739,19 +739,19 @@ public class LDSWeb {
 		waitForTextToDisappear("Loading", 500, "id" );
 		clickElement("Members", "linkText");
 
-		addMemberToOrg("lds16");
-		addMemberToOrg("lds17");
-		addMemberToOrg("lds18");
-		addMemberToOrg("lds19");
-		addMemberToOrg("lds20");
-		addMemberToOrg("lds21");
-		addMemberToOrg("lds22");
-		addMemberToOrg("lds23");
-		addMemberToOrg("lds24");
-		addMemberToOrg("lds25");
-		addMemberToOrg("lds51");
-		addMemberToOrg("lds31");
-		addMemberToOrg("lds32");
+//		addMemberToOrg("lds16");
+//		addMemberToOrg("lds17");
+//		addMemberToOrg("lds18");
+//		addMemberToOrg("lds19");
+//		addMemberToOrg("lds20");
+//		addMemberToOrg("lds21");
+//		addMemberToOrg("lds22");
+//		addMemberToOrg("lds23");
+//		addMemberToOrg("lds24");
+//		addMemberToOrg("lds25");
+//		addMemberToOrg("lds51");
+//		addMemberToOrg("lds31");
+//		addMemberToOrg("lds32");
 		addMemberToOrg("lds5");
 		addMemberToOrg("lds6");
 		addMemberToOrg("lds11");

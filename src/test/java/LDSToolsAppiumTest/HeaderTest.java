@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class HeaderTest extends BaseDriver {
 
 
-    @Test (groups = {"all3", "all", "header", "smoke", "smoke3"})
+    @Test (groups = {"all3", "all", "header", "smoke", "smoke3", "jft"})
     public void simpleHeaderTest() throws Exception {
         String pageSource;
 
@@ -35,7 +35,7 @@ public class HeaderTest extends BaseDriver {
     }
 
 
-    @Test(dataProvider = "Header", groups = {"all2", "all", "header", "jft"})
+    @Test(dataProvider = "Header", groups = {"all2", "all", "header"})
     public void headerSyncTest(String memberId, String memberUnit, String memberPositions, String memberName) throws Exception {
         String pageSource;
 

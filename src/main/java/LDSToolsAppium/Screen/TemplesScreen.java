@@ -96,6 +96,7 @@ public class TemplesScreen extends BasePage {
             mySettings.templeRecommendStatus.click();
 
             recommendStatus.click();
+            Thread.sleep(2000);
 
 
             //Set the number of Days until expired

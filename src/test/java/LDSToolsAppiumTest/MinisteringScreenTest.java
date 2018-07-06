@@ -65,7 +65,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringUnassignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -86,7 +86,7 @@ public class MinisteringScreenTest extends BaseDriver {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringBrothersReport.click();
             myMinistering.unassignedHouseholds.click();
-            Thread.sleep(2000);
+            Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
@@ -96,9 +96,9 @@ public class MinisteringScreenTest extends BaseDriver {
 
             myMinistering.ministeringSistersReport.click();
             myMinistering.unassignedSisters.click();
-            Thread.sleep(2000);
+            Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Afamasaga", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
             myBasePage.backButton.click();
             myBasePage.backButton.click();
@@ -336,7 +336,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
     public void companionshipsSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

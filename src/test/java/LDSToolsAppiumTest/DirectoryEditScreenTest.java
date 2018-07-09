@@ -6,7 +6,6 @@ import LDSToolsAppium.Screen.DirectoryEditScreen;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import org.testng.Assert;
-import org.testng.annotations.NoInjection;
 import org.testng.annotations.Test;
 
 

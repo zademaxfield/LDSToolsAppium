@@ -381,7 +381,7 @@ public class BaseDriver {
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("clearSystemFiles", true);
             capabilities.setCapability("allowTouchIdEnroll", true);
-            //capabilities.setCapability("maxTypingFrequency", "8");
+            capabilities.setCapability("maxTypingFrequency", 15);
             capabilities.setCapability("appPackage", myAppPackage);
 
 

@@ -32,7 +32,7 @@ public class DirectoryEditScreen extends BasePage {
     //Personal Edit Phone
     @AndroidFindBy(xpath = "//android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.EditText[1]")
     @iOSFindBy(xpath = "//XCUIElementTypeCell[2]/XCUIElementTypeTextField")
-    public  MobileElement directoryEditPersonalPhone;
+    public MobileElement directoryEditPersonalPhone;
 
     //Household Edit Phone
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"org.lds.ldstools.dev:id/edit_household_phone\"]//android.widget.EditText[@resource-id=\"org.lds.ldstools.dev:id/edit_phone\"]")

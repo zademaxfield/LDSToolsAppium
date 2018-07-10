@@ -119,7 +119,7 @@ public class DirectoryEditScreen extends BasePage {
     // **************************** Limit visibility for household  ****************************
     //Stake Visibility
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/radio_visibility_stake")
-    @iOSFindBy(accessibility = "Stake Visibility")
+    @iOSFindBy(xpath = "//XCUIElementTypeButton[@name='Stake Visibility']")
     public MobileElement stakeVisibility;
 
     //Ward Visibility
@@ -273,6 +273,7 @@ public class DirectoryEditScreen extends BasePage {
             System.out.println("TEXT: " + textCheck);
             if (!textCheck.contains("Stake")) {
                 personalVisibility.click();
+                Thread.sleep(2000);
                 setAllToPersonal.click();
                 Thread.sleep(2000);
                 stakeVisibility.click();

@@ -41,7 +41,8 @@ public class BasePage {
 
     //Universal Elements
     @AndroidFindBy(accessibility = "Navigate up")
-    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+//    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+    @iOSFindBy(accessibility = "Back")
     public MobileElement backButton;
 
     @AndroidFindBy(accessibility = "Navigate up")
@@ -758,10 +759,12 @@ public class BasePage {
     public void backToDirectory() throws Exception {
         Thread.sleep(2000);
         if (getOS().equals("ios")) {
+            System.out.println("BACK TO DIRECTORY!");
             pressBackToRoot();
             Thread.sleep(2000);
             System.out.println("Try to clear text");
             clickByCords("Clear text");
+//            clickByCords("Cancel");
             cancel.click();
 
         } else {

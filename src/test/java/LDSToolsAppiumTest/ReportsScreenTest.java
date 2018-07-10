@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -86,7 +86,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
     public void reportsMissionaryProgressRecord(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -181,8 +181,8 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.selectSort(myReports.durationSort);
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sunday School President", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lealaiauloto, Uana Iosefa Sao", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Samu", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Amidala, Padme", pageSource, "Contains"));
 
 

@@ -28,9 +28,9 @@ public class WhatsNewScreenTest extends BaseDriver {
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Version 3.5.0", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Caller ID", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Ministering", pageSource, "Contains"));
-
+            Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Update", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Quarterly Report", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Record", pageSource, "Contains"));
 
             myWhatsNew.whatsNewDone.click();
         }

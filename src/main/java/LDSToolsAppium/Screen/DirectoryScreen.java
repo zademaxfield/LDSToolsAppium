@@ -132,7 +132,7 @@ public class DirectoryScreen extends BasePage {
         }
     }
 
-    public void sortToHousehold() {
+    public void sortToHousehold() throws Exception {
         directorySort.click();
         sortHousehold.click();
     }

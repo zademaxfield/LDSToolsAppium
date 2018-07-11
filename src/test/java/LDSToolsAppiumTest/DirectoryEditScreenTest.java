@@ -149,7 +149,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
     public void editOtherUser() throws Exception {
         String pageSource;
 
@@ -190,7 +190,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         myBasePage.backToDirectory();
 
-        myDirectory.sortToHousehold();
+        //myDirectory.sortToHousehold();
 
         //myHelper.runSync();
 
@@ -221,6 +221,10 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myBasePage.scrollDownTEST(-400);
         Thread.sleep(1000);
         myBasePage.backToDirectory();
+
+        myMenu.menuLogOut();
+        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
 
         //Search for logged in user
         myDirectory.searchAndClick("Tools, LDS44");
@@ -352,7 +356,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     }
 
     //Todo: needs more work
-    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all"})
     public void editVisibility() throws Exception {
 
         // ********* Constructor **********

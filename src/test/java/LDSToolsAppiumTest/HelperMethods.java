@@ -166,6 +166,7 @@ public class HelperMethods extends BasePage {
             Thread.sleep(1000);
             backButton.click();
 
+            scrollDownIOS();
             mySettings.proxyId.click();
             mySettings.proxyEditField.setValue(myId);
             mySettings.proxyDone.click();
@@ -179,9 +180,10 @@ public class HelperMethods extends BasePage {
             mySettings.proxyPositions.click();
             mySettings.proxyEditField.setValue(myPosition);
             mySettings.proxyDone.click();
-
+            Thread.sleep(1000);
 
             backButton.click();
+            Thread.sleep(1000);
             backButton.click();
 
         } else {
@@ -256,6 +258,8 @@ public class HelperMethods extends BasePage {
 
         //Sometimes there is a warning before the Whats new screen
         checkForAlertsAfterPin();
+
+        Thread.sleep(2000);
 
         dismissWhatsNewPage();
 

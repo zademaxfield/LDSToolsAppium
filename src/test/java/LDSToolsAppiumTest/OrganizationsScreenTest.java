@@ -98,7 +98,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("Polataia", pageSource, "Contains"));
         }
 
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
         Thread.sleep(1000);
     }
 
@@ -127,13 +127,13 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "High Priests Group", "HighPriestGroupLeadership", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             myOrg.highPriestsHTDistrictSuper.click();
 
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "High Priests Group", "HighPriestGroupDistrictSupervisors", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             myOrg.highPriestsAllMembers.click();
 
 
@@ -157,7 +157,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS19", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS18", pageSource, "Contains"));
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             myOrg.highPriestsHTDistrictSuper.click();
             Thread.sleep(2000);
 
@@ -165,16 +165,16 @@ public class OrganizationsScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("Home Teaching District Supervisor", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Tools", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS50", pageSource, "Contains"));
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
         }
 
 
         if(getRunningOS().equals("ios")) {
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
         }
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
         Thread.sleep(1000);
 
     }
@@ -201,7 +201,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Elders Quorum", "EldersQuorumPresidency", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
 
             //myOrg.eldersHTDistrictSuper.click();
             //myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Elders Quorum", "EldersQuorumDistrictSupervisors", false);
@@ -232,16 +232,16 @@ public class OrganizationsScreenTest extends BaseDriver {
 
             Assert.assertTrue(myBasePage.checkNoCaseList("Secretary", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS24", pageSource, "Contains"));
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
 
         }
 
         if(getRunningOS().equals("ios")) {
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
         }
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
         Thread.sleep(1000);
 
     }
@@ -267,13 +267,13 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Relief Society", "ReliefSocietyPresidency", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             myOrg.reliefSocietyVisitingTeaching.click();
 
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Relief Society", "VisitingTeachingSupervisors", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             myOrg.reliefSocietyAllMembers.click();
 
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Relief Society", "ReliefSocietyMembers", false);
@@ -300,15 +300,15 @@ public class OrganizationsScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("Secretary", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Ariel", pageSource, "Contains"));
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
         }
 
         if(getRunningOS().equals("ios")) {
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
         }
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
         Thread.sleep(1000);
 
     }
@@ -333,7 +333,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Men", "YoungMenPresidency", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             myOrg.priestsQuorum.click();
             if (getRunningOS().equals("ios")) {
                 myOrg.priestsQuorumPresidency.click();
@@ -345,9 +345,9 @@ public class OrganizationsScreenTest extends BaseDriver {
             myBasePage.compareWebData(myList, androidList, true);
 
             if (getRunningOS().equals("ios")) {
-                myBasePage.backButton.click();
+                myBasePage.backAltButton.click();
             }
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
 
             //myOrg.teachersQuorum.click();
             //if (getRunningOS().equals("ios")) {
@@ -377,10 +377,10 @@ public class OrganizationsScreenTest extends BaseDriver {
             myBasePage.compareWebData(myList, androidList, true);
 
             if (getRunningOS().equals("ios")) {
-                myBasePage.backButton.click();
+                myBasePage.backAltButton.click();
             }
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
 
 
@@ -392,14 +392,14 @@ public class OrganizationsScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Mikaele", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Poai", pageSource, "Contains"));
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
             
         }
 
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
         Thread.sleep(1000);
 
 
@@ -427,7 +427,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Women", "YoungWomenPresidency", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             myOrg.laurel.click();
 
             if (getRunningOS().equals("ios")) {
@@ -439,9 +439,9 @@ public class OrganizationsScreenTest extends BaseDriver {
             myBasePage.compareWebData(myList, androidList, true);
 
             if (getRunningOS().equals("ios")) {
-                myBasePage.backButton.click();
+                myBasePage.backAltButton.click();
             }
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
 
             myOrg.miaMaid.click();
             if (getRunningOS().equals("ios")) {
@@ -453,9 +453,9 @@ public class OrganizationsScreenTest extends BaseDriver {
             myBasePage.compareWebData(myList, androidList, true);
 
             if (getRunningOS().equals("ios")) {
-                myBasePage.backButton.click();
+                myBasePage.backAltButton.click();
             }
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
 
             myOrg.beehive.click();
             if (getRunningOS().equals("ios")) {
@@ -474,21 +474,21 @@ public class OrganizationsScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Faapili", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Baby", pageSource, "Contains"));
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             Thread.sleep(1000);
 
         }
 
 
         if (getRunningOS().equals("ios")) {
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
         }
 
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
         Thread.sleep(1000);
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
         Thread.sleep(1000);
     }
 
@@ -516,7 +516,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             myBasePage.compareWebData(myList, androidList, true);
 
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
             sundaySchoolClassSub(myOrg.gospelDoctrine, "GospelDoctrine");
             //sundaySchoolClassSub("Course 17", "Course17");
             sundaySchoolClassSub(myOrg.course16, "Course16");
@@ -531,7 +531,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
         Thread.sleep(1000);
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
 
 
     }
@@ -560,9 +560,9 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         //Back to Sunday School
         if (getRunningOS().equals("ios")) {
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
         }
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
     }
 
 
@@ -586,7 +586,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Primary", "PrimaryPresidency", true);
             myBasePage.compareWebData(myList, androidList, true);
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
 
 
         } else {
@@ -595,7 +595,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("Faamoe", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Talalelagi", pageSource, "Contains"));
 
-            myBasePage.backButton.click();
+            myBasePage.backAltButton.click();
 
         }
 
@@ -607,7 +607,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
         Thread.sleep(1000);
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
 
     }
 
@@ -625,11 +625,11 @@ public class OrganizationsScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Frost", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Maria", pageSource, "Contains"));
 
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
 
 
         Thread.sleep(1000);
-        myBasePage.backButton.click();
+        myBasePage.backAltButton.click();
 
     }
 

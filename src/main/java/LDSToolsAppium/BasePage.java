@@ -46,6 +46,10 @@ public class BasePage {
     public MobileElement backButton;
 
     @AndroidFindBy(accessibility = "Navigate up")
+    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+    public MobileElement backAltButton;
+
+    @AndroidFindBy(accessibility = "Navigate up")
     public MobileElement drawerButton;
 
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/clearTextImageButton")

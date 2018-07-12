@@ -28,6 +28,11 @@ public class HelperMethods extends BasePage {
     public void loginUAT(String userName, String password) throws Exception {
         //Enable Developer Settings and set the Network Environment to UAT
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        if (checkForElement(allowButton)) {
+            allowButton.click();
+        }
+
         setupUAT();
 
 
@@ -62,6 +67,10 @@ public class HelperMethods extends BasePage {
         String userName = "paigekrebs";
         String password = "sweets2005";
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        if (checkForElement(allowButton)) {
+            allowButton.click();
+        }
         setupProxy(myId, myUnit, myPosition);
 
         myLoginPage.loginName.clear();

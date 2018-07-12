@@ -70,6 +70,7 @@ public class BasePage {
 
     //Allow button
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"com.android.packageinstaller:id/permission_allow_button\"]")
+    @iOSFindBy(accessibility = "Allow")
     public MobileElement allowButton;
 
     //Alert check

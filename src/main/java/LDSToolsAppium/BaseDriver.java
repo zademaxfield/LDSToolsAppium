@@ -143,6 +143,7 @@ public class BaseDriver {
 
     @AfterMethod(alwaysRun = true)
     public void teardown(ITestResult result) throws Exception {
+        BasePage myBasePage = new BasePage(driver);
         System.out.println("Start teardown");
         // Here will compare if test is failing then only it will enter into if condition
         if(ITestResult.FAILURE==result.getStatus()) {
@@ -154,6 +155,10 @@ public class BaseDriver {
             Thread.sleep(2000);
             driver.resetApp();
             Thread.sleep(5000);
+
+            if (myBasePage.checkForElement(myBasePage.allowButton)) {
+                myBasePage.allowButton.click();
+            }
 
         } else {
             System.out.println("Clear App");

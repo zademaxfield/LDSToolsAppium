@@ -3645,6 +3645,7 @@ public class LDSWeb {
 	
 	@After
 	public void tearDown() throws Exception {
+		driver.close();
 		driver.quit();
 		driverRunning = null;
 		Thread.sleep(2000);

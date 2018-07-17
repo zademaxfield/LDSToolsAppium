@@ -1004,7 +1004,8 @@ public class LDSWeb {
 
 		Thread.sleep(4000);
 
-		openPageLogIn("https://uat.lds.org/mls/mbr", userName, passWord);
+//		openPageLogIn("https://uat.lds.org/mls/mbr", userName, passWord);
+		openPageLogIn("https://stage.lds.org/mls/mbr", userName, passWord);
 
 		Thread.sleep(4000);
 

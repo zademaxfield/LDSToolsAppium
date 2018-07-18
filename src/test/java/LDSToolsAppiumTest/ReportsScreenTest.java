@@ -262,7 +262,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.unitStatisticsReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("17", 2, rights, pageSource);
+        myBasePage.rightsCheck("18", 2, rights, pageSource);
 
 
         Thread.sleep(1000);

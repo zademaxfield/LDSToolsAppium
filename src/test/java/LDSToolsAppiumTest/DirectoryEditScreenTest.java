@@ -299,7 +299,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all"})
     public void editEmailInvalid() throws Exception {
 
         // ********* Constructor **********
@@ -356,7 +356,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     }
 
     //Todo: needs more work
-    @Test(groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void editVisibility() throws Exception {
 
         // ********* Constructor **********

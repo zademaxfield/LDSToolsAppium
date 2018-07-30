@@ -151,6 +151,13 @@ public class BaseDriver {
             takeScreenShot();
         }
 
+        //Trying to figure out why my tests are getting skipped.
+        if (ITestResult.SKIP==result.getStatus()) {
+            Throwable t = result.getThrowable();
+            t.printStackTrace();
+
+        }
+
         if(getRunningOS().equals("ios")) {
             Thread.sleep(2000);
             driver.resetApp();

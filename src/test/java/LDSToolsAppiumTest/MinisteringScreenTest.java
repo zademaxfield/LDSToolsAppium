@@ -212,49 +212,49 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"}, enabled = false)
-    public void potentialMinisteringBrothers(String userName, String passWord, String rightsString, String calling) throws Exception {
-        String pageSource;
-        int rights = Integer.parseInt(rightsString);
+//    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"}, enabled = false)
+//    public void potentialMinisteringBrothers(String userName, String passWord, String rightsString, String calling) throws Exception {
+//        String pageSource;
+//        int rights = Integer.parseInt(rightsString);
+//
+//
+//        HelperMethods myHelper = new HelperMethods(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        MenuScreen myMenu = new MenuScreen(driver);
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//
+//
+//        myHelper.loginUAT(userName, passWord);
+//        myHelper.enterPin("1", "1", "3", "3");
+//
+//
+//
+//        if (rights <= 3) {
+//            myMenu.selectMenu(myMenu.reports);
+//            myMinistering.ministeringReport.click();
+//            myMinistering.potentialMinisteringBrothers.click();
+//            Thread.sleep(2000);
+//
+//            pageSource = myBasePage.getSourceOfPage();
+//
+//
+//            if (calling.equals("reliefsociety") || (calling.equals("wardcouncil"))) {
+//                Assert.assertFalse(myBasePage.checkNoCaseList("AFPSix", pageSource, "Contains"));
+//                Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
+//            } else {
+//                Assert.assertTrue(myBasePage.checkNoCaseList("AFPSix", pageSource, "Contains"));
+//                Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
+//            }
+//
+//
+//
+//        } else {
+//            pageSource = myBasePage.getSourceOfPage();
+//            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+//        }
+//    }
 
-
-        HelperMethods myHelper = new HelperMethods(driver);
-        BasePage myBasePage = new BasePage(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-
-
-        myHelper.loginUAT(userName, passWord);
-        myHelper.enterPin("1", "1", "3", "3");
-
-
-
-        if (rights <= 3) {
-            myMenu.selectMenu(myMenu.reports);
-            myMinistering.ministeringReport.click();
-            myMinistering.potentialMinisteringBrothers.click();
-            Thread.sleep(2000);
-
-            pageSource = myBasePage.getSourceOfPage();
-
-
-            if (calling.equals("reliefsociety") || (calling.equals("wardcouncil"))) {
-                Assert.assertFalse(myBasePage.checkNoCaseList("AFPSix", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
-            } else {
-                Assert.assertTrue(myBasePage.checkNoCaseList("AFPSix", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
-            }
-
-
-
-        } else {
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
-        }
-    }
-
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"}, enabled = false)
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
     public void unassignedSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -393,46 +393,46 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"}, enabled = false)
-    public void potentialMinisteringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
-        String pageSource;
-        int rights = Integer.parseInt(rightsString);
-
-
-        HelperMethods myHelper = new HelperMethods(driver);
-        BasePage myBasePage = new BasePage(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-
-
-        myHelper.loginUAT(userName, passWord);
-        myHelper.enterPin("1", "1", "3", "3");
-
-
-
-        if (rights <= 3) {
-            myMenu.selectMenu(myMenu.reports);
-            myMinistering.ministeringReport.click();
-            myMinistering.potentialMinisteringSisters.click();
-
-            Thread.sleep(1000);
-
-            pageSource = myBasePage.getSourceOfPage();
-
-            if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
-                Assert.assertFalse(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-            } else {
-                Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-            }
-
-
-        } else {
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
-        }
-    }
+//    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"}, enabled = false)
+//    public void potentialMinisteringSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
+//        String pageSource;
+//        int rights = Integer.parseInt(rightsString);
+//
+//
+//        HelperMethods myHelper = new HelperMethods(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        MenuScreen myMenu = new MenuScreen(driver);
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//
+//
+//        myHelper.loginUAT(userName, passWord);
+//        myHelper.enterPin("1", "1", "3", "3");
+//
+//
+//
+//        if (rights <= 3) {
+//            myMenu.selectMenu(myMenu.reports);
+//            myMinistering.ministeringReport.click();
+//            myMinistering.potentialMinisteringSisters.click();
+//
+//            Thread.sleep(1000);
+//
+//            pageSource = myBasePage.getSourceOfPage();
+//
+//            if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
+//                Assert.assertFalse(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+//                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+//            } else {
+//                Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+//                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+//            }
+//
+//
+//        } else {
+//            pageSource = myBasePage.getSourceOfPage();
+//            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+//        }
+//    }
 
 
 

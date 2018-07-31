@@ -9,7 +9,7 @@ import org.testng.Reporter;
 
 public class Retry implements IRetryAnalyzer {
     private int retryCount         = 0;
-    private int maxRetryCount     = 2;   // retry a failed test 2 additional times
+    private int maxRetryCount     = 1;   // retry a failed test 2 additional times
 
     /*
     @Override
@@ -27,7 +27,8 @@ public class Retry implements IRetryAnalyzer {
     	if (!result.isSuccess()) {
     		if (retryCount < maxRetryCount) {
     			retryCount++;
-				result.setStatus(ITestResult.FAILURE);
+				//result.setStatus(ITestResult.FAILURE);
+				result.setStatus(ITestResult.SKIP);
 				Reporter.setCurrentTestResult(result);
 			
 				//ITestContext tc = Reporter.getCurrentTestResult().getTestContext();

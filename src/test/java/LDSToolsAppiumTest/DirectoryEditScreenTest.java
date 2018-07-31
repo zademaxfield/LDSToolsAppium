@@ -426,7 +426,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myBase.backToDirectory();
 
         myMenu.menuLogOut();
-
+        
         //Make sure members without callings cannot see the members info
         myHelper.loginUAT("LDSTools6", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");

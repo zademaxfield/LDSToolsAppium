@@ -1,6 +1,7 @@
 package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
+import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.PinScreen;
 import org.testng.Assert;
 import org.testng.annotations.NoInjection;
@@ -9,12 +10,12 @@ import org.testng.annotations.Test;
 
 public class PinScreenTest extends BaseDriver {
 
-    @Test (groups = {"all1", "all"})
+    @Test (groups = {"all1", "all", "jft"})
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
         myHelper.loginUAT("LDSTools2", "toolstester");
-
+        BasePage myBasePage = new BasePage(driver);
 
         if (myPinScreen.pinAlertDialogOK.isDisplayed()) {
             myPinScreen.pinAlertDialogOK.click();
@@ -36,6 +37,7 @@ public class PinScreenTest extends BaseDriver {
             Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
 
         } else {
+            //System.out.println(myBasePage.getSourceOfPage());
             Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
             myPinScreen.pinAlertDialogOK.click();
         }

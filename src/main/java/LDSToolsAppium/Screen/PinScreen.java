@@ -35,7 +35,7 @@ public class PinScreen extends BasePage {
 
     //Alert Dialog Message
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/md_content")
-    @iOSFindBy(xpath = "//XCUIElementTypeAlert//XCUIElementTypeText[2]")
+    @iOSFindBy(xpath = "//XCUIElementTypeAlert//XCUIElementTypeStaticText[2]")
     public  MobileElement pinAlertDialogMessage;
 
     //Alert Dialog Not Now

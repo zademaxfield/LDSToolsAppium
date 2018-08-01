@@ -71,9 +71,10 @@ public class LDSWeb {
 	@Test
 	public void simpleTest() throws Exception {
 
-//		setupAfterUATReset();
+		setupAfterUATReset();
 
-		setupMinstering();
+
+//		setupMinstering();
 
 //		String pageSource;
 //		quarterlyReportLogIn("ldstools2", "toolstester");

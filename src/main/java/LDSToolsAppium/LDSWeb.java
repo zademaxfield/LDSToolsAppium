@@ -71,10 +71,10 @@ public class LDSWeb {
 	@Test
 	public void simpleTest() throws Exception {
 
-		setupAfterUATReset();
+//		setupAfterUATReset();
 
 
-//		setupMinstering();
+		setupMinstering();
 
 //		String pageSource;
 //		quarterlyReportLogIn("ldstools2", "toolstester");
@@ -379,7 +379,7 @@ public class LDSWeb {
 		addCompanionshipMinistering("lds22");
 
 		//Add Households to Companionship
-		addHouseholdMinistering("afpten");
+//		addHouseholdMinistering("afpten");
 		addHouseholdMinistering("lds23");
 		addHouseholdMinistering("lds24");
 		addHouseholdMinistering("lds5");

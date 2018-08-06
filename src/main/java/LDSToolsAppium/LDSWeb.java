@@ -473,7 +473,7 @@ public class LDSWeb {
 
 
 		Thread.sleep(2000);
-		clickElement("NewLCRHomeButton", "xpath");
+		//clickElement("NewLCRHomeButton", "xpath");
 	}
 	
 	
@@ -599,7 +599,7 @@ public class LDSWeb {
 
 
 		Thread.sleep(2000);
-		clickElement("NewLCRHomeButton", "xpath");
+		//clickElement("NewLCRHomeButton", "xpath");
 	}
 	
 	public void addMemberToCalling(String memberCalling, String memberToAdd) throws Exception {

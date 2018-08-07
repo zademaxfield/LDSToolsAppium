@@ -354,6 +354,8 @@ public class BaseDriver {
             capabilities.setCapability("dontStopAppOnReset", true);
             //capabilities.setCapability("maxTypingFrequency", "8");
 
+            capabilities.setCapability("clearDeviceLogsOnStart", true);
+
             driver = new AndroidDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"), capabilities);
 
             Thread.sleep(2000);
@@ -788,7 +790,6 @@ public class BaseDriver {
     }
 
 
-    //TODO: Need to clear the logcat... start of test?
     private void screenshotAndLogs(String testName) throws Exception {
         LogEntries logEntries;
         List<String> myLogData = new ArrayList<String>();

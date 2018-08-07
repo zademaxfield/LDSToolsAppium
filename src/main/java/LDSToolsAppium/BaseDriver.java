@@ -3,12 +3,14 @@ package LDSToolsAppium;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.SupportsSpecialEmulatorCommands;
 import io.appium.java_client.ios.IOSDriver;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.logging.*;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -144,11 +146,44 @@ public class BaseDriver {
     @AfterMethod(alwaysRun = true)
     public void teardown(ITestResult result) throws Exception {
         BasePage myBasePage = new BasePage(driver);
+        String testName;
+
         System.out.println("Start teardown");
         // Here will compare if test is failing then only it will enter into if condition
         if(ITestResult.FAILURE==result.getStatus()) {
             //printPageSource();
-            takeScreenShot();
+            testName = result.getName();
+            //System.out.println("getName " + result.getName());
+
+            screenshotAndLogs(testName);
+
+//
+//            takeScreenShot();
+//
+//            System.out.println("******************* LOGS TYPES *********************");
+//            Set<String> logTypes = driver.manage().logs().getAvailableLogTypes();
+//            for(String mylog : logTypes) {
+//                System.out.println(mylog);
+//            }
+//            System.out.println("******************* END LOGS TYPES *********************");
+//
+//
+//            System.out.println("******************* LOGS *********************");
+//            LogEntries logEntries;
+//            if (getRunningOS().contains("ios")) {
+//                //logEntries = driver.manage().logs().get("crashlog");
+//                logEntries = driver.manage().logs().get("server");
+//            } else {
+//                logEntries = driver.manage().logs().get("logcat");
+//            }
+//
+//            Iterator<LogEntry> logIter = logEntries.iterator();
+//            while(logIter.hasNext()) {
+//                LogEntry entry = logIter.next();
+//                System.out.println(entry.getMessage());
+//            }
+//            System.out.println("******************* END LOGS *********************");
+
         }
 
         //Trying to figure out why my tests are getting skipped.
@@ -738,5 +773,74 @@ public class BaseDriver {
         }
 
     }
+
+    private void takeScreenShotDirectory(String filename, String imagesLocation) {
+        try {
+            File srcFile=driver.getScreenshotAs(OutputType.FILE);
+            System.out.println("Screenshot File: " + filename);
+            File targetFile=new File(imagesLocation + filename +".png");
+            FileUtils.copyFile(srcFile,targetFile);
+        }
+        catch(Exception e){
+            System.out.println("Warning: Some Other exception");
+        }
+
+    }
+
+
+    //TODO: Need to clear the logcat... start of test?
+    private void screenshotAndLogs(String testName) throws Exception {
+        LogEntries logEntries;
+        List<String> myLogData = new ArrayList<String>();
+        List<String> logTypes = new ArrayList<String>();
+        //Get Random UUID
+        String filename= UUID.randomUUID().toString();
+        //Make DIR for random UUID
+        String imagesLocation = "screenshot/" + filename +"/";
+        String logFile = imagesLocation + testName + ".txt";
+        new File(imagesLocation).mkdirs(); // Insure directory is there
+
+
+        //Take Screen shot
+        takeScreenShotDirectory(filename, imagesLocation);
+
+        myLogData.add(testName);
+        myLogData.add("******************* LOGS *********************");
+
+        if (getRunningOS().contains("ios")) {
+            //logTypes.add("syslog");
+            logTypes.add("crashlog");
+//            logTypes.add("client");
+        } else {
+            logTypes.add("logcat");
+//            logTypes.add("bugreport");
+//            logTypes.add("client");
+        }
+
+        //Set<String> logTypes = driver.manage().logs().getAvailableLogTypes();
+        for(String myLog : logTypes) {
+            //System.out.println(myLog);
+            myLogData.add(" ******************* " + myLog +  " ******************* " );
+            logEntries = driver.manage().logs().get(myLog);
+            for (LogEntry entry : logEntries) {
+                myLogData.add(entry.getMessage());
+                //System.out.println(entry.getMessage());
+            }
+
+        }
+
+        myLogData.add("******************* END LOGS *********************");
+
+        PrintWriter pw = new PrintWriter(new FileOutputStream(logFile));
+        for (String logItem : myLogData) {
+            pw.println(logItem);
+        }
+        pw.close();
+
+    }
+
+
+
+
 
 }

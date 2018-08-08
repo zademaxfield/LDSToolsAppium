@@ -811,11 +811,11 @@ public class BaseDriver {
         if (getRunningOS().contains("ios")) {
             //logTypes.add("syslog");
             logTypes.add("crashlog");
-//            logTypes.add("client");
+            logTypes.add("server");
         } else {
             logTypes.add("logcat");
 //            logTypes.add("bugreport");
-//            logTypes.add("client");
+            logTypes.add("server");
         }
 
         //Set<String> logTypes = driver.manage().logs().getAvailableLogTypes();

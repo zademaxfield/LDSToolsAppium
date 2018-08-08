@@ -890,43 +890,43 @@ public class LDSWeb {
 		myWindow = driver.getWindowHandle();
 	}
 	
-	public void robotAuth() throws Exception {
-
-	
-		// create robot for keyboard operations      
-		Robot rb = new Robot();
-		rb.mouseMove(500, 200);
-		rb.mousePress(InputEvent.BUTTON1_MASK);
-		rb.mouseRelease(InputEvent.BUTTON1_MASK);
-		
-		// Enter user name in username field 
-		StringSelection username = new StringSelection("ldstools2");
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(username, null);   
-		rb.setAutoDelay(40);
-		rb.setAutoWaitForIdle(true);
-        rb.keyPress(KeyEvent.VK_CONTROL);
-        rb.keyPress(KeyEvent.VK_V);
-        rb.keyRelease(KeyEvent.VK_V);
-        rb.keyRelease(KeyEvent.VK_CONTROL);
-	
-        // press tab to move to password field
-        rb.keyPress(KeyEvent.VK_TAB);
-        rb.keyRelease(KeyEvent.VK_TAB);
-        Thread.sleep(2000);
-	
-        //Enter password in password field
-        StringSelection pwd = new StringSelection("toolstester");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(pwd, null);
-		rb.keyPress(KeyEvent.VK_CONTROL);
-		rb.keyPress(KeyEvent.VK_V);
-		rb.keyRelease(KeyEvent.VK_V);
-		rb.keyRelease(KeyEvent.VK_CONTROL);
-	
-		//press enter
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-
-	}
+//	public void robotAuth() throws Exception {
+//
+//
+//		// create robot for keyboard operations
+//		Robot rb = new Robot();
+//		rb.mouseMove(500, 200);
+//		rb.mousePress(InputEvent.BUTTON1_MASK);
+//		rb.mouseRelease(InputEvent.BUTTON1_MASK);
+//
+//		// Enter user name in username field
+//		StringSelection username = new StringSelection("ldstools2");
+//        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(username, null);
+//		rb.setAutoDelay(40);
+//		rb.setAutoWaitForIdle(true);
+//        rb.keyPress(KeyEvent.VK_CONTROL);
+//        rb.keyPress(KeyEvent.VK_V);
+//        rb.keyRelease(KeyEvent.VK_V);
+//        rb.keyRelease(KeyEvent.VK_CONTROL);
+//
+//        // press tab to move to password field
+//        rb.keyPress(KeyEvent.VK_TAB);
+//        rb.keyRelease(KeyEvent.VK_TAB);
+//        Thread.sleep(2000);
+//
+//        //Enter password in password field
+//        StringSelection pwd = new StringSelection("toolstester");
+//		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(pwd, null);
+//		rb.keyPress(KeyEvent.VK_CONTROL);
+//		rb.keyPress(KeyEvent.VK_V);
+//		rb.keyRelease(KeyEvent.VK_V);
+//		rb.keyRelease(KeyEvent.VK_CONTROL);
+//
+//		//press enter
+//		rb.keyPress(KeyEvent.VK_ENTER);
+//		rb.keyRelease(KeyEvent.VK_ENTER);
+//
+//	}
 	
 	
 	

@@ -429,9 +429,9 @@ public class BaseDriver {
             capabilities.setCapability("platformVersion", "11.4");
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("clearSystemFiles", true);
-            capabilities.setCapability("allowTouchIdEnroll", true);
+            //capabilities.setCapability("allowTouchIdEnroll", true);
             capabilities.setCapability("maxTypingFrequency", 15);
-            capabilities.setCapability("appPackage", myAppPackage);
+            //capabilities.setCapability("appPackage", myAppPackage);
 
 
             if (myUdid != null) {

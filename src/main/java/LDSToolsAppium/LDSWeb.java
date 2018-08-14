@@ -379,9 +379,9 @@ public class LDSWeb {
 		addCompanionshipMinistering("lds22");
 
 		//Add Households to Companionship
-//		addHouseholdMinistering("afpten");
+		addHouseholdMinistering("aaron");
 		addHouseholdMinistering("lds23");
-		//addHouseholdMinistering("lds24");
+		addHouseholdMinistering("lds24");
 		addHouseholdMinistering("lds5");
 		addHouseholdMinistering("lds11");
 
@@ -398,6 +398,7 @@ public class LDSWeb {
 		addHouseholdMinistering("lds33");
 		addHouseholdMinistering("lds34");
 		addHouseholdMinistering("lds35");
+		addHouseholdMinistering("afpten");
 
 
 		clickElement("MinisteringSaveAssignment", "xpath");

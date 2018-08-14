@@ -55,7 +55,8 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         getYoungWomenInfo(rights);
 
-        getSundaySchoolInfo(rights);
+        //Sunday School is flaky in UAT
+        //getSundaySchoolInfo(rights);
 
         getPrimaryInfo(rights);
 

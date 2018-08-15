@@ -152,7 +152,7 @@ public class DirectoryScreen extends BasePage {
         } else {
             searchBar.sendKeys(myUser);
         }
-
+        Thread.sleep(2000);
         clickDirectoryUser(myUser);
 
     }

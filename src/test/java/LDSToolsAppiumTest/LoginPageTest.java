@@ -21,10 +21,15 @@ public class LoginPageTest extends BaseDriver {
 //    }
 
 
-    @Test (groups = {"all2", "all", "login"})
-    public void validateLoginPage() {
+    @Test (groups = {"all2", "all", "login", "jft"})
+    public void validateLoginPage() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
+
+        if (myBasePage.checkForElement(myBasePage.allowButton)) {
+            myBasePage.allowButton.click();
+        }
+        Thread.sleep(2000);
 
         myPageSource = myBasePage.getSourceOfPage();
 
@@ -159,6 +164,11 @@ public class LoginPageTest extends BaseDriver {
 
     private void invalidCheck(String userName, String passWord) throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        if (myBasePage.checkForElement(myBasePage.allowButton)) {
+            myBasePage.allowButton.click();
+        }
         clearLoginPassword();
 
         myHelper.loginUAT(userName, passWord);
@@ -170,6 +180,10 @@ public class LoginPageTest extends BaseDriver {
     private void checkInvalidAlert() {
         BasePage myBasePage = new BasePage(driver);
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        if (myBasePage.checkForElement(myBasePage.allowButton)) {
+            myBasePage.allowButton.click();
+        }
 
         if (myBasePage.checkForElement(myLoginPage.errorMessageService)) {
             Assert.assertTrue(myBasePage.checkForElement(myLoginPage.loginErrorMessage));

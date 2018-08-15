@@ -348,7 +348,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         myBasePage.compareWebData(myList, androidList, false);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Investigators with Baptism Date", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("People with Baptism Date", pageSource, "Contains"));
 
         myReports.mpRemoveFilterButton.click();
 
@@ -363,7 +363,7 @@ public class ReportsScreenTest extends BaseDriver {
         myList = myBasePage.swapLastName(myList);
         myBasePage.compareWebData(myList, androidList, false);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Progressing Investigators", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("People being taught", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
         myReports.mpRemoveFilterButton.click();

@@ -2,14 +2,11 @@ package LDSToolsAppium.Screen;
 
 import LDSToolsAppium.BasePage;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import javafx.scene.control.Tab;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;

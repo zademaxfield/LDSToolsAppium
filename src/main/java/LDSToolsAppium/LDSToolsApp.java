@@ -3,7 +3,6 @@ package LDSToolsAppium;
 import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import javafx.stage.Screen;
 
 public class LDSToolsApp {
     private final AppiumDriver<MobileElement> driver;
@@ -69,6 +68,9 @@ public class LDSToolsApp {
     public TemplesScreen templesScreen() { return new TemplesScreen(driver);
     }
 
+    //Missionary Screen
+    public MissionaryScreen missionaryScreenScreen() { return new MissionaryScreen(driver);
+    }
 
 
 

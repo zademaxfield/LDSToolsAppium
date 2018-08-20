@@ -150,6 +150,7 @@ public class TemplesScreen extends BasePage {
             myBasePage.backButton.click();
 
             //Open Settings and enable Recommend
+            Thread.sleep(2000);
             myMenu.selectMenu(myMenu.settings);
 
             mySettings.templeShowTempleRecommendExpiration.click();

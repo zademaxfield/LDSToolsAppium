@@ -566,6 +566,15 @@ public class BasePage {
 
     }
 
+    public void clickByTextContains(String myText) {
+        if(getOS().equals("ios")) {
+            driver.findElement(By.xpath("//*[contains(@name, '" + myText + "')]")).click();
+        } else {
+            driver.findElement(By.xpath("//*[contains(@text, '" + myText + "')]")).click();
+        }
+
+    }
+
     //TODO: Need a faster way to do this.
     public boolean checkForElement(MobileElement myElement ) {
         try {

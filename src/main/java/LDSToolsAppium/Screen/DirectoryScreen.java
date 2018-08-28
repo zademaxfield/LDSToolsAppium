@@ -89,7 +89,8 @@ public class DirectoryScreen extends BasePage {
     public  MobileElement householdMembers;
 
     //Home Teaching Visiting Teaching
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'HOME AND VISITING TEACHINGOpen Drawer' AND type == 'XCUIElementTypeButton'")
+    //@iOSXCUITFindBy(iOSNsPredicate = "name == 'HOME AND VISITING TEACHINGOpen Drawer' AND type == 'XCUIElementTypeButton'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'MINISTERINGOpen Drawer' AND type == 'XCUIElementTypeButton'")
     public  MobileElement htvt;
 
     //Callings and Classes
@@ -115,7 +116,8 @@ public class DirectoryScreen extends BasePage {
     public  MobileElement tabCallings;
 
     //Tab Home and Visiting Teaching
-    @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"home and visiting teaching\")]")
+    //@AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"home and visiting teaching\")]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"ministering\")]")
     public  MobileElement tabHTVT;
 
     //Tab Membership
@@ -142,6 +144,26 @@ public class DirectoryScreen extends BasePage {
 
         directorySort.click();
         sortIndividual.click();
+
+        //
+        if (tempMyUser.contains("tools")) {
+            String[] parts = myUser.split(", ");
+            String part1 = parts[0];
+            String part2 = parts[1];
+            searchBar.sendKeys(part2);
+        } else {
+            searchBar.sendKeys(myUser);
+        }
+        Thread.sleep(2000);
+        clickDirectoryUser(myUser);
+
+    }
+
+    public void searchAndClickHousehold(String myUser) throws Exception {
+        String tempMyUser = myUser.toLowerCase();
+
+        directorySort.click();
+        sortHousehold.click();
 
         //
         if (tempMyUser.contains("tools")) {
@@ -283,7 +305,7 @@ public class DirectoryScreen extends BasePage {
             }
 
             tabHousehold.click();
-            tabContact.click();
+            //tabContact.click();
 
         }
 

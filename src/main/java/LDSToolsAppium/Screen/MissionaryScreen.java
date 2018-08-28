@@ -35,7 +35,79 @@ public class MissionaryScreen extends BasePage {
 
 
 
+    // ****************** Missionary Send Referral Screen ******************
+    //Help Message
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/personalInformationExplanationTextView")
+    @iOSFindBy(accessibility = "Helps the missionaries know how to contact you to discuss your friend's needs.")
+    public MobileElement referralHelpMessage;
 
+    //Member Phone Number
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/personalPhoneTextView")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='PHONE']/following-sibling::XCUIElementTypeStaticText")
+    public MobileElement referralMemberPhoneNumber;
+
+    //Member Email
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/personalEmailTextView")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='EMAIL']/following-sibling::XCUIElementTypeStaticText")
+    public MobileElement referralMemberEmail;
+
+    //Update Individual Information
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/addContactInformationButton")
+    @iOSFindBy(accessibility = "Update Individual Information")
+    public MobileElement referralUpdateIndividualInformation;
+
+    //Referral Name
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/nameTextInputEditText")
+    @iOSFindBy(accessibility = "Name")
+    public MobileElement referralName;
+
+    //Referral Phone
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/phoneTextInputEditText")
+    @iOSFindBy(accessibility = "Phone")
+    public MobileElement referralPhone;
+
+    //Referral Email
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/emailTextInputEditText")
+    @iOSFindBy(accessibility = "Email")
+    public MobileElement referralEmail;
+
+
+    //Referral Locate on Map
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/locateOnMapTextView")
+    @iOSFindBy(accessibility = "Locate on Map")
+    public MobileElement referralLocateOnMap;
+
+    //Referral Map Search
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/filterEditText")
+    @iOSFindBy(accessibility = "Search")
+    public MobileElement referralMapSearch;
+
+    //Referral Add Preferred Language
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/languageTextView")
+    @iOSFindBy(accessibility = "Add Preferred Language")
+    public MobileElement referralAddPreferredLanguage;
+
+    //Referral Add Message Button iOS only
+    @iOSFindBy(accessibility = "Add a Message")
+    public MobileElement referralAddMessageButton;
+
+    //Referral Cancel Message Button iOS only
+    //@iOSFindBy(accessibility = "minus")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Message']/following-sibling::XCUIElementTypeImage[@name='minus']")
+    public MobileElement referralCancelMessage;
+
+
+
+
+    //Referral Message field
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/helpfulMessageEditText")
+    @iOSFindBy(accessibility = "Message")
+    public MobileElement referralMessageField;
+
+    //Referral Send Referral Button
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/sendReferralButton")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Send Referral']")
+    public MobileElement referralSendReferral;
 
 
 
@@ -57,6 +129,15 @@ public class MissionaryScreen extends BasePage {
     //Tab Serving
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"serving\")]")
     public  MobileElement tabServing;
+
+
+
+    //Use This Location
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/useLocationFab")
+    public  MobileElement referralUseThisLocation;
+
+
+
 
 
 

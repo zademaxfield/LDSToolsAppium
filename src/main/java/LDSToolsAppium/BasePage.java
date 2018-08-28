@@ -13,10 +13,7 @@ import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Point;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -89,34 +86,93 @@ public class BasePage {
 
     //Scrolling Methods
 
+    public void scrollToTextiOS(String myElement) throws Exception {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        HashMap scrollObject = new HashMap();
+        scrollObject.put("direction", "up");
+        scrollObject.put("xpath", "//XCUIElementTypeStaticText[@name='" + myElement + "']");
+        js.executeScript("mobile: swipe", scrollObject);
+    }
+
+    public void scrollToTextGeneral(String myElement) throws Exception {
+        flingUp();
+
+
+        if (getOS().contains("ios")) {
+            scrollToTextiOS(myElement);
+        } else {
+            List<String> scrollArea = new ArrayList<String>();
+            String pageSource;
+            pageSource = driver.getPageSource();
+            Document doc = Jsoup.parse(pageSource);
+            Elements myElements = doc.getElementsByAttributeValueStarting("scrollable", "true");
+            List<Attribute> elementAttributes = new ArrayList<Attribute>();
+
+            for (Element foundElement : myElements ) {
+                elementAttributes = foundElement.attributes().asList();
+                for (Attribute myAttribute : elementAttributes ) {
+
+
+                    if (myAttribute.getKey().equals("resource-id")) {
+                        if (myAttribute.getValue().isEmpty()) {
+                            System.out.println("Resource ID is blank skipping");
+                        } else {
+                            scrollArea.add(myAttribute.getValue());
+                        }
+                    }
+                }
+
+            }
+
+            if (!scrollArea.isEmpty()) {
+                for (String areaToScroll : scrollArea ) {
+                    MobileElement list = (MobileElement) driver.findElement(By.id(areaToScroll));
+                    MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+                            + "new UiSelector().text(\"" + myElement + "\"));"));
+                    if (radioGroup.getLocation().toString().isEmpty()) {
+                        System.out.println("Text not found in: " + areaToScroll);
+                    }
+                }
+            }
+        }
+
+    }
+
     public void scrollToText(String myElement) throws Exception {
         int myCounter = 1;
         int myLoopStatus = 0;
         flingUp();
 
-        if (!checkTextOnPage(myElement)) {
-            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/list"));
-            MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
-                    + "new UiSelector().text(\"" + myElement + "\"));"));
+        if (getOS().contains("ios")) {
+            scrollToTextiOS(myElement);
 
-            while (myLoopStatus == 0) {
-                System.out.println("OVERFLOW SCROLL: " + myCounter);
-                radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+        } else {
+            if (!checkTextOnPage(myElement)) {
+                MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/list"));
+                MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                         + "new UiSelector().text(\"" + myElement + "\"));"));
 
+                while (myLoopStatus == 0) {
+                    System.out.println("OVERFLOW SCROLL: " + myCounter);
+                    radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+                            + "new UiSelector().text(\"" + myElement + "\"));"));
 
-                if (radioGroup.isDisplayed()) {
-                    myLoopStatus = 1;
+
+                    if (radioGroup.isDisplayed()) {
+                        myLoopStatus = 1;
+                    }
+
+                    if (myCounter > 5) {
+                        myLoopStatus = 1;
+                    }
+
+                    myCounter++;
                 }
-
-                if (myCounter > 5) {
-                    myLoopStatus = 1;
-                }
-
-                myCounter++;
+                Assert.assertNotNull(radioGroup.getLocation());
             }
-            Assert.assertNotNull(radioGroup.getLocation());
         }
+
+
     }
 
     public void flingUp() throws Exception {
@@ -501,6 +557,15 @@ public class BasePage {
         //System.out.println("Stop Checking for Element");
     }
 
+    public void clickByText(String myText) {
+        if(getOS().equals("ios")) {
+            driver.findElement(By.xpath("//*[@label='" + myText + "']")).click();
+        } else {
+            driver.findElement(By.xpath("//*[@text='" + myText + "']")).click();
+        }
+
+    }
+
     //TODO: Need a faster way to do this.
     public boolean checkForElement(MobileElement myElement ) {
         try {
@@ -858,6 +923,30 @@ public class BasePage {
         myAction.press(PointOption.point(myPoint.x, myPoint.y)).release();
         driver.performTouchAction(myAction);
         System.out.println("End Click by Cords");
+    }
+
+
+    public void  iosClickUseThisLocation() throws Exception {
+        int useThisLocationX;
+        int useThisLocationY;
+        int useThisLocationWidth;
+        int useThisLocationHeight;
+        //useThisLocationX = driver.findElement(MobileBy.iOSNsPredicateString("name == 'Legal'")).getLocation().getX();
+        //useThisLocationY = driver.findElement(MobileBy.iOSNsPredicateString("name == 'Legal'")).getLocation().getY();
+        //useThisLocationWidth = driver.findElement(MobileBy.iOSNsPredicateString("name == 'Legal'")).getSize().getWidth();
+
+        useThisLocationX = driver.findElement(MobileBy.iOSNsPredicateString("name == 'Search results'")).getLocation().getX();
+        useThisLocationY = driver.findElement(MobileBy.iOSNsPredicateString("name == 'Search results'")).getLocation().getY();
+        useThisLocationWidth = driver.findElement(MobileBy.iOSNsPredicateString("name == 'Search results'")).getSize().getWidth();
+        useThisLocationHeight = driver.findElement(MobileBy.iOSNsPredicateString("name == 'Search results'")).getSize().getHeight();
+
+        //System.out.println("X: " + useThisLocationX);
+        //System.out.println("Y: " + useThisLocationY);
+        //System.out.println("W: " + useThisLocationWidth);
+
+        //new TouchAction(driver).tap(useThisLocationX+ useThisLocationWidth + 20, useThisLocationY ).release().perform();
+        //new TouchAction(driver).tap(useThisLocationX, useThisLocationY - 50 ).release().perform();
+        new TouchAction(driver).press(PointOption.point(useThisLocationX, useThisLocationY - 50)).release().perform();
     }
 
 

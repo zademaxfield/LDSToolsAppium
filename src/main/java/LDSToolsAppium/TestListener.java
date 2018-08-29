@@ -18,6 +18,7 @@ public class TestListener implements ITestListener {
 	public void onFinish(ITestContext context) {
 		Set<ITestResult> failedTests = context.getFailedTests().getAllResults();
 		Set<ITestResult> skippedTests = context.getSkippedTests().getAllResults();
+
 		for (ITestResult temp : failedTests) {
 			ITestNGMethod method = temp.getMethod();
 			if (context.getFailedTests().getResults(method).size() > 1) {
@@ -46,8 +47,11 @@ public class TestListener implements ITestListener {
   
     public void onTestFailure(ITestResult result) {   }
 
+    @Override
     @Parameters({"os", "fileName", "testDevice"})
-    public void onTestSkipped(ITestResult result) {  
+    public void onTestSkipped(ITestResult result) {
+    	//Changed skipped test to Failure!!!!!
+    	result.setStatus(ITestResult.FAILURE);
     	/*
     	System.out.println("SKIP found!");
     	System.out.println("OS: " + os);

@@ -23,7 +23,7 @@ public class SettingsScreen extends BasePage {
 
     //Sign Out
     @AndroidFindBy(xpath = "//*[contains(@text, 'Sign Out')]")
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Sign Out'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Sign Out' AND type == 'XCUIElementTypeStaticText'")
     public  MobileElement signOut;
 
     // ********* Calendar *********

@@ -162,7 +162,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all4", "jft"})
+    @Test (groups= { "all", "all4"})
     public void templeRecommendReminderGoItThanks() throws Exception {
         String pageSource;
 
@@ -197,6 +197,142 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Samu", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+    }
+
+
+    @Test (groups= { "all", "all1"})
+    public void templeNearestTemples() throws Exception {
+        String pageSource;
+
+        HelperMethods myHelper = new HelperMethods(driver);
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        TemplesScreen myTemple = new TemplesScreen(driver);
+
+
+        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+        myMenu.selectMenu(myMenu.temples);
+        myTemple.chooseDifferentTab(myTemple.nearestTab);
+
+        if (!myBasePage.getOS().contains("ios")) {
+            myBasePage.alertOK.click();
+
+        }
+
+
+        myBasePage.allowButton.click();
+
+        Thread.sleep(2000);
+        pageSource = myBasePage.getSourceOfPage();
+
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Oquirrh", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Jordan", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Draper", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Timpanogos", pageSource, "Contains"));
+
+
+    }
+
+    @Test (groups= { "all", "all2"})
+    public void templeAllTemples() throws Exception {
+        String pageSource;
+
+        HelperMethods myHelper = new HelperMethods(driver);
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        TemplesScreen myTemple = new TemplesScreen(driver);
+
+
+
+        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+        myMenu.selectMenu(myMenu.temples);
+        myTemple.chooseDifferentTab(myTemple.allTab);
+
+
+        Thread.sleep(2000);
+        pageSource = myBasePage.getSourceOfPage();
+
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Aba", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Abidjan", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Accra", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Adelaide", pageSource, "Contains"));
+
+
+    }
+
+    @Test (groups= { "all", "all3"})
+    public void templeSearch() throws Exception {
+        String pageSource;
+
+        HelperMethods myHelper = new HelperMethods(driver);
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        TemplesScreen myTemple = new TemplesScreen(driver);
+
+
+
+        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+        myMenu.selectMenu(myMenu.temples);
+        myTemple.chooseDifferentTab(myTemple.allTab);
+
+        myTemple.searchTemple.setValue("Cedar City");
+
+
+        Thread.sleep(2000);
+        pageSource = myBasePage.getSourceOfPage();
+
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Cedar City Utah Temple", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Abidjan", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Accra", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Adelaide", pageSource, "Contains"));
+
+
+    }
+
+    @Test (groups= { "all", "all4", "jft"})
+    public void templeSearchNewYork() throws Exception {
+        String pageSource;
+
+        HelperMethods myHelper = new HelperMethods(driver);
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        TemplesScreen myTemple = new TemplesScreen(driver);
+
+
+
+        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+        myMenu.selectMenu(myMenu.temples);
+        myTemple.chooseDifferentTab(myTemple.allTab);
+
+        myTemple.searchTemple.setValue("New York");
+
+
+        Thread.sleep(2000);
+        pageSource = myBasePage.getSourceOfPage();
+
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Manhattan New York Temple", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Palmyra New York Temple", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Abidjan", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Accra", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Adelaide", pageSource, "Contains"));
+
+
     }
 
 

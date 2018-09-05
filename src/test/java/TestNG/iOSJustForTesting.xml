@@ -16,12 +16,13 @@
         <groups>
             <run>
                 <include name="jft"/>
+                <!--<include name="login"/>-->
             </run>
         </groups>
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
         </classes>
     </test> <!-- Default test -->
 </suite> <!-- Default suite -->

@@ -48,6 +48,20 @@ public class TemplesScreen extends BasePage {
 
 
 
+    //iOS Temple Selector
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, '▾')]")
+    public MobileElement templePullDown;
+
+
+
+    // Search
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/filterEditText")
+    @iOSFindBy(accessibility = "Search")
+    public MobileElement searchTemple;
+
+
+
+
     //No Thanks
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'No thanks'")
     public MobileElement noThanks;
@@ -59,17 +73,30 @@ public class TemplesScreen extends BasePage {
 
     //Temple Tab Mine
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='MINE']")
+    @iOSFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'My Temple')]")
     public MobileElement mineTab;
 
     //Temple Tab Nearest
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='NEAREST']")
+    @iOSFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Nearest Temples')]")
     public MobileElement nearestTab;
 
     //Temple Tab All
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='ALL']")
+    @iOSFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'All Temples')]")
     public MobileElement allTab;
 
 
+    public void chooseDifferentTab(MobileElement myElement ) throws Exception {
+        BasePage myBasePage = new BasePage(driver);
+
+        if (myBasePage.getOS().contains("ios")) {
+            templePullDown.click();
+        }
+
+        myElement.click();
+
+    }
 
 
     public void enableTempleRecommendReminder(String numberOfDays, MobileElement recommendStatus, MobileElement numberOfWeeks) throws Exception {

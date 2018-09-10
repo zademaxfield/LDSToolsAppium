@@ -226,7 +226,7 @@ public class BaseDriver {
         if (!getRunningOS().equals("ios")) {
             driver.quit();
             if (!deviceSerial.equals("")) {
-                STFService mySTFService = new STFService("http://10.109.45.146:7100", "ba56d8c8e450cb61dd78b732bcc8bbb45097a782543ff8034d4e88b013b57");
+                STFService mySTFService = new STFService("http://10.109.45.146:7100", "5b5e50c533cf4e00aa32c8caf1aa1d8fad972f9414a64f71abdce9d06d6a5248");
                 DeviceApi myDevice = new DeviceApi(mySTFService);
                 System.out.println("SERIAL NUMBER: " + deviceSerial);
                 myDevice.releaseDevice(deviceSerial);
@@ -256,7 +256,7 @@ public class BaseDriver {
 
         } else {
             //driver.quit();
-            STFService mySTFService = new STFService("http://10.109.45.146:7100", "ba56d8c8e450cb61dd78b732bcc8bbb45097a782543ff8034d4e88b013b57");
+            STFService mySTFService = new STFService("http://10.109.45.146:7100", "5b5e50c533cf4e00aa32c8caf1aa1d8fad972f9414a64f71abdce9d06d6a5248");
             DeviceApi myDevice = new DeviceApi(mySTFService);
 
             System.out.println("SERIAL NUMBER: " + deviceSerial);
@@ -286,7 +286,7 @@ public class BaseDriver {
         if (os.equals("android")) {
             List<String> deviceList;
             if (testDevice.contains("STF")) {
-                String accessToken = "ba56d8c8e450cb61dd78b732bcc8bbb45097a782543ff8034d4e88b013b57";
+                String accessToken = "5b5e50c533cf4e00aa32c8caf1aa1d8fad972f9414a64f71abdce9d06d6a5248";
 
 
 

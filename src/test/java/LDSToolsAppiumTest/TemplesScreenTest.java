@@ -225,7 +225,7 @@ public class TemplesScreenTest extends BaseDriver {
 
         myBasePage.allowButton.click();
 
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         pageSource = myBasePage.getSourceOfPage();
 
 

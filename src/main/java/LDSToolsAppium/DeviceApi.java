@@ -102,6 +102,8 @@ public class DeviceApi {
     public List<String> getAvalibleDevices() {
     	List<String> deviceList = new ArrayList<String>();
     	JsonArray myJsonList = new JsonArray();
+    	boolean oldVersion = false;
+    	String myVersionConvert;
 
         Request request = new Request.Builder()
                 .addHeader("Authorization", "Bearer " + stfService.getAuthToken())
@@ -128,7 +130,22 @@ public class DeviceApi {
                 boolean using = oneJsonObject.getAsJsonObject().get("using").getAsBoolean();
                 JsonElement ownerElement = oneJsonObject.getAsJsonObject().get("owner");
                 boolean owner = !(ownerElement instanceof JsonNull);
-                
+
+
+                if (oneJsonObject.getAsJsonObject().has("version")) {
+                    JsonElement myVersion = oneJsonObject.getAsJsonObject().get("version");
+                    myVersionConvert = myVersion.toString();
+                    //System.out.println("VERSION: " + myVersionConvert);
+                } else {
+                    System.out.println("Found NULL Version: ");
+                    myVersionConvert = "4.";
+                }
+
+
+                if (myVersionConvert.contains("4.")) {
+                   // oldVersion = true;
+                    System.out.println("Found Older Version: "  + myVersionConvert);
+                }
                 //System.out.println("********** Device ************");
                 //System.out.println("Serial: " + mySerial);
                 //System.out.println("Present: " + present);
@@ -136,7 +153,7 @@ public class DeviceApi {
                 //System.out.println("Using: " + using);
                 //System.out.println("Owner: " + owner);
                 
-                if (!present || !ready || using || owner) {
+                if (!present || !ready || using || owner || myVersionConvert.contains("4.")) {
                     LOGGER.severe("Device is in use");
                     //return false;
                 } else {

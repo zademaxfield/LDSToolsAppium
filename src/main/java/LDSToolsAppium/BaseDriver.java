@@ -31,6 +31,10 @@ public class BaseDriver {
     protected LDSToolsApp app;
     public LDSWeb myWeb = new LDSWeb();
 
+
+    public String accessToken = "5b5e50c533cf4e00aa32c8caf1aa1d8fad972f9414a64f71abdce9d06d6a5248";
+    public String stfURL = "http://10.109.45.146:7100";
+
     @BeforeSuite(alwaysRun = true)
     public void removeFilesBeforeTest() {
         File reportsDirectory = new File ("/Users/zmaxfield/Documents/workspace/LDSToolsAppium/src/test/java/Reports");
@@ -226,7 +230,7 @@ public class BaseDriver {
         if (!getRunningOS().equals("ios")) {
             driver.quit();
             if (!deviceSerial.equals("")) {
-                STFService mySTFService = new STFService("http://10.109.45.146:7100", "5b5e50c533cf4e00aa32c8caf1aa1d8fad972f9414a64f71abdce9d06d6a5248");
+                STFService mySTFService = new STFService(stfURL, accessToken);
                 DeviceApi myDevice = new DeviceApi(mySTFService);
                 System.out.println("SERIAL NUMBER: " + deviceSerial);
                 myDevice.releaseDevice(deviceSerial);
@@ -256,7 +260,7 @@ public class BaseDriver {
 
         } else {
             //driver.quit();
-            STFService mySTFService = new STFService("http://10.109.45.146:7100", "5b5e50c533cf4e00aa32c8caf1aa1d8fad972f9414a64f71abdce9d06d6a5248");
+            STFService mySTFService = new STFService(stfURL, accessToken);
             DeviceApi myDevice = new DeviceApi(mySTFService);
 
             System.out.println("SERIAL NUMBER: " + deviceSerial);
@@ -285,10 +289,21 @@ public class BaseDriver {
         //Android Setup
         if (os.equals("android")) {
             List<String> deviceList;
+
+            if (testDevice.contains("STFZade")) {
+                accessToken = "c6c814d0122047ab98c2af2a84eb09022a3dd0e82e944526896e9016eb121844";
+                stfURL = "http://10.109.45.162:7100";
+            }
+
+            if (testDevice.contains("STFMain")) {
+                accessToken = "7a51e3b2af8d4cdca761035facd677569b8c3fa4f04f491ca3ed7591372361c1";
+                stfURL = "https://serenity.ldschurch.org";
+            }
+
+
+
+
             if (testDevice.contains("STF")) {
-                String accessToken = "5b5e50c533cf4e00aa32c8caf1aa1d8fad972f9414a64f71abdce9d06d6a5248";
-
-
 
                 String deviceIPPort;
 
@@ -300,7 +315,7 @@ public class BaseDriver {
                 deviceSerial = parts[1];
                 System.out.println("SERIAL NUMBER: " + deviceSerial);
 
-                LDSToolsAppium.STFService mySTFService = new LDSToolsAppium.STFService("http://10.109.45.146:7100", accessToken);
+                LDSToolsAppium.STFService mySTFService = new LDSToolsAppium.STFService(stfURL, accessToken);
                 LDSToolsAppium.DeviceApi myDevice = new LDSToolsAppium.DeviceApi(mySTFService);
 
 

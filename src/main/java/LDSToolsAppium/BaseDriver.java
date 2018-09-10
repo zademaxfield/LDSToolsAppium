@@ -226,7 +226,7 @@ public class BaseDriver {
         if (!getRunningOS().equals("ios")) {
             driver.quit();
             if (!deviceSerial.equals("")) {
-                STFService mySTFService = new STFService("http://10.109.45.162:7100", "4e625e83995b4d0d85279844dd0839b547283386c7a84b0787abeb080cc45828");
+                STFService mySTFService = new STFService("http://10.109.45.146:7100", "ba56d8c8e450cb61dd78b732bcc8bbb45097a782543ff8034d4e88b013b57");
                 DeviceApi myDevice = new DeviceApi(mySTFService);
                 System.out.println("SERIAL NUMBER: " + deviceSerial);
                 myDevice.releaseDevice(deviceSerial);
@@ -256,7 +256,7 @@ public class BaseDriver {
 
         } else {
             //driver.quit();
-            STFService mySTFService = new STFService("http://10.109.45.162:7100", "4e625e83995b4d0d85279844dd0839b547283386c7a84b0787abeb080cc45828");
+            STFService mySTFService = new STFService("http://10.109.45.146:7100", "ba56d8c8e450cb61dd78b732bcc8bbb45097a782543ff8034d4e88b013b57");
             DeviceApi myDevice = new DeviceApi(mySTFService);
 
             System.out.println("SERIAL NUMBER: " + deviceSerial);
@@ -286,7 +286,9 @@ public class BaseDriver {
         if (os.equals("android")) {
             List<String> deviceList;
             if (testDevice.contains("STF")) {
-                String accessToken = "4e625e83995b4d0d85279844dd0839b547283386c7a84b0787abeb080cc45828";
+                String accessToken = "ba56d8c8e450cb61dd78b732bcc8bbb45097a782543ff8034d4e88b013b57";
+
+
 
                 String deviceIPPort;
 
@@ -298,7 +300,7 @@ public class BaseDriver {
                 deviceSerial = parts[1];
                 System.out.println("SERIAL NUMBER: " + deviceSerial);
 
-                LDSToolsAppium.STFService mySTFService = new LDSToolsAppium.STFService("http://10.109.45.162:7100", accessToken);
+                LDSToolsAppium.STFService mySTFService = new LDSToolsAppium.STFService("http://10.109.45.146:7100", accessToken);
                 LDSToolsAppium.DeviceApi myDevice = new LDSToolsAppium.DeviceApi(mySTFService);
 
 

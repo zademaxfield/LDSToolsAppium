@@ -256,7 +256,7 @@ public class DirectoryScreen extends BasePage {
             Thread.sleep(1000);
             pageSource = getSourceOfPage();
 
-            myBasePage.scrollDownAndroidUIAutomator("1");
+            myBasePage.scrollDownAndroidUIAutomator("0");
             //scrollDownTEST(200);
 
             tabHousehold.click();

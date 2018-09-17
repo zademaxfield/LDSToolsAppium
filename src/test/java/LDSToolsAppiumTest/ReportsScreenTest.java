@@ -93,9 +93,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
         HelperMethods myHelper = new HelperMethods(driver);
-        PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
 
 

@@ -71,10 +71,10 @@ public class LDSWeb {
 	@Test
 	public void simpleTest() throws Exception {
 
-		setupAfterUATReset();
+//		setupAfterUATReset();
 
 
-//		setupMinstering();
+		setupMinstering();
 
 //		String pageSource;
 //		quarterlyReportLogIn("ldstools2", "toolstester");
@@ -222,7 +222,7 @@ public class LDSWeb {
 
 		openPageLogIn(url, userName, passWord);
 
-		setupDistrictsMinistering();
+		//setupDistrictsMinistering();
 		addCompanionHouseholdMinistering();
 
 	}
@@ -365,9 +365,9 @@ public class LDSWeb {
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		//clickElement("HomeTeachingDropDown", "xpath");
-		clickElement("AssignmentsTab", "id");
-		Thread.sleep(2000);
-		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
+//		clickElement("AssignmentsTab", "id");
+//		Thread.sleep(2000);
+//		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
 		Thread.sleep(2000);
 
 
@@ -439,10 +439,10 @@ public class LDSWeb {
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		//clickElement("HomeTeachingDropDown", "xpath");
-		clickElement("AssignmentsTab", "id");
-		Thread.sleep(2000);
-		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
-		Thread.sleep(2000);
+//		clickElement("AssignmentsTab", "id");
+//		Thread.sleep(2000);
+//		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
+//		Thread.sleep(2000);
 
 		selectDistrictMinistering("District 1");
 
@@ -569,9 +569,10 @@ public class LDSWeb {
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		//clickElement("HomeTeachingDropDown", "xpath");
-		clickElement("AssignmentsTab", "id");
-		Thread.sleep(2000);
-		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
+		//Thread.sleep(2000);
+		//clickElement("AssignmentsTab", "id");
+		//Thread.sleep(2000);
+		//waitForTextToDisappear("LoadingSpinner", 500, "xpath");
 		Thread.sleep(2000);
 
 
@@ -585,9 +586,9 @@ public class LDSWeb {
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		//clickElement("HomeTeachingDropDown", "xpath");
-		clickElement("AssignmentsTab", "id");
-		Thread.sleep(2000);
-		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
+		//clickElement("AssignmentsTab", "id");
+		//Thread.sleep(2000);
+		//waitForTextToDisappear("LoadingSpinner", 500, "xpath");
 		Thread.sleep(2000);
 
 
@@ -654,7 +655,7 @@ public class LDSWeb {
 		addMemberToCalling("Second Counselor", "lds23");
 		addMemberToCalling("Quorum Secretary", "lds24");
 		clickElement("Clear Filters", "linkText");
-	
+
 		
 		clickElement("Organizations", "linkText");
 		Thread.sleep(4000);
@@ -1342,7 +1343,7 @@ public class LDSWeb {
 
 
 		//WebElement mySelect = driver.findElement(By.xpath("//input[contains(@value, '" + districtName + "')]/../following-sibling::td/select[@ng-model='district.districtLeader']"));
-		WebElement mySelect = driver.findElement(By.xpath("//*[@id=\"assignments-tabpane\"]/div/div[1]/div[3]/div[2]/select"));
+		WebElement mySelect = driver.findElement(By.xpath("//*[@id=\"assigned-tabpane\"]/div[2]/div[2]/select"));
 		//WebElement mySelect = driver.findElement(By.xpath(this.prop.getProperty("DistrictSupervisorSelect")));
 		Select testSelect = new Select(mySelect);
 

@@ -3,7 +3,6 @@ package LDSToolsAppium;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.SupportsSpecialEmulatorCommands;
 import io.appium.java_client.ios.IOSDriver;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -443,7 +442,7 @@ public class BaseDriver {
             capabilities.setCapability("newCommandTimeout", 600);
             capabilities.setCapability("app", app.getAbsolutePath());
             capabilities.setCapability("launchTimeout", 300000);
-            capabilities.setCapability("platformVersion", "11.4");
+            capabilities.setCapability("platformVersion", "12");
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);

@@ -222,7 +222,7 @@ public class LDSWeb {
 
 		openPageLogIn(url, userName, passWord);
 
-		//setupDistrictsMinistering();
+		setupDistrictsMinistering();
 		addCompanionHouseholdMinistering();
 
 	}

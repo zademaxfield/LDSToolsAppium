@@ -280,7 +280,7 @@ public class MinisteringScreenTest extends BaseDriver {
                 if (getRunningOS().equals("ios")) {
                     myMinistering.unassignedSisters.click();
                     pageSource = myBasePage.getSourceOfPage();
-                    Assert.assertFalse(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
+                    Assert.assertFalse(myBasePage.checkNoCaseList("Afamasaga", pageSource, "Contains"));
                     Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
                 } else {
                     pageSource = myBasePage.getSourceOfPage();
@@ -290,7 +290,7 @@ public class MinisteringScreenTest extends BaseDriver {
                 myMinistering.unassignedSisters.click();
                 Thread.sleep(2000);
                 pageSource = myBasePage.getSourceOfPage();
-                Assert.assertTrue(myBasePage.checkNoCaseList("AFPFive", pageSource, "Contains"));
+                Assert.assertTrue(myBasePage.checkNoCaseList("Afamasaga", pageSource, "Contains"));
                 Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
             }
 

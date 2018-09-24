@@ -359,7 +359,7 @@ public class BaseDriver {
             capabilities.setCapability("appPackage", myAppPackage);
             capabilities.setCapability("newCommandTimeout", 600);
 
-            capabilities.setCapability("appActivity", "org.lds.ldstools.ui.activity.SignInActivity");
+            //capabilities.setCapability("appActivity", "org.lds.ldstools.ui.activity.SignInActivity");
 
             capabilities.setCapability("unicodeKeyboard", "true");
             capabilities.setCapability("resetKeyboard", "true");
@@ -442,7 +442,7 @@ public class BaseDriver {
             capabilities.setCapability("newCommandTimeout", 600);
             capabilities.setCapability("app", app.getAbsolutePath());
             capabilities.setCapability("launchTimeout", 300000);
-            capabilities.setCapability("platformVersion", "12");
+            capabilities.setCapability("platformVersion", "12.0");
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);

@@ -626,12 +626,14 @@ public class BasePage {
     }
 
     public String getSourceOfPage() {
+//        System.out.println("Start Get Source of Page");
         String myString;
         myString = driver.getPageSource();
 
-        //System.out.println("****************************************************");
-        //System.out.println("Page Source: " + myString);
-        //System.out.println("****************************************************");
+//        System.out.println("****************************************************");
+//        System.out.println("Page Source: " + myString);
+//        System.out.println("****************************************************");
+//        System.out.println("End Get Source of Page");
 
         return myString;
     }

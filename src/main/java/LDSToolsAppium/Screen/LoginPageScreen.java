@@ -22,12 +22,12 @@ public class LoginPageScreen extends BasePage {
 
     //Login Name
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/usernameEditText")
-    @iOSFindBy(xpath = "//XCUIElementTypeCell/XCUIElementTypeTextField")
+    @iOSFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeTextField")
     public  MobileElement loginName;
 
     //Password
     @AndroidFindBy(id = "org.lds.ldstools.dev:id/passwordEditText")
-    @iOSFindBy(xpath = "//XCUIElementTypeCell/XCUIElementTypeSecureTextField")
+    @iOSFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeSecureTextField")
     public  MobileElement passWord;
 
     //Sign In Button
@@ -68,6 +68,21 @@ public class LoginPageScreen extends BasePage {
     @iOSFindBy(xpath = "//*[@value='Sign-In Failed']")
     public MobileElement loginErrorMessage;
 
+    //Trouble Signing In?
+    @iOSFindBy(accessibility = "Having trouble signing in?")
+    public  MobileElement troubleSigningIn;
+
+    //Privacy Notice
+    @iOSFindBy(accessibility = "Privacy Notice (Updated 2014-03-18)")
+    public  MobileElement privacyNotice;
+
+    //Terms of Use
+    @iOSFindBy(accessibility = "Terms of Use (Updated 2016-09-01)")
+    public  MobileElement termsOfUse;
+
+    //Cancel Button
+    @iOSFindBy(accessibility = "Cancel")
+    public  MobileElement cancelButton;
 
 
 }

@@ -38,8 +38,8 @@ public class BasePage {
 
     //Universal Elements
     @AndroidFindBy(accessibility = "Navigate up")
-//    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
-    @iOSFindBy(accessibility = "Back")
+    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+    //@iOSFindBy(accessibility = "Back")
     public MobileElement backButton;
 
     @AndroidFindBy(accessibility = "Navigate up")

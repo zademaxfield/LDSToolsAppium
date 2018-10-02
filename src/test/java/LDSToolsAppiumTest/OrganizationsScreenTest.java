@@ -39,7 +39,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         myMenu.selectMenu(myMenu.organizations);
         if (rights <= 3) {
-            myWeb.openPageLogIn("https://uat.lds.org/mls/mbr/?lang=eng", userName, passWord);
+            myWeb.openPageLogIn("https://lcr-uat.lds.org", userName, passWord);
         }
 
 

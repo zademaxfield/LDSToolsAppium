@@ -71,10 +71,10 @@ public class LDSWeb {
 	@Test
 	public void simpleTest() throws Exception {
 
-//		setupAfterUATReset();
+		setupAfterUATReset();
 
 
-		setupMinstering();
+//		setupMinstering();
 
 //		String pageSource;
 //		quarterlyReportLogIn("ldstools2", "toolstester");
@@ -200,7 +200,10 @@ public class LDSWeb {
 	}
 	
 	public void setupAfterUATReset() throws Exception {
-		String url = "https://uat.lds.org/mls/mbr/?lang=eng";
+//		String url = "https://uat.lds.org/mls/mbr/?lang=eng";
+		String url = "https://lcr-uat.lds.org";
+
+
 		//String url = "https://test.lds.org/mls/mbr/?lang=eng";
 		String userName = "LDSTools2";
 		String passWord = "toolstester";

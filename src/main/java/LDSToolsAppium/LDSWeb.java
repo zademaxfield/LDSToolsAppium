@@ -990,7 +990,7 @@ public class LDSWeb {
 		setUp();
 		
 		Thread.sleep(4000);
-		openWebPage("https://uat.lds.org/mls/mbr");
+		openWebPage("https://lcr-uat.lds.org");
 		Thread.sleep(2000);
 		
 		driver.findElement(By.id(this.prop.getProperty("UserName"))).sendKeys(userName);
@@ -1009,7 +1009,7 @@ public class LDSWeb {
 		Thread.sleep(4000);
 
 //		openPageLogIn("https://uat.lds.org/mls/mbr", userName, passWord);
-		openPageLogIn("https://stage.lds.org/mls/mbr", userName, passWord);
+		openPageLogIn("https://lcr-uat.lds.org", userName, passWord);
 
 		Thread.sleep(4000);
 
@@ -2124,7 +2124,7 @@ public class LDSWeb {
 		List<String> foundUsers = new ArrayList<String>();
 		Thread.sleep(4000);
 		//openWebPage("https://uat.lds.org");
-		openWebPage("https://uat.lds.org/mls/mbr/?lang=eng");
+		openWebPage("https://lcr-uat.lds.org");
 		
 		//openWebPage("https://www.lds.org");
 		Thread.sleep(2000);
@@ -2157,7 +2157,7 @@ public class LDSWeb {
 	public List<String> getMemberDetails(String memberDetail, String userName, String passWord) throws Exception {
 		
 		String mySource;
-		String url = "https://uat.lds.org/mls/mbr/?lang=eng";
+		String url = "https://lcr-uat.lds.org";
 		List<String> foundUsers = new ArrayList<String>();
 		String memberName;
 		String preferredName;
@@ -2365,7 +2365,7 @@ public class LDSWeb {
 	public List<String> getAllMembersInHTVTReport(String orgName, String myReport, String userName, String passWord, String leaderShip) throws Exception {
 		String mySource;
 		List<String> foundUsers = new ArrayList<String>();
-		String url = "https://uat.lds.org/mls/mbr/?lang=eng";
+		String url = "https://lcr-uat.lds.org";
 		Boolean myElementCheck;
 		String menuItem;
 		
@@ -2559,7 +2559,7 @@ public class LDSWeb {
 	public List<String> getAllMembersInHTVTReportOLD(String orgName, String myReport, String userName, String passWord, String leaderShip) throws Exception {
 		String mySource;
 		List<String> foundUsers = new ArrayList<String>();
-		String url = "https://uat.lds.org/mls/mbr/?lang=eng";
+		String url = "https://lcr-uat.lds.org";
 		Boolean myElementCheck;
 		
 		userName = "LDSTools2";
@@ -2712,7 +2712,7 @@ public class LDSWeb {
 
 		Thread.sleep(4000);
 		//openWebPage("https://uat.lds.org");
-		openWebPage("https://uat.lds.org/mls/mbr/?lang=eng");
+		openWebPage("https://lcr-uat.lds.org");
 		
 		//openWebPage("https://www.lds.org");
 		Thread.sleep(2000);
@@ -3511,7 +3511,7 @@ public class LDSWeb {
 	public List<String> GetAllTemples() throws Exception {
 		String mySource;
 		List<String> allTemples = new ArrayList<String>();
-		MyTemplePageLogIn("https://uat.lds.org/mls/mbr", "ldstools2", "toolstester");
+		MyTemplePageLogIn("https://lcr-uat.lds.org", "ldstools2", "toolstester");
 		clickElement("Find a Temple", "linkText");
 		
 		mySource = getSourceOfMember("AllTemplesTable");

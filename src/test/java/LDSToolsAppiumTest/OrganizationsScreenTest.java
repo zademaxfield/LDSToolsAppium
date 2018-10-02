@@ -267,12 +267,12 @@ public class OrganizationsScreenTest extends BaseDriver {
             //Check web data vs LDS Tools
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Relief Society", "ReliefSocietyPresidency", false);
             myBasePage.compareWebData(myList, androidList, true);
-
-            myBasePage.backAltButton.click();
-            myOrg.reliefSocietyVisitingTeaching.click();
-
-            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Relief Society", "VisitingTeachingSupervisors", false);
-            myBasePage.compareWebData(myList, androidList, true);
+//
+//            myBasePage.backAltButton.click();
+//            myOrg.reliefSocietyVisitingTeaching.click();
+//
+//            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Relief Society", "VisitingTeachingSupervisors", false);
+//            myBasePage.compareWebData(myList, androidList, true);
 
             myBasePage.backAltButton.click();
             myOrg.reliefSocietyAllMembers.click();

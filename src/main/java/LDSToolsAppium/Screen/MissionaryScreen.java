@@ -30,7 +30,7 @@ public class MissionaryScreen extends BasePage {
 
     //Cancel Referral
     @AndroidFindBy(accessibility = "Navigate up")
-    @iOSFindBy(accessibility = "Cancel")
+    @iOSFindBy(accessibility = "Back")
     public MobileElement cancelReferralButton;
 
 

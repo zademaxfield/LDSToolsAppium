@@ -172,7 +172,7 @@ public class LoginPageTest extends BaseDriver {
         clearLoginPassword();
 
         myHelper.loginUAT(userName, passWord);
-        Thread.sleep(2000);
+        Thread.sleep(6000);
         checkInvalidAlert();
     }
 
@@ -189,7 +189,9 @@ public class LoginPageTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkForElement(myLoginPage.loginErrorMessage));
         }
 
-        myBasePage.alertOK.click();
+        if (myBasePage.checkForElement(myBasePage.alertOK)) {
+            myBasePage.alertOK.click();
+        }
 
     }
 

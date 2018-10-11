@@ -71,10 +71,10 @@ public class LDSWeb {
 	@Test
 	public void simpleTest() throws Exception {
 
-		setupAfterUATReset();
+//		setupAfterUATReset();
 
 
-//		setupMinstering();
+		setupMinstering();
 
 //		String pageSource;
 //		quarterlyReportLogIn("ldstools2", "toolstester");
@@ -526,7 +526,7 @@ public class LDSWeb {
 	}
 	
 	public void setupDistricts() throws Exception {
-		clickElement("Organizations", "linkText");
+		clickElement("Ministering", "linkText");
 		Thread.sleep(4000);
 		//clickElement("High Priests Group", "linkText");
 		//clickElement("Elders Quorum", "linkText");

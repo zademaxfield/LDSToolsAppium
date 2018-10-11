@@ -846,6 +846,7 @@ public class BasePage {
             System.out.println("Try to clear text");
             clickByCords("Clear text");
 //            clickByCords("Cancel");
+            Thread.sleep(2000);
             cancel.click();
 
         } else {

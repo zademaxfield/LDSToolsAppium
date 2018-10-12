@@ -107,7 +107,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("MEMBERSHIP INFORMATION", 2, rights, pageSource);
         myBasePage.rightsCheck("Tulia, Faagalo", 2, rights, pageSource);
         myBasePage.rightsCheck("FULL NAME", 2, rights, pageSource);
-        myBasePage.rightsCheck("Temple Recommend Status", 1, rights, pageSource);
+        myBasePage.rightsCheck("Temple Recommend", 1, rights, pageSource);
         myBasePage.rightsCheck("May 2019", 1, rights, pageSource);
         myBasePage.rightsCheck("Record Number", 1, rights, pageSource);
         myBasePage.rightsCheck("004-0221-4271", 1, rights, pageSource);

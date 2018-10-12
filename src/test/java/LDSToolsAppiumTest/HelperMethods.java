@@ -135,18 +135,18 @@ public class HelperMethods extends BasePage {
         } else {
             myLoginPage.overflowMenu.click();
             myLoginPage.overflowSettings.click();
-            scrollToText("About");
+            scrollToTextRecyclerView("About");
             mySettings.about.click();
             for (int x = 1 ; x <= 7 ; x++ ) {
                 mySettings.aboutLogo.click();
             }
             backButton.click();
-            scrollToText("Network Environment");
+            scrollToTextRecyclerView("Network Environment");
             //mySettings.resetWhatsNewPrompt.click();
 
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
-
+            Thread.sleep(1000);
             backButton.click();
         }
 

@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class MinisteringScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2" })
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
     public void ministeringBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -40,7 +40,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Total Interviews", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Companionships Interviewed", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Assigned Households", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Households", pageSource, "Contains"));
 
@@ -51,7 +51,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Total Interviews", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Companionships Interviewed", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Assigned Sisters", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Sisters", pageSource, "Contains"));
 
@@ -256,7 +256,7 @@ public class MinisteringScreenTest extends BaseDriver {
 //        }
 //    }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
     public void unassignedSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -277,6 +277,7 @@ public class MinisteringScreenTest extends BaseDriver {
             myMenu.selectMenu(myMenu.reports);
             //myMinistering.ministeringReport.click();
             myMinistering.ministeringSistersReport.click();
+            Thread.sleep(2000);
 
             if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
                 if (getRunningOS().equals("ios")) {
@@ -303,7 +304,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke4", "jft"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke4"})
     public void ministeringAssignedSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

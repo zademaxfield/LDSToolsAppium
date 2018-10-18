@@ -71,10 +71,10 @@ public class LDSWeb {
 	@Test
 	public void simpleTest() throws Exception {
 
-//		setupAfterUATReset();
+		setupAfterUATReset();
 
 
-		setupMinstering();
+//		setupMinstering();
 
 //		String pageSource;
 //		quarterlyReportLogIn("ldstools2", "toolstester");
@@ -530,20 +530,21 @@ public class LDSWeb {
 		Thread.sleep(4000);
 		//clickElement("High Priests Group", "linkText");
 		//clickElement("Elders Quorum", "linkText");
-		clickElement("EldersMinistering", "xpath");
+		//clickElement("EldersMinistering", "xpath");
+		clickElement("EldersCurrentAssignments", "xpath");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		//clickElement("HomeTeachingDropDown", "xpath");
-		clickElement("Companionships", "linkText");
-		Thread.sleep(2000);
-		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
-		Thread.sleep(2000);
 
 
-
-
-		clickElement("QuorumAuxSelect", "xpath");
-		clickElement("QuorumAuxElders", "xpath");
+//		clickElement("Companionships", "linkText");
+//		Thread.sleep(2000);
+//		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
+//		Thread.sleep(2000);
+//
+//
+//		clickElement("QuorumAuxSelect", "xpath");
+//		clickElement("QuorumAuxElders", "xpath");
 		Thread.sleep(4000);
 
 
@@ -551,9 +552,16 @@ public class LDSWeb {
 		addDistrict("District 2", "Tools, LDS23" );
 		addDistrict("District 3", "Tools, LDS22" );
 
-		clickElement("QuorumAuxSelect", "xpath");
-		clickElement("QuorumAuxReliefSociety", "xpath");
+		clickElement("Ministering", "linkText");
 		Thread.sleep(4000);
+		clickElement("ReliefSocietyCurrentAssignments", "xpath");
+		Thread.sleep(2000);
+		waitForTextToDisappear("Loading", 500, "id" );
+		//clickElement("HomeTeachingDropDown", "xpath");
+//
+//		clickElement("QuorumAuxSelect", "xpath");
+//		clickElement("QuorumAuxReliefSociety", "xpath");
+//		Thread.sleep(4000);
 		
 		addDistrict("District 1", "Wilson, Tina" );
 		addDistrict("District 2", "Tulia, Faagalo" );

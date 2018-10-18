@@ -146,8 +146,18 @@ public class HelperMethods extends BasePage {
 
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
+
+            //We need this to fix a bug with displaying the Whats New Screen and causing a crash
+            //on some devices
             Thread.sleep(1000);
+            mySettings.resetWhatsNewPrompt.click();
+            Thread.sleep(4000);
+
+            
             backButton.click();
+
+
+
         }
 
     }

@@ -145,8 +145,8 @@ public class HelperMethods extends BasePage {
             //mySettings.resetWhatsNewPrompt.click();
 
             //Bug in android to avoid a crash
-            scrollToTextRecyclerView("Maximum units to sync");
-            mySettings.ignoreWhatsNew.click();
+            //scrollToTextRecyclerView("Maximum units to sync");
+            //mySettings.ignoreWhatsNew.click();
 
             scrollToTextRecyclerView("Network Environment");
             mySettings.networkEnvironment.click();

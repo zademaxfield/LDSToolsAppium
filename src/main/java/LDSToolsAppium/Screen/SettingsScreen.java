@@ -180,6 +180,10 @@ public class SettingsScreen extends BasePage {
     @AndroidFindBy(xpath = "//*[contains(@text, 'Minutes Between Profile Prompts')]")
     public  MobileElement minutesBetweenProfilePrompts;
 
+    //Ignore Whats New
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Ignore')]")
+    public  MobileElement ignoreWhatsNew;
+
     //Reset What's New Prompt
     @AndroidFindBy(xpath = "//*[contains(@text, 'New Prompt')]")
     public  MobileElement resetWhatsNewPrompt;

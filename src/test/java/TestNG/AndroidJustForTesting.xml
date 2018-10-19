@@ -4,7 +4,8 @@
     <test name="Android Just For Testing">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="STFZade-Pool" />
+        <!--<parameter name="testDevice" value="STFZade-Pool" />-->
+        <parameter name="testDevice" value="STF-364c5930534f3098" />
         <!--<parameter name="testDevice" value="STFMain-Pool" />-->
         <parameter name="startSleepTime" value="0200" />
 

@@ -141,12 +141,14 @@ public class HelperMethods extends BasePage {
                 mySettings.aboutLogo.click();
             }
             backButton.click();
-            scrollToTextRecyclerView("Network Environment");
+
             //mySettings.resetWhatsNewPrompt.click();
 
             //Bug in android to avoid a crash
+            scrollToTextRecyclerView("Maximum units to sync");
             mySettings.ignoreWhatsNew.click();
 
+            scrollToTextRecyclerView("Network Environment");
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
 

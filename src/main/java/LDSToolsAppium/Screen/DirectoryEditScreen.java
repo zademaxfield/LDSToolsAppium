@@ -27,22 +27,22 @@ public class DirectoryEditScreen extends BasePage {
 
     // ****************** Phone and Email ******************
     //Personal Edit Phone
-    @AndroidFindBy(xpath = "//android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.EditText[1]")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"org.lds.ldstools.dev:id/individualPhoneEditText\"]//android.widget.EditText[@resource-id=\"org.lds.ldstools.dev:id/edit_phone\"]")
     @iOSFindBy(xpath = "//XCUIElementTypeCell[2]/XCUIElementTypeTextField")
     public MobileElement directoryEditPersonalPhone;
 
     //Household Edit Phone
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"org.lds.ldstools.dev:id/edit_household_phone\"]//android.widget.EditText[@resource-id=\"org.lds.ldstools.dev:id/edit_phone\"]")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"org.lds.ldstools.dev:id/householdPhoneEditText\"]//android.widget.EditText[@resource-id=\"org.lds.ldstools.dev:id/edit_phone\"]")
     @iOSFindBy(xpath = "//XCUIElementTypeCell[4]/XCUIElementTypeTextField")
     public  MobileElement directoryEditHouseholdPhone;
 
     //Personal Edit Email
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"org.lds.ldstools.dev:id/edit_individual_email\"]//android.widget.EditText[@resource-id=\"org.lds.ldstools.dev:id/edit_email\"]")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"org.lds.ldstools.dev:id/individualEmailEditText\"]//android.widget.EditText[@resource-id=\"org.lds.ldstools.dev:id/edit_email\"]")
     @iOSFindBy(xpath = "//XCUIElementTypeCell[3]/XCUIElementTypeTextField")
     public  MobileElement directoryEditPersonalEmail;
 
     //Personal Edit Email
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"org.lds.ldstools.dev:id/edit_household_email\"]//android.widget.EditText[@resource-id=\"org.lds.ldstools.dev:id/edit_email\"]")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"org.lds.ldstools.dev:id/householdEmailEditText\"]//android.widget.EditText[@resource-id=\"org.lds.ldstools.dev:id/edit_email\"]")
     @iOSFindBy(xpath = "//XCUIElementTypeCell[5]/XCUIElementTypeTextField")
     public  MobileElement directoryEditHouseholdEmail;
 

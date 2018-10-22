@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -55,7 +55,7 @@ public class ReportsScreenTest extends BaseDriver {
             myBasePage.rightsCheck("Members Moved Out", 2, rights, pageSource);
             myBasePage.rightsCheck("Members with Callings", 2, rights, pageSource);
             myBasePage.rightsCheck("Members without Callings", 2, rights, pageSource);
-            myBasePage.rightsCheck("Missionary Progress Record", 2, rights, pageSource);
+           // myBasePage.rightsCheck("Missionary Progress Record", 2, rights, pageSource);
             myBasePage.rightsCheck("New Members", 2, rights, pageSource);
             myBasePage.rightsCheck("Temple Recommend Status", 1, rights, pageSource);
             myBasePage.rightsCheck("Unit Statistics", 2, rights, pageSource);
@@ -86,7 +86,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-/*    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
+/*    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
     public void reportsMissionaryProgressRecord(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -127,7 +127,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedInReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Young", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lavea", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Luke", pageSource, "Equals"));
 
         Thread.sleep(1000);
@@ -144,9 +144,9 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedOutReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Patiole", 2, rights, pageSource);
+        myBasePage.rightsCheck("Upu", 2, rights, pageSource);
         myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
-        myBasePage.rightsCheck("Venasio", 1, rights, pageSource);
+        myBasePage.rightsCheck("Letogo", 1, rights, pageSource);
 
         Thread.sleep(1000);
         myBasePage.backButton.click();

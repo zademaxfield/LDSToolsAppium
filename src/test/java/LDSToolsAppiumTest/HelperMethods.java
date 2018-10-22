@@ -206,32 +206,32 @@ public class HelperMethods extends BasePage {
         } else {
             myLoginPage.overflowMenu.click();
             myLoginPage.overflowSettings.click();
-            scrollToText("About");
+            scrollToTextRecyclerView("About");
             mySettings.about.click();
             for (int x = 1 ; x <= 7 ; x++ ) {
                 mySettings.aboutLogo.click();
             }
             backButton.click();
-            scrollToText("Network Environment");
+            scrollToTextRecyclerView("Network Environment");
             //mySettings.resetWhatsNewPrompt.click();
 
             mySettings.networkEnvironment.click();
             mySettings.proxy.click();
 
-            scrollToText("px_i");
+            scrollToTextRecyclerView("px_i");
             //scrollToText("px_u");
 
             mySettings.proxyId.click();
             mySettings.proxyEditField.setValue(myId);
             mySettings.proxyDone.click();
 
-            scrollToText("px_u");
+            scrollToTextRecyclerView("px_u");
 
             mySettings.proxyUnits.click();
             mySettings.proxyEditField.setValue(myUnit);
             mySettings.proxyDone.click();
 
-            scrollToText("px_p");
+            scrollToTextRecyclerView("px_p");
 
             mySettings.proxyPositions.click();
             mySettings.proxyEditField.setValue(myPosition);

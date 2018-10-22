@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void templeSimple() throws Exception {
         String pageSource;
         List<String> myList = new ArrayList<String>();
@@ -301,7 +301,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all4", "jft"})
+    @Test (groups= { "all", "all4"})
     public void templeSearchNewYork() throws Exception {
         String pageSource;
 

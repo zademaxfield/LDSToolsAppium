@@ -16,7 +16,7 @@
 
         <groups>
             <run>
-                <include name="all1"/>
+                <include name="all"/>
             </run>
         </groups>
 
@@ -48,7 +48,7 @@
 
         <groups>
             <run>
-                <include name="all2"/>
+                <include name="all"/>
             </run>
         </groups>
 
@@ -80,7 +80,7 @@
 
         <groups>
             <run>
-                <include name="all3"/>
+                <include name="all"/>
             </run>
         </groups>
 
@@ -112,7 +112,7 @@
 
         <groups>
             <run>
-                <include name="all4"/>
+                <include name="all"/>
             </run>
         </groups>
 
@@ -134,7 +134,5 @@
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
         </classes>
     </test>
-
-
 
 </suite>

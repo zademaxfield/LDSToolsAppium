@@ -271,6 +271,10 @@ public class DirectoryScreen extends BasePage {
                 //scrollDownTEST(800);
                 myBasePage.scrollDownAndroidUIAutomator("1");
                 pageSource = pageSource + getSourceOfPage();
+                myBasePage.scrollDownAndroidUIAutomator("1");
+                pageSource = pageSource + getSourceOfPage();
+                myBasePage.scrollDownAndroidUIAutomator("1");
+                pageSource = pageSource + getSourceOfPage();
             }
 
             myCheck = checkForElement(tabCallings);

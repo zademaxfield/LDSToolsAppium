@@ -229,9 +229,10 @@ public class BaseDriver {
         if (!getRunningOS().equals("ios")) {
             driver.quit();
             if (!deviceSerial.equals("")) {
+
                 STFService mySTFService = new STFService(stfURL, accessToken);
                 DeviceApi myDevice = new DeviceApi(mySTFService);
-                System.out.println("SERIAL NUMBER: " + deviceSerial);
+                System.out.println("After Class - SERIAL NUMBER: " + deviceSerial);
                 myDevice.releaseDevice(deviceSerial);
             }
         }
@@ -259,13 +260,17 @@ public class BaseDriver {
 
         } else {
             //driver.quit();
+
             STFService mySTFService = new STFService(stfURL, accessToken);
             DeviceApi myDevice = new DeviceApi(mySTFService);
 
-            System.out.println("SERIAL NUMBER: " + deviceSerial);
+            System.out.println("After All Tests - SERIAL NUMBER: " + deviceSerial);
             if (!deviceSerial.isEmpty()) {
                 myDevice.releaseDevice(deviceSerial);
+
             }
+
+
 
 
         }
@@ -278,6 +283,8 @@ public class BaseDriver {
         Thread.sleep(1000);
         System.out.println("Killing the Appium Service");
         killProcess("main.js");
+//        killProcess("adb");
+
 
     }
 

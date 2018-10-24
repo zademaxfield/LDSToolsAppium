@@ -64,7 +64,7 @@ public class LoginPageScreen extends BasePage {
     public MobileElement errorMessageService;
 
     //Error Message
-    @AndroidFindBy(xpath = "//*[@text='Incorrect username or password']")
+    @AndroidFindBy(xpath = "//*[@text='Sign-in failed. Verify your username or password.']")
     @iOSFindBy(xpath = "//*[@value='Sign-In Failed']")
     public MobileElement loginErrorMessage;
 

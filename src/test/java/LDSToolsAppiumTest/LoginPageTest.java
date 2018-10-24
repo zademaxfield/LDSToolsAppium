@@ -21,7 +21,7 @@ public class LoginPageTest extends BaseDriver {
 //    }
 
 
-    @Test (groups = {"all2", "all", "login", "jft"})
+    @Test (groups = {"all2", "all", "login"})
     public void validateLoginPage() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -145,7 +145,7 @@ public class LoginPageTest extends BaseDriver {
         invalidCheck("This is a bad username test", "This is a bad password test");
     }
 
-    @Test ( groups = {"all4", "all", "login"})
+    @Test ( groups = {"all4", "all", "login", "jft"})
     public void invalidUsernameAndPasswordTest4() throws Exception {
         invalidCheck("select * from directory", "^^^^^^^^^^^^");
     }

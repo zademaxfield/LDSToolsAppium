@@ -841,7 +841,7 @@ public class LDSWeb {
 
 		Dimension targetSize = new Dimension(1680, 1050); //your screen resolution here
 		driver.manage().window().setSize(targetSize);
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 	}
 	
 	public void openPageLogIn(String url, String userName, String passWord) throws Exception {

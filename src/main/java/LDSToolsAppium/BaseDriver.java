@@ -33,6 +33,7 @@ public class BaseDriver {
 
     public String accessToken = "5b5e50c533cf4e00aa32c8caf1aa1d8fad972f9414a64f71abdce9d06d6a5248";
     public String stfURL = "http://10.109.45.146:7100";
+    public String testDevice = "";
 
     @BeforeSuite(alwaysRun = true)
     public void removeFilesBeforeTest() {
@@ -234,9 +235,9 @@ public class BaseDriver {
                 DeviceApi myDevice = new DeviceApi(mySTFService);
                 System.out.println("After Class - SERIAL NUMBER: " + deviceSerial);
                 myDevice.releaseDevice(deviceSerial);
-//                Thread.sleep(3000);
-//                killProcess("adb");
-//                myDevice.releaseDevice(deviceSerial);
+                Thread.sleep(3000);
+                adbRemoteDisconnect(testDevice);
+                myDevice.releaseDevice(deviceSerial);
 
             }
         }
@@ -560,9 +561,26 @@ public class BaseDriver {
         while ((line=buf.readLine())!=null) {
             System.out.println(line);
         }
+    }
 
+    private void adbRemoteDisconnect(String ipPort) throws Exception {
+        //String pathToADB = "../../../android-sdks/platform-tools/adb";
+        //String androidHome = getAndroidHomePath();
+        String androidHome = System.getenv("ANDROID_HOME");
+        String pathToADB = androidHome + "/platform-tools/adb";
 
+        //String cmd
+        // = "adb shell am force-stop org.lds.ldstools.dev";
+        Runtime run = Runtime.getRuntime();
+        Process pr = run.exec(new String[] {pathToADB, "disconnect", ipPort});
+        //Process pr = run.exec(cmd);
+        pr.waitFor();
+        BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        String line;
 
+        while ((line=buf.readLine())!=null) {
+            System.out.println(line);
+        }
     }
 
     private String getUDIDfbsim(String deviceNameSearch) throws Exception {

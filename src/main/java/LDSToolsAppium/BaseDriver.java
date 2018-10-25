@@ -234,6 +234,10 @@ public class BaseDriver {
                 DeviceApi myDevice = new DeviceApi(mySTFService);
                 System.out.println("After Class - SERIAL NUMBER: " + deviceSerial);
                 myDevice.releaseDevice(deviceSerial);
+                Thread.sleep(3000);
+                killProcess("adb");
+                myDevice.releaseDevice(deviceSerial);
+
             }
         }
     }
@@ -266,6 +270,11 @@ public class BaseDriver {
 
             System.out.println("After All Tests - SERIAL NUMBER: " + deviceSerial);
             if (!deviceSerial.isEmpty()) {
+
+                System.out.println("After All Tests - SERIAL NUMBER: " + deviceSerial);
+                myDevice.releaseDevice(deviceSerial);
+                Thread.sleep(3000);
+                killProcess("adb");
                 myDevice.releaseDevice(deviceSerial);
 
             }

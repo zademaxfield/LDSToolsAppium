@@ -110,7 +110,7 @@ public class LoginPageTest extends BaseDriver {
         invalidCheck("select * from directory", "password1");
     }
 
-    @Test ( groups = {"all4", "all", "login"})
+    @Test ( groups = {"all4", "all", "login", "jft"})
     public void invalidUsernameTest5() throws Exception {
         invalidCheck("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", "password1");
     }
@@ -145,7 +145,7 @@ public class LoginPageTest extends BaseDriver {
         invalidCheck("This is a bad username test", "This is a bad password test");
     }
 
-    @Test ( groups = {"all4", "all", "login", "jft"})
+    @Test ( groups = {"all4", "all", "login"})
     public void invalidUsernameAndPasswordTest4() throws Exception {
         invalidCheck("select * from directory", "^^^^^^^^^^^^");
     }

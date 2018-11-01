@@ -7,7 +7,7 @@
         <parameter name="fileName" value="LDS Tools.app" />
         <!--<parameter name="fileName" value="LDSTools.ipa" />-->
 
-        <parameter name="testDevice" value="iPhone XS Test" />
+        <parameter name="testDevice" value="iPhone XS" />
         <!--<parameter name="testDevice" value="REAL-Ziphone8plus" />-->
         <!--<parameter name="testDevice" value="REAL-Ziphone7plus" />-->
         <!--<parameter name="testDevice" value="REAL-Z6plus" />-->
@@ -22,7 +22,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
         </classes>
     </test> <!-- Default test -->
 </suite> <!-- Default suite -->

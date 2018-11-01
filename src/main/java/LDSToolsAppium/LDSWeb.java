@@ -653,7 +653,7 @@ public class LDSWeb {
 
 
 		
-		
+
 		clickElement("Organizations", "linkText");
 		Thread.sleep(4000);
 		clickElement("Elders Quorum", "linkText");
@@ -661,7 +661,7 @@ public class LDSWeb {
 		waitForTextToDisappear("Loading", 500, "id" );
 		clickElement("Elders Quorum Presidency", "linkText");
 
-		//addMemberToCalling("Elders Quorum President", "lds21");
+
 		addMemberToCalling("First Counselor", "lds22");
 		addMemberToCalling("Second Counselor", "lds23");
 		addMemberToCalling("Quorum Secretary", "lds24");
@@ -673,7 +673,8 @@ public class LDSWeb {
 		clickElement("Elders Quorum", "linkText");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
-		clickElement("Ministering", "linkText");
+		//clickElement("Ministering", "linkText");
+		clickElement("EldersRSQuorumMinistering", "xpath");
 
 		addMemberToCalling("Elders Quorum Ministering Secretary", "lds51");
 		//addMemberToCalling("Elders Quorum Ministering Supervisor", "lds31");
@@ -685,7 +686,8 @@ public class LDSWeb {
 		clickElement("Relief Society", "linkText");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
-		clickElement("Ministering", "linkText");
+		//clickElement("Ministering", "linkText");
+		clickElement("EldersRSQuorumMinistering", "xpath");
 		
 		addMemberToCalling("Relief Society Ministering Secretary", "lds52");
 		//addMemberToCalling("Relief Society Ministering Supervisor", "lds53");
@@ -1292,11 +1294,11 @@ public class LDSWeb {
 				System.out.println("District Not Found!");
 				myLoopStatus = 1;	
 			} else {
-				clickElement("EditDistricts", "id");
+				clickElement("EditDistricts", "xpath");
 				Thread.sleep(1000);
 				clickElement("DeleteDistrict", "xpath");
 				Thread.sleep(1000);
-				clickElement("EditDistrictsDone", "id");
+				clickElement("EditDistrictsDone", "xpath");
 				Thread.sleep(1000);
 			}
 		}
@@ -1305,19 +1307,19 @@ public class LDSWeb {
 	public void addDistrict(String districtName, String districtSupervisor ) throws Exception {
 		WebElement myElement;
 		//List<WebElement> options= driver.findElements(By.id(this.prop.getProperty("EditDistricts")));
-		myElement = driver.findElement(By.id(this.prop.getProperty("EditDistricts"))); 
+		myElement = driver.findElement(By.xpath(this.prop.getProperty("EditDistricts")));
 		//myElement.isDisplayed();
 		
 		
 		if(myElement.isDisplayed()) {	
-			clickElement("EditDistricts", "id");
+			clickElement("EditDistricts", "xpath");
 		} else {
 			clickElement("AddDistricts", "id");
 		}
 		
 		Thread.sleep(3000);
-		driver.findElement(By.id(this.prop.getProperty("NewDistrictTitle"))).clear();
-		driver.findElement(By.id(this.prop.getProperty("NewDistrictTitle"))).sendKeys(districtName);
+		driver.findElement(By.xpath(this.prop.getProperty("NewDistrictTitle"))).clear();
+		driver.findElement(By.xpath(this.prop.getProperty("NewDistrictTitle"))).sendKeys(districtName);
 		Thread.sleep(1000);
 		clickElement("AddDistrictButton", "xpath");
 		Thread.sleep(3000);

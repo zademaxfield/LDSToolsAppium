@@ -459,7 +459,7 @@ public class BaseDriver {
             capabilities.setCapability("newCommandTimeout", 600);
             capabilities.setCapability("app", app.getAbsolutePath());
             capabilities.setCapability("launchTimeout", 300000);
-            capabilities.setCapability("platformVersion", "12.0");
+            capabilities.setCapability("platformVersion", "12.1");
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);

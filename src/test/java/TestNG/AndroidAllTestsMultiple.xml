@@ -9,9 +9,9 @@
 
     <test name="Android All Test 1" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
-        <!--<parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="364c5930534f3098" />
-        <parameter name="testDevice" value="STF-Pool" />
+        <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="0200" />
 
         <groups>

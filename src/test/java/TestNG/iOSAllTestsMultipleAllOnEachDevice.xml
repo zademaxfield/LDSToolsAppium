@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="iOS Smoke Test" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
+    <listeners>
+        <listener class-name="LDSToolsAppium.RetryListener"/>
+        <listener class-name= "LDSToolsAppium.CustomReporter" />
+        <listener class-name="LDSToolsAppium.TestListener" />
+    </listeners>
+
+    <test name="iOS Smoke Test 1" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDSTools.ipa" />
+        <parameter name="testDevice" value="REAL-Ziphone7plus" />
+        <parameter name="startSleepTime" value="0200" />
+
+        <groups>
+            <run>
+                <include name="all"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppium.BaseDriver" />
+
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+        </classes>
+    </test>
+
+    <test name="iOS Smoke Test 2" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDSTools.ipa" />
+        <parameter name="testDevice" value="REAL-Z6SPlus" />
+        <parameter name="startSleepTime" value="60000" />
+
+        <groups>
+            <run>
+                <include name="all"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppium.BaseDriver" />
+
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+        </classes>
+    </test>
+
+    <test name="iOS Smoke Test 3" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDSTools.ipa" />
+        <parameter name="testDevice" value="REAL-ZiPhone7" />
+        <parameter name="startSleepTime" value="120000" />
+
+        <groups>
+            <run>
+                <include name="all"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppium.BaseDriver" />
+
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+        </classes>
+    </test>
+
+    <test name="iOS Smoke Test 4" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDSTools.ipa" />
+        <parameter name="testDevice" value="REAL-Z6iphone" />
+        <parameter name="startSleepTime" value="180000" />
+
+        <groups>
+            <run>
+                <include name="all"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppium.BaseDriver" />
+
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+        </classes>
+    </test>
+
+
+
+</suite>

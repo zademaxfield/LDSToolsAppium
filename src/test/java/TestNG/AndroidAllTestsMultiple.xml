@@ -44,7 +44,7 @@
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="ce061716cae890d10d7e" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
-        <parameter name="startSleepTime" value="60000" />
+        <parameter name="startSleepTime" value="90000" />
 
         <groups>
             <run>
@@ -76,7 +76,7 @@
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="710KPFX0305667" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
-        <parameter name="startSleepTime" value="120000" />
+        <parameter name="startSleepTime" value="150000" />
 
         <groups>
             <run>
@@ -108,7 +108,7 @@
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="ce06171675347c0b027e" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
-        <parameter name="startSleepTime" value="180000" />
+        <parameter name="startSleepTime" value="210000" />
 
         <groups>
             <run>

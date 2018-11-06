@@ -378,7 +378,7 @@ public class DirectoryScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Priests Quorum President", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Class Assignments", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("High Priests Quorum", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("High Priests Quorum", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Gospel Doctrine", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum", pageSource, "Contains"));
 
@@ -475,7 +475,7 @@ public class DirectoryScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Priests Quorum President", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Class Assignments", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("High Priests Quorum", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("High Priests Quorum", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Gospel Doctrine", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum", pageSource, "Contains"));
 

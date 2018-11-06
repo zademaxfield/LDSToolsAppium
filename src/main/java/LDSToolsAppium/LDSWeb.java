@@ -570,7 +570,8 @@ public class LDSWeb {
 
 		
 		Thread.sleep(2000);
-		clickElement("LCRHomeButton", "xpath");
+		//clickElement("LCRHomeButton", "xpath");
+
 	}
 
 	public void setupDistrictsMinistering() throws Exception {
@@ -1321,12 +1322,15 @@ public class LDSWeb {
 		driver.findElement(By.xpath(this.prop.getProperty("NewDistrictTitle"))).clear();
 		driver.findElement(By.xpath(this.prop.getProperty("NewDistrictTitle"))).sendKeys(districtName);
 		Thread.sleep(1000);
-		clickElement("AddDistrictButton", "xpath");
-		Thread.sleep(3000);
-		
-		WebElement mySelect = driver.findElement(By.xpath("//input[contains(@value, '" + districtName + "')]/../following-sibling::td/select[@ng-model='district.districtLeader']"));		
-		//WebElement mySelect = driver.findElement(By.xpath(this.prop.getProperty("DistrictSupervisorSelect")));
+		WebElement mySelect = driver.findElement(By.xpath("//*[@id=\"assigned-tab-filters\"]/div[3]/div[2]/select"));
 		Select testSelect = new Select(mySelect);
+		testSelect.selectByVisibleText(districtSupervisor);
+		clickElement("AddDistrictButton", "xpath");
+//		Thread.sleep(3000);
+		
+//		WebElement mySelect = driver.findElement(By.xpath("//input[contains(@value, '" + districtName + "')]/../following-sibling::td/select[@ng-model='district.districtLeader']"));
+//		//WebElement mySelect = driver.findElement(By.xpath(this.prop.getProperty("DistrictSupervisorSelect")));
+//		Select testSelect = new Select(mySelect);
 		/*
 		List<WebElement> options= testSelect.getOptions();
 		for (int i = 0; i < options.size(); i++) {
@@ -1335,8 +1339,8 @@ public class LDSWeb {
 		*/
 		
 		//testSelect.selectByValue(districtSupervisor);
-		testSelect.selectByVisibleText(districtSupervisor);
-		clickElement("EditDistrictsDone", "id");
+//		testSelect.selectByVisibleText(districtSupervisor);
+//		clickElement("EditDistrictsDone", "id");
 		Thread.sleep(3000);
 	}
 

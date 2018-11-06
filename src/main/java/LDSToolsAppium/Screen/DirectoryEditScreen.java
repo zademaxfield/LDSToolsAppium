@@ -297,9 +297,10 @@ public class DirectoryEditScreen extends BasePage {
                 householdVisibilityLimit.click();
                 stakeVisibility.click();
                 setLimit.click();
-                Thread.sleep(1000);
-                Thread.sleep(1000);
+                Thread.sleep(2000);
+
             }
+            Thread.sleep(1000);
 
             imagePersonal.click();
             Thread.sleep(1000);

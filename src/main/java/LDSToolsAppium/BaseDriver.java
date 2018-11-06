@@ -374,7 +374,7 @@ public class BaseDriver {
             capabilities.setCapability("platformName", "android");
             capabilities.setCapability("automationName","uiautomator2");
             capabilities.setCapability("appPackage", myAppPackage);
-            capabilities.setCapability("newCommandTimeout", 600);
+            capabilities.setCapability("newCommandTimeout", 2000);
 
             //capabilities.setCapability("appActivity", "org.lds.ldstools.ui.activity.SignInActivity");
 

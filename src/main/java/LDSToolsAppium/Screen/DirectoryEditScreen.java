@@ -144,17 +144,17 @@ public class DirectoryEditScreen extends BasePage {
     public MobileElement setAllToPersonal;
 
     //Image
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibility_edit_ind_photo")
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibilityEditIndPhoto")
     @iOSFindBy(accessibility = "Image")
     public MobileElement imagePersonal;
 
     //Phone
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibility_edit_ind_phone")
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibilityEditIndPhone")
     @iOSFindBy(accessibility = "Phone")
     public MobileElement phonePersonal;
 
     //Email
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibility_edit_ind_email")
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibilityEditIndEmail")
     @iOSFindBy(accessibility = "Email")
     public MobileElement emailPersonal;
 
@@ -165,27 +165,27 @@ public class DirectoryEditScreen extends BasePage {
     public MobileElement setAllToHousehold;
 
     //Image
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibility_edit_hh_photo")
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibilityEditHouseholdPhoto")
     @iOSFindBy(accessibility = "Image")
     public MobileElement imageHousehold;
 
     //Phone
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibility_edit_hh_phone")
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibilityEditHouseholdPhone")
     @iOSFindBy(accessibility = "Phone")
     public MobileElement phoneHousehold;
 
     //Email
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibility_edit_hh_email")
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibilityEditHouseholdEmail")
     @iOSFindBy(accessibility = "Email")
     public MobileElement emailHousehold;
 
     //Address
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibility_edit_hh_address")
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibilityEditHouseholdAddress")
     @iOSFindBy(accessibility = "Address")
     public MobileElement physicalAddress;
 
     //Show on Map
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibility_edit_hh_map")
+    @AndroidFindBy(id = "org.lds.ldstools.dev:id/visibilityEditHouseholdMap")
     @iOSFindBy(accessibility = "Show on Map")
     public MobileElement showOnMap;
 

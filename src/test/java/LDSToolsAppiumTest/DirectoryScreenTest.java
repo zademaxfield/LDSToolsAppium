@@ -142,13 +142,13 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
         //Callings and Classes - New in 3.0.0
-        myBasePage.rightsCheck("Relief Society First Counselor", 4, rights, pageSource);
-        myBasePage.rightsCheck("Organization - Relief Society Presidency", 4, rights, pageSource);
+//        myBasePage.rightsCheck("Relief Society First Counselor", 4, rights, pageSource);
+//        myBasePage.rightsCheck("Organization - Relief Society Presidency", 4, rights, pageSource);
         myBasePage.rightsCheck("Class Assignments", 2, rights, pageSource);
         myBasePage.rightsCheck("Gospel Doctrine", 2, rights, pageSource);
         myBasePage.rightsCheck("Relief Society", 4, rights, pageSource);
-        myBasePage.rightsCheck("Sustained", 2, rights, pageSource);
-        myBasePage.rightsCheck("Set Apart", 2, rights, pageSource);
+//        myBasePage.rightsCheck("Sustained", 2, rights, pageSource);
+//        myBasePage.rightsCheck("Set Apart", 2, rights, pageSource);
 
 
 

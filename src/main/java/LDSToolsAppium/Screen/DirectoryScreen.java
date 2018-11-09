@@ -85,20 +85,24 @@ public class DirectoryScreen extends BasePage {
 
     // ********** iOS Expand Buttons **********
     //Household Members
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'HOUSEHOLD MEMBERSOpen Drawer' AND type == 'XCUIElementTypeButton'")
+    //@iOSXCUITFindBy(iOSNsPredicate = "name == 'HOUSEHOLD MEMBERSOpen Drawer' AND type == 'XCUIElementTypeButton'")
+    @iOSFindBy(accessibility = "View Household")
     public  MobileElement householdMembers;
 
     //Home Teaching Visiting Teaching
     //@iOSXCUITFindBy(iOSNsPredicate = "name == 'HOME AND VISITING TEACHINGOpen Drawer' AND type == 'XCUIElementTypeButton'")
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'MINISTERINGOpen Drawer' AND type == 'XCUIElementTypeButton'")
+    //@iOSXCUITFindBy(iOSNsPredicate = "name == 'MINISTERINGOpen Drawer' AND type == 'XCUIElementTypeButton'")
+    @iOSFindBy(accessibility = "Ministering")
     public  MobileElement htvt;
 
     //Callings and Classes
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'CALLINGS AND CLASSESOpen Drawer' AND type == 'XCUIElementTypeButton'")
+    //@iOSXCUITFindBy(iOSNsPredicate = "name == 'CALLINGS AND CLASSESOpen Drawer' AND type == 'XCUIElementTypeButton'")
+    @iOSFindBy(accessibility = "Callings and Classes")
     public  MobileElement callingsAndClasses;
 
     //Membership Information
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'MEMBERSHIP INFORMATIONOpen Drawer' AND type == 'XCUIElementTypeButton'")
+    //@iOSXCUITFindBy(iOSNsPredicate = "name == 'MEMBERSHIP INFORMATIONOpen Drawer' AND type == 'XCUIElementTypeButton'")
+    @iOSFindBy(accessibility = "Membership Information")
     public  MobileElement memebershipInformation;
 
 
@@ -222,30 +226,40 @@ public class DirectoryScreen extends BasePage {
             checkForLabel = checkForElement(householdMembers);
             if (checkForLabel) {
                householdMembers.click();
+                pageSource = pageSource + getSourceOfPage();
+                myBasePage.backButton.click();
                 checkForLabel = false;
             }
 
             checkForLabel = checkForElement(htvt);
             if (checkForLabel) {
                 htvt.click();
+                pageSource = pageSource + getSourceOfPage();
+                myBasePage.backButton.click();
                 checkForLabel = false;
             }
 
             checkForLabel = checkForElement(callingsAndClasses);
             if (checkForLabel) {
                 callingsAndClasses.click();
+                pageSource = pageSource + getSourceOfPage();
+                myBasePage.backButton.click();
                 checkForLabel = false;
             }
 
             checkForLabel = checkForElement(memebershipInformation);
             if (checkForLabel) {
                 memebershipInformation.click();
+                pageSource = pageSource + getSourceOfPage();
+                scrollDownIOS();
+                pageSource = pageSource + getSourceOfPage();
+                myBasePage.backButton.click();
                 checkForLabel = false;
             }
 
             //Contact Tab
             Thread.sleep(1000);
-            pageSource = getSourceOfPage();
+            pageSource = pageSource + getSourceOfPage();
             scrollDownIOS();
 
             pageSource = pageSource + getSourceOfPage();

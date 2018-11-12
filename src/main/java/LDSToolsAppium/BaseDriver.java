@@ -199,7 +199,9 @@ public class BaseDriver {
 
         if(getRunningOS().equals("ios")) {
             Thread.sleep(2000);
+//            System.out.println("Start Reset App");
             driver.resetApp();
+//            System.out.println("End Reset App");
             Thread.sleep(5000);
 
             if (myBasePage.checkForElement(myBasePage.allowButton)) {
@@ -256,11 +258,11 @@ public class BaseDriver {
 
             Thread.sleep(5000);
             stopFbSim();
-            //System.out.println("Kill instruments");
+            System.out.println("Kill instruments");
             killProcess("instruments");
-            //System.out.println("Kill Simulator");
+            System.out.println("Kill Simulator");
             killProcess("Simulator");
-            //System.out.println("Kill CoreSimulator");
+            System.out.println("Kill CoreSimulator");
             killProcess("com.apple.CoreSimulator.CoreSimulatorService");
 
         } else {

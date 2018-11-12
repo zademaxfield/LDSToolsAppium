@@ -129,6 +129,73 @@ public class DirectoryScreen extends BasePage {
     public  MobileElement tabMembership;
 
 
+
+
+
+    // ********** LAT LONG - GPS **********
+    //Household Location
+    @iOSFindBy(accessibility = "Household Location")
+    public MobileElement gpsHouseholdLocation;
+
+    //Household Location Lat Long
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name = 'Household Location']/following-sibling::XCUIElementTypeStaticText")
+    public MobileElement gpsHouseholdLocationLatLong;
+
+    //Household Location Pin
+    @iOSFindBy(xpath = "//XCUIElementTypeMap/following-sibling::XCUIElementTypeOther/XCUIElementTypeOther[1]")
+    public MobileElement gpsHouseholdLocationPin;
+
+    //Household Location Legal
+    @iOSFindBy(accessibility = "Legal")
+    public MobileElement gpsHouseholdLocationLegal;
+
+    //Adjust Household Location
+    @iOSFindBy(accessibility = "Adjust Household Location")
+    public MobileElement gpsAdjustHouseholdLocation;
+
+
+    //Errors
+    //Household Location Missing
+    @iOSFindBy(accessibility = "Household Location Missing")
+    public MobileElement gpsHouseholdLocationMissing;
+
+    //Household Location Missing icon
+    @iOSFindBy(accessibility = "icn_error")
+    public MobileElement gpsHouseholdLocationErrorIcon;
+
+
+
+    //GPS Adjust Location Screen
+    //Adjust Location Title House Name
+    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='LDS_Tools.PinAdjustMapView']/XCUIElementTypeStaticText/XCUIElementTypeStaticText[1]")
+    public MobileElement gpsAdjustLocationTitleHouseName;
+
+    //Adjust Location Title
+    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='LDS_Tools.PinAdjustMapView']/XCUIElementTypeStaticText/XCUIElementTypeStaticText[2]")
+    public MobileElement gpsAdjustLocationTitle;
+
+    //Adjust Location Current Location Icon
+    @iOSFindBy(accessibility = "icon current location")
+    public MobileElement gpsAdjustLocationCurrentLocation;
+
+    //Adjust Location Current Location Info
+    @iOSFindBy(accessibility = "icon info")
+    public MobileElement gpsAdjustLocationIconLocation;
+
+    //Adjust Location Search
+    @iOSFindBy(accessibility = "Empty list")
+    public MobileElement gpsAdjustLocationSearch;
+
+    //Adjust Location Map Pin
+    @iOSFindBy(accessibility = "Map pin")
+    public MobileElement gpsAdjustLocationMapPin;
+
+    //Adjust Location Legal
+    @iOSFindBy(accessibility = "Legal")
+    public MobileElement gpsAdjustLocationLegal;
+
+
+
     public void clickDirectoryUser(String myUser) throws Exception {
         if (getOS().equals("ios")) {
             driver.findElement(MobileBy.AccessibilityId(myUser)).click();

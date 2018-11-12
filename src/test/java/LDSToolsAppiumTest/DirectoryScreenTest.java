@@ -75,7 +75,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }*/
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
     public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -300,7 +300,7 @@ public class DirectoryScreenTest extends BaseDriver {
 */
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryMemberInfoHousehold() throws Exception {
         String pageSource;
 

@@ -353,6 +353,22 @@ public class BaseDriver {
                 adbRemoteConnect(testDevice);
             }
 
+            if (testDevice.contains("WIRELESS")) {
+
+                String deviceIPPort;
+
+
+                String[] parts = testDevice.split("-");
+                // String part1 = parts[0];
+
+
+                deviceSerial = parts[1];
+                System.out.println("SERIAL NUMBER: " + deviceSerial);
+                testDevice = deviceSerial;
+
+                adbRemoteConnect(testDevice);
+            }
+
 
 
             // set up appium
@@ -456,11 +472,12 @@ public class BaseDriver {
             capabilities.setCapability("deviceName",testDevice);
             capabilities.setCapability("automationName","XCUITest");
             capabilities.setCapability("browserName","");
+
             capabilities.setCapability("fullReset", true);
             capabilities.setCapability("noReset", false);
             capabilities.setCapability("newCommandTimeout", 600);
             capabilities.setCapability("app", app.getAbsolutePath());
-            capabilities.setCapability("launchTimeout", 300000);
+            capabilities.setCapability("launchTimeout", 900000);
             capabilities.setCapability("platformVersion", "12.1");
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("clearSystemFiles", true);

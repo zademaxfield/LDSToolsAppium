@@ -49,7 +49,7 @@ public class BasePage {
     @AndroidFindBy(accessibility = "Navigate up")
     public MobileElement drawerButton;
 
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/clearTextImageButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/clearTextImageButton")
     public MobileElement searchCollapse;
 
     @iOSFindBy(accessibility = "More")
@@ -76,7 +76,7 @@ public class BasePage {
     public MobileElement alertCheck;
 
     //Menu Title
-    @AndroidFindBy(xpath = "//*[@resource-id=\"org.lds.ldstools.dev:id/ab_toolbar\"]//android.widget.TextView")
+    @AndroidFindBy(xpath = "//*[@resource-id=\"org.lds.ldstools.alpha:id/ab_toolbar\"]//android.widget.TextView")
     @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeStaticText/XCUIElementTypeStaticText")
     public MobileElement menuTitle;
 
@@ -148,7 +148,7 @@ public class BasePage {
 
         } else {
             if (!checkTextOnPage(myElement)) {
-                MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/list"));
+                MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.alpha:id/list"));
                 MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                         + "new UiSelector().text(\"" + myElement + "\"));"));
 
@@ -188,7 +188,7 @@ public class BasePage {
         int myLoopStatus = 0;
 
         if (!checkTextOnPage(myElement)) {
-            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/scroll_area"));
+            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.alpha:id/scroll_area"));
             MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                     + "new UiSelector().text(\"" + myElement + "\"));"));
 
@@ -217,7 +217,7 @@ public class BasePage {
         int myLoopStatus = 0;
 
         if (!checkTextOnPage(myElement)) {
-            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/top_layout"));
+            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.alpha:id/top_layout"));
             MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                     + "new UiSelector().text(\"" + myElement + "\"));"));
 
@@ -246,7 +246,7 @@ public class BasePage {
         int myLoopStatus = 0;
 
         if (!checkTextOnPage(myElement)) {
-            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/recycler_view"));
+            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.alpha:id/recycler_view"));
             MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                     + "new UiSelector().text(\"" + myElement + "\"));"));
 
@@ -275,7 +275,7 @@ public class BasePage {
         int myLoopStatus = 0;
 
         if (!checkTextOnPage(myElement)) {
-            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.dev:id/navigation_menu"));
+            MobileElement list = (MobileElement) driver.findElement(By.id("org.lds.ldstools.alpha:id/navigation_menu"));
             MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                     + "new UiSelector().text(\"" + myElement + "\"));"));
 

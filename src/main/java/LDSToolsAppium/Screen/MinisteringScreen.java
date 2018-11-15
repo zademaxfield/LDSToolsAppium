@@ -95,84 +95,84 @@ public class MinisteringScreen extends BasePage {
 
     // ****************** Ministering Buttons ******************
     //Share Button
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/menu_share")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_share")
     @iOSFindBy(accessibility = "Share")
     public MobileElement share;
 
     //Map Button
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/menu_show_on_map")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_show_on_map")
     @iOSFindBy(accessibility = "Map")
     public MobileElement map;
 
     //Filters Button
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/menu_item_htvt_filter")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_item_htvt_filter")
     @iOSFindBy(accessibility = "Filters")
     public MobileElement filters;
 
 
     // ****************** Filters ******************
     //Assigned Ministering Brothers
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_assigned")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/htvt_filter_assigned")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Assigned Ministering Brothers' AND type == 'XCUIElementTypeSwitch'")
     public MobileElement assignedMinisteringBrothers;
 
     //Not Assigned Ministering Brothers
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_not_assigned")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/htvt_filter_not_assigned")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Not Assigned Ministering Brothers' AND type == 'XCUIElementTypeSwitch'")
     public MobileElement notAssignedMinisteringBrothers;
 
     //New & Moved-In Members
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_new_and_moved_in")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/htvt_filter_new_and_moved_in")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'New & Moved-In Members' AND type == 'XCUIElementTypeSwitch'")
     public MobileElement newAndMovedInMembers;
 
 
     //Single Sisters
     //Ages 18 to 30
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_single_sisters_eighteen_thirty_years_old")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/htvt_filter_single_sisters_eighteen_thirty_years_old")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Sisters']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='Ages 18 to 30']")
     public MobileElement singleSistersAges18to30;
 
     //Ages 31 and older
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_single_sisters_thirty_and_over")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/htvt_filter_single_sisters_thirty_and_over")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Sisters']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='Age 31 and older']")
     public MobileElement singleSistersAge31AndOver;
 
     //Single Brothers
     //Ages 18 to 30
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_single_brothers_eighteen_thirty_years_old")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/htvt_filter_single_brothers_eighteen_thirty_years_old")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Brothers']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='Ages 18 to 30']")
     public MobileElement singleBrothersAges18to30;
 
     //Ages 31 and older
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_single_brothers_thirty_and_over")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/htvt_filter_single_brothers_thirty_and_over")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Brothers']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='31 and over']")
     public MobileElement singleBrothersAge31AndOver;
 
 
 
     //Assigned Ministering Sisters
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_assigned")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/htvt_filter_assigned")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Assigned Ministering Sisters' AND type == 'XCUIElementTypeSwitch'")
     public MobileElement assignedMinisteringSisters;
 
     //Not Assigned Ministering Sisters
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/htvt_filter_not_assigned")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/htvt_filter_not_assigned")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Not Assigned Ministering Sisters' AND type == 'XCUIElementTypeSwitch'")
     public MobileElement notAssignedMinisteringSisters;
 
 
 
     //Save Button for Filter
-    @AndroidFindBy(id ="org.lds.ldstools.dev:id/menu_item_save")
+    @AndroidFindBy(id ="org.lds.ldstools.alpha:id/menu_item_save")
     public MobileElement ministeringFilterSave;
 
     //Expand filter button
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/filterHeaderArrow")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterHeaderArrow")
     public MobileElement ministeringExpandFilter;
 
     //Remove filter button
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/removeFiltersButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/removeFiltersButton")
     public MobileElement ministeringRemoveFilter;
 
 

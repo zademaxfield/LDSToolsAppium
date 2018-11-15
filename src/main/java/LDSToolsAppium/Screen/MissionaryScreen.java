@@ -24,7 +24,7 @@ public class MissionaryScreen extends BasePage {
     // ****************** Missionary Main Screen ******************
 
     //Send Referral Button
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/fab")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/fab")
     @iOSFindBy(accessibility = "Send Referral")
     public MobileElement sendReferralButton;
 
@@ -37,53 +37,53 @@ public class MissionaryScreen extends BasePage {
 
     // ****************** Missionary Send Referral Screen ******************
     //Help Message
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/personalInformationExplanationTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/personalInformationExplanationTextView")
     @iOSFindBy(accessibility = "Helps the missionaries know how to contact you to discuss your friend's needs.")
     public MobileElement referralHelpMessage;
 
     //Member Phone Number
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/personalPhoneTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/personalPhoneTextView")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='PHONE']/following-sibling::XCUIElementTypeStaticText")
     public MobileElement referralMemberPhoneNumber;
 
     //Member Email
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/personalEmailTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/personalEmailTextView")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='EMAIL']/following-sibling::XCUIElementTypeStaticText")
     public MobileElement referralMemberEmail;
 
     //Update Individual Information
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/addContactInformationButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/addContactInformationButton")
     @iOSFindBy(accessibility = "Update Individual Information")
     public MobileElement referralUpdateIndividualInformation;
 
     //Referral Name
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/nameTextInputEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/nameTextInputEditText")
     @iOSFindBy(accessibility = "Name")
     public MobileElement referralName;
 
     //Referral Phone
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/phoneTextInputEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/phoneTextInputEditText")
     @iOSFindBy(accessibility = "Phone")
     public MobileElement referralPhone;
 
     //Referral Email
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/emailTextInputEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/emailTextInputEditText")
     @iOSFindBy(accessibility = "Email")
     public MobileElement referralEmail;
 
 
     //Referral Locate on Map
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/locateOnMapTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/locateOnMapTextView")
     @iOSFindBy(accessibility = "Locate on Map")
     public MobileElement referralLocateOnMap;
 
     //Referral Map Search
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/filterEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
     @iOSFindBy(accessibility = "Search")
     public MobileElement referralMapSearch;
 
     //Referral Add Preferred Language
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/languageTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/languageTextView")
     @iOSFindBy(accessibility = "Add Preferred Language")
     public MobileElement referralAddPreferredLanguage;
 
@@ -100,12 +100,12 @@ public class MissionaryScreen extends BasePage {
 
 
     //Referral Message field
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/helpfulMessageEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/helpfulMessageEditText")
     @iOSFindBy(accessibility = "Message")
     public MobileElement referralMessageField;
 
     //Referral Send Referral Button
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/sendReferralButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/sendReferralButton")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Send Referral']")
     public MobileElement referralSendReferral;
 
@@ -133,7 +133,7 @@ public class MissionaryScreen extends BasePage {
 
 
     //Use This Location
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/useLocationFab")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/useLocationFab")
     public  MobileElement referralUseThisLocation;
 
 

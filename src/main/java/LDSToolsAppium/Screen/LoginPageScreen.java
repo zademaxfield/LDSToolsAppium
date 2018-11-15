@@ -21,17 +21,17 @@ public class LoginPageScreen extends BasePage {
 
 
     //Login Name
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/usernameEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/usernameEditText")
     @iOSFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeTextField")
     public  MobileElement loginName;
 
     //Password
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/passwordEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/passwordEditText")
     @iOSFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeSecureTextField")
     public  MobileElement passWord;
 
     //Sign In Button
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/ldsAccountSignInButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/ldsAccountSignInButton")
     @iOSFindBy(accessibility = "Sign In")
     public  MobileElement signInButton;
 

@@ -168,67 +168,67 @@ public class ReportsScreen extends BasePage {
     public  MobileElement missionaryProgressFilter;
 
     //Missionary Progress Investigators with Baptism Date
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterInvestigatorsWithBaptismDateSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterInvestigatorsWithBaptismDateSwitchCompat")
     @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label='Investigators with Baptism Date']")
     public  MobileElement mpInvestigatorsWithBaptismDate;
 
     //Missionary Progress Progressing Investigators
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterProgressingInvestigatorsSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterProgressingInvestigatorsSwitchCompat")
     @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Progressing Investigators\"]")
     public  MobileElement mpProgressingInvestigators;
 
     //Missionary Progress New Investigators
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterNewInvestigatorsSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterNewInvestigatorsSwitchCompat")
     @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"New Investigators\"]")
     public  MobileElement mpNewInvestigators;
 
     //Missionary Progress Other Investigators
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterOtherInvestigatorsSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterOtherInvestigatorsSwitchCompat")
     @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Other Investigators\"]")
     public  MobileElement mpOtherInvestigators;
 
     //Missionary Progress Potential Investigators
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterPotentialInvestigatorsSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterPotentialInvestigatorsSwitchCompat")
     @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Potential Investigators\"]")
     public  MobileElement mpPotentialInvestigators;
 
     //Missionary Progress Recent Converts
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterRecentConvertsSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterRecentConvertsSwitchCompat")
     @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Recent Converts\"]")
     public  MobileElement mpRecentConverts;
 
 
     //Missionary Progress Members Being Taught
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterMembersBeingTaughtSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterMembersBeingTaughtSwitchCompat")
     @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Members Being Taught\"]")
     public  MobileElement mpMembersBeingTaught;
 
     //Missionary Progress Save
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/menu_item_save")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_item_save")
     public  MobileElement mpSave;
 
     //Missionary Progress Expand Filter
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/filterHeaderArrow")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterHeaderArrow")
     public  MobileElement mpExpandFilter;
 
 
     //Missionary Progress Remove Filter Button
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/removeFiltersButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/removeFiltersButton")
     @iOSFindBy(accessibility = "Remove")
     public  MobileElement mpRemoveFilterButton;
 
     //Missionary Progress Received a Visit
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterReceivedAVisitTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterReceivedAVisitTextView")
     @iOSFindBy(accessibility = "Received a Visit")
     public  MobileElement mpReceivedAVisit;
 
     //Missionary Progress Attended Sacrament
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterSacramentAttendanceTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterSacramentAttendanceTextView")
     @iOSFindBy(accessibility = "Attended Sacrament")
     public  MobileElement mpAttendedSacrament;
 
     //Missionary Progress Assigned
-    @AndroidFindBy(id = "org.lds.ldstools.dev:id/mpFilterFellowshippersTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterFellowshippersTextView")
     @iOSFindBy(accessibility = "Assigned")
     public  MobileElement mpAssigned;
 

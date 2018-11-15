@@ -202,7 +202,7 @@ public class MissionaryScreenTest extends BaseDriver {
 //            clickButton("AddUnitOK", "xpath", "pred");
 //        } else {
 //            pressBackKey();
-//            clickButton("//android.widget.TextView[@text='Auto Test Name']/following-sibling::android.widget.ImageButton[@resource-id='org.lds.ldstools.dev:id/removeReferralImageButton']", "xpathCustom", "xpath");
+//            clickButton("//android.widget.TextView[@text='Auto Test Name']/following-sibling::android.widget.ImageButton[@resource-id='org.lds.ldstools.alpha:id/removeReferralImageButton']", "xpathCustom", "xpath");
 //            clickButton("MissRefRemoveFromList", "xpath", "xpath");
 //            clickButton("AlertOKid", "id", "id");
 //        }

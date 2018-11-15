@@ -380,8 +380,8 @@ public class BaseDriver {
 
             capabilities.setCapability("app", app.getAbsolutePath());
             if (fileName.contains("alpha")) {
-//                capabilities.setCapability("appPackage", "org.lds.ldstools.dev"); // *** ALPHA ***
-//                myAppPackage = "org.lds.ldstools.dev";
+//                capabilities.setCapability("appPackage", "org.lds.ldstools.alpha"); // *** ALPHA ***
+//                myAppPackage = "org.lds.ldstools.alpha";
                 capabilities.setCapability("appPackage", "org.lds.ldstools.alpha"); // *** ALPHA ***
                 myAppPackage = "org.lds.ldstools.alpha";
             } else {
@@ -466,7 +466,7 @@ public class BaseDriver {
             File classpathRoot = new File(System.getProperty("user.dir"));
             File appDir = new File(classpathRoot, "../../../Selenium");
             File app = new File(appDir, fileName);
-            myAppPackage = "org.lds.ldstools.dev";
+            myAppPackage = "org.lds.ldstools.alpha";
             
             DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -572,7 +572,7 @@ public class BaseDriver {
         String pathToADB = androidHome + "/platform-tools/adb";
 
         //String cmd
-        // = "adb shell am force-stop org.lds.ldstools.dev";
+        // = "adb shell am force-stop org.lds.ldstools.alpha";
         Runtime run = Runtime.getRuntime();
         Process pr = run.exec(new String[] {pathToADB, "connect", ipPort});
         //Process pr = run.exec(cmd);
@@ -592,7 +592,7 @@ public class BaseDriver {
         String pathToADB = androidHome + "/platform-tools/adb";
 
         //String cmd
-        // = "adb shell am force-stop org.lds.ldstools.dev";
+        // = "adb shell am force-stop org.lds.ldstools.alpha";
         Runtime run = Runtime.getRuntime();
         Process pr = run.exec(new String[] {pathToADB, "disconnect", ipPort});
         //Process pr = run.exec(cmd);
@@ -807,9 +807,9 @@ public class BaseDriver {
 
 
         if (myCommand.equals("stopApp")) {
-            //String cmd = "adb shell am force-stop org.lds.ldstools.dev";
+            //String cmd = "adb shell am force-stop org.lds.ldstools.alpha";
             Runtime run = Runtime.getRuntime();
-            Process pr = run.exec(new String[] {pathToADB, "shell", "am", "force-stop", "org.lds.ldstools.dev"});
+            Process pr = run.exec(new String[] {pathToADB, "shell", "am", "force-stop", "org.lds.ldstools.alpha"});
             //Process pr = run.exec(cmd);
             pr.waitFor();
             BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
@@ -820,9 +820,9 @@ public class BaseDriver {
         }
 
         if (myCommand.equals("clearApp")) {
-            //String cmd = "adb shell am force-stop org.lds.ldstools.dev";
+            //String cmd = "adb shell am force-stop org.lds.ldstools.alpha";
             Runtime run = Runtime.getRuntime();
-            Process pr = run.exec(new String[] { pathToADB, "shell", "pm", "clear", "org.lds.ldstools.dev"});
+            Process pr = run.exec(new String[] { pathToADB, "shell", "pm", "clear", "org.lds.ldstools.alpha"});
             //Process pr = run.exec(cmd);
             pr.waitFor();
             BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));

@@ -380,8 +380,10 @@ public class BaseDriver {
 
             capabilities.setCapability("app", app.getAbsolutePath());
             if (fileName.contains("alpha")) {
-                capabilities.setCapability("appPackage", "org.lds.ldstools.dev"); // *** ALPHA ***
-                myAppPackage = "org.lds.ldstools.dev";
+//                capabilities.setCapability("appPackage", "org.lds.ldstools.dev"); // *** ALPHA ***
+//                myAppPackage = "org.lds.ldstools.dev";
+                capabilities.setCapability("appPackage", "org.lds.ldstools.alpha"); // *** ALPHA ***
+                myAppPackage = "org.lds.ldstools.alpha";
             } else {
                 capabilities.setCapability("appPackage", "org.lds.ldstools"); //*** BETA and RELEASE ***
                 myAppPackage = "org.lds.ldstools";
@@ -394,7 +396,8 @@ public class BaseDriver {
             capabilities.setCapability("appPackage", myAppPackage);
             capabilities.setCapability("newCommandTimeout", 2000);
 
-            //capabilities.setCapability("appActivity", "org.lds.ldstools.ui.activity.SignInActivity");
+            //capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
+            //capabilities.setCapability("appWaitActivity", "*.SignInActivity");
 
             capabilities.setCapability("unicodeKeyboard", "true");
             capabilities.setCapability("resetKeyboard", "true");

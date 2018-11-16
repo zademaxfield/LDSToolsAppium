@@ -209,10 +209,11 @@ public class BaseDriver {
             }
 
         } else {
-            System.out.println("Clear App");
-            adbCommand("clearApp");
-            Thread.sleep(5000);
-            driver.launchApp();
+            driver.resetApp();
+//            System.out.println("Clear App");
+//            adbCommand("clearApp");
+//            Thread.sleep(5000);
+//            driver.launchApp();
             Thread.sleep(5000);
             System.out.println("SERIAL NUMBER: " + deviceSerial);
         }

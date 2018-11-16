@@ -32,7 +32,8 @@ public class TemplesScreenTest extends BaseDriver {
         pageSource = myBasePage.getSourceOfPage();
 
 
-        myWeb.MyTemplePageLogIn("https://uat.lds.org/mls/mbr/?lang=eng", "LDSTools21", "password1");
+        myWeb.MyTemplePageLogIn("https://lcr-uat.lds.org", "LDSTools21", "password1");
+        Thread.sleep(4000);
         //Check the Temple Name
         if (pageSource.contains(myWeb.TempleGetName())){
             Assert.assertTrue(true);

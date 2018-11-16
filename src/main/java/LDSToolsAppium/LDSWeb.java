@@ -1001,7 +1001,9 @@ public class LDSWeb {
 		setUp();
 		
 		Thread.sleep(4000);
+//		openWebPage("https://lcr-uat.lds.org");
 		openWebPage("https://lcr-uat.lds.org");
+
 		Thread.sleep(2000);
 		
 		driver.findElement(By.id(this.prop.getProperty("UserName"))).sendKeys(userName);

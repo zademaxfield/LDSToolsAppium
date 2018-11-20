@@ -23,7 +23,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
     public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -61,6 +61,48 @@ public class OrganizationsScreenTest extends BaseDriver {
         getPrimaryInfo(rights);
 
         getOtherInfo(rights);
+
+    }
+
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    public void organizationStakeHighPriestQuorum(String userName, String passWord, String rightsString, String calling) throws Exception {
+        String pageSource;
+        int rights = Integer.parseInt(rightsString);
+
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        OrganizationsScreen myOrg = new OrganizationsScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+
+        //Login and enter in PIN
+        myHelper.loginUAT(userName, passWord);
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myMenu.selectMenu(myMenu.organizations);
+        myOrg.organizationsDropdown.click();
+        myOrg.savaiiStake.click();
+        myOrg.highPriestsQuorumOrg.click();
+        if (getRunningOS().equals("ios")) {
+            myOrg.highPriestsQuorumMembersOrg.click();
+        }
+        Thread.sleep(2000);
+
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Fata", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Leuta", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Jane", pageSource, "Contains"));
+
+        myBasePage.backButton.click();
+
+        if (getRunningOS().equals("ios")) {
+            myBasePage.backButton.click();
+        }
+
+        myOrg.organizationsDropdown.click();
+        myOrg.fagamalo1stWard.click();
 
     }
 

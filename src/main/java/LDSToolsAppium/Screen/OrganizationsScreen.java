@@ -24,6 +24,82 @@ public class OrganizationsScreen extends BasePage {
 
     // ****************** Organizations Main Screen ******************
 
+
+    //Organizations Dropdown
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Organizations']")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Organizations']")
+    public MobileElement organizationsDropdown;
+
+    //Savaii Samoa Fagamalo Stake
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Savaii Samoa Fagamalo Stake']")
+    @iOSFindBy(accessibility = "Savaii Samoa Fagamalo Stake")
+    public MobileElement savaiiStake;
+
+    //Fagamalo 1st Ward
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Fagamalo 1st Ward']")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Fagamalo 1st Ward')]")
+//    @iOSFindBy(accessibility = "//XCUIElementTypeStaticText[@name=\" Fagamalo 1st Ward\"]")
+    public MobileElement fagamalo1stWard;
+
+    //  ****************** Organizations Stake ******************
+    //Stake Presidency
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stake Presidency']")
+    @iOSFindBy(accessibility = "Stake Presidency")
+    public MobileElement stakePresidencyOrg;
+
+    //High Priests Quorum
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='High Priests Quorum']")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"High Priests Quorum\"]")
+    public MobileElement highPriestsQuorumOrg;
+
+    //High Priests Quorum Members
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='High Priests Quorum Members']")
+    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"All High Priests Quorum Members\"]")
+    public MobileElement highPriestsQuorumMembersOrg;
+
+
+    //High Council
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='High Council']")
+    @iOSFindBy(accessibility = "High Council")
+    public MobileElement highCouncilOrg;
+
+    //Patriarch
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Patriarch']")
+    @iOSFindBy(accessibility = "Patriarch")
+    public MobileElement patriarchOrg;
+
+    //Stake Relief Society
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stake Relief Society']")
+    @iOSFindBy(accessibility = "Stake Relief Society")
+    public MobileElement stakeReliefSocietyOrg;
+
+    //Stake Young Men
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stake Young Men']")
+    @iOSFindBy(accessibility = "Stake Young Men")
+    public MobileElement stakeYoungMenOrg;
+
+    //Stake Young Women
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stake Young Women']")
+    @iOSFindBy(accessibility = "Stake Young Women")
+    public MobileElement stakeYoungWomenOrg;
+
+    //Stake Sunday School
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stake Sunday School']")
+    @iOSFindBy(accessibility = "Stake Sunday School")
+    public MobileElement stakeSundaySchoolOrg;
+
+    //Stake Primary
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stake Primary']")
+    @iOSFindBy(accessibility = "Stake Primary")
+    public MobileElement stakePrimaryOrg;
+
+    //Stake Family History
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stake Family History']")
+    @iOSFindBy(accessibility = "Stake Family History")
+    public MobileElement stakeFamilyHistoryOrg;
+
+
+    //  ****************** Organizations Ward ******************
     //Bishopric
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Bishopric']")
     @iOSFindBy(accessibility = "Bishopric")

@@ -4,6 +4,7 @@
     <test name="Android Just For Testing">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
+        <!--<parameter name="testDevice" value="89UY0C037" />-->
         <parameter name="testDevice" value="STFZade-Pool" />
         <!--<parameter name="testDevice" value="WIRELESS-10.109.154.160:5555" />-->
         <!--<parameter name="testDevice" value="STF-Pool" />-->

@@ -52,6 +52,48 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "jft"})
+    public void validateLoginPageLinks() throws Exception {
+        String myPageSource;
+        BasePage myBasePage = new BasePage(driver);
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        if (myBasePage.checkForElement(myBasePage.allowButton)) {
+            myBasePage.allowButton.click();
+        }
+        Thread.sleep(2000);
+
+        myLoginPage.troubleSigningIn.click();
+        myLoginPage.accountRecoveryPage.isDisplayed();
+        myPageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myPageSource.contains("LDS Account"));
+        Assert.assertTrue(myPageSource.contains("Account Recovery"));
+        Assert.assertTrue(myPageSource.contains("I don't know my username"));
+        Assert.assertTrue(myPageSource.contains("I don't know my password"));
+
+        myLoginPage.doneButton.click();
+
+        myLoginPage.privacyNotice.click();
+        Thread.sleep(9000);
+        myPageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myPageSource.contains("Privacy Notice"));
+        Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
+        Assert.assertTrue(myPageSource.contains("In this Notice"));
+
+        myLoginPage.doneButton.click();
+
+        myLoginPage.termsOfUse.click();
+        Thread.sleep(9000);
+        myPageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myPageSource.contains("Terms of Use"));
+        Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
+        Assert.assertTrue(myPageSource.contains("By using this site"));
+
+
+        myLoginPage.doneButton.click();
+
+    }
+
     // ******************* Invalid Password Tests *******************
     @Test (groups = {"all3", "all", "login"})
     public void invalidPasswordTest1() throws Exception {
@@ -110,7 +152,7 @@ public class LoginPageTest extends BaseDriver {
         invalidCheck("select * from directory", "password1");
     }
 
-    @Test ( groups = {"all4", "all", "login", "jft"})
+    @Test ( groups = {"all4", "all", "login"})
     public void invalidUsernameTest5() throws Exception {
         invalidCheck("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", "password1");
     }
@@ -205,6 +247,9 @@ public class LoginPageTest extends BaseDriver {
         myLoginPage.passWord.clear();
         Thread.sleep(2000);
     }
+
+
+
 
 /*
     @Test (groups = { "jft"})

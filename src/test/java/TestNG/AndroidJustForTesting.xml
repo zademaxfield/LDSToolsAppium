@@ -4,8 +4,8 @@
     <test name="Android Just For Testing">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-        <!--<parameter name="testDevice" value="89UY0C037" />-->
-        <parameter name="testDevice" value="STFZade-Pool" />
+        <parameter name="testDevice" value="8XV5T15A30006448" />
+        <!--<parameter name="testDevice" value="STFZade-Pool" />-->
         <!--<parameter name="testDevice" value="WIRELESS-10.109.154.160:5555" />-->
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <!--<parameter name="testDevice" value="STF-364c5930534f3098" />-->
@@ -21,7 +21,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

@@ -69,20 +69,33 @@ public class LoginPageScreen extends BasePage {
     public MobileElement loginErrorMessage;
 
     //Trouble Signing In?
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/ldsAccountLoginForgotCredentialsButton")
     @iOSFindBy(accessibility = "Having trouble signing in?")
     public  MobileElement troubleSigningIn;
 
     //Privacy Notice
-    @iOSFindBy(accessibility = "Privacy Notice (Updated 2014-03-18)")
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Privacy Policy (Updated 2018-09-01)')]")
+    @iOSFindBy(accessibility = "Privacy Notice (Updated 2018-09-01)")
     public  MobileElement privacyNotice;
 
     //Terms of Use
-    @iOSFindBy(accessibility = "Terms of Use (Updated 2016-09-01)")
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Terms of Use (Updated 2018-09-01)')]")
+    @iOSFindBy(accessibility = "Terms of Use (Updated 2018-09-01)")
     public  MobileElement termsOfUse;
 
     //Cancel Button
     @iOSFindBy(accessibility = "Cancel")
     public  MobileElement cancelButton;
+
+    //Done Button
+    @AndroidFindBy(accessibility = "Navigate up")
+    @iOSFindBy(accessibility = "Done")
+    public  MobileElement doneButton;
+
+    //Account Recovery
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Account Recovery')]")
+    @iOSFindBy(xpath = "//*[contains(@name, 'Account Recovery')]")
+    public  MobileElement accountRecoveryPage;
 
 
 }

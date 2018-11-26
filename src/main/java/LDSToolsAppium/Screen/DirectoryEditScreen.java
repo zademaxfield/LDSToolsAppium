@@ -27,22 +27,22 @@ public class DirectoryEditScreen extends BasePage {
 
     // ****************** Phone and Email ******************
     //Personal Edit Phone
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"individualPhoneEditText\"]//android.widget.EditText[@resource-id=\"edit_phone\"]")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"individualPhoneEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_phone\")]")
     @iOSFindBy(xpath = "//XCUIElementTypeCell[2]/XCUIElementTypeTextField")
     public MobileElement directoryEditPersonalPhone;
 
     //Household Edit Phone
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"householdPhoneEditText\"]//android.widget.EditText[@resource-id=\"edit_phone\"]")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"householdPhoneEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_phone\")]")
     @iOSFindBy(xpath = "//XCUIElementTypeCell[4]/XCUIElementTypeTextField")
     public  MobileElement directoryEditHouseholdPhone;
 
     //Personal Edit Email
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"individualEmailEditText\"]//android.widget.EditText[@resource-id=\"edit_email\"]")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"individualEmailEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_email\")]")
     @iOSFindBy(xpath = "//XCUIElementTypeCell[3]/XCUIElementTypeTextField")
     public  MobileElement directoryEditPersonalEmail;
 
     //Personal Edit Email
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"householdEmailEditText\"]//android.widget.EditText[@resource-id=\"edit_email\"]")
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"householdEmailEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_email\")]")
     @iOSFindBy(xpath = "//XCUIElementTypeCell[5]/XCUIElementTypeTextField")
     public  MobileElement directoryEditHouseholdEmail;
 

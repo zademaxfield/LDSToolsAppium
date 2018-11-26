@@ -55,7 +55,7 @@ public class TemplesScreen extends BasePage {
 
 
     // Search
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
+    @AndroidFindBy(id = "filterEditText")
     @iOSFindBy(accessibility = "Search")
     public MobileElement searchTemple;
 

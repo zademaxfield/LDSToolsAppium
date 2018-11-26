@@ -80,15 +80,15 @@ public class MenuScreen extends BasePage {
 
     // ********** Android Only **********
     //Later Button
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/drawer_update_info_later_button")
+    @AndroidFindBy(id = "drawer_update_info_later_button")
     public  MobileElement laterButton;
 
     //Update My Info Button
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/drawer_update_info_button")
+    @AndroidFindBy(id = "drawer_update_info_button")
     public  MobileElement updateMyInfo;
 
     //Drawer Message
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@resource-id='org.lds.ldstools.alpha:id/drawer_update_info_later_layout']/android.widget.TextView")
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[@resource-id='drawer_update_info_later_layout']/android.widget.TextView")
     public  MobileElement drawerMessage;
 
     // ********** iOs Only **********

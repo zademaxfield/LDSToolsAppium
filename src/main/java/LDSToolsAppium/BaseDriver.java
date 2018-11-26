@@ -34,6 +34,7 @@ public class BaseDriver {
     public String accessToken = "5b5e50c533cf4e00aa32c8caf1aa1d8fad972f9414a64f71abdce9d06d6a5248";
     public String stfURL = "http://10.109.45.146:7100";
     public String testDevice = "";
+    public String androidAppPackage = "org.lds.ldstools.alpha";
 
     @BeforeSuite(alwaysRun = true)
     public void removeFilesBeforeTest() {
@@ -385,10 +386,12 @@ public class BaseDriver {
 //                myAppPackage = "org.lds.ldstools.alpha";
                 capabilities.setCapability("appPackage", "org.lds.ldstools.alpha"); // *** ALPHA ***
                 myAppPackage = "org.lds.ldstools.alpha";
+
             } else {
                 capabilities.setCapability("appPackage", "org.lds.ldstools"); //*** BETA and RELEASE ***
                 myAppPackage = "org.lds.ldstools";
             }
+            androidAppPackage = myAppPackage;
 
             capabilities.setCapability("deviceName", testDevice);
             capabilities.setCapability("udid", testDevice);
@@ -810,7 +813,8 @@ public class BaseDriver {
         if (myCommand.equals("stopApp")) {
             //String cmd = "adb shell am force-stop org.lds.ldstools.alpha";
             Runtime run = Runtime.getRuntime();
-            Process pr = run.exec(new String[] {pathToADB, "shell", "am", "force-stop", "org.lds.ldstools.alpha"});
+//            Process pr = run.exec(new String[] {pathToADB, "shell", "am", "force-stop", "org.lds.ldstools.alpha"});
+            Process pr = run.exec(new String[] {pathToADB, "shell", "am", "force-stop", androidAppPackage});
             //Process pr = run.exec(cmd);
             pr.waitFor();
             BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
@@ -823,7 +827,7 @@ public class BaseDriver {
         if (myCommand.equals("clearApp")) {
             //String cmd = "adb shell am force-stop org.lds.ldstools.alpha";
             Runtime run = Runtime.getRuntime();
-            Process pr = run.exec(new String[] { pathToADB, "shell", "pm", "clear", "org.lds.ldstools.alpha"});
+            Process pr = run.exec(new String[] { pathToADB, "shell", "pm", "clear", androidAppPackage});
             //Process pr = run.exec(cmd);
             pr.waitFor();
             BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));

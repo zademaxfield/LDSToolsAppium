@@ -1,5 +1,6 @@
 package LDSToolsAppium.Screen;
 
+import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
@@ -39,19 +40,19 @@ public class DirectoryScreen extends BasePage {
     public  MobileElement directoryDropdown;
 
     //Unit Selected
-    @AndroidFindBy(xpath = "//android.view.ViewGroup[@resouce-id='org.lds.ldstools.alpha:id/ab_toolbar']/android.widget.TextView[2]")
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@resouce-id='ab_toolbar']/android.widget.TextView[2]")
     @iOSFindBy(xpath = "//*[@name='LDS_Tools.DirectoryView']//XCUIElementTypeStaticText[2]")
     public MobileElement unitSelected;
 
 
     // ****************** Search ******************
     //Search Directory
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
+    @AndroidFindBy(id = "filterEditText")
     @iOSFindBy(accessibility = "Search")
     public  MobileElement searchBar;
 
     //Clear Search
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/clearTextImageButton")
+    @AndroidFindBy(id = "clearTextImageButton")
     @iOSFindBy(accessibility = "Cancel")
     public  MobileElement searchCancel;
 
@@ -59,8 +60,8 @@ public class DirectoryScreen extends BasePage {
 
     // ****************** Sort ******************
     //Sort Button
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterMenuImageButton")
-    //@AndroidFindBy(xpath = "//*[@resource-id='org.lds.ldstools.alpha:id/filterMenuImageButton']")
+    @AndroidFindBy(id = "filterMenuImageButton")
+    //@AndroidFindBy(xpath = "//*[@resource-id='filterMenuImageButton']")
     @iOSFindBy(accessibility = "Sort Options")
     public  MobileElement directorySort;
 
@@ -77,7 +78,7 @@ public class DirectoryScreen extends BasePage {
 
     // ****************** Edit ******************
     //Edit Button
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/edit_fab")
+    @AndroidFindBy(id = "edit_fab")
     @iOSFindBy(accessibility = "Edit")
     public  MobileElement directoryEdit;
 
@@ -138,7 +139,7 @@ public class DirectoryScreen extends BasePage {
     public MobileElement gpsHouseholdLocation;
 
     //Household Location Lat Long
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/latLngTextView")
+    @AndroidFindBy(id = "latLngTextView")
     @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name = 'Household Location']/following-sibling::XCUIElementTypeStaticText")
     public MobileElement gpsHouseholdLocationLatLong;
 
@@ -153,19 +154,19 @@ public class DirectoryScreen extends BasePage {
     public MobileElement gpsHouseholdLocationLegal;
 
     //Adjust Household Location
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/adjustHouseholdLocationButton")
+    @AndroidFindBy(id = "adjustHouseholdLocationButton")
     @iOSFindBy(accessibility = "Adjust Household Location")
     public MobileElement gpsAdjustHouseholdLocation;
 
 
     //Errors
     //Household Location Missing
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/latLngTextView")
+    @AndroidFindBy(id = "latLngTextView")
     @iOSFindBy(accessibility = "Household Location Missing")
     public MobileElement gpsHouseholdLocationMissing;
 
     //Household Location Missing icon
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/warningImageView")
+    @AndroidFindBy(id = "warningImageView")
     @iOSFindBy(accessibility = "icn_error")
     public MobileElement gpsHouseholdLocationErrorIcon;
 
@@ -183,7 +184,7 @@ public class DirectoryScreen extends BasePage {
     public MobileElement gpsAdjustLocationTitle;
 
     //Adjust Location Current Location Icon
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/myLocationFab")
+    @AndroidFindBy(id = "myLocationFab")
     @iOSFindBy(accessibility = "icon current location")
     public MobileElement gpsAdjustLocationCurrentLocation;
 
@@ -192,7 +193,7 @@ public class DirectoryScreen extends BasePage {
     public MobileElement gpsAdjustLocationIconLocation;
 
     //Adjust Location Search
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
+    @AndroidFindBy(id = "filterEditText")
     @iOSFindBy(accessibility = "Empty list")
     public MobileElement gpsAdjustLocationSearch;
 
@@ -209,11 +210,15 @@ public class DirectoryScreen extends BasePage {
 
 
     public void clickDirectoryUser(String myUser) throws Exception {
+        String appPackage = driver.getCapabilities().getCapability("appPackage").toString();
+        System.out.println("App Package: " + appPackage);
+
         if (getOS().equals("ios")) {
             driver.findElement(MobileBy.AccessibilityId(myUser)).click();
             //driver.findElement(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[contains(@value, '" + myUser + "')]"));
         } else {
-            driver.findElement(By.xpath("//android.widget.TextView[@resource-id='org.lds.ldstools.alpha:id/name'][@text='" + myUser + "']")).click();
+            driver.findElement(By.xpath("//android.widget.TextView[@resource-id='" + appPackage +":id/name'][@text='" + myUser + "']")).click();
+//            driver.findElement(By.xpath("//android.widget.TextView[@id='name'][@text='" + myUser + "']")).click();
         }
     }
 
@@ -470,7 +475,7 @@ public class DirectoryScreen extends BasePage {
 
             //Get Stake and all Wards
             //options = driver.findElements(By.xpath("//*[@id='list_item']/*[@id='text1']"));
-            options = driver.findElements(By.xpath("//android.widget.LinearLayout[@resource-id='org.lds.ldstools.alpha:id/list_item']/android.widget.TextView[@resource-id='org.lds.ldstools.alpha:id/unitNameTextView']"));
+            options = driver.findElements(By.xpath("//android.widget.LinearLayout[@resource-id='list_item']/android.widget.TextView[@resource-id='unitNameTextView']"));
             //options = driver.findElements(By.xpath("//android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout/android.widget.TextView"));
             for (int i = 0 ; i < options.size(); i++ ) {
                 System.out.println(options.get(i).getText());
@@ -517,8 +522,8 @@ public class DirectoryScreen extends BasePage {
             myString = driver.findElement(By.xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")).getText();
             //XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]
         } else {
-            //myString = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='org.lds.ldstools.alpha:id/text1'][1]")).getText();
-            myString = driver.findElement(By.xpath("//*[@resource-id='org.lds.ldstools.alpha:id/recycler_view']/android.widget.FrameLayout/android.widget.TextView[@resource-id='org.lds.ldstools.alpha:id/name']")).getText();
+            //myString = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='text1'][1]")).getText();
+            myString = driver.findElement(By.xpath("//*[@resource-id='recycler_view']/android.widget.FrameLayout/android.widget.TextView[@resource-id='name']")).getText();
         }
 
 

@@ -1,5 +1,6 @@
 package LDSToolsAppium.Screen;
 
+import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -20,18 +21,22 @@ public class LoginPageScreen extends BasePage {
     }
 
 
+
     //Login Name
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/usernameEditText")
+//    @AndroidFindBy(id = "usernameEditText")
+    @AndroidFindBy(id = "usernameEditText")
     @iOSFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeTextField")
     public  MobileElement loginName;
 
     //Password
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/passwordEditText")
+//    @AndroidFindBy(id = "passwordEditText")
+    @AndroidFindBy(id = "passwordEditText")
     @iOSFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeSecureTextField")
     public  MobileElement passWord;
 
     //Sign In Button
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/ldsAccountSignInButton")
+//    @AndroidFindBy(id = "ldsAccountSignInButton")
+    @AndroidFindBy(id = "ldsAccountSignInButton")
     @iOSFindBy(accessibility = "Sign In")
     public  MobileElement signInButton;
 
@@ -69,7 +74,7 @@ public class LoginPageScreen extends BasePage {
     public MobileElement loginErrorMessage;
 
     //Trouble Signing In?
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/ldsAccountLoginForgotCredentialsButton")
+    @AndroidFindBy(id = "ldsAccountLoginForgotCredentialsButton")
     @iOSFindBy(accessibility = "Having trouble signing in?")
     public  MobileElement troubleSigningIn;
 

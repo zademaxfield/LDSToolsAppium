@@ -34,7 +34,7 @@ public class WhatsNewScreen extends BasePage {
     public MobileElement whatsNewTitleSub;
 
     //Done Button
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/done")
+    @AndroidFindBy(id = "done")
     @iOSFindBy(accessibility = "Done")
     public MobileElement whatsNewDone;
 

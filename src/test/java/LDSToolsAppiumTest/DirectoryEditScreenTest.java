@@ -217,7 +217,6 @@ public class DirectoryEditScreenTest extends BaseDriver {
         Thread.sleep(2000);
         myEditDirectory.clearPhoneAndEmail();
 
-
         Thread.sleep(2000);
         myBasePage.scrollDownTEST(-400);
         Thread.sleep(1000);

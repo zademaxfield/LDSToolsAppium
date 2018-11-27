@@ -257,23 +257,15 @@ public class LDSWeb {
 	}
 	
 	public void addCompanionHousehold() throws Exception {
-		clickElement("Organizations", "linkText");
+		clickElement("Ministering", "linkText");
 		Thread.sleep(4000);
 		//clickElement("High Priests Group", "linkText");
 		//clickElement("Elders Quorum", "linkText");
-		clickElement("EldersMinistering", "xpath");
+		//clickElement("EldersMinistering", "xpath");
+		clickElement("EldersCurrentAssignments", "xpath");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
-		//clickElement("HomeTeachingDropDown", "xpath");
-		clickElement("Companionships", "linkText");
-		Thread.sleep(2000);
-		waitForTextToDisappear("LoadingSpinner", 500, "xpath");
-		Thread.sleep(2000);
 
-
-		clickElement("QuorumAuxSelect", "xpath");
-		clickElement("QuorumAuxElders", "xpath");
-		Thread.sleep(4000);
 
 		selectDistrictHTVT("District 1");
 
@@ -320,10 +312,15 @@ public class LDSWeb {
 		
 		clickDistrictSaveButton("District 3");
 		//clickElement("MemberSave", "xpath");
-		
-		clickElement("QuorumAuxSelect", "xpath");
-		clickElement("QuorumAuxReliefSociety", "xpath");
+
+
+
+		clickElement("Ministering", "linkText");
 		Thread.sleep(4000);
+		clickElement("ReliefSocietyCurrentAssignments", "xpath");
+		Thread.sleep(2000);
+		waitForTextToDisappear("Loading", 500, "id" );
+
 		
 		selectDistrictHTVT("District 1");
 		
@@ -357,7 +354,7 @@ public class LDSWeb {
 		
 
 		Thread.sleep(2000);
-		clickElement("LCRHomeButton", "xpath");
+//		clickElement("LCRHomeButton", "xpath");
 	}
 
 
@@ -482,7 +479,8 @@ public class LDSWeb {
 	
 	
 	public void selectDistrictHTVT(String districtToSelect) throws Exception {
-		driver.findElement(By.xpath("//span[contains(text(), '" + districtToSelect + "')]/../../following-sibling::div//a[contains(text(), 'Create new companionship')]")).click();
+//		driver.findElement(By.xpath("//span[contains(text(), '" + districtToSelect + "')]/../../following-sibling::div//a[contains(text(), 'Create new companionship')]")).click();
+		driver.findElement(By.xpath("//div[contains(text(), '" + districtToSelect + "')]/following-sibling::div//a[contains(text(), 'Add Companionship')]")).click();
 		Thread.sleep(2000);
 	}
 
@@ -493,15 +491,20 @@ public class LDSWeb {
 	}
 	
 	public void clickDistrictSaveButton(String districtToSelect) throws Exception {
-		driver.findElement(By.xpath("//span[contains(text(), '" + districtToSelect + "')]/../../following-sibling::div//button[.='Save']")).click();
+//		driver.findElement(By.xpath("//span[contains(text(), '" + districtToSelect + "')]/following-sibling::div//button[.='Save']")).click();
+		driver.findElement(By.xpath("//button[.='Save']")).click();
 		Thread.sleep(2000);
 	}
 	
 	public void addCompanionshipHTVT(String companionToAdd) throws Exception {
-		clickElement("AddNewCompanion", "xpath");
-		enterText("SearchForTeacher", "xpath", companionToAdd);
-		Thread.sleep(2000);
-		clickElement("FoundMember", "xpath");
+//		clickElement("AddNewCompanion", "xpath");
+//		enterText("SearchForTeacher", "xpath", companionToAdd);
+
+		enterText("MinisteringSearchMembers", "xpath", companionToAdd);
+
+		Thread.sleep(3000);
+//		clickElement("FoundMember", "xpath");
+		driver.findElement(By.xpath("//a/strong")).click();
 	}
 
 	public void addCompanionshipMinistering(String companionToAdd) throws Exception {
@@ -512,10 +515,14 @@ public class LDSWeb {
 	}
 	
 	public void addHouseholdHTVT(String householdToAdd) throws Exception {
-		clickElement("AddNewAssignment", "xpath");
-		enterText("SearchForHousehold", "xpath", householdToAdd);
-		Thread.sleep(2000);
-		clickElement("FoundMember", "xpath");
+//		clickElement("AddNewAssignment", "xpath");
+//		enterText("SearchForHousehold", "xpath", householdToAdd);
+
+		enterText("MinisteringSearchHouseholds", "xpath", householdToAdd);
+
+		Thread.sleep(3000);
+//		clickElement("FoundMember", "xpath");
+		driver.findElement(By.xpath("//a/strong")).click();
 	}
 
 	public void addHouseholdMinistering(String householdToAdd) throws Exception {

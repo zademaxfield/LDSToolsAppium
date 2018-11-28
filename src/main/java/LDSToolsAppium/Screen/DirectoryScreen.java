@@ -57,6 +57,12 @@ public class DirectoryScreen extends BasePage {
     public  MobileElement searchCancel;
 
 
+    // ****************** Directory Users ******************
+    // Picture
+    @AndroidFindBy(id = "individual_thumbnail_image_view")
+    @iOSFindBy(xpath = "//XCUIElementTypeImage[@name=\"missing\"])")
+    public MobileElement thumbNail;
+
 
     // ****************** Sort ******************
     //Sort Button

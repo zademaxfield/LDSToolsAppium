@@ -75,7 +75,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }*/
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
     public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -496,7 +496,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryIndividualHousehold() throws Exception {
         String pageSource;
 
@@ -511,7 +511,17 @@ public class DirectoryScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
         //Should be Household view by default
+        Assert.assertFalse(myBasePage.checkForElement(myDirectory.thumbNail));
 
+        myDirectory.directorySort.click();
+        myDirectory.sortIndividual.click();
+
+        Assert.assertTrue(myBasePage.checkForElement(myDirectory.thumbNail));
+
+        myDirectory.directorySort.click();
+        myDirectory.sortHousehold.click();
+
+        Assert.assertFalse(myBasePage.checkForElement(myDirectory.thumbNail));
 
     }
 

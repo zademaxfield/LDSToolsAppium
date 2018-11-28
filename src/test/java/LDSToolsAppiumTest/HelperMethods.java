@@ -485,7 +485,7 @@ public class HelperMethods extends BasePage {
 
     }
 
-    private void dismissWhatsNewPage() {
+    public void dismissWhatsNewPage() {
         // ********* Constructor **********
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         BasePage myBasePage = new BasePage(driver);
@@ -566,7 +566,7 @@ public class HelperMethods extends BasePage {
 
     }
 
-    private void checkForAlertsBeforePin() throws Exception {
+    public void checkForAlertsBeforePin() throws Exception {
         PinScreen myPin = new PinScreen(driver);
         BasePage myBase = new BasePage(driver);
 
@@ -604,7 +604,7 @@ public class HelperMethods extends BasePage {
     }
 
 
-    private void checkForAlertsAfterPin() throws Exception {
+    public void checkForAlertsAfterPin() throws Exception {
         ScannerScreen myScanner = new ScannerScreen(driver) ;
         PinScreen myPin = new PinScreen(driver);
         BasePage myBase = new BasePage(driver);

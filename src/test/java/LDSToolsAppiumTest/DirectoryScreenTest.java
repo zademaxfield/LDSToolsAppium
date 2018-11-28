@@ -496,6 +496,24 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
+    @Test(groups = {"all3", "all"})
+    public void directoryIndividualHousehold() throws Exception {
+        String pageSource;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        //Should be Household view by default
+
+
+    }
 
 
     @Test(dataProvider = "Members", groups = {"goat"})

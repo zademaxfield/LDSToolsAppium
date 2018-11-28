@@ -52,7 +52,7 @@ public class MissionaryScreen extends BasePage {
     public MobileElement referralMemberEmail;
 
     //Update Individual Information
-    @AndroidFindBy(id = "addContactInformationButton")
+    @AndroidFindBy(id = "addContactInformationNoInfoButton")
     @iOSFindBy(accessibility = "Update Individual Information")
     public MobileElement referralUpdateIndividualInformation;
 

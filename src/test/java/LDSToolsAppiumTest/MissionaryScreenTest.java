@@ -2,9 +2,7 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
-import LDSToolsAppium.Screen.MenuScreen;
-import LDSToolsAppium.Screen.MissionaryScreen;
-import LDSToolsAppium.Screen.OrganizationsScreen;
+import LDSToolsAppium.Screen.*;
 import io.appium.java_client.MobileElement;
 import org.jsoup.Connection;
 import org.openqa.selenium.By;
@@ -25,7 +23,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -211,6 +209,62 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
     }
+
+
+    @Test(groups = {"all4", "all", "jft"})
+    public void missionaryReferralNoContactInfo() throws Exception {
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MissionaryScreen myMissionary = new MissionaryScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
+
+
+        String pageSource;
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools45", "password1");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        //Make sure that the email and phone are blank
+        myDirectory.searchAndClick("Tools, LDS45");
+        myEditDirectory.clearPhoneAndEmail();
+        myBasePage.backToDirectory();
+
+
+        myMenu.selectMenu(myMenu.missionary);
+        myMissionary.sendReferralButton.click();
+
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Please update your individual email or phone number in LDS Tools before sending a referral", pageSource, "Contains"));
+
+//        System.out.println(pageSource);
+
+        myMissionary.referralUpdateIndividualInformation.click();
+
+        myEditDirectory.directoryEditPersonalPhone.sendKeys("1(801)240-0104");
+
+        myEditDirectory.menuSave.click();
+        myBasePage.waitUnitlTextIsGone("Saving");
+        Thread.sleep(6000);
+
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertFalse(myBasePage.checkNoCaseList("Please update your individual email or phone number in LDS Tools before sending a referral", pageSource, "Contains"));
+
+
+        //Clean up
+        myBasePage.backButton.click();
+        myMenu.selectMenu(myMenu.directory);
+        myDirectory.searchAndClick("Tools, LDS45");
+        myEditDirectory.clearPhoneAndEmail();
+        myBasePage.backButton.click();
+
+
+
+    }
+
 
 
 }

@@ -216,13 +216,12 @@ public class DirectoryScreen extends BasePage {
 
 
     public void clickDirectoryUser(String myUser) throws Exception {
-        String appPackage = driver.getCapabilities().getCapability("appPackage").toString();
-        System.out.println("App Package: " + appPackage);
-
         if (getOS().equals("ios")) {
             driver.findElement(MobileBy.AccessibilityId(myUser)).click();
             //driver.findElement(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[contains(@value, '" + myUser + "')]"));
         } else {
+            String appPackage = driver.getCapabilities().getCapability("appPackage").toString();
+            System.out.println("App Package: " + appPackage);
             driver.findElement(By.xpath("//android.widget.TextView[@resource-id='" + appPackage +":id/name'][@text='" + myUser + "']")).click();
 //            driver.findElement(By.xpath("//android.widget.TextView[@id='name'][@text='" + myUser + "']")).click();
         }

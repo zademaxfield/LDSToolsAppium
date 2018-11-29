@@ -6,6 +6,7 @@ import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.OrganizationsScreen;
 import io.appium.java_client.MobileElement;
+import org.openqa.selenium.ScreenOrientation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -23,7 +24,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -64,7 +65,9 @@ public class OrganizationsScreenTest extends BaseDriver {
 
     }
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
+
+
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
     public void organizationStakeHighPriestQuorum(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -124,25 +127,41 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersOnPage("OrganizationsMenu", "Bishopric", false);
             myBasePage.compareWebData(myList, androidList, true);
 
+            driver.rotate(ScreenOrientation.LANDSCAPE);
+            myBasePage.compareWebData(myList, androidList, true);
+
+            driver.rotate(ScreenOrientation.PORTRAIT);
+
 
         } else {
             Thread.sleep(2000);
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Samu", pageSource, "Contains"));
+            bishopricData();
+            driver.rotate(ScreenOrientation.LANDSCAPE);
+            bishopricData();
+            driver.rotate(ScreenOrientation.PORTRAIT);
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Bishopric First Counselor", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Tutunoa", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Ualesi", pageSource, "Contains"));
-
-            Assert.assertTrue(myBasePage.checkNoCaseList("Bishopric Second Counselor", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Leota", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Polataia", pageSource, "Contains"));
         }
 
         myBasePage.backAltButton.click();
         Thread.sleep(1000);
+    }
+
+    private void bishopricData() {
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Samu", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Bishopric First Counselor", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tutunoa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ualesi", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Bishopric Second Counselor", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Leota", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Polataia", pageSource, "Contains"));
     }
 
 
@@ -256,28 +275,25 @@ public class OrganizationsScreenTest extends BaseDriver {
 
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Elders Quorum", "EldersQuorumMembers", false);
             myBasePage.compareWebData(myList, androidList, true);
+
+            driver.rotate(ScreenOrientation.LANDSCAPE);
+            myBasePage.compareWebData(myList, androidList, true);
+
+            driver.rotate(ScreenOrientation.PORTRAIT);
+
         } else {
             myOrg.eldersQuorumPresidency.click();
             Thread.sleep(2000);
+            eldersQuorumData();
 
+            driver.rotate(ScreenOrientation.LANDSCAPE);
+            eldersQuorumData();
 
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Sitivi", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Matagalu", pageSource, "Contains"));
+            driver.rotate(ScreenOrientation.PORTRAIT);
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("First Counselor", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Tools", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS22", pageSource, "Contains"));
-
-            Assert.assertTrue(myBasePage.checkNoCaseList("Second Counselor", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS23", pageSource, "Contains"));
-
-            Assert.assertTrue(myBasePage.checkNoCaseList("Secretary", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS24", pageSource, "Contains"));
             myBasePage.backAltButton.click();
-            Thread.sleep(1000);
 
+            Thread.sleep(1000);
         }
 
         if(getRunningOS().equals("ios")) {
@@ -286,6 +302,27 @@ public class OrganizationsScreenTest extends BaseDriver {
         }
         myBasePage.backAltButton.click();
         Thread.sleep(1000);
+
+    }
+
+    private void eldersQuorumData() throws Exception{
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sitivi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Matagalu", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("First Counselor", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tools", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("LDS22", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Second Counselor", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("LDS23", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Secretary", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("LDS24", pageSource, "Contains"));
 
     }
 
@@ -322,27 +359,22 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Relief Society", "ReliefSocietyMembers", false);
             myBasePage.compareWebData(myList, androidList, true);
 
+            driver.rotate(ScreenOrientation.LANDSCAPE);
+            myBasePage.compareWebData(myList, androidList, true);
+
+            driver.rotate(ScreenOrientation.PORTRAIT);
+
 
         } else {
             myOrg.reliefSocietyPresidency.click();
+            reliefSocietyData();
 
-            Thread.sleep(2000);
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Wilson", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Tina", pageSource, "Contains"));
+            driver.rotate(ScreenOrientation.LANDSCAPE);
+            reliefSocietyData();
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("First Counselor", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Tulia", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Faagalo", pageSource, "Contains"));
+            driver.rotate(ScreenOrientation.PORTRAIT);
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Second Counselor", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Endemann", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Lole", pageSource, "Contains"));
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Secretary", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Ariel", pageSource, "Contains"));
             myBasePage.backAltButton.click();
             Thread.sleep(1000);
         }
@@ -354,6 +386,28 @@ public class OrganizationsScreenTest extends BaseDriver {
         myBasePage.backAltButton.click();
         Thread.sleep(1000);
 
+    }
+
+    private void reliefSocietyData() throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        Thread.sleep(2000);
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Wilson", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tina", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("First Counselor", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tulia", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Faagalo", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Second Counselor", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Endemann", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lole", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Secretary", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ariel", pageSource, "Contains"));
     }
 
 

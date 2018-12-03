@@ -526,6 +526,36 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
+    @Test(groups = {"all3", "all"})
+    public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
+        String pageSource;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools5", "toolstester");
+        myHelper.nonLeaderNoPin();
+
+        //Search and click on Aaron Jane
+        myDirectory.searchAndClick("Tools, LDS5");
+
+        if (myBasePage.getOS().equals("ios ")) {
+            myDirectory.memebershipInformation.click();
+        } else {
+            myDirectory.tabMembership.click();
+        }
+
+
+
+    }
+
+
+
+
     @Test(dataProvider = "Members", groups = {"goat"})
     public void directoryScrollTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;

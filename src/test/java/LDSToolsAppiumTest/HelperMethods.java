@@ -295,6 +295,51 @@ public class HelperMethods extends BasePage {
 
     }
 
+
+
+    public void nonLeaderNoPin() throws Exception {
+        // ********** Page Instantiations **********
+        //HelperMethods myHelper = new HelperMethods(driver);
+        PinScreen myPin = new PinScreen(driver);
+        MenuScreen myMenuScreen = new MenuScreen(driver);
+
+        Thread.sleep(4000);
+        checkForAlertsBeforePin();
+
+
+        dismissWhatsNewPage();
+
+        //Android needs this.
+        //checkForAlertsAfterPin();
+
+        Thread.sleep(2000);
+        myPin.pinAlertDialogNotNow.click();
+
+
+        Thread.sleep(2000);
+
+        //Sometimes there is a warning before the Whats new screen
+        checkForAlertsAfterPin();
+
+        Thread.sleep(2000);
+
+        dismissWhatsNewPage();
+
+        checkForAlertsAfterPin();
+
+
+
+        // Click on Later then Directory
+        if (!getOS().equals("ios")) {
+            Thread.sleep(2000);
+            checkForLater();
+            Thread.sleep(2000);
+            myMenuScreen.directory.click();
+            Thread.sleep(2000);
+        }
+
+    }
+
     public void enterPinKeepWhatsNew(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);

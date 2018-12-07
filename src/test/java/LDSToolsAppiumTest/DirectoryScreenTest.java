@@ -521,7 +521,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 //        Thread.sleep(3000);
 //        System.out.println(myBasePage.getSourceOfPage());
-        //The thumbNail is showing up a visible=false 
+        //The thumbNail is showing up a visible=false
         if (myBasePage.getOS().equals("ios")) {
             thumbNailDim = myDirectory.thumbNail.getSize();
 //            System.out.println("Height: " + thumbNailDim.getHeight());

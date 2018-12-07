@@ -150,6 +150,10 @@ public class TemplesScreen extends BasePage {
 
             yesRemindMe.click();
 
+            if (myBasePage.getOS().equals("ios")) {
+                myBasePage.backButton.click();
+            }
+
             myMenu.selectMenu(myMenu.directory);
             myMenu.selectMenu(myMenu.temples);
 

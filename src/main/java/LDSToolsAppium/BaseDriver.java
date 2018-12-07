@@ -491,6 +491,8 @@ public class BaseDriver {
             //capabilities.setCapability("allowTouchIdEnroll", true);
             capabilities.setCapability("maxTypingFrequency", 15);
             //capabilities.setCapability("appPackage", myAppPackage);
+            //capabilities.setCapability("simpleIsVisibleCheck", true);
+
 
 
 

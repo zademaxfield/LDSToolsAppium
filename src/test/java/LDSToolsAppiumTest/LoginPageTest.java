@@ -64,6 +64,7 @@ public class LoginPageTest extends BaseDriver {
         Thread.sleep(2000);
 
         myLoginPage.troubleSigningIn.click();
+        myBasePage.waitForText("LDS Account");
         myLoginPage.accountRecoveryPage.isDisplayed();
         myPageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myPageSource.contains("LDS Account"));
@@ -74,7 +75,8 @@ public class LoginPageTest extends BaseDriver {
         myLoginPage.doneButton.click();
 
         myLoginPage.privacyNotice.click();
-        Thread.sleep(9000);
+//        Thread.sleep(9000);
+        myBasePage.waitForText("Privacy Notice");
         myPageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myPageSource.contains("Privacy Notice"));
         Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
@@ -83,7 +85,8 @@ public class LoginPageTest extends BaseDriver {
         myLoginPage.doneButton.click();
 
         myLoginPage.termsOfUse.click();
-        Thread.sleep(9000);
+//        Thread.sleep(9000);
+        myBasePage.waitForText("Terms of Use");
         myPageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myPageSource.contains("Terms of Use"));
         Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));

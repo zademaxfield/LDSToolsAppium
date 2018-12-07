@@ -4,6 +4,7 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
+import org.openqa.selenium.Dimension;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -499,6 +500,7 @@ public class DirectoryScreenTest extends BaseDriver {
     @Test(groups = {"all3", "all", "jft"})
     public void directoryIndividualHousehold() throws Exception {
         String pageSource;
+        Dimension thumbNailDim;
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
@@ -515,11 +517,24 @@ public class DirectoryScreenTest extends BaseDriver {
 
         myDirectory.directorySort.click();
         myDirectory.sortIndividual.click();
+        //myDirectory.searchBar.sendKeys("Aaron");
 
-        Assert.assertTrue(myBasePage.checkForElement(myDirectory.thumbNail));
+//        Thread.sleep(3000);
+//        System.out.println(myBasePage.getSourceOfPage());
+        //The thumbNail is showing up a visible=false 
+        if (myBasePage.getOS().equals("ios")) {
+            thumbNailDim = myDirectory.thumbNail.getSize();
+//            System.out.println("Height: " + thumbNailDim.getHeight());
+//            System.out.println("Width: " + thumbNailDim.getWidth());
+            Assert.assertTrue(thumbNailDim.getHeight() != 0);
+        } else {
+            Assert.assertTrue(myBasePage.checkForElement(myDirectory.thumbNail));
+        }
+
 
         myDirectory.directorySort.click();
         myDirectory.sortHousehold.click();
+        //myDirectory.searchBar.sendKeys("Aaron");
 
         Assert.assertFalse(myBasePage.checkForElement(myDirectory.thumbNail));
 

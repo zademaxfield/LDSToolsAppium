@@ -60,7 +60,8 @@ public class DirectoryScreen extends BasePage {
     // ****************** Directory Users ******************
     // Picture
     @AndroidFindBy(id = "individual_thumbnail_image_view")
-    @iOSFindBy(xpath = "//XCUIElementTypeImage[@name=\"missing\"])")
+//    @iOSFindBy(xpath = "//XCUIElementTypeImage[@name='missing'])")
+    @iOSFindBy(accessibility = "missing")
     public MobileElement thumbNail;
 
 

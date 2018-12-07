@@ -15,6 +15,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -552,6 +553,22 @@ public class BasePage {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@value='" + myText + "']")));
         } else {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@text='" + myText + "']")));
+        }
+
+        //System.out.println("Stop Checking for Element");
+    }
+
+    public void waitForText(String myText) {
+        //System.out.println("Start Checking for Element");
+        WebDriverWait wait = new WebDriverWait(driver, 300);
+        if(getOS().equals("ios")) {
+//            WebElement iosElement = driver.findElement(By.xpath("//*[contains(@value, '" + myText + "')]"));
+//            wait.until(ExpectedConditions.textToBePresentInElement(iosElement, myText));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@value, '" + myText + "')]")));
+        } else {
+//            WebElement androidElement = driver.findElement(By.xpath("//*[contains(@text, '" + myText + "')]"));
+//            wait.until(ExpectedConditions.textToBePresentInElement(androidElement, myText));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@text, '" + myText + "')]")));
         }
 
         //System.out.println("Stop Checking for Element");

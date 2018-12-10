@@ -23,7 +23,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -50,8 +50,8 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Simon", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Isei", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ariel", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
 
@@ -211,7 +211,7 @@ public class MissionaryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all", "jft"})
+    @Test(groups = {"all4", "all"})
     public void missionaryReferralNoContactInfo() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);

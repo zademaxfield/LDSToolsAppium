@@ -127,18 +127,18 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersOnPage("OrganizationsMenu", "Bishopric", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            driver.rotate(ScreenOrientation.LANDSCAPE);
-            myBasePage.compareWebData(myList, androidList, true);
-
-            driver.rotate(ScreenOrientation.PORTRAIT);
+//            driver.rotate(ScreenOrientation.LANDSCAPE);
+//            myBasePage.compareWebData(myList, androidList, true);
+//
+//            driver.rotate(ScreenOrientation.PORTRAIT);
 
 
         } else {
             Thread.sleep(2000);
             bishopricData();
-            driver.rotate(ScreenOrientation.LANDSCAPE);
-            bishopricData();
-            driver.rotate(ScreenOrientation.PORTRAIT);
+//            driver.rotate(ScreenOrientation.LANDSCAPE);
+//            bishopricData();
+//            driver.rotate(ScreenOrientation.PORTRAIT);
 
         }
 
@@ -276,20 +276,20 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Elders Quorum", "EldersQuorumMembers", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            driver.rotate(ScreenOrientation.LANDSCAPE);
-            myBasePage.compareWebData(myList, androidList, true);
-
-            driver.rotate(ScreenOrientation.PORTRAIT);
+//            driver.rotate(ScreenOrientation.LANDSCAPE);
+//            myBasePage.compareWebData(myList, androidList, true);
+//
+//            driver.rotate(ScreenOrientation.PORTRAIT);
 
         } else {
             myOrg.eldersQuorumPresidency.click();
             Thread.sleep(2000);
             eldersQuorumData();
 
-            driver.rotate(ScreenOrientation.LANDSCAPE);
-            eldersQuorumData();
-
-            driver.rotate(ScreenOrientation.PORTRAIT);
+//            driver.rotate(ScreenOrientation.LANDSCAPE);
+//            eldersQuorumData();
+//
+//            driver.rotate(ScreenOrientation.PORTRAIT);
 
             myBasePage.backAltButton.click();
 
@@ -359,20 +359,20 @@ public class OrganizationsScreenTest extends BaseDriver {
             myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Relief Society", "ReliefSocietyMembers", false);
             myBasePage.compareWebData(myList, androidList, true);
 
-            driver.rotate(ScreenOrientation.LANDSCAPE);
-            myBasePage.compareWebData(myList, androidList, true);
-
-            driver.rotate(ScreenOrientation.PORTRAIT);
+//            driver.rotate(ScreenOrientation.LANDSCAPE);
+//            myBasePage.compareWebData(myList, androidList, true);
+//
+//            driver.rotate(ScreenOrientation.PORTRAIT);
 
 
         } else {
             myOrg.reliefSocietyPresidency.click();
             reliefSocietyData();
 
-            driver.rotate(ScreenOrientation.LANDSCAPE);
-            reliefSocietyData();
-
-            driver.rotate(ScreenOrientation.PORTRAIT);
+//            driver.rotate(ScreenOrientation.LANDSCAPE);
+//            reliefSocietyData();
+//
+//            driver.rotate(ScreenOrientation.PORTRAIT);
 
 
             myBasePage.backAltButton.click();

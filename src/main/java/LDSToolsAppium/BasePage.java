@@ -412,6 +412,8 @@ public class BasePage {
         Thread.sleep(2000);
 
     }
+
+
     public void scrollUpIOS() throws Exception {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         HashMap<String, String> scrollObject = new HashMap<String, String>();

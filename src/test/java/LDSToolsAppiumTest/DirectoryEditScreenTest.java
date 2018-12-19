@@ -5,6 +5,7 @@ import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.DirectoryEditScreen;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,7 +18,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(groups = {"smoke4", "smoke", "all2", "all"})
+    @Test(groups = {"smoke4", "smoke", "all2", "all", "jft"})
     public void editCurrentUser() throws Exception {
         String pageSource;
 
@@ -45,6 +46,10 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myEditDirectory.directoryEditPersonalPhone.sendKeys("1(801)240-0104");
         myEditDirectory.directoryEditHouseholdPhone.sendKeys("(801) 867-5309");
         myEditDirectory.directoryEditPersonalEmail.sendKeys("personal@gmail.com");
+        if (getRunningOS().equals("ios")) {
+            driver.findElement(By.name("Return")).click();
+        }
+
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("home@gmail.com");
 
         savingMemberInfo();
@@ -107,7 +112,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test(groups = {"smoke3", "smoke", "all3", "all"})
     public void editCurrentUserCancel() throws Exception {
         String pageSource;
 

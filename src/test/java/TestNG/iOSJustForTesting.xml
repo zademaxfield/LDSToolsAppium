@@ -9,7 +9,8 @@
         <!--<parameter name="testDevice" value="iPhone XS" />-->
         <!--<parameter name="testDevice" value="REAL-ZiphoneX" />-->
         <!--<parameter name="testDevice" value="REAL-Ziphone8plus" />-->
-        <parameter name="testDevice" value="REAL-Z6plus" />
+        <!--<parameter name="testDevice" value="REAL-Z6plus" />-->
+        <parameter name="testDevice" value="REAL-Ziphone7" />
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -20,7 +21,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
         </classes>
     </test> <!-- Default test -->
 </suite> <!-- Default suite -->

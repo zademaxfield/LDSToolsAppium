@@ -236,6 +236,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
         myMenu.selectMenu(myMenu.missionary);
         myMissionary.sendReferralButton.click();
+        Thread.sleep(2000);
 
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Please update your individual email or phone number in LDS Tools before sending a referral", pageSource, "Contains"));

@@ -163,7 +163,8 @@ public class TemplesScreen extends BasePage {
             myMenu.selectMenu(myMenu.settings);
 
             //Scroll down and Reset Temple Preferences
-            myMenu.scrollToText("Temple Recommend Status");
+            myMenu.scrollToTextRecyclerView("Temple Recommend Status");
+//            myMenu.scrollToText("Temple Recommend Status");
             mySettings.resetAllTempelPreferences.click();
             Thread.sleep(2000);
 

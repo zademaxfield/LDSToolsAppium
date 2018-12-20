@@ -23,7 +23,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

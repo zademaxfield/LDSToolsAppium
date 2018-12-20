@@ -72,7 +72,14 @@ public class LoginPageTest extends BaseDriver {
         Assert.assertTrue(myPageSource.contains("I don't know my username"));
         Assert.assertTrue(myPageSource.contains("I don't know my password"));
 
-        myLoginPage.doneButton.click();
+        if (myBasePage.getOS().equals("ios")) {
+            myLoginPage.doneButton.click();
+        } else {
+            driver.navigate().back();
+        }
+
+
+
 
         myLoginPage.privacyNotice.click();
 //        Thread.sleep(9000);
@@ -80,12 +87,16 @@ public class LoginPageTest extends BaseDriver {
         myPageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myPageSource.contains("Privacy Notice"));
         Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
-        Assert.assertTrue(myPageSource.contains("In this Notice"));
+//        Assert.assertTrue(myPageSource.contains("In this Notice"));
 
-        myLoginPage.doneButton.click();
+        if (myBasePage.getOS().equals("ios")) {
+            myLoginPage.doneButton.click();
+        } else {
+            driver.navigate().back();
+        }
 
         myLoginPage.termsOfUse.click();
-//        Thread.sleep(9000);
+        Thread.sleep(3000);
         myBasePage.waitForText("Terms of Use");
         myPageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myPageSource.contains("Terms of Use"));
@@ -93,7 +104,11 @@ public class LoginPageTest extends BaseDriver {
         Assert.assertTrue(myPageSource.contains("By using this site"));
 
 
-        myLoginPage.doneButton.click();
+        if (myBasePage.getOS().equals("ios")) {
+            myLoginPage.doneButton.click();
+        } else {
+            driver.navigate().back();
+        }
 
     }
 

@@ -24,7 +24,7 @@ public class PinScreenTest extends BaseDriver {
         pinRepeatTestData();
     }
 
-    @Test (groups = {"all1", "all", "jft"})
+    @Test (groups = {"all1", "all"})
     public void pinRepeatTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
@@ -79,12 +79,16 @@ public class PinScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all"})
+    @Test (groups = {"all3", "all", "jft"})
     public void pinSequentialTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
         myHelper.loginUAT("LDSTools2", "toolstester");
 //        myHelper.loginUAT("LDSTools5", "toolstester");
+
+        if (!getRunningOS().equals("ios")) {
+            myHelper.checkForAlertsBeforePin();
+        }
 
 
         if (myPinScreen.pinAlertDialogOK.isDisplayed()) {
@@ -107,9 +111,12 @@ public class PinScreenTest extends BaseDriver {
         myHelper.dismissWhatsNewPage();
 
         if (!getRunningOS().equals("ios")) {
+
+
             if (myPinScreen.pinAlertDialogOK.isDisplayed()) {
                 myPinScreen.pinAlertDialogOK.click();
             }
+
         }
 
 

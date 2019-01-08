@@ -33,7 +33,7 @@ public class TemplesScreenTest extends BaseDriver {
 
 
         myWeb.MyTemplePageLogIn("https://lcr-uat.lds.org", "LDSTools21", "password1");
-        Thread.sleep(4000);
+        Thread.sleep(8000);
         //Check the Temple Name
         if (pageSource.contains(myWeb.TempleGetName())){
             Assert.assertTrue(true);
@@ -54,7 +54,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "smoke", "smoke3", "all", "all1"})
+    @Test (groups= { "smoke", "smoke3", "all", "all1", "jft"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -85,6 +85,7 @@ public class TemplesScreenTest extends BaseDriver {
         //Verify Bishopric
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
+        System.out.println(pageSource);
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishop,", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishopric First Counselor", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
@@ -162,7 +163,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all4", "jft"})
+    @Test (groups= { "all", "all4"})
     public void templeRecommendReminderGoItThanks() throws Exception {
         String pageSource;
 

@@ -327,6 +327,15 @@ public class BasePage {
 
     }
 
+    public void scrollDownToTextIOS(String myText) throws Exception {
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        HashMap<String, String> scrollObject = new HashMap<String, String>();
+        scrollObject.put("predicateString", "value == '" + myText + "'");
+        js.executeScript("mobile: scroll", scrollObject);
+
+    }
+
     public void scrollDownTEST(int scrollDistance ) throws Exception {
         if (getOS().equals("ios")) {
             scrollDownIOS();

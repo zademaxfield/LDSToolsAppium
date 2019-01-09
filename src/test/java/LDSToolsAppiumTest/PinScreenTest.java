@@ -10,16 +10,22 @@ import org.testng.annotations.Test;
 
 public class PinScreenTest extends BaseDriver {
 
-    @Test (groups = {"all1", "all"})
+    @Test (groups = {"all1", "all", "jft"})
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
-        myHelper.loginUAT("LDSTools2", "toolstester");
         BasePage myBasePage = new BasePage(driver);
 
-        if (myPinScreen.pinAlertDialogOK.isDisplayed()) {
+        myHelper.loginUAT("LDSTools2", "toolstester");
+
+        myHelper.checkForAlertsBeforePin();
+
+        if (myBasePage.checkForElement(myPinScreen.pinAlertDialogOK)) {
             myPinScreen.pinAlertDialogOK.click();
         }
+//        if (myPinScreen.pinAlertDialogOK.isDisplayed()) {
+//            myPinScreen.pinAlertDialogOK.click();
+//        }
 
         pinRepeatTestData();
     }
@@ -28,8 +34,10 @@ public class PinScreenTest extends BaseDriver {
     public void pinRepeatTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
-        myHelper.loginUAT("LDSTools5", "toolstester");
         BasePage myBasePage = new BasePage(driver);
+
+        myHelper.loginUAT("LDSTools5", "toolstester");
+
 
         myHelper.checkForAlertsBeforePin();
         myHelper.dismissWhatsNewPage();
@@ -79,7 +87,7 @@ public class PinScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all", "jft"})
+    @Test (groups = {"all3", "all"})
     public void pinSequentialTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);

@@ -304,7 +304,7 @@ public class HelperMethods extends BasePage {
         MenuScreen myMenuScreen = new MenuScreen(driver);
 
         Thread.sleep(4000);
-        checkForAlertsBeforePin();
+//        checkForAlertsBeforePin();
 
 
         dismissWhatsNewPage();

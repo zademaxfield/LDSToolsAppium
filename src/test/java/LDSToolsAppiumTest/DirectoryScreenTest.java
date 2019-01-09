@@ -497,7 +497,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryIndividualHousehold() throws Exception {
         String pageSource;
         Dimension thumbNailDim;
@@ -541,7 +541,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
         String pageSource;
 
@@ -558,7 +558,10 @@ public class DirectoryScreenTest extends BaseDriver {
         //Search and click on Aaron Jane
         myDirectory.searchAndClick("Tools, LDS5");
 
-        if (myBasePage.getOS().equals("ios ")) {
+//        System.out.println(myBasePage.getOS());
+
+        if (myBasePage.getOS().equals("ios")) {
+            myBasePage.scrollToTextiOS("Membership Information");
             myDirectory.memebershipInformation.click();
         } else {
             myDirectory.tabMembership.click();

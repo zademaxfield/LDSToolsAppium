@@ -897,10 +897,17 @@ public class BasePage {
         backButtonCheck = checkForElement(backButton);
         System.out.println("Back Button Check - before loop: " + backButtonCheck);
 
-        while ((backButtonCheck) && (myCounter < 5 ))  {
+        while ((backButtonCheck) && (myCounter < 6 ))  {
             Thread.sleep(1000);
             System.out.println("Pressing Back Key " + myCounter);
+//            if (getOS().equals("ios")) {
+//                backButton.click();
+//            } else {
+//                driver.navigate().back();
+//            }
+
             backButton.click();
+
             Thread.sleep(2000);
             System.out.println("Back Key pressed");
             //System.out.println("Checking for back key....");

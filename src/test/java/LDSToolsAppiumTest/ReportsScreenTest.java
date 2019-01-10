@@ -127,7 +127,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedInReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lavea", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Joseph", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Luke", pageSource, "Equals"));
 
         Thread.sleep(1000);
@@ -144,9 +144,9 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedOutReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Upu", 2, rights, pageSource);
+        myBasePage.rightsCheck("Lokeni", 2, rights, pageSource);
         myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
-        myBasePage.rightsCheck("Letogo", 1, rights, pageSource);
+        myBasePage.rightsCheck("Saleaula", 1, rights, pageSource);
 
         Thread.sleep(1000);
         myBasePage.backButton.click();
@@ -237,8 +237,8 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.newMembersReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Manumalo, Siui", 2, rights, pageSource);
-        myBasePage.rightsCheck("32", 2, rights, pageSource);
+        myBasePage.rightsCheck("Skinner, Georgina", 2, rights, pageSource);
+        myBasePage.rightsCheck("10", 2, rights, pageSource);
         myBasePage.rightsCheck("April 15, 2018", 1, rights, pageSource);
 
         Thread.sleep(1000);
@@ -260,7 +260,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.unitStatisticsReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("18", 2, rights, pageSource);
+        myBasePage.rightsCheck("17", 2, rights, pageSource);
 
 
         Thread.sleep(1000);
@@ -294,7 +294,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.selectSort(myReports.expiredSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sitivi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sasaa", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
 
         myReports.selectSort(myReports.otherSort);

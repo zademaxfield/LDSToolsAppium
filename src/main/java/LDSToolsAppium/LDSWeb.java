@@ -211,8 +211,8 @@ public class LDSWeb {
 		openPageLogIn(url, userName, passWord);
 
 		setupMembers();
-//		setupAJcalling();
-//		setupCallings();
+		setupAJcalling();
+		setupCallings();
 		setupDistricts();
 		addCompanionHousehold();
 		addJaneAaronToClass();

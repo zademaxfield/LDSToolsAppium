@@ -254,6 +254,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         if (!getRunningOS().equals("ios")) {
             myBasePage.scrollToTextRecyclerView("Unit Statistics");
+        } else {
+            myBasePage.scrollToTextiOS("Unit Statistics");
         }
 
 

@@ -541,7 +541,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
         String pageSource;
 
@@ -567,6 +567,52 @@ public class DirectoryScreenTest extends BaseDriver {
             myDirectory.tabMembership.click();
         }
 
+
+
+    }
+
+    @Test(groups = {"all3", "all"})
+    public void directoryLatLongNoGPS() throws Exception {
+        String pageSource;
+        Dimension thumbNailDim;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myDirectory.searchAndClick("Aaron, Jane");
+
+        Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
+//        Assert.assertFalse(myBasePage.checkForElement(myDirectory.gpsAdjustHouseholdLocation));
+
+    }
+
+
+    @Test(groups = {"all3", "all", "jft"})
+    public void directoryLatLongCheckLocation() throws Exception {
+        String pageSource;
+        Dimension thumbNailDim;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myDirectory.searchAndClick("Ami, Samu");
+
+        Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsAdjustHouseholdLocation));
+//        Assert.assertFalse(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
 
 
     }

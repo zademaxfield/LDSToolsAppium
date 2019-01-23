@@ -571,7 +571,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all2", "all", "jft"}) 
     public void directoryLatLongNoGPS() throws Exception {
         String pageSource;
         Dimension thumbNailDim;
@@ -589,12 +589,51 @@ public class DirectoryScreenTest extends BaseDriver {
         myDirectory.searchAndClick("Aaron, Jane");
 
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
-//        Assert.assertFalse(myBasePage.checkForElement(myDirectory.gpsAdjustHouseholdLocation));
+
+        //Get all info
+        pageSource = myDirectory.getDirectoryUserData();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Adjust Household Location", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("We're unable to geo-locate your household. Use your GPS to locate it.", pageSource, "Contains"));
+
+    }
+
+    @Test(groups = {"all3", "all"})
+    public void directoryLatLongNoGPSNoCalling() throws Exception {
+        String pageSource;
+        Dimension thumbNailDim;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools5", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myDirectory.searchAndClick("Aaron, Jane");
+
+        //Get all info
+        pageSource = myDirectory.getDirectoryUserData();
+
+        if (myBasePage.getOS().contains("ios")) {
+            Assert.assertTrue(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
+        } else {
+            Assert.assertFalse(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
+        }
+
+        Assert.assertFalse(myBasePage.checkNoCaseList("Adjust Household Location", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("We're unable to geo-locate your household. Use your GPS to locate it.", pageSource, "Contains"));
+
+
 
     }
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryLatLongCheckLocation() throws Exception {
         String pageSource;
         Dimension thumbNailDim;

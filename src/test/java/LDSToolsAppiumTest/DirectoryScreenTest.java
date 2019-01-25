@@ -571,7 +571,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all2", "all", "jft"}) 
+    @Test(groups = {"all2", "all", "jft"})
     public void directoryLatLongNoGPS() throws Exception {
         String pageSource;
         Dimension thumbNailDim;
@@ -593,10 +593,12 @@ public class DirectoryScreenTest extends BaseDriver {
         //Get all info
         pageSource = myDirectory.getDirectoryUserData();
 
+//        System.out.println(pageSource);
+
         Assert.assertTrue(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Adjust Household Location", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("We're unable to geo-locate your household. Use your GPS to locate it.", pageSource, "Contains"));
-
+        Assert.assertTrue(myBasePage.checkNoCaseList("We're unable to geo-locate your household.", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Use your GPS to locate it.", pageSource, "Contains"));
     }
 
     @Test(groups = {"all3", "all"})

@@ -541,7 +541,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
         String pageSource;
 
@@ -571,7 +571,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "jft"})
     public void directoryLatLongNoGPS() throws Exception {
         String pageSource;
         Dimension thumbNailDim;

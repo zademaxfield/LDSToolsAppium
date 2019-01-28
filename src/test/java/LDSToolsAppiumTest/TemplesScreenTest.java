@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void templeSimple() throws Exception {
         String pageSource;
         List<String> myList = new ArrayList<String>();
@@ -28,13 +28,14 @@ public class TemplesScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.temples);
-
+        Thread.sleep(4000);
         pageSource = myBasePage.getSourceOfPage();
 
 
         myWeb.MyTemplePageLogIn("https://lcr-uat.lds.org", "LDSTools21", "password1");
         Thread.sleep(8000);
         //Check the Temple Name
+        System.out.println(pageSource);
         if (pageSource.contains(myWeb.TempleGetName())){
             Assert.assertTrue(true);
         } else {
@@ -127,7 +128,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all3", "jft"})
+    @Test (groups= { "all", "all3"})
     public void templeRecommendReminderRemindLater() throws Exception {
         String pageSource;
 

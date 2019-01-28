@@ -541,7 +541,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
         String pageSource;
 
@@ -571,7 +571,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void directoryLatLongNoGPS() throws Exception {
         String pageSource;
         Dimension thumbNailDim;
@@ -586,7 +586,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myHelper.loginUAT("LDSTools2", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Aaron, Jane");
+        myDirectory.searchAndClick("Tools, LDS28");
 
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
 

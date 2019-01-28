@@ -897,7 +897,7 @@ public class BasePage {
         backButtonCheck = checkForElement(backButton);
         System.out.println("Back Button Check - before loop: " + backButtonCheck);
 
-        while ((backButtonCheck) && (myCounter < 6 ))  {
+        while ((backButtonCheck) && (myCounter < 9 ))  {
             Thread.sleep(1000);
             System.out.println("Pressing Back Key " + myCounter);
 //            if (getOS().equals("ios")) {
@@ -949,6 +949,10 @@ public class BasePage {
                     break;
                 default :
                     backButtonCheck = true;
+            }
+
+            if (checkForElement(searchCollapse)) {
+                backButtonCheck = false;
             }
 
             Thread.sleep(2000);

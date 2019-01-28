@@ -21,7 +21,7 @@ public class LoginPageTest extends BaseDriver {
 //    }
 
 
-    @Test (groups = {"all2", "all", "login"})
+    @Test (groups = {"all2", "all", "login", "jft"})
     public void validateLoginPage() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -39,11 +39,12 @@ public class LoginPageTest extends BaseDriver {
             Assert.assertTrue(myPageSource.contains("Sign In"));
         } else {
             Assert.assertTrue(myPageSource.contains("LDS Tools"));
-            Assert.assertTrue(myPageSource.contains("Sign in to your LDS Account"));
+//            Assert.assertTrue(myPageSource.contains("Sign in to your LDS Account"));
 
             //Have to do a case insensitive test for Android 5.0 doesn't handle case correctly
             Assert.assertTrue(myPageSource.toLowerCase().contains("sign in"));
-            Assert.assertTrue(myPageSource.toLowerCase().contains("forgot username or password"));
+//            Assert.assertTrue(myPageSource.toLowerCase().contains("forgot username or password"));
+            Assert.assertTrue(myPageSource.toLowerCase().contains("having trouble signing in"));
             Assert.assertTrue(myPageSource.toLowerCase().contains("create an lds account"));
         }
 
@@ -52,7 +53,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "jft"})
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3"})
     public void validateLoginPageLinks() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);

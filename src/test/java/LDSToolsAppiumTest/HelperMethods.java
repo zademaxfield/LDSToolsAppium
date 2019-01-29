@@ -306,11 +306,15 @@ public class HelperMethods extends BasePage {
         Thread.sleep(4000);
 //        checkForAlertsBeforePin();
 
+        //Android needs this.
+        if (!getOS().equals("ios")) {
+            checkForAlertsAfterPin();
+        }
 
         dismissWhatsNewPage();
 
-        //Android needs this.
-        //checkForAlertsAfterPin();
+
+
 
         Thread.sleep(2000);
         myPin.pinAlertDialogNotNow.click();

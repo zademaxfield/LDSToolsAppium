@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2"})
     public void templeSimple() throws Exception {
         String pageSource;
         List<String> myList = new ArrayList<String>();
@@ -92,7 +92,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all2"})
+    @Test (groups= { "all", "all2", "jft"})
     public void templeRecommendReminder5Days() throws Exception {
         String pageSource;
 

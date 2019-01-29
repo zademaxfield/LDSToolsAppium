@@ -24,13 +24,14 @@ public class WhatsNewScreenTest extends BaseDriver {
             myHelper.loginUAT("LDSTools22", "password1");
             myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
 
+            Thread.sleep(2000);
 
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Version 3.5", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Update", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Quarterly Report", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Record", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Temple Recommend Information", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Service Missionaries", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Household Locations", pageSource, "Contains"));
 
             myWhatsNew.whatsNewDone.click();
         }

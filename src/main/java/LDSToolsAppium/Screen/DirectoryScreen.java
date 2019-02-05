@@ -21,6 +21,8 @@ import java.util.*;
 
 import org.testng.Assert;
 
+import javax.lang.model.element.ModuleElement;
+
 
 public class DirectoryScreen extends BasePage {
 
@@ -162,13 +164,45 @@ public class DirectoryScreen extends BasePage {
 
     //Adjust Household Location
     @AndroidFindBy(id = "adjustHouseholdLocationButton")
-    @iOSFindBy(accessibility = "Adjust Household Location")
+//    @iOSFindBy(accessibility = "Adjust Household Location")
+    @iOSXCUITFindBy(accessibility = "ADJUST HOUSEHOLD LOCATION")
     public MobileElement gpsAdjustHouseholdLocation;
+
+
+    //LAT LONG MAP Stuff
+    //Permission Title Allow
+    @AndroidFindBy(id = "md_buttonDefaultPositive")
+    @iOSFindBy(accessibility = "Allow")
+    public MobileElement gpsAllowOK;
+
+
+    //iOS Buttons Use my location
+    @iOSFindBy(accessibility = "Use my location")
+    public MobileElement gpsUseMyLocation;
+
+
+    //iOS Buttons Use my location
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name=\"Adjust Household Location\"]")
+    public MobileElement gpsAdjustLocationButton;
+
+
+    //GPS Search
+    @AndroidFindBy(id = "filterEditText")
+    @iOSFindBy(accessibility = "Search")
+    public MobileElement gpsSearch;
+
+
+    //GPS Use this Location
+    @AndroidFindBy(id = "useLocationFab")
+    @iOSFindBy(accessibility = "Use This Location")
+    public MobileElement gpsUseThisLocation;
+
 
 
     //Errors
     //Household Location Missing
-    @AndroidFindBy(id = "latLngTextView")
+//    @AndroidFindBy(id = "latLngTextView")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Household Location Missing']")
     @iOSFindBy(accessibility = "Household Location Missing")
     public MobileElement gpsHouseholdLocationMissing;
 

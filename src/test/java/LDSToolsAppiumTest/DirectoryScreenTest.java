@@ -4,9 +4,39 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.openqa.selenium.Dimension;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import okhttp3.OkHttpClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Request;
+import okhttp3.Response;
+
+
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.auth.AuthScope;
+
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DirectoryScreenTest extends BaseDriver {
@@ -76,7 +106,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }*/
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
     public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -586,7 +616,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myHelper.loginUAT("LDSTools2", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS28");
+        myDirectory.searchAndClick("Tools, LDS29");
 
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
 
@@ -596,9 +626,9 @@ public class DirectoryScreenTest extends BaseDriver {
 //        System.out.println(pageSource);
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adjust Household Location", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("We're unable to geo-locate your household.", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Use your GPS to locate it.", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Adjust Household Location", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("We're unable to geo-locate your household.", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Use your GPS to locate it.", pageSource, "Contains"));
     }
 
     @Test(groups = {"all3", "all"})
@@ -657,6 +687,140 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
     }
+
+
+    @Test(groups = {"all4", "all", "jft"})
+    public void directoryLatLongNoGPSChooseLocation() throws Exception {
+        String pageSource;
+        Dimension thumbNailDim;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        resetLatLong();
+
+        myDirectory.searchAndClick("Tools, LDS24");
+
+//        System.out.println(myBasePage.getSourceOfPage());
+        Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
+
+        myDirectory.gpsAdjustHouseholdLocation.click();
+        myDirectory.gpsAllowOK.click();
+
+        Thread.sleep(2000);
+
+        if (getRunningOS().equals("ios")) {
+            myDirectory.gpsAdjustLocationButton.click();
+        } else {
+            myBasePage.allowButton.click();
+        }
+
+        myDirectory.gpsSearch.setValue("3732 Bryce Canyon Dr, Riverton, Utah");
+
+        Thread.sleep(10000);
+
+        myBasePage.clickByText("3732 Bryce Canyon Dr, Riverton, Utah, USA");
+        Thread.sleep(5000);
+
+
+        
+        if (getRunningOS().equals("ios")) {
+            myBasePage.iosClickUseThisLocation();
+        } else {
+            myDirectory.gpsUseThisLocation.click();
+        }
+
+        Thread.sleep(2000);
+
+        pageSource = myBasePage.getSourceOfPage();
+
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("40.5152", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("-111.9800", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
+
+
+
+
+
+
+    }
+
+    public void resetLatLong() {
+        OkHttpClient client = new OkHttpClient();
+
+        try {
+            MediaType mediaType = MediaType.parse("application/json");
+            RequestBody body = RequestBody.create(mediaType, "{\n  \"householdLocations\": [\n    {\n      \"headOfHouseIndividualId\": 8999999998895108,\n      \"unitNbr\": 56030\n    }\n  ]\n}\n");
+            Request request = new Request.Builder()
+                    .url("https://ws-int.ldschurch.org/MLU-Services/v1.9/Services/rest/member/householdLocation?headOfHouseMemberId=%228999999998895108%22&latitude=null&longitude=null&locallyVerifiedCode=null&unitNbr=56030")
+                    .post(body)
+                    .addHeader("authorization", "Basic ZGlyZWN0b3J5OnNlZWtBbmRGaW5k")
+                    .addHeader("content-type", "application/json")
+                    .addHeader("cache-control", "no-cache")
+                    .addHeader("postman-token", "b82ed705-20f4-ef63-9575-b3b091ffc0bb")
+                    .build();
+
+            Response response = client.newCall(request).execute();
+            System.out.println("Response Code: " + response.code());
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+//        CredentialsProvider provider = new BasicCredentialsProvider();
+//        UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("directory", "seekAndFind");
+//        provider.setCredentials(AuthScope.ANY, credentials);
+//        HttpClient httpClient = HttpClientBuilder.create().setDefaultCredentialsProvider(provider).build();
+//        HttpPost request = new HttpPost("https://ws-int.ldschurch.org/MLU-Services/v1.9/Services/rest/member/householdLocation");
+//
+//        System.out.println("Start Post");
+//
+//        try {
+//            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+//            nameValuePairs.add(new BasicNameValuePair("headOfHouseMemberId","8999999998895108"));
+////            nameValuePairs.add(new BasicNameValuePair("latitude",null));
+////            nameValuePairs.add(new BasicNameValuePair("longitude",null));
+////            nameValuePairs.add(new BasicNameValuePair("locallyVerifiedCode",null));
+//            nameValuePairs.add(new BasicNameValuePair("unitNbr","56030"));
+//            request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+////            StringEntity params =new StringEntity("details={\"headOfHouseMemberId\":\"8999999998895108\",\"latitude\":\"\",\"longitude\":\"\",\"locallyVerifiedCode\":\"\",\"unitNbr\":\"7u56030\"} ");
+////            request.addHeader("content-type", "application/x-www-form-urlencoded");
+////            request.setEntity(params);
+//            HttpResponse response = httpClient.execute(request);
+//
+//            BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+//            String line = "";
+//            while ((line = rd.readLine()) != null) {
+//                System.out.println(line);
+//            }
+//
+//        }catch (IOException e) {
+//            e.printStackTrace();
+//
+//        }
+//
+//
+//        System.out.println("End Post");
+
+
+
+    }
+
+
 
 
 

@@ -4,10 +4,7 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.message.BasicNameValuePair;
+
 import org.openqa.selenium.Dimension;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -18,25 +15,8 @@ import okhttp3.RequestBody;
 import okhttp3.Request;
 import okhttp3.Response;
 
-
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.client.CredentialsProvider;
-import org.apache.http.impl.client.BasicCredentialsProvider;
-import org.apache.http.auth.UsernamePasswordCredentials;
-import org.apache.http.auth.AuthScope;
-
 import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class DirectoryScreenTest extends BaseDriver {
@@ -46,65 +26,6 @@ public class DirectoryScreenTest extends BaseDriver {
     //3 = Special?
     //4 = No Calling
 
-
-/*    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
-    public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
-        String pageSource;
-        int rights = Integer.parseInt(rightsString);
-
-        // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-
-        //Login and enter in PIN
-        myHelper.loginUAT(userName, passWord);
-        myHelper.enterPin("1", "1", "3", "3");
-
-        //Search and click on Aaron Jane
-        myDirectory.searchAndClick("Aaron, Jane");
-
-        //Get all info
-        pageSource = myDirectory.getDirectoryUserData();
-
-        //General Information
-        myBasePage.rightsCheck("Fagamalo", 4, rights, pageSource);
-        myBasePage.rightsCheck("555-555-5555", 4, rights, pageSource);
-        myBasePage.rightsCheck("555-555-1234", 4, rights, pageSource);
-        myBasePage.rightsCheck("HOUSEHOLD", 4, rights, pageSource);
-        myBasePage.rightsCheck("no-reply@ldschurch.org", 4, rights, pageSource);
-
-        //Membership Information
-        myBasePage.rightsCheck("MEMBERSHIP INFORMATION", 2, rights, pageSource);
-        myBasePage.rightsCheck("AFPMisc, Member2", 2, rights, pageSource);
-        myBasePage.rightsCheck("FULL NAME", 2, rights, pageSource);
-
-        //Callings and Classes - New in 3.0.0
-        myBasePage.rightsCheck("Relief Society Pianist", 4, rights, pageSource);
-        myBasePage.rightsCheck("Organization - Music", 4, rights, pageSource);
-        myBasePage.rightsCheck("Class Assignments", 2, rights, pageSource);
-        myBasePage.rightsCheck("Gospel Doctrine", 2, rights, pageSource);
-        myBasePage.rightsCheck("Relief Society", 4, rights, pageSource);
-        myBasePage.rightsCheck("Sustained", 2, rights, pageSource);
-        myBasePage.rightsCheck("Set Apart", 2, rights, pageSource);
-
-        //Birth Date
-        myBasePage.rightsCheck("November 11, 1960", 2, rights, pageSource);
-        myBasePage.rightsCheck("Birth Date", 2, rights, pageSource);
-        myBasePage.rightsCheck("57", 2, rights, pageSource);
-
-        //Ordinances
-        myBasePage.rightsCheck("Baptism", 1, rights, pageSource);
-        myBasePage.rightsCheck("Confirmation", 1, rights, pageSource);
-        myBasePage.rightsCheck("November 11, 1970", 1, rights, pageSource);
-        // myBasePage.rightsCheck("Ordinances", 2, rights, pageSource);
-        myBasePage.rightsCheck("Gender", 2, rights, pageSource);
-        myBasePage.rightsCheck("Female", 2, rights, pageSource);
-        myBasePage.rightsCheck("Birth Country", 1, rights, pageSource);
-        myBasePage.rightsCheck("United States", 1, rights, pageSource);
-
-    }*/
 
     @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
     public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
@@ -198,137 +119,6 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-/*    @Test(groups = {"all3", "all"})
-    public void directoryMemberInfoHousehold() throws Exception {
-        String pageSource;
-
-        // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-
-        //Login and enter in PIN
-        myHelper.loginUAT("LDSTools2", "toolstester");
-        myHelper.enterPin("1", "1", "3", "3");
-
-        if (myBasePage.getOS().contains("ios")) {
-            myDirectory.searchAndClickHousehold("Tools, LDS11 & LDS12");
-            myBasePage.clickByTextContains("LDS11");
-        } else {
-            myDirectory.searchAndClickHousehold("Tools, LDS11");
-        }
-
-        //Get all info
-        pageSource = myDirectory.getDirectoryUserData();
-
-        //General Information
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS11", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Priesthood Office", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Record Number", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("888-0028-7112", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Birth Date", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("January 1, 1980", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Baptism", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("May 5, 2005", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Confirmation", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("May 5, 2005", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ordained Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("October 10, 2013", pageSource, "Contains"));
-
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Spouse", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS12", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Spouse Birth Date", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("January 1, 1980", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Marriage Date", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("January 1, 2013", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Gender", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Male", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Birth Country", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("United States", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Class Assignments", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS22", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS23", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS14", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS10", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS13", pageSource, "Contains"));
-    }*/
-
-
-/*
-    @Test(groups = {"all3", "all"})
-    public void directoryMemberInfoIndividual() throws Exception {
-        String pageSource;
-
-        // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-
-        //Login and enter in PIN
-        myHelper.loginUAT("LDSTools2", "toolstester");
-        myHelper.enterPin("1", "1", "3", "3");
-
-        //Search and click on Aaron Jane
-        myDirectory.searchAndClick("Tools, LDS11");
-
-
-        //Get all info
-        pageSource = myDirectory.getDirectoryUserData();
-
-        //General Information
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS11", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Priesthood Office", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Record Number", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("888-0028-7112", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Birth Date", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("January 1, 1980", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Baptism", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("May 5, 2005", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Confirmation", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("May 5, 2005", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ordained Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("October 10, 2013", pageSource, "Contains"));
-
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Spouse", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS12", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Spouse Birth Date", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("January 1, 1980", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Marriage Date", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("January 1, 2013", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Gender", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Male", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Birth Country", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("United States", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Class Assignments", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS22", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS23", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS14", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS10", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS13", pageSource, "Contains"));
-    }
-*/
 
 
     @Test(groups = {"all3", "all"})
@@ -622,13 +412,8 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Get all info
         pageSource = myDirectory.getDirectoryUserData();
-
-//        System.out.println(pageSource);
-
         Assert.assertTrue(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Adjust Household Location", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("We're unable to geo-locate your household.", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Use your GPS to locate it.", pageSource, "Contains"));
+
     }
 
     @Test(groups = {"all3", "all"})
@@ -682,17 +467,18 @@ public class DirectoryScreenTest extends BaseDriver {
 
         myDirectory.searchAndClick("Ami, Samu");
 
-        Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsAdjustHouseholdLocation));
+        Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsAdjustHouseholdLocationLowerCase));
 //        Assert.assertFalse(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
 
 
     }
 
 
-    @Test(groups = {"all4", "all", "jft"})
-    public void directoryLatLongNoGPSChooseLocation() throws Exception {
+    @Test(dataProvider = "Members", groups = {"all4", "all", "jft"})
+    public void directoryLatLongNoGPSChooseLocation(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
-        Dimension thumbNailDim;
+        int rights = Integer.parseInt(rightsString);
+
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
@@ -700,67 +486,99 @@ public class DirectoryScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
+        // Reset the Lat Long
+        resetLatLong("8999999998895108", "56030");
+
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
 
-        resetLatLong();
+
 
         myDirectory.searchAndClick("Tools, LDS24");
 
-//        System.out.println(myBasePage.getSourceOfPage());
-        Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
+        if (rights <= 3) {
+            Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
 
-        myDirectory.gpsAdjustHouseholdLocation.click();
-        myDirectory.gpsAllowOK.click();
+            myDirectory.gpsAdjustHouseholdLocation.click();
+            myDirectory.gpsAllowOK.click();
 
-        Thread.sleep(2000);
+            Thread.sleep(2000);
 
-        if (getRunningOS().equals("ios")) {
-            myDirectory.gpsAdjustLocationButton.click();
+            if (getRunningOS().equals("ios")) {
+                myDirectory.gpsAdjustLocationButton.click();
+            } else {
+                myBasePage.allowButton.click();
+            }
+
+            myDirectory.gpsSearch.setValue("3732 Bryce Canyon Dr, Riverton, Utah");
+
+            Thread.sleep(10000);
+
+            myBasePage.clickByText("3732 Bryce Canyon Dr, Riverton, Utah, USA");
+            Thread.sleep(5000);
+
+
+
+            if (getRunningOS().equals("ios")) {
+                myBasePage.iosClickUseThisLocation();
+            } else {
+                myDirectory.gpsUseThisLocation.click();
+            }
+
+            Thread.sleep(2000);
+
+            pageSource = myBasePage.getSourceOfPage();
+
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("40.5152", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("-111.9800", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
+
+
+            //Log out - Log in check the location
+            myBasePage.backToDirectory();
+
+            myMenu.menuLogOut();
+            myHelper.loginUAT(userName, passWord);
+            myHelper.enterPin("1", "1", "3", "3");
+
+            myDirectory.searchAndClick("Tools, LDS24");
+
+            Thread.sleep(2000);
+
+            pageSource = myBasePage.getSourceOfPage();
+
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("40.5152", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("-111.9800", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
+
         } else {
-            myBasePage.allowButton.click();
+
+            pageSource = myBasePage.getSourceOfPage();
+            if (getRunningOS().equals("ios")) {
+                Assert.assertTrue(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Adjust Household Location", pageSource, "Contains"));
+            } else {
+                Assert.assertFalse(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Adjust Household Location", pageSource, "Contains"));
+            }
         }
-
-        myDirectory.gpsSearch.setValue("3732 Bryce Canyon Dr, Riverton, Utah");
-
-        Thread.sleep(10000);
-
-        myBasePage.clickByText("3732 Bryce Canyon Dr, Riverton, Utah, USA");
-        Thread.sleep(5000);
-
-
-        
-        if (getRunningOS().equals("ios")) {
-            myBasePage.iosClickUseThisLocation();
-        } else {
-            myDirectory.gpsUseThisLocation.click();
-        }
-
-        Thread.sleep(2000);
-
-        pageSource = myBasePage.getSourceOfPage();
-
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("40.5152", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("-111.9800", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Household Location Missing", pageSource, "Contains"));
-
-
 
 
 
 
     }
 
-    public void resetLatLong() {
+    public void resetLatLong(String headOfHouseId, String unitNumber) {
         OkHttpClient client = new OkHttpClient();
 
         try {
             MediaType mediaType = MediaType.parse("application/json");
-            RequestBody body = RequestBody.create(mediaType, "{\n  \"householdLocations\": [\n    {\n      \"headOfHouseIndividualId\": 8999999998895108,\n      \"unitNbr\": 56030\n    }\n  ]\n}\n");
+            RequestBody body = RequestBody.create(mediaType, "{\n  \"householdLocations\": [\n    {\n      \"headOfHouseIndividualId\": " + headOfHouseId +",\n      \"unitNbr\": " + unitNumber +"\n    }\n  ]\n}\n");
             Request request = new Request.Builder()
-                    .url("https://ws-int.ldschurch.org/MLU-Services/v1.9/Services/rest/member/householdLocation?headOfHouseMemberId=%228999999998895108%22&latitude=null&longitude=null&locallyVerifiedCode=null&unitNbr=56030")
+                    .url("https://ws-int.ldschurch.org/MLU-Services/v1.9/Services/rest/member/householdLocation?headOfHouseMemberId=%22" + headOfHouseId + "%22&latitude=null&longitude=null&locallyVerifiedCode=null&unitNbr=" + unitNumber)
                     .post(body)
                     .addHeader("authorization", "Basic ZGlyZWN0b3J5OnNlZWtBbmRGaW5k")
                     .addHeader("content-type", "application/json")
@@ -776,46 +594,6 @@ public class DirectoryScreenTest extends BaseDriver {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-
-
-//        CredentialsProvider provider = new BasicCredentialsProvider();
-//        UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("directory", "seekAndFind");
-//        provider.setCredentials(AuthScope.ANY, credentials);
-//        HttpClient httpClient = HttpClientBuilder.create().setDefaultCredentialsProvider(provider).build();
-//        HttpPost request = new HttpPost("https://ws-int.ldschurch.org/MLU-Services/v1.9/Services/rest/member/householdLocation");
-//
-//        System.out.println("Start Post");
-//
-//        try {
-//            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-//            nameValuePairs.add(new BasicNameValuePair("headOfHouseMemberId","8999999998895108"));
-////            nameValuePairs.add(new BasicNameValuePair("latitude",null));
-////            nameValuePairs.add(new BasicNameValuePair("longitude",null));
-////            nameValuePairs.add(new BasicNameValuePair("locallyVerifiedCode",null));
-//            nameValuePairs.add(new BasicNameValuePair("unitNbr","56030"));
-//            request.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-////            StringEntity params =new StringEntity("details={\"headOfHouseMemberId\":\"8999999998895108\",\"latitude\":\"\",\"longitude\":\"\",\"locallyVerifiedCode\":\"\",\"unitNbr\":\"7u56030\"} ");
-////            request.addHeader("content-type", "application/x-www-form-urlencoded");
-////            request.setEntity(params);
-//            HttpResponse response = httpClient.execute(request);
-//
-//            BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-//            String line = "";
-//            while ((line = rd.readLine()) != null) {
-//                System.out.println(line);
-//            }
-//
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//
-//        }
-//
-//
-//        System.out.println("End Post");
-
 
 
     }

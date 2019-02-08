@@ -168,6 +168,11 @@ public class DirectoryScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "ADJUST HOUSEHOLD LOCATION")
     public MobileElement gpsAdjustHouseholdLocation;
 
+    //Adjust Household Location Lowercase
+    @AndroidFindBy(id = "adjustHouseholdLocationButton")
+    @iOSXCUITFindBy(accessibility = "Adjust Household Location")
+    public MobileElement gpsAdjustHouseholdLocationLowerCase;
+
 
     //LAT LONG MAP Stuff
     //Permission Title Allow

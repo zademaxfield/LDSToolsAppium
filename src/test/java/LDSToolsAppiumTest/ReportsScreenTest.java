@@ -108,6 +108,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         myBasePage.backButton.click();
         myBasePage.backButton.click();
+        Thread.sleep(2000);
 
         pageSource = myBasePage.getSourceOfPage();
 

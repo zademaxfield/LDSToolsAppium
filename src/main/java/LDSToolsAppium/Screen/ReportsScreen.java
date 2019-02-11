@@ -158,6 +158,29 @@ public class ReportsScreen extends BasePage {
     @iOSFindBy(accessibility = "Other")
     public  MobileElement otherSort;
 
+
+    //*************************************************************************************
+    //********************* Action and Interview List *************************************
+    //*************************************************************************************
+
+
+    //Children Approaching Baptism Age
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Children Approaching Baptism Age']")
+    @iOSXCUITFindBy(accessibility = "Children Approaching Baptism Age")
+    public MobileElement childrenApproachingBaptismAgeReport;
+
+    //Unbaptized Members
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Unbaptized Members']")
+    @iOSXCUITFindBy(accessibility = "Unbaptized Members")
+    public MobileElement unbaptizedMembersReport;
+
+    //Overdue Aaronic Priesthood Ordinations
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Overdue Aaronic Priesthood Ordinations']")
+    @iOSXCUITFindBy(accessibility = "Overdue Aaronic Priesthood Ordinations")
+    public MobileElement overdueAaronicPriesthoodOrdinationsReport;
+
+
+
     //*************************************************************************************
     //********************* Missionary Progress Record ************************************
     //*************************************************************************************

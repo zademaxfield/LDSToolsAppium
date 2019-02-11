@@ -5,7 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.jsoup.Connection;
 import org.openqa.selenium.support.PageFactory;
@@ -28,7 +28,7 @@ public class TemplesScreen extends BasePage {
     // ****************** Temple Main Screen ******************
     // Days till expiration
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='android:id/input']")
-    @iOSFindBy(xpath ="//XCUIElementTypeTextField[@value='Days until expiration']")
+    @iOSXCUITFindBy(xpath ="//XCUIElementTypeTextField[@value='Days until expiration']")
     public MobileElement templeDaysExpiration;
 
     //Remind Me Later
@@ -49,14 +49,14 @@ public class TemplesScreen extends BasePage {
 
 
     //iOS Temple Selector
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, '▾')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, '▾')]")
     public MobileElement templePullDown;
 
 
 
     // Search
     @AndroidFindBy(id = "filterEditText")
-    @iOSFindBy(accessibility = "Search")
+    @iOSXCUITFindBy(accessibility = "Search")
     public MobileElement searchTemple;
 
 
@@ -73,17 +73,17 @@ public class TemplesScreen extends BasePage {
 
     //Temple Tab Mine
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='MINE']")
-    @iOSFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'My Temple')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'My Temple')]")
     public MobileElement mineTab;
 
     //Temple Tab Nearest
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='NEAREST']")
-    @iOSFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Nearest Temples')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Nearest Temples')]")
     public MobileElement nearestTab;
 
     //Temple Tab All
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='ALL']")
-    @iOSFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'All Temples')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'All Temples')]")
     public MobileElement allTab;
 
 

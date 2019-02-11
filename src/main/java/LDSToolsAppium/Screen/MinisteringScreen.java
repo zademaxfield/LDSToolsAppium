@@ -24,71 +24,71 @@ public class MinisteringScreen extends BasePage {
 
     //Ministering
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ministering']")
-    @iOSFindBy(accessibility = "Ministering")
+    @iOSXCUITFindBy(accessibility = "Ministering")
     public MobileElement ministeringReport;
 
     //Ministering Brothers
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ministering Brothers']")
-    @iOSFindBy(accessibility = "Ministering Brothers")
+    @iOSXCUITFindBy(accessibility = "Ministering Brothers")
     public MobileElement ministeringBrothersReport;
 
     //Ministering Sisters
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ministering Sisters']")
-    @iOSFindBy(accessibility = "Ministering Sisters")
+    @iOSXCUITFindBy(accessibility = "Ministering Sisters")
     public MobileElement ministeringSistersReport;
 
 
     // ****************** Elders Quorum ******************
     //Unassigned Households
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Unassigned Households']")
-    @iOSFindBy(accessibility = "Unassigned Households")
+    @iOSXCUITFindBy(accessibility = "Unassigned Households")
     public MobileElement unassignedHouseholds;
 
     //Assigned Households
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Assigned Households']")
-    @iOSFindBy(accessibility = "Assigned Households")
+    @iOSXCUITFindBy(accessibility = "Assigned Households")
     public MobileElement assignedHouseholds;
 
     //Households
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Households']")
-    @iOSFindBy(accessibility = "Households")
+    @iOSXCUITFindBy(accessibility = "Households")
     public MobileElement households;
 
     //Companionships Brothers
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Elders Quorum']/../following-sibling::android.widget.LinearLayout//android.widget.TextView[@text='Companionships']")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Elders Quorum']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeStaticText[@name='Companionships']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Elders Quorum']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeStaticText[@name='Companionships']")
     public MobileElement companionshipsBrothers;
 
     //Potential Ministering Brothers
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Potential Ministering Brothers']")
-    @iOSFindBy(accessibility = "Potential Ministering Brothers")
+    @iOSXCUITFindBy(accessibility = "Potential Ministering Brothers")
     public MobileElement potentialMinisteringBrothers;
 
     // ****************** Relief Society ******************
     //Unassigned Sisters
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Unassigned Sisters']")
-    @iOSFindBy(accessibility = "Unassigned Sisters")
+    @iOSXCUITFindBy(accessibility = "Unassigned Sisters")
     public MobileElement unassignedSisters;
 
     //Assigned Sisters
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Assigned Sisters']")
-    @iOSFindBy(accessibility = "Assigned Sisters")
+    @iOSXCUITFindBy(accessibility = "Assigned Sisters")
     public MobileElement assignedSisters;
 
 
     //Sisters
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Sisters']")
-    @iOSFindBy(accessibility = "Sisters")
+    @iOSXCUITFindBy(accessibility = "Sisters")
     public MobileElement sisters;
 
     //Companionships Relief Society
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Relief Society']/../following-sibling::android.widget.LinearLayout//android.widget.TextView[@text='Companionships']")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Relief Society']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeStaticText[@name='Companionships']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Relief Society']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeStaticText[@name='Companionships']")
     public MobileElement companionshipsSisters;
 
     //Potential Ministering Sisters
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Potential Ministering Sisters']")
-    @iOSFindBy(accessibility = "Potential Ministering Sisters")
+    @iOSXCUITFindBy(accessibility = "Potential Ministering Sisters")
     public MobileElement potentialMinisteringSisters;
 
 
@@ -96,17 +96,17 @@ public class MinisteringScreen extends BasePage {
     // ****************** Ministering Buttons ******************
     //Share Button
     @AndroidFindBy(id = "menu_share")
-    @iOSFindBy(accessibility = "Share")
+    @iOSXCUITFindBy(accessibility = "Share")
     public MobileElement share;
 
     //Map Button
     @AndroidFindBy(id = "menu_show_on_map")
-    @iOSFindBy(accessibility = "Map")
+    @iOSXCUITFindBy(accessibility = "Map")
     public MobileElement map;
 
     //Filters Button
     @AndroidFindBy(id = "menu_item_htvt_filter")
-    @iOSFindBy(accessibility = "Filters")
+    @iOSXCUITFindBy(accessibility = "Filters")
     public MobileElement filters;
 
 
@@ -130,23 +130,23 @@ public class MinisteringScreen extends BasePage {
     //Single Sisters
     //Ages 18 to 30
     @AndroidFindBy(id = "htvt_filter_single_sisters_eighteen_thirty_years_old")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Sisters']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='Ages 18 to 30']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Sisters']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='Ages 18 to 30']")
     public MobileElement singleSistersAges18to30;
 
     //Ages 31 and older
     @AndroidFindBy(id = "htvt_filter_single_sisters_thirty_and_over")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Sisters']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='Age 31 and older']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Sisters']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='Age 31 and older']")
     public MobileElement singleSistersAge31AndOver;
 
     //Single Brothers
     //Ages 18 to 30
     @AndroidFindBy(id = "htvt_filter_single_brothers_eighteen_thirty_years_old")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Brothers']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='Ages 18 to 30']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Brothers']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='Ages 18 to 30']")
     public MobileElement singleBrothersAges18to30;
 
     //Ages 31 and older
     @AndroidFindBy(id = "htvt_filter_single_brothers_thirty_and_over")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Brothers']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='31 and over']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Single Brothers']/../following-sibling::XCUIElementTypeCell//XCUIElementTypeSwitch[@name='31 and over']")
     public MobileElement singleBrothersAge31AndOver;
 
 

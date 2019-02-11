@@ -5,7 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -25,12 +25,12 @@ public class MissionaryScreen extends BasePage {
 
     //Send Referral Button
     @AndroidFindBy(id = "fab")
-    @iOSFindBy(accessibility = "Send Referral")
+    @iOSXCUITFindBy(accessibility = "Send Referral")
     public MobileElement sendReferralButton;
 
     //Cancel Referral
     @AndroidFindBy(accessibility = "Navigate up")
-    @iOSFindBy(accessibility = "Back")
+    @iOSXCUITFindBy(accessibility = "Back")
     public MobileElement cancelReferralButton;
 
 
@@ -38,62 +38,62 @@ public class MissionaryScreen extends BasePage {
     // ****************** Missionary Send Referral Screen ******************
     //Help Message
     @AndroidFindBy(id = "personalInformationExplanationTextView")
-    @iOSFindBy(accessibility = "Helps the missionaries know how to contact you to discuss your friend's needs.")
+    @iOSXCUITFindBy(accessibility = "Helps the missionaries know how to contact you to discuss your friend's needs.")
     public MobileElement referralHelpMessage;
 
     //Member Phone Number
     @AndroidFindBy(id = "personalPhoneTextView")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='PHONE']/following-sibling::XCUIElementTypeStaticText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='PHONE']/following-sibling::XCUIElementTypeStaticText")
     public MobileElement referralMemberPhoneNumber;
 
     //Member Email
     @AndroidFindBy(id = "personalEmailTextView")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='EMAIL']/following-sibling::XCUIElementTypeStaticText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='EMAIL']/following-sibling::XCUIElementTypeStaticText")
     public MobileElement referralMemberEmail;
 
     //Update Individual Information
     @AndroidFindBy(id = "addContactInformationNoInfoButton")
-    @iOSFindBy(accessibility = "Update Individual Information")
+    @iOSXCUITFindBy(accessibility = "Update Individual Information")
     public MobileElement referralUpdateIndividualInformation;
 
     //Referral Name
     @AndroidFindBy(id = "nameTextInputEditText")
-    @iOSFindBy(accessibility = "Name")
+    @iOSXCUITFindBy(accessibility = "Name")
     public MobileElement referralName;
 
     //Referral Phone
     @AndroidFindBy(id = "phoneTextInputEditText")
-    @iOSFindBy(accessibility = "Phone")
+    @iOSXCUITFindBy(accessibility = "Phone")
     public MobileElement referralPhone;
 
     //Referral Email
     @AndroidFindBy(id = "emailTextInputEditText")
-    @iOSFindBy(accessibility = "Email")
+    @iOSXCUITFindBy(accessibility = "Email")
     public MobileElement referralEmail;
 
 
     //Referral Locate on Map
     @AndroidFindBy(id = "locateOnMapTextView")
-    @iOSFindBy(accessibility = "Locate on Map")
+    @iOSXCUITFindBy(accessibility = "Locate on Map")
     public MobileElement referralLocateOnMap;
 
     //Referral Map Search
     @AndroidFindBy(id = "filterEditText")
-    @iOSFindBy(accessibility = "Search")
+    @iOSXCUITFindBy(accessibility = "Search")
     public MobileElement referralMapSearch;
 
     //Referral Add Preferred Language
     @AndroidFindBy(id = "languageTextView")
-    @iOSFindBy(accessibility = "Add Preferred Language")
+    @iOSXCUITFindBy(accessibility = "Add Preferred Language")
     public MobileElement referralAddPreferredLanguage;
 
     //Referral Add Message Button iOS only
-    @iOSFindBy(accessibility = "Add a Message")
+    @iOSXCUITFindBy(accessibility = "Add a Message")
     public MobileElement referralAddMessageButton;
 
     //Referral Cancel Message Button iOS only
-    //@iOSFindBy(accessibility = "minus")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Message']/following-sibling::XCUIElementTypeImage[@name='minus']")
+    //@iOSXCUITFindBy(accessibility = "minus")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Message']/following-sibling::XCUIElementTypeImage[@name='minus']")
     public MobileElement referralCancelMessage;
 
 
@@ -101,12 +101,12 @@ public class MissionaryScreen extends BasePage {
 
     //Referral Message field
     @AndroidFindBy(id = "helpfulMessageEditText")
-    @iOSFindBy(accessibility = "Message")
+    @iOSXCUITFindBy(accessibility = "Message")
     public MobileElement referralMessageField;
 
     //Referral Send Referral Button
     @AndroidFindBy(id = "sendReferralButton")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Send Referral']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Send Referral']")
     public MobileElement referralSendReferral;
 
 

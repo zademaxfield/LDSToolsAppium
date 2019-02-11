@@ -8,7 +8,7 @@ import io.appium.java_client.MobileElement;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 
@@ -38,32 +38,32 @@ public class DirectoryScreen extends BasePage {
     // ****************** Directory Dropdown ******************
     //Directory Dropdown
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Directory']")
-    @iOSFindBy(accessibility = "Directory")
+    @iOSXCUITFindBy(accessibility = "Directory")
     public  MobileElement directoryDropdown;
 
     //Unit Selected
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@resouce-id='ab_toolbar']/android.widget.TextView[2]")
-    @iOSFindBy(xpath = "//*[@name='LDS_Tools.DirectoryView']//XCUIElementTypeStaticText[2]")
+    @iOSXCUITFindBy(xpath = "//*[@name='LDS_Tools.DirectoryView']//XCUIElementTypeStaticText[2]")
     public MobileElement unitSelected;
 
 
     // ****************** Search ******************
     //Search Directory
     @AndroidFindBy(id = "filterEditText")
-    @iOSFindBy(accessibility = "Search")
+    @iOSXCUITFindBy(accessibility = "Search")
     public  MobileElement searchBar;
 
     //Clear Search
     @AndroidFindBy(id = "clearTextImageButton")
-    @iOSFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement searchCancel;
 
 
     // ****************** Directory Users ******************
     // Picture
     @AndroidFindBy(id = "individual_thumbnail_image_view")
-//    @iOSFindBy(xpath = "//XCUIElementTypeImage[@name='missing'])")
-    @iOSFindBy(accessibility = "missing")
+//    @iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[@name='missing'])")
+    @iOSXCUITFindBy(accessibility = "missing")
     public MobileElement thumbNail;
 
 
@@ -71,24 +71,24 @@ public class DirectoryScreen extends BasePage {
     //Sort Button
     @AndroidFindBy(id = "filterMenuImageButton")
     //@AndroidFindBy(xpath = "//*[@resource-id='filterMenuImageButton']")
-    @iOSFindBy(accessibility = "Sort Options")
+    @iOSXCUITFindBy(accessibility = "Sort Options")
     public  MobileElement directorySort;
 
     //Households
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Households']")
-    @iOSFindBy(xpath = "//*[contains(@name, \"Household\")]")
+    @iOSXCUITFindBy(xpath = "//*[contains(@name, \"Household\")]")
     public  MobileElement sortHousehold;
 
     //Individuals
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Individuals']")
-    @iOSFindBy(xpath = "//*[contains(@name, \"Individual\")]")
+    @iOSXCUITFindBy(xpath = "//*[contains(@name, \"Individual\")]")
     public  MobileElement sortIndividual;
 
 
     // ****************** Edit ******************
     //Edit Button
     @AndroidFindBy(id = "edit_fab")
-    @iOSFindBy(accessibility = "Edit")
+    @iOSXCUITFindBy(accessibility = "Edit")
     public  MobileElement directoryEdit;
 
 
@@ -96,23 +96,23 @@ public class DirectoryScreen extends BasePage {
     // ********** iOS Expand Buttons **********
     //Household Members
     //@iOSXCUITFindBy(iOSNsPredicate = "name == 'HOUSEHOLD MEMBERSOpen Drawer' AND type == 'XCUIElementTypeButton'")
-    @iOSFindBy(accessibility = "View Household")
+    @iOSXCUITFindBy(accessibility = "View Household")
     public  MobileElement householdMembers;
 
     //Home Teaching Visiting Teaching
     //@iOSXCUITFindBy(iOSNsPredicate = "name == 'HOME AND VISITING TEACHINGOpen Drawer' AND type == 'XCUIElementTypeButton'")
     //@iOSXCUITFindBy(iOSNsPredicate = "name == 'MINISTERINGOpen Drawer' AND type == 'XCUIElementTypeButton'")
-    @iOSFindBy(accessibility = "Ministering")
+    @iOSXCUITFindBy(accessibility = "Ministering")
     public  MobileElement htvt;
 
     //Callings and Classes
     //@iOSXCUITFindBy(iOSNsPredicate = "name == 'CALLINGS AND CLASSESOpen Drawer' AND type == 'XCUIElementTypeButton'")
-    @iOSFindBy(accessibility = "Callings and Classes")
+    @iOSXCUITFindBy(accessibility = "Callings and Classes")
     public  MobileElement callingsAndClasses;
 
     //Membership Information
     //@iOSXCUITFindBy(iOSNsPredicate = "name == 'MEMBERSHIP INFORMATIONOpen Drawer' AND type == 'XCUIElementTypeButton'")
-    @iOSFindBy(accessibility = "Membership Information")
+    @iOSXCUITFindBy(accessibility = "Membership Information")
     public  MobileElement memebershipInformation;
 
 
@@ -144,27 +144,27 @@ public class DirectoryScreen extends BasePage {
 
     // ********** LAT LONG - GPS **********
     //Household Location
-    @iOSFindBy(accessibility = "Household Location")
+    @iOSXCUITFindBy(accessibility = "Household Location")
     public MobileElement gpsHouseholdLocation;
 
     //Household Location Lat Long
     @AndroidFindBy(id = "latLngTextView")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name = 'Household Location']/following-sibling::XCUIElementTypeStaticText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name = 'Household Location']/following-sibling::XCUIElementTypeStaticText")
     public MobileElement gpsHouseholdLocationLatLong;
 
     //Household Location Pin
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Google Map\"]/android.view.View")
-    @iOSFindBy(xpath = "//XCUIElementTypeMap/following-sibling::XCUIElementTypeOther/XCUIElementTypeOther[1]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeMap/following-sibling::XCUIElementTypeOther/XCUIElementTypeOther[1]")
     public MobileElement gpsHouseholdLocationPin;
 
     //Household Location Legal - Google
     @AndroidFindBy(xpath ="//android.view.View[@content-desc=\"Google Map\"]/android.widget.RelativeLayout/android.widget.ImageView")
-    @iOSFindBy(accessibility = "Legal")
+    @iOSXCUITFindBy(accessibility = "Legal")
     public MobileElement gpsHouseholdLocationLegal;
 
     //Adjust Household Location
     @AndroidFindBy(id = "adjustHouseholdLocationButton")
-//    @iOSFindBy(accessibility = "Adjust Household Location")
+//    @iOSXCUITFindBy(accessibility = "Adjust Household Location")
     @iOSXCUITFindBy(accessibility = "ADJUST HOUSEHOLD LOCATION")
     public MobileElement gpsAdjustHouseholdLocation;
 
@@ -177,12 +177,12 @@ public class DirectoryScreen extends BasePage {
     //LAT LONG MAP Stuff
     //Permission Title Allow
     @AndroidFindBy(id = "md_buttonDefaultPositive")
-    @iOSFindBy(accessibility = "Allow")
+    @iOSXCUITFindBy(accessibility = "Allow")
     public MobileElement gpsAllowOK;
 
 
     //iOS Buttons Use my location
-    @iOSFindBy(accessibility = "Use my location")
+    @iOSXCUITFindBy(accessibility = "Use my location")
     public MobileElement gpsUseMyLocation;
 
 
@@ -193,13 +193,13 @@ public class DirectoryScreen extends BasePage {
 
     //GPS Search
     @AndroidFindBy(id = "filterEditText")
-    @iOSFindBy(accessibility = "Search")
+    @iOSXCUITFindBy(accessibility = "Search")
     public MobileElement gpsSearch;
 
 
     //GPS Use this Location
     @AndroidFindBy(id = "useLocationFab")
-    @iOSFindBy(accessibility = "Use This Location")
+    @iOSXCUITFindBy(accessibility = "Use This Location")
     public MobileElement gpsUseThisLocation;
 
 
@@ -208,12 +208,12 @@ public class DirectoryScreen extends BasePage {
     //Household Location Missing
 //    @AndroidFindBy(id = "latLngTextView")
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Household Location Missing']")
-    @iOSFindBy(accessibility = "Household Location Missing")
+    @iOSXCUITFindBy(accessibility = "Household Location Missing")
     public MobileElement gpsHouseholdLocationMissing;
 
     //Household Location Missing icon
     @AndroidFindBy(id = "warningImageView")
-    @iOSFindBy(accessibility = "icn_error")
+    @iOSXCUITFindBy(accessibility = "icn_error")
     public MobileElement gpsHouseholdLocationErrorIcon;
 
 
@@ -221,36 +221,36 @@ public class DirectoryScreen extends BasePage {
     //GPS Adjust Location Screen
     //Adjust Location Title House Name
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc='Navigate up']/following-sibling::android.widget.TextView[2]")
-    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='LDS_Tools.PinAdjustMapView']/XCUIElementTypeStaticText/XCUIElementTypeStaticText[1]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='LDS_Tools.PinAdjustMapView']/XCUIElementTypeStaticText/XCUIElementTypeStaticText[1]")
     public MobileElement gpsAdjustLocationTitleHouseName;
 
     //Adjust Location Title
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc='Navigate up']/following-sibling::android.widget.TextView[1]")
-    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='LDS_Tools.PinAdjustMapView']/XCUIElementTypeStaticText/XCUIElementTypeStaticText[2]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar[@name='LDS_Tools.PinAdjustMapView']/XCUIElementTypeStaticText/XCUIElementTypeStaticText[2]")
     public MobileElement gpsAdjustLocationTitle;
 
     //Adjust Location Current Location Icon
     @AndroidFindBy(id = "myLocationFab")
-    @iOSFindBy(accessibility = "icon current location")
+    @iOSXCUITFindBy(accessibility = "icon current location")
     public MobileElement gpsAdjustLocationCurrentLocation;
 
     //Adjust Location Current Location Info
-    @iOSFindBy(accessibility = "icon info")
+    @iOSXCUITFindBy(accessibility = "icon info")
     public MobileElement gpsAdjustLocationIconLocation;
 
     //Adjust Location Search
     @AndroidFindBy(id = "filterEditText")
-    @iOSFindBy(accessibility = "Empty list")
+    @iOSXCUITFindBy(accessibility = "Empty list")
     public MobileElement gpsAdjustLocationSearch;
 
     //Adjust Location Map Pin
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Google Map\"]/android.view.View")
-    @iOSFindBy(accessibility = "Map pin")
+    @iOSXCUITFindBy(accessibility = "Map pin")
     public MobileElement gpsAdjustLocationMapPin;
 
     //Adjust Location Legal
     @AndroidFindBy(xpath ="//android.view.View[@content-desc=\"Google Map\"]/android.widget.RelativeLayout/android.widget.ImageView")
-    @iOSFindBy(accessibility = "Legal")
+    @iOSXCUITFindBy(accessibility = "Legal")
     public MobileElement gpsAdjustLocationLegal;
 
 

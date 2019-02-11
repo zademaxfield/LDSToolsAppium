@@ -5,7 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -28,37 +28,37 @@ public class DirectoryEditScreen extends BasePage {
     // ****************** Phone and Email ******************
     //Personal Edit Phone
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"individualPhoneEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_phone\")]")
-    @iOSFindBy(xpath = "//XCUIElementTypeCell[2]/XCUIElementTypeTextField")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[2]/XCUIElementTypeTextField")
     public MobileElement directoryEditPersonalPhone;
 
     //Household Edit Phone
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"householdPhoneEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_phone\")]")
-    @iOSFindBy(xpath = "//XCUIElementTypeCell[4]/XCUIElementTypeTextField")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[4]/XCUIElementTypeTextField")
     public  MobileElement directoryEditHouseholdPhone;
 
     //Personal Edit Email
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"individualEmailEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_email\")]")
-    @iOSFindBy(xpath = "//XCUIElementTypeCell[3]/XCUIElementTypeTextField")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[3]/XCUIElementTypeTextField")
     public  MobileElement directoryEditPersonalEmail;
 
     //Personal Edit Email
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"householdEmailEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_email\")]")
-    @iOSFindBy(xpath = "//XCUIElementTypeCell[5]/XCUIElementTypeTextField")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[5]/XCUIElementTypeTextField")
     public  MobileElement directoryEditHouseholdEmail;
 
 
     // ****************** Visibility ******************
     //Household Visibility Limit
     @AndroidFindBy(xpath = "//android.widget.LinearLayout[@resource-id=\"householdVisibilityEditView\"]//android.widget.TextView[@resource-id=\"visibility_text\"]")
-    @iOSFindBy(accessibility = "HOUSEHOLD VISIBILITY LIMIT Stake Visibility")
+    @iOSXCUITFindBy(accessibility = "HOUSEHOLD VISIBILITY LIMIT Stake Visibility")
     public  MobileElement directoryHouseholdVisibilityLimitAll;
 
     //Personal Visibility Limit
-    @iOSFindBy(accessibility = "PERSONAL Stake Visibility")
+    @iOSXCUITFindBy(accessibility = "PERSONAL Stake Visibility")
     public  MobileElement directoryPersonalVisibilityLimit;
 
     //Household Visibility Limit
-    @iOSFindBy(accessibility = "HOUSEHOLD Stake Visibility")
+    @iOSXCUITFindBy(accessibility = "HOUSEHOLD Stake Visibility")
     public  MobileElement directoryHouseholdVisibilityLimit;
 
 
@@ -84,7 +84,7 @@ public class DirectoryEditScreen extends BasePage {
 
     //Cancel Button
     @AndroidFindBy(xpath = "//android.widget.ImageButton")
-    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
     public MobileElement cancelButton;
 
     //Save Failed
@@ -102,36 +102,36 @@ public class DirectoryEditScreen extends BasePage {
     // **************************** Privacy Settings ****************************
     //Household Visibility Limit
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Household Visibility Limit']/following-sibling::android.widget.TextView")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'HOUSEHOLD VISIBILITY')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'HOUSEHOLD VISIBILITY')]")
     public MobileElement householdVisibilityLimit;
 
     //Personal Visibility Limit
-    @iOSFindBy(xpath = "//XCUIElementTypeCell/XCUIElementTypeStaticText[contains(@name, 'PERSONAL')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell/XCUIElementTypeStaticText[contains(@name, 'PERSONAL')]")
     public MobileElement personalVisibility;
 
     //Household Visibility
-    @iOSFindBy(xpath = "//XCUIElementTypeCell[8]/XCUIElementTypeStaticText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[8]/XCUIElementTypeStaticText")
     public MobileElement householdVisibility;
 
     // **************************** Limit visibility for household  ****************************
     //Stake Visibility
     @AndroidFindBy(id = "radio_visibility_stake")
-    @iOSFindBy(xpath = "//XCUIElementTypeButton[@name='Stake Visibility']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='Stake Visibility']")
     public MobileElement stakeVisibility;
 
     //Ward Visibility
     @AndroidFindBy(id = "radio_visibility_ward")
-    @iOSFindBy(accessibility = "Ward Visibility")
+    @iOSXCUITFindBy(accessibility = "Ward Visibility")
     public MobileElement wardVisibility;
 
     //Private—Leadership Only
     @AndroidFindBy(id = "radio_visibility_leader")
-    @iOSFindBy(accessibility = "Private—Leadership Only")
+    @iOSXCUITFindBy(accessibility = "Private—Leadership Only")
     public MobileElement privateLeadershipOnly;
 
     //Cancel - Neverming
     @AndroidFindBy(id = "md_buttonDefaultNegative")
-    @iOSFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(accessibility = "Cancel")
     public MobileElement visiblityCancel;
 
     //Set Limit
@@ -140,53 +140,53 @@ public class DirectoryEditScreen extends BasePage {
 
     // **************************** Personal Visibility ****************************
     //Set All to
-    @iOSFindBy(accessibility = "Set All to")
+    @iOSXCUITFindBy(accessibility = "Set All to")
     public MobileElement setAllToPersonal;
 
     //Image
     @AndroidFindBy(id = "visibilityEditIndPhoto")
-    @iOSFindBy(accessibility = "Image")
+    @iOSXCUITFindBy(accessibility = "Image")
     public MobileElement imagePersonal;
 
     //Phone
     @AndroidFindBy(id = "visibilityEditIndPhone")
-    @iOSFindBy(accessibility = "Phone")
+    @iOSXCUITFindBy(accessibility = "Phone")
     public MobileElement phonePersonal;
 
     //Email
     @AndroidFindBy(id = "visibilityEditIndEmail")
-    @iOSFindBy(accessibility = "Email")
+    @iOSXCUITFindBy(accessibility = "Email")
     public MobileElement emailPersonal;
 
     // **************************** Household Visibility ****************************
     // SCROLL DOWN IN ANDROID to show on map
     //Set All to
-    @iOSFindBy(accessibility = "Set All to")
+    @iOSXCUITFindBy(accessibility = "Set All to")
     public MobileElement setAllToHousehold;
 
     //Image
     @AndroidFindBy(id = "visibilityEditHouseholdPhoto")
-    @iOSFindBy(accessibility = "Image")
+    @iOSXCUITFindBy(accessibility = "Image")
     public MobileElement imageHousehold;
 
     //Phone
     @AndroidFindBy(id = "visibilityEditHouseholdPhone")
-    @iOSFindBy(accessibility = "Phone")
+    @iOSXCUITFindBy(accessibility = "Phone")
     public MobileElement phoneHousehold;
 
     //Email
     @AndroidFindBy(id = "visibilityEditHouseholdEmail")
-    @iOSFindBy(accessibility = "Email")
+    @iOSXCUITFindBy(accessibility = "Email")
     public MobileElement emailHousehold;
 
     //Address
     @AndroidFindBy(id = "visibilityEditHouseholdAddress")
-    @iOSFindBy(accessibility = "Address")
+    @iOSXCUITFindBy(accessibility = "Address")
     public MobileElement physicalAddress;
 
     //Show on Map
     @AndroidFindBy(id = "visibilityEditHouseholdMap")
-    @iOSFindBy(accessibility = "Show on Map")
+    @iOSXCUITFindBy(accessibility = "Show on Map")
     public MobileElement showOnMap;
 
 
@@ -196,23 +196,23 @@ public class DirectoryEditScreen extends BasePage {
     // **************************** POP UP Visibility ****************************
     //Stake Visibility
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stake Visibility']")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Stake Visibility')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Stake Visibility')]")
     public MobileElement popUpStake;
 
     //Ward Visibility
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ward Visibilit']")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Ward Visibility')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Ward Visibility')]")
     public MobileElement popUpWard;
 
     //Private—Leadership Only Visibility
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Private—Leadership Only']")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Private—Leadership Only')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Private—Leadership Only')]")
     public MobileElement popUpPrivatLeadershipOnly;
 
 
 
 
-    @iOSFindBy(accessibility = "Done")
+    @iOSXCUITFindBy(accessibility = "Done")
     public MobileElement doneButton;
 
 

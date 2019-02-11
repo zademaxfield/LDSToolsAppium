@@ -5,7 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -29,7 +29,7 @@ public class SettingsScreen extends BasePage {
     // ********* Calendar *********
     //Months to Show
     @AndroidFindBy(xpath = "//*[contains(@text, 'Months to Show')]")
-    @iOSFindBy(xpath = "//*[contains(@value, 'Calendar Months')]")
+    @iOSXCUITFindBy(xpath = "//*[contains(@value, 'Calendar Months')]")
     public  MobileElement monthsToShow;
 
     // ********* Caller ID *********
@@ -38,7 +38,7 @@ public class SettingsScreen extends BasePage {
     public  MobileElement enableSimpleCallerID;
 
     //iOS Reset Caller ID Database
-    @iOSFindBy(accessibility = "Reset Caller ID Database")
+    @iOSXCUITFindBy(accessibility = "Reset Caller ID Database")
     public MobileElement resetCallerIDDatabase;
 
     //Ignore Personal Contacts
@@ -101,17 +101,17 @@ public class SettingsScreen extends BasePage {
 
     //About
     @AndroidFindBy(xpath = "//*[@text='About']")
-    @iOSFindBy(accessibility = "About")
+    @iOSXCUITFindBy(accessibility = "About")
     public  MobileElement about;
 
     //Rights and Use Information
     @AndroidFindBy(xpath = "//*[@text='Rights and Use Information']")
-    @iOSFindBy(accessibility = "Rights and Use Information")
+    @iOSXCUITFindBy(accessibility = "Rights and Use Information")
     public  MobileElement rightsAndUseInformation;
 
     //Privacy Policy
     @AndroidFindBy(xpath = "//*[@text='Privacy Policy']")
-    @iOSFindBy(accessibility = "Privacy Policy")
+    @iOSXCUITFindBy(accessibility = "Privacy Policy")
     public  MobileElement privacyPolicy;
 
     //Acknowledgements
@@ -121,13 +121,13 @@ public class SettingsScreen extends BasePage {
 
     //About Logo
     @AndroidFindBy(id = "aboutLogo")
-    @iOSFindBy(xpath = "//XCUIElementTypeOther[3]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[3]")
     public  MobileElement aboutLogo;
 
     // ********* Development *********
     //Ignore Maintenance Mode
     @AndroidFindBy(xpath = "//*[contains(@text, 'Ignore Maintenance Mode')]")
-    @iOSFindBy(accessibility = "Ignore Maintenance Flag")
+    @iOSXCUITFindBy(accessibility = "Ignore Maintenance Flag")
     public  MobileElement ignoreMaintenanceMode;
 
     //HTTP Log Level
@@ -161,7 +161,7 @@ public class SettingsScreen extends BasePage {
 
     //Convert to Fake Data
     @AndroidFindBy(xpath = "//*[contains(@text, 'Convert to Fake Data')]")
-    @iOSFindBy(accessibility = "Fake Data")
+    @iOSXCUITFindBy(accessibility = "Fake Data")
     public  MobileElement convertToFakeData;
 
     //Sync Fake Data
@@ -190,23 +190,23 @@ public class SettingsScreen extends BasePage {
 
     //Network Environment
     @AndroidFindBy(xpath = "//*[contains(@text, 'Network Environment')]")
-    @iOSFindBy(xpath = "//*[contains(@name, 'Environment')]")
+    @iOSXCUITFindBy(xpath = "//*[contains(@name, 'Environment')]")
     public  MobileElement networkEnvironment;
 
         //Production
         @AndroidFindBy(xpath = "//*[contains(@text, 'Production')]")
-        @iOSFindBy(accessibility = "Prod")
+        @iOSXCUITFindBy(accessibility = "Prod")
         public  MobileElement production;
 
         //UAT
         @AndroidFindBy(xpath = "//*[contains(@text, 'UAT')]")
-        @iOSFindBy(xpath = "//*[contains(@value, 'UAT')]")
-        //@iOSFindBy(accessibility = "UAT")
+        @iOSXCUITFindBy(xpath = "//*[contains(@value, 'UAT')]")
+        //@iOSXCUITFindBy(accessibility = "UAT")
         public  MobileElement UAT;
 
         //Proxy
         @AndroidFindBy(xpath = "//*[contains(@text, 'Proxy')]")
-        @iOSFindBy(accessibility = "Proxy")
+        @iOSXCUITFindBy(accessibility = "Proxy")
         public  MobileElement proxy;
 
     //Select Proxy
@@ -215,30 +215,30 @@ public class SettingsScreen extends BasePage {
 
     //px_i
     @AndroidFindBy(xpath = "//*[contains(@text, 'px_i')]")
-    @iOSFindBy(accessibility = "Id")
+    @iOSXCUITFindBy(accessibility = "Id")
     public  MobileElement proxyId;
 
     //px_u
     @AndroidFindBy(xpath = "//*[contains(@text, 'px_u')]")
-    @iOSFindBy(accessibility = "Units")
+    @iOSXCUITFindBy(accessibility = "Units")
     public  MobileElement proxyUnits;
 
     //px_p
     @AndroidFindBy(xpath = "//*[contains(@text, 'px_p')]")
-    @iOSFindBy(accessibility = "Positions")
+    @iOSXCUITFindBy(accessibility = "Positions")
     public  MobileElement proxyPositions;
 
 
         //Proxy Edit Field
         @AndroidFindBy(id = "android:id/edit")
-        @iOSFindBy(xpath = "//XCUIElementTypeTextField")
+        @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
         public MobileElement proxyEditField;
 
 
 
         //Done ios OK android
         @AndroidFindBy(id = "android:id/button1")
-        @iOSFindBy(accessibility = "Done")
+        @iOSXCUITFindBy(accessibility = "Done")
         public MobileElement proxyDone;
 
 
@@ -264,17 +264,17 @@ public class SettingsScreen extends BasePage {
     // ********* Development - Temple *********
     //Reset All Temple Preferences
     @AndroidFindBy(xpath = "//*[contains(@text, 'Reset All Temple Preferences')]")
-    @iOSFindBy(accessibility = "Reset Temple Databases")
+    @iOSXCUITFindBy(accessibility = "Reset Temple Databases")
     public  MobileElement resetAllTempelPreferences;
 
     //Override temple recommend expiration
     @AndroidFindBy(xpath = "//*[contains(@text, 'Override temple recommend expiration')]")
-    @iOSFindBy(accessibility = "Set Temple Recommend Expiration")
+    @iOSXCUITFindBy(accessibility = "Set Temple Recommend Expiration")
     public  MobileElement overrideTempleRecommendExpiration;
 
     //Temple Recommend Status
     @AndroidFindBy(xpath = "//*[contains(@text, 'Temple Recommend Status')]")
-    @iOSFindBy(accessibility = "Set Temple Recommend Status")
+    @iOSXCUITFindBy(accessibility = "Set Temple Recommend Status")
     public  MobileElement templeRecommendStatus;
 
         //UNKNOWN
@@ -283,30 +283,30 @@ public class SettingsScreen extends BasePage {
 
         //ACTIVE
         @AndroidFindBy(xpath = "//*[contains(@text, 'ACTIVE')]")
-        @iOSFindBy(accessibility = "Active/Expired")
+        @iOSXCUITFindBy(accessibility = "Active/Expired")
         public  MobileElement active;
 
         //LOST_OR_STOLEN
         @AndroidFindBy(xpath = "//*[contains(@text, 'LOST_OR_STOLEN')]")
-        @iOSFindBy(accessibility = "Lost or Stolen")
+        @iOSXCUITFindBy(accessibility = "Lost or Stolen")
         public  MobileElement lostOrStolen;
 
         //CANCELED
         @AndroidFindBy(xpath = "//*[contains(@text, 'CANCELED')]")
-        @iOSFindBy(accessibility = "Canceled")
+        @iOSXCUITFindBy(accessibility = "Canceled")
         public  MobileElement canceled;
 
         //EXPIRED
         @AndroidFindBy(xpath = "//*[contains(@text, 'EXPIRED')]")
-        @iOSFindBy(accessibility = "Expired")
+        @iOSXCUITFindBy(accessibility = "Expired")
         public  MobileElement expired;
 
         //Nonexpiring
-        @iOSFindBy(accessibility = "Nonexpiring")
+        @iOSXCUITFindBy(accessibility = "Nonexpiring")
         public  MobileElement nonExpiring;
 
         //Ignore
-        @iOSFindBy(accessibility = "Ignore")
+        @iOSXCUITFindBy(accessibility = "Ignore")
         public  MobileElement ignore;
 
 
@@ -346,12 +346,12 @@ public class SettingsScreen extends BasePage {
 
     //Temple Recommend Reminder
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Remind me']")
-    @iOSFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, \"Temple Recommend Reminder\")]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, \"Temple Recommend Reminder\")]")
     public MobileElement templeRecommendReminder;
 
 
     //Cancel
     @AndroidFindBy(id = "button2")
-    @iOSFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement dialogCancel;
 }

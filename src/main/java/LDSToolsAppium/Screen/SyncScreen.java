@@ -6,7 +6,7 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
@@ -27,16 +27,16 @@ public class SyncScreen extends BasePage {
     // ****************** Sync Main Screen ******************
     //Sync Button
     @AndroidFindBy(accessibility = "Sync")
-    @iOSFindBy(accessibility = "Sync")
+    @iOSXCUITFindBy(accessibility = "Sync")
     public  MobileElement syncButton;
 
     //Update Button
     @AndroidFindBy(accessibility = "Update")
-    @iOSFindBy(accessibility = "Update")
+    @iOSXCUITFindBy(accessibility = "Update")
     public  MobileElement updateButton;
 
     //Sync Now Button
-    @iOSFindBy(accessibility = "Sync Now")
+    @iOSXCUITFindBy(accessibility = "Sync Now")
     public  MobileElement syncNowButton;
 
 

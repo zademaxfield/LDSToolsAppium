@@ -5,7 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.apache.tools.ant.types.resources.Last;
 import org.openqa.selenium.support.PageFactory;
@@ -28,67 +28,67 @@ public class ReportsScreen extends BasePage {
 
     //Action and Interview List
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Action and Interview List']")
-    @iOSFindBy(accessibility = "Action and Interview List")
+    @iOSXCUITFindBy(accessibility = "Action and Interview List")
     public MobileElement actionAndInterviewListReport;
 
     //Birthday List
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Birthday List']")
-    @iOSFindBy(accessibility = "Birthday List")
+    @iOSXCUITFindBy(accessibility = "Birthday List")
     public MobileElement birthdayListtReport;
 
     //Home Teaching
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Home Teaching']")
-    @iOSFindBy(accessibility = "Home Teaching")
+    @iOSXCUITFindBy(accessibility = "Home Teaching")
     public MobileElement homeTeachingReport;
 
     //Members Moved In
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Members Moved In']")
-    @iOSFindBy(accessibility = "Members Moved In")
+    @iOSXCUITFindBy(accessibility = "Members Moved In")
     public MobileElement membersMovedInReport;
 
     //Members Moved Out
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Members Moved Out']")
-    @iOSFindBy(accessibility = "Members Moved Out")
+    @iOSXCUITFindBy(accessibility = "Members Moved Out")
     public MobileElement membersMovedOutReport;
 
     //Members with Callings
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Members with Callings']")
-    @iOSFindBy(accessibility = "Members with Callings")
+    @iOSXCUITFindBy(accessibility = "Members with Callings")
     public MobileElement membersWithCallingsReport;
 
     //Members without Callings
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Members without Callings']")
-    @iOSFindBy(accessibility = "Members without Callings")
+    @iOSXCUITFindBy(accessibility = "Members without Callings")
     public MobileElement membersWithOutCallingsReport;
 
     //Missionary Progress Record
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Missionary Progress Record']")
-    @iOSFindBy(accessibility = "Missionary Progress Record")
+    @iOSXCUITFindBy(accessibility = "Missionary Progress Record")
     public MobileElement missionaryProgressRecordReport;
 
     //New Members
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='New Members']")
-    @iOSFindBy(accessibility = "New Members")
+    @iOSXCUITFindBy(accessibility = "New Members")
     public MobileElement newMembersReport;
 
     //Temple Recommend Status
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Temple Recommend Status']")
-    @iOSFindBy(accessibility = "Temple Recommend Status")
+    @iOSXCUITFindBy(accessibility = "Temple Recommend Status")
     public MobileElement templeRecommendStatusReport;
 
     //Unit Statistics
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Unit Statistics']")
-    @iOSFindBy(accessibility = "Unit Statistics")
+    @iOSXCUITFindBy(accessibility = "Unit Statistics")
     public MobileElement unitStatisticsReport;
 
     //Quarterly Report
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Quarterly Report']")
-    @iOSFindBy(accessibility = "Quarterly Report")
+    @iOSXCUITFindBy(accessibility = "Quarterly Report")
     public MobileElement quarterlyReport;
 
     //Visiting Teaching
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Visiting Teaching']")
-    @iOSFindBy(accessibility = "Visiting Teaching")
+    @iOSXCUITFindBy(accessibility = "Visiting Teaching")
     public MobileElement visitingTeachingsReport;
 
 
@@ -96,66 +96,66 @@ public class ReportsScreen extends BasePage {
 
 
     //Sort
-    @iOSFindBy(accessibility = "Sort")
+    @iOSXCUITFindBy(accessibility = "Sort")
     public MobileElement sortReport;
 
     //Cancel
-    @iOSFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(accessibility = "Cancel")
     public MobileElement cancelSort;
 
     //Name
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"name\")]")
-    @iOSFindBy(accessibility = "Name")
+    @iOSXCUITFindBy(accessibility = "Name")
     public  MobileElement nameSort;
 
     //Organization
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"organization\")]")
-    @iOSFindBy(accessibility = "Organization")
+    @iOSXCUITFindBy(accessibility = "Organization")
     public  MobileElement organizationSort;
 
     //Duration
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"duration\")]")
-    @iOSFindBy(accessibility = "Duration")
+    @iOSXCUITFindBy(accessibility = "Duration")
     public  MobileElement durationSort;
 
     //Not Set Apart
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"not set apart\")]")
-    @iOSFindBy(accessibility = "Not Set Apart")
+    @iOSXCUITFindBy(accessibility = "Not Set Apart")
     public  MobileElement notSetApartSort;
 
     //All
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"all\")]")
-    @iOSFindBy(accessibility = "All")
+    @iOSXCUITFindBy(accessibility = "All")
     public  MobileElement allSort;
 
     //Male
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"male\")]")
-    @iOSFindBy(accessibility = "Male")
+    @iOSXCUITFindBy(accessibility = "Male")
     public  MobileElement maleSort;
 
     //Female
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"female\")]")
-    @iOSFindBy(accessibility = "Female")
+    @iOSXCUITFindBy(accessibility = "Female")
     public  MobileElement femaleSort;
 
     //Active
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"active\")]")
-    @iOSFindBy(accessibility = "Active")
+    @iOSXCUITFindBy(accessibility = "Active")
     public  MobileElement activeSort;
 
     //Expiring
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"expiring\")]")
-    @iOSFindBy(accessibility = "Expiring")
+    @iOSXCUITFindBy(accessibility = "Expiring")
     public  MobileElement expiringSort;
 
     //Expired
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"expired\")]")
-    @iOSFindBy(accessibility = "Expired")
+    @iOSXCUITFindBy(accessibility = "Expired")
     public  MobileElement expiredSort;
 
     //Other
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"other\")]")
-    @iOSFindBy(accessibility = "Other")
+    @iOSXCUITFindBy(accessibility = "Other")
     public  MobileElement otherSort;
 
 
@@ -187,43 +187,43 @@ public class ReportsScreen extends BasePage {
 
     //Missionary Progress Filter
     @AndroidFindBy(accessibility = "Filters")
-    @iOSFindBy(accessibility = "Filter")
+    @iOSXCUITFindBy(accessibility = "Filter")
     public  MobileElement missionaryProgressFilter;
 
     //Missionary Progress Investigators with Baptism Date
     @AndroidFindBy(id = "mpFilterInvestigatorsWithBaptismDateSwitchCompat")
-    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label='Investigators with Baptism Date']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label='Investigators with Baptism Date']")
     public  MobileElement mpInvestigatorsWithBaptismDate;
 
     //Missionary Progress Progressing Investigators
     @AndroidFindBy(id = "mpFilterProgressingInvestigatorsSwitchCompat")
-    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Progressing Investigators\"]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Progressing Investigators\"]")
     public  MobileElement mpProgressingInvestigators;
 
     //Missionary Progress New Investigators
     @AndroidFindBy(id = "mpFilterNewInvestigatorsSwitchCompat")
-    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"New Investigators\"]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"New Investigators\"]")
     public  MobileElement mpNewInvestigators;
 
     //Missionary Progress Other Investigators
     @AndroidFindBy(id = "mpFilterOtherInvestigatorsSwitchCompat")
-    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Other Investigators\"]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Other Investigators\"]")
     public  MobileElement mpOtherInvestigators;
 
     //Missionary Progress Potential Investigators
     @AndroidFindBy(id = "mpFilterPotentialInvestigatorsSwitchCompat")
-    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Potential Investigators\"]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Potential Investigators\"]")
     public  MobileElement mpPotentialInvestigators;
 
     //Missionary Progress Recent Converts
     @AndroidFindBy(id = "mpFilterRecentConvertsSwitchCompat")
-    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Recent Converts\"]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Recent Converts\"]")
     public  MobileElement mpRecentConverts;
 
 
     //Missionary Progress Members Being Taught
     @AndroidFindBy(id = "mpFilterMembersBeingTaughtSwitchCompat")
-    @iOSFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Members Being Taught\"]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Members Being Taught\"]")
     public  MobileElement mpMembersBeingTaught;
 
     //Missionary Progress Save
@@ -237,57 +237,57 @@ public class ReportsScreen extends BasePage {
 
     //Missionary Progress Remove Filter Button
     @AndroidFindBy(id = "removeFiltersButton")
-    @iOSFindBy(accessibility = "Remove")
+    @iOSXCUITFindBy(accessibility = "Remove")
     public  MobileElement mpRemoveFilterButton;
 
     //Missionary Progress Received a Visit
     @AndroidFindBy(id = "mpFilterReceivedAVisitTextView")
-    @iOSFindBy(accessibility = "Received a Visit")
+    @iOSXCUITFindBy(accessibility = "Received a Visit")
     public  MobileElement mpReceivedAVisit;
 
     //Missionary Progress Attended Sacrament
     @AndroidFindBy(id = "mpFilterSacramentAttendanceTextView")
-    @iOSFindBy(accessibility = "Attended Sacrament")
+    @iOSXCUITFindBy(accessibility = "Attended Sacrament")
     public  MobileElement mpAttendedSacrament;
 
     //Missionary Progress Assigned
     @AndroidFindBy(id = "mpFilterFellowshippersTextView")
-    @iOSFindBy(accessibility = "Assigned")
+    @iOSXCUITFindBy(accessibility = "Assigned")
     public  MobileElement mpAssigned;
 
     //Missionary Progress Last Week
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Last Week\"]")
-    @iOSFindBy(accessibility = "Last Week")
+    @iOSXCUITFindBy(accessibility = "Last Week")
     public  MobileElement mpLastWeek;
 
     //Missionary Progress Last 2 Weeks
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Last 2 Weeks\"]")
-    @iOSFindBy(accessibility = "Last 2 Weeks")
+    @iOSXCUITFindBy(accessibility = "Last 2 Weeks")
     public  MobileElement mpLast2Weeks;
 
     //Missionary Progress Last 3 Weeks
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Last 3 Weeks\"]")
-    @iOSFindBy(accessibility = "Last 3 Weeks")
+    @iOSXCUITFindBy(accessibility = "Last 3 Weeks")
     public  MobileElement mpLast3Weeks;
 
     //Missionary Progress Last 4 Weeks
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Last 4 Weeks\"]")
-    @iOSFindBy(accessibility = "Last 4 Weeks")
+    @iOSXCUITFindBy(accessibility = "Last 4 Weeks")
     public  MobileElement mpLast4Weeks;
 
     //Missionary Progress Last 5 Weeks
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Last 5 Weeks\"]")
-    @iOSFindBy(accessibility = "Last 5 Weeks")
+    @iOSXCUITFindBy(accessibility = "Last 5 Weeks")
     public  MobileElement mpLast5Weeks;
 
     //Missionary Progress All
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"All\"]")
-    @iOSFindBy(accessibility = "All")
+    @iOSXCUITFindBy(accessibility = "All")
     public  MobileElement mpAll;
 
     //Missionary Progress Cancel
     @AndroidFindBy(xpath = "//*[@text=\"Cancel\"]")
-    @iOSFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement mpCancel;
 
 

@@ -4,7 +4,7 @@ package LDSToolsAppium;
 import io.appium.java_client.*;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -39,12 +39,12 @@ public class BasePage {
 
     //Universal Elements
     @AndroidFindBy(accessibility = "Navigate up")
-    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
-    //@iOSFindBy(accessibility = "Back")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+    //@iOSXCUITFindBy(accessibility = "Back")
     public MobileElement backButton;
 
     @AndroidFindBy(accessibility = "Navigate up")
-    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
     public MobileElement backAltButton;
 
     @AndroidFindBy(accessibility = "Navigate up")
@@ -53,7 +53,7 @@ public class BasePage {
     @AndroidFindBy(id = "clearTextImageButton")
     public MobileElement searchCollapse;
 
-    @iOSFindBy(accessibility = "More")
+    @iOSXCUITFindBy(accessibility = "More")
     public MobileElement moreButton;
 
     //OK
@@ -63,22 +63,22 @@ public class BasePage {
 
     //Cancel
     @AndroidFindBy(accessibility = "Cancel")
-    @iOSFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(accessibility = "Cancel")
     public MobileElement cancel;
 
     //Allow button
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"com.android.packageinstaller:id/permission_allow_button\"]")
-    @iOSFindBy(accessibility = "Allow")
+    @iOSXCUITFindBy(accessibility = "Allow")
     public MobileElement allowButton;
 
     //Alert check
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.view.ViewGroup")
-    @iOSFindBy(xpath = "//UIAAlert")
+    @iOSXCUITFindBy(xpath = "//UIAAlert")
     public MobileElement alertCheck;
 
     //Menu Title
     @AndroidFindBy(xpath = "//*[@resource-id=\"ab_toolbar\"]//android.widget.TextView")
-    @iOSFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeStaticText/XCUIElementTypeStaticText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeStaticText/XCUIElementTypeStaticText")
     public MobileElement menuTitle;
 
 

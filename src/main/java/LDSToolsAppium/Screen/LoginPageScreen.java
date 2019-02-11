@@ -25,29 +25,29 @@ public class LoginPageScreen extends BasePage {
     //Login Name
 //    @AndroidFindBy(id = "usernameEditText")
     @AndroidFindBy(id = "usernameEditText")
-    @iOSFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeTextField")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeTextField")
     public  MobileElement loginName;
 
     //Password
 //    @AndroidFindBy(id = "passwordEditText")
     @AndroidFindBy(id = "passwordEditText")
-    @iOSFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeSecureTextField")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeSecureTextField")
     public  MobileElement passWord;
 
     //Sign In Button
 //    @AndroidFindBy(id = "ldsAccountSignInButton")
     @AndroidFindBy(id = "ldsAccountSignInButton")
-    @iOSFindBy(accessibility = "Sign In")
+    @iOSXCUITFindBy(accessibility = "Sign In")
     public  MobileElement signInButton;
 
     //Sync Message
     @AndroidFindBy(xpath = "//*[@text='Sync Progress']")
-    @iOSFindBy(uiAutomator = "label CONTAINS 'Stop Sync'")
+    @iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'Stop Sync'")
     public  MobileElement syncMessage;
 
     //Menu
     @AndroidFindBy(xpath = "//*[@content-desc='More options']")
-    @iOSFindBy(accessibility = "Help")
+    @iOSXCUITFindBy(accessibility = "Help")
     public  MobileElement overflowMenu;
 
     //Overflow Settings
@@ -55,51 +55,51 @@ public class LoginPageScreen extends BasePage {
     public  MobileElement overflowSettings;
 
     //Enter Developer Button
-    @iOSFindBy(xpath = "//XCUIElementTypeCell[8]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[8]")
     public  MobileElement enterDeveloperButton;
 
     //Developer Button Displayed
-    @iOSFindBy(accessibility = "Developer Settings")
+    @iOSXCUITFindBy(accessibility = "Developer Settings")
     public MobileElement developerButton;
 
 
     //Error Message Service
     @AndroidFindBy(xpath = "//*[@text='Error']")
-    @iOSFindBy(xpath = "//*[value='Error']")
+    @iOSXCUITFindBy(xpath = "//*[value='Error']")
     public MobileElement errorMessageService;
 
     //Error Message
     @AndroidFindBy(xpath = "//*[@text='Sign-in failed. Verify your username or password.']")
-    @iOSFindBy(xpath = "//*[@value='Sign-In Failed']")
+    @iOSXCUITFindBy(xpath = "//*[@value='Sign-In Failed']")
     public MobileElement loginErrorMessage;
 
     //Trouble Signing In?
     @AndroidFindBy(id = "ldsAccountLoginForgotCredentialsButton")
-    @iOSFindBy(accessibility = "Having trouble signing in?")
+    @iOSXCUITFindBy(accessibility = "Having trouble signing in?")
     public  MobileElement troubleSigningIn;
 
     //Privacy Notice
     @AndroidFindBy(xpath = "//*[contains(@text, 'Privacy Policy (Updated 2018-09-01)')]")
-    @iOSFindBy(accessibility = "Privacy Notice (Updated 2018-09-01)")
+    @iOSXCUITFindBy(accessibility = "Privacy Notice (Updated 2018-09-01)")
     public  MobileElement privacyNotice;
 
     //Terms of Use
     @AndroidFindBy(xpath = "//*[contains(@text, 'Terms of Use (Updated 2018-09-01)')]")
-    @iOSFindBy(accessibility = "Terms of Use (Updated 2018-09-01)")
+    @iOSXCUITFindBy(accessibility = "Terms of Use (Updated 2018-09-01)")
     public  MobileElement termsOfUse;
 
     //Cancel Button
-    @iOSFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement cancelButton;
 
     //Done Button
     @AndroidFindBy(accessibility = "Navigate up")
-    @iOSFindBy(accessibility = "Done")
+    @iOSXCUITFindBy(accessibility = "Done")
     public  MobileElement doneButton;
 
     //Account Recovery
     @AndroidFindBy(xpath = "//*[contains(@text, 'Account Recovery')]")
-    @iOSFindBy(xpath = "//*[contains(@name, 'Account Recovery')]")
+    @iOSXCUITFindBy(xpath = "//*[contains(@name, 'Account Recovery')]")
     public  MobileElement accountRecoveryPage;
 
 

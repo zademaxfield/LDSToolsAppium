@@ -5,7 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
@@ -25,14 +25,14 @@ public class CalendarsScreen extends BasePage {
 
     //Edit
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Edit']")
-    @iOSFindBy(accessibility = "Edit")
+    @iOSXCUITFindBy(accessibility = "Edit")
     public MobileElement editCalendar;
 
     //Calendars to display
     //Select None
     //This is broken for iOS appium cannot see select none or subscriptions
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Edit']")
-    @iOSFindBy(accessibility = "Edit")
+    @iOSXCUITFindBy(accessibility = "Edit")
     public MobileElement selectNoneCalendar;
 
 

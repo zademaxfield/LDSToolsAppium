@@ -128,7 +128,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all3"})
+    @Test (groups= { "all", "all3", "jft"})
     public void templeRecommendReminderRemindLater() throws Exception {
         String pageSource;
 
@@ -270,7 +270,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all3", "jft"})
+    @Test (groups= { "all", "all3"})
     public void templeSearch() throws Exception {
         String pageSource;
 

@@ -25,6 +25,8 @@ public class CalendarScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.calendar);
+        
+        Thread.sleep(2000);
 
         pageSource = myBasePage.getSourceOfPage();
 

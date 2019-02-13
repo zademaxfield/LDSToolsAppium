@@ -33,11 +33,7 @@ public class TestListener implements ITestListener {
 		for (ITestResult temp : skippedTests) {
 			skippedTests.remove(temp);
 		}
-		
-		
-		
-		
-		
+
 		
 	}
   
@@ -46,6 +42,8 @@ public class TestListener implements ITestListener {
     public void onTestSuccess(ITestResult result) {   }
   
     public void onTestFailure(ITestResult result) {   }
+
+
 
     @Override
     @Parameters({"os", "fileName", "testDevice"})

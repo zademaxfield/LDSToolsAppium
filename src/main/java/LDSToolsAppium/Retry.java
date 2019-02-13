@@ -27,8 +27,8 @@ public class Retry implements IRetryAnalyzer {
     	if (!result.isSuccess()) {
     		if (retryCount < maxRetryCount) {
     			retryCount++;
-				//result.setStatus(ITestResult.FAILURE);
-				result.setStatus(ITestResult.SKIP);
+				result.setStatus(ITestResult.FAILURE);
+//				result.setStatus(ITestResult.SKIP);
 				Reporter.setCurrentTestResult(result);
 			
 				//ITestContext tc = Reporter.getCurrentTestResult().getTestContext();

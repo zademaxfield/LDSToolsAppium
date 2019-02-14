@@ -7,7 +7,7 @@
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
 
-    <test name="iOS All Test 1" thread-count="1" parallel="false" >
+    <test name="iOS All Test 1 - Ziphone7plus" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-Ziphone7plus" />
@@ -38,7 +38,7 @@
         </classes>
     </test>
 
-    <test name="iOS All Test 2" thread-count="1" parallel="false" >
+    <test name="iOS All Test 2 - Z6SPlus" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-Z6SPlus" />
@@ -69,10 +69,10 @@
         </classes>
     </test>
 
-    <test name="iOS All Test 3" thread-count="1" parallel="false" >
+    <test name="iOS All Test 3 - Ziphone7" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
-        <parameter name="testDevice" value="REAL-ZiPhone7" />
+        <parameter name="testDevice" value="REAL-Ziphone7" />
         <parameter name="startSleepTime" value="120000" />
 
         <groups>
@@ -100,10 +100,10 @@
         </classes>
     </test>
 
-    <test name="iOS All Test 4" thread-count="1" parallel="false" >
+    <test name="iOS All Test 4 - Ziphone8plus" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
-        <parameter name="testDevice" value="REAL-Z6iphone" />
+        <parameter name="testDevice" value="REAL-Ziphone8plus" />
         <parameter name="startSleepTime" value="180000" />
 
         <groups>

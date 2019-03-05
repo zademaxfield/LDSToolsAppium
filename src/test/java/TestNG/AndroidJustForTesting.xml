@@ -21,7 +21,8 @@
 
         <groups>
             <run>
-                <include name="jft"/>
+                <!--<include name="jft"/>-->
+                <include name="smoke"/>
             </run>
         </groups>
 

@@ -27,7 +27,7 @@ public class DirectoryScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
     public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -56,9 +56,9 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("alofas@gmail.com", 4, rights, pageSource);
 
         //Membership Information
-        myBasePage.rightsCheck("MEMBERSHIP INFORMATION", 2, rights, pageSource);
-        myBasePage.rightsCheck("Seuamuli, Alofa", 2, rights, pageSource);
-        myBasePage.rightsCheck("FULL NAME", 2, rights, pageSource);
+        myBasePage.rightsCheck("MEMBERSHIP INFORMATION", 3, rights, pageSource);
+        myBasePage.rightsCheck("Seuamuli, Alofa", 4, rights, pageSource);
+        myBasePage.rightsCheck("FULL NAME", 3, rights, pageSource);
         myBasePage.rightsCheck("Temple Recommend", 1, rights, pageSource);
         myBasePage.rightsCheck("Mar 2016", 1, rights, pageSource);
         myBasePage.rightsCheck("Record Number", 1, rights, pageSource);
@@ -66,7 +66,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Birth Date
         myBasePage.rightsCheck("August 12, 1961", 2, rights, pageSource);
-        myBasePage.rightsCheck("Birth Date", 2, rights, pageSource);
+        myBasePage.rightsCheck("Birth Date", 3, rights, pageSource);
         myBasePage.rightsCheck("57", 2, rights, pageSource);
 
         //Ordinances
@@ -81,7 +81,7 @@ public class DirectoryScreenTest extends BaseDriver {
         //Marriage
         myBasePage.rightsCheck("MARRIAGE", 1, rights, pageSource);
         myBasePage.rightsCheck("Spouse", 1, rights, pageSource);
-        myBasePage.rightsCheck("Seuamuli, Faimeaita", 1, rights, pageSource);
+//        myBasePage.rightsCheck("Seuamuli, Faimeaita", 1, rights, pageSource);
         myBasePage.rightsCheck("Spouse Birth Date", 1, rights, pageSource);
         myBasePage.rightsCheck("November 27, 1957", 1, rights, pageSource);
         myBasePage.rightsCheck("Marriage Date", 1, rights, pageSource);
@@ -96,17 +96,17 @@ public class DirectoryScreenTest extends BaseDriver {
         //Callings and Classes - New in 3.0.0
         myBasePage.rightsCheck("Relief Society First Counselor", 4, rights, pageSource);
         myBasePage.rightsCheck("Organization - Relief Society Presidency", 4, rights, pageSource);
-        myBasePage.rightsCheck("Class Assignments", 2, rights, pageSource);
-        myBasePage.rightsCheck("Gospel Doctrine", 2, rights, pageSource);
+        myBasePage.rightsCheck("Class Assignments", 3, rights, pageSource);
+        myBasePage.rightsCheck("Gospel Doctrine", 3, rights, pageSource);
         myBasePage.rightsCheck("Relief Society", 4, rights, pageSource);
-        myBasePage.rightsCheck("Sustained", 2, rights, pageSource);
-        myBasePage.rightsCheck("Set Apart", 2, rights, pageSource);
+        myBasePage.rightsCheck("Sustained", 3, rights, pageSource);
+        myBasePage.rightsCheck("Set Apart", 3, rights, pageSource);
 
 
 
         // myBasePage.rightsCheck("Ordinances", 2, rights, pageSource);
-        myBasePage.rightsCheck("Gender", 2, rights, pageSource);
-        myBasePage.rightsCheck("Female", 2, rights, pageSource);
+        myBasePage.rightsCheck("Gender", 3, rights, pageSource);
+        myBasePage.rightsCheck("Female", 3, rights, pageSource);
         myBasePage.rightsCheck("Birth Country", 1, rights, pageSource);
         myBasePage.rightsCheck("Western Samoa", 1, rights, pageSource);
         myBasePage.rightsCheck("Father", 1, rights, pageSource);
@@ -114,7 +114,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("Mother", 1, rights, pageSource);
         myBasePage.rightsCheck("Togia, Maria", 1, rights, pageSource);
         myBasePage.rightsCheck("Prior Unit", 1, rights, pageSource);
-        myBasePage.rightsCheck("Fagamalo", 1, rights, pageSource);
+//        myBasePage.rightsCheck("Fagamalo", 4, rights, pageSource);
 
 
     }
@@ -379,7 +379,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryLatLongCheckLocation() throws Exception {
         String pageSource;
         Dimension thumbNailDim;

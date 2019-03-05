@@ -211,11 +211,11 @@ public class LDSWeb {
 		openPageLogIn(url, userName, passWord);
 
 		setupMembers();
-//		setupAJcalling();
 		setupCallings();
 		setupDistricts();
 		addCompanionHousehold();
 //		addJaneAaronToClass();
+// 		setupAJcalling();
 	}
 
 	public void setupMinstering() throws Exception {
@@ -274,7 +274,7 @@ public class LDSWeb {
 		addCompanionshipHTVT("lds22");
 
 		//Add Households to Companionship
-		addHouseholdHTVT("afpten");
+//		addHouseholdHTVT("afpten");
 		addHouseholdHTVT("lds23");
 		addHouseholdHTVT("lds24");
 		addHouseholdHTVT("lds5");
@@ -306,7 +306,7 @@ public class LDSWeb {
 		addCompanionshipHTVT("lds17");
 		
 		//Add Households to Companionship
-		addHouseholdHTVT("aaron");
+//		addHouseholdHTVT("aaron");
 		addHouseholdHTVT("lds18");
 		addHouseholdHTVT("lds19");
 		
@@ -333,7 +333,7 @@ public class LDSWeb {
 		addHouseholdHTVT("lds38");
 		addHouseholdHTVT("lds28");
 		addHouseholdHTVT("lds29");
-		addHouseholdHTVT("aaron");
+//		addHouseholdHTVT("aaron");
 		
 		//clickElement("MemberSave", "xpath");
 		clickDistrictSaveButton("District 11");
@@ -557,7 +557,7 @@ public class LDSWeb {
 
 		addDistrict("District 11", "Tools, LDS24" );
 		addDistrict("District 12", "Tools, LDS23" );
-		addDistrict("District 13", "Tools, LDS22" );
+		addDistrict("District 13", "Pipi, Mafoe" );
 
 		clickElement("Ministering", "linkText");
 		Thread.sleep(4000);
@@ -570,8 +570,8 @@ public class LDSWeb {
 //		clickElement("QuorumAuxReliefSociety", "xpath");
 //		Thread.sleep(4000);
 		
-		addDistrict("District 11", "Wilson, Tina" );
-		addDistrict("District 12", "Tulia, Faagalo" );
+		addDistrict("District 11", "Aumoto, Tusiga" );
+		addDistrict("District 12", "Seuamuli, Alofa" );
 		
 
 

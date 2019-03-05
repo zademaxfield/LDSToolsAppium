@@ -55,7 +55,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "smoke", "smoke3", "all", "all1"})
+    @Test (groups= { "smoke", "smoke3", "all", "all1", "jft"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -128,7 +128,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all3", "jft"})
+    @Test (groups= { "all", "all3"})
     public void templeRecommendReminderRemindLater() throws Exception {
         String pageSource;
 

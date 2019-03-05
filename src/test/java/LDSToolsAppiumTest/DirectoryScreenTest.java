@@ -121,7 +121,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryMemberInfoHousehold() throws Exception {
         String pageSource;
 
@@ -360,7 +360,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myHelper.loginUAT("LDSTools5", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Aaron, Jane");
+        myDirectory.searchAndClick("Aanamalili, Kimpley");
 
         //Get all info
         pageSource = myDirectory.getDirectoryUserData();
@@ -379,7 +379,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryLatLongCheckLocation() throws Exception {
         String pageSource;
         Dimension thumbNailDim;
@@ -394,7 +394,15 @@ public class DirectoryScreenTest extends BaseDriver {
         myHelper.loginUAT("LDSTools2", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Ami, Samu");
+//        myDirectory.searchAndClick("Pipi, Mafoe");
+
+        if (myBasePage.getOS().contains("ios")) {
+            myDirectory.searchAndClickHousehold("Pipi, Mafoe & Lalotoa");
+//            myBasePage.clickByTextContains("Pipi");
+            myBasePage.scrollDownIOS();
+        } else {
+            myDirectory.searchAndClickHousehold("Pipi, Mafoe");
+        }
 
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsAdjustHouseholdLocationLowerCase));
 //        Assert.assertFalse(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));

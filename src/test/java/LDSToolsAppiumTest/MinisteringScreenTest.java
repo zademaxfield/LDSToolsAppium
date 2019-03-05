@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class MinisteringScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -181,13 +181,13 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.ministeringBrothersReport.click();
 
 
-            myMinistering.validateDistrict("District 1");
-            myMinistering.validateDistrict("District 2");
-            myMinistering.validateDistrict("District 3");
+            myMinistering.validateDistrict("District 11");
+            myMinistering.validateDistrict("District 12");
+            myMinistering.validateDistrict("District 13");
 
 
             //Select District 1
-            myMinistering.selectDistrict("District 1");
+            myMinistering.selectDistrict("District 11");
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
@@ -196,7 +196,7 @@ public class MinisteringScreenTest extends BaseDriver {
             myBasePage.backButton.click();
 
             //Select District 2
-            myMinistering.selectDistrict("District 2");
+            myMinistering.selectDistrict("District 12");
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS11", pageSource, "Contains"));
@@ -206,7 +206,7 @@ public class MinisteringScreenTest extends BaseDriver {
             myBasePage.backButton.click();
 
             //Select District 3
-            myMinistering.selectDistrict("District 3");
+            myMinistering.selectDistrict("District 13");
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
@@ -350,7 +350,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
     public void companionshipsSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -372,13 +372,13 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.ministeringSistersReport.click();
 
 
-            myMinistering.validateDistrict("District 1");
-            myMinistering.validateDistrict("District 2");
+            myMinistering.validateDistrict("District 11");
+            myMinistering.validateDistrict("District 12");
            // myMinistering.validateDistrict("Fagamalo Districts");
 
 
             //Select District 1
-            myMinistering.selectDistrict("District 1");
+            myMinistering.selectDistrict("District 11");
             Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS12", pageSource, "Contains"));
@@ -389,7 +389,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
             //Select District 2
-            myMinistering.selectDistrict("District 2");
+            myMinistering.selectDistrict("District 12");
             Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("LDS35", pageSource, "Contains"));

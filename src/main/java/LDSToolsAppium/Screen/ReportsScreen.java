@@ -99,6 +99,11 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Sort")
     public MobileElement sortReport;
 
+    //Filters
+    @iOSXCUITFindBy(accessibility = "Filters")
+    public MobileElement sortFilters;
+
+
     //Cancel
     @iOSXCUITFindBy(accessibility = "Cancel")
     public MobileElement cancelSort;
@@ -305,6 +310,16 @@ public class ReportsScreen extends BasePage {
     public void selectSort(MobileElement myElement) throws Exception {
         if (getOS().equals("ios")) {
             sortReport.click();
+            myElement.click();
+        } else {
+            myElement.click();
+        }
+
+    }
+
+    public void selectFilters(MobileElement myElement) throws Exception {
+        if (getOS().equals("ios")) {
+            sortFilters.click();
             myElement.click();
         } else {
             myElement.click();

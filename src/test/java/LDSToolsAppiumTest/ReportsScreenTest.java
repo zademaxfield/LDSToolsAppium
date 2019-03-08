@@ -319,25 +319,25 @@ public class ReportsScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Ahsoka, Tano", pageSource, "Contains"));
 
 
-        myReports.selectSort(myReports.activeSort);
+        myReports.selectFilters(myReports.activeSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Alisa, Fonoafi", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Maul, Darth", pageSource, "Contains"));
 
-        myReports.selectSort(myReports.expiringSort);
+        myReports.selectFilters(myReports.expiringSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Expiring", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Windu, Mace", pageSource, "Contains"));
 
-        myReports.selectSort(myReports.expiredSort);
+        myReports.selectFilters(myReports.expiredSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AhNae, Atonio", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Maliefulu", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
 
-        myReports.selectSort(myReports.otherSort);
+        myReports.selectFilters(myReports.otherSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Pipi, Itagia", pageSource, "Contains"));

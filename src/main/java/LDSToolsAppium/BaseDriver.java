@@ -200,9 +200,9 @@ public class BaseDriver {
 
         if(getRunningOS().equals("ios")) {
             Thread.sleep(2000);
-//            System.out.println("Start Reset App");
+            System.out.println("Start Reset App");
             driver.resetApp();
-//            System.out.println("End Reset App");
+            System.out.println("End Reset App");
             Thread.sleep(5000);
 
             if (myBasePage.checkForElement(myBasePage.allowButton)) {

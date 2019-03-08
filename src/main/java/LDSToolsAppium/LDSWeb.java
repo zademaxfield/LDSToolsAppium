@@ -759,7 +759,7 @@ public class LDSWeb {
 		addMemberToOrg("lds23");
 		addMemberToOrg("lds24");
 		addMemberToOrg("lds25");
-		addMemberToOrg("lds51");
+//		addMemberToOrg("lds51");
 		addMemberToOrg("lds31");
 		addMemberToOrg("lds32");
 		addMemberToOrg("lds5");

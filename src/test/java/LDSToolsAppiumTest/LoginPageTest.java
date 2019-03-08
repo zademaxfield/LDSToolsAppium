@@ -53,7 +53,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all", "login", "smoke", "smoke3"})
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "jft"})
     public void validateLoginPageLinks() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -70,8 +70,8 @@ public class LoginPageTest extends BaseDriver {
         myPageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myPageSource.contains("LDS Account"));
         Assert.assertTrue(myPageSource.contains("Account Recovery"));
-        Assert.assertTrue(myPageSource.contains("I don't know my username"));
-        Assert.assertTrue(myPageSource.contains("I don't know my password"));
+        Assert.assertTrue(myPageSource.contains("Recover my Username and Password"));
+        Assert.assertTrue(myPageSource.contains("Recover my Password"));
 
         if (myBasePage.getOS().equals("ios")) {
             myLoginPage.doneButton.click();
@@ -144,7 +144,7 @@ public class LoginPageTest extends BaseDriver {
         invalidCheck("LDSTools2", "select * from directory");
     }
 
-    @Test ( groups = {"all1", "all", "login", "jft"})
+    @Test ( groups = {"all1", "all", "login"})
     public void invalidPasswordTest7() throws Exception {
         invalidCheck("LDSTools2", " toolstester");
     }

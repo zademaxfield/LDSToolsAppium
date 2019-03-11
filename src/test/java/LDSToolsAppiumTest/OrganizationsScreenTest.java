@@ -527,7 +527,7 @@ public class OrganizationsScreenTest extends BaseDriver {
             myBasePage.backAltButton.click();
 
 
-            //None of the young women have the presidency setup. 
+            //None of the young women have the presidency setup.
 
 //            myList.clear();
 //            //Test Laurel Presidency

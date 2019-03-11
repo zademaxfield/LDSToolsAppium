@@ -24,7 +24,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -67,7 +67,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
     public void organizationStakeHighPriestQuorum(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -465,17 +465,17 @@ public class OrganizationsScreenTest extends BaseDriver {
 
             //}
 
-            myOrg.deaconsQuorum.click();
-            if (getRunningOS().equals("ios")) {
-                myOrg.deaconsQuorumPresidency.click();
-            }
-
-            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Men", "DeaconsQuorum", false);
-            myBasePage.compareWebData(myList, androidList, true);
-
-            if (getRunningOS().equals("ios")) {
-                myBasePage.backAltButton.click();
-            }
+//            myOrg.deaconsQuorum.click();
+//            if (getRunningOS().equals("ios")) {
+//                myOrg.deaconsQuorumPresidency.click();
+//            }
+//
+//            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Men", "DeaconsQuorum", false);
+//            myBasePage.compareWebData(myList, androidList, true);
+//
+//            if (getRunningOS().equals("ios")) {
+//                myBasePage.backAltButton.click();
+//            }
 
             myBasePage.backAltButton.click();
             Thread.sleep(1000);
@@ -525,43 +525,65 @@ public class OrganizationsScreenTest extends BaseDriver {
             myBasePage.compareWebData(myList, androidList, true);
 
             myBasePage.backAltButton.click();
-            myOrg.laurel.click();
-
-            if (getRunningOS().equals("ios")) {
-                myOrg.laurelPresidency.click();
-            }
 
 
-            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Women", "Laurel", false);
-            myBasePage.compareWebData(myList, androidList, true);
+            //None of the young women have the presidency setup. 
 
-            if (getRunningOS().equals("ios")) {
-                myBasePage.backAltButton.click();
-            }
-            myBasePage.backAltButton.click();
+//            myList.clear();
+//            //Test Laurel Presidency
+//            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Women", "Laurel", false);
+//
+//            myOrg.laurel.click();
+//
+//            if (myList.isEmpty()) {
+//                if (getRunningOS().equals("ios")) {
+//                    myOrg.laurelPresidency.click();
+//                }
+//
+//                myBasePage.compareWebData(myList, androidList, true);
+//
+//                if (getRunningOS().equals("ios")) {
+//                    myBasePage.backAltButton.click();
+//                }
+//            }
+//
+//
+//            myBasePage.backAltButton.click();
+//
+//            myList.clear();
+//            //Test Mia Maid Presidency
+//            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Women", "MiaMaid", false);
+//
+//            myOrg.miaMaid.click();
+//
+//            if (myList.isEmpty()) {
+//                if (getRunningOS().equals("ios")) {
+//                    myOrg.miaMaidPresidency.click();
+//                }
+//
+//                myBasePage.compareWebData(myList, androidList, true);
+//
+//                if (getRunningOS().equals("ios")) {
+//                    myBasePage.backAltButton.click();
+//                }
+//            }
+//
+//            myBasePage.backAltButton.click();
+//
+//            myList.clear();
+//            //Test Bee Hive Presidency
+//            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Women", "Beehive", false);
+//
+//            myOrg.beehive.click();
+//
+//            if (myList.isEmpty()) {
+//                if (getRunningOS().equals("ios")) {
+//                    myOrg.beehivePresidency.click();
+//                }
+//
+//                myBasePage.compareWebData(myList, androidList, true);
+//            }
 
-            myOrg.miaMaid.click();
-            if (getRunningOS().equals("ios")) {
-                myOrg.miaMaidPresidency.click();
-            }
-
-
-            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Women", "MiaMaid", false);
-            myBasePage.compareWebData(myList, androidList, true);
-
-            if (getRunningOS().equals("ios")) {
-                myBasePage.backAltButton.click();
-            }
-            myBasePage.backAltButton.click();
-
-            myOrg.beehive.click();
-            if (getRunningOS().equals("ios")) {
-                myOrg.beehivePresidency.click();
-            }
-
-
-            myList = myWeb.getAllMembersInOrganization("OrganizationsMenu", "Young Women", "Beehive", false);
-            myBasePage.compareWebData(myList, androidList, true);
 
 
         } else {
@@ -569,8 +591,8 @@ public class OrganizationsScreenTest extends BaseDriver {
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Faapili", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Baby", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Aumoto", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Vaifale", pageSource, "Contains"));
             myBasePage.backAltButton.click();
             Thread.sleep(1000);
             myBasePage.backAltButton.click();

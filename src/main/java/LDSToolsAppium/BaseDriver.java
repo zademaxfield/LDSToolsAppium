@@ -255,11 +255,11 @@ public class BaseDriver {
         if (getRunningOS().equals("ios")) {
 
             //I don't think this is needed anymore
-            //driver.quit();
+            driver.quit();
             //driver.close();
 
             Thread.sleep(5000);
-            stopFbSim();
+//            stopFbSim();
             System.out.println("Kill instruments");
             killProcess("instruments");
             System.out.println("Kill Simulator");
@@ -480,7 +480,7 @@ public class BaseDriver {
             capabilities.setCapability("automationName","XCUITest");
             capabilities.setCapability("browserName","");
 
-            capabilities.setCapability("fullReset", true);
+//            capabilities.setCapability("fullReset", true);
             capabilities.setCapability("noReset", false);
             capabilities.setCapability("newCommandTimeout", 600);
             capabilities.setCapability("app", app.getAbsolutePath());

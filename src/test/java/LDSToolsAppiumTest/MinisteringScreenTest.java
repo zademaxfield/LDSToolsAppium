@@ -302,7 +302,7 @@ public class MinisteringScreenTest extends BaseDriver {
                 myMinistering.unassignedSisters.click();
                 Thread.sleep(2000);
                 pageSource = myBasePage.getSourceOfPage();
-                Assert.assertTrue(myBasePage.checkNoCaseList("Afamasaga", pageSource, "Contains"));
+                Assert.assertTrue(myBasePage.checkNoCaseList("Alafoni", pageSource, "Contains"));
                 Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
             }
 

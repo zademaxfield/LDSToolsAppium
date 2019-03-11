@@ -210,8 +210,8 @@ public class LDSWeb {
 		
 		openPageLogIn(url, userName, passWord);
 
-		setupMembers();
-		setupCallings();
+//		setupMembers();
+//		setupCallings();
 		setupDistricts();
 		addCompanionHousehold();
 //		addJaneAaronToClass();

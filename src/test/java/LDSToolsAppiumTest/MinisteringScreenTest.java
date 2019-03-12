@@ -57,19 +57,23 @@ public class MinisteringScreenTest extends BaseDriver {
 
             myBasePage.backButton.click();
 
-        } else {
-
-            if (!myBasePage.getOS().equals("ios")) {
-                myMenu.drawerButton.click();
-            }
-            pageSource = myBasePage.getSourceOfPage();
-            if (rights <= 3) {
-                Assert.assertTrue(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
-            } else {
-                Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
-            }
-
         }
+
+
+        if (rights == 3) {
+            myMenu.selectMenu(myMenu.reports);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+        }
+
+
+        if (rights == 4){
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
+
+
     }
 
 
@@ -91,7 +95,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-        if (rights <= 3) {
+        if (rights <= 2) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringBrothersReport.click();
             Thread.sleep(2000);
@@ -115,10 +119,23 @@ public class MinisteringScreenTest extends BaseDriver {
             myBasePage.backButton.click();
 
 
-        } else {
+        }
+
+
+        if (rights == 3) {
+            myMenu.selectMenu(myMenu.reports);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+        }
+
+
+        if (rights == 4){
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
         }
+
+
     }
 
     @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
@@ -138,7 +155,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-        if (rights <= 3) {
+        if (rights <= 2) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringBrothersReport.click();
             myMinistering.assignedHouseholds.click();
@@ -153,10 +170,24 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-        } else {
+        }
+
+
+        if (rights == 3) {
+            myMenu.selectMenu(myMenu.reports);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+        }
+
+
+        if (rights == 4){
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
         }
+
+
+
     }
 
     @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
@@ -176,7 +207,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-        if (rights <= 3) {
+        if (rights <= 2) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringBrothersReport.click();
 
@@ -215,9 +246,17 @@ public class MinisteringScreenTest extends BaseDriver {
             myBasePage.backButton.click();
 
 
+        }
+
+        if (rights == 3) {
+            myMenu.selectMenu(myMenu.reports);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+        }
 
 
-        } else {
+        if (rights == 4){
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
         }
@@ -282,7 +321,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-        if (rights <= 3) {
+        if (rights <= 2) {
             myMenu.selectMenu(myMenu.reports);
             //myMinistering.ministeringReport.click();
             myMinistering.ministeringSistersReport.click();
@@ -307,7 +346,17 @@ public class MinisteringScreenTest extends BaseDriver {
             }
 
 
-        } else {
+        }
+
+        if (rights == 3) {
+            myMenu.selectMenu(myMenu.reports);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+        }
+
+
+        if (rights == 4){
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
         }
@@ -331,7 +380,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-        if (rights <= 3) {
+        if (rights <= 2) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringSistersReport.click();
             Thread.sleep(2000);
@@ -344,10 +393,21 @@ public class MinisteringScreenTest extends BaseDriver {
             Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
 
 
-        } else {
+        }
+
+        if (rights == 3) {
+            myMenu.selectMenu(myMenu.reports);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+        }
+
+
+        if (rights == 4){
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
         }
+
     }
 
     @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
@@ -367,7 +427,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-        if (rights <= 3) {
+        if (rights <= 2) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringSistersReport.click();
 
@@ -400,10 +460,23 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-        } else {
+        }
+
+
+        if (rights == 3) {
+            myMenu.selectMenu(myMenu.reports);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+        }
+
+
+        if (rights == 4){
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
         }
+
+
     }
 
 

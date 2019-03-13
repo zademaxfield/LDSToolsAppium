@@ -6,10 +6,13 @@ import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.OrganizationsScreen;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidStartScreenRecordingOptions;
+
 import org.openqa.selenium.ScreenOrientation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,8 +49,6 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         getBishopricInfo(rights);
 
-        //getHighPriestsGroupInfo(rights);
-
         getEldersQuorum(rights);
 
         getReliefSociety(rights);
@@ -56,12 +57,13 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         getYoungWomenInfo(rights);
 
+        getPrimaryInfo(rights);
+
         //Sunday School is flaky in UAT
         //getSundaySchoolInfo(rights);
 
-        getPrimaryInfo(rights);
-
 //        getOtherInfo(rights);
+        //getHighPriestsGroupInfo(rights);
 
     }
 
@@ -476,9 +478,9 @@ public class OrganizationsScreenTest extends BaseDriver {
 //            if (getRunningOS().equals("ios")) {
 //                myBasePage.backAltButton.click();
 //            }
-
-            myBasePage.backAltButton.click();
-            Thread.sleep(1000);
+//
+//            myBasePage.backAltButton.click();
+//            Thread.sleep(1000);
 
 
             
@@ -508,6 +510,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver );
         //LDSWeb myWeb = new LDSWeb();
         //Data from Web page
         List<String> myList = new ArrayList<String>();
@@ -515,7 +518,9 @@ public class OrganizationsScreenTest extends BaseDriver {
         //Data from android list
         List<String> androidList = new ArrayList<String>();
 
+
         myOrg.youngWomenOrg.click();
+        Thread.sleep(1000);
         myOrg.youngWomenPresidency.click();
         Thread.sleep(1000);
 
@@ -605,8 +610,8 @@ public class OrganizationsScreenTest extends BaseDriver {
             myBasePage.backAltButton.click();
         }
 
-        myBasePage.backAltButton.click();
-        Thread.sleep(1000);
+//        myBasePage.backAltButton.click();
+//        Thread.sleep(1000);
         myBasePage.backAltButton.click();
         Thread.sleep(1000);
     }
@@ -689,6 +694,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
         //LDSWeb myWeb = new LDSWeb();
         //Data from Web page
         List<String> myList = new ArrayList<String>();
@@ -696,7 +702,9 @@ public class OrganizationsScreenTest extends BaseDriver {
         //Data from android list
         List<String> androidList = new ArrayList<String>();
 
+
         myOrg.primaryOrg.click();
+        Thread.sleep(1000);
         myOrg.primaryPresidency.click();
         Thread.sleep(1000);
 

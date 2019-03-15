@@ -749,7 +749,7 @@ public class LDSWeb {
 		waitForTextToDisappear("Loading", 500, "id" );
 		clickElement("Members", "linkText");
 
-		addMemberToOrg("lds16");
+//		addMemberToOrg("lds16");
 		addMemberToOrg("lds17");
 		addMemberToOrg("lds18");
 		addMemberToOrg("lds19");

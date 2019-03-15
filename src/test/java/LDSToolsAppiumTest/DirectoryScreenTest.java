@@ -426,7 +426,7 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         // Reset the Lat Long
-        resetLatLong("8999999998895108", "56030");
+        resetLatLong("8999999998895108", "258598");
 
         //Login and enter in PIN
         myHelper.loginUAT(userName, passWord);

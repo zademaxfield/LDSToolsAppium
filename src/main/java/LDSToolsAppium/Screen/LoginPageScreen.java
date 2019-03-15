@@ -79,7 +79,8 @@ public class LoginPageScreen extends BasePage {
     public  MobileElement troubleSigningIn;
 
     //Privacy Notice
-    @AndroidFindBy(xpath = "//*[contains(@text, 'Privacy Policy (Updated 2018-09-01)')]")
+//    @AndroidFindBy(xpath = "//*[contains(@text, 'Privacy Policy (Updated 2018-09-01)')]")
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Privacy Policy')]")
     @iOSXCUITFindBy(accessibility = "Privacy Notice (Updated 2018-09-01)")
     public  MobileElement privacyNotice;
 

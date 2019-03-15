@@ -70,46 +70,50 @@ public class LoginPageTest extends BaseDriver {
         myPageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myPageSource.contains("LDS Account"));
         Assert.assertTrue(myPageSource.contains("Account Recovery"));
-        Assert.assertTrue(myPageSource.contains("Recover my Username and Password"));
-        Assert.assertTrue(myPageSource.contains("Recover my Password"));
 
-        if (myBasePage.getOS().equals("ios")) {
+        if (getRunningOS().equals("ios")) {
+            Assert.assertTrue(myPageSource.contains("Recover my Username and Password"));
+            Assert.assertTrue(myPageSource.contains("Recover my Password"));
             myLoginPage.doneButton.click();
         } else {
+            Assert.assertTrue(myPageSource.contains("I don't know my username"));
+            Assert.assertTrue(myPageSource.contains("I don't know my password"));
             driver.navigate().back();
         }
 
-
-
-
-        myLoginPage.privacyNotice.click();
-//        Thread.sleep(9000);
-        myBasePage.waitForText("Privacy Notice");
-        myPageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myPageSource.contains("Privacy Notice"));
-        Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
+        //Appium cannot select the links on Android
+        if (getRunningOS().equals("ios")) {
+            myLoginPage.privacyNotice.click();
+            Thread.sleep(9000);
+//        myBasePage.waitForText("Privacy Notice");
+            myPageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myPageSource.contains("Privacy Notice"));
+            Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
 //        Assert.assertTrue(myPageSource.contains("In this Notice"));
 
-        if (myBasePage.getOS().equals("ios")) {
-            myLoginPage.doneButton.click();
-        } else {
-            driver.navigate().back();
+            if (myBasePage.getOS().equals("ios")) {
+                myLoginPage.doneButton.click();
+            } else {
+                driver.navigate().back();
+            }
+
+            myLoginPage.termsOfUse.click();
+            Thread.sleep(3000);
+            myBasePage.waitForText("Terms of Use");
+            myPageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myPageSource.contains("Terms of Use"));
+            Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
+            Assert.assertTrue(myPageSource.contains("By using this site"));
+
+
+            if (myBasePage.getOS().equals("ios")) {
+                myLoginPage.doneButton.click();
+            } else {
+                driver.navigate().back();
+            }
         }
 
-        myLoginPage.termsOfUse.click();
-        Thread.sleep(3000);
-        myBasePage.waitForText("Terms of Use");
-        myPageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myPageSource.contains("Terms of Use"));
-        Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
-        Assert.assertTrue(myPageSource.contains("By using this site"));
 
-
-        if (myBasePage.getOS().equals("ios")) {
-            myLoginPage.doneButton.click();
-        } else {
-            driver.navigate().back();
-        }
 
     }
 

@@ -15,7 +15,7 @@ public class LoginPageTest extends BaseDriver {
 //    public void loginPageSimple() throws Exception {
 //        HelperMethods myHelper = new HelperMethods(driver);
 //
-//        myHelper.loginUAT("LDSTools2", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
 //        myHelper.enterPin("1", "1", "3", "3");
 //
 //    }
@@ -120,49 +120,49 @@ public class LoginPageTest extends BaseDriver {
     // ******************* Invalid Password Tests *******************
     @Test (groups = {"all3", "all", "login"})
     public void invalidPasswordTest1() throws Exception {
-        invalidCheck("LDSTools2", "<login>");
+        invalidCheck("LDSTools3", "<login>");
     }
 
     @Test ( groups = {"all4", "all", "login"})
     public void invalidPasswordTest2() throws Exception {
-        invalidCheck("LDSTools2", "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+        invalidCheck("LDSTools3", "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
     }
 
     @Test ( groups = {"all1", "all", "login"})
     public void invalidPasswordTest3() throws Exception {
-        invalidCheck("LDSTools2", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        invalidCheck("LDSTools3", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
     }
 
     @Test ( groups = {"all2", "all", "login"})
     public void invalidPasswordTest4() throws Exception {
-        invalidCheck("LDSTools2", "/password/");
+        invalidCheck("LDSTools3", "/password/");
     }
 
     @Test ( groups = {"all3", "all", "login"})
     public void invalidPasswordTest5() throws Exception {
-        invalidCheck("LDSTools2", "!@#$%%^&**())__+_!@@!#!$%#@%^*&%&*(^*()(&(&*(%^&$#%@$!#$%$#^#$%^^&*(^%}|{|{|}{|}{|}{}|{|}{}|{|}{||||}|{}{|}{");
+        invalidCheck("LDSTools3", "!@#$%%^&**())__+_!@@!#!$%#@%^*&%&*(^*()(&(&*(%^&$#%@$!#$%$#^#$%^^&*(^%}|{|{|}{|}{|}{}|{|}{}|{|}{||||}|{}{|}{");
     }
 
     @Test ( groups = {"all4", "all", "login"})
     public void invalidPasswordTest6() throws Exception {
-        invalidCheck("LDSTools2", "select * from directory");
+        invalidCheck("LDSTools3", "select * from directory");
     }
 
     @Test ( groups = {"all1", "all", "login"})
     public void invalidPasswordTest7() throws Exception {
-        invalidCheck("LDSTools2", " toolstester");
+        invalidCheck("LDSTools3", " toolstester");
     }
 
 
     // ******************* Invalid Username Tests *******************
     @Test ( groups = {"all4", "all", "login"})
     public void invalidUsernameTest1() throws Exception {
-        invalidCheck("LDSTools20", "toolstester");
+        invalidCheck("LDSTools30", "toolstester");
     }
 
     @Test ( groups = {"all1", "all", "login"})
     public void invalidUsernameTest2() throws Exception {
-        invalidCheck("LDSTools2", "password1");
+        invalidCheck("LDSTools3", "password1");
     }
 
     @Test ( groups = {"all2", "all", "login"})
@@ -187,7 +187,7 @@ public class LoginPageTest extends BaseDriver {
 
     @Test ( groups = {"all2", "all", "login"})
     public void invalidUsernameTest7() throws Exception {
-        invalidCheck(" LDSTools2", "toolstester");
+        invalidCheck(" LDSTools3", "toolstester");
     }
 
 

@@ -167,7 +167,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
         myDirectory.searchAndClick("Tools, LDS44");
@@ -202,7 +202,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
 
         myMenu.menuLogOut();
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -228,7 +228,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myBasePage.backToDirectory();
 
         myMenu.menuLogOut();
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Search for logged in user
@@ -406,7 +406,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myMenu.menuLogOut();
 
         //Check Ward Council Access
-        myHelper.loginUAT("LDSTools25", "password1");
+        myHelper.loginUAT("LDSTools35", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
         foundMember = myDirectory.searchForMemberCheckResults("Tools, LDS5");

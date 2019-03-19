@@ -30,7 +30,7 @@ public class ScannerScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         ScannerScreen myScanner = new ScannerScreen(driver);
 
-        String userName = "LDSTools2";
+        String userName = "LDSTools3";
         String passWord = "toolstester";
         Boolean myCheck;
 

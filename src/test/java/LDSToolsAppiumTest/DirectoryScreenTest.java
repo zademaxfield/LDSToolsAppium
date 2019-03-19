@@ -134,7 +134,7 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
         if (myBasePage.getOS().contains("ios")) {
@@ -159,7 +159,7 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Search and click on Aaron Jane
@@ -260,7 +260,7 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Should be Household view by default
@@ -334,7 +334,7 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
         myDirectory.searchAndClick("Tools, LDS29");
@@ -393,7 +393,7 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
 //        myDirectory.searchAndClick("Pipi, Mafoe");

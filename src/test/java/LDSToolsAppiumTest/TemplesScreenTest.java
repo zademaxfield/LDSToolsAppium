@@ -24,7 +24,7 @@ public class TemplesScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
 
 
-        myHelper.loginUAT("LDSTools21", "password1");
+        myHelper.loginUAT("LDSTools31", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.temples);
@@ -32,7 +32,7 @@ public class TemplesScreenTest extends BaseDriver {
         pageSource = myBasePage.getSourceOfPage();
 
 
-        myWeb.MyTemplePageLogIn("https://lcr-uat.lds.org", "LDSTools21", "password1");
+        myWeb.MyTemplePageLogIn("https://lcr-uat.lds.org", "LDSTools31", "password1");
         Thread.sleep(8000);
         //Check the Temple Name
         System.out.println(pageSource);
@@ -142,7 +142,7 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 //        myHelper.loginUAT("ngibpc1", "password1");
-        myHelper.loginUAT("ldstools21", "password1");
+        myHelper.loginUAT("LDSTools31", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -180,7 +180,7 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 //        myHelper.loginUAT("ngibpc1", "password1");
-        myHelper.loginUAT("ldstools21", "password1");
+        myHelper.loginUAT("LDSTools31", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -214,7 +214,7 @@ public class TemplesScreenTest extends BaseDriver {
         TemplesScreen myTemple = new TemplesScreen(driver);
 
 
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -252,7 +252,7 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -283,7 +283,7 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -316,7 +316,7 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
 

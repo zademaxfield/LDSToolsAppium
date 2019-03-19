@@ -99,7 +99,7 @@ public class ReportsScreenTest extends BaseDriver {
         ReportsScreen myReports = new ReportsScreen(driver);
 
 
-        myHelper.loginUAT("LDSTools2", "toolstester");
+        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
 

@@ -77,7 +77,7 @@ public class LDSWeb {
 //		setupMinstering();
 
 //		String pageSource;
-//		quarterlyReportLogIn("ldstools2", "toolstester");
+//		quarterlyReportLogIn("LDSTools3", "toolstester");
 //		Thread.sleep(6000);
 //		pageSource = driver.getPageSource();
 //		getQuarterlyReport(pageSource, "Converts");
@@ -87,12 +87,12 @@ public class LDSWeb {
 
 
 
-//		MyTemplePageLogIn("https://uat.lds.org/mls/mbr/?lang=eng", "LDSTools21", "password1");
+//		MyTemplePageLogIn("https://uat.lds.org/mls/mbr/?lang=eng", "LDSTools31", "password1");
 //		TempleGetName();
 		
 		/*
 		String url = "https://uat.lds.org/directory/";
-		String userName = "LDSTools2";
+		String userName = "LDSTools3";
 		String passWord = "toolstester";
 		List<String> myList = new ArrayList<String>();
 		
@@ -110,7 +110,7 @@ public class LDSWeb {
 		/*
 		List<String> myTempleList = new ArrayList<String>();
 		String mySource;
-		MyTemplePageLogIn("https://uat.lds.org/mls/mbr", "ldstools2", "toolstester");
+		MyTemplePageLogIn("https://uat.lds.org/mls/mbr", "LDSTools3", "toolstester");
 		clickElement("Find a Temple", "linkText");
 		
 		mySource = getSourceOfMember("AllTemplesTable");
@@ -160,7 +160,7 @@ public class LDSWeb {
 		
 		/*
 		String url = "https://uat.lds.org/mls/mbr/?lang=eng";
-		String userName = "LDSTools2";
+		String userName = "LDSTools3";
 		String passWord = "toolstester";
 		
 		openPageLogIn(url, userName, passWord);
@@ -174,7 +174,7 @@ public class LDSWeb {
 
 		//getAllMembersInHTVTReport("Elders Quorum",  "HouseholdsNotVisited", "ngiBPC1", "password1", "Bishopric");
 		
-		//getAllMembersInHTVTReport("Elders Quorum", "HouseholdsNotVisited", "LDSTools2", "toolstester", "Bishopric");
+		//getAllMembersInHTVTReport("Elders Quorum", "HouseholdsNotVisited", "LDSTools3", "toolstester", "Bishopric");
 		
 		
 		
@@ -188,7 +188,7 @@ public class LDSWeb {
 		readFile();
 		
 		
-		String myUserName = "ldstools2";
+		String myUserName = "LDSTools3";
 		String myPassword = "toolstester";
 		List<String> myList = new ArrayList<String>();
 		myList = getAllMembersOnPage("ReportsMenu", "Member List", myUserName, myPassword);
@@ -205,13 +205,13 @@ public class LDSWeb {
 
 
 		//String url = "https://test.lds.org/mls/mbr/?lang=eng";
-		String userName = "LDSTools2";
+		String userName = "LDSTools3";
 		String passWord = "toolstester";
 		
 		openPageLogIn(url, userName, passWord);
 
-//		setupMembers();
-//		setupCallings();
+		setupMembers();
+		setupCallings();
 		setupDistricts();
 		addCompanionHousehold();
 //		addJaneAaronToClass();
@@ -220,7 +220,7 @@ public class LDSWeb {
 
 	public void setupMinstering() throws Exception {
 		String url = "https://lcr-test.lds.org";
-		String userName = "LDSTools2";
+		String userName = "LDSTools3";
 		String passWord = "toolstester";
 
 		openPageLogIn(url, userName, passWord);
@@ -881,7 +881,7 @@ public class LDSWeb {
 		//WebDriverWait wait = new WebDriverWait(driver, 20);      
 		//Alert alert = wait.until(ExpectedConditions.alertIsPresent());   
 		//driver.switchTo().alert();
-		//alert.authenticateUsing(new UserAndPassword("ldstools2", "toolstester"));
+		//alert.authenticateUsing(new UserAndPassword("LDSTools3", "toolstester"));
 
 	    //String URL = "https://" + userName + ":" + passWord + "@" + "uat.lds.org/mls/mbr/";
 	    //driver.get(URL);
@@ -909,7 +909,7 @@ public class LDSWeb {
 //		rb.mouseRelease(InputEvent.BUTTON1_MASK);
 //
 //		// Enter user name in username field
-//		StringSelection username = new StringSelection("ldstools2");
+//		StringSelection username = new StringSelection("LDSTools3");
 //        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(username, null);
 //		rb.setAutoDelay(40);
 //		rb.setAutoWaitForIdle(true);
@@ -2140,7 +2140,7 @@ public class LDSWeb {
 		//openWebPage("https://www.lds.org");
 		Thread.sleep(2000);
 
-		driver.findElement(By.id(this.prop.getProperty("UserName"))).sendKeys("ldstools2");
+		driver.findElement(By.id(this.prop.getProperty("UserName"))).sendKeys("LDSTools3");
 		//Thread.sleep(1000);
 		driver.findElement(By.id(this.prop.getProperty("Password"))).sendKeys("toolstester");
 		clickElement("SignIn", "id");
@@ -2177,7 +2177,7 @@ public class LDSWeb {
 		SimpleDateFormat format = new SimpleDateFormat("MMMM dd, yyyy");
 		SimpleDateFormat origFormat = new SimpleDateFormat("dd MMM yyyy");
 		
-		userName = "LDSTools2";
+		userName = "LDSTools3";
 		passWord = "toolstester";
 		
 		openPageLogIn(url, userName, passWord);
@@ -2380,7 +2380,7 @@ public class LDSWeb {
 		Boolean myElementCheck;
 		String menuItem;
 		
-		userName = "LDSTools2";
+		userName = "LDSTools3";
 		passWord = "toolstester";
 
 		openPageLogIn(url, userName, passWord);
@@ -2573,7 +2573,7 @@ public class LDSWeb {
 		String url = "https://lcr-uat.lds.org";
 		Boolean myElementCheck;
 		
-		userName = "LDSTools2";
+		userName = "LDSTools3";
 		passWord = "toolstester";
 
 		openPageLogIn(url, userName, passWord);
@@ -2728,7 +2728,7 @@ public class LDSWeb {
 		//openWebPage("https://www.lds.org");
 		Thread.sleep(2000);
 
-		driver.findElement(By.id(this.prop.getProperty("UserName"))).sendKeys("LDSTools2");
+		driver.findElement(By.id(this.prop.getProperty("UserName"))).sendKeys("LDSTools3");
 		//Thread.sleep(1000);
 		driver.findElement(By.id(this.prop.getProperty("Password"))).sendKeys("toolstester");
 		clickElement("SignIn", "id");
@@ -3522,7 +3522,7 @@ public class LDSWeb {
 	public List<String> GetAllTemples() throws Exception {
 		String mySource;
 		List<String> allTemples = new ArrayList<String>();
-		MyTemplePageLogIn("https://lcr-uat.lds.org", "ldstools2", "toolstester");
+		MyTemplePageLogIn("https://lcr-uat.lds.org", "LDSTools3", "toolstester");
 		clickElement("Find a Temple", "linkText");
 		
 		mySource = getSourceOfMember("AllTemplesTable");

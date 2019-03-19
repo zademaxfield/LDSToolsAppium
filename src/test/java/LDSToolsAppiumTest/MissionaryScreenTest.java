@@ -70,7 +70,7 @@ public class MissionaryScreenTest extends BaseDriver {
         String pageSource;
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools20", "password1");
+        myHelper.loginUAT("LDSTools30", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.missionary);

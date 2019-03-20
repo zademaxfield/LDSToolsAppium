@@ -49,18 +49,18 @@ public class ReportsScreenTest extends BaseDriver {
             }
 
 
-            myBasePage.rightsCheck("Action and Interview List", 2, rights, pageSource);
-            myBasePage.rightsCheck("Birthday List", 2, rights, pageSource);
+            myBasePage.rightsCheck("Action and Interview List", 3, rights, pageSource);
+            myBasePage.rightsCheck("Birthday List", 3, rights, pageSource);
             myBasePage.rightsCheck("Ministering", 2, rights, pageSource);
-            myBasePage.rightsCheck("Members Moved In", 2, rights, pageSource);
-            myBasePage.rightsCheck("Members Moved Out", 2, rights, pageSource);
-            myBasePage.rightsCheck("Members with Callings", 2, rights, pageSource);
-            myBasePage.rightsCheck("Members without Callings", 2, rights, pageSource);
+            myBasePage.rightsCheck("Members Moved In", 3, rights, pageSource);
+            myBasePage.rightsCheck("Members Moved Out", 3, rights, pageSource);
+            myBasePage.rightsCheck("Members with Callings", 3, rights, pageSource);
+            myBasePage.rightsCheck("Members without Callings", 3, rights, pageSource);
            // myBasePage.rightsCheck("Missionary Progress Record", 2, rights, pageSource);
-            myBasePage.rightsCheck("New Members", 2, rights, pageSource);
+            myBasePage.rightsCheck("New Members", 3, rights, pageSource);
             myBasePage.rightsCheck("Temple Recommend Status", 1, rights, pageSource);
-            myBasePage.rightsCheck("Unit Statistics", 2, rights, pageSource);
-            myBasePage.rightsCheck("Quarterly Report", 2, rights, pageSource);
+            myBasePage.rightsCheck("Unit Statistics", 3, rights, pageSource);
+            myBasePage.rightsCheck("Quarterly Report", 3, rights, pageSource);
 
             //This will need to be removed soon
             //Assert.assertFalse(myBasePage.checkNoCaseList("quarterly", pageSource, "Contains"));

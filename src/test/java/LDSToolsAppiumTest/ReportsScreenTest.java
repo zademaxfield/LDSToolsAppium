@@ -179,9 +179,9 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedOutReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Itamua", 2, rights, pageSource);
-        myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
-        myBasePage.rightsCheck("Pesega", 1, rights, pageSource);
+        myBasePage.rightsCheck("Itamua", 3, rights, pageSource);
+//        myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
+//        myBasePage.rightsCheck("Pesega", 1, rights, pageSource);
 
         Thread.sleep(1000);
         myBasePage.backButton.click();
@@ -272,8 +272,8 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.newMembersReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Gosche, Cardinya", 2, rights, pageSource);
-        myBasePage.rightsCheck("11", 2, rights, pageSource);
+        myBasePage.rightsCheck("Gosche, Cardinya", 3, rights, pageSource);
+        myBasePage.rightsCheck("11", 3, rights, pageSource);
         myBasePage.rightsCheck("January 20, 2019", 1, rights, pageSource);
 
         Thread.sleep(1000);
@@ -297,7 +297,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.unitStatisticsReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("17", 2, rights, pageSource);
+        myBasePage.rightsCheck("17", 3, rights, pageSource);
 
 
         Thread.sleep(1000);

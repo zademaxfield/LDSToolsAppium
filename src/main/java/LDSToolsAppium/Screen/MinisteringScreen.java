@@ -189,8 +189,9 @@ public class MinisteringScreen extends BasePage {
         return myCheck;
     }
 
-    public void selectDistrict(String districtToSelect ) {
+    public void selectDistrict(String districtToSelect ) throws Exception {
         BasePage myBase = new BasePage(driver);
+        Thread.sleep(2000);
         //String myPageSource;
         if (getOS().equals("ios")) {
             driver.findElementByAccessibilityId(districtToSelect).click();

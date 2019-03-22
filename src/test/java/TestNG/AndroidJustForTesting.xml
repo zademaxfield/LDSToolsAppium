@@ -6,7 +6,7 @@
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <!--<parameter name="fileName" value="ldstools-release.apk" />-->
         <!--<parameter name="testDevice" value="ce06171675347c0b027e" />-->
-        <parameter name="testDevice" value="emulator-5554" />
+        <!--<parameter name="testDevice" value="emulator-5554" />-->
         <!--<parameter name="testDevice" value="8XV5T15A30006448" />-->
         <!--<parameter name="testDevice" value="STFZade-Pool" />-->
         <!--<parameter name="testDevice" value="WIRELESS-10.109.154.160:5555" />-->
@@ -14,9 +14,7 @@
         <!--<parameter name="testDevice" value="STF-364c5930534f3098" />-->
         <!--<parameter name="testDevice" value="STF-710KPFX0305667" />-->
         <!--<parameter name="testDevice" value="STFMain-Pool" />-->
-
-
-
+        <parameter name="testDevice" value="STF-ce061716cae890d10d7e" />
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -28,7 +26,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="iOS All Test" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
     <listeners>
-        <listener class-name="LDSToolsAppium.RetryListener"/>
+        <!--<listener class-name="LDSToolsAppium.RetryListener"/>-->
         <listener class-name= "LDSToolsAppium.CustomReporter" />
-        <listener class-name="LDSToolsAppium.TestListener" />
+        <!--<listener class-name="LDSToolsAppium.TestListener" />-->
     </listeners>
 
     <test name="iOS All Test 1 - Ziphone7plus" thread-count="1" parallel="false" >

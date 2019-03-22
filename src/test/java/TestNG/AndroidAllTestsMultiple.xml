@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Android All Tests" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
     <listeners>
-        <listener class-name="LDSToolsAppium.RetryListener"/>
+        <!--<listener class-name="LDSToolsAppium.RetryListener"/>-->
         <listener class-name= "LDSToolsAppium.CustomReporter" />
-        <listener class-name="LDSToolsAppium.TestListener" />
+        <!--<listener class-name="LDSToolsAppium.TestListener" />-->
     </listeners>
 
     <test name="Android All Test 1" thread-count="1" parallel="false" >

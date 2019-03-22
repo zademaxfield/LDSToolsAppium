@@ -92,6 +92,8 @@ public class QuarterlyScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         pageSource = myBasePage.getSourceOfPage();
+        myBasePage.scrollDownTEST(200);
+        pageSource = pageSource + myBasePage.getSourceOfPage();
 
         myList = myWeb.getQuarterlyReportsDetails(myReport);
 

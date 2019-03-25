@@ -207,7 +207,7 @@ public class ReportsScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Oline", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Ward Clerk", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Aumoto", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lesa", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Obi-Wan", pageSource, "Equals"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi", pageSource, "Equals"));
 

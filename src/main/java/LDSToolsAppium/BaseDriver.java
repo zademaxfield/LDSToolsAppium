@@ -412,6 +412,8 @@ public class BaseDriver {
             capabilities.setCapability("dontStopAppOnReset", true);
             //capabilities.setCapability("maxTypingFrequency", "8");
 
+            capabilities.setCapability("normalizeTagNames", true);
+
             capabilities.setCapability("clearDeviceLogsOnStart", true);
 
             driver = new AndroidDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"), capabilities);

@@ -276,7 +276,7 @@ public class DirectoryScreen extends BasePage {
         String tempMyUser = myUser.toLowerCase();
 
         directorySort.click();
-//        Thread.sleep(2000);
+        Thread.sleep(2000);
 //        System.out.println(getSourceOfPage());
         sortIndividual.click();
 

@@ -7,7 +7,7 @@
         <!--<listener class-name="LDSToolsAppium.TestListener" />-->
     </listeners>
 
-    <test name="Android Smoke Test 1" thread-count="1" parallel="false" >
+    <test name="Android Smoke Test 1 - Samsung Galaxy S9 plus" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="364c5930534f3098" />
@@ -39,10 +39,10 @@
         </classes>
     </test>
 
-    <test name="Android Smoke Test 2" thread-count="1" parallel="false" >
+    <test name="Android Smoke Test 2 - Samsung Galaxy Note 8" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="710KPFX0305667" />
+        <parameter name="testDevice" value="ce061716cae890d10d7e" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="60000" />
 
@@ -71,10 +71,10 @@
         </classes>
     </test>
 
-    <test name="Android Smoke Test 3" thread-count="1" parallel="false" >
+    <test name="Android Smoke Test 3 - Pixel 2 XL" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="8XV5T15A30006448" />
+        <parameter name="testDevice" value="710KPFX0305667" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="120000" />
 
@@ -103,10 +103,10 @@
         </classes>
     </test>
 
-    <test name="Android Smoke Test 4" thread-count="1" parallel="false" >
+    <test name="Android Smoke Test 4 - Nexus 9" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="ce061716cae890d10d7e" />
+        <parameter name="testDevice" value="HT4ASJT02851" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="180000" />
 

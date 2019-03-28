@@ -190,7 +190,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
     public void companionshipsElders(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -231,7 +231,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Lesa", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Oline", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Tafea", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
 
             myBasePage.backButton.click();
@@ -304,7 +304,7 @@ public class MinisteringScreenTest extends BaseDriver {
 //        }
 //    }
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
     public void unassignedSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

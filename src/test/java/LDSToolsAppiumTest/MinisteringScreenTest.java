@@ -212,35 +212,35 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.ministeringBrothersReport.click();
 
 
-            myMinistering.validateDistrict("District 11");
-            myMinistering.validateDistrict("District 12");
-            myMinistering.validateDistrict("District 13");
+            myMinistering.validateDistrict("District 1");
+            myMinistering.validateDistrict("District 2");
+            myMinistering.validateDistrict("District 3");
 
 
             //Select District 1
-            myMinistering.selectDistrict("District 11");
+            myMinistering.selectDistrict("District 1");
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Aumoto", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS51", pageSource, "Contains"));
 
             myBasePage.backButton.click();
 
             //Select District 2
-            myMinistering.selectDistrict("District 12");
+            myMinistering.selectDistrict("District 2");
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS11", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS23", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Lesa", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Oline", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
 
             myBasePage.backButton.click();
 
             //Select District 3
-            myMinistering.selectDistrict("District 13");
+            myMinistering.selectDistrict("District 3");
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Auvaa", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
 
             myBasePage.backButton.click();
@@ -432,28 +432,32 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.ministeringSistersReport.click();
 
 
-            myMinistering.validateDistrict("District 11");
-            myMinistering.validateDistrict("District 12");
+            myMinistering.validateDistrict("District 1");
+            myMinistering.validateDistrict("District 2");
            // myMinistering.validateDistrict("Fagamalo Districts");
 
 
             //Select District 1
-            myMinistering.selectDistrict("District 11");
+            myMinistering.selectDistrict("District 1");
             Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS12", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Faimeaita", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
+//            Assert.assertTrue(myBasePage.checkNoCaseList("LDS12", pageSource, "Contains"));
+//            Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 
 
             myBasePage.backButton.click();
 
 
             //Select District 2
-            myMinistering.selectDistrict("District 12");
+            myMinistering.selectDistrict("District 2");
             Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("LDS35", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Kitara", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
+//            Assert.assertTrue(myBasePage.checkNoCaseList("LDS35", pageSource, "Contains"));
+//            Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 
 
             myBasePage.backButton.click();

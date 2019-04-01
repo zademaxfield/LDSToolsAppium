@@ -154,16 +154,16 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Samu", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Oline", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Vili", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishopric First Counselor", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tutunoa", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ualesi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lesa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Anisi", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishopric Second Counselor", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Leota", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Polataia", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Alisa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Fonoafi", pageSource, "Contains"));
     }
 
 
@@ -313,12 +313,12 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sitivi", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Matagalu", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Pipi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mafoe", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("First Counselor", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("LDS22", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Vaifale", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Atonio", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Second Counselor", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("LDS23", pageSource, "Contains"));
@@ -396,20 +396,20 @@ public class OrganizationsScreenTest extends BaseDriver {
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Wilson", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tina", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Young", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Fila", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("First Counselor", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tulia", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Faagalo", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Seuamuli", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Alofa", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Second Counselor", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Endemann", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lole", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Aumoto", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tusiga", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Secretary", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ariel", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Leota", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Kamila", pageSource, "Contains"));
     }
 
 
@@ -489,8 +489,8 @@ public class OrganizationsScreenTest extends BaseDriver {
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Mikaele", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Poai", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Young", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Wella", pageSource, "Contains"));
             myBasePage.backAltButton.click();
             Thread.sleep(1000);
             myBasePage.backAltButton.click();

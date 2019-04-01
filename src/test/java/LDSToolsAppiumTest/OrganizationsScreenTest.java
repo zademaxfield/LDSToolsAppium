@@ -719,8 +719,8 @@ public class OrganizationsScreenTest extends BaseDriver {
         } else {
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Faamoe", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Talalelagi", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Pipi", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Lalotoa", pageSource, "Contains"));
 
             myBasePage.backAltButton.click();
 

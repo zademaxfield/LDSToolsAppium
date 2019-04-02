@@ -86,6 +86,12 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Quarterly Report")
     public MobileElement quarterlyReport;
 
+
+    //Youth Recommend Status
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Youth Recommend Status']")
+    @iOSXCUITFindBy(accessibility = "Youth Recommend Status")
+    public MobileElement youthRecommendStatusReport;
+
     //Visiting Teaching
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Visiting Teaching']")
     @iOSXCUITFindBy(accessibility = "Visiting Teaching")
@@ -162,6 +168,21 @@ public class ReportsScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"other\")]")
     @iOSXCUITFindBy(accessibility = "Other")
     public  MobileElement otherSort;
+
+    //Never Issued
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"never issued\")]")
+    @iOSXCUITFindBy(accessibility = "Never Issued")
+    public  MobileElement neverIssuedSort;
+
+    //Unordained
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"unordained\")]")
+    @iOSXCUITFindBy(accessibility = "Unordained")
+    public  MobileElement unordainedSort;
+
+    //Not Baptized
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"not baptized\")]")
+    @iOSXCUITFindBy(accessibility = "Not Baptized")
+    public  MobileElement notBaptizedSort;
 
 
     //*************************************************************************************

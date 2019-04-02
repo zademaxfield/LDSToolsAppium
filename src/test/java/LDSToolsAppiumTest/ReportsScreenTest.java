@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -61,6 +61,9 @@ public class ReportsScreenTest extends BaseDriver {
             myBasePage.rightsCheck("Temple Recommend Status", 1, rights, pageSource);
             myBasePage.rightsCheck("Unit Statistics", 3, rights, pageSource);
             myBasePage.rightsCheck("Quarterly Report", 3, rights, pageSource);
+            myBasePage.rightsCheck("Youth Recommend Status", 1, rights, pageSource);
+
+
 
             //This will need to be removed soon
             //Assert.assertFalse(myBasePage.checkNoCaseList("quarterly", pageSource, "Contains"));
@@ -120,6 +123,47 @@ public class ReportsScreenTest extends BaseDriver {
 
 
     }
+
+
+    @Test (groups = {"all3", "all", "jft"})
+    public void reportsYouthRecommendStatus() throws Exception {
+        String pageSource;
+
+
+        HelperMethods myHelper = new HelperMethods(driver);
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        ReportsScreen myReports = new ReportsScreen(driver);
+
+
+        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+        myMenu.selectMenu(myMenu.reports);
+        Thread.sleep(2000);
+
+        if (!getRunningOS().equals("ios")) {
+            myBasePage.scrollToTextRecyclerView("Youth Recommend Status");
+        } else {
+            myBasePage.scrollToTextiOS("Youth Recommend Status");
+        }
+
+        myReports.youthRecommendStatusReport.click();
+        Thread.sleep(2000);
+
+
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("AhNae", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Atonio", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Dec 2018", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Expired", pageSource, "Contains"));
+
+
+
+    }
+
 
 /*    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
     public void reportsMissionaryProgressRecord(String userName, String passWord, String rightsString, String calling) throws Exception {

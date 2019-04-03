@@ -160,7 +160,102 @@ public class ReportsScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Dec 2018", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Expired", pageSource, "Contains"));
 
+        //TODO: Need a way to test this for iOS. iOS does this very different.
+        if (!getRunningOS().equals("ios")) {
+            youthRecommendStatusActive();
+            youthRecommendStatusExpiring();
+            youthRecommendStatusExpired();
+            youthRecommendStatusNeverIssued();
+            youthRecommendStatusUnordained();
+            youthRecommendStatusNotBaptized();
+        }
 
+
+    }
+
+
+
+    private void youthRecommendStatusActive() {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        ReportsScreen myReports = new ReportsScreen(driver);
+
+        myReports.activeSort.click();
+
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Leota", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lesa", pageSource, "Contains"));
+
+    }
+
+    private void youthRecommendStatusExpiring() {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        ReportsScreen myReports = new ReportsScreen(driver);
+
+        myReports.expiringSort.click();
+
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Itamua", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Palota", pageSource, "Contains"));
+
+    }
+
+    private void youthRecommendStatusExpired() {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        ReportsScreen myReports = new ReportsScreen(driver);
+
+        myReports.expiredSort.click();
+
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("AhNae", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Alo", pageSource, "Contains"));
+
+    }
+
+    private void youthRecommendStatusNeverIssued() {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        ReportsScreen myReports = new ReportsScreen(driver);
+
+        myReports.neverIssuedSort.click();
+
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Alo", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Rachel", pageSource, "Contains"));
+
+    }
+
+    private void youthRecommendStatusUnordained() {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        ReportsScreen myReports = new ReportsScreen(driver);
+
+        myReports.unordainedSort.click();
+
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("DeSoto", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Priest", pageSource, "Contains"));
+
+    }
+
+    private void youthRecommendStatusNotBaptized() {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        ReportsScreen myReports = new ReportsScreen(driver);
+
+        myReports.notBaptizedSort.click();
+
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mataio", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sellyannthia", pageSource, "Contains"));
 
     }
 

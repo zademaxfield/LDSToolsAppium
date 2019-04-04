@@ -201,9 +201,40 @@ public class ReportsScreen extends BasePage {
     public MobileElement unbaptizedMembersReport;
 
     //Overdue Aaronic Priesthood Ordinations
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Overdue Aaronic Priesthood Ordinations']")
-    @iOSXCUITFindBy(accessibility = "Overdue Aaronic Priesthood Ordinations")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Overdue Aaronic Priesthood Ordinations'][@resource-id='org.lds.ldstools:id/reportTextView']")
+    @iOSXCUITFindBy(xpath = "//*[@name='Overdue Aaronic Priesthood Ordinations'][2]")
     public MobileElement overdueAaronicPriesthoodOrdinationsReport;
+
+    //Young Single Adult Interviews
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Young Single Adult Interviews']")
+    @iOSXCUITFindBy(accessibility = "Young Single Adult Interviews")
+    public MobileElement youngSingleAdultInterviewsReport;
+
+    //Bishop's Youth Interviews
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Bishop’s Youth Interviews']")
+    @iOSXCUITFindBy(accessibility = "Bishop’s Youth Interviews")
+    public MobileElement bishopsYouthInterviewsReport;
+
+    //Bishopric Counselor Youth Interviews
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Bishopric Counselor Youth Interviews']")
+    @iOSXCUITFindBy(accessibility = "Bishopric Counselor Youth Interviews")
+    public MobileElement bishopricCounselorYouthInterviewsReport;
+
+    //Young Men Approaching Mission Age
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Young Men Approaching Mission Age']")
+    @iOSXCUITFindBy(accessibility = "Young Men Approaching Mission Age")
+    public MobileElement youngMenApproachingMissionAgeReport;
+
+    //Men Who Have Not Served a Mission
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Men Who Have Not Served a Mission']")
+    @iOSXCUITFindBy(accessibility = "Men Who Have Not Served a Mission")
+    public MobileElement menWhoHaveNotServedaMissionReport;
+
+    //Potential Missionary Couples
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Potential Missionary Couples']")
+    @iOSXCUITFindBy(accessibility = "Potential Missionary Couples")
+    public MobileElement potentialMissionaryCouplesReport;
+
 
 
 

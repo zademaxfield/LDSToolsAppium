@@ -42,7 +42,7 @@ public class HelperMethods extends BasePage {
         myLoginPage.loginName.sendKeys(userName);
         myLoginPage.passWord.sendKeys(password);
         myLoginPage.signInButton.click();
-        Thread.sleep(10000);
+        Thread.sleep(15000);
 
         long startTime = System.nanoTime();
 

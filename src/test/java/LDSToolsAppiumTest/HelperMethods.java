@@ -42,10 +42,13 @@ public class HelperMethods extends BasePage {
         myLoginPage.loginName.sendKeys(userName);
         myLoginPage.passWord.sendKeys(password);
         myLoginPage.signInButton.click();
-        Thread.sleep(15000);
+        Thread.sleep(1000);
 
         long startTime = System.nanoTime();
 
+        System.out.println("Check for Sign In");
+        waitUnitlTextIsGone("Sign In");
+        System.out.println("Check for Sign In over ------ Check for Sync");
 
         if (getOS().equals("ios")) {
             waitUnitlTextIsGone("Stop Sync");
@@ -59,7 +62,7 @@ public class HelperMethods extends BasePage {
         System.out.println("Done waiting for Text to disappear: Sync Took: " + duration);
 
 
-        Thread.sleep(6000);
+        Thread.sleep(1000);
     }
 
     public void loginProxy(String myId, String myUnit, String myPosition) throws Exception {

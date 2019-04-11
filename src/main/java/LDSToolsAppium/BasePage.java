@@ -561,6 +561,7 @@ public class BasePage {
     public void waitUnitlTextIsGone(String myText) {
         //System.out.println("Start Checking for Element");
         WebDriverWait wait = new WebDriverWait(driver, 300);
+
         if(getOS().equals("ios")) {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@value='" + myText + "']")));
         } else {

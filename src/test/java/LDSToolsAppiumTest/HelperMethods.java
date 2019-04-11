@@ -53,7 +53,7 @@ public class HelperMethods extends BasePage {
         if (getOS().equals("ios")) {
             waitUnitlTextIsGone("Stop Sync");
         } else {
-            waitUnitlTextIsGone("Sync Progress");
+            waitUnitlTextIsGone("Sync");
         }
 
         long endTime = System.nanoTime();

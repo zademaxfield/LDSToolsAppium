@@ -563,9 +563,9 @@ public class BasePage {
         WebDriverWait wait = new WebDriverWait(driver, 300);
 
         if(getOS().equals("ios")) {
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@value='" + myText + "']")));
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@value, '" + myText + "')]")));
         } else {
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@text='" + myText + "']")));
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@text, '" + myText + "')]")));
         }
 
         //System.out.println("Stop Checking for Element");

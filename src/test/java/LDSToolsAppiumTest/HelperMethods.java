@@ -49,12 +49,14 @@ public class HelperMethods extends BasePage {
         System.out.println("Check for Sign In");
         waitUnitlTextIsGone("Sign In");
         System.out.println("Check for Sign In over ------ Check for Sync");
-        
+
         Thread.sleep(2000);
 
         if (getOS().equals("ios")) {
             waitUnitlTextIsGone("Stop Sync");
         } else {
+            waitUnitlTextIsGone("Sync");
+            Thread.sleep(1000);
             waitUnitlTextIsGone("Sync");
         }
 

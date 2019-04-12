@@ -190,7 +190,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3", "jft"})
+    @Test (dataProvider = "Members", groups = {"all3", "all", "smoke", "smoke3"})
     public void companionshipsElders(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -304,7 +304,7 @@ public class MinisteringScreenTest extends BaseDriver {
 //        }
 //    }
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void unassignedSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -330,8 +330,9 @@ public class MinisteringScreenTest extends BaseDriver {
             if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
                 if (getRunningOS().equals("ios")) {
                     myMinistering.unassignedSisters.click();
+                    Thread.sleep(2000);
                     pageSource = myBasePage.getSourceOfPage();
-                    Assert.assertFalse(myBasePage.checkNoCaseList("Alafoni", pageSource, "Contains"));
+                    Assert.assertTrue(myBasePage.checkNoCaseList("Apulu", pageSource, "Contains"));
                     Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
                 } else {
                     pageSource = myBasePage.getSourceOfPage();

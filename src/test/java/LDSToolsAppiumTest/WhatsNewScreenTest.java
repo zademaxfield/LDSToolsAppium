@@ -20,21 +20,22 @@ public class WhatsNewScreenTest extends BaseDriver {
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
 
         //Todo: Android won't pop up the Whats New Page with automation
-        if (getRunningOS().equals("ios")) {
-            myHelper.loginUAT("LDSTools32", "password1");
-            myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
+        myHelper.loginUAT("LDSTools32", "password1");
+        myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
 
-            Thread.sleep(2000);
+        Thread.sleep(2000);
 
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Version 3.5", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Temple Recommend Information", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Service Missionaries", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Household Locations", pageSource, "Contains"));
+        pageSource = myBasePage.getSourceOfPage();
+//        myBasePage.scrollDownTEST(500);
+//        pageSource = pageSource + myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Version 3.6", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Temple Recommend Information", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Service Missionaries", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Household Locations", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Youth Recommend Status Report", pageSource, "Contains"));
 
-            myWhatsNew.whatsNewDone.click();
-        }
+        myWhatsNew.whatsNewDone.click();
 
     }
 

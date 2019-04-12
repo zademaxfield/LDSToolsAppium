@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -125,7 +125,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "jft"})
+    @Test (groups = {"all4", "all"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
 
@@ -446,17 +446,17 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Alisa, Fonoafi", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Bishopric", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Aumoto", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Patriarch", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Anakin", pageSource, "Equals"));
 
         myReports.selectSort(myReports.organizationSort);
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Oline", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Kaura", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Ward Clerk", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lesa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Anisi Lesa", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Obi-Wan", pageSource, "Equals"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi", pageSource, "Equals"));
 
@@ -547,7 +547,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.unitStatisticsReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("17", 3, rights, pageSource);
+        myBasePage.rightsCheck("198", 3, rights, pageSource);
 
 
         Thread.sleep(1000);

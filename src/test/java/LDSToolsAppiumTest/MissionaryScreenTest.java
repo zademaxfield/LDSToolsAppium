@@ -23,7 +23,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -57,7 +57,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;
 
@@ -82,8 +82,10 @@ public class MissionaryScreenTest extends BaseDriver {
         //Check to see if the Members info is correct
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("(385) 800-1234", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Test@gmail.com", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("(385) 800-1234", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Test@gmail.com", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("8018675309", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("zademobile004@gmail.com", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("zmaxfield", pageSource, "Contains"));
 
         myMissionary.referralName.setValue("Auto Test Name");

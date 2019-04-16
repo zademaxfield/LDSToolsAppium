@@ -123,7 +123,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryMemberInfoHousehold() throws Exception {
         String pageSource;
 
@@ -233,8 +233,8 @@ public class DirectoryScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Mother", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Solo, Melesa Asovale", pageSource, "Contains"));
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Priests Quorum President", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Priests Quorum President", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Class Assignments", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("High Priests Quorum", pageSource, "Contains"));
@@ -413,7 +413,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(dataProvider = "Members", groups = {"all4", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"all4", "all"})
     public void directoryLatLongNoGPSChooseLocation(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

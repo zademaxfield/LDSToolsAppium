@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -235,7 +235,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all", "jft"})
+    @Test (groups = {"all3", "all"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
 

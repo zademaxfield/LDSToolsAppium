@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class HeaderTest extends BaseDriver {
 
 
-    @Test (groups = {"all3", "all", "header", "smoke", "smoke3", "jft"}, enabled = false)
+    @Test (groups = {"all3", "all", "header", "smoke", "smoke3"}, enabled = false)
     public void simpleHeaderTest() throws Exception {
         String pageSource;
 
@@ -59,6 +59,23 @@ public class HeaderTest extends BaseDriver {
     }
 
 
+
+    @Test (groups = {"NotUsed","jft"}, enabled = false)
+    public void headerJustForTesting() throws Exception {
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+
+        //Login and enter in PIN
+        myHelper.loginProxy("1821320094",
+                "/5u508381/1u508381/",
+                " p726/5u508381/1u508381/:p1729/5u528781/1u528781/:p53/5u528781/1u528781/:p803/5u528781/1u528781/");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        Thread.sleep(60000);
+
+
+    }
 
 
 

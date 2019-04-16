@@ -23,7 +23,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -57,7 +57,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;
 

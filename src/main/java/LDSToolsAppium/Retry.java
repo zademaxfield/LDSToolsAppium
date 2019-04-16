@@ -7,6 +7,8 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
+//import org.testng.IReporter;
+
 public class Retry implements IRetryAnalyzer {
     private int retryCount         = 0;
     private int maxRetryCount     = 1;   // retry a failed test 2 additional times
@@ -30,6 +32,7 @@ public class Retry implements IRetryAnalyzer {
 				result.setStatus(ITestResult.FAILURE);
 //				result.setStatus(ITestResult.SKIP);
 				Reporter.setCurrentTestResult(result);
+
 			
 				//ITestContext tc = Reporter.getCurrentTestResult().getTestContext();
 				//tc.getFailedTests().getAllMethods().remove(Reporter.getCurrentTestResult().getMethod());

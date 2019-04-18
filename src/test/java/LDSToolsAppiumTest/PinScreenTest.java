@@ -91,7 +91,7 @@ public class PinScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all", "jft"})
+    @Test (groups = {"all3", "all"})
     public void pinSequentialTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
@@ -113,7 +113,7 @@ public class PinScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all3", "all"})
+    @Test (groups = {"all3", "all", "jft"})
     public void pinSequentialTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);

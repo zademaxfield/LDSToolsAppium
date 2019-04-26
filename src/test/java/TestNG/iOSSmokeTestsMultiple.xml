@@ -2,12 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="iOS Smoke Test" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
     <listeners>
-        <!--<listener class-name="LDSToolsAppium.RetryListener"/>-->
+        <listener class-name="LDSToolsAppium.RetryListener"/>
         <listener class-name= "LDSToolsAppium.CustomReporter" />
-        <!--<listener class-name="LDSToolsAppium.TestListener" />-->
+        <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
 
-    <test name="iOS Smoke Test 1 - Ziphone7plus" thread-count="1" parallel="false" >
+    <test name="iOS Smoke Test 1 - ZiphoneX" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-Ziphone7plus" />

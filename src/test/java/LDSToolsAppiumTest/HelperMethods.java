@@ -54,6 +54,8 @@ public class HelperMethods extends BasePage {
 
         if (getOS().equals("ios")) {
             waitUnitlTextIsGone("Stop Sync");
+            Thread.sleep(1000);
+            waitUnitlTextIsGone("Stop Sync");
         } else {
             waitUnitlTextIsGone("Authenticating");
             Thread.sleep(1000);

@@ -5,6 +5,7 @@
     <test name="iOS Just For Testing ">
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
+<!--        <parameter name="fileName" value="Member Tools.app" />-->
         <!--<parameter name="fileName" value="LDSTools.ipa" />-->
         <parameter name="testDevice" value="iPhone Xs Max" />
         <!--<parameter name="testDevice" value="REAL-ZiphoneX" />-->
@@ -22,7 +23,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
         </classes>
     </test> <!-- Default test -->
 </suite> <!-- Default suite -->

@@ -38,7 +38,7 @@ public class LoginPageTest extends BaseDriver {
             Assert.assertTrue(myPageSource.contains("Help"));
             Assert.assertTrue(myPageSource.contains("Sign In"));
         } else {
-            Assert.assertTrue(myPageSource.contains("LDS Tools"));
+            Assert.assertTrue(myPageSource.contains("Tools"));
 //            Assert.assertTrue(myPageSource.contains("Sign in to your LDS Account"));
 
             //Have to do a case insensitive test for Android 5.0 doesn't handle case correctly

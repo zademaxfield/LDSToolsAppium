@@ -21,7 +21,7 @@ public class LoginPageTest extends BaseDriver {
 //    }
 
 
-    @Test (groups = {"all2", "all", "login", "jft"})
+    @Test (groups = {"all2", "all", "login"})
     public void validateLoginPage() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -160,7 +160,7 @@ public class LoginPageTest extends BaseDriver {
         invalidCheck("LDSTools30", "toolstester");
     }
 
-    @Test ( groups = {"all1", "all", "login"})
+    @Test ( groups = {"all1", "all", "login", "jft"})
     public void invalidUsernameTest2() throws Exception {
         invalidCheck("LDSTools3", "password1");
     }

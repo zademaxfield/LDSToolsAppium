@@ -27,7 +27,7 @@ public class DirectoryScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
     public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -144,7 +144,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
         if (myBasePage.getOS().contains("ios")) {
             myDirectory.searchAndClickHousehold("Oline, Vili & Faapepele");
-            myBasePage.clickByTextContains("Oline");
+            myBasePage.clickByTextContains("Vili Oline");
         } else {
             myDirectory.searchAndClickHousehold("Oline, Vili");
         }
@@ -153,7 +153,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryMemberInfoIndividual() throws Exception {
         String pageSource;
 

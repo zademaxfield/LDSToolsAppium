@@ -23,7 +23,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -213,7 +213,7 @@ public class MissionaryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void missionaryReferralNoContactInfo() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
@@ -241,7 +241,7 @@ public class MissionaryScreenTest extends BaseDriver {
         Thread.sleep(2000);
 
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Please update your individual email or phone number in LDS Tools before sending a referral", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Please update your individual email or phone number in Tools before sending a referral", pageSource, "Contains"));
 
 //        System.out.println(pageSource);
 
@@ -254,7 +254,7 @@ public class MissionaryScreenTest extends BaseDriver {
         Thread.sleep(6000);
 
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertFalse(myBasePage.checkNoCaseList("Please update your individual email or phone number in LDS Tools before sending a referral", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Please update your individual email or phone number in Tools before sending a referral", pageSource, "Contains"));
 
 
         //Clean up

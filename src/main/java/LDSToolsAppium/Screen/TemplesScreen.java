@@ -145,7 +145,7 @@ public class TemplesScreen extends BasePage {
 
             myMenu.selectMenu(myMenu.temples);
 
-            Thread.sleep(4000);
+            Thread.sleep(10000);
             Assert.assertTrue(myBasePage.checkTextOnPage("Set a Temple Recommend Expiration Reminder"));
             Assert.assertTrue(myBasePage.checkTextOnPage("Would you like to be reminded before your temple recommend expires?"));
 

@@ -109,7 +109,19 @@ public class MissionaryScreen extends BasePage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Send Referral']")
     public MobileElement referralSendReferral;
 
+    //Overflow Button - Android only
+    @AndroidFindBy(id = "removeReferralImageButton")
+    public MobileElement referralOverflowButton;
 
+
+    //Remove Referral
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Remove from list']")
+    @iOSXCUITFindBy(accessibility = "Remove")
+    public MobileElement referralRemove;
+
+    //Remove from list?
+    @AndroidFindBy(id = "md_buttonDefaultPositive")
+    public MobileElement referralRemoveFromList;
 
 
 

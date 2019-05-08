@@ -57,7 +57,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;
 
@@ -172,48 +172,55 @@ public class MissionaryScreenTest extends BaseDriver {
 
         //Check Nice message
         Thread.sleep(20000);
-       // myBasePage.alertOK.click();
+//        myBasePage.alertOK.click();
 
 
-        //There is something wrong with the Missionary progress in UAT
-//        pageSource = myBasePage.getSourceOfPage();
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Auto Test Name", pageSource, "Contains"));
-//
-//        //Check referral
-//        myBasePage.clickByText("Auto Test Name");
-//
-//
-//        pageSource = driver.getPageSource();
-//        myBasePage.scrollDownTEST(400);
-//        pageSource = pageSource + driver.getPageSource();
-//
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Auto Test Name", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Hello this is a test", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("801-867-5309", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Test@gmail.com", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("autotest@gmail.com", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("920 Mocking Bird Ln", pageSource, "Contains"));
+//        There is something wrong with the Missionary progress in UAT
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Auto Test Name", pageSource, "Contains"));
+
+        //Check referral
+        myBasePage.clickByTextContains("Auto Test Name");
 
 
-//
-//        //Remove Referral
-//        if (getRunningOS().equals("ios")) {
-//            clickButton("MissRefRemove", "xpath", "pred");
-//            clickButton("AddUnitOK", "xpath", "pred");
-//        } else {
-//            pressBackKey();
-//            clickButton("//android.widget.TextView[@text='Auto Test Name']/following-sibling::android.widget.ImageButton[@resource-id='removeReferralImageButton']", "xpathCustom", "xpath");
-//            clickButton("MissRefRemoveFromList", "xpath", "xpath");
-//            clickButton("AlertOKid", "id", "id");
-//        }
-//
+        pageSource = driver.getPageSource();
+        myBasePage.scrollDownTEST(400);
+        pageSource = pageSource + driver.getPageSource();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Status", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Assigned to California San Jose Mission", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("California San Jose Mission Office", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("408-578-9794", pageSource, "Contains"));
+
+        if (myBasePage.getOS().equals("ios")) {
+            Assert.assertTrue(myBasePage.checkNoCaseList("408-614-3854", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("@missionary.org", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Rodney B. Norling", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("408-733-8125", pageSource, "Contains"));
+        }
+
+
+        //Remove Referral
+        if (getRunningOS().equals("ios")) {
+            myMissionary.referralRemove.click();
+            myBasePage.alertOK.click();
+        } else {
+            myBasePage.backButton.click();
+            myMissionary.referralOverflowButton.click();
+            myMissionary.referralRemove.click();
+//            myBasePage.alertOK.click();
+            myMissionary.referralRemoveFromList.click();
+        }
+
 
 
 
     }
 
 
-    @Test(groups = {"all4", "all", "jft"})
+    @Test(groups = {"all4", "all"})
     public void missionaryReferralNoContactInfo() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);

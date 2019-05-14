@@ -65,10 +65,10 @@ public class LoginPageTest extends BaseDriver {
         Thread.sleep(2000);
 
         myLoginPage.troubleSigningIn.click();
-        myBasePage.waitForText("LDS Account");
+        myBasePage.waitForText("Account");
         myLoginPage.accountRecoveryPage.isDisplayed();
         myPageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myPageSource.contains("LDS Account"));
+        Assert.assertTrue(myPageSource.contains("Account"));
         Assert.assertTrue(myPageSource.contains("Account Recovery"));
 
         if (getRunningOS().equals("ios")) {

@@ -184,13 +184,13 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
         pageSource = driver.getPageSource();
-        myBasePage.scrollToText("United");
+//        myBasePage.scrollToText("United States");
 //        myBasePage.scrollDownSlow(400);
-//        myBasePage.scrollDownTEST(400);
+        myBasePage.scrollDownTEST(400);
         pageSource = pageSource + driver.getPageSource();
 //        myBasePage.scrollDownSlow(400);
-//        myBasePage.scrollDownTEST(400);
-//        pageSource = pageSource + driver.getPageSource();
+        myBasePage.scrollDownTEST(400);
+        pageSource = pageSource + driver.getPageSource();
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Status", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Assigned to California San Jose Mission", pageSource, "Contains"));

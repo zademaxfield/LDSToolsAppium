@@ -393,7 +393,7 @@ public class BasePage {
         }
     }
 
-    private void scrollDownSlow(int scrollDistance) throws Exception {
+    public void scrollDownSlow(int scrollDistance) throws Exception {
         Dimension dimensions = driver.manage().window().getSize();
         int screenWidth = dimensions.getWidth();
         int screenHeight = dimensions.getHeight();

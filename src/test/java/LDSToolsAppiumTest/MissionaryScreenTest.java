@@ -192,13 +192,14 @@ public class MissionaryScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("California San Jose Mission Office", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("408-578-9794", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Rodney B. Norling", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("408-733-8125", pageSource, "Contains"));
 
         if (myBasePage.getOS().equals("ios")) {
             Assert.assertTrue(myBasePage.checkNoCaseList("408-614-3854", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("@missionary.org", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Rodney B. Norling", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("408-733-8125", pageSource, "Contains"));
+
         }
 
 

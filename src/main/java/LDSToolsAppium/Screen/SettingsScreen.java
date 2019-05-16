@@ -200,7 +200,7 @@ public class SettingsScreen extends BasePage {
 
         //UAT
         @AndroidFindBy(xpath = "//*[contains(@text, 'UAT')]")
-        @iOSXCUITFindBy(xpath = "//*[contains(@value, 'UAT')]")
+        @iOSXCUITFindBy(xpath = "//*[contains(@name, 'UAT')]")
         //@iOSXCUITFindBy(accessibility = "UAT")
         public  MobileElement UAT;
 

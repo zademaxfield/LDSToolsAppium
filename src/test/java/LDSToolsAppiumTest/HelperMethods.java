@@ -560,7 +560,10 @@ public class HelperMethods extends BasePage {
                 if (myBasePage.checkForElement(myBasePage.allowButton)) {
                     myBasePage.allowButton.click();
                     myBasePage.allowButton.click();
-                    myBasePage.allowButton.click();
+                    if (myBasePage.checkForElement(myBasePage.allowButton)) {
+                        myBasePage.allowButton.click();
+                    }
+
                 }
             }
         }

@@ -103,6 +103,7 @@ public class MissionaryScreenTest extends BaseDriver {
         Thread.sleep(4000);
 
         //printPageSource();
+        
 
         //Check to see if locations services has been turned on.
         if (getRunningOS().equals("ios")) {

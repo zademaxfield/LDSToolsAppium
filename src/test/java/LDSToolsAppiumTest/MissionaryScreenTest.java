@@ -182,14 +182,24 @@ public class MissionaryScreenTest extends BaseDriver {
         //Check referral
         myBasePage.clickByTextContains("Auto Test Name");
 
-
+        Thread.sleep(2000);
         pageSource = driver.getPageSource();
-//        myBasePage.scrollToText("United States");
-//        myBasePage.scrollDownSlow(400);
-        myBasePage.scrollDownTEST(400);
+        if (myBasePage.getOS().equals("mac")) {
+            myBasePage.scrollDownTEST(400);
+        } else {
+            myBasePage.scrollDownAndroidUIAutomator("0");
+        }
+
+        Thread.sleep(2000);
         pageSource = pageSource + driver.getPageSource();
-//        myBasePage.scrollDownSlow(400);
-        myBasePage.scrollDownTEST(400);
+
+        if (myBasePage.getOS().equals("mac")) {
+            myBasePage.scrollDownTEST(400);
+        } else {
+            myBasePage.scrollDownAndroidUIAutomator("0");
+        }
+
+        Thread.sleep(2000);
         pageSource = pageSource + driver.getPageSource();
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Status", pageSource, "Contains"));

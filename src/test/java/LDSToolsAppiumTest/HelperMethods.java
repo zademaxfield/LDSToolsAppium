@@ -159,7 +159,7 @@ public class HelperMethods extends BasePage {
             //Bug in android to avoid a crash
             //scrollToTextRecyclerView("Maximum units to sync");
             //mySettings.ignoreWhatsNew.click();
-
+            scrollUpAndroidUIAutomator("0");
             scrollToTextRecyclerView("Network Environment");
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();

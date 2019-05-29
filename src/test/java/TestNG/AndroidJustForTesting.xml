@@ -3,9 +3,9 @@
 <suite name="Android Just For Testing Suite" configfailurepolicy="continue" verbose="2">
     <test name="Android Just For Testing">
         <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
+<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
 <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-        <!--<parameter name="fileName" value="ldstools-release.apk" />-->
+        <parameter name="fileName" value="ldstools-release.apk" />
 <!--        <parameter name="testDevice" value="ce06171675347c0b027e" />-->
         <parameter name="testDevice" value="emulator-5554" />
         <!--<parameter name="testDevice" value="8XV5T15A30006448" />-->
@@ -27,7 +27,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
 
         </classes>
     </test > <!-- Default test -->

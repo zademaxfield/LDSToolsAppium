@@ -23,7 +23,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
         </classes>
     </test> <!-- Default test -->
 </suite> <!-- Default suite -->

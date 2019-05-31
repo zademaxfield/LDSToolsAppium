@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
@@ -23,19 +24,48 @@ public class CalendarsScreen extends BasePage {
 
     // ****************** Calendars Main Screen ******************
 
-    //Edit
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Edit']")
+    //Edit Button
     @iOSXCUITFindBy(accessibility = "Edit")
-    public MobileElement editCalendar;
+    public MobileElement calendarEdit;
+
+    //Done Button
+    @iOSXCUITFindBy(accessibility = "Done")
+    public MobileElement calendarDone;
+
+
+    //Overflow Menu
+    @AndroidFindBy(accessibility = "More options")
+    public MobileElement calendarMoreOptions;
+
 
     //Calendars to display
-    //Select None
-    //This is broken for iOS appium cannot see select none or subscriptions
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Edit']")
-    @iOSXCUITFindBy(accessibility = "Edit")
-    public MobileElement selectNoneCalendar;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Calendars to display']")
+    public MobileElement calendarsToDisplay;
 
 
+
+
+
+
+
+
+
+
+    //Check Calendar to display
+    public void checkCalendarToDisplay(String calendarItem, String checkOrUncheck) throws Exception {
+        String checkBox = "";
+        if (checkOrUncheck.equals("check")) {
+            checkBox = "green_check";
+        } else {
+            checkBox = "no_teach";
+        }
+
+        if (getOS().contains("ios")) {
+            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+ calendarItem + "']/preceding-sibling::XCUIElementTypeImage[@name='" + checkBox +"']")).click();
+        } else {
+            driver.findElement(By.xpath("//android.widget.TextView[@text='"+ calendarItem + "']/following-sibling::android.widget.CheckBox")).click();
+        }
+    }
 
 
 

@@ -74,6 +74,55 @@ public class HelperMethods extends BasePage {
         Thread.sleep(1000);
     }
 
+
+    public void loginProduction(String userName, String password) throws Exception {
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        if (checkForElement(allowButton)) {
+            allowButton.click();
+        }
+
+        myLoginPage.loginName.clear();
+        myLoginPage.passWord.clear();
+
+        myLoginPage.loginName.sendKeys(userName);
+        myLoginPage.passWord.sendKeys(password);
+        myLoginPage.signInButton.click();
+        Thread.sleep(1000);
+
+        long startTime = System.nanoTime();
+
+        System.out.println("Check for Sign In");
+        waitUnitlTextIsGone("Sign In");
+        System.out.println("Check for Sign In over ------ Check for Sync");
+
+        Thread.sleep(2000);
+
+        if (getOS().equals("ios")) {
+//            Thread.sleep(5000);
+            waitUnitlTextIsGone("Stop Sync");
+            Thread.sleep(1000);
+            waitUnitlTextIsGone("Stop Sync");
+        } else {
+            waitUnitlTextIsGone("Authenticating");
+            Thread.sleep(1000);
+            waitUnitlTextIsGone("Sync");
+            Thread.sleep(1000);
+            waitUnitlTextIsGone("Sync");
+        }
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        duration = duration / 1000000;
+        System.out.println("Done waiting for Text to disappear: Sync Took: " + duration);
+
+
+        Thread.sleep(1000);
+    }
+
+
+
+
     public void loginProxy(String myId, String myUnit, String myPosition) throws Exception {
         //Enable Developer Settings and set the Network Environment to Proxy
         String userName = "paigekrebs";

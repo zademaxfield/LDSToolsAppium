@@ -44,6 +44,30 @@ public class CalendarsScreen extends BasePage {
 
 
 
+    //Subscriptions Button
+    @AndroidFindBy(id ="menu_calendar_subscriptions")
+    @iOSXCUITFindBy(accessibility = "Subscriptions")
+    public MobileElement calendarSubscriptions;
+
+    //Select None Button
+    @AndroidFindBy(id ="menu_calendars_select_all")
+    @iOSXCUITFindBy(accessibility = "Select None")
+    public MobileElement calendarsSelectNone;
+
+
+
+    //Subscriptions Done
+    @AndroidFindBy(id = "menu_item_done")
+    @iOSXCUITFindBy(accessibility = "Done")
+    public MobileElement calendarsSubscriptionsDone;
+
+    //Subscriptions Cancel
+    @AndroidFindBy(id = "menu_item_cancel")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public MobileElement calendarsSubscriptionsCancel;
+
+
+
 
 
 

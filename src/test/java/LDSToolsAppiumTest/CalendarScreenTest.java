@@ -40,7 +40,7 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all", "all3" })
+    @Test (groups = {"all", "all3", "jft"  })
     public void calenderDisplayType() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);
@@ -88,7 +88,7 @@ public class CalendarScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"jft" })
+    @Test (groups = {"all", "all4"})
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);

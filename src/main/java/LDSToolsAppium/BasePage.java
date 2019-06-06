@@ -301,12 +301,17 @@ public class BasePage {
     }
 
     public void scrollDownAndroidUIAutomator(String myInstance) throws Exception {
-        try {
-//            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(" + myInstance + ")).flingForward();"));
-            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(" + myInstance + ")).scrollForward(45);"));
-        } catch (Exception ignored) {
+        if (getOS().equals("ios")) {
+            scrollDownIOS();
+        } else {
+            try {
+                driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(" + myInstance + ")).scrollForward(45);"));
+            } catch (Exception ignored) {
 
+            }
         }
+
+
 
     }
 

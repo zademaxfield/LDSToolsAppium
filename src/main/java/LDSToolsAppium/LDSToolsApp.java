@@ -72,10 +72,12 @@ public class LDSToolsApp {
     public MissionaryScreen missionaryScreenScreen() { return new MissionaryScreen(driver);
     }
 
-
-
     //Scanner Screen
     public ScannerScreen scannerScreen() { return new ScannerScreen(driver);
+    }
+
+    //Meetinghouses Screen
+    public MeetinghousesScreen meetinghousesScreen() { return new MeetinghousesScreen(driver);
     }
 
 }

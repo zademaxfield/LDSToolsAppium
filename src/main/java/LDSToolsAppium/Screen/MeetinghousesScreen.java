@@ -34,8 +34,8 @@ public class MeetinghousesScreen extends BasePage {
     public MobileElement meetinghousesDeny;
 
     //Allow access to your location - Android Permissions Dialog
-    @AndroidFindBy(id ="permission_allow_button")
-    public MobileElement meetinghousesAllowAndroidPremissions;
+    @AndroidFindBy(id = "permission_allow_button")
+    public MobileElement meetinghousesAllowAndroidPermissions;
 
 
     // ****************** Meetinghouses Main Screen ******************

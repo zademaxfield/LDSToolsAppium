@@ -80,4 +80,8 @@ public class LDSToolsApp {
     public MeetinghousesScreen meetinghousesScreen() { return new MeetinghousesScreen(driver);
     }
 
+    //Lists Screen
+    public ListsScreen listsScreen() { return new ListsScreen(driver);
+    }
+
 }

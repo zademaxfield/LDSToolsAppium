@@ -30,6 +30,7 @@
             <class name="LDSToolsAppiumTest.HeaderTest" />
             <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
             <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+            <class name="LDSToolsAppiumTest.ListsScreenTest" />
         </classes>
     </test> <!-- Default test -->
 </suite> <!-- Default suite -->

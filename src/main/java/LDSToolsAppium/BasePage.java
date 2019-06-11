@@ -592,6 +592,12 @@ public class BasePage {
         //System.out.println("Stop Checking for Element");
     }
 
+    public void waitForElementThenClick(MobileElement myElement) {
+        WebDriverWait wait = new WebDriverWait(driver, 300);
+        wait.until(ExpectedConditions.elementToBeClickable(myElement));
+        myElement.click();
+    }
+
     public void clickByText(String myText) {
         if(getOS().equals("ios")) {
             driver.findElement(By.xpath("//*[@label='" + myText + "']")).click();

@@ -2,6 +2,7 @@ package LDSToolsAppium.Screen;
 
 import LDSToolsAppium.BasePage;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -30,6 +31,10 @@ public class ListsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Edit")
     public MobileElement listsEdit;
 
+    //Done List - iOS Only
+    @iOSXCUITFindBy(accessibility = "Done")
+    public MobileElement listsDone;
+
 
     //Add List
     @AndroidFindBy(id = "fab")
@@ -43,7 +48,8 @@ public class ListsScreen extends BasePage {
 
     //New List Dialog - Name
     @AndroidFindBy(id = "android:id/input")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
+//    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
+    @iOSXCUITFindBy(iOSNsPredicate =  "type == 'XCUIElementTypeTextField'")
     public MobileElement listsName;
 
     //New List Dialog - Cancel
@@ -80,10 +86,65 @@ public class ListsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Search")
     public MobileElement listsSearch;
 
-    //Back button after addeing user
+    //Back button after adding user
     @AndroidFindBy(xpath = "//android.widget.ImageButton")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
     public MobileElement listsBackButton;
+
+
+
+
+    //Share - Map - Text
+
+    //Share - Email button
+    @AndroidFindBy(id = "menu_send_email")
+    public MobileElement listsSendEmail;
+
+    //Show On Map
+    @AndroidFindBy(id = "menu_show_on_map")
+    public MobileElement listsShowOnMap;
+
+    //Send Text to List
+    @AndroidFindBy(id = "menu_show_on_map")
+    public MobileElement listsSendText;
+
+    //More Options
+    @AndroidFindBy(accessibility = "More options")
+    public MobileElement listsMoreOptions;
+
+
+    //More Options - Share
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Share']")
+    public MobileElement listsMoreOptionsShare;
+
+    //More Options - Edit
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Edit']")
+    public MobileElement listsMoreOptionsEdit;
+
+    //More Options - Delete
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Delete']")
+    public MobileElement listsMoreOptionsDelete;
+
+
+
+
+    public void deleteList(String myListName) throws Exception {
+        if (getOS().equals("ios")) {
+            listsEdit.click();
+            driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")).click();
+//            Thread.sleep(5000);
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + myListName + "']/following-sibling::XCUIElementTypeButton[@name='Delete']")).click();
+            driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")).click();
+            listsDone.click();
+
+        } else {
+            selectListName(myListName);
+            listsMoreOptions.click();
+            listsMoreOptionsDelete.click();
+            listsOk.click();
+        }
+    }
+
 
 
 
@@ -99,13 +160,13 @@ public class ListsScreen extends BasePage {
     public String getNumberOfListMembers(String myListName) throws Exception{
         String listNumber;
         if (getOS().equals("ios")) {
-            listNumber = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + myListName + "']following-sibling::XCUIElementTypeStaticText")).getAttribute("name").toString();
+            listNumber = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + myListName + "']/following-sibling::XCUIElementTypeStaticText")).getAttribute("name").toString();
         } else {
-            listNumber = driver.findElement(By.xpath("//android.widget.TextView[@text='"+ myListName + "']following-sibling::android.widget.TextView")).getAttribute("text").toString();
+            listNumber = driver.findElement(By.xpath("//android.widget.TextView[@text='"+ myListName + "']/following-sibling::android.widget.TextView")).getAttribute("text").toString();
             if (listNumber.contains("people")) {
-                listNumber.replace(" people", "");
+                listNumber = listNumber.replace(" people", "");
             } else {
-                listNumber.replace( " person", "");
+                listNumber = listNumber.replace( " person", "");
             }
         }
 

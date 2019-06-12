@@ -685,28 +685,38 @@ public class HelperMethods extends BasePage {
         BasePage myBase = new BasePage(driver);
 
         Boolean myCheck = false;
+        String pageSource;
 
-        myCheck = myBase.checkElementExists("OK");
+        pageSource = myBase.getSourceOfPage();
+
+//        myCheck = myBase.checkElementExists("OK");
+        myCheck = pageSource.contains("OK");
         if (myCheck) {
             myPin.pinAlertDialogOK.click();
+            pageSource = myBase.getSourceOfPage();
         }
 
-        myCheck = myBase.checkElementExists("Yes");
+//        myCheck = myBase.checkElementExists("Yes");
+        myCheck = pageSource.contains("Yes");
         if (myCheck) {
             myPin.pinAlertDialogYes.click();
+            pageSource = myBase.getSourceOfPage();
         }
 
         System.out.println("Checking for Face ID");
-        myCheck = myBase.checkElementExists("Disable Face ID");
+//        myCheck = myBase.checkElementExists("Disable Face ID");
+        myCheck = pageSource.contains("Disable Face ID");
         if (myCheck) {
             System.out.println("Face ID found hitting disable");
             myPin.pinDisableFaceID.click();
             Thread.sleep(2000);
             myPin.pinAlertDialogOK.click();
+            pageSource = myBase.getSourceOfPage();
         }
 
         System.out.println("Checking for Touch ID");
-        myCheck = myBase.checkElementExists("Disable Touch ID");
+//        myCheck = myBase.checkElementExists("Disable Touch ID");
+        myCheck = pageSource.contains("Disable Touch ID");
         if (myCheck) {
             System.out.println("Enable Touch ID Button found, hitting the button");
             myPin.pinDisableTouchID.click();
@@ -723,14 +733,20 @@ public class HelperMethods extends BasePage {
         PinScreen myPin = new PinScreen(driver);
         BasePage myBase = new BasePage(driver);
 
+        String pageSource;
         Boolean myCheck = false;
 
-        myCheck = myBase.checkElementExists("OK");
+        pageSource = myBase.getSourceOfPage();
+
+//        myCheck = myBase.checkElementExists("OK");
+        myCheck = pageSource.contains("OK");
         if (myCheck) {
             myPin.pinAlertDialogOK.click();
+            pageSource = myBase.getSourceOfPage();
         }
 
-        myCheck = myBase.checkElementExists("Yes");
+//        myCheck = myBase.checkElementExists("Yes");
+        myCheck = pageSource.contains("Yes");
         if (myCheck) {
             myPin.pinAlertDialogYes.click();
         }

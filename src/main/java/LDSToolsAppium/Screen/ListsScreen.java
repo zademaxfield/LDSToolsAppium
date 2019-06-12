@@ -132,11 +132,13 @@ public class ListsScreen extends BasePage {
         if (getOS().equals("ios")) {
             listsEdit.click();
             driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")).click();
-//            Thread.sleep(5000);
-//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + myListName + "']/following-sibling::XCUIElementTypeButton[@name='Delete']")).click();
             driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")).click();
-            listsDone.click();
 
+            //If there more than one list this "Done" button will still be displayed
+            if (checkForElement(listsDone)) {
+                listsDone.click();
+            }
+            
         } else {
             selectListName(myListName);
             listsMoreOptions.click();

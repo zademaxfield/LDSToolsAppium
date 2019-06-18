@@ -138,13 +138,34 @@ public class ListsScreen extends BasePage {
             if (checkForElement(listsDone)) {
                 listsDone.click();
             }
-            
+
         } else {
             selectListName(myListName);
             listsMoreOptions.click();
             listsMoreOptionsDelete.click();
             listsOk.click();
         }
+    }
+
+    public void deleteMemberFromList(String memberName) throws Exception {
+        if (getOS().equals("ios")) {
+            listsEdit.click();
+            driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + memberName + "')]")).click();
+            driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")).click();
+
+            //If there more than one list this "Done" button will still be displayed
+            if (checkForElement(listsDone)) {
+                listsDone.click();
+            }
+
+        } else {
+            listsMoreOptions.click();
+            listsMoreOptionsEdit.click();
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("//android.widget.TextView[@text='" + memberName + "']/../../../../android.widget.ImageView")).click();
+
+        }
+
     }
 
 

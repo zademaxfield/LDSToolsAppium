@@ -10,6 +10,7 @@
     <test name="Android All Test 1 - Samsung Galaxy S9 plus" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
+<!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
         <parameter name="testDevice" value="364c5930534f3098" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="0200" />
@@ -43,6 +44,7 @@
     <test name="Android All Test 2 - Samsung Galaxy Note 8" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
+        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
         <parameter name="testDevice" value="ce061716cae890d10d7e" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="90000" />
@@ -76,6 +78,7 @@
     <test name="Android All Test 3 - Pixel 2 XL" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
+        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
         <parameter name="testDevice" value="710KPFX0305667" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="180000" />
@@ -109,6 +112,7 @@
     <test name="Android All Test 4 - Nexus 6P" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
+        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
         <parameter name="testDevice" value="8XV5T15A30006448" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="240000" />

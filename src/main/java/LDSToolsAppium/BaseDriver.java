@@ -290,7 +290,8 @@ public class BaseDriver {
         }
 
         System.out.println("Killing Chrome and chromedriver");
-        killProcess("Chrome");
+        //Killing Chrome is killing Slack!
+//        killProcess("Chrome");
         killProcess("chromedriver");
         myAppiumService.stopAppiumService();
 
@@ -494,6 +495,7 @@ public class BaseDriver {
             capabilities.setCapability("maxTypingFrequency", 15);
             //capabilities.setCapability("appPackage", myAppPackage);
             //capabilities.setCapability("simpleIsVisibleCheck", true);
+//            capabilities.setCapability("connectHardwareKeyboard", false);
 
 
 
@@ -504,6 +506,7 @@ public class BaseDriver {
                 capabilities.setCapability("xcodeSigningId", "iPhone Developer");
                 capabilities.setCapability("udid", myUdid);
                 capabilities.setCapability("wdaLocalPort", tempPort);
+                capabilities.setCapability("waitForQuiescence", false);
             }
 
 

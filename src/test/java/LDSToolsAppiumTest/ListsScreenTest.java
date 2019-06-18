@@ -3,7 +3,6 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.ListsScreen;
-import LDSToolsAppium.Screen.MeetinghousesScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -75,7 +74,7 @@ public class ListsScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void listsMultipleSyncTest() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -136,11 +135,339 @@ public class ListsScreenTest extends BaseDriver {
         myLists.deleteList("Test List 1");
 
         //Make Sure the List is deleted
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         pageSource = myBase.getSourceOfPage();
         Assert.assertFalse(myBase.checkNoCaseList("Test List 1", pageSource, "Contains"));
 
     }
+
+
+
+    @Test(groups = {"all4", "all"})
+    public void listsMaxOutName() throws Exception {
+        String pageSource;
+        String numberOfListMembers;
+
+//        String longName = "Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit Ten Digit";
+        String longName = "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+//        String longName = "Test One";
+
+        // ********* Constructor **********
+        BasePage myBase = new BasePage(driver);
+        HelperMethods myHelper = new HelperMethods(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        ListsScreen myLists = new ListsScreen(driver);
+
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools21", "password1");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        //Go to Lists
+        myMenu.selectMenu(myMenu.lists);
+
+
+        //Add a new List
+        myBase.waitForElementThenClick(myLists.listsAddList);
+        myLists.listsName.sendKeys(longName);
+        myLists.listsOk.click();
+
+        //Add a member to the list
+        myLists.addMemberToList("lds20", "LDS20");
+        myLists.addMemberToList("lds21", "LDS21");
+        myLists.addMemberToList("lds22", "LDS22");
+        myBase.waitForElementThenClick(myLists.listsBackButton);
+
+        Thread.sleep(2000);
+
+        //Check the expected number of members in the list
+        numberOfListMembers = myLists.getNumberOfListMembers(longName);
+        System.out.println("Number of List Members: " + numberOfListMembers);
+        Assert.assertEquals("3", numberOfListMembers);
+
+        //Do a sync
+        myMenu.selectMenu(myMenu.sync);
+        myHelper.syncTools();
+
+
+        //Go to Lists
+        myMenu.selectMenu(myMenu.lists);
+
+        Thread.sleep(2000);
+
+        pageSource = myBase.getSourceOfPage();
+        Assert.assertTrue(myBase.checkNoCaseList(longName, pageSource, "Contains"));
+
+        //Check the expected number of members in the list
+        numberOfListMembers = myLists.getNumberOfListMembers(longName);
+        System.out.println("Number of List Members: " + numberOfListMembers);
+        Assert.assertEquals("3", numberOfListMembers);
+
+
+        //Delete the List
+        myLists.deleteList(longName);
+
+        //Make Sure the List is deleted
+        Thread.sleep(5000);
+        pageSource = myBase.getSourceOfPage();
+        Assert.assertFalse(myBase.checkNoCaseList(longName, pageSource, "Contains"));
+
+
+    }
+
+
+
+    @Test(groups = {"all3", "all"})
+    public void listsDelete() throws Exception {
+        String pageSource;
+        String numberOfListMembers;
+
+
+        String listName = "Delete Test";
+
+
+        // ********* Constructor **********
+        BasePage myBase = new BasePage(driver);
+        HelperMethods myHelper = new HelperMethods(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        ListsScreen myLists = new ListsScreen(driver);
+
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools22", "password1");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        //Go to Lists
+        myMenu.selectMenu(myMenu.lists);
+
+
+        //Add a new List
+        myBase.waitForElementThenClick(myLists.listsAddList);
+        myLists.listsName.sendKeys(listName);
+        myLists.listsOk.click();
+
+        //Add a member to the list
+        myLists.addMemberToList("lds20", "LDS20");
+        myLists.addMemberToList("lds21", "LDS21");
+        myLists.addMemberToList("lds22", "LDS22");
+        myBase.waitForElementThenClick(myLists.listsBackButton);
+
+        Thread.sleep(2000);
+
+        //Check the expected number of members in the list
+        numberOfListMembers = myLists.getNumberOfListMembers(listName);
+        System.out.println("Number of List Members: " + numberOfListMembers);
+        Assert.assertEquals("3", numberOfListMembers);
+
+        //Do a sync
+        myMenu.selectMenu(myMenu.sync);
+        myHelper.syncTools();
+
+
+        //Go to Lists
+        myMenu.selectMenu(myMenu.lists);
+
+        Thread.sleep(2000);
+
+        pageSource = myBase.getSourceOfPage();
+        Assert.assertTrue(myBase.checkNoCaseList(listName, pageSource, "Contains"));
+
+        //Check the expected number of members in the list
+        numberOfListMembers = myLists.getNumberOfListMembers(listName);
+        System.out.println("Number of List Members: " + numberOfListMembers);
+        Assert.assertEquals("3", numberOfListMembers);
+
+
+        //Delete the List
+        myLists.deleteList(listName);
+
+        //Make Sure the List is deleted
+        Thread.sleep(5000);
+        pageSource = myBase.getSourceOfPage();
+        Assert.assertFalse(myBase.checkNoCaseList(listName, pageSource, "Contains"));
+
+        //Do a sync
+        myMenu.selectMenu(myMenu.sync);
+        myHelper.syncTools();
+        Thread.sleep(2000);
+
+        //Go to Lists
+        myMenu.selectMenu(myMenu.lists);
+
+        //Make Sure the List is deleted
+        Thread.sleep(5000);
+        pageSource = myBase.getSourceOfPage();
+        Assert.assertFalse(myBase.checkNoCaseList(listName, pageSource, "Contains"));
+
+
+    }
+
+
+    @Test(groups = {"all4", "all", "jft"})
+    public void listsEdit() throws Exception {
+        String pageSource;
+        String numberOfListMembers;
+
+
+        String listName = "Edit Test";
+
+
+        // ********* Constructor **********
+        BasePage myBase = new BasePage(driver);
+        HelperMethods myHelper = new HelperMethods(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        ListsScreen myLists = new ListsScreen(driver);
+
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools23", "password1");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        //Go to Lists
+        Thread.sleep(2000);
+        myMenu.selectMenu(myMenu.lists);
+
+        setupListData(listName);
+
+        //Do a sync
+        myMenu.selectMenu(myMenu.sync);
+        myHelper.syncTools();
+
+
+        //Go to Lists
+        myMenu.selectMenu(myMenu.lists);
+
+        Thread.sleep(2000);
+
+        pageSource = myBase.getSourceOfPage();
+        Assert.assertTrue(myBase.checkNoCaseList(listName, pageSource, "Contains"));
+
+        //Check the expected number of members in the list
+        numberOfListMembers = myLists.getNumberOfListMembers(listName);
+        System.out.println("Number of List Members: " + numberOfListMembers);
+        Assert.assertEquals("6", numberOfListMembers);
+
+
+        //Edit the list
+        myLists.selectListName(listName);
+        listsEditCheckAllTrue();
+
+        //Remove Member
+        myLists.deleteMemberFromList("Tools, LDS32");
+        listsEditCheckLDS22False();
+
+        myBase.waitForElementThenClick(myLists.listsBackButton);
+        Thread.sleep(2000);
+        if (!getRunningOS().equals("ios")) {
+            myBase.waitForElementThenClick(myLists.listsBackButton);
+            Thread.sleep(2000);
+        }
+
+
+        //Check the expected number of members in the list
+        numberOfListMembers = myLists.getNumberOfListMembers(listName);
+        System.out.println("Number of List Members: " + numberOfListMembers);
+        Assert.assertEquals("5", numberOfListMembers);
+
+        //Check list
+        myLists.selectListName(listName);
+        listsEditCheckLDS22False();
+        myBase.waitForElementThenClick(myLists.listsBackButton);
+        Thread.sleep(2000);
+
+        //Sync
+        myMenu.selectMenu(myMenu.sync);
+        myHelper.syncTools();
+
+        //Check list
+        myMenu.selectMenu(myMenu.lists);
+        Thread.sleep(2000);
+        //Check the expected number of members in the list
+        numberOfListMembers = myLists.getNumberOfListMembers(listName);
+        System.out.println("Number of List Members: " + numberOfListMembers);
+        Assert.assertEquals("5", numberOfListMembers);
+
+        myLists.selectListName(listName);
+        listsEditCheckLDS22False();
+        myBase.waitForElementThenClick(myLists.listsBackButton);
+        Thread.sleep(2000);
+
+
+        //Delete the List
+        myLists.deleteList(listName);
+
+        //Make Sure the List is deleted
+        Thread.sleep(5000);
+        pageSource = myBase.getSourceOfPage();
+        Assert.assertFalse(myBase.checkNoCaseList(listName, pageSource, "Contains"));
+
+    }
+
+    private void listsEditCheckAllTrue() throws Exception {
+        String pageSource;
+        BasePage myBase = new BasePage(driver);
+        Thread.sleep(4000);
+        pageSource = myBase.getSourceOfPage();
+        Assert.assertTrue(myBase.checkNoCaseList("Tools", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS30", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS31", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS32", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS33", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS34", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS35", pageSource, "Contains"));
+    }
+
+    private void listsEditCheckLDS22False() throws Exception {
+        String pageSource;
+        BasePage myBase = new BasePage(driver);
+        Thread.sleep(4000);
+        pageSource = myBase.getSourceOfPage();
+        Assert.assertTrue(myBase.checkNoCaseList("Tools", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS30", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS31", pageSource, "Contains"));
+        Assert.assertFalse(myBase.checkNoCaseList("LDS32", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS33", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS34", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("LDS35", pageSource, "Contains"));
+    }
+
+
+
+    private void setupListData(String listName) throws Exception {
+        String pageSource;
+        String numberOfListMembers;
+
+        // ********* Constructor **********
+        BasePage myBase = new BasePage(driver);
+        ListsScreen myLists = new ListsScreen(driver);
+
+
+        //Add a new List
+        myBase.waitForElementThenClick(myLists.listsAddList);
+        myLists.listsName.sendKeys(listName);
+        myLists.listsOk.click();
+
+        //Add a member to the list
+        myLists.addMemberToList("lds30", "LDS30");
+        myLists.addMemberToList("lds31", "LDS31");
+        myLists.addMemberToList("lds32", "LDS32");
+        myLists.addMemberToList("lds33", "LDS33");
+        myLists.addMemberToList("lds34", "LDS34");
+        myLists.addMemberToList("lds35", "LDS35");
+        myBase.waitForElementThenClick(myLists.listsBackButton);
+
+        Thread.sleep(2000);
+
+        //Check the expected number of members in the list
+        numberOfListMembers = myLists.getNumberOfListMembers(listName);
+        System.out.println("Number of List Members: " + numberOfListMembers);
+        Assert.assertEquals("6", numberOfListMembers);
+
+
+    }
+
+
+
 
 
 
@@ -149,8 +476,6 @@ public class ListsScreenTest extends BaseDriver {
 
         // ********* Constructor **********
         BasePage myBase = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         ListsScreen myLists = new ListsScreen(driver);
 
         myLists.selectListName("Test List 1");

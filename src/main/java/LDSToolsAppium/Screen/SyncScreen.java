@@ -39,5 +39,13 @@ public class SyncScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Sync Now")
     public  MobileElement syncNowButton;
 
+    //OK Button
+    @AndroidFindBy(id = "md_buttonDefaultPositive")
+    public  MobileElement syncOKButton;
+
+    //Cancel Button
+    @AndroidFindBy(id = "md_buttonDefaultNegative")
+    public  MobileElement syncCancelButton;
+
 
 }

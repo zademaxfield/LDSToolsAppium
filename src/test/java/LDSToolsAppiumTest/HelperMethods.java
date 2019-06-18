@@ -120,6 +120,24 @@ public class HelperMethods extends BasePage {
         Thread.sleep(1000);
     }
 
+    public void syncTools() throws Exception {
+        SyncScreen mySync = new SyncScreen(driver);
+
+        if (getOS().equals("ios")) {
+            mySync.syncNowButton.click();
+            Thread.sleep(1000);
+            waitUnitlTextIsGone("Sync");
+            Thread.sleep(1000);
+            waitUnitlTextIsGone("Sync");
+        } else {
+            mySync.syncOKButton.click();
+            waitUnitlTextIsGone("Stop Sync");
+            Thread.sleep(1000);
+            waitUnitlTextIsGone("Stop Sync");
+        }
+
+    }
+
 
 
 

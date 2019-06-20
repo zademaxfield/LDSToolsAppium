@@ -248,6 +248,80 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
+    private void checkMemberInfoBishop2() throws Exception {
+        String pageSource;
+
+        // ********* Constructor **********
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Get all info
+        pageSource = myDirectory.getDirectoryUserData();
+
+        //General Information
+        Assert.assertTrue(myBasePage.checkNoCaseList("DeSoto", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Papa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Priesthood Office", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("High Priest", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Record Number", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("888-0938-1103", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Birth Date", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("August 11, 1975", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Baptism", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("September 22, 1983", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Confirmation", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("September 22, 1983", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ordained Elder", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("February 1, 2019", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ordained High Priest", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("April 4, 2019", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ordained Bishop", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("June 10, 2019", pageSource, "Contains"));
+
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sealed to Parents", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("September 9, 1983", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Endowment", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("December 11, 2002", pageSource, "Contains"));
+
+
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Spouse", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mailata, Faapepele", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Spouse Birth Date", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("February 18, 1973", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Marriage Date", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("March 3, 1996", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Marriage Place", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Avao, Savaii, Samoa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sealing Date", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("December 11, 2002", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Temple", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Apia Samoa Temple", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Gender", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Male", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Birthplace", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Avao, Savaii, Samoa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Birth Country", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Western Samoa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Father", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lealaiauloto, Sao Oline", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mother", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Solo, Melesa Asovale", pageSource, "Contains"));
+
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Priests Quorum President", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Class Assignments", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("High Priests Quorum", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Gospel Doctrine", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum", pageSource, "Contains"));
+
+    }
+
 
 
 

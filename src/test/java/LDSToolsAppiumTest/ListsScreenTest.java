@@ -18,7 +18,7 @@ public class ListsScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke3", "smoke", "all3", "all"})
+    @Test(groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void listsSimpleTest() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -31,7 +31,7 @@ public class ListsScreenTest extends BaseDriver {
 
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.loginUAT("LDSTools33", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Go to Lists
@@ -303,7 +303,7 @@ public class ListsScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all", "jft"})
+    @Test(groups = {"all4", "all"})
     public void listsEdit() throws Exception {
         String pageSource;
         String numberOfListMembers;

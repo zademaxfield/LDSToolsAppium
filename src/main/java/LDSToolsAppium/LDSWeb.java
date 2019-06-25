@@ -210,7 +210,7 @@ public class LDSWeb {
 		
 		openPageLogIn(url, userName, passWord);
 
-		setupMembers();
+//		setupMembers();
 		setupCallings();
 
 

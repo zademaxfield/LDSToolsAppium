@@ -15,12 +15,6 @@ import java.util.List;
 
 public class MeetinghousesScreenTest extends BaseDriver {
 
-    //1 = Bishopric
-    //2 = Ward Council
-    //3 = Special?
-    //4 = No Calling
-
-
 
 
     @Test(groups = {"smoke3", "smoke", "all3", "all", "jft"})
@@ -41,6 +35,7 @@ public class MeetinghousesScreenTest extends BaseDriver {
 
         myMeetinghouses.meetinghousesAllow.click();
         Thread.sleep(5000);
+        driver.switchTo().alert();
         myMeetinghouses.meetinghousesAllowAndroidPermissions.click();
 
         Thread.sleep(7000);

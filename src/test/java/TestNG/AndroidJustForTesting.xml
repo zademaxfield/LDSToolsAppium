@@ -27,7 +27,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
+            <class name="LDSToolsAppiumTest.ListsScreenTest" />
 
         </classes>
     </test > <!-- Default test -->

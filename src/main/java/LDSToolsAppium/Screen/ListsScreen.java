@@ -171,6 +171,17 @@ public class ListsScreen extends BasePage {
 
 
 
+    public String getLastListMember() throws Exception {
+        String lastListMember;
+        lastListMember = driver.findElement(By.xpath("//android.widget.FrameLayout[contains(@resource-id, 'individualView')][last()]//android.widget.TextView[contains(@resource-id, 'name')]")).getText();
+        System.out.println("Last Member: " + lastListMember);
+        return lastListMember;
+
+    }
+
+
+
+
 
     public void selectListName(String myListName) throws Exception{
         if (getOS().equals("ios")) {

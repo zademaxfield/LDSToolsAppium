@@ -131,6 +131,7 @@ public class HelperMethods extends BasePage {
             waitUnitlTextIsGone("Sync");
         } else {
             mySync.syncOKButton.click();
+            Thread.sleep(2000);
             waitUnitlTextIsGone("Stop Sync");
             Thread.sleep(1000);
             waitUnitlTextIsGone("Stop Sync");

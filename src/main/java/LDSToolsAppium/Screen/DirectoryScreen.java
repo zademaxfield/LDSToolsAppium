@@ -115,6 +115,23 @@ public class DirectoryScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Membership Information")
     public  MobileElement memebershipInformation;
 
+    //Show Record Number
+    @iOSXCUITFindBy(accessibility = "Show Record Number")
+    public MobileElement showRecordNumber;
+
+    //Account Password
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSecureTextField")
+    public MobileElement accountPassword;
+
+    //OK on Account Password
+    @iOSXCUITFindBy(accessibility = "OK")
+    public MobileElement accountPasswordOK;
+
+    //Cancel on Account Password
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public MobileElement accountPasswordCancel;
+
+
 
     // ********** Android Elements **********
     //Tab Contact

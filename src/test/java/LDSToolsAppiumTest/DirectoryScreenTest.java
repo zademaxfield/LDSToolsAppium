@@ -128,7 +128,52 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
+    public void directoryNoCallingCheckMRN() throws Exception {
+        String pageSource;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools5", "toolstester");
+//        myHelper.enterPin("1", "1", "3", "3");
+        myHelper.nonLeaderNoPin();
+
+        //Search and click on Tools, LDS5
+        myDirectory.searchAndClick("Tools, LDS5");
+
+        if (getRunningOS().equals("ios")) {
+            myBasePage.clickByTextContains("LDS5 Tools");
+            myDirectory.memebershipInformation.click();
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Show Record Number", pageSource, "Contains"));
+            myDirectory.showRecordNumber.click();
+            myDirectory.accountPassword.sendKeys("toolstester");
+            myDirectory.accountPasswordOK.click();
+            pageSource = myDirectory.getDirectoryUserData();
+
+
+        } else {
+            myDirectory.tabMembership.click();
+            pageSource = myBasePage.getSourceOfPage();
+
+        }
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Record Number", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("888-0028-7058", pageSource, "Contains"));
+
+
+
+
+    }
+
+
+
+    @Test(groups = {"all3", "all"})
     public void directoryMemberInfoHousehold() throws Exception {
         String pageSource;
 

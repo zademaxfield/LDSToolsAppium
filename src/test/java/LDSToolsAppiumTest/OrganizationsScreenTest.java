@@ -6,26 +6,15 @@ import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.OrganizationsScreen;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidStartScreenRecordingOptions;
 
-import org.openqa.selenium.ScreenOrientation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class OrganizationsScreenTest extends BaseDriver {
-
-    //1 = Bishopric
-    //2 = Ward Council
-    //3 = Special?
-    //4 = No Calling
-
-
-
 
     @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
@@ -112,7 +101,7 @@ public class OrganizationsScreenTest extends BaseDriver {
     }
 
     private void getBishopricInfo(int rights) throws Exception {
-        String pageSource;
+//        String pageSource;
         BasePage myBasePage = new BasePage(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
 

@@ -1,16 +1,9 @@
 package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
-import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.MeetinghousesScreen;
 import LDSToolsAppium.Screen.MenuScreen;
-import LDSToolsAppium.Screen.OrganizationsScreen;
-import io.appium.java_client.MobileElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MeetinghousesScreenTest extends BaseDriver {

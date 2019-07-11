@@ -3,20 +3,8 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import io.appium.java_client.touch.LongPressOptions;
-import io.appium.java_client.touch.offset.ElementOption;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -328,7 +316,7 @@ public class HelperMethods extends BasePage {
     public void enterPin(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);
-        PinScreen myPin = new PinScreen(driver);
+//        PinScreen myPin = new PinScreen(driver);
         MenuScreen myMenuScreen = new MenuScreen(driver);
 
         Thread.sleep(4000);
@@ -430,8 +418,8 @@ public class HelperMethods extends BasePage {
     public void enterPinKeepWhatsNew(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);
-        PinScreen myPin = new PinScreen(driver);
-        MenuScreen myMenuScreen = new MenuScreen(driver);
+//        PinScreen myPin = new PinScreen(driver);
+//        MenuScreen myMenuScreen = new MenuScreen(driver);
 
         checkForAlertsBeforePin();
 
@@ -645,7 +633,7 @@ public class HelperMethods extends BasePage {
     private void checkForAlertsBeforePinTEST() throws Exception {
         ScannerScreen myScanner = new ScannerScreen(driver) ;
         PinScreen myPin = new PinScreen(driver);
-        BasePage myBase = new BasePage(driver);
+//        BasePage myBase = new BasePage(driver);
 
         Boolean myCheck = false;
 

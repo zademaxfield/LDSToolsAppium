@@ -34,8 +34,6 @@ public class CalendarScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Calendar", pageSource, "Contains"));
         //Assert.assertTrue(myBasePage.checkNoCaseList("Edit", pageSource, "Contains"));
 
-        //Todo: Check calendar items... not sure how to do this
-
 
     }
 

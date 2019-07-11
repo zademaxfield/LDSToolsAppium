@@ -14,15 +14,9 @@ public class HeaderTest extends BaseDriver {
 
     @Test (groups = {"all3", "all", "header", "smoke", "smoke3"}, enabled = false)
     public void simpleHeaderTest() throws Exception {
-        String pageSource;
-
-
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
 
         //Login and enter in PIN
         myHelper.loginProxy("20536583369",
@@ -37,14 +31,10 @@ public class HeaderTest extends BaseDriver {
 
     @Test(dataProvider = "Header", groups = {"all2", "all", "header"}, enabled = false)
     public void headerSyncTest(String memberId, String memberUnit, String memberPositions, String memberName) throws Exception {
-        String pageSource;
-
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
+
 
         //Login and enter in PIN
         System.out.println("Header Name: " + memberName);

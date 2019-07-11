@@ -3,24 +3,11 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
-import io.appium.java_client.MobileElement;
-import org.jsoup.Connection;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class MissionaryScreenTest extends BaseDriver {
-
-    //1 = Bishopric
-    //2 = Ward Council
-    //3 = Special?
-    //4 = No Calling
-
-
 
 
     @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})

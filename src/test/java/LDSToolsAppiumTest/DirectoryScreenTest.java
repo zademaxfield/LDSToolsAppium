@@ -35,12 +35,13 @@ public class DirectoryScreenTest extends BaseDriver {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
         myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
+
+        System.out.println("Calling Group: " + callingGroup);
 
         //Search and click on Aaron Jane
         myDirectory.searchAndClick("Seuamuli, Alofa");
@@ -135,7 +136,6 @@ public class DirectoryScreenTest extends BaseDriver {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
@@ -175,12 +175,10 @@ public class DirectoryScreenTest extends BaseDriver {
 
     @Test(groups = {"all3", "all"})
     public void directoryMemberInfoHousehold() throws Exception {
-        String pageSource;
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
@@ -201,13 +199,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
     @Test(groups = {"all3", "all"})
     public void directoryMemberInfoIndividual() throws Exception {
-        String pageSource;
-
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
         myHelper.loginUAT("LDSTools3", "toolstester");
@@ -374,13 +368,11 @@ public class DirectoryScreenTest extends BaseDriver {
 
     @Test(groups = {"all3", "all"})
     public void directoryIndividualHousehold() throws Exception {
-        String pageSource;
         Dimension thumbNailDim;
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
@@ -418,12 +410,10 @@ public class DirectoryScreenTest extends BaseDriver {
 
     @Test(groups = {"all3", "all", "jft"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
-        String pageSource;
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
@@ -449,12 +439,10 @@ public class DirectoryScreenTest extends BaseDriver {
     @Test(groups = {"all2", "all"})
     public void directoryLatLongNoGPS() throws Exception {
         String pageSource;
-        Dimension thumbNailDim;
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
@@ -474,12 +462,10 @@ public class DirectoryScreenTest extends BaseDriver {
     @Test(groups = {"all3", "all"})
     public void directoryLatLongNoGPSNoCalling() throws Exception {
         String pageSource;
-        Dimension thumbNailDim;
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
@@ -507,13 +493,10 @@ public class DirectoryScreenTest extends BaseDriver {
 
     @Test(groups = {"all3", "all"})
     public void directoryLatLongCheckLocation() throws Exception {
-        String pageSource;
-        Dimension thumbNailDim;
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
@@ -556,6 +539,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myHelper.loginUAT(userName, passWord);
         myHelper.enterPin("1", "1", "3", "3");
 
+        System.out.println("Calling Group: " + callingGroup);
 
 
         myDirectory.searchAndClick("Tools, LDS24");
@@ -634,7 +618,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    public void resetLatLong(String headOfHouseId, String unitNumber) {
+    private void resetLatLong(String headOfHouseId, String unitNumber) {
         OkHttpClient client = new OkHttpClient();
 
         try {
@@ -699,13 +683,8 @@ public class DirectoryScreenTest extends BaseDriver {
 
     @Test(dataProvider = "Members", groups = {"goat"})
     public void directoryScrollTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
-        String pageSource;
-        int rights = Integer.parseInt(rightsString);
-
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN

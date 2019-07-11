@@ -4,8 +4,6 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.LoginPageScreen;
 import org.testng.Assert;
-
-import org.testng.annotations.NoInjection;
 import org.testng.annotations.Test;
 
 

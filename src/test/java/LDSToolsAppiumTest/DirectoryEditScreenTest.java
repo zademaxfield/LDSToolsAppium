@@ -484,7 +484,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
 
 
-    public void savingMemberInfo() throws Exception{
+    private void savingMemberInfo() throws Exception{
         int myCounter = 0;
 
         DirectoryScreen myDirectory = new DirectoryScreen(driver);

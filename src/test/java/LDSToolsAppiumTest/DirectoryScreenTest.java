@@ -128,7 +128,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all"})
     public void directoryNoCallingCheckMRN() throws Exception {
         String pageSource;
 
@@ -214,6 +214,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
         //Search and click on Aaron Jane
+        myDirectory.searchAndClick("Seuamuli, Faimeaita");
         myDirectory.searchAndClick("Seuamuli, Faimeaita");
 
 //        checkMemberInfoBishop();
@@ -415,7 +416,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
         String pageSource;
 
@@ -661,6 +662,37 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
+    @Test(groups = {"goat"})
+    public void directoryLoginSpeedCheck() throws Exception {
+        long startTime;
+        long endTime;
+        long duration;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        //Login and enter in PIN
+        startTime = System.nanoTime();
+
+        myHelper.loginUAT("LDSTools3", "toolstester");
+
+        endTime = System.nanoTime();
+        duration = (endTime - startTime);
+        duration = duration / 1000000;
+        System.out.println("Login to UAT: " + duration);
+
+        startTime = System.nanoTime();
+        myHelper.enterPin("1", "1", "3", "3");
+
+        endTime = System.nanoTime();
+        duration = (endTime - startTime);
+        duration = duration / 1000000;
+        System.out.println("Enter PIN Time: " + duration);
+
+    }
 
 
 

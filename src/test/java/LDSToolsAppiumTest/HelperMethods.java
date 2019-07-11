@@ -5,14 +5,18 @@ import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -217,22 +221,21 @@ public class HelperMethods extends BasePage {
             myLoginPage.overflowSettings.click();
             scrollToTextRecyclerView("About");
             mySettings.about.click();
+
             for (int x = 1 ; x <= 7 ; x++ ) {
                 mySettings.aboutLogo.click();
             }
+
             backButton.click();
-
-            //mySettings.resetWhatsNewPrompt.click();
-
-            //Bug in android to avoid a crash
-            //scrollToTextRecyclerView("Maximum units to sync");
-            //mySettings.ignoreWhatsNew.click();
             scrollUpAndroidUIAutomator("0");
             scrollToTextRecyclerView("Network Environment");
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
 
             backButton.click();
+
+
+
 
 
 

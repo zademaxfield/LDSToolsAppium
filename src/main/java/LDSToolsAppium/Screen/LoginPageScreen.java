@@ -20,6 +20,10 @@ public class LoginPageScreen extends BasePage {
         PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
     }
 
+    //Member Tools Heading
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Member Tools']")
+    public MobileElement titleMemberTools;
+
 
 
     //Login Name

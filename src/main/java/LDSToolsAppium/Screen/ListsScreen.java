@@ -218,7 +218,9 @@ public class ListsScreen extends BasePage {
         if (getOS().equals("ios")) {
             listsAddToListButton.click();
             listsSearch.sendKeys(memberToAdd);
-            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + memberToClickOn + "']")).click();
+            Thread.sleep(2000);
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + memberToClickOn + "']")).click();
+            driver.findElement(By.xpath("//XCUIElementTypeStaticText[contains(@name, '" + memberToClickOn + "')]")).click();
             backButton.click();
 
 

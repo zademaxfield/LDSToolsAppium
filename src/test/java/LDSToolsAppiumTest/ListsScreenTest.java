@@ -74,7 +74,7 @@ public class ListsScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void listsMultipleSyncTest() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -360,7 +360,7 @@ public class ListsScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void listsDelete() throws Exception {
         String pageSource;
         String numberOfListMembers;

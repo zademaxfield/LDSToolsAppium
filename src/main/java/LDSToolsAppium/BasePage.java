@@ -398,6 +398,30 @@ public class BasePage {
         }
     }
 
+    public void scrollToTextSwipe(String myText) throws Exception {
+        String pageSource;
+        boolean textCheck = false;
+        int myCounter = 1;
+
+        do {
+            pageSource = getSourceOfPage();
+            textCheck = pageSource.contains(myText);
+//            textCheck = checkTextOnPage(myText);
+//            System.out.println("Check: " + textCheck);
+            if (!textCheck) {
+                scrollDownSlow(1500);
+            }
+            if (myCounter > 5) {
+                textCheck = true;
+                System.out.println("TEXT: " + myText + " Not Found!");
+            }
+            myCounter++;
+
+        } while (!textCheck) ;
+
+
+    }
+
     public void scrollDownSlow(int scrollDistance) throws Exception {
         Dimension dimensions = driver.manage().window().getSize();
         int screenWidth = dimensions.getWidth();
@@ -406,19 +430,20 @@ public class BasePage {
 
         screenWidth = screenWidth / 3;
         screenHeight = screenHeight - 70;
-        scrollDistance = screenHeight - scrollDistance;
+//        scrollDistance = screenHeight - scrollDistance;
+        scrollDistance = screenHeight / 2;
 
-        System.out.println("Width: " + screenWidth);
-        System.out.println("Height: " + screenHeight);
-        System.out.println("Distance: " + scrollDistance);
+//        System.out.println("Width: " + screenWidth);
+//        System.out.println("Height: " + screenHeight);
+//        System.out.println("Distance: " + scrollDistance);
 
         TouchAction mySwipe = new TouchAction(driver);
         //mySwipe.tap(screenWidth,screenHeight).moveTo(screenWidth, scrollDistance).waitAction(Duration.ofMillis(2000)).release().perform();
         //mySwipe.press(screenWidth,screenHeight).moveTo(screenWidth, scrollDistance).release().perform();
 
         mySwipe.press(PointOption.point(screenWidth, screenHeight))
-                .moveTo(PointOption.point(screenWidth, scrollDistance))
                 .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
+                .moveTo(PointOption.point(screenWidth, scrollDistance))
                 .release()
                 .perform();
 

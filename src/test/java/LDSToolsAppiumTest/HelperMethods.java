@@ -217,7 +217,8 @@ public class HelperMethods extends BasePage {
             backButton.click();
             scrollUpAndroidUIAutomator("0");
 //            scrollToTextRecyclerView("Network Environment");
-            scrollToTextGeneral("Network Environment");
+            scrollToTextSwipe("Network Environment");
+
 
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();

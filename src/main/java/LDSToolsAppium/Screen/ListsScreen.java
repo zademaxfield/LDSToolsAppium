@@ -126,6 +126,32 @@ public class ListsScreen extends BasePage {
     public MobileElement listsMoreOptionsDelete;
 
 
+    //Top List Element
+    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.widget.LinearLayout/android.widget.TextView[1]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
+    public MobileElement listTopList;
+
+
+    public String findTopListName() throws Exception {
+        String topListName = "";
+
+        if (checkForElement(listTopList)) {
+            topListName = listTopList.getText();
+        }
+
+        return topListName;
+    }
+
+    public void deleteAllLists() throws Exception {
+        String listName;
+        listName = findTopListName();
+        while (listName != null && !listName.isEmpty()) {
+            deleteList(listName);
+            Thread.sleep(2000);
+            listName = findTopListName();
+        }
+
+    }
 
 
     public void deleteList(String myListName) throws Exception {

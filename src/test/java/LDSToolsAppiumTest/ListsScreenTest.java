@@ -37,6 +37,9 @@ public class ListsScreenTest extends BaseDriver {
         //Go to Lists
         myMenu.selectMenu(myMenu.lists);
 
+        //Check for existing Lists and delete if found
+        Thread.sleep(2000);
+        myLists.deleteAllLists();
 
         //Add a new List
         myBase.waitForElementThenClick(myLists.listsAddList);
@@ -74,7 +77,7 @@ public class ListsScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void listsMultipleSyncTest() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -92,6 +95,10 @@ public class ListsScreenTest extends BaseDriver {
 
         //Go to Lists
         myMenu.selectMenu(myMenu.lists);
+
+        //Check for existing Lists and delete if found
+        Thread.sleep(2000);
+        myLists.deleteAllLists();
 
 
         //Add a new List
@@ -166,6 +173,10 @@ public class ListsScreenTest extends BaseDriver {
         //Go to Lists
         myMenu.selectMenu(myMenu.lists);
 
+        //Check for existing Lists and delete if found
+        Thread.sleep(2000);
+        myLists.deleteAllLists();
+
 
         //Add a new List
         myBase.waitForElementThenClick(myLists.listsAddList);
@@ -236,6 +247,10 @@ public class ListsScreenTest extends BaseDriver {
         //Go to Lists
         myMenu.selectMenu(myMenu.lists);
 
+        //Check for existing Lists and delete if found
+        Thread.sleep(2000);
+        myLists.deleteAllLists();
+
 
         //Add a new List
         myBase.waitForElementThenClick(myLists.listsAddList);
@@ -287,7 +302,7 @@ public class ListsScreenTest extends BaseDriver {
 
 
     //iOS has had problems with & in the name
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void listsOtherNamesAnd() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -308,6 +323,9 @@ public class ListsScreenTest extends BaseDriver {
         //Go to Lists
         myMenu.selectMenu(myMenu.lists);
 
+        //Check for existing Lists and delete if found
+        Thread.sleep(2000);
+        myLists.deleteAllLists();
 
         //Add a new List
         myBase.waitForElementThenClick(myLists.listsAddList);
@@ -382,6 +400,10 @@ public class ListsScreenTest extends BaseDriver {
 
         //Go to Lists
         myMenu.selectMenu(myMenu.lists);
+
+        //Check for existing Lists and delete if found
+        Thread.sleep(2000);
+        myLists.deleteAllLists();
 
 
         //Add a new List
@@ -469,6 +491,10 @@ public class ListsScreenTest extends BaseDriver {
         //Go to Lists
         Thread.sleep(2000);
         myMenu.selectMenu(myMenu.lists);
+
+        //Check for existing Lists and delete if found
+        Thread.sleep(2000);
+        myLists.deleteAllLists();
 
         setupListData(listName);
 
@@ -570,6 +596,10 @@ public class ListsScreenTest extends BaseDriver {
         //Go to Lists
         Thread.sleep(2000);
         myMenu.selectMenu(myMenu.lists);
+
+        //Check for existing Lists and delete if found
+        Thread.sleep(2000);
+        myLists.deleteAllLists();
 
         setupListDataLarge(listName);
 

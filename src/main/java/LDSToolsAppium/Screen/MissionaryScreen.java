@@ -168,19 +168,19 @@ public class MissionaryScreen extends BasePage {
 
 
             //Contact Tab
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             pageSource = getSourceOfPage();
 
             tabAssigned.click();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             pageSource = pageSource + getSourceOfPage();
 
             tabWard.click();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             pageSource = pageSource + getSourceOfPage();
 
             tabServing.click();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             pageSource = pageSource + getSourceOfPage();
 
             tabReferrals.click();

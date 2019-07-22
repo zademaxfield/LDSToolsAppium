@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class MissionaryScreenTest extends BaseDriver {
 
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -37,14 +37,16 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Henry", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sauni", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lawrence", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Young Yen", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Longque", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
 
     }
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;
 

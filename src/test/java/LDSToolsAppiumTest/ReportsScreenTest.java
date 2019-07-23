@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -91,7 +91,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all4", "all", "report"})
     public void reportsActionAndInterviewBugCheck() throws Exception {
         String pageSource;
 
@@ -125,7 +125,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "jft"})
+    @Test (groups = {"all4", "all", "report", "jft"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
 
@@ -237,7 +237,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all"})
+    @Test (groups = {"all3", "all", "report"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
 

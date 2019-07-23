@@ -18,6 +18,7 @@
         <groups>
             <run>
                 <include name="jft"/>
+<!--                <include name="report"/>-->
             </run>
         </groups>
 

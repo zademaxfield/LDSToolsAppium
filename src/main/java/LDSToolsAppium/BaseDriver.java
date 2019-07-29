@@ -408,6 +408,9 @@ public class BaseDriver {
             capabilities.setCapability("resetKeyboard", "true");
             capabilities.setCapability("deviceReadyTimeout", 60);
             capabilities.setCapability("noSign", true);
+            capabilities.setCapability("gpsEnabled", true);
+
+
 
             capabilities.setCapability("fullReset", false);
             capabilities.setCapability("dontStopAppOnReset", true);

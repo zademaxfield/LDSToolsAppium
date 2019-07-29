@@ -1038,6 +1038,16 @@ public class BasePage {
         new TouchAction(driver).press(PointOption.point(useThisLocationX, useThisLocationY - 50)).release().perform();
     }
 
+    public void clickAboveElement(MobileElement myElement) throws Exception {
+        int useThisLocationX;
+        int useThisLocationY;
+
+        useThisLocationX = myElement.getLocation().getX();
+        useThisLocationY = myElement.getLocation().getY();
+
+        new TouchAction(driver).press(PointOption.point(useThisLocationX, useThisLocationY - 50)).release().perform();
+    }
+
 
 
 }

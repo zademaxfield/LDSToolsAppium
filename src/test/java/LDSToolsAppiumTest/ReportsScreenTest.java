@@ -147,9 +147,9 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.childrenApproachingBaptismAgeReport.click();
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Arona", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sulimoni", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("July 25", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Auvaa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Malofou", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("April 9", pageSource, "Contains"));
         myBasePage.backButton.click();
 
         //Unbaptized Members

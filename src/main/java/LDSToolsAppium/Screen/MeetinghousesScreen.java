@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
@@ -88,13 +89,74 @@ public class MeetinghousesScreen extends BasePage {
 
     //Search Button - Android only
     @AndroidFindBy(id = "menu_map_search")
-    public MobileElement meetinghousesSeachButton;
+    public MobileElement meetinghousesSearchButton;
 
     //Search Text Field
     @AndroidFindBy(id = "search_src_text")
     @iOSXCUITFindBy(accessibility = "Search")
-    public MobileElement meetinghousesSeachField;
+    public MobileElement meetinghousesSearchField;
 
+    //Search Keyboard Button
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='Search']")
+    public MobileElement keyboardSearchButton;
+
+    //Directions Icon
+    @AndroidFindBy(id = "directionsImageView")
+    @iOSXCUITFindBy(accessibility = "ic action location directions")
+    public MobileElement directionIcon;
+
+
+
+
+    //Go into Meetinghouse details
+    @AndroidFindBy(id = "map_item_title")
+    public MobileElement meetinghouseDetails;
+
+
+    public void meetinghouseSearch(String searchText) throws Exception {
+        if (getOS().equals("ios")) {
+            meetinghousesSearchField.sendKeys(searchText);
+            Thread.sleep(2000);
+//            meetinghousesSearchField.sendKeys("\n");
+            keyboardSearchButton.click();
+        } else {
+            meetinghousesSearchButton.click();
+            meetinghousesSearchField.sendKeys(searchText);
+            driver.getKeyboard().pressKey(Keys.ENTER);
+        }
+
+
+
+
+    }
+
+    public void selectMeetinghouse() throws Exception {
+        if (getOS().equals("ios")){
+            driver.findElement(By.xpath("//XCUIElementTypeOther[@name=' ']")).click();
+        } else {
+            driver.findElement(By.xpath("//android.view.View[@content-desc='Google Map']/android.view.View[2]")).click();
+        }
+    }
+
+    public void openMeetinghouseDetails(String meetinghouseAddress) throws Exception {
+        MobileElement myElement;
+        if (getOS().equals("ios")) {
+            myElement = driver.findElement(By.name(meetinghouseAddress));
+            myElement.click();
+            clickAboveElement(myElement);
+        } else {
+            meetinghouseDetails.click();
+        }
+    }
+
+    public String getMeetinghouseDetails() throws Exception {
+        String pageSource;
+        pageSource = getSourceOfPage();
+//        scrollDownTEST(500);
+        scrollDownSlow(500);
+        pageSource = pageSource + getSourceOfPage();
+        return pageSource;
+    }
 
 
 

@@ -82,7 +82,7 @@ public class MeetinghousesScreenTest extends BaseDriver {
 
         myBasePage.checkForElement(myMeetinghouses.directionIcon);
 
-
+        //TODO: Select Each ward and check data
 
 
 

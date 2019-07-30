@@ -82,8 +82,72 @@ public class MeetinghousesScreenTest extends BaseDriver {
 
         myBasePage.checkForElement(myMeetinghouses.directionIcon);
 
-        //TODO: Select Each ward and check data
 
+        //Select each Ward
+        //Check Riverton 24th Ward (Tongan)
+        myBasePage.clickByTextContains("Riverton 24th Ward (Tongan)");
+        Thread.sleep(1000);
+        pageSource = myMeetinghouses.getMeetinghouseDetails();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("12691 South 3600 West", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("RIVERTON, Utah", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Riverton", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("24", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Ward", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("(Tongan)", pageSource, "Contains"));
+
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament meeting:", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("9:00 am", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("First meeting:", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Siosifa Tafisi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("1 801-915-2065", pageSource, "Contains"));
+        myBasePage.checkForElement(myMeetinghouses.directionIcon);
+
+        myBasePage.backButton.click();
+
+
+        //Check Castlewood Ward
+        myBasePage.waitForText("Castlewood Ward");
+        myBasePage.clickByTextContains("Castlewood Ward");
+        Thread.sleep(1000);
+        pageSource = myMeetinghouses.getMeetinghouseDetails();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("12691 South 3600 West", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("RIVERTON, Utah", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Castlewood Ward", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament meeting:", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("10:30 am", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("First meeting:", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mark R. Ludwig", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("1 801-706-3903", pageSource, "Contains"));
+        myBasePage.checkForElement(myMeetinghouses.directionIcon);
+
+        myBasePage.backButton.click();
+
+        //Check Riverton 19th Ward
+        myBasePage.waitForText("Riverton 19th Ward");
+        myBasePage.clickByTextContains("Riverton 19th Ward");
+        Thread.sleep(1000);
+        pageSource = myMeetinghouses.getMeetinghouseDetails();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("12691 South 3600 West", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("RIVERTON, Utah", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Riverton 19th Ward", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament meeting:", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("12:00 pm", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("First meeting:", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Chad R. Carlson", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("1 801-652-5753", pageSource, "Contains"));
+        myBasePage.checkForElement(myMeetinghouses.directionIcon);
+
+        myBasePage.backButton.click();
 
 
     }

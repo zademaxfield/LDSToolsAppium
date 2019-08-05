@@ -93,7 +93,8 @@ public class MenuScreen extends BasePage {
 
     // ********** iOs Only **********
     //More Button
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'More' AND type == 'XCUIElementTypeButton'")
+//    @iOSXCUITFindBy(iOSNsPredicate = "name == 'More' AND type == 'XCUIElementTypeButton'")
+    @iOSXCUITFindBy(accessibility = "More")
 //    @iOSXCUITFindBy(iOSNsPredicate = "name == 'More'")
     public  MobileElement moreMenu;
 
@@ -109,6 +110,7 @@ public class MenuScreen extends BasePage {
             if (getOS().equals("ios")) {
 //                System.out.println("Clicking More....");
 //                System.out.println(myBase.getSourceOfPage());
+//                myBase.checkForElement(moreMenu);
                 moreMenu.click();
             } else {
                 scrollDownTEST(200);

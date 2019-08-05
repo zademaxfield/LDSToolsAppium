@@ -36,7 +36,7 @@ public class MeetinghousesScreen extends BasePage {
 
     //Allow access to your location - Android Permissions Dialog
 //    @AndroidFindBy(id = "permission_allow_button")
-    @AndroidFindBy(xpath = "//android.widget.Button[@text='ALLOW']")
+    @AndroidFindBy(xpath = "//android.widget.Button[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"allow\")]")
     public MobileElement meetinghousesAllowAndroidPermissions;
 
 
@@ -106,11 +106,20 @@ public class MeetinghousesScreen extends BasePage {
     public MobileElement directionIcon;
 
 
-
-
     //Go into Meetinghouse details
     @AndroidFindBy(id = "map_item_title")
     public MobileElement meetinghouseDetails;
+
+
+    //Search Results
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Search results']")
+    @iOSXCUITFindBy(accessibility = "Search results")
+    public MobileElement meetinghousesSearchResuts;
+
+
+
+
+
 
 
     public void meetinghouseSearch(String searchText) throws Exception {
@@ -156,6 +165,18 @@ public class MeetinghousesScreen extends BasePage {
         scrollDownSlow(500);
         pageSource = pageSource + getSourceOfPage();
         return pageSource;
+    }
+
+    public void selectSearchResults(String wardToSelect) throws Exception {
+        if (getOS().equals("ios")) {
+            Thread.sleep(15000);
+            System.out.println(getSourceOfPage());
+            driver.findElement(By.xpath("//XCUIElementTypeTable//XCUIElementTypeStaticText[contains(@name, '" + wardToSelect + "')]" )).click();
+//            driver.findElementByCustom("ai:" + wardToSelect);
+
+        } else {
+            clickByTextContains(wardToSelect);
+        }
     }
 
 

@@ -170,4 +170,12 @@ public class PinScreen extends BasePage {
     @iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'Stop Sync'")
     public  MobileElement pinKeySignOut;
 
+
+    //Pin Message
+    @AndroidFindBy(id = "pinHintTextView")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@value, 'Passcode')]")
+    public MobileElement pinMessage;
+
+
+
 }

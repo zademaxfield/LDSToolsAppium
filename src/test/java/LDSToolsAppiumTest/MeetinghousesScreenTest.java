@@ -4,7 +4,6 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.MeetinghousesScreen;
 import LDSToolsAppium.Screen.MenuScreen;
-import org.openqa.selenium.html5.Location;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

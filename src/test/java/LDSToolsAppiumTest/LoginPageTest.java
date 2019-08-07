@@ -2,7 +2,7 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
-import LDSToolsAppium.Screen.LoginPageScreen;
+import LDSToolsAppium.Screen.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -193,7 +193,7 @@ public class LoginPageTest extends BaseDriver {
 
 
     // ******************* Invalid Username and Password Tests *******************
-    @Test ( groups = {"all1", "all", "login", "jft"})
+    @Test ( groups = {"all1", "all", "login"})
     public void invalidUsernameAndPasswordTest1() throws Exception {
         invalidCheck("sfjksdjissldjskldjslfjslfj", "toolste@#@$#^#$&%*%*&ster");
     }
@@ -221,6 +221,61 @@ public class LoginPageTest extends BaseDriver {
     @Test ( groups = {"all2", "all", "login"})
     public void invalidUsernameAndPasswordTest6() throws Exception {
         invalidCheck("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    }
+
+
+
+
+
+    @Test ( groups = {"all4", "all", "login", "jft"})
+    public void changePIN() throws Exception {
+        String myPinMessage;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        SettingsScreen mySettings = new SettingsScreen(driver);
+        PinScreen myPin = new PinScreen(driver);
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myMenu.selectMenu(myMenu.settings);
+        mySettings.changeYourPIN.click();
+        //This is needed for iOS
+        if (getRunningOS().equals("ios")) {
+            mySettings.changeYourPIN.click();
+        }
+
+        myPinMessage = myPin.pinMessage.getText();
+
+        if (myPinMessage.equals("Enter Current Passcode") || (myPinMessage.equals("Enter your PIN"))) {
+            myPin.pinKey1.click();
+            myPin.pinKey1.click();
+            myPin.pinKey3.click();
+            myPin.pinKey3.click();
+        }
+
+        myHelper.changePIN("4", "4", "6", "6");
+
+        myBasePage.backButton.click();
+
+        myMenu.menuLogOut();
+        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.enterPin("4", "4", "6", "6");
+
+
+
+        myMenu.selectMenu(myMenu.settings);
+
+
+
+
+
+
+
     }
 
 
@@ -273,7 +328,7 @@ public class LoginPageTest extends BaseDriver {
 
 
 /*
-    @Test (groups = { "jft"})
+    @Test (groups = { "NotWorking"})
     public void loginPageJustForTesting() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);

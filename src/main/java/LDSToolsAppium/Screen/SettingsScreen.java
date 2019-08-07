@@ -26,6 +26,19 @@ public class SettingsScreen extends BasePage {
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Sign Out' AND type == 'XCUIElementTypeStaticText'")
     public  MobileElement signOut;
 
+
+
+    // ********* PIN Stuff *********
+    //Change Your PIN - Update Passscode
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Change Your PIN')]")
+    @iOSXCUITFindBy(accessibility = "Update Passcode")
+    public MobileElement changeYourPIN;
+
+
+
+
+
+
     // ********* Calendar *********
     //Months to Show
     @AndroidFindBy(xpath = "//*[contains(@text, 'Months to Show')]")

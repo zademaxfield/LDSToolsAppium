@@ -369,6 +369,35 @@ public class HelperMethods extends BasePage {
 
     }
 
+    public void changePIN(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
+        // ********** Page Instantiations **********
+        //HelperMethods myHelper = new HelperMethods(driver);
+//        PinScreen myPin = new PinScreen(driver);
+        MenuScreen myMenuScreen = new MenuScreen(driver);
+
+        Thread.sleep(4000);
+        checkForAlertsBeforePin();
+
+
+        Thread.sleep(2000);
+
+        pressPinKeys(firstNumber);
+        pressPinKeys(secondNumber);
+        pressPinKeys(thirdNumber);
+        pressPinKeys(fourthNumber);
+
+        Thread.sleep(2000);
+
+        pressPinKeys(firstNumber);
+        pressPinKeys(secondNumber);
+        pressPinKeys(thirdNumber);
+        pressPinKeys(fourthNumber);
+
+        Thread.sleep(2000);
+
+
+    }
+
 
 
     public void nonLeaderNoPin() throws Exception {

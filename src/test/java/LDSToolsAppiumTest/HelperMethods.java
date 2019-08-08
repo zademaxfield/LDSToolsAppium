@@ -204,6 +204,7 @@ public class HelperMethods extends BasePage {
             Thread.sleep(1000);
             backButton.click();
 
+
         } else {
             myLoginPage.overflowMenu.click();
             myLoginPage.overflowSettings.click();

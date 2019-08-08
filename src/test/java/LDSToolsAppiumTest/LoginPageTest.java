@@ -243,10 +243,12 @@ public class LoginPageTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.settings);
-        mySettings.changeYourPIN.click();
+        myBasePage.waitForElementThenClick(mySettings.changeYourPIN);
+//        mySettings.changeYourPIN.click();
         //This is needed for iOS
         if (getRunningOS().equals("ios")) {
-            mySettings.changeYourPIN.click();
+            myBasePage.waitForElementThenClick(mySettings.changeYourPIN);
+//            mySettings.changeYourPIN.click();
         }
 
         myPinMessage = myPin.pinMessage.getText();
@@ -260,8 +262,11 @@ public class LoginPageTest extends BaseDriver {
 
         myHelper.changePIN("4", "4", "6", "6");
 
-        myBasePage.backButton.click();
+        if (!getRunningOS().equalsIgnoreCase("ios")) {
+            myBasePage.backButton.click();
+        }
 
+        
         myMenu.menuLogOut();
         myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("4", "4", "6", "6");

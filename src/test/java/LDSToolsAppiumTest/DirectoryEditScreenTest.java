@@ -499,6 +499,13 @@ public class DirectoryEditScreenTest extends BaseDriver {
         //Household
         Assert.assertTrue(myBase.checkNoCaseList("5551239999", pageSource, "Contains"));
         Assert.assertTrue(myBase.checkNoCaseList("unfortunately@gmail.com", pageSource, "Contains"));
+        //Address
+        Assert.assertTrue(myBase.checkNoCaseList("3740 W.", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Market Drive", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Riverton, Utah", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("84065", pageSource, "Contains"));
+
+
         myBase.backToDirectory();
         myMenu.menuLogOut();
 
@@ -516,6 +523,11 @@ public class DirectoryEditScreenTest extends BaseDriver {
         //Household
         Assert.assertTrue(myBase.checkNoCaseList("5551239999", pageSource, "Contains"));
         Assert.assertTrue(myBase.checkNoCaseList("unfortunately@gmail.com", pageSource, "Contains"));
+        //Address
+        Assert.assertTrue(myBase.checkNoCaseList("3740 W.", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Market Drive", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Riverton, Utah", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("84065", pageSource, "Contains"));
         myBase.backToDirectory();
         myMenu.menuLogOut();
 

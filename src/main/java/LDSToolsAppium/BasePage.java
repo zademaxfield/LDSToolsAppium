@@ -2,6 +2,7 @@ package LDSToolsAppium;
 
 
 import io.appium.java_client.*;
+import io.appium.java_client.android.connection.HasNetworkConnection;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -14,6 +15,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.openqa.selenium.*;
+import org.openqa.selenium.mobile.NetworkConnection;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -1047,6 +1049,7 @@ public class BasePage {
 
         new TouchAction(driver).press(PointOption.point(useThisLocationX, useThisLocationY - 50)).release().perform();
     }
+
 
 
 

@@ -206,8 +206,8 @@ public class DirectoryEditScreen extends BasePage {
 
     //Private—Leadership Only Visibility
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Private—Leadership Only']")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Private—Leadership Only')]")
-    public MobileElement popUpPrivatLeadershipOnly;
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Leadership Only')]")
+    public MobileElement popUpPrivateLeadershipOnly;
 
 
 

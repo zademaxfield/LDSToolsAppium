@@ -360,7 +360,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all"})
     public void editVisibility() throws Exception {
 
         // ********* Constructor **********
@@ -441,6 +441,106 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
+
+    @Test(groups = {"all3", "all", "jft"})
+    public void editVisibilityPersonalEmail() throws Exception {
+        String pageSource;
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
+        BasePage myBase = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+
+
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools5", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myDirectory.searchAndClick("Tools, LDS5");
+
+        myEditDirectory.editUserOpen();
+        Thread.sleep(2000);
+
+        //Reset Visibility
+        myEditDirectory.resetVisibility();
+        myEditDirectory.editUserOpen();
+
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            myEditDirectory.personalVisibility.click();
+        } else {
+            myEditDirectory.directoryPrivacyTab.click();
+        }
+
+        myEditDirectory.emailPersonal.click();
+        myEditDirectory.popUpPrivateLeadershipOnly.click();
+
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            myEditDirectory.doneButton.click();
+        }
+        myEditDirectory.menuSave.click();
+
+        myBase.backToDirectory();
+        myMenu.menuLogOut();
+
+
+        //Make sure members without callings cannot see the private email
+        myHelper.loginUAT("LDSTools6", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myDirectory.searchAndClick("Tools, LDS5");
+        pageSource = myDirectory.getDirectoryUserData();
+
+        Assert.assertTrue(myBase.checkNoCaseList("LDS5", pageSource, "Contains"));
+        //Personal
+        Assert.assertTrue(myBase.checkNoCaseList("1113334444", pageSource, "Contains"));
+        Assert.assertFalse(myBase.checkNoCaseList("zademobile008@gmail.com", pageSource, "Contains"));
+        //Household
+        Assert.assertTrue(myBase.checkNoCaseList("5551239999", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("unfortunately@gmail.com", pageSource, "Contains"));
+        myBase.backToDirectory();
+        myMenu.menuLogOut();
+
+        //Make sure members with callings can see the private email
+        myHelper.loginUAT("LDSTools21", "password1");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myDirectory.searchAndClick("Tools, LDS5");
+        pageSource = myDirectory.getDirectoryUserData();
+
+        Assert.assertTrue(myBase.checkNoCaseList("LDS5", pageSource, "Contains"));
+        //Personal
+        Assert.assertTrue(myBase.checkNoCaseList("1113334444", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("zademobile008@gmail.com", pageSource, "Contains"));
+        //Household
+        Assert.assertTrue(myBase.checkNoCaseList("5551239999", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("unfortunately@gmail.com", pageSource, "Contains"));
+        myBase.backToDirectory();
+        myMenu.menuLogOut();
+
+
+
+        //Clean up
+        myHelper.loginUAT("LDSTools5", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myDirectory.searchAndClick("Tools, LDS5");
+
+        myEditDirectory.editUserOpen();
+        Thread.sleep(2000);
+
+        //Reset Visibility
+        myEditDirectory.resetVisibility();
+//        myBase.backToDirectory();
+//
+//        if (getRunningOS().equalsIgnoreCase("ios")) {
+//            myEditDirectory.doneButton.click();
+//        }
+//        myEditDirectory.menuSave.click();
+//
+//
+    }
 
 
 

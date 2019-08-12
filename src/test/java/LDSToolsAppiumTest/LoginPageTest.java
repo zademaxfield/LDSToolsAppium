@@ -266,7 +266,7 @@ public class LoginPageTest extends BaseDriver {
             myBasePage.backButton.click();
         }
 
-        
+
         myMenu.menuLogOut();
         myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("4", "4", "6", "6");
@@ -274,11 +274,6 @@ public class LoginPageTest extends BaseDriver {
 
 
         myMenu.selectMenu(myMenu.settings);
-
-
-
-
-
 
 
     }

@@ -442,8 +442,33 @@ public class DirectoryEditScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void editVisibilityPersonalEmail() throws Exception {
+        visibilityTestSub("personal", "email");
+    }
+
+    @Test(groups = {"all4", "all"})
+    public void editVisibilityPersonalPhone() throws Exception {
+        visibilityTestSub("personal", "phone");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void editVisibilityHouseholdEmail() throws Exception {
+        visibilityTestSub("household", "email");
+    }
+
+    @Test(groups = {"all1", "all"})
+    public void editVisibilityHouseholdPhone() throws Exception {
+        visibilityTestSub("household", "phone");
+    }
+
+    @Test(groups = {"all4", "all", "jft"})
+    public void editVisibilityHouseholdAddress() throws Exception {
+        visibilityTestSub("household", "address");
+    }
+
+
+    private void visibilityTestSub(String visibilityType, String visibilityItem) throws Exception {
         String pageSource;
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
@@ -467,13 +492,58 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myEditDirectory.resetVisibility();
         myEditDirectory.editUserOpen();
 
-        if (getRunningOS().equalsIgnoreCase("ios")) {
-            myEditDirectory.personalVisibility.click();
+        if (visibilityType.equalsIgnoreCase("personal")) {
+            if (getRunningOS().equalsIgnoreCase("ios")) {
+                myEditDirectory.personalVisibility.click();
+            } else {
+                myEditDirectory.directoryPrivacyTab.click();
+            }
         } else {
-            myEditDirectory.directoryPrivacyTab.click();
+            if (getRunningOS().equalsIgnoreCase("ios")) {
+                myEditDirectory.householdVisibility.click();
+            } else {
+                myEditDirectory.directoryPrivacyTab.click();
+            }
         }
 
-        myEditDirectory.emailPersonal.click();
+        if (visibilityType.equalsIgnoreCase("personal")) {
+            switch(visibilityItem) {
+                case "image":
+                    myEditDirectory.imagePersonal.click();
+                    break;
+                case "phone":
+                    myEditDirectory.phonePersonal.click();
+                    break;
+                case "email":
+                    myEditDirectory.emailPersonal.click();
+                    break;
+            }
+        }
+
+        if (visibilityType.equalsIgnoreCase("household")) {
+            switch(visibilityItem) {
+                case "image":
+                    myEditDirectory.imageHousehold.click();
+                    break;
+                case "phone":
+                    myEditDirectory.phoneHousehold.click();
+                    break;
+                case "email":
+                    myBase.scrollToTextScollArea("Show on Map");
+                    myEditDirectory.emailHousehold.click();
+                    break;
+                case "address":
+                    myBase.scrollToTextScollArea("Show on Map");
+                    myEditDirectory.physicalAddress.click();
+                    break;
+                case "onmap":
+                    myBase.scrollToTextScollArea("Show on Map");
+                    myEditDirectory.showOnMap.click();
+                    break;
+            }
+        }
+
+
         myEditDirectory.popUpPrivateLeadershipOnly.click();
 
         if (getRunningOS().equalsIgnoreCase("ios")) {
@@ -493,17 +563,57 @@ public class DirectoryEditScreenTest extends BaseDriver {
         pageSource = myDirectory.getDirectoryUserData();
 
         Assert.assertTrue(myBase.checkNoCaseList("LDS5", pageSource, "Contains"));
-        //Personal
-        Assert.assertTrue(myBase.checkNoCaseList("1113334444", pageSource, "Contains"));
-        Assert.assertFalse(myBase.checkNoCaseList("zademobile008@gmail.com", pageSource, "Contains"));
-        //Household
-        Assert.assertTrue(myBase.checkNoCaseList("5551239999", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("unfortunately@gmail.com", pageSource, "Contains"));
-        //Address
-        Assert.assertTrue(myBase.checkNoCaseList("3740 W.", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("Market Drive", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("Riverton, Utah", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("84065", pageSource, "Contains"));
+        if (visibilityType.equalsIgnoreCase("personal")) {
+            if (visibilityItem.equalsIgnoreCase("phone")) {
+                Assert.assertFalse(myBase.checkNoCaseList("1113334444", pageSource, "Contains"));
+                Assert.assertTrue(myBase.checkNoCaseList("zademobile008@gmail.com", pageSource, "Contains"));
+            }
+            if (visibilityItem.equalsIgnoreCase("email")) {
+                Assert.assertTrue(myBase.checkNoCaseList("1113334444", pageSource, "Contains"));
+                Assert.assertFalse(myBase.checkNoCaseList("zademobile008@gmail.com", pageSource, "Contains"));
+            }
+        } else {
+            Assert.assertTrue(myBase.checkNoCaseList("1113334444", pageSource, "Contains"));
+            Assert.assertTrue(myBase.checkNoCaseList("zademobile008@gmail.com", pageSource, "Contains"));
+        }
+
+        if (visibilityType.equalsIgnoreCase("household")) {
+            if (visibilityItem.equalsIgnoreCase("phone")) {
+                Assert.assertFalse(myBase.checkNoCaseList("5551239999", pageSource, "Contains"));
+                Assert.assertTrue(myBase.checkNoCaseList("unfortunately@gmail.com", pageSource, "Contains"));
+                //Address
+                Assert.assertTrue(myBase.checkNoCaseList("3740 W.", pageSource, "Contains"));
+                Assert.assertTrue(myBase.checkNoCaseList("Market Drive", pageSource, "Contains"));
+                Assert.assertTrue(myBase.checkNoCaseList("Riverton, Utah", pageSource, "Contains"));
+                Assert.assertTrue(myBase.checkNoCaseList("84065", pageSource, "Contains"));
+            }
+            if (visibilityItem.equalsIgnoreCase("email")) {
+                Assert.assertTrue(myBase.checkNoCaseList("5551239999", pageSource, "Contains"));
+                Assert.assertFalse(myBase.checkNoCaseList("unfortunately@gmail.com", pageSource, "Contains"));
+                //Address
+                Assert.assertTrue(myBase.checkNoCaseList("3740 W.", pageSource, "Contains"));
+                Assert.assertTrue(myBase.checkNoCaseList("Market Drive", pageSource, "Contains"));
+                Assert.assertTrue(myBase.checkNoCaseList("Riverton, Utah", pageSource, "Contains"));
+                Assert.assertTrue(myBase.checkNoCaseList("84065", pageSource, "Contains"));
+            }
+            if (visibilityItem.equalsIgnoreCase("address")) {
+                Assert.assertTrue(myBase.checkNoCaseList("5551239999", pageSource, "Contains"));
+                Assert.assertTrue(myBase.checkNoCaseList("unfortunately@gmail.com", pageSource, "Contains"));
+                //Address
+                Assert.assertFalse(myBase.checkNoCaseList("3740 W.", pageSource, "Contains"));
+                Assert.assertFalse(myBase.checkNoCaseList("Market Drive", pageSource, "Contains"));
+                Assert.assertFalse(myBase.checkNoCaseList("Riverton, Utah", pageSource, "Contains"));
+                Assert.assertFalse(myBase.checkNoCaseList("84065", pageSource, "Contains"));
+            }
+        } else {
+            Assert.assertTrue(myBase.checkNoCaseList("5551239999", pageSource, "Contains"));
+            Assert.assertTrue(myBase.checkNoCaseList("unfortunately@gmail.com", pageSource, "Contains"));
+            //Address
+            Assert.assertTrue(myBase.checkNoCaseList("3740 W.", pageSource, "Contains"));
+            Assert.assertTrue(myBase.checkNoCaseList("Market Drive", pageSource, "Contains"));
+            Assert.assertTrue(myBase.checkNoCaseList("Riverton, Utah", pageSource, "Contains"));
+            Assert.assertTrue(myBase.checkNoCaseList("84065", pageSource, "Contains"));
+        }
 
 
         myBase.backToDirectory();
@@ -544,17 +654,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         //Reset Visibility
         myEditDirectory.resetVisibility();
-//        myBase.backToDirectory();
-//
-//        if (getRunningOS().equalsIgnoreCase("ios")) {
-//            myEditDirectory.doneButton.click();
-//        }
-//        myEditDirectory.menuSave.click();
-//
-//
     }
-
-
 
 
 

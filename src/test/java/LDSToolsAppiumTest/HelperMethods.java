@@ -323,9 +323,11 @@ public class HelperMethods extends BasePage {
 //        PinScreen myPin = new PinScreen(driver);
         MenuScreen myMenuScreen = new MenuScreen(driver);
 
-        Thread.sleep(4000);
-        checkForAlertsBeforePin();
 
+        Thread.sleep(4000);
+
+
+        checkForAlertsBeforePin();
 
         dismissWhatsNewPage();
 
@@ -349,13 +351,21 @@ public class HelperMethods extends BasePage {
         Thread.sleep(2000);
 
         //Sometimes there is a warning before the Whats new screen
+
+        //Android needs this.
         checkForAlertsAfterPin();
+
+
 
         Thread.sleep(2000);
 
+
+        //Android needs this.
         dismissWhatsNewPage();
 
+        //Android needs this.
         checkForAlertsAfterPin();
+
 
 
 

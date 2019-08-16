@@ -210,7 +210,7 @@ public class LDSWeb {
 		
 		openPageLogIn(url, userName, passWord);
 
-//		setupMembers();
+		setupMembers();
 		setupCallings();
 
 
@@ -673,8 +673,8 @@ public class LDSWeb {
 		waitForTextToDisappear("Loading", 500, "id" );
 		clickElement("Elders Quorum Presidency", "linkText");
 
-
-//		addMemberToCalling("First Counselor", "lds22");
+		addMemberToCalling("President", "lds21");
+		addMemberToCalling("First Counselor", "lds22");
 		addMemberToCalling("Second Counselor", "lds23");
 		addMemberToCalling("Quorum Secretary", "lds24");
 		clickElement("Clear Filters", "linkText");
@@ -764,7 +764,10 @@ public class LDSWeb {
 		addMemberToOrg("lds24");
 		addMemberToOrg("lds25");
 //		addMemberToOrg("lds51");
+		addMemberToOrg("lds311");
+		addMemberToOrg("lds318");
 		addMemberToOrg("lds31");
+		addMemberToOrg("lds324");
 		addMemberToOrg("lds32");
 		addMemberToOrg("lds5");
 		addMemberToOrg("lds6");

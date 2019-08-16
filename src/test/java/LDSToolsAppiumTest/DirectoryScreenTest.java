@@ -664,25 +664,25 @@ public class DirectoryScreenTest extends BaseDriver {
 
         myHelper.loginUAT("LDSTools3", "toolstester");
 
-//        endTime = System.nanoTime();
-//        duration = (endTime - startTime);
-//        duration = duration / 1000000;
-//        System.out.println("Login to UAT: " + duration);
-//
-//        startTime = System.nanoTime();
-//        myHelper.enterPin("1", "1", "3", "3");
-//
-//        endTime = System.nanoTime();
-//        duration = (endTime - startTime);
-//        duration = duration / 1000000;
-//        System.out.println("Enter PIN Time: " + duration);
+        endTime = System.nanoTime();
+        duration = (endTime - startTime);
+        duration = duration / 1000000;
+        System.out.println("Login to UAT: " + duration);
+
+        startTime = System.nanoTime();
+        myHelper.enterPin("1", "1", "3", "3");
+
+        endTime = System.nanoTime();
+        duration = (endTime - startTime);
+        duration = duration / 1000000;
+        System.out.println("Enter PIN Time: " + duration);
 
     }
 
 
 
 
-    @Test(dataProvider = "Members", groups = {"goat"})
+    @Test(dataProvider = "Members", groups = {"notUsed"})
     public void directoryScrollTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);

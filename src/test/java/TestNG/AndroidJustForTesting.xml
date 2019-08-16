@@ -21,13 +21,13 @@
         <groups>
             <run>
                 <include name="jft"/>
-<!--                <include name="report"/>-->
+<!--                <include name="goat"/>-->
             </run>
         </groups>
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
 
         </classes>
     </test > <!-- Default test -->

@@ -149,6 +149,11 @@ public class MissionaryScreen extends BasePage {
     public  MobileElement referralUseThisLocation;
 
 
+    //*********** Tool Bar **************
+    @AndroidFindBy(id = "drop_arrow")
+    @iOSXCUITFindBy(accessibility = "Missionary")
+    public MobileElement unitSelector;
+
 
 
 

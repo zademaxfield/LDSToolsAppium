@@ -3,6 +3,7 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,7 +11,7 @@ import org.testng.annotations.Test;
 public class MissionaryScreenTest extends BaseDriver {
 
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -45,6 +46,183 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
     }
+
+
+    @Test(groups = {"all4", "all", "jft"})
+    public void missionaryOtherUnits() throws Exception {
+        //String pageSource;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MissionaryScreen myMissionary = new MissionaryScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+
+        String pageSource;
+
+        //Login and enter in PIN
+        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myMenu.selectMenu(myMenu.missionary);
+
+        myMissionary.sendReferralButton.click();
+        Thread.sleep(3000);
+        myMissionary.cancelReferralButton.click();
+
+
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Assigned
+        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lawrence", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Agalelei", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Puletua", pageSource, "Contains"));
+        //Ward
+        Assert.assertTrue(myBasePage.checkNoCaseList("Young Yen", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Longque", pageSource, "Contains"));
+        //Serving
+        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Longque", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Atonio", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Vaifale", pageSource, "Contains"));
+
+
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+
+        chooseUnit("Fagamalo 1st");
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Assigned
+        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lawrence", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Agalelei", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Puletua", pageSource, "Contains"));
+        //Ward
+        Assert.assertTrue(myBasePage.checkNoCaseList("Poai", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mikaele", pageSource, "Contains"));
+        //Serving
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ariel", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Naomanu", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Numia", pageSource, "Contains"));
+
+
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+        chooseUnit("Fatuvalu");
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Assigned
+        Assert.assertTrue(myBasePage.checkNoCaseList("Josh", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Skabelund", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Suelaki", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Rodman", pageSource, "Contains"));
+        //Ward
+        Assert.assertFalse(myBasePage.checkNoCaseList("Poai", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Mikaele", pageSource, "Contains"));
+        //Serving
+        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Eugene", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Faalupega", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mamea", pageSource, "Contains"));
+
+
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+        chooseUnit("Paia");
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Assigned
+        Assert.assertTrue(myBasePage.checkNoCaseList("Enekosi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Moleli", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Benjamin", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Petersen", pageSource, "Contains"));
+        //Ward
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tanielu", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Vailolo", pageSource, "Contains"));
+        //Serving
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Osigafeagaiga", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Kirisimasi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Perth", pageSource, "Contains"));
+
+
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+        chooseUnit("Safotu");
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Assigned
+        Assert.assertTrue(myBasePage.checkNoCaseList("Enekosi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Moleli", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Benjamin", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Petersen", pageSource, "Contains"));
+        //Ward
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tapusoa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Pelasio", pageSource, "Contains"));
+        //Serving
+        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lj", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Luse", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tapusoa", pageSource, "Contains"));
+
+
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+        chooseUnit("Saleaula");
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Assigned
+        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lawrence", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Agalelei", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Puletua", pageSource, "Contains"));
+        //Ward
+        Assert.assertFalse(myBasePage.checkNoCaseList("Tapusoa", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Pelasio", pageSource, "Contains"));
+        //Serving
+        Assert.assertFalse(myBasePage.checkNoCaseList("Lj", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Luse", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Tapusoa", pageSource, "Contains"));
+
+
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+
+        chooseUnit("Lefagaoalii");
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Assigned
+        Assert.assertTrue(myBasePage.checkNoCaseList("Josh", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Skabelund", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Suelaki", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Rodman", pageSource, "Contains"));
+        //Ward
+        Assert.assertFalse(myBasePage.checkNoCaseList("Tapusoa", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Pelasio", pageSource, "Contains"));
+        //Serving
+        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Vagai", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Vagai", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Samoa", pageSource, "Contains"));
+
+
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+
+    }
+
+
+
+
+
+
+
+
+
 
     @Test(groups = {"smoke4", "smoke", "all4", "all"})
     public void missionaryReferralTest() throws Exception {
@@ -278,6 +456,20 @@ public class MissionaryScreenTest extends BaseDriver {
         myBasePage.backButton.click();
 
 
+
+    }
+
+
+    private void chooseUnit(String myUnit) throws Exception {
+        MissionaryScreen myMissionary = new MissionaryScreen(driver);
+        //Choose different Unit
+        myMissionary.unitSelector.click();
+        Thread.sleep(2000);
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            driver.findElement(By.xpath("//*[contains(@name,'" + myUnit + "')]")).click();
+        } else {
+            driver.findElement(By.xpath("//*[contains(@text,'" + myUnit + "')]")).click();
+        }
 
     }
 

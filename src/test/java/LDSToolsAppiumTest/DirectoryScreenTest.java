@@ -71,9 +71,9 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("August 12, 1961", 2, rights, pageSource);
         myBasePage.rightsCheck("Birth Date", 3, rights, pageSource);
         if (getRunningOS().equals("ios")) {
-            myBasePage.rightsCheck("(57)", 2, rights, pageSource);
+            myBasePage.rightsCheck("(58)", 2, rights, pageSource);
         } else {
-            myBasePage.rightsCheck("- 57", 2, rights, pageSource);
+            myBasePage.rightsCheck("- 58", 2, rights, pageSource);
         }
 
 

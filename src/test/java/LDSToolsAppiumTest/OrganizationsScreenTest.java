@@ -282,16 +282,19 @@ public class OrganizationsScreenTest extends BaseDriver {
 //
 //            driver.rotate(ScreenOrientation.PORTRAIT);
 
-            myBasePage.backAltButton.click();
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//            myBasePage.backAltButton.click();
 
             Thread.sleep(1000);
         }
 
         if(getRunningOS().equals("ios")) {
-            myBasePage.backAltButton.click();
-            Thread.sleep(1000);
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//            myBasePage.backAltButton.click();
+//            Thread.sleep(1000);
         }
-        myBasePage.backAltButton.click();
+        myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//        myBasePage.backAltButton.click();
         Thread.sleep(1000);
 
     }
@@ -365,17 +368,19 @@ public class OrganizationsScreenTest extends BaseDriver {
 //
 //            driver.rotate(ScreenOrientation.PORTRAIT);
 
-
-            myBasePage.backAltButton.click();
-            Thread.sleep(1000);
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//            myBasePage.backAltButton.click();
+//            Thread.sleep(1000);
         }
 
         if(getRunningOS().equals("ios")) {
-            myBasePage.backAltButton.click();
-            Thread.sleep(1000);
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//            myBasePage.backAltButton.click();
+//            Thread.sleep(1000);
         }
-        myBasePage.backAltButton.click();
-        Thread.sleep(1000);
+        myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//        myBasePage.backAltButton.click();
+//        Thread.sleep(1000);
 
     }
 
@@ -480,14 +485,15 @@ public class OrganizationsScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Young", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Wella", pageSource, "Contains"));
-            myBasePage.backAltButton.click();
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
             Thread.sleep(1000);
-            myBasePage.backAltButton.click();
-            Thread.sleep(1000);
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//            Thread.sleep(2000);
             
         }
-
-        myBasePage.backAltButton.click();
+        Thread.sleep(2000);
+        myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//        myBasePage.backAltButton.click();
         Thread.sleep(1000);
 
 
@@ -587,22 +593,27 @@ public class OrganizationsScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("President", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Aumoto", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Vaifale", pageSource, "Contains"));
-            myBasePage.backAltButton.click();
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
             Thread.sleep(1000);
-            myBasePage.backAltButton.click();
-            Thread.sleep(1000);
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+            Thread.sleep(3000);
 
         }
 
 
         if (getRunningOS().equals("ios")) {
-            myBasePage.backAltButton.click();
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
         }
-
-//        myBasePage.backAltButton.click();
-//        Thread.sleep(1000);
-        myBasePage.backAltButton.click();
         Thread.sleep(1000);
+        myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//        myBasePage.backAltButton.click();
+        Thread.sleep(1000);
+//
+//        myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//        Thread.sleep(1000);
+
+
+//        System.out.println("Young Women Finished!");
     }
 
 
@@ -691,10 +702,14 @@ public class OrganizationsScreenTest extends BaseDriver {
         //Data from android list
         List<String> androidList = new ArrayList<String>();
 
+        myMenu.selectMenu(myMenu.directory);
+        myMenu.selectMenu(myMenu.organizations);
 
-        myOrg.primaryOrg.click();
+        myBasePage.waitForElementThenClick(myOrg.primaryOrg);
+//        myOrg.primaryOrg.click();
         Thread.sleep(1000);
-        myOrg.primaryPresidency.click();
+        myBasePage.waitForElementThenClick(myOrg.primaryPresidency);
+//        myOrg.primaryPresidency.click();
         Thread.sleep(1000);
 
         if (rights <= 3) {

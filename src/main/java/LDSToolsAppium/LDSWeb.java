@@ -210,7 +210,7 @@ public class LDSWeb {
 		
 		openPageLogIn(url, userName, passWord);
 
-		setupMembers();
+//		setupMembers();
 		setupCallings();
 
 
@@ -664,6 +664,7 @@ public class LDSWeb {
 //		clickElement("Clear Filters", "linkText");
 
 
+		//******************* Elders Quorum *******************
 		
 
 		clickElement("Organizations", "linkText");
@@ -691,7 +692,9 @@ public class LDSWeb {
 //		addMemberToCalling("Elders Quorum Ministering Secretary", "lds51");
 		//addMemberToCalling("Elders Quorum Ministering Supervisor", "lds31");
 		clickElement("Clear Filters", "linkText");
-		
+
+
+		//******************* Relief Society *******************
 
 		clickElement("Organizations", "linkText");
 		Thread.sleep(4000);
@@ -704,7 +707,13 @@ public class LDSWeb {
 //		addMemberToCalling("Relief Society Ministering Secretary", "lds52");
 		//addMemberToCalling("Relief Society Ministering Supervisor", "lds53");
 		clickElement("Clear Filters", "linkText");
-		
+
+
+
+
+
+
+
 		Thread.sleep(2000);
 		clickElement("HomeButton", "xpath");
 	}

@@ -53,6 +53,11 @@ public class PinScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Yes")
     public  MobileElement pinAlertDialogYes;
 
+    //Alert Dialog Allow
+    @AndroidFindBy(xpath = "//*[@text='Allow']")
+    @iOSXCUITFindBy(accessibility = "Yes")
+    public  MobileElement pinAlertDialogAllow;
+
     // ****************** Face and Touch ID ******************
     // Disable Face ID
     @iOSXCUITFindBy(accessibility = "Disable Face ID")

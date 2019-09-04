@@ -802,7 +802,23 @@ public class HelperMethods extends BasePage {
         myCheck = pageSource.contains("Yes");
         if (myCheck) {
             myPin.pinAlertDialogYes.click();
+            pageSource = myBase.getSourceOfPage();
         }
+
+        if (!getOS().equalsIgnoreCase("ios")) {
+            myCheck = pageSource.contains("Allow");
+            if (myCheck) {
+                myPin.pinAlertDialogAllow.click();
+                pageSource = myBase.getSourceOfPage();
+            }
+
+            myCheck = pageSource.contains("Allow");
+            if (myCheck) {
+                myPin.pinAlertDialogAllow.click();
+            }
+
+        }
+
 
 
     }

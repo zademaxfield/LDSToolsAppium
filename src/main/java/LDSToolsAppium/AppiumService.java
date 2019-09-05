@@ -16,6 +16,7 @@ public class AppiumService {
 		System.out.println("OS: " + os);
 		System.out.println("PORT: " + myPort);
 
+		//Setup the service
 		System.out.println("Creating Appium Service");
 		File appiumLogFile = new File("screenshot/myAppiumLog.txt");
 		new FileOutputStream(appiumLogFile, false).close();

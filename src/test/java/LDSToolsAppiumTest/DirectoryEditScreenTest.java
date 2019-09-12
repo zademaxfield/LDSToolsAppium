@@ -112,7 +112,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke3", "smoke", "all3", "all"})
+    @Test(groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void editCurrentUserCancel() throws Exception {
         String pageSource;
 
@@ -462,7 +462,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         visibilityTestSub("household", "phone");
     }
 
-    @Test(groups = {"all4", "all", "jft"})
+    @Test(groups = {"all4", "all"})
     public void editVisibilityHouseholdAddress() throws Exception {
         visibilityTestSub("household", "address");
     }

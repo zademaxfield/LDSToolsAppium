@@ -743,7 +743,7 @@ public class BasePage {
                 if ((oneUser.contains("Jr")) || (oneUser.contains("Salvador")) || (oneUser.contains("Junior") || (oneUser.contains("Farley")
                         || (oneUser.contains("Raymundo") || (oneUser.contains("Sarwar") ||(oneUser.contains("Dylan") || (oneUser.contains("Siteni")
                         || (oneUser.contains("Ah Kam") || (oneUser.contains("Peterson") || (oneUser.contains("Latu") ||(oneUser.contains("Morgan")
-                        || (oneUser.contains("Nouata") || (oneUser.contains("Lili") || (oneUser.contains("Lott") || (oneUser.contains("Wilson, Tina")))))))))))))))){
+                        || (oneUser.contains("Nouata") || (oneUser.contains("Lili") || (oneUser.contains("Hyppolito") || (oneUser.contains("Wilson, Tina")))))))))))))))){
                     System.out.println("Skipping: " + oneUser);
                 } else {
                     Assert.assertTrue(checkNoCaseList(oneUser, pageSource, "Contains"));

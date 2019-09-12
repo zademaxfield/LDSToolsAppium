@@ -668,11 +668,13 @@ public class LDSWeb {
 		
 
 		clickElement("Organizations", "linkText");
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		clickElement("Elders Quorum", "linkText");
 		Thread.sleep(2000);
 		waitForTextToDisappear("Loading", 500, "id" );
 		clickElement("Elders Quorum Presidency", "linkText");
+
+		Thread.sleep(5000);
 
 		addMemberToCalling("President", "lds21");
 		addMemberToCalling("First Counselor", "lds22");

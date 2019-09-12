@@ -226,7 +226,7 @@ public class ListsScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void listsOtherNames() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -302,7 +302,7 @@ public class ListsScreenTest extends BaseDriver {
 
 
     //iOS has had problems with & in the name
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void listsOtherNamesAnd() throws Exception {
         String pageSource;
         String numberOfListMembers;

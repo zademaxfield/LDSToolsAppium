@@ -10,6 +10,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.jsoup.Connection;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.support.PageFactory;
@@ -290,12 +291,15 @@ public class DirectoryScreen extends BasePage {
     }
 
     public void searchAndClick(String myUser) throws Exception {
+        BasePage myBase = new BasePage(driver);
         String tempMyUser = myUser.toLowerCase();
 
-        directorySort.click();
-        Thread.sleep(2000);
+        myBase.waitForElementThenClick(directorySort);
+//        directorySort.click();
+//        Thread.sleep(2000);
 //        System.out.println(getSourceOfPage());
-        sortIndividual.click();
+        myBase.waitForElementThenClick(sortIndividual);
+//        sortIndividual.click();
 
         //
         if (tempMyUser.contains("tools")) {

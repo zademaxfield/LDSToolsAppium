@@ -197,12 +197,15 @@ public class HelperMethods extends BasePage {
 
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
-            Thread.sleep(1000);
-            backButton.click();
-            Thread.sleep(1000);
-            backButton.click();
-            Thread.sleep(1000);
-            backButton.click();
+//            Thread.sleep(1000);
+            waitForElementThenClick(backButton);
+//            backButton.click();
+//            Thread.sleep(1000);
+//            backButton.click();
+            waitForElementThenClick(backButton);
+//            Thread.sleep(1000);
+//            backButton.click();
+            waitForElementThenClick(backButton);
 
 
         } else {
@@ -225,11 +228,6 @@ public class HelperMethods extends BasePage {
             mySettings.UAT.click();
 
             backButton.click();
-
-
-
-
-
 
         }
 

@@ -22,7 +22,6 @@ public class DirectoryEditScreenTest extends BaseDriver {
     public void editCurrentUser() throws Exception {
         String pageSource;
 
-
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);

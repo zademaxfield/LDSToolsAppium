@@ -6,6 +6,7 @@ import LDSToolsAppium.Screen.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "smoke", "smoke3", "all", "all1", "jft"})
+    @Test (groups= { "smoke", "smoke3", "all", "all1"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -335,6 +336,45 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Abidjan", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Accra", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Adelaide", pageSource, "Contains"));
+
+
+    }
+
+
+    @Test (groups= { "all", "all4", "jft"})
+    public void templeOrdinanceSchedule() throws Exception {
+        String pageSource;
+        String dateFromApp;
+        String formattedDate;
+
+        HelperMethods myHelper = new HelperMethods(driver);
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        TemplesScreen myTemple = new TemplesScreen(driver);
+
+        java.util.Date myDate = new java.util.Date();
+        java.util.Date myDate2 = new java.util.Date();
+//        SimpleDateFormat myFormat = new SimpleDateFormat("E, MMM dd yyyy");
+        SimpleDateFormat myFormat = new SimpleDateFormat("E, MMM dd");
+
+
+
+        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+        myMenu.selectMenu(myMenu.temples);
+        myTemple.ordinanceScheduleButton.click();
+
+        System.out.println("System Date: " + myDate);
+        dateFromApp = myTemple.templeDate.getText();
+        System.out.println("Temple Date: " + dateFromApp);
+
+        formattedDate = myFormat.format(myDate);
+        System.out.println("Formatted Date: " + formattedDate);
+
+        //Do a split and check each string against the date
+
 
 
     }

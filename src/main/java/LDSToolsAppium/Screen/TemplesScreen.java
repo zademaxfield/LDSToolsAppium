@@ -87,6 +87,53 @@ public class TemplesScreen extends BasePage {
     public MobileElement allTab;
 
 
+
+
+    // ******************** Ordinance Schedule ********************
+    //Ordinance Schedule Button
+    @AndroidFindBy(id = "ordinanceScheduleButton")
+    @iOSXCUITFindBy(accessibility = "Ordinance Schedule")
+    public MobileElement ordinanceScheduleButton;
+
+    //All Ordinances Button
+    @AndroidFindBy(id = "ordinanceTextView")
+    @iOSXCUITFindBy(accessibility = "All Ordinances")
+    public MobileElement allOrdinancesButton;
+
+        //All Ordinances Selection
+        @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'All Ordinances')]")
+        @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'All Ordinances')]")
+        public MobileElement allOrdinancesSelection;
+
+        //Endowment Selection
+        @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Endowment')]")
+        @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Endowment')]")
+        public MobileElement endowmentSelection;
+
+        //Baptism Selection
+        @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Baptism')]")
+        @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Baptism')]")
+        public MobileElement baptismSelection;
+
+        //Initiatory Selection
+        @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Initiatory')]")
+        @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Initiatory')]")
+        public MobileElement initiatorySelection;
+
+        //Sealing Selection
+        @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Sealing')]")
+        @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Sealing')]")
+        public MobileElement sealingSelection;
+
+    //Date
+    @AndroidFindBy(id = "dateTextView")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[2]/XCUIElementTypeButton[2]")
+    public MobileElement templeDate;
+
+
+
+
+
     public void chooseDifferentTab(MobileElement myElement ) throws Exception {
         BasePage myBasePage = new BasePage(driver);
 

@@ -344,18 +344,14 @@ public class TemplesScreenTest extends BaseDriver {
     @Test (groups= { "all", "all4", "jft"})
     public void templeOrdinanceSchedule() throws Exception {
         String pageSource;
-        String dateFromApp;
-        String formattedDate;
+
 
         HelperMethods myHelper = new HelperMethods(driver);
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         TemplesScreen myTemple = new TemplesScreen(driver);
 
-        java.util.Date myDate = new java.util.Date();
-        java.util.Date myDate2 = new java.util.Date();
-//        SimpleDateFormat myFormat = new SimpleDateFormat("E, MMM dd yyyy");
-        SimpleDateFormat myFormat = new SimpleDateFormat("E, MMM dd");
+
 
 
 
@@ -366,16 +362,43 @@ public class TemplesScreenTest extends BaseDriver {
         myMenu.selectMenu(myMenu.temples);
         myTemple.ordinanceScheduleButton.click();
 
-        System.out.println("System Date: " + myDate);
+        checkOrdinanceDate();
+        
+
+
+
+
+    }
+
+    private void checkOrdinanceDate() throws Exception {
+        String dateFromApp;
+        String formattedDate;
+
+        TemplesScreen myTemple = new TemplesScreen(driver);
+        java.util.Date myDate = new java.util.Date();
+        SimpleDateFormat myFormat = new SimpleDateFormat("E, MMM dd");
+
+//        System.out.println("System Date: " + myDate);
         dateFromApp = myTemple.templeDate.getText();
-        System.out.println("Temple Date: " + dateFromApp);
+//        System.out.println("Temple Date: " + dateFromApp);
 
         formattedDate = myFormat.format(myDate);
-        System.out.println("Formatted Date: " + formattedDate);
+//        System.out.println("Formatted Date: " + formattedDate);
 
-        //Do a split and check each string against the date
+        String[] parts = formattedDate.split(" ");
 
+        String part1 = parts[0];
+        part1 = part1.replace(",", "");
+        String part2 = parts[1];
+        String part3 = parts[2];
 
+//        System.out.println("Part 1: " + part1);
+//        System.out.println("Part 2: " + part2);
+//        System.out.println("Part 3: " + part3);
+
+        Assert.assertTrue(dateFromApp.contains(part1));
+        Assert.assertTrue(dateFromApp.contains(part2));
+        Assert.assertTrue(dateFromApp.contains(part3));
 
     }
 

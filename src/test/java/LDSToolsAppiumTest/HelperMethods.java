@@ -205,7 +205,7 @@ public class HelperMethods extends BasePage {
             waitForElementThenClick(backButton);
 //            Thread.sleep(1000);
 //            backButton.click();
-            waitForElementThenClick(backButton);
+//            waitForElementThenClick(backButton);
 
 
         } else {

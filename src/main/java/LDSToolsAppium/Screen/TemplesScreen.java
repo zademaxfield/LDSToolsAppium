@@ -130,6 +130,15 @@ public class TemplesScreen extends BasePage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[2]/XCUIElementTypeButton[2]")
     public MobileElement templeDate;
 
+    //Next Button
+    @AndroidFindBy(id = "nextNavigationImageView")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='Button'][2]")
+    public MobileElement nextButton;
+
+    //Previous Button
+    @AndroidFindBy(id = "previousNavigationImageView")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='Button']")
+    public MobileElement previousButton;
 
 
 

@@ -363,12 +363,40 @@ public class TemplesScreenTest extends BaseDriver {
         myTemple.ordinanceScheduleButton.click();
 
         checkOrdinanceDate();
-        
-
-
+        checkTempleDates(10);
 
 
     }
+
+
+    private void checkTempleDates(int myCounter) throws Exception {
+        String pageSource;
+        int startCounter;
+
+        TemplesScreen myTemple = new TemplesScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        if (myCounter <= 1) {
+            myCounter = 2;
+        }
+
+
+        for (startCounter = 1; startCounter <= myCounter; startCounter++) {
+            myTemple.nextButton.click();
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+
+            if (pageSource.contains("AM")) {
+                Assert.assertTrue(myBasePage.checkNoCaseList("AM", pageSource, "Contains"));
+            } else {
+                Assert.assertTrue(myBasePage.checkNoCaseList("Temple closed", pageSource, "Contains"));
+            }
+        }
+
+    }
+
+
+
 
     private void checkOrdinanceDate() throws Exception {
         String dateFromApp;

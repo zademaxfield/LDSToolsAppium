@@ -647,7 +647,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(invocationCount = 3, groups = {"goat"})
+    @Test(invocationCount = 50, groups = {"goat"})
     public void directoryLoginSpeedCheck() throws Exception {
         long startTime;
         long endTime;
@@ -679,6 +679,12 @@ public class DirectoryScreenTest extends BaseDriver {
 //        System.out.println("Enter PIN Time: " + duration);
 
         Assert.assertTrue(myDirectory.checkFirstDirectoryUser());
+        myMenu.selectMenu(myMenu.settings);
+        Thread.sleep(2000);
+        myMenu.selectMenu(myMenu.directory);
+        Thread.sleep(2000);
+        Assert.assertTrue(myBasePage.checkForElement(myMenu.reports));
+
 
     }
 

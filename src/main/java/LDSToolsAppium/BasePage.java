@@ -41,8 +41,8 @@ public class BasePage {
 
     //Universal Elements
     @AndroidFindBy(accessibility = "Navigate up")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
-    //@iOSXCUITFindBy(accessibility = "Back")
+//    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
+    @iOSXCUITFindBy(accessibility = "Back")
     public MobileElement backButton;
 
     @AndroidFindBy(accessibility = "Navigate up")

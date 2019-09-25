@@ -1,12 +1,19 @@
 package LDSToolsAppiumTest;
 
+import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
+import LDSToolsAppium.MobileDevMain;
 import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.StartsActivity;
 import org.jsoup.nodes.Element;
+import org.openqa.selenium.remote.SessionId;
+
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 public class HelperMethods extends BasePage {
@@ -27,6 +34,7 @@ public class HelperMethods extends BasePage {
 
         setupUAT();
 
+        System.out.println(getSourceOfPage());
 
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();
@@ -46,9 +54,12 @@ public class HelperMethods extends BasePage {
 
         if (getOS().equals("ios")) {
 //            Thread.sleep(5000);
-            waitUnitlTextIsGone("Stop Sync");
+//            waitUnitlTextIsGone("Stop Sync");
+//            System.out.println(getSourceOfPage());
+            waitUnitlTextIsGone("UATUpdating");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Stop Sync");
+//            waitUnitlTextIsGone("Stop Sync");
+            waitUnitlTextIsGone("UATUpdating");
         } else {
             waitUnitlTextIsGone("Authenticating");
             Thread.sleep(1000);
@@ -172,9 +183,18 @@ public class HelperMethods extends BasePage {
     }
 
     private void setupUAT() throws Exception {
+
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
         ScannerScreen myScanner = new ScannerScreen(driver);
+//        BaseDriver myBaseDriver = new BaseDriver();
+        String os = "android";
+        String fileName = "android-mobile-dev-release.apk";
+//        String testDeviceX = myBaseDriver.getTestngTestDevice();
+        String testDeviceX = driver.getCapabilities().getCapability("deviceName").toString();
+        int startSleepTime = 200;
+        SessionId toolsSessionId;
+
 
         if (getOS().equals("ios")) {
             myLoginPage.overflowMenu.click();
@@ -195,9 +215,11 @@ public class HelperMethods extends BasePage {
 //                }
 //            }
 
+
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
-//            Thread.sleep(1000);
+//            Thread.sleep(3000);
+//            System.out.println(getSourceOfPage());
             waitForElementThenClick(backButton);
 //            backButton.click();
 //            Thread.sleep(1000);
@@ -209,25 +231,33 @@ public class HelperMethods extends BasePage {
 
 
         } else {
-            myLoginPage.overflowMenu.click();
-            myLoginPage.overflowSettings.click();
-            scrollToTextRecyclerView("About");
-            mySettings.about.click();
 
-            for (int x = 1 ; x <= 7 ; x++ ) {
-                mySettings.aboutLogo.click();
-            }
-
-            backButton.click();
-            scrollUpAndroidUIAutomator("0");
-//            scrollToTextRecyclerView("Network Environment");
-            scrollToTextSwipe("Network Environment");
+            System.out.println("Helper Method: " + testDeviceX);
+            MobileDevMain myMobileDevMain = new MobileDevMain(os, fileName, testDeviceX, startSleepTime, "UAT");
+            driver.launchApp();
+            Thread.sleep(20000);
 
 
-            mySettings.networkEnvironment.click();
-            mySettings.UAT.click();
 
-            backButton.click();
+//            myLoginPage.overflowMenu.click();
+//            myLoginPage.overflowSettings.click();
+//            scrollToTextRecyclerView("About");
+//            mySettings.about.click();
+//
+//            for (int x = 1 ; x <= 7 ; x++ ) {
+//                mySettings.aboutLogo.click();
+//            }
+//
+//            backButton.click();
+//            scrollUpAndroidUIAutomator("0");
+////            scrollToTextRecyclerView("Network Environment");
+//            scrollToTextSwipe("Network Environment");
+//
+//
+//            mySettings.networkEnvironment.click();
+//            mySettings.UAT.click();
+//
+//            backButton.click();
 
         }
 

@@ -22,12 +22,17 @@ import java.util.*;
 
 public class BaseDriver {
     public AppiumDriver<MobileElement> driver;
+    public AppiumDriver<MobileElement> driver2;
     public String deviceSerial = "";
     public String testOS = "";
+    public String testngTestDevice = "";
+    public int testngStartSleepTime = 200;
+
     //public AppiumService myAppiumService;
     public AppiumService myAppiumService = new AppiumService();
 
     protected LDSToolsApp app;
+    protected MobileDevApp app2;
     public LDSWeb myWeb = new LDSWeb();
 
 
@@ -57,9 +62,14 @@ public class BaseDriver {
 
         int myPort;
         testOS = os;
+        testngTestDevice = testDevice;
+        testngStartSleepTime = startSleepTime;
 
-        //Sleep so when multiple tests start they don't break
-        System.out.println("Sleep Time: " + startSleepTime);
+//        //Sleep so when multiple tests start they don't break
+//        System.out.println("Sleep Time: " + startSleepTime);
+//        System.out.println("File Name: " + fileName);
+//        System.out.println("Test Device: " + testDevice);
+//        System.out.println("Test Device2: " + testngTestDevice);
         Thread.sleep(startSleepTime);
 
         //Get Random Port Number
@@ -70,18 +80,25 @@ public class BaseDriver {
         //System.out.println("Port: " + myPort);
         //Start Appium Server for iOS or Android with the Random Port
         //myAppiumService.startAppiumService(os, myPort);
-        AppiumService.startAppiumService(os, myPort);
+//        AppiumService.startAppiumService(os, myPort);
+        AppiumService.startAppiumService(testOS, myPort);
 
 
         //AppiumService.startAppiumService(os, myPort);
 
 
+        if (fileName.contains("android-mobile-dev")) {
+//            System.out.println("File Name: " + fileName);
+            driver2 = appiumCapabilities(os, fileName, testDevice, myPort);
+            app2 = new MobileDevApp(driver2);
+        } else {
+            driver = appiumCapabilities(os, fileName, testDevice, myPort);
+            app = new LDSToolsApp(driver);
+        }
 
 
 
-        driver = appiumCapabilities(os, fileName, testDevice, myPort);
 
-        app = new LDSToolsApp(driver);
 
         
     }
@@ -382,16 +399,19 @@ public class BaseDriver {
             DesiredCapabilities capabilities = new DesiredCapabilities();
 
             capabilities.setCapability("app", app.getAbsolutePath());
-            if (fileName.contains("alpha")) {
-//                capabilities.setCapability("appPackage", "org.lds.ldstools.alpha"); // *** ALPHA ***
-//                myAppPackage = "org.lds.ldstools.alpha";
-                capabilities.setCapability("appPackage", "org.lds.ldstools.alpha"); // *** ALPHA ***
-                myAppPackage = "org.lds.ldstools.alpha";
-
+            if (fileName.contains("android-mobile-dev")) {
+                capabilities.setCapability("appPackage", "org.lds.dev"); // *** ALPHA ***
+                myAppPackage = "org.lds.dev";
             } else {
-                capabilities.setCapability("appPackage", "org.lds.ldstools"); //*** BETA and RELEASE ***
-                myAppPackage = "org.lds.ldstools";
+                if (fileName.contains("alpha")) {
+                    capabilities.setCapability("appPackage", "org.lds.ldstools.alpha"); // *** ALPHA ***
+                    myAppPackage = "org.lds.ldstools.alpha";
+                } else {
+                    capabilities.setCapability("appPackage", "org.lds.ldstools"); //*** BETA and RELEASE ***
+                    myAppPackage = "org.lds.ldstools";
+                }
             }
+
             androidAppPackage = myAppPackage;
 
             capabilities.setCapability("deviceName", testDevice);
@@ -442,6 +462,7 @@ public class BaseDriver {
                // String part1 = parts[0];
 
                 testDevice = parts[1];
+                System.out.println("TEST DEVICE: " + testDevice);
 
                 myUdid = getUDIDfromDeviceName(testDevice);
 
@@ -491,7 +512,7 @@ public class BaseDriver {
             capabilities.setCapability("newCommandTimeout", 600);
             capabilities.setCapability("app", app.getAbsolutePath());
             capabilities.setCapability("launchTimeout", 900000);
-            capabilities.setCapability("platformVersion", "12.4");
+            capabilities.setCapability("platformVersion", "13.0");
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);
@@ -702,7 +723,7 @@ public class BaseDriver {
         String deviceName;
         String line;
 
-        //System.out.println("UDID to Test: " + myUDID);
+        System.out.println("UDID to Test: " + myUDID);
         Runtime run = Runtime.getRuntime();
         //Process pr = run.exec(new String[] {"/usr/local/bin/ideviceinfo", "--udid", myUDID, "|", "grep", "DeviceName"});
         Process pr = run.exec(new String[] {"/bin/bash", "-c", "/usr/local/bin/ideviceinfo --udid " + myUDID + " | grep DeviceName"});
@@ -711,11 +732,11 @@ public class BaseDriver {
         BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 
         line = buf.readLine();
-        //System.out.println(line);
+        System.out.println(line);
 
 
         String[] parts = line.split(" ");
-        //String part1 = parts[0];
+        String part1 = parts[0];
 
         deviceName = parts[1];
 
@@ -928,6 +949,21 @@ public class BaseDriver {
         pw.close();
 
     }
+
+    public String getTestOS() {
+        return testOS;
+    }
+
+    public String getTestngTestDevice() {
+        System.out.println("Get Testng Test Device: " + testngTestDevice);
+        return testngTestDevice;
+    }
+
+    public int getTestngStartSleepTime() {
+        return testngStartSleepTime;
+    }
+
+
 
 
 

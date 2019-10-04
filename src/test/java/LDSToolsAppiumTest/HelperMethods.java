@@ -6,7 +6,10 @@ import LDSToolsAppium.MobileDevMain;
 import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.StartsActivity;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.jsoup.nodes.Element;
 import org.openqa.selenium.remote.SessionId;
 
@@ -34,7 +37,7 @@ public class HelperMethods extends BasePage {
 
         setupUAT();
 
-        System.out.println(getSourceOfPage());
+//        System.out.println(getSourceOfPage());
 
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();
@@ -217,6 +220,8 @@ public class HelperMethods extends BasePage {
 
 
             mySettings.networkEnvironment.click();
+//            Thread.sleep(2000);
+//            System.out.println(driver.getPageSource());
             mySettings.UAT.click();
 //            Thread.sleep(3000);
 //            System.out.println(getSourceOfPage());
@@ -232,11 +237,30 @@ public class HelperMethods extends BasePage {
 
         } else {
 
-            System.out.println("Helper Method: " + testDeviceX);
-            MobileDevMain myMobileDevMain = new MobileDevMain(os, fileName, testDeviceX, startSleepTime, "UAT");
-            driver.launchApp();
-            Thread.sleep(20000);
+//            System.out.println("Helper Method: " + testDeviceX);
+//            System.out.println("Session ID: " + driver.getSessionId());
+//            String myAppPackage = driver.getCapabilities().getCapability("appPackage").toString();
+//
+//            MobileDevMain myMobileDevMain = new MobileDevMain(os, fileName, testDeviceX, startSleepTime, "UAT");
+//            driver.navigate().back();
+//            driver.closeApp();
+//            driver.launchApp();
+//            Thread.sleep(9000);
+//
+////            driver.activateApp(myAppPackage);
+//            driver.runAppInBackground(Duration.ofSeconds(2));
 
+
+//            TouchAction myTap = new TouchAction(driver);
+//            myTap.press(PointOption.point(100, 100))
+//                    .release()
+//                    .perform();
+//
+//            myTap.press(PointOption.point(100, 100))
+//                    .release()
+//                    .perform();
+//
+//            Thread.sleep(1000);
 
 
 //            myLoginPage.overflowMenu.click();
@@ -455,7 +479,8 @@ public class HelperMethods extends BasePage {
 
         dismissWhatsNewPage();
 
-
+//        //Sometimes there is a warning before the Whats new screen
+//        checkForAlertsAfterPin();
 
 
         Thread.sleep(2000);
@@ -772,6 +797,7 @@ public class HelperMethods extends BasePage {
 
 //        myCheck = myBase.checkElementExists("OK");
         myCheck = pageSource.contains("OK");
+//        System.out.println(pageSource);
         if (myCheck) {
             myPin.pinAlertDialogOK.click();
             pageSource = myBase.getSourceOfPage();
@@ -810,7 +836,6 @@ public class HelperMethods extends BasePage {
 
 
     public void checkForAlertsAfterPin() throws Exception {
-        ScannerScreen myScanner = new ScannerScreen(driver) ;
         PinScreen myPin = new PinScreen(driver);
         BasePage myBase = new BasePage(driver);
 
@@ -819,14 +844,12 @@ public class HelperMethods extends BasePage {
 
         pageSource = myBase.getSourceOfPage();
 
-//        myCheck = myBase.checkElementExists("OK");
         myCheck = pageSource.contains("OK");
         if (myCheck) {
             myPin.pinAlertDialogOK.click();
             pageSource = myBase.getSourceOfPage();
         }
 
-//        myCheck = myBase.checkElementExists("Yes");
         myCheck = pageSource.contains("Yes");
         if (myCheck) {
             myPin.pinAlertDialogYes.click();
@@ -846,8 +869,6 @@ public class HelperMethods extends BasePage {
             }
 
         }
-
-
 
     }
 

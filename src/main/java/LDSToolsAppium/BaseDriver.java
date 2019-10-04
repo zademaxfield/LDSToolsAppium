@@ -390,7 +390,6 @@ public class BaseDriver {
             }
 
 
-
             // set up appium
             File classpathRoot = new File(System.getProperty("user.dir"));
             File appDir = new File(classpathRoot, "../../../Selenium");
@@ -422,7 +421,9 @@ public class BaseDriver {
             capabilities.setCapability("newCommandTimeout", 2000);
 
             //capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
-            //capabilities.setCapability("appWaitActivity", "*.SignInActivity");
+            capabilities.setCapability("appWaitActivity", "org.lds.ldstools.ux.auth.AuthenticationSignInActivity");
+            capabilities.setCapability("appWaitDuration", "40000");
+//            capabilities.setCapability("androidInstallTimeout", "40000");
 
             capabilities.setCapability("unicodeKeyboard", "true");
             capabilities.setCapability("resetKeyboard", "true");
@@ -432,7 +433,7 @@ public class BaseDriver {
 
 
 
-            capabilities.setCapability("fullReset", false);
+            capabilities.setCapability("fullReset", true);
             capabilities.setCapability("dontStopAppOnReset", true);
             //capabilities.setCapability("maxTypingFrequency", "8");
 

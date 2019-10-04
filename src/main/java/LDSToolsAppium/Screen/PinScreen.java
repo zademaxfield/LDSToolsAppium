@@ -39,12 +39,14 @@ public class PinScreen extends BasePage {
     public  MobileElement pinAlertDialogMessage;
 
     //Alert Dialog Not Now
-    @AndroidFindBy(id = "md_buttonDefaultNegative")
+//    @AndroidFindBy(id = "md_buttonDefaultNegative")
+    @AndroidFindBy(id = "md_button_negative")
     @iOSXCUITFindBy(accessibility = "Not Now")
     public  MobileElement pinAlertDialogNotNow;
 
     //Alert Dialog OK
-    @AndroidFindBy(id = "md_buttonDefaultPositive")
+//    @AndroidFindBy(id = "md_buttonDefaultPositive")
+    @AndroidFindBy(id = "md_button_positive")
     @iOSXCUITFindBy(accessibility = "OK")
     public  MobileElement pinAlertDialogOK;
 

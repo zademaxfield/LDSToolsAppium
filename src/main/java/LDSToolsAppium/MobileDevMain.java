@@ -26,9 +26,9 @@ public class MobileDevMain extends BaseDriver {
 
 //        setUp("android", "android-mobile-dev-release.apk", "emulator-5554", 200);
 
-        System.out.println("OS: " + os);
-        System.out.println("File Name: " + fileName);
-        System.out.println("Test Device: " + testDevice);
+//        System.out.println("OS: " + os);
+//        System.out.println("File Name: " + fileName);
+//        System.out.println("Test Device: " + testDevice);
 
 
 

@@ -491,7 +491,7 @@ public class BaseDriver {
             capabilities.setCapability("newCommandTimeout", 600);
             capabilities.setCapability("app", app.getAbsolutePath());
             capabilities.setCapability("launchTimeout", 900000);
-            capabilities.setCapability("platformVersion", "12.4");
+            capabilities.setCapability("platformVersion", "13.0");
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);
@@ -711,7 +711,7 @@ public class BaseDriver {
         BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 
         line = buf.readLine();
-        //System.out.println(line);
+        System.out.println(line);
 
 
         String[] parts = line.split(" ");
@@ -719,7 +719,7 @@ public class BaseDriver {
 
         deviceName = parts[1];
 
-        //System.out.println(deviceName);
+        System.out.println(deviceName);
 
         return deviceName;
     }

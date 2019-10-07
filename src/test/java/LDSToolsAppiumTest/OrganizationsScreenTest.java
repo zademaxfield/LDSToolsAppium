@@ -137,7 +137,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         Thread.sleep(1000);
     }
 
-    private void bishopricData() {
+    private void bishopricData() throws Exception {
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
 

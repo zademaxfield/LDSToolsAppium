@@ -349,26 +349,19 @@ public class HelperMethods extends BasePage {
         Thread.sleep(2000);
 
         //Sometimes there is a warning before the Whats new screen
-
         //Android needs this.
         checkForAlertsAfterPin();
 
-
-
         Thread.sleep(2000);
-
 
         //Android needs this.
         dismissWhatsNewPage();
 
-        //Android needs this.
-        checkForAlertsAfterPin();
-
-
-
-
+        // Android finishing stuff
         // Click on Later then Directory
         if (!getOS().equals("ios")) {
+            Thread.sleep(2000);
+            checkForAlertsAfterPin();
             Thread.sleep(2000);
             checkForLater();
             Thread.sleep(2000);
@@ -751,6 +744,7 @@ public class HelperMethods extends BasePage {
         myCheck = pageSource.contains("Yes");
         if (myCheck) {
             myPin.pinAlertDialogYes.click();
+            Thread.sleep(2000);
             pageSource = myBase.getSourceOfPage();
         }
 

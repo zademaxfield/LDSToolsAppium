@@ -59,16 +59,16 @@ public class HelperMethods extends BasePage {
 //            Thread.sleep(5000);
 //            waitUnitlTextIsGone("Stop Sync");
 //            System.out.println(getSourceOfPage());
-            waitUnitlTextIsGone("UATUpdating");
+            waitUnitlTextIsGone("UAT");
             Thread.sleep(1000);
 //            waitUnitlTextIsGone("Stop Sync");
-            waitUnitlTextIsGone("UATUpdating");
+            waitUnitlTextIsGone("UAT");
         } else {
             waitUnitlTextIsGone("Authenticating");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Sync");
+            waitUnitlTextIsGone("Updating");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Sync");
+            waitUnitlTextIsGone("Updating");
         }
 
         long endTime = System.nanoTime();
@@ -404,19 +404,18 @@ public class HelperMethods extends BasePage {
 
         //Sometimes there is a warning before the Whats new screen
 
-        //Android needs this.
-        checkForAlertsAfterPin();
+        if (!getOS().equalsIgnoreCase("ios")) {
+            //Android needs this.
+            checkForAlertsAfterPin();
+            Thread.sleep(2000);
 
+            //Android needs this.
+            dismissWhatsNewPage();
 
+            //Android needs this.
+            checkForAlertsAfterPin();
+        }
 
-        Thread.sleep(2000);
-
-
-        //Android needs this.
-        dismissWhatsNewPage();
-
-        //Android needs this.
-        checkForAlertsAfterPin();
 
 
 

@@ -584,7 +584,7 @@ public class BasePage {
 
     public void waitForTextToDisappear(MobileElement myElement) {
         System.out.println("Start Checking for Element");
-        WebDriverWait wait = new WebDriverWait(driver, 300);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.invisibilityOf(myElement));
         System.out.println("Stop Checking for Element");
     }
@@ -592,7 +592,7 @@ public class BasePage {
 
     public void waitUnitlTextIsGone(String myText) {
         //System.out.println("Start Checking for Element");
-        WebDriverWait wait = new WebDriverWait(driver, 300);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
 
         if(getOS().equals("ios")) {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@value, '" + myText + "')]")));
@@ -605,7 +605,7 @@ public class BasePage {
 
     public void waitForText(String myText) {
         //System.out.println("Start Checking for Element");
-        WebDriverWait wait = new WebDriverWait(driver, 300);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         if(getOS().equals("ios")) {
 //            WebElement iosElement = driver.findElement(By.xpath("//*[contains(@value, '" + myText + "')]"));
 //            wait.until(ExpectedConditions.textToBePresentInElement(iosElement, myText));
@@ -620,9 +620,14 @@ public class BasePage {
     }
 
     public void waitForElementThenClick(MobileElement myElement) {
-        WebDriverWait wait = new WebDriverWait(driver, 300);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.elementToBeClickable(myElement));
         myElement.click();
+    }
+
+    public void waitForElement(MobileElement myElement) {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(myElement));
     }
 
     public void clickByText(String myText) {
@@ -1015,6 +1020,49 @@ public class BasePage {
         driver.performTouchAction(myAction);
         System.out.println("End Click by Cords");
     }
+
+    public void clickEndOfElementByCords(MobileElement elementName) throws Exception {
+        MobileElement myElement = null;
+        TouchAction myAction = new TouchAction(driver);
+        int pointToClickX;
+        int pointToClickY;
+
+//        System.out.println("Start Click by Cords");
+        Point myPoint = elementName.getLocation();
+        Dimension myDimension = elementName.getSize();
+//        System.out.println("X: " + myPoint.x);
+//        System.out.println("Y: " + myPoint.y);
+//        System.out.println("Width: " + myDimension.width);
+//        System.out.println("Width: " + myDimension.height);
+
+        pointToClickX = myPoint.x + myDimension.width;
+        pointToClickY = myPoint.y + myDimension.height;
+//        System.out.println("Point To Click X: " + pointToClickX);
+//        System.out.println("Point To Click Y: " + pointToClickY);
+        myAction.press(PointOption.point( pointToClickX, pointToClickY )).release();
+        driver.performTouchAction(myAction);
+//        System.out.println("End Click by Cords");
+    }
+
+    public void clickElementByCords(MobileElement elementName) throws Exception {
+        MobileElement myElement = null;
+        TouchAction myAction = new TouchAction(driver);
+
+
+//        System.out.println("Start Click by Cords");
+        Point myPoint = elementName.getLocation();
+//        System.out.println("X: " + myPoint.x);
+//        System.out.println("Y: " + myPoint.y);
+//        System.out.println("Width: " + myDimension.width);
+//        System.out.println("Width: " + myDimension.height);
+//        System.out.println("Point To Click X: " + pointToClickX);
+//        System.out.println("Point To Click Y: " + pointToClickY);
+        myAction.press(PointOption.point( myPoint.x, myPoint.y )).release();
+        driver.performTouchAction(myAction);
+//        System.out.println("End Click by Cords");
+    }
+
+
 
 
     public void  iosClickUseThisLocation() throws Exception {

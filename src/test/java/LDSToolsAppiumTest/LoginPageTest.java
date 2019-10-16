@@ -3,8 +3,13 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
+import io.appium.java_client.functions.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class LoginPageTest extends BaseDriver {
@@ -23,27 +28,25 @@ public class LoginPageTest extends BaseDriver {
     public void validateLoginPage() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
+        LoginPageScreen myLogin = new LoginPageScreen(driver);
 
         if (myBasePage.checkForElement(myBasePage.allowButton)) {
             myBasePage.allowButton.click();
         }
-        Thread.sleep(2000);
 
+        myBasePage.waitForElement(myLogin.loginName);
         myPageSource = myBasePage.getSourceOfPage();
 
         if (myBasePage.getOS().equals("ios")) {
-            Assert.assertTrue(myPageSource.contains("LDS Account"));
+            Assert.assertTrue(myPageSource.contains("Account"));
             Assert.assertTrue(myPageSource.contains("Help"));
             Assert.assertTrue(myPageSource.contains("Sign In"));
         } else {
             Assert.assertTrue(myPageSource.contains("Tools"));
-//            Assert.assertTrue(myPageSource.contains("Sign in to your LDS Account"));
-
             //Have to do a case insensitive test for Android 5.0 doesn't handle case correctly
             Assert.assertTrue(myPageSource.toLowerCase().contains("sign in"));
-//            Assert.assertTrue(myPageSource.toLowerCase().contains("forgot username or password"));
             Assert.assertTrue(myPageSource.toLowerCase().contains("having trouble signing in"));
-            Assert.assertTrue(myPageSource.toLowerCase().contains("create an lds account"));
+            Assert.assertTrue(myPageSource.toLowerCase().contains("create an account"));
         }
 
         Assert.assertTrue(myPageSource.contains("Username"));
@@ -51,7 +54,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all", "login", "smoke", "smoke3"})
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "jft"})
     public void validateLoginPageLinks() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -60,29 +63,32 @@ public class LoginPageTest extends BaseDriver {
         if (myBasePage.checkForElement(myBasePage.allowButton)) {
             myBasePage.allowButton.click();
         }
-        Thread.sleep(2000);
+        myBasePage.waitForElement(myLoginPage.loginName);
+//        Thread.sleep(2000);
 
         myLoginPage.troubleSigningIn.click();
         myBasePage.waitForText("Account");
         myLoginPage.accountRecoveryPage.isDisplayed();
         myPageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myPageSource.contains("Account"));
-        Assert.assertTrue(myPageSource.contains("Account Recovery"));
+        Assert.assertTrue(myPageSource.contains("Church Account"));
 
         if (getRunningOS().equals("ios")) {
             Assert.assertTrue(myPageSource.contains("Recover my Username and Password"));
             Assert.assertTrue(myPageSource.contains("Recover my Password"));
             myLoginPage.doneButton.click();
         } else {
-            Assert.assertTrue(myPageSource.contains("I don't know my username"));
-            Assert.assertTrue(myPageSource.contains("I don't know my password"));
+            Assert.assertTrue(myPageSource.contains("Forgot your username"));
+            Assert.assertTrue(myPageSource.contains("Forgot your password"));
             driver.navigate().back();
         }
 
         //Appium cannot select the links on Android
         if (getRunningOS().equals("ios")) {
-            myLoginPage.privacyNotice.click();
-            Thread.sleep(9000);
+//            myLoginPage.privacyNotice.click();
+            myBasePage.clickEndOfElementByCords(myLoginPage.privacyNotice);
+//            Thread.sleep(9000);
+            myBasePage.waitForText("Privacy Notice");
 //        myBasePage.waitForText("Privacy Notice");
             myPageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myPageSource.contains("Privacy Notice"));
@@ -95,8 +101,9 @@ public class LoginPageTest extends BaseDriver {
                 driver.navigate().back();
             }
 
-            myLoginPage.termsOfUse.click();
-            Thread.sleep(3000);
+//            myLoginPage.termsOfUse.click();
+            myBasePage.clickElementByCords(myLoginPage.termsOfUse);
+//            Thread.sleep(3000);
             myBasePage.waitForText("Terms of Use");
             myPageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myPageSource.contains("Terms of Use"));
@@ -227,7 +234,7 @@ public class LoginPageTest extends BaseDriver {
 
 
 
-    @Test ( groups = {"all4", "all", "login", "jft"})
+    @Test ( groups = {"all4", "all", "login"})
     public void changePIN() throws Exception {
         String myPinMessage;
 

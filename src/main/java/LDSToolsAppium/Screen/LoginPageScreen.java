@@ -103,8 +103,8 @@ public class LoginPageScreen extends BasePage {
     public  MobileElement doneButton;
 
     //Account Recovery
-    @AndroidFindBy(xpath = "//*[contains(@text, 'Account Recovery')]")
-    @iOSXCUITFindBy(xpath = "//*[contains(@name, 'Account Recovery')]")
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Church Account')]")
+    @iOSXCUITFindBy(xpath = "//*[contains(@name, 'Church Account')]")
     public  MobileElement accountRecoveryPage;
 
 

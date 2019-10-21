@@ -27,7 +27,7 @@ public class ScannerScreen extends BasePage {
     }
 
 
-    public Elements getAllElements() {
+    public Elements getAllElements() throws Exception {
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
         List<Attribute> elementAttributes = new ArrayList<Attribute>();
@@ -60,7 +60,7 @@ public class ScannerScreen extends BasePage {
 
     }
 
-    public List<Element> getClickableElements() {
+    public List<Element> getClickableElements() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         List<Attribute> elementAttributes = new ArrayList<Attribute>();
@@ -115,7 +115,7 @@ public class ScannerScreen extends BasePage {
         return clickableElements;
     }
 
-    public boolean checkForElementsTEST(String attributeCheck ) {
+    public boolean checkForElementsTEST(String attributeCheck ) throws Exception {
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
         boolean elementFound = false;
@@ -155,7 +155,7 @@ public class ScannerScreen extends BasePage {
         return elementFound;
     }
 
-    public boolean scannerCheckForText( String searchText ) {
+    public boolean scannerCheckForText( String searchText ) throws Exception {
         List<Element> clickableElements = new ArrayList<Element>();
         clickableElements = getClickableElements();
         boolean elementFound = false;

@@ -176,7 +176,7 @@ public class MinisteringScreen extends BasePage {
     public MobileElement ministeringRemoveFilter;
 
 
-    public boolean validateDistrict( String districtToCheck ) {
+    public boolean validateDistrict( String districtToCheck ) throws Exception {
         boolean myCheck;
         String myPageSource;
 

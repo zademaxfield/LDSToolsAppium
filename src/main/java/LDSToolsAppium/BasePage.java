@@ -698,9 +698,10 @@ public class BasePage {
         return osName;
     }
 
-    public String getSourceOfPage() {
+    public String getSourceOfPage() throws Exception {
 //        System.out.println("Start Get Source of Page");
         String myString;
+        Thread.sleep(2000);
         myString = driver.getPageSource();
 
 //        System.out.println("****************************************************");

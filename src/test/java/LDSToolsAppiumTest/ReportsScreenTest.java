@@ -287,7 +287,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
 
-    private void youthRecommendStatusActive() {
+    private void youthRecommendStatusActive() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
@@ -301,7 +301,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    private void youthRecommendStatusExpiring() {
+    private void youthRecommendStatusExpiring() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
@@ -315,7 +315,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    private void youthRecommendStatusExpired() {
+    private void youthRecommendStatusExpired() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
@@ -329,7 +329,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    private void youthRecommendStatusNeverIssued() {
+    private void youthRecommendStatusNeverIssued() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
@@ -343,7 +343,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    private void youthRecommendStatusUnordained() {
+    private void youthRecommendStatusUnordained() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
@@ -357,7 +357,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    private void youthRecommendStatusNotBaptized() {
+    private void youthRecommendStatusNotBaptized() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);

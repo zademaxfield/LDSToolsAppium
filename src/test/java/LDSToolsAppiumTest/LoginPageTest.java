@@ -54,7 +54,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "jft"})
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3"})
     public void validateLoginPageLinks() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -160,7 +160,7 @@ public class LoginPageTest extends BaseDriver {
 
 
     // ******************* Invalid Username Tests *******************
-    @Test ( groups = {"all4", "all", "login"})
+    @Test ( groups = {"all4", "all", "login", "jft"})
     public void invalidUsernameTest1() throws Exception {
         invalidCheck("LDSTools30", "toolstester");
     }
@@ -297,7 +297,7 @@ public class LoginPageTest extends BaseDriver {
         clearLoginPassword();
 
         myHelper.loginUAT(userName, passWord);
-        Thread.sleep(6000);
+//        Thread.sleep(6000);
         checkInvalidAlert();
     }
 
@@ -305,6 +305,8 @@ public class LoginPageTest extends BaseDriver {
     private void checkInvalidAlert() {
         BasePage myBasePage = new BasePage(driver);
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        myBasePage.waitForText("your username");
 
         if (myBasePage.checkForElement(myBasePage.allowButton)) {
             myBasePage.allowButton.click();

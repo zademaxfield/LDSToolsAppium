@@ -17,8 +17,6 @@ import okhttp3.Response;
 
 import java.io.IOException;
 
-
-
 public class DirectoryScreenTest extends BaseDriver {
 
     //1 = Bishopric
@@ -51,9 +49,6 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //General Information
         myBasePage.rightsCheck("Fagamalo", 4, rights, pageSource);
-//        myBasePage.rightsCheck("555-555-5555", 4, rights, pageSource);
-//        myBasePage.rightsCheck("555-555-1234", 4, rights, pageSource);
-//        myBasePage.rightsCheck("HOUSEHOLD", 4, rights, pageSource);
 
         //This has visibility set to leadership only
         myBasePage.rightsCheck("alofas@gmail.com", 3, rights, pageSource);

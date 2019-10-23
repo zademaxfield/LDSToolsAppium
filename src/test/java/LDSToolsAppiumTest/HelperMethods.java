@@ -1,19 +1,15 @@
 package LDSToolsAppiumTest;
 
-import LDSToolsAppium.BaseDriver;
+
 import LDSToolsAppium.BasePage;
-import LDSToolsAppium.MobileDevMain;
+
 import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.StartsActivity;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
+
 import org.jsoup.nodes.Element;
 import org.openqa.selenium.remote.SessionId;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +33,6 @@ public class HelperMethods extends BasePage {
 
         setupUAT();
 
-//        System.out.println(getSourceOfPage());
-
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();
 
@@ -56,15 +50,15 @@ public class HelperMethods extends BasePage {
         Thread.sleep(2000);
 
         if (getOS().equals("ios")) {
-//            Thread.sleep(5000);
-//            waitUnitlTextIsGone("Stop Sync");
-//            System.out.println(getSourceOfPage());
+            System.out.println("Wait for text to appear: UAT");
+            waitForText("UAT");
+            System.out.println("Text found: UAT");
             waitUnitlTextIsGone("UAT");
             Thread.sleep(1000);
-//            waitUnitlTextIsGone("Stop Sync");
             waitUnitlTextIsGone("UAT");
         } else {
             waitUnitlTextIsGone("Authenticating");
+            waitForText("Updating");
             Thread.sleep(1000);
             waitUnitlTextIsGone("Updating");
             Thread.sleep(1000);
@@ -210,29 +204,11 @@ public class HelperMethods extends BasePage {
                 }
             }
 
-//            if (checkForElement(myLoginPage.developerButton)) {
-//                myLoginPage.developerButton.click();
-//            } else {
-//                for (int x = 1; x <= 5; x++) {
-//                    myLoginPage.enterDeveloperButton.click();
-//                }
-//            }
-
 
             mySettings.networkEnvironment.click();
-//            Thread.sleep(2000);
-//            System.out.println(driver.getPageSource());
             mySettings.UAT.click();
-//            Thread.sleep(3000);
-//            System.out.println(getSourceOfPage());
             waitForElementThenClick(backButton);
-//            backButton.click();
-//            Thread.sleep(1000);
-//            backButton.click();
             waitForElementThenClick(backButton);
-//            Thread.sleep(1000);
-//            backButton.click();
-//            waitForElementThenClick(backButton);
 
 
         } else {

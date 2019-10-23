@@ -1,28 +1,20 @@
 package LDSToolsAppium.Screen;
 
-import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.jsoup.Connection;
+
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.support.PageFactory;
-
 import java.time.Duration;
-
 import java.util.*;
-
-
 import org.testng.Assert;
 
-import javax.lang.model.element.ModuleElement;
+
 
 
 public class DirectoryScreen extends BasePage {
@@ -40,7 +32,7 @@ public class DirectoryScreen extends BasePage {
     //Directory Dropdown
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Directory']")
     @iOSXCUITFindBy(accessibility = "Directory")
-    public  MobileElement directoryDropdown;
+    public MobileElement directoryDropdown;
 
     //Unit Selected
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@resouce-id='ab_toolbar']/android.widget.TextView[2]")

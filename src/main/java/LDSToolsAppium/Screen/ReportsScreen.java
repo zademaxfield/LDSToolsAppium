@@ -6,13 +6,11 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.apache.tools.ant.types.resources.Last;
+
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
+
 
 
 public class ReportsScreen extends BasePage {

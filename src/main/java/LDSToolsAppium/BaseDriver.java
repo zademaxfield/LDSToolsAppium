@@ -441,6 +441,10 @@ public class BaseDriver {
 
             capabilities.setCapability("clearDeviceLogsOnStart", true);
 
+
+            capabilities.setCapability("unlockType", "pin");
+            capabilities.setCapability("unlockKey", "1133");
+
             driver = new AndroidDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"), capabilities);
 
             Thread.sleep(2000);

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite configfailurepolicy="continue" name="Failed suite [Android Just For Testing Suite]" guice-stage="DEVELOPMENT" verbose="2">
+  <test thread-count="5" name="Android Just For Testing(failed)" verbose="2">
+    <parameter name="fileName" value="ldstools-alpha.apk"/>
+    <parameter name="os" value="android"/>
+    <parameter name="testDevice" value="emulator-5554"/>
+    <parameter name="startSleepTime" value="0200"/>
+    <groups>
+      <run>
+        <include name="jft"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="LDSToolsAppiumTest.DirectoryScreenTest">
+        <methods>
+          <include name="removeFilesBeforeTest"/>
+          <include name="afterAllTests"/>
+          <include name="afterClass"/>
+          <include name="directoryScreenTest" invocation-numbers="0"/>
+          <include name="teardown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- LDSToolsAppiumTest.DirectoryScreenTest -->
+    </classes>
+  </test> <!-- Android Just For Testing(failed) -->
+</suite> <!-- Failed suite [Android Just For Testing Suite] -->

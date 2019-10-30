@@ -43,8 +43,8 @@ public class BaseDriver {
 
     @BeforeSuite(alwaysRun = true)
     public void removeFilesBeforeTest() {
-        File reportsDirectory = new File ("/Users/zmaxfield/Documents/workspace/LDSToolsAppium/src/test/java/Reports");
-        File screenshotDirectory = new File ("/Users/zmaxfield/Documents/workspace/LDSToolsAppium/screenshot");
+        File reportsDirectory = new File ("/Users/zmaxfield/Documents/workspace/qa-membertools-all/src/test/java/Reports");
+        File screenshotDirectory = new File ("/Users/zmaxfield/Documents/workspace/qa-membertools-all/screenshot");
 
         System.out.println("Start clean directories");
         try {

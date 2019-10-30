@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="iOS Just For Testing " configfailurepolicy="continue" verbose="1" >
-
     <test name="iOS Just For Testing ">
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
@@ -26,5 +25,5 @@
             <class name="LDSToolsAppium.BaseDriver" />
             <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
         </classes>
-    </test> <!-- Default test -->
-</suite> <!-- Default suite -->
+    </test> <!-- iOS Just For Testing test -->
+</suite> <!-- suite -->

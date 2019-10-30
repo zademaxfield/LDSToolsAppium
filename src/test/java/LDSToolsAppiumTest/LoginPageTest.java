@@ -3,26 +3,11 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
-import io.appium.java_client.functions.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 
 public class LoginPageTest extends BaseDriver {
-
-//   @Test( groups = {"all1", "all", "login"})
-//    public void loginPageSimple() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//
-//        myHelper.loginUAT("LDSTools3", "toolstester");
-//        myHelper.enterPin("1", "1", "3", "3");
-//
-//    }
-
 
     @Test (groups = {"all2", "all", "login"})
     public void validateLoginPage() throws Exception {

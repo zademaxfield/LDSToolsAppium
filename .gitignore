@@ -2,3 +2,5 @@
 /screenshot/
 /.idea/
 /target/
+/test-output/
+/src/test/java/Reports/

@@ -179,7 +179,7 @@ public class HelperMethods extends BasePage {
         Thread.sleep(6000);
     }
 
-    private void setupUAT() throws Exception {
+    public void setupUAT() throws Exception {
 
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);

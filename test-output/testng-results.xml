@@ -2,7 +2,7 @@
 <testng-results ignored="13" total="14" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-10-30T13:28:45 MDT" name="Android Just For Testing Suite" finished-at="2019-10-30T13:30:20 MDT" duration-ms="95930">
+  <suite started-at="2019-11-04T11:18:49 MST" name="iOS Just For Testing " finished-at="2019-11-04T11:24:16 MST" duration-ms="327552">
     <groups>
       <group name="all">
         <method signature="DirectoryScreenTest.directoryScreenTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:LDSToolsAppiumTest.DirectoryScreenTest@4ba2ca36]" name="directoryScreenTest" class="LDSToolsAppiumTest.DirectoryScreenTest"/>
@@ -20,23 +20,23 @@
         <method signature="DirectoryScreenTest.directoryScreenTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:LDSToolsAppiumTest.DirectoryScreenTest@4ba2ca36]" name="directoryScreenTest" class="LDSToolsAppiumTest.DirectoryScreenTest"/>
       </group> <!-- all2 -->
     </groups>
-    <test started-at="2019-10-30T13:28:45 MDT" name="Android Just For Testing" finished-at="2019-10-30T13:30:20 MDT" duration-ms="95930">
+    <test started-at="2019-11-04T11:18:49 MST" name="iOS Just For Testing " finished-at="2019-11-04T11:24:16 MST" duration-ms="327552">
       <class name="LDSToolsAppiumTest.DirectoryScreenTest">
-        <test-method is-config="true" signature="setUp(java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:LDSToolsAppiumTest.DirectoryScreenTest@4ba2ca36]" started-at="2019-10-30T13:28:45 MDT" name="setUp" finished-at="2019-10-30T13:29:07 MDT" duration-ms="22748" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:LDSToolsAppiumTest.DirectoryScreenTest@4ba2ca36]" started-at="2019-11-04T11:18:49 MST" name="setUp" finished-at="2019-11-04T11:19:28 MST" duration-ms="39665" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[android]]>
+                <![CDATA[ios]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[ldstools-alpha.apk]]>
+                <![CDATA[LDSTools.ipa]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[emulator-5554]]>
+                <![CDATA[REAL-ZadesXSMax]]>
               </value>
             </param>
             <param index="3">
@@ -48,7 +48,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="directoryScreenTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:LDSToolsAppiumTest.DirectoryScreenTest@4ba2ca36]" started-at="2019-10-30T13:29:07 MDT" name="directoryScreenTest" data-provider="Members" finished-at="2019-10-30T13:29:55 MDT" duration-ms="48160" status="FAIL">
+        <test-method signature="directoryScreenTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:LDSToolsAppiumTest.DirectoryScreenTest@4ba2ca36]" started-at="2019-11-04T11:19:28 MST" name="directoryScreenTest" data-provider="Members" finished-at="2019-11-04T11:23:42 MST" duration-ms="253205" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -71,17 +71,18 @@
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.TimeoutException">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Expected condition failed: waiting for presence of element located by: By.xpath: //*[contains(@text, 'Updating')] (tried for 30 second(s) with 500 milliseconds interval)]]>
+              <![CDATA[did not expect to find [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //*[contains(@text, 'Updating')] (tried for 30 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at LDSToolsAppium.BasePage.waitForText(BasePage.java:614)
-at LDSToolsAppiumTest.HelperMethods.loginUAT(HelperMethods.java:61)
-at LDSToolsAppiumTest.DirectoryScreenTest.directoryScreenTest(DirectoryScreenTest.java:39)
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at LDSToolsAppium.BasePage.rightsCheck(BasePage.java:582)
+at LDSToolsAppiumTest.DirectoryScreenTest.directoryScreenTest(DirectoryScreenTest.java:52)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -109,51 +110,13 @@ at org.testng.TestNG.runSuites(TestNG.java:1032)
 at org.testng.TestNG.run(TestNG.java:1000)
 at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
 at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
-Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'Zades-MacBook-Pro.local', ip: '169.254.246.250', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '13'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {app: /Users/zmaxfield/Documents/..., appPackage: org.lds.ldstools.alpha, appWaitActivity: org.lds.ldstools.ux.auth.Au..., appWaitDuration: 40000, automationName: uiautomator2, clearDeviceLogsOnStart: true, databaseEnabled: false, desired: {app: /Users/zmaxfield/Documents/..., appPackage: org.lds.ldstools.alpha, appWaitActivity: org.lds.ldstools.ux.auth.Au..., appWaitDuration: 40000, automationName: uiautomator2, clearDeviceLogsOnStart: true, deviceName: emulator-5554, deviceReadyTimeout: 60, dontStopAppOnReset: true, fullReset: true, gpsEnabled: true, newCommandTimeout: 2000, noSign: true, normalizeTagNames: true, platformName: android, resetKeyboard: true, udid: emulator-5554, unicodeKeyboard: true, unlockKey: 1133, unlockType: pin}, deviceApiLevel: 29, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceReadyTimeout: 60, deviceScreenDensity: 440, deviceScreenSize: 1080x2220, deviceUDID: emulator-5554, dontStopAppOnReset: true, fullReset: true, gpsEnabled: true, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 2000, noSign: true, normalizeTagNames: true, pixelRatio: 2.75, platform: LINUX, platformName: android, platformVersion: 10, resetKeyboard: true, statBarHeight: 66, takesScreenshot: true, udid: emulator-5554, unicodeKeyboard: true, unlockKey: 1133, unlockType: pin, viewportRect: {height: 2022, left: 0, top: 66, width: 1080}, warnings: {}, webStorageEnabled: false}
-Session ID: 900e2eeb-5256-497b-905c-ed1ac06da58e
-*** Element info: {Using=xpath, value=//*[contains(@text, 'Updating')]}
-at jdk.internal.reflect.GeneratedConstructorAccessor14.newInstance(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
-at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
-at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-at io.appium.java_client.DefaultGenericMobileDriver.findElementByXPath(DefaultGenericMobileDriver.java:151)
-at io.appium.java_client.AppiumDriver.findElementByXPath(AppiumDriver.java:1)
-at io.appium.java_client.android.AndroidDriver.findElementByXPath(AndroidDriver.java:1)
-at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
-at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
-at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:182)
-at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 30 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- directoryScreenTest -->
-        <test-method is-config="true" signature="teardown(org.testng.ITestResult)[pri:0, instance:LDSToolsAppiumTest.DirectoryScreenTest@4ba2ca36]" started-at="2019-10-30T13:29:55 MDT" name="teardown" finished-at="2019-10-30T13:30:18 MDT" duration-ms="22990" status="PASS">
+        <test-method is-config="true" signature="teardown(org.testng.ITestResult)[pri:0, instance:LDSToolsAppiumTest.DirectoryScreenTest@4ba2ca36]" started-at="2019-11-04T11:23:42 MST" name="teardown" finished-at="2019-11-04T11:24:16 MST" duration-ms="34647" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -164,21 +127,21 @@ at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:LDSToolsAppiumTest.DirectoryScreenTest@4ba2ca36]" started-at="2019-10-30T13:30:18 MDT" name="afterClass" finished-at="2019-10-30T13:30:20 MDT" duration-ms="1989" status="PASS">
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:LDSToolsAppiumTest.DirectoryScreenTest@4ba2ca36]" started-at="2019-11-04T11:24:16 MST" name="afterClass" finished-at="2019-11-04T11:24:16 MST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
       </class> <!-- LDSToolsAppiumTest.DirectoryScreenTest -->
       <class name="LDSToolsAppium.BaseDriver">
-        <test-method is-config="true" signature="removeFilesBeforeTest()[pri:0, instance:LDSToolsAppium.BaseDriver@4df828d7]" started-at="2019-10-30T13:28:44 MDT" name="removeFilesBeforeTest" finished-at="2019-10-30T13:28:45 MDT" duration-ms="25" status="PASS">
+        <test-method is-config="true" signature="removeFilesBeforeTest()[pri:0, instance:LDSToolsAppium.BaseDriver@4df828d7]" started-at="2019-11-04T11:18:49 MST" name="removeFilesBeforeTest" finished-at="2019-11-04T11:18:49 MST" duration-ms="20" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- removeFilesBeforeTest -->
-        <test-method is-config="true" signature="afterAllTests()[pri:0, instance:LDSToolsAppium.BaseDriver@4df828d7]" started-at="2019-10-30T13:30:21 MDT" name="afterAllTests" finished-at="2019-10-30T13:30:24 MDT" duration-ms="3183" status="PASS">
+        <test-method is-config="true" signature="afterAllTests()[pri:0, instance:LDSToolsAppium.BaseDriver@4df828d7]" started-at="2019-11-04T11:24:16 MST" name="afterAllTests" finished-at="2019-11-04T11:24:19 MST" duration-ms="3217" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterAllTests -->
       </class> <!-- LDSToolsAppium.BaseDriver -->
-    </test> <!-- Android Just For Testing -->
-  </suite> <!-- Android Just For Testing Suite -->
+    </test> <!-- iOS Just For Testing  -->
+  </suite> <!-- iOS Just For Testing  -->
 </testng-results>

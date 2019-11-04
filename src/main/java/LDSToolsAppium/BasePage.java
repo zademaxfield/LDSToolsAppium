@@ -2,23 +2,26 @@ package LDSToolsAppium;
 
 
 import io.appium.java_client.*;
-import io.appium.java_client.android.connection.HasNetworkConnection;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.openqa.selenium.*;
 
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -572,12 +575,17 @@ public class BasePage {
 
 
     public void rightsCheck(String myItem, int itemVisibility, int rights, String pageSource) {
+        //This is just for testing
+//        SoftAssert sa = new SoftAssert();
         System.out.println("Checking: " + myItem);
         if (rights <= itemVisibility) {
             Assert.assertTrue(checkNoCaseList(myItem, pageSource, "Contains"));
+//            sa.assertTrue(checkNoCaseList(myItem, pageSource, "Contains"));
         } else {
             Assert.assertFalse(checkNoCaseList(myItem, pageSource, "Contains"));
+//            sa.assertFalse(checkNoCaseList(myItem, pageSource, "Contains"));
         }
+//        sa.assertAll();
     }
 
     public void waitForTextToDisappear(MobileElement myElement) {

@@ -517,11 +517,13 @@ public class BaseDriver {
             capabilities.setCapability("newCommandTimeout", 600);
             capabilities.setCapability("app", app.getAbsolutePath());
             capabilities.setCapability("launchTimeout", 900000);
-            capabilities.setCapability("platformVersion", "13.1");
+            capabilities.setCapability("platformVersion", "13.2");
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);
-            capabilities.setCapability("maxTypingFrequency", 15);
+            capabilities.setCapability("maxTypingFrequency", 20);
+//            capabilities.setCapability("sendKeyStrategy", "grouped");
+//            capabilities.setCapability("interKeyDelay", 2000);
             //capabilities.setCapability("appPackage", myAppPackage);
             //capabilities.setCapability("simpleIsVisibleCheck", true);
 //            capabilities.setCapability("connectHardwareKeyboard", false);

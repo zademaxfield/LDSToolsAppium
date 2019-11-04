@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite configfailurepolicy="continue" name="Failed suite [Android Just For Testing Suite]" guice-stage="DEVELOPMENT" verbose="2">
-  <test thread-count="5" name="Android Just For Testing(failed)" verbose="2">
-    <parameter name="fileName" value="ldstools-alpha.apk"/>
-    <parameter name="os" value="android"/>
-    <parameter name="testDevice" value="emulator-5554"/>
+<suite configfailurepolicy="continue" name="Failed suite [iOS Just For Testing ]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="iOS Just For Testing (failed)">
+    <parameter name="fileName" value="LDSTools.ipa"/>
+    <parameter name="os" value="ios"/>
+    <parameter name="testDevice" value="REAL-ZadesXSMax"/>
     <parameter name="startSleepTime" value="0200"/>
     <groups>
       <run>
@@ -23,5 +23,5 @@
         </methods>
       </class> <!-- LDSToolsAppiumTest.DirectoryScreenTest -->
     </classes>
-  </test> <!-- Android Just For Testing(failed) -->
-</suite> <!-- Failed suite [Android Just For Testing Suite] -->
+  </test> <!-- iOS Just For Testing (failed) -->
+</suite> <!-- Failed suite [iOS Just For Testing ] -->

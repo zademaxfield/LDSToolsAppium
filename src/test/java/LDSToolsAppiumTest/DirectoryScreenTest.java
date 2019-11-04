@@ -45,6 +45,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myDirectory.searchAndClick("Seuamuli, Alofa");
 
         //Get all info
+        Thread.sleep(4000);
         pageSource = myDirectory.getDirectoryUserData();
 
         //General Information

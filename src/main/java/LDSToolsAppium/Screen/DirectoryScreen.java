@@ -299,10 +299,14 @@ public class DirectoryScreen extends BasePage {
             String part1 = parts[0];
             String part2 = parts[1];
             searchBar.sendKeys(part2);
+//            searchBar.setValue(part2);
         } else {
             searchBar.sendKeys(myUser);
+//            searchBar.setValue(myUser);
         }
+        //Just for testing
         Thread.sleep(2000);
+//        System.out.println(getSourceOfPage());
         clickDirectoryUser(myUser);
 
     }

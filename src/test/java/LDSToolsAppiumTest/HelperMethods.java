@@ -362,21 +362,25 @@ public class HelperMethods extends BasePage {
         //Android needs this.
         checkForAlertsAfterPin();
 
-        Thread.sleep(2000);
+        if (getOS().equalsIgnoreCase("ios")) {
+            Thread.sleep(2000);
 
-        pressPinKeys(firstNumber);
-        pressPinKeys(secondNumber);
-        pressPinKeys(thirdNumber);
-        pressPinKeys(fourthNumber);
+            pressPinKeys(firstNumber);
+            pressPinKeys(secondNumber);
+            pressPinKeys(thirdNumber);
+            pressPinKeys(fourthNumber);
 
-        Thread.sleep(2000);
+            Thread.sleep(2000);
 
-        pressPinKeys(firstNumber);
-        pressPinKeys(secondNumber);
-        pressPinKeys(thirdNumber);
-        pressPinKeys(fourthNumber);
+            pressPinKeys(firstNumber);
+            pressPinKeys(secondNumber);
+            pressPinKeys(thirdNumber);
+            pressPinKeys(fourthNumber);
 
-        Thread.sleep(2000);
+            Thread.sleep(2000);
+        }
+
+
 
         //Sometimes there is a warning before the Whats new screen
 

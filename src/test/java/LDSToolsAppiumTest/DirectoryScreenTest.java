@@ -43,6 +43,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Search and click on Aaron Jane
         myDirectory.searchAndClick("Seuamuli, Alofa");
+//        myDirectory.searchAndClick("Alofa Seuamuli");
 
         //Get all info
         Thread.sleep(4000);

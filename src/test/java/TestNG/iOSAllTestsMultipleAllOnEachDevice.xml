@@ -7,7 +7,7 @@
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
 
-    <test name="iOS Smoke Test 1" thread-count="1" parallel="false" >
+    <test name="iOS Smoke Test 1 - Ziphone7plus" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-Ziphone7plus" />
@@ -40,10 +40,10 @@
         </classes>
     </test>
 
-    <test name="iOS Smoke Test 2" thread-count="1" parallel="false" >
+    <test name="iOS Smoke Test 2 - ZiphoneXsmax" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
-        <parameter name="testDevice" value="REAL-Z6SPlus" />
+        <parameter name="testDevice" value="REAL-ZiphoneXsmax" />
         <parameter name="startSleepTime" value="60000" />
 
         <groups>
@@ -73,7 +73,7 @@
         </classes>
     </test>
 
-    <test name="iOS Smoke Test 3" thread-count="1" parallel="false" >
+    <test name="iOS Smoke Test 3 - ZiPhone7" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-ZiPhone7" />
@@ -106,7 +106,7 @@
         </classes>
     </test>
 
-    <test name="iOS Smoke Test 4" thread-count="1" parallel="false" >
+    <test name="iOS Smoke Test 4 - Z6iphone" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-Z6iphone" />

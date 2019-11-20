@@ -669,7 +669,7 @@ public class DirectoryScreenTest extends BaseDriver {
                 myHelper.allowButton.click();
             }
 
-            driver.get("http://10.0.0.110:8000");
+            driver.get("http://10.109.45.163:8000");
             Thread.sleep(5000);
             driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='DeepLinkTest.html']")).click();
             Thread.sleep(2000);

@@ -5,6 +5,9 @@ import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,6 +18,7 @@ import okhttp3.RequestBody;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import java.io.File;
 import java.io.IOException;
 
 public class DirectoryScreenTest extends BaseDriver {
@@ -644,7 +648,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(invocationCount = 50, groups = {"goat"})
+    @Test(groups = {"goat"})
     public void directoryLoginSpeedCheck() throws Exception {
         long startTime;
         long endTime;
@@ -656,31 +660,47 @@ public class DirectoryScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
+
+        //Copy file to device
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+//            ((IOSDriver)driver).pushFile("Image-1.jpg", new File("/Users/zmaxfield/Image-1.jpg"));
+//            driver.context("WEBVIEW");
+            if (myBasePage.checkForElement(myHelper.allowButton)) {
+                myHelper.allowButton.click();
+            }
+
+            driver.get("http://10.0.0.110:8000");
+            Thread.sleep(5000);
+            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='DeepLinkTest.html']")).click();
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Deep Link Test']")).click();
+//            System.out.println(driver.getPageSource());
+//            driver.context("NATIVE_APP");
+        } else {
+            ((AndroidDriver)driver).pushFile("/mnt/sdcard/Download/test1.rtf", new File("/Users/zmaxfield/test1.rtf"));
+        }
+
+
+
+
         //Login and enter in PIN
-        startTime = System.nanoTime();
-
-        myHelper.loginUAT("LDSTools3", "toolstester");
-//        myHelper.loginProduction("LDSTools3", "toolstester");
-
-        endTime = System.nanoTime();
-        duration = (endTime - startTime);
-        duration = duration / 1000000;
-        System.out.println("Login to UAT: " + duration);
-
 //        startTime = System.nanoTime();
-//        myHelper.enterPin("1", "1", "3", "3");
+//
+//        myHelper.loginUAT("LDSTools3", "toolstester");
 //
 //        endTime = System.nanoTime();
 //        duration = (endTime - startTime);
 //        duration = duration / 1000000;
-//        System.out.println("Enter PIN Time: " + duration);
-
-        Assert.assertTrue(myDirectory.checkFirstDirectoryUser());
-        myMenu.selectMenu(myMenu.settings);
-        Thread.sleep(2000);
-        myMenu.selectMenu(myMenu.directory);
-        Thread.sleep(2000);
-        Assert.assertTrue(myBasePage.checkForElement(myMenu.reports));
+//        System.out.println("Login to UAT: " + duration);
+//
+//
+//
+//        Assert.assertTrue(myDirectory.checkFirstDirectoryUser());
+//        myMenu.selectMenu(myMenu.settings);
+//        Thread.sleep(2000);
+//        myMenu.selectMenu(myMenu.directory);
+//        Thread.sleep(2000);
+//        Assert.assertTrue(myBasePage.checkForElement(myMenu.reports));
 
 
     }

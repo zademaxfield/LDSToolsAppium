@@ -109,10 +109,10 @@
         </classes>
     </test>
 
-    <test name="Android Smoke Test 4 - Pixel XL" thread-count="1" parallel="false" >
+    <test name="Android Smoke Test 4 - Pixel 3 XL" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="HT69D0204296" />
+        <parameter name="testDevice" value="89UY0C037" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="180000" />
 

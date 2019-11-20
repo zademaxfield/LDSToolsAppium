@@ -507,7 +507,7 @@ public class BaseDriver {
             DesiredCapabilities capabilities = new DesiredCapabilities();
 
             capabilities.setCapability("platformName", "iOS");
-            capabilities.setCapability(CapabilityType.BROWSER_NAME, "iOS");
+            capabilities.setCapability(CapabilityType.BROWSER_NAME, "Safari");
             capabilities.setCapability("deviceName",testDevice);
             capabilities.setCapability("automationName","XCUITest");
             capabilities.setCapability("browserName","");

@@ -1,12 +1,17 @@
 package LDSToolsAppiumTest;
 
 
+import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 
 import LDSToolsAppium.Screen.*;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+import org.apache.commons.codec.binary.Base64;
 import org.jsoup.nodes.Element;
 import org.openqa.selenium.remote.SessionId;
 
@@ -73,6 +78,81 @@ public class HelperMethods extends BasePage {
 
         Thread.sleep(1000);
     }
+
+
+    public void proxyLogin(String proxyUserName) throws Exception {
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        BaseDriver myBaseDriver = new BaseDriver();
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        String deviceName;
+
+        if (checkForElement(allowButton)) {
+            allowButton.click();
+        }
+
+        byte[] decodeBytes = Base64.decodeBase64("UDFrQFNwMTc=");
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            driver.get("https://www.google.com");
+            Thread.sleep(2000);
+            driver.get("membertools://user/" + proxyUserName);
+            Thread.sleep(5000);
+        } else {
+            deviceName = driver.getCapabilities().getCapability("deviceName").toString();
+            myBaseDriver.adbProxyStart(deviceName, proxyUserName);
+            Thread.sleep(2000);
+        }
+
+
+        myLoginPage.loginName.clear();
+        myLoginPage.passWord.clear();
+
+        myLoginPage.loginName.sendKeys("zmaxfield");
+        myLoginPage.passWord.sendKeys(new String(decodeBytes));
+        myLoginPage.signInButton.click();
+        Thread.sleep(1000);
+
+        long startTime = System.nanoTime();
+
+        System.out.println("Check for Sign In");
+        waitUnitlTextIsGone("Sign In");
+        System.out.println("Check for Sign In over ------ Check for Sync");
+
+        Thread.sleep(2000);
+
+        if (getOS().equals("ios")) {
+            System.out.println("Wait for text to appear: UAT");
+            waitForText("UAT");
+            System.out.println("Text found: UAT");
+            waitUnitlTextIsGone("UAT");
+            Thread.sleep(1000);
+            waitUnitlTextIsGone("UAT");
+        } else {
+            waitUnitlTextIsGone("Authenticating");
+            waitForText("Updating");
+            Thread.sleep(1000);
+            waitUnitlTextIsGone("Updating");
+            Thread.sleep(1000);
+            waitUnitlTextIsGone("Updating");
+        }
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        duration = duration / 1000000;
+        System.out.println("Done waiting for Text to disappear: Sync Took: " + duration);
+
+
+        Thread.sleep(1000);
+    }
+
+
+
+
+
 
 
     public void loginProduction(String userName, String password) throws Exception {
@@ -350,17 +430,24 @@ public class HelperMethods extends BasePage {
         //HelperMethods myHelper = new HelperMethods(driver);
 //        PinScreen myPin = new PinScreen(driver);
         MenuScreen myMenuScreen = new MenuScreen(driver);
+        BaseDriver myBaseDriver = new BaseDriver();
+
+        String deviceName;
 
 
         Thread.sleep(4000);
 
-
+        System.out.println("Check for Alerts Before PIN");
         checkForAlertsBeforePin();
 
+        System.out.println("Dismiss Whats New Page");
         dismissWhatsNewPage();
 
         //Android needs this.
+        System.out.println("Check for MORE Alerts after whats new page");
         checkForAlertsAfterPin();
+
+
 
         if (getOS().equalsIgnoreCase("ios")) {
             Thread.sleep(2000);
@@ -378,12 +465,23 @@ public class HelperMethods extends BasePage {
             pressPinKeys(fourthNumber);
 
             Thread.sleep(2000);
+        } else {
+            Thread.sleep(4000);
+            System.out.println("Enter PIN!!!");
+            deviceName = driver.getCapabilities().getCapability("deviceName").toString();
+            myBaseDriver.adbEnterPIN(deviceName);
+
+//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_1));
+//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_1));
+//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_3));
+//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_3));
+//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.ENTER));
         }
 
 
 
         //Sometimes there is a warning before the Whats new screen
-
+        System.out.println("Check for Alerts AFTER PIN");
         if (!getOS().equalsIgnoreCase("ios")) {
             //Android needs this.
             checkForAlertsAfterPin();
@@ -395,6 +493,9 @@ public class HelperMethods extends BasePage {
             //Android needs this.
             checkForAlertsAfterPin();
         }
+
+        //iOS may need this.
+        dismissWhatsNewPage();
 
 
 

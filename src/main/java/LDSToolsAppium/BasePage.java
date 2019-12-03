@@ -590,7 +590,7 @@ public class BasePage {
 
     public void waitForTextToDisappear(MobileElement myElement) {
         System.out.println("Start Checking for Element");
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 60);
         wait.until(ExpectedConditions.invisibilityOf(myElement));
         System.out.println("Stop Checking for Element");
     }
@@ -598,7 +598,7 @@ public class BasePage {
 
     public void waitUnitlTextIsGone(String myText) {
         //System.out.println("Start Checking for Element");
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 120);
 
         if(getOS().equals("ios")) {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@value, '" + myText + "')]")));
@@ -611,7 +611,7 @@ public class BasePage {
 
     public void waitForText(String myText) {
         //System.out.println("Start Checking for Element");
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 60);
         if(getOS().equals("ios")) {
 //            WebElement iosElement = driver.findElement(By.xpath("//*[contains(@value, '" + myText + "')]"));
 //            wait.until(ExpectedConditions.textToBePresentInElement(iosElement, myText));

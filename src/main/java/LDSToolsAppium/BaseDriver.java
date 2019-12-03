@@ -419,6 +419,7 @@ public class BaseDriver {
             capabilities.setCapability("automationName","uiautomator2");
             capabilities.setCapability("appPackage", myAppPackage);
             capabilities.setCapability("newCommandTimeout", 2000);
+//            capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
 
             //capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
             capabilities.setCapability("appWaitActivity", "org.lds.ldstools.ux.auth.AuthenticationSignInActivity");
@@ -627,6 +628,8 @@ public class BaseDriver {
         }
     }
 
+
+
     private void adbRemoteDisconnect(String ipPort) throws Exception {
         //String pathToADB = "../../../android-sdks/platform-tools/adb";
         //String androidHome = getAndroidHomePath();
@@ -641,6 +644,59 @@ public class BaseDriver {
         pr.waitFor();
         BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
         String line;
+
+        while ((line=buf.readLine())!=null) {
+            System.out.println(line);
+        }
+    }
+
+
+    public void adbProxyStart(String deviceSerial, String proxyUserName) throws Exception {
+        //String pathToADB = "../../../android-sdks/platform-tools/adb";
+        //String androidHome = getAndroidHomePath();
+        String androidHome = System.getenv("ANDROID_HOME");
+        String pathToADB = androidHome + "/platform-tools/adb";
+
+        //String cmd
+        // = "adb shell am force-stop org.lds.ldstools.alpha";
+        Runtime run = Runtime.getRuntime();
+
+        Process pr = run.exec(new String[] { pathToADB, "-s", deviceSerial, "shell", "am", "start", "-a", "android.intent.action.VIEW", "-d", "\"membertools://proxy/" + proxyUserName + "\"" });
+        //Process pr = run.exec(cmd);
+        pr.waitFor();
+        BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        String line;
+
+        while ((line=buf.readLine())!=null) {
+            System.out.println(line);
+        }
+    }
+
+    public void adbEnterPIN(String deviceSerial) throws Exception {
+        //String pathToADB = "../../../android-sdks/platform-tools/adb";
+        //String androidHome = getAndroidHomePath();
+        String androidHome = System.getenv("ANDROID_HOME");
+        String pathToADB = androidHome + "/platform-tools/adb";
+
+        //String cmd
+        // = "adb shell am force-stop org.lds.ldstools.alpha";
+        Runtime run = Runtime.getRuntime();
+
+        Process pr = run.exec(new String[] { pathToADB, "-s", deviceSerial, "shell", "input", "text", "1133" });
+        //Process pr = run.exec(cmd);
+        pr.waitFor();
+        BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        String line;
+
+        while ((line=buf.readLine())!=null) {
+            System.out.println(line);
+        }
+
+        pr = run.exec(new String[] { pathToADB, "-s", deviceSerial, "shell", "input", "keyevent", "66" });
+        pr.waitFor();
+        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+
+
 
         while ((line=buf.readLine())!=null) {
             System.out.println(line);

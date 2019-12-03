@@ -3,10 +3,15 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.DirectoryScreen;
+import LDSToolsAppium.Screen.LoginPageScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.ios.IOSDriver;
+import org.apache.commons.codec.binary.Base64;
+import org.jsoup.Connection;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.testng.Assert;
@@ -18,6 +23,7 @@ import okhttp3.RequestBody;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import java.awt.desktop.SystemEventListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -40,10 +46,11 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin("digbads");
         myHelper.enterPin("1", "1", "3", "3");
 
-        System.out.println("Calling Group: " + callingGroup);
+//        System.out.println("Calling Group: " + callingGroup);
 
         //Search and click on Aaron Jane
         myDirectory.searchAndClick("Seuamuli, Alofa");
@@ -659,6 +666,17 @@ public class DirectoryScreenTest extends BaseDriver {
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
+        BaseDriver myBaseDriver = new BaseDriver();
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+//        byte[] encodeBytes = Base64.encodeBase64("toolstester".getBytes());
+//        System.out.println("Encoded Bytes: " + new String(encodeBytes));
+
+
+
+        byte[] decodeBytes = Base64.decodeBase64("UDFrQFNwMTc=");
+//        System.out.println("Decoded Bytes: " + new String(decodeBytes));
+
 
 
         //Copy file to device
@@ -669,38 +687,66 @@ public class DirectoryScreenTest extends BaseDriver {
                 myHelper.allowButton.click();
             }
 
-            driver.get("http://10.109.45.163:8000");
-            Thread.sleep(5000);
-            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='DeepLinkTest.html']")).click();
+//            driver.get("http://10.109.45.163:8000");
+            driver.get("https://www.google.com");
             Thread.sleep(2000);
-            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Deep Link Test']")).click();
+            driver.get("membertools://user/digbads");
+            Thread.sleep(5000);
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='DeepLinkTest.html']")).click();
+//            Thread.sleep(2000);
+//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Deep Link Test']")).click();
+//            Thread.sleep(5000);
+//            driver.findElement(By.xpath("//*[@name='Open']")).click();
+//            Thread.sleep(5000);
+
+//            myLoginPage.loginName.clear();
+//            myLoginPage.passWord.clear();
+//
+//            myLoginPage.loginName.sendKeys("zmaxfield");
+//            myLoginPage.passWord.sendKeys(new String(decodeBytes));
+//            myLoginPage.signInButton.click();
+//            Thread.sleep(20000);
 //            System.out.println(driver.getPageSource());
 //            driver.context("NATIVE_APP");
         } else {
-            ((AndroidDriver)driver).pushFile("/mnt/sdcard/Download/test1.rtf", new File("/Users/zmaxfield/test1.rtf"));
+
+//            myLoginPage.troubleSigningIn.click();
+//            Thread.sleep(5000);
+//
+//            driver.findElement(By.id("com.android.chrome:id/url_bar")).click();
+//            driver.findElement(By.id("com.android.chrome:id/url_bar")).setValue("http://10.0.0.110:8000");
+//
+//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+//            Thread.sleep(5000);
+//            System.out.println(driver.getPageSource());
+//            driver.findElement(By.xpath("//*[@text='DeepLinkTest.html']")).click();
+//            Thread.sleep(2000);
+//            driver.findElement(By.xpath("//*[@text='Deep Link Test']")).click();
+//            Thread.sleep(5000);
+//            driver.findElement(By.xpath("//*[@text='Open']")).click();
+//            Thread.sleep(5000);
+
+           myBaseDriver.adbProxyStart(myBaseDriver.deviceSerial, "digbads");
+
         }
 
 
+        myLoginPage.loginName.clear();
+        myLoginPage.passWord.clear();
+
+        myLoginPage.loginName.sendKeys("zmaxfield");
+        myLoginPage.passWord.sendKeys(new String(decodeBytes));
+        myLoginPage.signInButton.click();
+        Thread.sleep(30000);
 
 
-        //Login and enter in PIN
-//        startTime = System.nanoTime();
-//
-//        myHelper.loginUAT("LDSTools3", "toolstester");
-//
-//        endTime = System.nanoTime();
-//        duration = (endTime - startTime);
-//        duration = duration / 1000000;
-//        System.out.println("Login to UAT: " + duration);
-//
-//
-//
-//        Assert.assertTrue(myDirectory.checkFirstDirectoryUser());
-//        myMenu.selectMenu(myMenu.settings);
-//        Thread.sleep(2000);
-//        myMenu.selectMenu(myMenu.directory);
-//        Thread.sleep(2000);
-//        Assert.assertTrue(myBasePage.checkForElement(myMenu.reports));
+
+        Assert.assertTrue(myDirectory.checkFirstDirectoryUser());
+        myMenu.selectMenu(myMenu.settings);
+        Thread.sleep(2000);
+        myMenu.selectMenu(myMenu.directory);
+        Thread.sleep(2000);
+        Assert.assertTrue(myBasePage.checkForElement(myMenu.reports));
 
 
     }

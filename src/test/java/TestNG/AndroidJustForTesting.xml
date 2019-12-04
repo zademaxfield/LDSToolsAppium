@@ -7,8 +7,8 @@
 <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
 <!--        <parameter name="fileName" value="ldstools-release.apk" />-->
 <!--        <parameter name="testDevice" value="ce06171675347c0b027e" />-->
-<!--        <parameter name="testDevice" value="emulator-5554" />-->
-        <parameter name="testDevice" value="99051FFBA000S7" /> <!-- Pixel 4 XL-->
+        <parameter name="testDevice" value="emulator-5554" />
+<!--        <parameter name="testDevice" value="99051FFBA000S7" /> &lt;!&ndash; Pixel 4 XL&ndash;&gt;-->
 <!--        <parameter name="testDevice" value="89UY0C037" /> &lt;!&ndash; Pixel 3 XL&ndash;&gt;-->
 <!--        <parameter name="testDevice" value="8XV5T15A30006448" />-->
         <!--<parameter name="testDevice" value="STFZade-Pool" />-->

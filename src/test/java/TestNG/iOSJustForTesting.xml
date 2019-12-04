@@ -13,6 +13,7 @@
         <!--<parameter name="testDevice" value="REAL-Z6plus" />-->
 <!--        <parameter name="testDevice" value="REAL-Z6iphone" />-->
 <!--        <parameter name="testDevice" value="REAL-ZadesXSMax" />-->
+<!--        <parameter name="testDevice" value="REAL-Z11ProMax" />-->
         <parameter name="startSleepTime" value="0200" />
 
         <groups>

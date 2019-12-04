@@ -696,7 +696,7 @@ public class DirectoryScreenTest extends BaseDriver {
 //            Thread.sleep(2000);
 //            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Deep Link Test']")).click();
 //            Thread.sleep(5000);
-//            driver.findElement(By.xpath("//*[@name='Open']")).click();
+//
 //            Thread.sleep(5000);
 
 //            myLoginPage.loginName.clear();

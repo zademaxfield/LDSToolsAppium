@@ -5,19 +5,24 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 
 import LDSToolsAppium.Screen.*;
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.ios.IOSDriver;
 import org.apache.commons.codec.binary.Base64;
 import org.jsoup.nodes.Element;
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.SessionId;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 
 public class HelperMethods extends BasePage {
@@ -79,6 +84,48 @@ public class HelperMethods extends BasePage {
         Thread.sleep(1000);
     }
 
+    private void iosDeepLink(String proxyUserName) throws Exception {
+        String appName;
+
+        appName = driver.getCapabilities().getCapability("app").toString();
+//        System.out.println("App: "  + appName);
+
+
+        if (appName.contains(".ipa")) {
+            driver.executeScript("mobile: terminateApp", ImmutableMap.of("bundleId", "com.apple.mobilesafari"));
+            //            //May need to replace -u with -U in 12.2
+            List args = new ArrayList();
+//            args.add("-U");
+            args.add("https://www.google.com");
+
+            Map<String, Object> params = new HashMap<>();
+            params.put("bundleId", "com.apple.mobilesafari");
+            params.put("arguments", args);
+
+            driver.executeScript("mobile: launchApp", params);
+            Thread.sleep(5000);
+
+            driver.findElement(By.xpath("//XCUIElementTypeOther[@label='Address']")).click();
+
+            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Clear text']")).click();
+            Thread.sleep(3000);
+
+            driver.findElement(By.xpath("//XCUIElementTypeTextField[@label='Address']")).setValue("membertools://user/" + proxyUserName);
+
+            driver.findElement(By.xpath("//*[@name='Go']")).click();
+            Thread.sleep(3000);
+            driver.findElement(By.xpath("//*[@name='Open']")).click();
+        } else {
+            driver.get("https://www.google.com");
+            Thread.sleep(2000);
+            driver.get("membertools://user/" + proxyUserName);
+            Thread.sleep(5000);
+        }
+
+
+
+    }
+
 
     public void proxyLogin(String proxyUserName) throws Exception {
         // ********* Constructor **********
@@ -91,16 +138,16 @@ public class HelperMethods extends BasePage {
 
         String deviceName;
 
+
         if (checkForElement(allowButton)) {
             allowButton.click();
         }
 
         byte[] decodeBytes = Base64.decodeBase64("UDFrQFNwMTc=");
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-            driver.get("https://www.google.com");
-            Thread.sleep(2000);
-            driver.get("membertools://user/" + proxyUserName);
-            Thread.sleep(5000);
+
+            iosDeepLink(proxyUserName);
+
         } else {
             deviceName = driver.getCapabilities().getCapability("deviceName").toString();
             myBaseDriver.adbProxyStart(deviceName, proxyUserName);

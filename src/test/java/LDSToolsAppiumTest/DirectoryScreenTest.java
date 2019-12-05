@@ -47,21 +47,20 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Login and enter in PIN
 //        myHelper.loginUAT(userName, passWord);
-        myHelper.proxyLogin("digbads");
+        myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
 //        System.out.println("Calling Group: " + callingGroup);
 
         //Search and click on Aaron Jane
-        myDirectory.searchAndClick("Seuamuli, Alofa");
-//        myDirectory.searchAndClick("Alofa Seuamuli");
+        myDirectory.searchAndClick("Dickson, Jan");
 
         //Get all info
         Thread.sleep(4000);
         pageSource = myDirectory.getDirectoryUserData();
 
         //General Information
-        myBasePage.rightsCheck("Fagamalo", 4, rights, pageSource);
+        myBasePage.rightsCheck("Centinela", 4, rights, pageSource);
 
         //This has visibility set to leadership only
         myBasePage.rightsCheck("alofas@gmail.com", 3, rights, pageSource);

@@ -62,75 +62,84 @@ public class DirectoryScreenTest extends BaseDriver {
         //General Information
         myBasePage.rightsCheck("Centinela", 4, rights, pageSource);
 
-        //This has visibility set to leadership only
-        myBasePage.rightsCheck("alofas@gmail.com", 3, rights, pageSource);
+
+        myBasePage.rightsCheck("JanDic60@yahoo.com", 4, rights, pageSource);
+        myBasePage.rightsCheck("cedickson@sbcglobal.net", 4, rights, pageSource);
+        myBasePage.rightsCheck("754-215-9330", 4, rights, pageSource);
+        myBasePage.rightsCheck("310-643-8800", 4, rights, pageSource);
+
+        myBasePage.rightsCheck("5420 W 140th St", 4, rights, pageSource);
+        myBasePage.rightsCheck("Hawthorne, California 90250-6402", 4, rights, pageSource);
+        myBasePage.rightsCheck("33.904257, -118.375162", 4, rights, pageSource);
+
 
         //Membership Information
         myBasePage.rightsCheck("MEMBERSHIP INFORMATION", 3, rights, pageSource);
-        myBasePage.rightsCheck("Seuamuli, Alofa", 4, rights, pageSource);
         myBasePage.rightsCheck("FULL NAME", 3, rights, pageSource);
+        myBasePage.rightsCheck("Dickson", 4, rights, pageSource);
+        myBasePage.rightsCheck("Emma", 3, rights, pageSource);
+        myBasePage.rightsCheck("Jan", 4, rights, pageSource);
+
         myBasePage.rightsCheck("Temple Recommend", 1, rights, pageSource);
-        myBasePage.rightsCheck("Mar 2016", 1, rights, pageSource);
+        myBasePage.rightsCheck("Nov 2021", 1, rights, pageSource);
+
         myBasePage.rightsCheck("Record Number", 1, rights, pageSource);
-        myBasePage.rightsCheck("052-0013-5325", 1, rights, pageSource);
+        myBasePage.rightsCheck("000-1189-3575", 1, rights, pageSource);
 
         //Birth Date
-        myBasePage.rightsCheck("August 12, 1961", 2, rights, pageSource);
+        myBasePage.rightsCheck("January 20, 1946", 2, rights, pageSource);
         myBasePage.rightsCheck("Birth Date", 3, rights, pageSource);
         if (getRunningOS().equals("ios")) {
-            myBasePage.rightsCheck("(58)", 2, rights, pageSource);
+            myBasePage.rightsCheck("(73)", 2, rights, pageSource);
         } else {
-            myBasePage.rightsCheck("- 58", 2, rights, pageSource);
+            myBasePage.rightsCheck("- 73", 2, rights, pageSource);
         }
 
 
         //Ordinances
+        myBasePage.rightsCheck("Ordinances", 2, rights, pageSource);
         myBasePage.rightsCheck("Baptism", 1, rights, pageSource);
-        myBasePage.rightsCheck("January 31, 1971", 1, rights, pageSource);
+        myBasePage.rightsCheck("February 6, 1954", 1, rights, pageSource);
         myBasePage.rightsCheck("Confirmation", 1, rights, pageSource);
-        myBasePage.rightsCheck("January 31, 1971", 1, rights, pageSource);
+        myBasePage.rightsCheck("February 7, 1954", 1, rights, pageSource);
         myBasePage.rightsCheck("Endowment", 1, rights, pageSource);
-        myBasePage.rightsCheck("January 27, 1994", 1, rights, pageSource);
+        myBasePage.rightsCheck("March 23, 1967", 1, rights, pageSource);
 
 
         //Marriage
         myBasePage.rightsCheck("MARRIAGE", 1, rights, pageSource);
         myBasePage.rightsCheck("Spouse", 1, rights, pageSource);
-//        myBasePage.rightsCheck("Seuamuli, Faimeaita", 1, rights, pageSource);
+        myBasePage.rightsCheck("Dickson, Clarence Eugene", 1, rights, pageSource);
         myBasePage.rightsCheck("Spouse Birth Date", 1, rights, pageSource);
-        myBasePage.rightsCheck("November 27, 1957", 1, rights, pageSource);
+        myBasePage.rightsCheck("September 9, 1944", 1, rights, pageSource);
         myBasePage.rightsCheck("Marriage Date", 1, rights, pageSource);
-        myBasePage.rightsCheck("October 20, 1984", 1, rights, pageSource);
+        myBasePage.rightsCheck("July 21, 1967", 1, rights, pageSource);
         myBasePage.rightsCheck("Marriage Place", 1, rights, pageSource);
-        myBasePage.rightsCheck("Fagamalo, Savaii, Samoa", 1, rights, pageSource);
+        myBasePage.rightsCheck("Los Angeles, Los Angeles, California", 1, rights, pageSource);
         myBasePage.rightsCheck("Maiden Name", 1, rights, pageSource);
-        myBasePage.rightsCheck("Aumoto, Alofa", 1, rights, pageSource);
+
+        //Other Information
+        myBasePage.rightsCheck("Gender", 3, rights, pageSource);
+        myBasePage.rightsCheck("Female", 3, rights, pageSource);
+        myBasePage.rightsCheck("Gudmundson, Emma Jan", 1, rights, pageSource);
+        myBasePage.rightsCheck("Birthplace", 1, rights, pageSource);
+        myBasePage.rightsCheck("Santa Monica, Los Angeles, Cal", 1, rights, pageSource);
+        myBasePage.rightsCheck("Birth Country", 1, rights, pageSource);
+        myBasePage.rightsCheck("United States", 1, rights, pageSource);
+        myBasePage.rightsCheck("Father", 1, rights, pageSource);
+        myBasePage.rightsCheck("Gudmundson, Guy Leland", 1, rights, pageSource);
+        myBasePage.rightsCheck("Mother", 1, rights, pageSource);
+        myBasePage.rightsCheck("Shaffer, Nora", 1, rights, pageSource);
+        myBasePage.rightsCheck("Prior Unit", 1, rights, pageSource);
 
 
 
         //Callings and Classes - New in 3.0.0
-        myBasePage.rightsCheck("Relief Society First Counselor", 4, rights, pageSource);
-        myBasePage.rightsCheck("Organization - Relief Society Presidency", 4, rights, pageSource);
-        myBasePage.rightsCheck("Class Assignments", 3, rights, pageSource);
-        myBasePage.rightsCheck("Gospel Doctrine", 3, rights, pageSource);
-        myBasePage.rightsCheck("Relief Society", 4, rights, pageSource);
-        myBasePage.rightsCheck("Sustained", 3, rights, pageSource);
-        myBasePage.rightsCheck("Set Apart", 3, rights, pageSource);
-
-
-
-        // myBasePage.rightsCheck("Ordinances", 2, rights, pageSource);
-        myBasePage.rightsCheck("Gender", 3, rights, pageSource);
-        myBasePage.rightsCheck("Female", 3, rights, pageSource);
-        myBasePage.rightsCheck("Birth Country", 1, rights, pageSource);
-        myBasePage.rightsCheck("Western Samoa", 1, rights, pageSource);
-        myBasePage.rightsCheck("Father", 1, rights, pageSource);
-        myBasePage.rightsCheck("Aumoto, Talele", 1, rights, pageSource);
-        myBasePage.rightsCheck("Mother", 1, rights, pageSource);
-        myBasePage.rightsCheck("Togia, Maria", 1, rights, pageSource);
-        myBasePage.rightsCheck("Prior Unit", 1, rights, pageSource);
-//        myBasePage.rightsCheck("Fagamalo", 4, rights, pageSource);
-
+        myBasePage.rightsCheck("Sunday School Teacher", 4, rights, pageSource);
+        myBasePage.rightsCheck("Organization - Gospel Doctrine", 4, rights, pageSource);
+        myBasePage.rightsCheck("Class Assignments", 4, rights, pageSource);
+        myBasePage.rightsCheck("Gospel Doctrine", 4, rights, pageSource);
+//        myBasePage.rightsCheck("Relief Society", 4, rights, pageSource);
 
     }
 

@@ -50,7 +50,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
-//        System.out.println("Calling Group: " + callingGroup);
+        System.out.println("Calling: " + callingGroup);
 
         //Search and click on Aaron Jane
         myDirectory.searchAndClick("Dickson, Jan");

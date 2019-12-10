@@ -153,10 +153,16 @@ public class HelperMethods extends BasePage {
             myBaseDriver.adbProxyStart(deviceName, proxyUserName);
             Thread.sleep(2000);
         }
-
+        if (checkForElement(myLoginPage.cancelPass)){
+            myLoginPage.cancelPass.click();
+            myLoginPage.loginName.clear();
+            myLoginPage.passWord.clear();
+        } else {
 
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();
+        }
+
 
         myLoginPage.loginName.sendKeys("zmaxfield");
         myLoginPage.passWord.sendKeys(new String(decodeBytes));

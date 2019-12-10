@@ -107,5 +107,7 @@ public class LoginPageScreen extends BasePage {
     @iOSXCUITFindBy(xpath = "//*[contains(@name, 'Church Account')]")
     public  MobileElement accountRecoveryPage;
 
-
+   //Samsung Pass
+    @AndroidFindBy(accessibility = "Settings")
+    public MobileElement cancelPass;
 }

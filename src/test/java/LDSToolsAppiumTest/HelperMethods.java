@@ -159,8 +159,8 @@ public class HelperMethods extends BasePage {
             myLoginPage.passWord.clear();
         } else {
 
-        myLoginPage.loginName.clear();
-        myLoginPage.passWord.clear();
+            myLoginPage.loginName.clear();
+            myLoginPage.passWord.clear();
         }
 
 

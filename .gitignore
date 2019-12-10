@@ -4,3 +4,6 @@
 /target/
 /test-output/
 /src/test/java/Reports/
+/.DS_Store/
+/src/test/.DS_Store
+/src/test/java/.DS_Store

@@ -22,7 +22,8 @@ public class CalendarScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
 
 
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.calendar);
@@ -38,7 +39,7 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all", "all3"})
+    @Test (groups = {"all", "all3", "jft"})
     public void calenderDisplayType() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);
@@ -86,7 +87,7 @@ public class CalendarScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all", "all4", "jft" })
+    @Test (groups = {"all", "all4" })
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);

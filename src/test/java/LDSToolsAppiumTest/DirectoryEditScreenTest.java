@@ -18,7 +18,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(groups = {"smoke4", "smoke", "all2", "all"})
+    @Test(groups = {"smoke4", "smoke", "all2", "all", "jft"})
     public void editCurrentUser() throws Exception {
         String pageSource;
 
@@ -111,7 +111,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test(groups = {"smoke3", "smoke", "all3", "all"})
     public void editCurrentUserCancel() throws Exception {
         String pageSource;
 

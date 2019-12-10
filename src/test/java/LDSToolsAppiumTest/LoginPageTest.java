@@ -110,42 +110,42 @@ public class LoginPageTest extends BaseDriver {
     // ******************* Invalid Password Tests *******************
     @Test (groups = {"all3", "all", "login"})
     public void invalidPasswordTest1() throws Exception {
-        invalidCheck("LDSTools3", "<login>");
+        invalidCheck("zmaxfield", "<login>");
     }
 
     @Test ( groups = {"all4", "all", "login"})
     public void invalidPasswordTest2() throws Exception {
-        invalidCheck("LDSTools3", "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+        invalidCheck("zmaxfield", "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
     }
 
     @Test ( groups = {"all1", "all", "login"})
     public void invalidPasswordTest3() throws Exception {
-        invalidCheck("LDSTools3", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        invalidCheck("zmaxfield", "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
     }
 
     @Test ( groups = {"all2", "all", "login"})
     public void invalidPasswordTest4() throws Exception {
-        invalidCheck("LDSTools3", "/password/");
+        invalidCheck("zmaxfield", "/password/");
     }
 
     @Test ( groups = {"all3", "all", "login"})
     public void invalidPasswordTest5() throws Exception {
-        invalidCheck("LDSTools3", "!@#$%%^&**())__+_!@@!#!$%#@%^*&%&*(^*()(&(&*(%^&$#%@$!#$%$#^#$%^^&*(^%}|{|{|}{|}{|}{}|{|}{}|{|}{||||}|{}{|}{");
+        invalidCheck("zmaxfield", "!@#$%%^&**())__+_!@@!#!$%#@%^*&%&*(^*()(&(&*(%^&$#%@$!#$%$#^#$%^^&*(^%}|{|{|}{|}{|}{}|{|}{}|{|}{||||}|{}{|}{");
     }
 
     @Test ( groups = {"all4", "all", "login"})
     public void invalidPasswordTest6() throws Exception {
-        invalidCheck("LDSTools3", "select * from directory");
+        invalidCheck("zmaxfield", "select * from directory");
     }
 
     @Test ( groups = {"all1", "all", "login"})
     public void invalidPasswordTest7() throws Exception {
-        invalidCheck("LDSTools3", " toolstester");
+        invalidCheck("zmaxfield", " toolstester");
     }
 
 
     // ******************* Invalid Username Tests *******************
-    @Test ( groups = {"all4", "all", "login", "jft"})
+    @Test ( groups = {"all4", "all", "login"})
     public void invalidUsernameTest1() throws Exception {
         invalidCheck("LDSTools30", "toolstester");
     }
@@ -219,7 +219,8 @@ public class LoginPageTest extends BaseDriver {
 
 
 
-    @Test ( groups = {"all4", "all", "login"})
+    //This is an iOS only test now.
+    @Test ( groups = {"all4", "all", "login", "jft"})
     public void changePIN() throws Exception {
         String myPinMessage;
 
@@ -230,42 +231,51 @@ public class LoginPageTest extends BaseDriver {
         SettingsScreen mySettings = new SettingsScreen(driver);
         PinScreen myPin = new PinScreen(driver);
 
-        //Login and enter in PIN
-        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.enterPin("1", "1", "3", "3");
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            //Login and enter in PIN
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+            myHelper.proxyLogin("gabrielsmith");
+            myHelper.enterPin("1", "1", "3", "3");
 
-        myMenu.selectMenu(myMenu.settings);
-        myBasePage.waitForElementThenClick(mySettings.changeYourPIN);
-//        mySettings.changeYourPIN.click();
-        //This is needed for iOS
-        if (getRunningOS().equals("ios")) {
+            myMenu.selectMenu(myMenu.settings);
             myBasePage.waitForElementThenClick(mySettings.changeYourPIN);
+//        mySettings.changeYourPIN.click();
+            //This is needed for iOS
+            if (getRunningOS().equals("ios")) {
+                myBasePage.waitForElementThenClick(mySettings.updatePasscodePIN);
 //            mySettings.changeYourPIN.click();
+            }
+
+            myPinMessage = myPin.pinMessage.getText();
+
+            if (myPinMessage.equals("Enter Current Passcode") || (myPinMessage.equals("Enter your PIN"))) {
+                myPin.pinKey1.click();
+                myPin.pinKey1.click();
+                myPin.pinKey3.click();
+                myPin.pinKey3.click();
+            }
+
+            myHelper.changePIN("4", "4", "6", "6");
+
+            if (!getRunningOS().equalsIgnoreCase("ios")) {
+                myBasePage.backButton.click();
+            }
+
+            //TODO: This doesn't test the new PIN it just sets up a new PIN
+
+            myMenu.menuLogOut();
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+            myHelper.proxyLogin("gabrielsmith");
+            myHelper.enterPin("4", "4", "6", "6");
+
+
+
+            myMenu.selectMenu(myMenu.settings);
+        } else {
+            System.out.println("Not Valid for Android!");
         }
 
-        myPinMessage = myPin.pinMessage.getText();
 
-        if (myPinMessage.equals("Enter Current Passcode") || (myPinMessage.equals("Enter your PIN"))) {
-            myPin.pinKey1.click();
-            myPin.pinKey1.click();
-            myPin.pinKey3.click();
-            myPin.pinKey3.click();
-        }
-
-        myHelper.changePIN("4", "4", "6", "6");
-
-        if (!getRunningOS().equalsIgnoreCase("ios")) {
-            myBasePage.backButton.click();
-        }
-
-
-        myMenu.menuLogOut();
-        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.enterPin("4", "4", "6", "6");
-
-
-
-        myMenu.selectMenu(myMenu.settings);
 
 
     }

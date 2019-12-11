@@ -6,6 +6,8 @@ import LDSToolsAppium.Screen.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 
 public class LoginPageTest extends BaseDriver {
 
@@ -263,10 +265,21 @@ public class LoginPageTest extends BaseDriver {
 
             //TODO: This doesn't test the new PIN it just sets up a new PIN
 
-            myMenu.menuLogOut();
+            driver.closeApp();
+//            driver.terminateApp("org.lds.ldstools");
+//            driver.runAppInBackground(Duration.ofSeconds(1));
+//            Thread.sleep(4000);
+            driver.launchApp();
+//            driver.activateApp("org.lds.ldstools");
+
+            myHelper.enterCurrentPin("4", "4", "6", "6");
+
+            //This is a bug. The Whats new page should not be displayed here
+            myHelper.dismissWhatsNewPage();
+//            myMenu.menuLogOut();
 //        myHelper.loginUAT("LDSTools3", "toolstester");
-            myHelper.proxyLogin("gabrielsmith");
-            myHelper.enterPin("4", "4", "6", "6");
+//            myHelper.proxyLogin("gabrielsmith");
+//            myHelper.enterPin("4", "4", "6", "6");
 
 
 

@@ -26,7 +26,8 @@ public class MeetinghousesScreenTest extends BaseDriver {
 
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.meetinghouses);

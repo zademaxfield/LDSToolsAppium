@@ -707,7 +707,7 @@ public class HelperMethods extends BasePage {
         }
     }
 
-    private void enterCurrentPin(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
+    public void enterCurrentPin(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
 
         pressPinKeys(firstNumber);
         pressPinKeys(secondNumber);

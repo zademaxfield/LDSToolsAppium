@@ -221,12 +221,12 @@ public class BaseDriver {
         if(getRunningOS().equals("ios")) {
             Thread.sleep(2000);
             System.out.println("Start Reset App");
-            driver.removeApp("org.lds.ldstools");
-//            driver.installApp(driver.getCapabilities().getCapability("app").toString());
-            driver.launchApp();
+//            driver.removeApp("org.lds.ldstools");
+////            driver.installApp(driver.getCapabilities().getCapability("app").toString());
+//            driver.launchApp();
 
 
-//            driver.resetApp();
+            driver.resetApp();
             System.out.println("End Reset App");
             Thread.sleep(5000);
 
@@ -434,8 +434,8 @@ public class BaseDriver {
             capabilities.setCapability("appWaitDuration", "40000");
 //            capabilities.setCapability("androidInstallTimeout", "40000");
 
-            capabilities.setCapability("unicodeKeyboard", "true");
-            capabilities.setCapability("resetKeyboard", "true");
+//            capabilities.setCapability("unicodeKeyboard", "true");
+//            capabilities.setCapability("resetKeyboard", "true");
             capabilities.setCapability("deviceReadyTimeout", 60);
             capabilities.setCapability("noSign", true);
             capabilities.setCapability("gpsEnabled", true);
@@ -522,7 +522,7 @@ public class BaseDriver {
             capabilities.setCapability("browserName","");
 
 //            capabilities.setCapability("fullReset", true);
-            capabilities.setCapability("noReset", true);
+            capabilities.setCapability("noReset", false);
             capabilities.setCapability("newCommandTimeout", 600);
             capabilities.setCapability("app", app.getAbsolutePath());
             capabilities.setCapability("launchTimeout", 900000);

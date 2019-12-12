@@ -130,6 +130,7 @@ public class MeetinghousesScreen extends BasePage {
             keyboardSearchButton.click();
         } else {
             meetinghousesSearchButton.click();
+            System.out.println(getSourceOfPage());
             meetinghousesSearchField.sendKeys(searchText);
             driver.getKeyboard().pressKey(Keys.ENTER);
         }

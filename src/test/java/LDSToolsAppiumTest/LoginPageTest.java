@@ -263,7 +263,6 @@ public class LoginPageTest extends BaseDriver {
                 myBasePage.backButton.click();
             }
 
-            //TODO: This doesn't test the new PIN it just sets up a new PIN
 
             driver.closeApp();
 //            driver.terminateApp("org.lds.ldstools");

@@ -119,7 +119,7 @@ public class HelperMethods extends BasePage {
             driver.get("https://www.google.com");
             Thread.sleep(2000);
             driver.get("membertools://user/" + proxyUserName);
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         }
 
 

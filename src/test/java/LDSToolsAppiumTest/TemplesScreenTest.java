@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void templeSimple() throws Exception {
         String pageSource;
         List<String> myList = new ArrayList<String>();
@@ -25,33 +25,23 @@ public class TemplesScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
 
 
-        myHelper.loginUAT("LDSTools31", "password1");
+//        myHelper.loginUAT("LDSTools31", "password1");
+        myHelper.proxyLogin("mykalikat");
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.temples);
         Thread.sleep(4000);
         pageSource = myBasePage.getSourceOfPage();
 
+        Assert.assertTrue(myBasePage.checkNoCaseList("Los Angeles California Temple", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("310-474-5569", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("LANGE-OFF@ChurchofJesusChrist.org", pageSource, "Contains"));
 
-        myWeb.MyTemplePageLogIn("https://lcr-uat.lds.org", "LDSTools31", "password1");
-        Thread.sleep(8000);
-        //Check the Temple Name
-        System.out.println(pageSource);
-        if (pageSource.contains(myWeb.TempleGetName())){
-            Assert.assertTrue(true);
-        } else {
-            System.out.println("Not Found: " + myWeb.TempleGetName());
-            Assert.fail();
-        }
+        Assert.assertTrue(myBasePage.checkNoCaseList("10777 Santa Monica Blvd", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Los Angeles CA 90025-4718", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("United States", pageSource, "Contains"));
 
-        myList = myWeb.TempleGetPhysicalAddress();
-        myBasePage.checkSource(pageSource, myList);
 
-        //myList = myWeb.TempleGetServices();
-        //checkSource(mySource, myList);
-
-        myList = myWeb.TempleGetMilestones();
-        myBasePage.checkSource(pageSource, myList);
 
     }
 
@@ -341,7 +331,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all4", "jft"})
+    @Test (groups= { "all", "all4"})
     public void templeOrdinanceSchedule() throws Exception {
         String pageSource;
 

@@ -35,6 +35,11 @@ public class OrganizationsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Savaii Samoa Fagamalo Stake")
     public MobileElement savaiiStake;
 
+    //Inglewood California Stake
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Inglewood California Stake']")
+    @iOSXCUITFindBy(accessibility = "Inglewood California Stake")
+    public MobileElement inglewoodStake;
+
     //Fagamalo 1st Ward
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Fagamalo 1st Ward']")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, 'Fagamalo 1st Ward')]")
@@ -121,8 +126,8 @@ public class OrganizationsScreen extends BasePage {
     public MobileElement reliefSocietyOrg;
 
     //Young Men
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Young Men']")
-    @iOSXCUITFindBy(accessibility = "Young Men")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Aaronic Priesthood Quorums']")
+    @iOSXCUITFindBy(accessibility = "Aaronic Priesthood Quorums")
     public MobileElement youngMenOrg;
 
     //Young Women

@@ -50,7 +50,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "smoke", "smoke3", "all", "all1", "jft"})
+    @Test (groups= { "smoke", "smoke3", "all", "all1"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -101,7 +101,8 @@ public class TemplesScreenTest extends BaseDriver {
         SettingsScreen mySettings = new SettingsScreen(driver);
 
 
-        myHelper.loginUAT("ngibpc1", "password1");
+//        myHelper.loginUAT("ngibpc1", "password1");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -138,7 +139,8 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 //        myHelper.loginUAT("ngibpc1", "password1");
-        myHelper.loginUAT("LDSTools31", "password1");
+//        myHelper.loginUAT("LDSTools31", "password1");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -156,7 +158,6 @@ public class TemplesScreenTest extends BaseDriver {
         //Verify Bishopric
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Apia Samoa", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Bishopric First Counselor", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
@@ -176,7 +177,8 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 //        myHelper.loginUAT("ngibpc1", "password1");
-        myHelper.loginUAT("LDSTools31", "password1");
+//        myHelper.loginUAT("LDSTools31", "password1");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -200,7 +202,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all1"})
+    @Test (groups= { "all", "all1", "jft"})
     public void templeNearestTemples() throws Exception {
         String pageSource;
 
@@ -210,7 +212,8 @@ public class TemplesScreenTest extends BaseDriver {
         TemplesScreen myTemple = new TemplesScreen(driver);
 
 
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
 

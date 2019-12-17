@@ -218,15 +218,15 @@ public class TemplesScreenTest extends BaseDriver {
 
 
         myMenu.selectMenu(myMenu.temples);
+        myTemple.yesRemindMe.click();
         myTemple.chooseDifferentTab(myTemple.nearestTab);
 
         if (!myBasePage.getOS().contains("ios")) {
             myBasePage.alertOK.click();
-
+            myBasePage.allowButton.click();
+        } else {
+            myBasePage.allowWhileUsingApp.click();
         }
-
-
-        myBasePage.allowButton.click();
 
         Thread.sleep(8000);
         pageSource = myBasePage.getSourceOfPage();

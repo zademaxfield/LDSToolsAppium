@@ -50,7 +50,7 @@ public class TemplesScreen extends BasePage {
 
 
     //iOS Temple Selector
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, '▾')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, '▾')]")
     public MobileElement templePullDown;
 
 
@@ -149,7 +149,7 @@ public class TemplesScreen extends BasePage {
         BasePage myBasePage = new BasePage(driver);
 
         if (myBasePage.getOS().contains("ios")) {
-            Thread.sleep(2000);
+
             templePullDown.click();
         }
 

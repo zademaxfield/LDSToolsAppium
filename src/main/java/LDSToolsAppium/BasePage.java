@@ -74,6 +74,12 @@ public class BasePage {
     @iOSXCUITFindBy(accessibility = "Allow")
     public MobileElement allowButton;
 
+
+    //Allow While Using App
+    @iOSXCUITFindBy(accessibility = "Allow While Using App")
+    public MobileElement allowWhileUsingApp;
+
+
     //Alert check
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.view.ViewGroup")
     @iOSXCUITFindBy(xpath = "//UIAAlert")

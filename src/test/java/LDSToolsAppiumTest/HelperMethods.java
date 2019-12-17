@@ -90,6 +90,7 @@ public class HelperMethods extends BasePage {
         appName = driver.getCapabilities().getCapability("app").toString();
 //        System.out.println("App: "  + appName);
 
+        setupUAT();
 
         if (appName.contains(".ipa")) {
             driver.executeScript("mobile: terminateApp", ImmutableMap.of("bundleId", "com.apple.mobilesafari"));

@@ -16,7 +16,7 @@ import java.util.List;
 
 public class OrganizationsScreenTest extends BaseDriver {
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -59,7 +59,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
     public void organizationStakeHighPriestQuorum(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -534,21 +534,21 @@ public class OrganizationsScreenTest extends BaseDriver {
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Young Men President", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Arriaza", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Hyrum Isaac", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Young Men First Counselor", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Romriell", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Alex", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Young Men Second Counselor", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Del Real Cortes", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Juan Carlos", pageSource, "Contains"));
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Young Men Secretary", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ika", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sam", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Young Men President", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Arriaza", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Hyrum Isaac", pageSource, "Contains"));
+//
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Young Men First Counselor", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Romriell", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Alex", pageSource, "Contains"));
+//
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Young Men Second Counselor", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Del Real Cortes", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Juan Carlos", pageSource, "Contains"));
+//
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Young Men Secretary", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Ika", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Sam", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Advisor", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Lousiale", pageSource, "Contains"));

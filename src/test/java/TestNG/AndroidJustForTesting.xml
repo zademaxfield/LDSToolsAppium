@@ -8,7 +8,9 @@
 <!--        <parameter name="fileName" value="ldstools-release.apk" />-->
 <!--        <parameter name="testDevice" value="ce06171675347c0b027e" />-->
 <!--        <parameter name="testDevice" value="emulator-5554" />-->
-        <parameter name="testDevice" value="99051FFBA000S7" /> <!-- Pixel 4 XL-->
+<!--        <parameter name="testDevice" value="99051FFBA000S7" /> &lt;!&ndash; Pixel 4 XL&ndash;&gt;-->
+<!--        <parameter name="testDevice" value="R38M803MWGM" /> &lt;!&ndash; Samsung Galaxy Note 10&ndash;&gt;-->
+        <parameter name="testDevice" value="710KPBF0266213" /> <!-- Pixel 2 X -->
 <!--        <parameter name="testDevice" value="89UY0C037" /> &lt;!&ndash; Pixel 3 XL&ndash;&gt;-->
 <!--        <parameter name="testDevice" value="8XV5T15A30006448" />-->
         <!--<parameter name="testDevice" value="STFZade-Pool" />-->
@@ -20,6 +22,8 @@
         <!--<parameter name="testDevice" value="STF-ce061716cae890d10d7e" />-->
         <parameter name="startSleepTime" value="0200" />
 
+
+
         <groups>
             <run>
                 <include name="jft"/>
@@ -29,7 +33,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
 
         </classes>
     </test > <!-- Default test -->

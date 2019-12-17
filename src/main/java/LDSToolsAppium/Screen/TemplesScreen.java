@@ -27,7 +27,8 @@ public class TemplesScreen extends BasePage {
 
     // ****************** Temple Main Screen ******************
     // Days till expiration
-    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='android:id/input']")
+//    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='android:id/input']")
+    @AndroidFindBy(id = "md_input_message")
     @iOSXCUITFindBy(xpath ="//XCUIElementTypeTextField[@value='Days until expiration']")
     public MobileElement templeDaysExpiration;
 
@@ -67,6 +68,7 @@ public class TemplesScreen extends BasePage {
     public MobileElement noThanks;
 
     //Yes, remind me
+    @AndroidFindBy(id = "md_button_positive")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Yes, remind me'")
     public MobileElement yesRemindMe;
 

@@ -419,6 +419,7 @@ public class BaseDriver {
                 }
             }
 
+
             androidAppPackage = myAppPackage;
 
             capabilities.setCapability("deviceName", testDevice);
@@ -699,6 +700,7 @@ public class BaseDriver {
         while ((line=buf.readLine())!=null) {
             System.out.println(line);
         }
+
 
         pr = run.exec(new String[] { pathToADB, "-s", deviceSerial, "shell", "input", "keyevent", "66" });
         pr.waitFor();

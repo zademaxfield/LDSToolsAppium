@@ -60,7 +60,7 @@ public class BasePage {
     public MobileElement moreButton;
 
     //OK
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"OK\"]")
+    @AndroidFindBy(xpath = "//*[@text=\"OK\"]")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'OK'")
     public MobileElement alertOK;
 

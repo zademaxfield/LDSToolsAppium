@@ -13,32 +13,36 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2"})
     public void templeSimple() throws Exception {
         String pageSource;
-        List<String> myList = new ArrayList<String>();
 
         HelperMethods myHelper = new HelperMethods(driver);
-        PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
+        TemplesScreen myTemple = new TemplesScreen(driver);
 
-
-//        myHelper.loginUAT("LDSTools31", "password1");
+        //Login
         myHelper.proxyLogin("mykalikat");
         myHelper.enterPin("1", "1", "3", "3");
 
+        //Go to Temple
         myMenu.selectMenu(myMenu.temples);
-        Thread.sleep(4000);
+        myBasePage.waitForElementThenClick(myTemple.yesRemindMe);
+        myBasePage.waitForText("Los Angeles");
+
         pageSource = myBasePage.getSourceOfPage();
+
+        //This is for debug
+        System.out.println(pageSource);
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Los Angeles California Temple", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("310-474-5569", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("LANGE-OFF@ChurchofJesusChrist.org", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("10777 Santa Monica Blvd", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Los Angeles CA 90025-4718", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Los Angeles CA", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("90025-4718", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("United States", pageSource, "Contains"));
 
 
@@ -46,7 +50,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "smoke", "smoke3", "all", "all1"})
+    @Test (groups= { "smoke", "smoke3", "all", "all1", "jft"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -59,7 +63,8 @@ public class TemplesScreenTest extends BaseDriver {
         SettingsScreen mySettings = new SettingsScreen(driver);
 
 
-        myHelper.loginUAT("ngibpc1", "password1");
+        myHelper.proxyLogin("adambee");
+//        myHelper.loginUAT("ngibpc1", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
 

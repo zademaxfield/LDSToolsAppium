@@ -202,7 +202,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all1", "jft"})
+    @Test (groups= { "all", "all1"})
     public void templeNearestTemples() throws Exception {
         String pageSource;
 
@@ -240,7 +240,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all2"})
+    @Test (groups= { "all", "all2", "jft"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 
@@ -251,11 +251,13 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
 
         myMenu.selectMenu(myMenu.temples);
+        myTemple.yesRemindMe.click();
         myTemple.chooseDifferentTab(myTemple.allTab);
 
 

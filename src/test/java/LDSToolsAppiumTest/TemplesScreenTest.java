@@ -50,7 +50,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "smoke", "smoke3", "all", "all1"})
+    @Test (groups= { "smoke", "smoke3", "all", "all1", "jft"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -240,7 +240,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all2", "jft"})
+    @Test (groups= { "all", "all2"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 
@@ -284,11 +284,13 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
 
         myMenu.selectMenu(myMenu.temples);
+        myTemple.yesRemindMe.click();
         myTemple.chooseDifferentTab(myTemple.allTab);
 
         myTemple.searchTemple.setValue("Cedar City");
@@ -317,11 +319,13 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
 
         myMenu.selectMenu(myMenu.temples);
+        myTemple.yesRemindMe.click();
         myTemple.chooseDifferentTab(myTemple.allTab);
 
         myTemple.searchTemple.setValue("New York");
@@ -355,11 +359,13 @@ public class TemplesScreenTest extends BaseDriver {
 
 
 
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
 
         myMenu.selectMenu(myMenu.temples);
+        myTemple.yesRemindMe.click();
         myTemple.ordinanceScheduleButton.click();
 
         checkOrdinanceDate();

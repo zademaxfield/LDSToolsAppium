@@ -179,12 +179,12 @@ public class HelperMethods extends BasePage {
         Thread.sleep(2000);
 
         if (getOS().equals("ios")) {
-            System.out.println("Wait for text to appear: UAT");
-            waitForText("UAT");
-            System.out.println("Text found: UAT");
-            waitUnitlTextIsGone("UAT");
+            System.out.println("Wait for text to appear: Update");
+            waitForText("Update");
+            System.out.println("Text found: Update");
+            waitUnitlTextIsGone("Update");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("UAT");
+            waitUnitlTextIsGone("Update");
         } else {
             waitUnitlTextIsGone("Authenticating");
             waitForText("Updating");

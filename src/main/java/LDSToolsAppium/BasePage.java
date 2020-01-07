@@ -2,12 +2,14 @@ package LDSToolsAppium;
 
 
 import io.appium.java_client.*;
+import io.appium.java_client.functions.ExpectedCondition;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
+import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
@@ -17,6 +19,7 @@ import org.jsoup.select.Elements;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -27,6 +30,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class BasePage {
@@ -614,6 +618,12 @@ public class BasePage {
 
         //System.out.println("Stop Checking for Element");
     }
+
+
+
+
+
+
 
     public void waitForText(String myText) {
         //System.out.println("Start Checking for Element");

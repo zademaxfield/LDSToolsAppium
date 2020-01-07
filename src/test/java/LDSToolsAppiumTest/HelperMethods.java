@@ -107,6 +107,7 @@ public class HelperMethods extends BasePage {
             Thread.sleep(5000);
 
             driver.findElement(By.xpath("//XCUIElementTypeOther[@label='Address']")).click();
+            Thread.sleep(3000);
 
             driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Clear text']")).click();
             Thread.sleep(3000);
@@ -180,11 +181,13 @@ public class HelperMethods extends BasePage {
 
         if (getOS().equals("ios")) {
             System.out.println("Wait for text to appear: Update");
+
             waitForText("Update");
             System.out.println("Text found: Update");
             waitUnitlTextIsGone("Update");
             Thread.sleep(1000);
             waitUnitlTextIsGone("Update");
+            System.out.println(getSourceOfPage());
         } else {
             waitUnitlTextIsGone("Authenticating");
             waitForText("Updating");

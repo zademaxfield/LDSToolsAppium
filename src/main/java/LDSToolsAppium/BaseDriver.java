@@ -428,32 +428,36 @@ public class BaseDriver {
             capabilities.setCapability("automationName","uiautomator2");
             capabilities.setCapability("appPackage", myAppPackage);
             capabilities.setCapability("newCommandTimeout", 2000);
-//            capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
 
-            //capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
             capabilities.setCapability("appWaitActivity", "org.lds.ldstools.ux.auth.AuthenticationSignInActivity");
-            capabilities.setCapability("appWaitDuration", "40000");
-//            capabilities.setCapability("androidInstallTimeout", "40000");
+//            capabilities.setCapability("appWaitDuration", "40000");
+//            capabilities.setCapability("normalizeTagNames", true);
 
-//            capabilities.setCapability("unicodeKeyboard", "true");
-//            capabilities.setCapability("resetKeyboard", "true");
             capabilities.setCapability("deviceReadyTimeout", 60);
             capabilities.setCapability("noSign", true);
-            capabilities.setCapability("gpsEnabled", true);
-
+//            capabilities.setCapability("gpsEnabled", true);
 
 
             capabilities.setCapability("fullReset", true);
             capabilities.setCapability("dontStopAppOnReset", true);
-            //capabilities.setCapability("maxTypingFrequency", "8");
 
-            capabilities.setCapability("normalizeTagNames", true);
+
+
 
             capabilities.setCapability("clearDeviceLogsOnStart", true);
 
 
             capabilities.setCapability("unlockType", "pin");
             capabilities.setCapability("unlockKey", "1133");
+
+//            capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
+            //capabilities.setCapability("maxTypingFrequency", "8");
+
+            //capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
+            //            capabilities.setCapability("androidInstallTimeout", "40000");
+
+//            capabilities.setCapability("unicodeKeyboard", "true");
+//            capabilities.setCapability("resetKeyboard", "true");
 
             driver = new AndroidDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"), capabilities);
 

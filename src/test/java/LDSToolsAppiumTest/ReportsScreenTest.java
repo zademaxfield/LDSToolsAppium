@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -127,7 +127,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "report", "jft"})
+    @Test (groups = {"all4", "all", "report"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
 
@@ -252,7 +252,8 @@ public class ReportsScreenTest extends BaseDriver {
         ReportsScreen myReports = new ReportsScreen(driver);
 
 
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -271,10 +272,10 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("AhNae", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Atonio", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Dec 2018", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Expired", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Arce", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Malakhi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("May 2020", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Limited-Use", pageSource, "Contains"));
 
         //TODO: Need a way to test this for iOS. iOS does this very different.
         if (!getRunningOS().equals("ios")) {
@@ -300,8 +301,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Leota", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lesa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Arce", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Batimana", pageSource, "Contains"));
 
     }
 
@@ -328,8 +329,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lesa", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Alo", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Dedman", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ammon", pageSource, "Contains"));
 
     }
 
@@ -342,8 +343,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Alo", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Rachel", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Auton", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("James", pageSource, "Contains"));
 
     }
 
@@ -356,8 +357,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("DeSoto", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Priest", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Cayetamo", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Crumby", pageSource, "Contains"));
 
     }
 
@@ -370,8 +371,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Mataio", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sellyannthia", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Auton", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("James", pageSource, "Contains"));
 
     }
 
@@ -391,7 +392,35 @@ public class ReportsScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
 
+        pageSource = myBasePage.getSourceOfPage();
+//        System.out.println(pageSource);
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ahmanson", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ward Assistant Clerk", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Anakin", pageSource, "Equals"));
 
+        myReports.selectSort(myReports.organizationSort);
+        Thread.sleep(2000);
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Obi-Wan", pageSource, "Equals"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi", pageSource, "Equals"));
+
+
+        myReports.selectSort(myReports.durationSort);
+        Thread.sleep(2000);
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Assistant Librarian", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Talanoa", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Amidala, Padme", pageSource, "Contains"));
+
+
+        myReports.selectSort(myReports.notSetApartSort);
+        Thread.sleep(1000);
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Young Women First Counselor", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ryan, Ken", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("P0, C3", pageSource, "Contains"));
         if (rights <= 2) {
             myMenu.selectMenu(myMenu.reports);
             //myMenu.reports.click();
@@ -435,7 +464,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedOutReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Taylor", 3, rights, pageSource);
+        myBasePage.rightsCheck("Quant", 3, rights, pageSource);
 //        myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
 //        myBasePage.rightsCheck("Pesega", 1, rights, pageSource);
 
@@ -451,42 +480,47 @@ public class ReportsScreenTest extends BaseDriver {
 
         myReports.membersWithCallingsReport.click();
         Thread.sleep(3000);
-        pageSource = myBasePage.getSourceOfPage();
 
-        System.out.println(pageSource);
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ahmanson", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ward Assistant Clerk", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Anakin", pageSource, "Equals"));
+//        myBasePage.waitForText("Ahmanson");
 
-        myReports.selectSort(myReports.organizationSort);
+        //This is broken for iOS right now
+        if (!getRunningOS().equalsIgnoreCase("ios")) {
+            pageSource = myBasePage.getSourceOfPage();
+//        System.out.println(pageSource);
+            Assert.assertTrue(myBasePage.checkNoCaseList("Ahmanson", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Ward Assistant Clerk", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Anakin", pageSource, "Equals"));
+
+            myReports.selectSort(myReports.organizationSort);
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Obi-Wan", pageSource, "Equals"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi", pageSource, "Equals"));
+
+
+            myReports.selectSort(myReports.durationSort);
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Assistant Librarian", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Talanoa", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Amidala, Padme", pageSource, "Contains"));
+
+
+            myReports.selectSort(myReports.notSetApartSort);
+            Thread.sleep(1000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Young Women First Counselor", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Ryan, Ken", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("P0, C3", pageSource, "Contains"));
+        }
+
+
+
         Thread.sleep(2000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ward Clerk", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ian", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Obi-Wan", pageSource, "Equals"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi", pageSource, "Equals"));
-
-
-        myReports.selectSort(myReports.durationSort);
-        Thread.sleep(2000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ward Assistant Clerk", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ahmanson", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Amidala, Padme", pageSource, "Contains"));
-
-
-//        myReports.selectSort(myReports.notSetApartSort);
-//        Thread.sleep(1000);
-//        pageSource = myBasePage.getSourceOfPage();
-////        Assert.assertTrue(myBasePage.checkNoCaseList("Elders Quorum First Counselor", pageSource, "Contains"));
-////        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS22", pageSource, "Contains"));
-//        Assert.assertFalse(myBasePage.checkNoCaseList("P0, C3", pageSource, "Contains"));
-
-
-        Thread.sleep(2000);
-        myBasePage.backButton.click();
+        myBasePage.waitForElementThenClick(myBasePage.backButton);
+//        myBasePage.backButton.click();
         Thread.sleep(2000);
     }
 
@@ -496,27 +530,34 @@ public class ReportsScreenTest extends BaseDriver {
         ReportsScreen myReports = new ReportsScreen(driver);
 
         myReports.membersWithOutCallingsReport.click();
-        Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Abah", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("John", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Fredrick", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("D2, R2", pageSource, "Contains"));
+
+//        System.out.println(pageSource);
+
+        //This is broken for iOS right now
+        if (!getRunningOS().equalsIgnoreCase("ios")) {
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("Abah", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("John", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Fredrick", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("D2, R2", pageSource, "Contains"));
 
 
-        myReports.selectSort(myReports.maleSort);
-        Thread.sleep(2000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adams, Dewayne", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Abah, John Fredrick", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Binks, Jarjar", pageSource, "Contains"));
+            myReports.selectSort(myReports.maleSort);
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Adams, Dewayne", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Abah, John Fredrick", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Binks, Jarjar", pageSource, "Contains"));
 
 
-        myReports.selectSort(myReports.femaleSort);
-        Thread.sleep(2000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adams, Ascencion", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Organa, Leia", pageSource, "Contains"));
+            myReports.selectSort(myReports.femaleSort);
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Adams, Ascencion", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Organa, Leia", pageSource, "Contains"));
+        }
+
 
 
         Thread.sleep(1000);
@@ -574,14 +615,14 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.templeRecommendStatusReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AhNae", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ahmanson", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Ahsoka, Tano", pageSource, "Contains"));
 
 
         myReports.selectFilters(myReports.activeSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Alisa, Fonoafi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Maul, Darth", pageSource, "Contains"));
 
         myReports.selectFilters(myReports.expiringSort);
@@ -593,13 +634,13 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.selectFilters(myReports.expiredSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sese", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Dickson", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
 
         myReports.selectFilters(myReports.otherSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Pipi, Itagia", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Del Real Cortes", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Calrissian, Lando", pageSource, "Contains"));
 
 

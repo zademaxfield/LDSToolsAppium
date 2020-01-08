@@ -539,6 +539,10 @@ public class BaseDriver {
 //            capabilities.setCapability("connectHardwareKeyboard", false);
 
 
+            //Change this to false for more debug
+//            capabilities.setCapability("showIOSLog", false);
+
+
 
 
 

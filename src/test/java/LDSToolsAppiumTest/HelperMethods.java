@@ -184,10 +184,13 @@ public class HelperMethods extends BasePage {
 
             waitForText("Update");
             System.out.println("Text found: Update");
-            waitUnitlTextIsGone("Update");
-            Thread.sleep(1000);
-            waitUnitlTextIsGone("Update");
-            System.out.println(getSourceOfPage());
+//            waitUnitlTextIsGone("Update");
+//            Thread.sleep(1000);
+//            waitUnitlTextIsGone("Update");
+//            System.out.println(getSourceOfPage());
+            Thread.sleep(2000);
+            waitForText("Passcode");
+            System.out.println("Text found: Passcode");
         } else {
             waitUnitlTextIsGone("Authenticating");
             waitForText("Updating");

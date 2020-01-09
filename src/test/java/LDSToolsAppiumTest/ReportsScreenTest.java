@@ -511,7 +511,7 @@ public class ReportsScreenTest extends BaseDriver {
             myReports.selectSort(myReports.notSetApartSort);
             Thread.sleep(1000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Young Women First Counselor", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Sunday School First Counselor", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Ryan, Ken", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("P0, C3", pageSource, "Contains"));
         }

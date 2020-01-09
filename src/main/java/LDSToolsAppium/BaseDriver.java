@@ -442,20 +442,14 @@ public class BaseDriver {
             capabilities.setCapability("dontStopAppOnReset", true);
 
 
-
-
-            capabilities.setCapability("clearDeviceLogsOnStart", true);
-
-
-            capabilities.setCapability("unlockType", "pin");
-            capabilities.setCapability("unlockKey", "1133");
+            capabilities.setCapability("appium:clearDeviceLogsOnStart", true);
+            capabilities.setCapability("appium:unlockType", "pin");
+            capabilities.setCapability("appium:unlockKey", "1133");
 
 //            capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
-            //capabilities.setCapability("maxTypingFrequency", "8");
-
-            //capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
-            //            capabilities.setCapability("androidInstallTimeout", "40000");
-
+//            capabilities.setCapability("maxTypingFrequency", "8");
+//            capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
+//            capabilities.setCapability("androidInstallTimeout", "40000");
 //            capabilities.setCapability("unicodeKeyboard", "true");
 //            capabilities.setCapability("resetKeyboard", "true");
 

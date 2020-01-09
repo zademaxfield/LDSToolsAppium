@@ -39,10 +39,14 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lawrence", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Young Yen", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Longque", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Kaden Allen Gollaher", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Garrison Ostler", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Franco", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("McOmber", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sister Alolisa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Elder Gordon", pageSource, "Contains"));
+
+
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
 
@@ -63,7 +67,8 @@ public class MissionaryScreenTest extends BaseDriver {
         String pageSource;
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.missionary);
@@ -76,139 +81,138 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
         //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lawrence", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Agalelei", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Puletua", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Gollaher", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ostler", pageSource, "Contains"));
         //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Young Yen", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Longque", pageSource, "Contains"));
-        //Serving
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Longque", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Atonio", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Vaifale", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Franco", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("McOmber", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Rachel", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Murillo", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Stewart", pageSource, "Contains"));
 
-
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
-
-        chooseUnit("Fagamalo 1st");
-        pageSource = myMissionary.getMissionaryPage();
-
-        //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lawrence", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Agalelei", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Puletua", pageSource, "Contains"));
-        //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Poai", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Mikaele", pageSource, "Contains"));
         //Serving
         Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ariel", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Naomanu", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Numia", pageSource, "Contains"));
-
-
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
-        chooseUnit("Fatuvalu");
-        pageSource = myMissionary.getMissionaryPage();
-
-        //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Josh", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Skabelund", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Suelaki", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Rodman", pageSource, "Contains"));
-        //Ward
-        Assert.assertFalse(myBasePage.checkNoCaseList("Poai", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Mikaele", pageSource, "Contains"));
-        //Serving
         Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Eugene", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Faalupega", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Mamea", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Iosua", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lambson", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Nehasi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ryan", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("New Zealand", pageSource, "Contains"));
 
 
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
-        chooseUnit("Paia");
+
+        chooseUnit("Centinela 2nd Ward (Tongan)");
         pageSource = myMissionary.getMissionaryPage();
 
         //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Enekosi", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Moleli", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Benjamin", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Petersen", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Kreger", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Vave", pageSource, "Contains"));
         //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tanielu", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Vailolo", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Moala", pageSource, "Contains"));
         //Serving
         Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Osigafeagaiga", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Kirisimasi", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Perth", pageSource, "Contains"));
-
+        Assert.assertTrue(myBasePage.checkNoCaseList("Kaveinga", pageSource, "Contains"));
 
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
-        chooseUnit("Safotu");
+        chooseUnit("El Segundo Ward");
         pageSource = myMissionary.getMissionaryPage();
 
         //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Enekosi", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Moleli", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Benjamin", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Petersen", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Adriana", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Pickett", pageSource, "Contains"));
         //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tapusoa", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Pelasio", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Rock", pageSource, "Contains"));
         //Serving
         Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lj", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Luse", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tapusoa", pageSource, "Contains"));
-
+        Assert.assertTrue(myBasePage.checkNoCaseList("Harper", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sorensen", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Felker", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Putnam", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Layne", pageSource, "Contains"));
 
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
-        chooseUnit("Saleaula");
+        chooseUnit("Figueroa Ward (Spanish)");
         pageSource = myMissionary.getMissionaryPage();
 
         //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lawrence", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Agalelei", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Puletua", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Fawcett", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Monroy", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Wood", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Gable", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Reyes", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Hamp", pageSource, "Contains"));
         //Ward
-        Assert.assertFalse(myBasePage.checkNoCaseList("Tapusoa", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Pelasio", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Altamirano", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Gutierrez", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Romero", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Madrid", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Vasquez", pageSource, "Contains"));
         //Serving
-        Assert.assertFalse(myBasePage.checkNoCaseList("Lj", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Luse", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Tapusoa", pageSource, "Contains"));
-
 
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
-
-        chooseUnit("Lefagaoalii");
+        chooseUnit("Inglewood Ward (Spanish)");
         pageSource = myMissionary.getMissionaryPage();
 
         //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Josh", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Skabelund", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Suelaki", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Rodman", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Fawcett", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Monroy", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Adriana", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Pickett", pageSource, "Contains"));
         //Ward
-        Assert.assertFalse(myBasePage.checkNoCaseList("Tapusoa", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Pelasio", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Javier", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Camacho", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Rodriguez", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Gallegos", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Pool", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Navas", pageSource, "Contains"));
         //Serving
         Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Vagai", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Vagai", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Samoa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Espinosa", pageSource, "Contains"));
+
+
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+        chooseUnit("Southwest Los Angeles Branch");
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Assigned
+        Assert.assertTrue(myBasePage.checkNoCaseList("Cruz", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Love", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Daun", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Faasavalu", pageSource, "Contains"));
+        //Ward
+        Assert.assertTrue(myBasePage.checkNoCaseList("Barton", pageSource, "Contains"));
+
+        //Serving
+
+        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+
+        chooseUnit("Westchester  1st Ward");
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Assigned
+        Assert.assertTrue(myBasePage.checkNoCaseList("Flinders", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Horlacher", pageSource, "Contains"));
+        //Ward
+        Assert.assertTrue(myBasePage.checkNoCaseList("Cox", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Dozier", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Estrada", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Frustaci", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Merrifield", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sipherd", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Wagoner", pageSource, "Contains"));
+        //Serving
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Stevens", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Rex", pageSource, "Contains"));
 
 
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));

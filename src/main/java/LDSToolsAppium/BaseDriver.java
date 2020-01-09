@@ -549,7 +549,7 @@ public class BaseDriver {
                 capabilities.setCapability("xcodeSigningId", "iPhone Developer");
                 capabilities.setCapability("udid", myUdid);
                 capabilities.setCapability("wdaLocalPort", tempPort);
-                capabilities.setCapability("waitForQuiescence", false);
+                capabilities.setCapability("appium:waitForQuiescence", false);
             }
 
 

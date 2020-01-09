@@ -22,7 +22,8 @@ public class MinisteringScreenTest extends BaseDriver {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
         if (rights <= 2) {
@@ -90,7 +91,8 @@ public class MinisteringScreenTest extends BaseDriver {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -102,7 +104,7 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.unassignedHouseholds.click();
             Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Aiono", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Abah", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
             myBasePage.backButton.click();
             myBasePage.backButton.click();
@@ -113,10 +115,12 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.unassignedSisters.click();
             Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Apulu", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-            myBasePage.backButton.click();
-            myBasePage.backButton.click();
+
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
+
 
 
         }
@@ -138,7 +142,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (dataProvider = "Members", groups = {"all2", "all", "smoke", "smoke2"})
     public void ministeringAssignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -150,7 +154,8 @@ public class MinisteringScreenTest extends BaseDriver {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -165,7 +170,7 @@ public class MinisteringScreenTest extends BaseDriver {
             pageSource = myBasePage.getSourceOfPage();
 
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Apolo", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
 
@@ -202,7 +207,8 @@ public class MinisteringScreenTest extends BaseDriver {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -212,36 +218,36 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.ministeringBrothersReport.click();
 
 
-            myMinistering.validateDistrict("District 1");
-            myMinistering.validateDistrict("District 2");
-            myMinistering.validateDistrict("District 3");
+            myMinistering.validateDistrict("EQ President");
+            myMinistering.validateDistrict("First Counselor");
+            myMinistering.validateDistrict("Second Counselor");
 
 
             //Select District 1
-            myMinistering.selectDistrict("District 1");
+            myMinistering.selectDistrict("EQ President");
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Aumoto", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("LDS51", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Bryson", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Darth", pageSource, "Contains"));
 
             myBasePage.backButton.click();
 
             //Select District 2
-            myMinistering.selectDistrict("District 2");
+            myMinistering.selectDistrict("First Counselor");
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Lesa", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Tafea", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Lambson", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Smith", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
 
             myBasePage.backButton.click();
 
             //Select District 3
-            myMinistering.selectDistrict("District 3");
+            myMinistering.selectDistrict("Second Counselor");
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Auvaa", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("LDS21", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Kaveinga", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Solo", pageSource, "Contains"));
 
             myBasePage.backButton.click();
 
@@ -316,7 +322,8 @@ public class MinisteringScreenTest extends BaseDriver {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -332,7 +339,7 @@ public class MinisteringScreenTest extends BaseDriver {
                     myMinistering.unassignedSisters.click();
                     Thread.sleep(2000);
                     pageSource = myBasePage.getSourceOfPage();
-                    Assert.assertTrue(myBasePage.checkNoCaseList("Apulu", pageSource, "Contains"));
+                    Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
                     Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
                 } else {
                     pageSource = myBasePage.getSourceOfPage();
@@ -342,7 +349,7 @@ public class MinisteringScreenTest extends BaseDriver {
                 myMinistering.unassignedSisters.click();
                 Thread.sleep(2000);
                 pageSource = myBasePage.getSourceOfPage();
-                Assert.assertTrue(myBasePage.checkNoCaseList("Alafoni", pageSource, "Contains"));
+                Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
                 Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
             }
 
@@ -375,7 +382,8 @@ public class MinisteringScreenTest extends BaseDriver {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
         Thread.sleep(2000);
 
@@ -390,7 +398,7 @@ public class MinisteringScreenTest extends BaseDriver {
             //myMinistering.sisters.click();
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Alafoni", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
 
 
@@ -411,7 +419,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4", "jft"})
     public void companionshipsSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -423,7 +431,8 @@ public class MinisteringScreenTest extends BaseDriver {
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
 
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -433,16 +442,16 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.ministeringSistersReport.click();
 
 
-            myMinistering.validateDistrict("District 1");
-            myMinistering.validateDistrict("District 2");
+            myMinistering.validateDistrict("RS - 1st Counselor");
+            myMinistering.validateDistrict("RS - 2nd Counselor");
            // myMinistering.validateDistrict("Fagamalo Districts");
 
 
             //Select District 1
-            myMinistering.selectDistrict("District 1");
+            myMinistering.selectDistrict("RS - 1st Counselor");
             Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Faimeaita", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 //            Assert.assertTrue(myBasePage.checkNoCaseList("LDS12", pageSource, "Contains"));
 //            Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
@@ -452,10 +461,10 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
             //Select District 2
-            myMinistering.selectDistrict("District 2");
+            myMinistering.selectDistrict("RS - 2nd Counselor");
             Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Kitara", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Smith", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 //            Assert.assertTrue(myBasePage.checkNoCaseList("LDS35", pageSource, "Contains"));
 //            Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));

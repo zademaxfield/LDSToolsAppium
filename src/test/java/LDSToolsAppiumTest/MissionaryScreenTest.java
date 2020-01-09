@@ -25,7 +25,8 @@ public class MissionaryScreenTest extends BaseDriver {
         String pageSource;
 
         //Login and enter in PIN
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.missionary);

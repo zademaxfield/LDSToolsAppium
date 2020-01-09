@@ -145,8 +145,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    //Not sure if this will work anymore
-    //New way to test is breaking this
+    //This is an iOS only test now
     @Test(groups = {"smoke4", "smoke", "all4", "all"})
     public void directoryNoCallingCheckMRN() throws Exception {
         String pageSource;
@@ -156,16 +155,18 @@ public class DirectoryScreenTest extends BaseDriver {
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        //Login and enter in PIN
-//        myHelper.loginUAT("LDSTools5", "toolstester");
-        myHelper.proxyLogin("dcbryson");
-//        myHelper.enterPin("1", "1", "3", "3");
-        myHelper.nonLeaderNoPin();
-
-        //Search and click on Tools, LDS5
-        myDirectory.searchAndClick("Bryson, David");
-
         if (getRunningOS().equals("ios")) {
+            //Login and enter in PIN
+//        myHelper.loginUAT("LDSTools5", "toolstester");
+//        myHelper.proxyLogin("dcbryson");
+            myHelper.loginProduction("imaxfield", "ldsM0b1l3");
+//        myHelper.enterPin("1", "1", "3", "3");
+            myHelper.nonLeaderNoPin();
+
+            //Search and click on Tools, LDS5
+            myDirectory.searchAndClick("Bryson, David");
+
+
             myBasePage.clickByTextContains("David Bryson");
             myDirectory.memebershipInformation.click();
             pageSource = myBasePage.getSourceOfPage();
@@ -176,18 +177,9 @@ public class DirectoryScreenTest extends BaseDriver {
             pageSource = myDirectory.getDirectoryUserData();
 
 
-        } else {
-            myDirectory.tabMembership.click();
-            Thread.sleep(2000);
-            pageSource = myBasePage.getSourceOfPage();
-
+            Assert.assertTrue(myBasePage.checkNoCaseList("Record Number", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("000-6493-067A", pageSource, "Contains"));
         }
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("Record Number", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("888-0028-7058", pageSource, "Contains"));
-
-
-
 
     }
 

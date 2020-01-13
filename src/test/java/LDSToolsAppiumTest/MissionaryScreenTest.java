@@ -53,7 +53,7 @@ public class MissionaryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all", "jft"})
+    @Test(groups = {"all4", "all"})
     public void missionaryOtherUnits() throws Exception {
         //String pageSource;
 
@@ -229,7 +229,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;
 
@@ -242,7 +242,9 @@ public class MissionaryScreenTest extends BaseDriver {
         String pageSource;
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools30", "password1");
+
+        myHelper.proxyLogin("Katalinav");
+//        myHelper.loginUAT("LDSTools30", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.missionary);
@@ -254,10 +256,8 @@ public class MissionaryScreenTest extends BaseDriver {
         //Check to see if the Members info is correct
         pageSource = myBasePage.getSourceOfPage();
 
-//        Assert.assertTrue(myBasePage.checkNoCaseList("(385) 800-1234", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Test@gmail.com", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("8018675309", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("zademobile004@gmail.com", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("310-8443946", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("katalina@clearfreight.com", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("zmaxfield", pageSource, "Contains"));
 
         myMissionary.referralName.setValue("Auto Test Name");
@@ -285,7 +285,7 @@ public class MissionaryScreenTest extends BaseDriver {
             if (myBasePage.checkForElement(myBasePage.alertOK)) {
                 myBasePage.alertOK.click();
                 Thread.sleep(2000);
-                myBasePage.allowButton.click();
+                myBasePage.allowWhileUsingApp.click();
             }
         }
 

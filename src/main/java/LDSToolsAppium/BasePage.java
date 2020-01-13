@@ -80,6 +80,7 @@ public class BasePage {
 
 
     //Allow While Using App
+    @AndroidFindBy(xpath = "//*[@text=\"Allow only while using the app\"]")
     @iOSXCUITFindBy(accessibility = "Allow While Using App")
     public MobileElement allowWhileUsingApp;
 

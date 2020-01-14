@@ -473,6 +473,7 @@ public class DirectoryScreen extends BasePage {
             tabHousehold.click();
             //tabContact.click();
             tabContact.click();
+            pageSource = pageSource + getSourceOfPage();
 
         }
 

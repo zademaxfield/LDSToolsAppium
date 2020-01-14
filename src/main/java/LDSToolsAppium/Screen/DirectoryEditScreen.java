@@ -27,22 +27,26 @@ public class DirectoryEditScreen extends BasePage {
 
     // ****************** Phone and Email ******************
     //Personal Edit Phone
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"individualPhoneEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_phone\")]")
+//    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"individualPhoneEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_phone\")]")
+    @AndroidFindBy(id = "individualPhoneEditText")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[2]/XCUIElementTypeTextField")
     public MobileElement directoryEditPersonalPhone;
 
     //Household Edit Phone
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"householdPhoneEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_phone\")]")
+//    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"householdPhoneEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_phone\")]")
+    @AndroidFindBy(id = "householdPhoneEditText")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[4]/XCUIElementTypeTextField")
     public  MobileElement directoryEditHouseholdPhone;
 
     //Personal Edit Email
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"individualEmailEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_email\")]")
+//    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"individualEmailEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_email\")]")
+    @AndroidFindBy(id = "individualEmailEditText")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[3]/XCUIElementTypeTextField")
     public  MobileElement directoryEditPersonalEmail;
 
-    //Personal Edit Email
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"householdEmailEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_email\")]")
+    //Household Edit Email
+//    @AndroidFindBy(xpath = "//android.widget.FrameLayout[contains(@resource-id, \"householdEmailEditText\")]//android.widget.EditText[contains(@resource-id, \"edit_email\")]")
+    @AndroidFindBy(id = "householdEmailEditText")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[5]/XCUIElementTypeTextField")
     public  MobileElement directoryEditHouseholdEmail;
 
@@ -216,12 +220,19 @@ public class DirectoryEditScreen extends BasePage {
     public MobileElement doneButton;
 
 
+
+    //*********** Tool Bar **************
+    @AndroidFindBy(id = "drop_arrow")
+    @iOSXCUITFindBy(accessibility = "Directory")
+    public MobileElement unitSelector;
+
+
     public void clearPhoneAndEmail() throws Exception {
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
 
         editUserOpen();
         Thread.sleep(2000);
-
+//        System.out.println(getSourceOfPage());
         directoryEditHouseholdPhone.clear();
         directoryEditPersonalPhone.clear();
         directoryEditPersonalEmail.clear();

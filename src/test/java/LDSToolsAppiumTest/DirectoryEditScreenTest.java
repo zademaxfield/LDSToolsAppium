@@ -5,6 +5,7 @@ import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.DirectoryEditScreen;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
+import LDSToolsAppium.Screen.MissionaryScreen;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -30,10 +31,11 @@ public class DirectoryEditScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools44", "password1");
+//        myHelper.loginUAT("LDSTools44", "password1");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS44");
+        myDirectory.searchAndClick("Beeson, Adam");
 
 
         myEditDirectory.clearPhoneAndEmail();
@@ -53,9 +55,10 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         savingMemberInfo();
 
-        Thread.sleep(4000);
+        Thread.sleep(3000);
 
         pageSource = myDirectory.getDirectoryUserData();
+//        System.out.println(pageSource);
 
         //pageSource = getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("1(801)240-0104", pageSource, "Contains"));
@@ -69,16 +72,25 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         //myHelper.runSync();
         myMenu.menuLogOut();
-        myHelper.loginUAT("LDSTools44", "password1");
+//        myHelper.loginUAT("LDSTools44", "password1");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
+
+        myMenu.selectMenu(myMenu.lists);
+        myMenu.selectMenu(myMenu.directory);
+
+//        System.out.println(myBasePage.getSourceOfPage());
+        chooseUnit("Centinela 1st Ward");
 
 
         //Search for logged in user
-        myDirectory.searchAndClick("Tools, LDS44");
+//        myDirectory.searchAndClick("Tools, LDS44");
+        myDirectory.searchAndClick("Beeson, Adam");
+
 
         pageSource = myDirectory.getDirectoryUserData();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS44", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Beeson, Adam", pageSource, "Contains"));
 
         //Check the users name, address membership number etc...
         Assert.assertTrue(myBasePage.checkNoCaseList("1(801)240-0104", pageSource, "Contains"));
@@ -724,5 +736,24 @@ public class DirectoryEditScreenTest extends BaseDriver {
             Thread.sleep(6000);
         }
     }
+
+
+    private void chooseUnit(String myUnit) throws Exception {
+        DirectoryEditScreen myDirectoryEdit = new DirectoryEditScreen(driver);
+        //Choose different Unit
+        System.out.println("Press the selector");
+        myDirectoryEdit.unitSelector.click();
+        Thread.sleep(2000);
+        System.out.println("Choose unit: " + myUnit);
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            driver.findElement(By.xpath("//*[contains(@name,'" + myUnit + "')]")).click();
+        } else {
+            driver.findElement(By.xpath("//*[contains(@text,'" + myUnit + "')]")).click();
+        }
+
+    }
+
+
+
 
 }

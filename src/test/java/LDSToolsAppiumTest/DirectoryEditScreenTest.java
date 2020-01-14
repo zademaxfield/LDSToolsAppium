@@ -19,7 +19,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(groups = {"smoke4", "smoke", "all2", "all", "jft"})
+    @Test(groups = {"smoke4", "smoke", "all2", "all"})
     public void editCurrentUser() throws Exception {
         String pageSource;
 
@@ -76,11 +76,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myMenu.selectMenu(myMenu.lists);
-        myMenu.selectMenu(myMenu.directory);
-
-//        System.out.println(myBasePage.getSourceOfPage());
-        chooseUnit("Centinela 1st Ward");
+        listsDirectoryUnit();
 
 
         //Search for logged in user
@@ -134,10 +130,12 @@ public class DirectoryEditScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools44", "password1");
+//        myHelper.loginUAT("LDSTools44", "password1");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS44");
+//        myDirectory.searchAndClick("Tools, LDS44");
+        myDirectory.searchAndClick("Beeson, Adam");
 
 
         myEditDirectory.clearPhoneAndEmail();
@@ -178,10 +176,12 @@ public class DirectoryEditScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS44");
+//        myDirectory.searchAndClick("Tools, LDS44");
+        myDirectory.searchAndClick("Beeson, Adam");
 
 
         myEditDirectory.clearPhoneAndEmail();
@@ -213,16 +213,19 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
 
         myMenu.menuLogOut();
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
 
+        listsDirectoryUnit();
 
         //Search for logged in user
-        myDirectory.searchAndClick("Tools, LDS44");
+//        myDirectory.searchAndClick("Tools, LDS44");
+        myDirectory.searchAndClick("Beeson, Adam");
 
         pageSource = myDirectory.getDirectoryUserData();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS44", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Beeson, Adam", pageSource, "Contains"));
 
         //Check the users name, address membership number etc...
         Assert.assertTrue(myBasePage.checkNoCaseList("1(801)240-0104", pageSource, "Contains"));
@@ -239,14 +242,18 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myBasePage.backToDirectory();
 
         myMenu.menuLogOut();
-        myHelper.loginUAT("LDSTools3", "toolstester");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
 
+        listsDirectoryUnit();
+
         //Search for logged in user
-        myDirectory.searchAndClick("Tools, LDS44");
+//        myDirectory.searchAndClick("Tools, LDS44");
+        myDirectory.searchAndClick("Beeson, Adam");
 
         pageSource = myDirectory.getDirectoryUserData();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tools, LDS44", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Beeson, Adam", pageSource, "Contains"));
 
 
         Thread.sleep(3000);
@@ -259,7 +266,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void editPhoneInvalid() throws Exception {
 
         // ********* Constructor **********
@@ -268,10 +275,12 @@ public class DirectoryEditScreenTest extends BaseDriver {
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools43", "password1");
+//        myHelper.loginUAT("LDSTools43", "password1");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS43");
+//        myDirectory.searchAndClick("Tools, LDS43");
+        myDirectory.searchAndClick("Beeson, Adam");
 
 
         myEditDirectory.clearPhoneAndEmail();
@@ -751,6 +760,14 @@ public class DirectoryEditScreenTest extends BaseDriver {
             driver.findElement(By.xpath("//*[contains(@text,'" + myUnit + "')]")).click();
         }
 
+    }
+
+    private void listsDirectoryUnit() throws Exception {
+        MenuScreen myMenu = new MenuScreen(driver);
+        //For some reason after you log out - login the system needs this
+        myMenu.selectMenu(myMenu.lists);
+        myMenu.selectMenu(myMenu.directory);
+        chooseUnit("Centinela 1st Ward");
     }
 
 

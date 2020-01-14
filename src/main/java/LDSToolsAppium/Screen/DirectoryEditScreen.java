@@ -92,7 +92,8 @@ public class DirectoryEditScreen extends BasePage {
     public MobileElement cancelButton;
 
     //Save Failed
-    @AndroidFindBy(xpath = "//*[contains(@text, 'Save failed')]")
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Failed to update data')]")
+//    @AndroidFindBy(xpath = "//*[contains(@text, 'Save failed')]")
     //@AndroidFindBy(xpath = "//*[contains(@text, 'provide a valid')]")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Warning'")
     public MobileElement saveFailedDialog;

@@ -353,7 +353,7 @@ public class DirectoryScreen extends BasePage {
         if (getOS().equals("ios")) {
             options= driver.findElements(By.xpath("//*[@value='" + myUser + "']"));
         } else {
-            options= driver.findElements(By.xpath("//*[@text='" + myUser + "']"));
+            options= driver.findElements(By.xpath("//android.widget.TextView[@text='" + myUser + "']"));
         }
 
         myReturnStatus = !options.isEmpty();

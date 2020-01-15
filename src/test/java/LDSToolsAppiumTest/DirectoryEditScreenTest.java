@@ -331,7 +331,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all"})
     public void editEmailInvalid() throws Exception {
 
         // ********* Constructor **********
@@ -397,7 +397,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void editVisibility() throws Exception {
 
         // ********* Constructor **********
@@ -411,10 +411,10 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools5", "toolstester");
+        myHelper.proxyLogin("dcbryson");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS5");
+        myDirectory.searchAndClick("Bryson, David");
 
         myEditDirectory.editUserOpen();
         Thread.sleep(2000);
@@ -433,30 +433,36 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
 
         //Make sure members without callings cannot see the members info
-        myHelper.loginUAT("LDSTools6", "toolstester");
+        myHelper.proxyLogin("Kimburrell");
         myHelper.enterPin("1", "1", "3", "3");
 
-        foundMember = myDirectory.searchForMemberCheckResults("Tools, LDS5");
+        listsDirectoryUnit();
+
+        foundMember = myDirectory.searchForMemberCheckResults("Bryson, David");
         Assert.assertFalse(foundMember);
         Thread.sleep(2000);
         myBase.backToDirectory();
         myMenu.menuLogOut();
 
         //Check Ward Council Access
-        myHelper.loginUAT("LDSTools35", "password1");
+        myHelper.proxyLogin("RIBITALOT@AOL.COM");
         myHelper.enterPin("1", "1", "3", "3");
 
-        foundMember = myDirectory.searchForMemberCheckResults("Tools, LDS5");
+        listsDirectoryUnit();
+
+        foundMember = myDirectory.searchForMemberCheckResults("Bryson, David");
         Assert.assertTrue(foundMember);
         Thread.sleep(2000);
         myBase.backToDirectory();
         myMenu.menuLogOut();
 
         //Reset visibility settings back to normal
-        myHelper.loginUAT("LDSTools5", "toolstester");
+        myHelper.proxyLogin("dcbryson");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS5");
+        listsDirectoryUnit();
+
+        myDirectory.searchAndClick("Bryson, David");
 
         myEditDirectory.editUserOpen();
         Thread.sleep(2000);
@@ -468,11 +474,26 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         myMenu.menuLogOut();
 
-        //Make sure members without callings cannot see the members info
-        myHelper.loginUAT("LDSTools6", "toolstester");
+        Thread.sleep(2000);
+
+        //Make sure everything is back to default
+        myHelper.proxyLogin("RIBITALOT@AOL.COM");
         myHelper.enterPin("1", "1", "3", "3");
 
-        foundMember = myDirectory.searchForMemberCheckResults("Tools, LDS5");
+        listsDirectoryUnit();
+
+        foundMember = myDirectory.searchForMemberCheckResults("Bryson, David");
+        Assert.assertTrue(foundMember);
+
+        Thread.sleep(2000);
+
+        //Make sure members without callings cannot see the members info
+        myHelper.proxyLogin("Kimburrell");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        listsDirectoryUnit();
+
+        foundMember = myDirectory.searchForMemberCheckResults("Bryson, David");
         Assert.assertTrue(foundMember);
 
 
@@ -517,10 +538,10 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools5", "toolstester");
+        myHelper.proxyLogin("dcbryson");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS5");
+        myDirectory.searchAndClick("Bryson, David");
 
         myEditDirectory.editUserOpen();
         Thread.sleep(2000);
@@ -593,10 +614,10 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
 
         //Make sure members without callings cannot see the private email
-        myHelper.loginUAT("LDSTools6", "toolstester");
+        myHelper.proxyLogin("Kimburrell");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS5");
+        myDirectory.searchAndClick("Bryson, David");
         pageSource = myDirectory.getDirectoryUserData();
 
         Assert.assertTrue(myBase.checkNoCaseList("LDS5", pageSource, "Contains"));
@@ -660,7 +681,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myHelper.loginUAT("LDSTools21", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS5");
+        myDirectory.searchAndClick("Bryson, David");
         pageSource = myDirectory.getDirectoryUserData();
 
         Assert.assertTrue(myBase.checkNoCaseList("LDS5", pageSource, "Contains"));
@@ -681,10 +702,10 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
 
         //Clean up
-        myHelper.loginUAT("LDSTools5", "toolstester");
+        myHelper.proxyLogin("dcbryson");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS5");
+        myDirectory.searchAndClick("Bryson, David");
 
         myEditDirectory.editUserOpen();
         Thread.sleep(2000);

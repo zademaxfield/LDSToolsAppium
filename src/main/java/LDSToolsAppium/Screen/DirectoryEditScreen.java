@@ -140,7 +140,7 @@ public class DirectoryEditScreen extends BasePage {
     public MobileElement visiblityCancel;
 
     //Set Limit
-    @AndroidFindBy(id = "md_buttonDefaultPositive")
+    @AndroidFindBy(id = "md_button_positive")
     public MobileElement setLimit;
 
     // **************************** Personal Visibility ****************************
@@ -149,17 +149,20 @@ public class DirectoryEditScreen extends BasePage {
     public MobileElement setAllToPersonal;
 
     //Image
-    @AndroidFindBy(id = "visibilityEditIndPhoto")
+//    @AndroidFindBy(id = "visibilityEditIndPhoto")
+    @AndroidFindBy(id = "individualPhotoVisibilityLineItem")
     @iOSXCUITFindBy(accessibility = "Image")
     public MobileElement imagePersonal;
 
     //Phone
-    @AndroidFindBy(id = "visibilityEditIndPhone")
+//    @AndroidFindBy(id = "visibilityEditIndPhone")
+    @AndroidFindBy(id = "individualPhoneVisibilityLineItem")
     @iOSXCUITFindBy(accessibility = "Phone")
     public MobileElement phonePersonal;
 
     //Email
-    @AndroidFindBy(id = "visibilityEditIndEmail")
+//    @AndroidFindBy(id = "visibilityEditIndEmail")
+    @AndroidFindBy(id = "individualEmailVisibilityLineItem")
     @iOSXCUITFindBy(accessibility = "Email")
     public MobileElement emailPersonal;
 
@@ -170,27 +173,32 @@ public class DirectoryEditScreen extends BasePage {
     public MobileElement setAllToHousehold;
 
     //Image
-    @AndroidFindBy(id = "visibilityEditHouseholdPhoto")
+//    @AndroidFindBy(id = "visibilityEditHouseholdPhoto")
+    @AndroidFindBy(id = "householdPhotoVisibilityLineItem")
     @iOSXCUITFindBy(accessibility = "Image")
     public MobileElement imageHousehold;
 
     //Phone
-    @AndroidFindBy(id = "visibilityEditHouseholdPhone")
+//    @AndroidFindBy(id = "visibilityEditHouseholdPhone")
+    @AndroidFindBy(id = "householdPhoneVisibilityLineItem")
     @iOSXCUITFindBy(accessibility = "Phone")
     public MobileElement phoneHousehold;
 
     //Email
-    @AndroidFindBy(id = "visibilityEditHouseholdEmail")
+//    @AndroidFindBy(id = "visibilityEditHouseholdEmail")
+    @AndroidFindBy(id = "householdEmailVisibilityLineItem")
     @iOSXCUITFindBy(accessibility = "Email")
     public MobileElement emailHousehold;
 
     //Address
-    @AndroidFindBy(id = "visibilityEditHouseholdAddress")
+//    @AndroidFindBy(id = "visibilityEditHouseholdAddress")
+    @AndroidFindBy(id = "householdAddressVisibilityLineItem")
     @iOSXCUITFindBy(accessibility = "Address")
     public MobileElement physicalAddress;
 
     //Show on Map
-    @AndroidFindBy(id = "visibilityEditHouseholdMap")
+//    @AndroidFindBy(id = "visibilityEditHouseholdMap")
+    @AndroidFindBy(id = "householdMapVisibilityLineItem")
     @iOSXCUITFindBy(accessibility = "Show on Map")
     public MobileElement showOnMap;
 
@@ -314,6 +322,7 @@ public class DirectoryEditScreen extends BasePage {
             }
             Thread.sleep(1000);
 
+//            System.out.println(getSourceOfPage());
             imagePersonal.click();
             Thread.sleep(1000);
             popUpStake.click();
@@ -327,8 +336,10 @@ public class DirectoryEditScreen extends BasePage {
             popUpStake.click();
 
             Thread.sleep(1000);
-            //myBase.scrollToText("Show on Map");
-            myBase.scrollToTextScollArea("Show on Map");
+//            myBase.scrollToText("Show on Map");
+            myBase.scrollDownAndroidUIAutomator("0");
+
+//            myBase.scrollToTextScollArea("Show on Map");
             //myBase.scrollToTextTopLayout("Show on Map");
 
 
@@ -376,6 +387,7 @@ public class DirectoryEditScreen extends BasePage {
             directoryPrivacyTab.click();
             householdVisibilityLimit.click();
             elementVisiblity.click();
+//            System.out.println(getSourceOfPage());
             setLimit.click();
             Thread.sleep(1000);
 

@@ -290,7 +290,8 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         myEditDirectory.directoryEditPersonalPhone.sendKeys("123456789012345678901234567890123456789012345678901234567890badbadleroybrown");
         saveInvalid("phone");
-        myEditDirectory.directoryEditPersonalPhone.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalPhone.clear();
 
 //        myEditDirectory.directoryEditPersonalPhone.sendKeys("##################*************())()()()(()())(()()()");
 //        saveInvalid("phone");
@@ -298,27 +299,33 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         myEditDirectory.directoryEditPersonalPhone.sendKeys("     801     867             5309$");
         saveInvalid("phone");
-        myEditDirectory.directoryEditPersonalPhone.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalPhone.clear();
 
         myEditDirectory.directoryEditPersonalPhone.sendKeys("!@#$%^&*()_+!@#@#$$%$%^%*^*&(&*)");
         saveInvalid("phone");
-        myEditDirectory.directoryEditPersonalPhone.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalPhone.clear();
 
         myEditDirectory.directoryEditHouseholdPhone.sendKeys("123456789012345678901234567890123456789012345678901234567890badbadleroybrown");
         saveInvalid("phone");
-        myEditDirectory.directoryEditHouseholdPhone.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalPhone.clear();
 
         myEditDirectory.directoryEditHouseholdPhone.sendKeys("##################*************())()()()(()())(()()()");
         saveInvalid("phone");
-        myEditDirectory.directoryEditHouseholdPhone.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalPhone.clear();
 
         myEditDirectory.directoryEditHouseholdPhone.sendKeys("     801     867             5309$");
         saveInvalid("phone");
-        myEditDirectory.directoryEditHouseholdPhone.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalPhone.clear();
 
         myEditDirectory.directoryEditHouseholdPhone.sendKeys("!@#$%^&*()_+!@#@#$$%$%^%*^*&(&*)");
         saveInvalid("phone");
-        myEditDirectory.directoryEditHouseholdPhone.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalPhone.clear();
 
         savingMemberInfo();
 

@@ -266,7 +266,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all"})
     public void editPhoneInvalid() throws Exception {
 
         // ********* Constructor **********
@@ -331,7 +331,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void editEmailInvalid() throws Exception {
 
         // ********* Constructor **********
@@ -339,11 +339,13 @@ public class DirectoryEditScreenTest extends BaseDriver {
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
 
-        //Login and enter in PIN
-        myHelper.loginUAT("LDSTools43", "password1");
+//        myHelper.loginUAT("LDSTools43", "password1");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS43");
+//        myDirectory.searchAndClick("Tools, LDS43");
+        myDirectory.searchAndClick("Beeson, Adam");
+
 
 
         myEditDirectory.clearPhoneAndEmail();
@@ -353,35 +355,43 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         myEditDirectory.directoryEditPersonalEmail.sendKeys("hello there");
         saveInvalid("email");
-        myEditDirectory.directoryEditPersonalEmail.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditPersonalEmail.sendKeys("notatsign.com");
         saveInvalid("email");
-        myEditDirectory.directoryEditPersonalEmail.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditPersonalEmail.sendKeys("nodotafterthe@sign");
         saveInvalid("email");
-        myEditDirectory.directoryEditPersonalEmail.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditPersonalEmail.sendKeys("!@#$%^&*()_+!@#@#$$%$%^%*^*&(&*)");
         saveInvalid("email");
-        myEditDirectory.directoryEditPersonalEmail.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("hello there");
         saveInvalid("email");
-        myEditDirectory.directoryEditHouseholdEmail.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("notatsign.com");
         saveInvalid("email");
-        myEditDirectory.directoryEditHouseholdEmail.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("nodotafterthe@sign");
         saveInvalid("email");
-        myEditDirectory.directoryEditHouseholdEmail.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalEmail.clear();
 
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("!@#$%^&*()_+!@#@#$$%$%^%*^*&(&*)");
         saveInvalid("email");
-        myEditDirectory.directoryEditHouseholdEmail.clear();
+        myEditDirectory.editUserOpen();
+//        myEditDirectory.directoryEditPersonalEmail.clear();
 
         savingMemberInfo();
 
@@ -709,8 +719,11 @@ public class DirectoryEditScreenTest extends BaseDriver {
                 myEditDirectory.menuSave.click();
                 failedFound = myBasePage.checkForElement(myEditDirectory.invalidEmail);
             } else {
+                myEditDirectory.menuSave.click();
                 pageSource = myBasePage.getSourceOfPage();
-                failedFound = myBasePage.checkNoCaseList("you must provide a valid email address", pageSource, "Contains");
+//                failedFound = myBasePage.checkNoCaseList("you must provide a valid email address", pageSource, "Contains");
+                failedFound = myBasePage.checkNoCaseList("Failed", pageSource, "Contains");
+                myBasePage.alertOK.click();
             }
             Assert.assertTrue(failedFound);
             if (getRunningOS().equals("ios")) {

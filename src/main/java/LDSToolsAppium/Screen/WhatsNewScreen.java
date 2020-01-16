@@ -34,9 +34,12 @@ public class WhatsNewScreen extends BasePage {
     public MobileElement whatsNewTitleSub;
 
     //Done Button
-    @AndroidFindBy(id = "done")
+//    @AndroidFindBy(id = "done")
+    @AndroidFindBy(id = "doneButton")
     @iOSXCUITFindBy(accessibility = "Done")
     public MobileElement whatsNewDone;
+
+
 
 
 }

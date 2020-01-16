@@ -841,7 +841,7 @@ public class HelperMethods extends BasePage {
 
     }
 
-    public void dismissWhatsNewPage() {
+    public void dismissWhatsNewPage() throws Exception {
         // ********* Constructor **********
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         BasePage myBasePage = new BasePage(driver);
@@ -850,6 +850,7 @@ public class HelperMethods extends BasePage {
         //Check for Whats New Page
 //      if (myBasePage.checkForElement(myWhatsNew.whatsNewDone)) {
         if (myBasePage.checkElementExists("Done") || (myBasePage.checkElementExists("DONE")) ){
+//            System.out.println(myBasePage.getSourceOfPage());
             myWhatsNew.whatsNewDone.click();
             if (!myBasePage.getOS().equals("ios")) {
                 if (myBasePage.checkForElement(myBasePage.allowButton)) {

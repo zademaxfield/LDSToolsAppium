@@ -99,7 +99,7 @@ public class CustomReporter implements IReporter{
 	}
 
 	private void startHtml() {
-		mOut.println("<h1> LDS Tools Automated Test Report </h1> <br />");		
+		mOut.println("<h1> Member Tools Automated Test Report </h1> <br />");
 		mOut.println(" <br />");
 		mOut.println(" <br />");
 	}

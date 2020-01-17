@@ -12,23 +12,27 @@ public class TestListener implements ITestListener {
 	String os;
 	String fileName;
 	String testDevice;
-	
+
+	private ThreadLocal testWatcher= new ThreadLocal();
+
 
     @Override
 	public void onFinish(ITestContext context) {
+		BaseDriver myBaseDriver = new BaseDriver();
 		Set<ITestResult> failedTests = context.getFailedTests().getAllResults();
 		Set<ITestResult> skippedTests = context.getSkippedTests().getAllResults();
 
-		for (ITestResult temp : failedTests) {
-			ITestNGMethod method = temp.getMethod();
-			if (context.getFailedTests().getResults(method).size() > 1) {
-				failedTests.remove(temp);
-			} else {
-				if (context.getPassedTests().getResults(method).size() > 0) {
-					failedTests.remove(temp);
-				}
-			}
-		}
+
+//		for (ITestResult temp : failedTests) {
+//			ITestNGMethod method = temp.getMethod();
+//			if (context.getFailedTests().getResults(method).size() > 1) {
+//				failedTests.remove(temp);
+//			} else {
+//				if (context.getPassedTests().getResults(method).size() > 0) {
+//					failedTests.remove(temp);
+//				}
+//			}
+//		}
 		
 		for (ITestResult temp : skippedTests) {
 			skippedTests.remove(temp);
@@ -37,7 +41,15 @@ public class TestListener implements ITestListener {
 		
 	}
   
-    public void onTestStart(ITestResult result) {   }
+    public void onTestStart(ITestResult result) {
+//		testWatcher.set(result.getTestContext().getAttribute("testName").toString());
+//		testWatcher.set(result.getTestContext().getName());
+		BaseDriver myBaseDriver = new BaseDriver();
+		System.out.println("On Start: " + result.getTestName());
+//		System.out.println(myBaseDriver.getTestName());
+//		result.setTestName(myBaseDriver.getTestName());
+//		result.getTestContext().setAttribute("testName", result.getTestName());
+	}
   
     public void onTestSuccess(ITestResult result) {   }
   
@@ -50,21 +62,6 @@ public class TestListener implements ITestListener {
     public void onTestSkipped(ITestResult result) {
     	//Changed skipped test to Failure!!!!!
     	result.setStatus(ITestResult.FAILURE);
-    	/*
-    	System.out.println("SKIP found!");
-    	System.out.println("OS: " + os);
-    	System.out.println("File Name: " + fileName);
-    	System.out.println("Test Device: " + testDevice);
-    	
-    	//myLDSTools.driver.quit();
-    	myLDSTools.myAppiumService.stop();
-    	try {
-			myLDSTools.setUp(os, fileName, testDevice);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
 
     }
 

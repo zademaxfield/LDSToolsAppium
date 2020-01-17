@@ -10,17 +10,19 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.logging.*;
+import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.*;
+import java.lang.reflect.Method;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.*;
 
-public class BaseDriver {
+public class BaseDriver implements ITest {
     public AppiumDriver<MobileElement> driver;
     public AppiumDriver<MobileElement> driver2;
     public String deviceSerial = "";
@@ -40,6 +42,8 @@ public class BaseDriver {
     public String stfURL = "http://10.109.45.146:7100";
     public String testDevice = "";
     public String androidAppPackage = "org.lds.ldstools.alpha";
+
+    public ThreadLocal<String> dataTestName = new ThreadLocal<>();
 
     @BeforeSuite(alwaysRun = true)
     public void removeFilesBeforeTest() {
@@ -98,12 +102,26 @@ public class BaseDriver {
             driver = appiumCapabilities(os, fileName, testDevice, myPort);
             app = new LDSToolsApp(driver);
         }
-
-
-
-
-
         
+    }
+
+    @BeforeMethod(alwaysRun = true)
+    public void BeforeMethodTestName (Method method, Object[] testData, ITestContext ctx) {
+        if (testData.length > 0) {
+            dataTestName.set(method.getName() + "_" + testData[3]);
+            ctx.setAttribute("testName", dataTestName.get());
+//            ctx.setAttribute("name", dataTestName.get());
+//            System.out.println(Arrays.toString(ctx.getAttributeNames().toArray()));
+        } else {
+            ctx.setAttribute("testName", method.getName());
+        }
+
+    }
+
+    @Override
+    public String getTestName() {
+        return dataTestName.get();
+
     }
 
 
@@ -182,32 +200,6 @@ public class BaseDriver {
 
             screenshotAndLogs(testName);
 
-//
-//            takeScreenShot();
-//
-//            System.out.println("******************* LOGS TYPES *********************");
-//            Set<String> logTypes = driver.manage().logs().getAvailableLogTypes();
-//            for(String mylog : logTypes) {
-//                System.out.println(mylog);
-//            }
-//            System.out.println("******************* END LOGS TYPES *********************");
-//
-//
-//            System.out.println("******************* LOGS *********************");
-//            LogEntries logEntries;
-//            if (getRunningOS().contains("ios")) {
-//                //logEntries = driver.manage().logs().get("crashlog");
-//                logEntries = driver.manage().logs().get("server");
-//            } else {
-//                logEntries = driver.manage().logs().get("logcat");
-//            }
-//
-//            Iterator<LogEntry> logIter = logEntries.iterator();
-//            while(logIter.hasNext()) {
-//                LogEntry entry = logIter.next();
-//                System.out.println(entry.getMessage());
-//            }
-//            System.out.println("******************* END LOGS *********************");
 
         }
 

@@ -35,7 +35,7 @@ public class DirectoryScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "all2", "all", "jft"})
     public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -75,7 +75,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Membership Information
         myBasePage.rightsCheck("MEMBERSHIP INFORMATION", 3, rights, pageSource);
-        myBasePage.rightsCheck("FULL NAME", 3, rights, pageSource);
+        myBasePage.rightsCheck("FULL NAME", 2, rights, pageSource);
         myBasePage.rightsCheck("Dickson", 4, rights, pageSource);
         myBasePage.rightsCheck("Emma", 3, rights, pageSource);
         myBasePage.rightsCheck("Jan", 4, rights, pageSource);
@@ -146,7 +146,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
     //This is an iOS only test now
-    @Test(groups = {"smoke4", "smoke", "all4", "all"})
+    @Test(groups = {"smoke4", "all4", "all"})
     public void directoryNoCallingCheckMRN() throws Exception {
         String pageSource;
 
@@ -211,7 +211,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryMemberInfoIndividual() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
@@ -835,6 +835,13 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
+
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    public void testJunitReport(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+
+        System.out.println("Calling: " + callingGroup);
+        Assert.assertTrue(callingGroup.contains("BISHOP"));
+    }
 
 
 

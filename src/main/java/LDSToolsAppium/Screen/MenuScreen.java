@@ -68,6 +68,11 @@ public class MenuScreen extends BasePage {
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Sync'")
     public  MobileElement sync;
 
+    //Update
+    @AndroidFindBy(xpath = "//*[@text='Update']")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Update'")
+    public  MobileElement update;
+
     //Settings
     @AndroidFindBy(xpath = "//*[@text='Settings']")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Settings'")

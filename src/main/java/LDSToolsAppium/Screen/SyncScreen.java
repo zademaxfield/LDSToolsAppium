@@ -31,7 +31,7 @@ public class SyncScreen extends BasePage {
     public  MobileElement syncButton;
 
     //Update Button
-    @AndroidFindBy(accessibility = "Update")
+    @AndroidFindBy(id = "manuallyUpdateButton")
     @iOSXCUITFindBy(accessibility = "Update")
     public  MobileElement updateButton;
 
@@ -46,6 +46,16 @@ public class SyncScreen extends BasePage {
     //Cancel Button
     @AndroidFindBy(id = "md_buttonDefaultNegative")
     public  MobileElement syncCancelButton;
+
+
+    public void manualUpdate() throws Exception {
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        myMenu.selectMenu(myMenu.update);
+        updateButton.click();
+        myBasePage.waitUnitlTextIsGone("Updating");
+        myBasePage.waitForElementThenClick(myBasePage.backButton);
+    }
 
 
 }

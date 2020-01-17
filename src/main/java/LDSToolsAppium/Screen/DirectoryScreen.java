@@ -331,13 +331,14 @@ public class DirectoryScreen extends BasePage {
 
     }
 
-    public Boolean searchForMemberCheckResults(String myUser) {
+    public Boolean searchForMemberCheckResults(String myUser) throws Exception {
         String tempMyUser = myUser.toLowerCase();
         Boolean myReturnStatus;
         List<MobileElement> options;
 
         directorySort.click();
         sortIndividual.click();
+        Thread.sleep(2000);
 
         if (tempMyUser.contains("tools")) {
             String[] parts = myUser.split(", ");

@@ -18,9 +18,9 @@ public class TestListener implements ITestListener {
 
     @Override
 	public void onFinish(ITestContext context) {
-		BaseDriver myBaseDriver = new BaseDriver();
-		Set<ITestResult> failedTests = context.getFailedTests().getAllResults();
-		Set<ITestResult> skippedTests = context.getSkippedTests().getAllResults();
+//		BaseDriver myBaseDriver = new BaseDriver();
+//		Set<ITestResult> failedTests = context.getFailedTests().getAllResults();
+//		Set<ITestResult> skippedTests = context.getSkippedTests().getAllResults();
 
 
 //		for (ITestResult temp : failedTests) {
@@ -34,9 +34,9 @@ public class TestListener implements ITestListener {
 //			}
 //		}
 		
-		for (ITestResult temp : skippedTests) {
-			skippedTests.remove(temp);
-		}
+//		for (ITestResult temp : skippedTests) {
+//			skippedTests.remove(temp);
+//		}
 
 		
 	}
@@ -61,7 +61,7 @@ public class TestListener implements ITestListener {
     @Parameters({"os", "fileName", "testDevice"})
     public void onTestSkipped(ITestResult result) {
     	//Changed skipped test to Failure!!!!!
-    	result.setStatus(ITestResult.FAILURE);
+//    	result.setStatus(ITestResult.FAILURE);
 
     }
 

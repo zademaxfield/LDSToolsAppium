@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Android Smoke Test" configfailurepolicy="continue" verbose="2">
     <listeners>
-        <listener class-name="LDSToolsAppium.RetryListener"/>
+<!--        <listener class-name="LDSToolsAppium.RetryListener"/>-->
         <listener class-name= "LDSToolsAppium.CustomReporter" />
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
@@ -10,6 +10,7 @@
     <test name="Android Smoke Test">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
+        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
         <parameter name="testDevice" value="STF-Pool" />
         <parameter name="startSleepTime" value="0200" />
 

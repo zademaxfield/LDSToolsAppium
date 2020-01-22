@@ -90,9 +90,9 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("January 20, 1946", 2, rights, pageSource);
         myBasePage.rightsCheck("Birth Date", 3, rights, pageSource);
         if (getRunningOS().equals("ios")) {
-            myBasePage.rightsCheck("(73)", 2, rights, pageSource);
+            myBasePage.rightsCheck("(74)", 2, rights, pageSource);
         } else {
-            myBasePage.rightsCheck("- 73", 2, rights, pageSource);
+            myBasePage.rightsCheck("- 74", 2, rights, pageSource);
         }
 
 
@@ -836,7 +836,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke"})
     public void testJunitReport(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
 
         System.out.println("Calling: " + callingGroup);

@@ -314,6 +314,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 //            Thread.sleep(1000);
         }
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+        Thread.sleep(1000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 //        myBasePage.backAltButton.click();
         Thread.sleep(1000);
@@ -404,6 +405,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 //            Thread.sleep(1000);
         }
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+        Thread.sleep(2000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 //        myBasePage.backAltButton.click();
 //        Thread.sleep(1000);
@@ -665,6 +667,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         }
         Thread.sleep(1000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+        Thread.sleep(1000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 //        myBasePage.backAltButton.click();
         Thread.sleep(1000);
@@ -824,6 +827,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         Thread.sleep(1000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+        Thread.sleep(2000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 
 

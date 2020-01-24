@@ -79,7 +79,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4", "jft"})
     public void ministeringUnassignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -97,7 +97,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-        if (rights <= 2) {
+        if (rights <= 3) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringBrothersReport.click();
             Thread.sleep(2000);
@@ -126,12 +126,12 @@ public class MinisteringScreenTest extends BaseDriver {
         }
 
 
-        if (rights == 3) {
-            myMenu.selectMenu(myMenu.reports);
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
-        }
+//        if (rights == 3) {
+//            myMenu.selectMenu(myMenu.reports);
+//            pageSource = myBasePage.getSourceOfPage();
+//            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+//            Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+//        }
 
 
         if (rights == 4){
@@ -419,7 +419,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
     public void companionshipsSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

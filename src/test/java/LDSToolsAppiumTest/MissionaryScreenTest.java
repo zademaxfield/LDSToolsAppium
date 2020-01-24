@@ -39,7 +39,7 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Kaden Allen Gollaher", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Adolpho", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Garrison Ostler", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Franco", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("McOmber", pageSource, "Contains"));
@@ -53,7 +53,7 @@ public class MissionaryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void missionaryOtherUnits() throws Exception {
         //String pageSource;
 
@@ -81,13 +81,13 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
         //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Gollaher", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Adolpho", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Ostler", pageSource, "Contains"));
         //Ward
         Assert.assertTrue(myBasePage.checkNoCaseList("Franco", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("McOmber", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Rachel", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Murillo", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Murillo", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Stewart", pageSource, "Contains"));
 
         //Serving
@@ -108,13 +108,13 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
         //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Kreger", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Vave", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Adolpho", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ostler", pageSource, "Contains"));
         //Ward
         Assert.assertTrue(myBasePage.checkNoCaseList("Moala", pageSource, "Contains"));
         //Serving
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Kaveinga", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Kaveinga", pageSource, "Contains"));
 
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
@@ -123,7 +123,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
         //Assigned
         Assert.assertTrue(myBasePage.checkNoCaseList("Adriana", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Pickett", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Myers", pageSource, "Contains"));
         //Ward
         Assert.assertTrue(myBasePage.checkNoCaseList("Rock", pageSource, "Contains"));
         //Serving
@@ -140,18 +140,16 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
         //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Fawcett", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Monroy", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Wood", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Gable", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Reyes", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Hamp", pageSource, "Contains"));
         //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Altamirano", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Gutierrez", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Armando", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Adan", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Daysi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Marta", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Romero", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Madrid", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Vasquez", pageSource, "Contains"));
         //Serving
 
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
@@ -161,9 +159,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
         //Assigned
         Assert.assertTrue(myBasePage.checkNoCaseList("Fawcett", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Monroy", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adriana", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Pickett", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Rivera", pageSource, "Contains"));
         //Ward
         Assert.assertTrue(myBasePage.checkNoCaseList("Javier", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Camacho", pageSource, "Contains"));
@@ -172,8 +168,6 @@ public class MissionaryScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Pool", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Navas", pageSource, "Contains"));
         //Serving
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Espinosa", pageSource, "Contains"));
 
 
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
@@ -182,32 +176,31 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
         //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Cruz", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Gollaher", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Love", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Daun", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Faasavalu", pageSource, "Contains"));
+
         //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Barton", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Barton", pageSource, "Contains"));
 
         //Serving
 
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
 
-        chooseUnit("Westchester  1st Ward");
+        chooseUnit("Westchester 1st Ward");
         pageSource = myMissionary.getMissionaryPage();
 
         //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Flinders", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Reid", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Horlacher", pageSource, "Contains"));
         //Ward
         Assert.assertTrue(myBasePage.checkNoCaseList("Cox", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Dozier", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Estrada", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Frustaci", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Merrifield", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Estrada", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Van Wagoner", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Sipherd", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Wagoner", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Merrifield", pageSource, "Contains"));
         //Serving
         Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
@@ -229,7 +222,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;
 

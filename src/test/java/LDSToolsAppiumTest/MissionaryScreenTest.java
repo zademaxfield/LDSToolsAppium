@@ -401,8 +401,9 @@ public class MissionaryScreenTest extends BaseDriver {
 
     }
 
-
-    @Test(groups = {"all4", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all4", "all"})
     public void missionaryReferralNoContactInfo() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);

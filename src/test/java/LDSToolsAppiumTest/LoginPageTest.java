@@ -147,37 +147,51 @@ public class LoginPageTest extends BaseDriver {
 
 
     // ******************* Invalid Username Tests *******************
-    @Test ( groups = {"all4", "all", "login"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test ( groups = {"all4", "all", "login"})
     public void invalidUsernameTest1() throws Exception {
         invalidCheck("LDSTools30", "toolstester");
     }
 
-    @Test ( groups = {"all1", "all", "login"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test ( groups = {"all1", "all", "login"})
     public void invalidUsernameTest2() throws Exception {
         invalidCheck("LDSTools3", "password1");
     }
 
-    @Test ( groups = {"all2", "all", "login"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test ( groups = {"all2", "all", "login"})
     public void invalidUsernameTest3() throws Exception {
         invalidCheck("********", "isjlsdkj");
     }
 
-    @Test ( groups = {"all3", "all", "login"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test ( groups = {"all3", "all", "login"})
     public void invalidUsernameTest4() throws Exception {
         invalidCheck("select * from directory", "password1");
     }
 
-    @Test ( groups = {"all4", "all", "login"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test ( groups = {"all4", "all", "login"})
     public void invalidUsernameTest5() throws Exception {
         invalidCheck("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", "password1");
     }
 
-    @Test ( groups = {"all1", "all", "login"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test ( groups = {"all1", "all", "login"})
     public void invalidUsernameTest6() throws Exception {
         invalidCheck("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", "password1");
     }
 
-    @Test ( groups = {"all2", "all", "login"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test ( groups = {"all2", "all", "login"})
     public void invalidUsernameTest7() throws Exception {
         invalidCheck(" LDSTools3", "toolstester");
     }

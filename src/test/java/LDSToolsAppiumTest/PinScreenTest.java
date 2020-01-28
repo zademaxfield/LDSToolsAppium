@@ -10,7 +10,9 @@ import org.testng.annotations.Test;
 
 public class PinScreenTest extends BaseDriver {
 
-    @Test (groups = {"all1", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test (groups = {"all1", "all"})
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
@@ -30,7 +32,9 @@ public class PinScreenTest extends BaseDriver {
         pinRepeatTestData();
     }
 
-    @Test (groups = {"all1", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test (groups = {"all1", "all"})
     public void pinRepeatTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
@@ -51,7 +55,9 @@ public class PinScreenTest extends BaseDriver {
         pinRepeatTestData();
     }
 
-    @Test (groups = {"all2", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test (groups = {"all2", "all"})
     public void pinNoMatchTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
@@ -70,7 +76,9 @@ public class PinScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all2", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test (groups = {"all2", "all"})
     public void pinNoMatchTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
@@ -90,8 +98,9 @@ public class PinScreenTest extends BaseDriver {
     }
 
 
-
-    @Test (groups = {"all3", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test (groups = {"all3", "all"})
     public void pinSequentialTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
@@ -112,8 +121,9 @@ public class PinScreenTest extends BaseDriver {
 
     }
 
-
-    @Test (groups = {"all3", "all", "jft"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test (groups = {"all3", "all", "jft"})
     public void pinSequentialTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);

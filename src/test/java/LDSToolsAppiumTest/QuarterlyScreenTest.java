@@ -16,7 +16,9 @@ import java.util.List;
 
 public class QuarterlyScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"} )
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"} )
     public void quarterlyReportBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

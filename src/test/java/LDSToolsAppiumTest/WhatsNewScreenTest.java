@@ -11,7 +11,9 @@ import org.testng.annotations.Test;
 
 public class WhatsNewScreenTest extends BaseDriver {
 
-    @Test (groups = {"all1", "all", "smoke", "smoke1", "jft"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test (groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void whatsNewSimple() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);
@@ -19,7 +21,6 @@ public class WhatsNewScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
 
-        //Todo: Android won't pop up the Whats New Page with automation
         myHelper.loginUAT("LDSTools32", "password1");
         myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
 

@@ -529,7 +529,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    //TODO: Need to update user
+//    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"needUpdate"})
     public void directoryLatLongNoGPS() throws Exception {
         String pageSource;
 
@@ -552,7 +554,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all3", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all3", "all"})
     public void directoryLatLongNoGPSNoCalling() throws Exception {
         String pageSource;
 
@@ -583,8 +587,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-
-    @Test(groups = {"all3", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all3", "all"})
     public void directoryLatLongCheckLocation() throws Exception {
 
         // ********* Constructor **********
@@ -612,8 +617,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-
-    @Test(dataProvider = "Members", groups = {"all4", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(dataProvider = "Members", groups = {"all4", "all"})
     public void directoryLatLongNoGPSChooseLocation(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

@@ -17,8 +17,9 @@ public class ListsScreenTest extends BaseDriver {
 
 
 
-
-    @Test(groups = {"smoke3", "smoke", "all3", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"smoke3", "smoke", "all3", "all"})
     public void listsSimpleTest() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -76,8 +77,9 @@ public class ListsScreenTest extends BaseDriver {
 
     }
 
-
-    @Test(groups = {"all3", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all3", "all"})
     public void listsMultipleSyncTest() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -149,8 +151,9 @@ public class ListsScreenTest extends BaseDriver {
     }
 
 
-
-    @Test(groups = {"all4", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all4", "all"})
     public void listsMaxOutName() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -226,7 +229,9 @@ public class ListsScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all4", "all", "jft"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all4", "all", "jft"})
     public void listsOtherNames() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -302,7 +307,9 @@ public class ListsScreenTest extends BaseDriver {
 
 
     //iOS has had problems with & in the name
-    @Test(groups = {"all3", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all3", "all"})
     public void listsOtherNamesAnd() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -377,8 +384,9 @@ public class ListsScreenTest extends BaseDriver {
 
 
 
-
-    @Test(groups = {"all3", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all3", "all"})
     public void listsDelete() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -467,8 +475,9 @@ public class ListsScreenTest extends BaseDriver {
 
     }
 
-
-    @Test(groups = {"all4", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all4", "all"})
     public void listsEdit() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -572,8 +581,9 @@ public class ListsScreenTest extends BaseDriver {
 
     }
 
-
-    @Test(groups = {"all4", "all"})
+    //TODO: Need to update user
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all4", "all"})
     public void listsLargeNumberOfMembers() throws Exception {
         String pageSource;
         String numberOfListMembers;

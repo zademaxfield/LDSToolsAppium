@@ -1036,6 +1036,7 @@ public class BasePage {
         TouchAction myAction = new TouchAction(driver);
 
         System.out.println("Start Click by Cords");
+        System.out.println(getSourceOfPage());
         myElement = driver.findElement(By.name(elementName));
         Point myPoint = myElement.getLocation();
         myAction.press(PointOption.point(myPoint.x, myPoint.y)).release();

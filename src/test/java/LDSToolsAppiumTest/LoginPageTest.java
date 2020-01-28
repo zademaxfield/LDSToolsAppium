@@ -201,7 +201,7 @@ public class LoginPageTest extends BaseDriver {
 
 
     // ******************* Invalid Username and Password Tests *******************
-    @Test ( groups = {"all1", "all", "login"})
+    @Test ( groups = {"all1", "all", "login", "jft"})
     public void invalidUsernameAndPasswordTest1() throws Exception {
         invalidCheck("sfjksdjissldjskldjslfjslfj", "toolste@#@$#^#$&%*%*&ster");
     }
@@ -236,7 +236,7 @@ public class LoginPageTest extends BaseDriver {
 
 
     //This is an iOS only test now.
-    @Test ( groups = {"all4", "all", "login", "jft"})
+    @Test ( groups = {"all4", "all", "login"})
     public void changePIN() throws Exception {
         String myPinMessage;
 
@@ -317,7 +317,8 @@ public class LoginPageTest extends BaseDriver {
         }
         clearLoginPassword();
 
-        myHelper.loginUAT(userName, passWord);
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.uatInvalidLogin(userName, passWord);
 //        Thread.sleep(6000);
         checkInvalidAlert();
     }

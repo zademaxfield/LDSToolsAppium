@@ -1013,4 +1013,25 @@ public class HelperMethods extends BasePage {
 
     }
 
+
+
+    public void uatInvalidLogin(String userName, String password) throws Exception {
+        //Enable Developer Settings and set the Network Environment to UAT
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        if (checkForElement(allowButton)) {
+            allowButton.click();
+        }
+
+        setupUAT();
+
+        myLoginPage.loginName.clear();
+        myLoginPage.passWord.clear();
+
+        myLoginPage.loginName.sendKeys(userName);
+        myLoginPage.passWord.sendKeys(password);
+        myLoginPage.signInButton.click();
+        Thread.sleep(1000);
+    }
+
 }

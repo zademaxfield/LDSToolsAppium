@@ -35,7 +35,7 @@ public class DirectoryScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "all2", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "all2", "all", "jft"})
     public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -75,9 +75,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Membership Information
         myBasePage.rightsCheck("MEMBERSHIP INFORMATION", 3, rights, pageSource);
-        myBasePage.rightsCheck("FULL NAME", 2, rights, pageSource);
+        myBasePage.rightsCheck("FULL NAME", 1, rights, pageSource);
         myBasePage.rightsCheck("Dickson", 4, rights, pageSource);
-        myBasePage.rightsCheck("Emma", 3, rights, pageSource);
+        myBasePage.rightsCheck("Emma", 1, rights, pageSource);
         myBasePage.rightsCheck("Jan", 4, rights, pageSource);
 
         myBasePage.rightsCheck("Temple Recommend", 1, rights, pageSource);
@@ -87,17 +87,17 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("000-1189-3575", 1, rights, pageSource);
 
         //Birth Date
-        myBasePage.rightsCheck("January 20, 1946", 2, rights, pageSource);
+        myBasePage.rightsCheck("January 20, 1946", 1, rights, pageSource);
         myBasePage.rightsCheck("Birth Date", 3, rights, pageSource);
         if (getRunningOS().equals("ios")) {
-            myBasePage.rightsCheck("(74)", 2, rights, pageSource);
+            myBasePage.rightsCheck("(74)", 1, rights, pageSource);
         } else {
-            myBasePage.rightsCheck("- 74", 2, rights, pageSource);
+            myBasePage.rightsCheck("- 74", 1, rights, pageSource);
         }
 
 
         //Ordinances
-        myBasePage.rightsCheck("Ordinances", 2, rights, pageSource);
+        myBasePage.rightsCheck("Ordinances", 1, rights, pageSource);
         myBasePage.rightsCheck("Baptism", 1, rights, pageSource);
         myBasePage.rightsCheck("February 6, 1954", 1, rights, pageSource);
         myBasePage.rightsCheck("Confirmation", 1, rights, pageSource);

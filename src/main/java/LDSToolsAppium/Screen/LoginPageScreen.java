@@ -59,7 +59,7 @@ public class LoginPageScreen extends BasePage {
     public  MobileElement overflowSettings;
 
     //Enter Developer Button
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[7]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[8]")
     public  MobileElement enterDeveloperButton;
 
     //Developer Button Displayed

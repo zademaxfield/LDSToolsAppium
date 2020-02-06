@@ -508,20 +508,20 @@ public class BaseDriver implements ITest {
 
             capabilities.setCapability("platformName", "iOS");
             capabilities.setCapability(CapabilityType.BROWSER_NAME, "Safari");
-            capabilities.setCapability("deviceName",testDevice);
-            capabilities.setCapability("automationName","XCUITest");
+            capabilities.setCapability("appium:deviceName",testDevice);
+            capabilities.setCapability("appium:automationName","XCUITest");
             capabilities.setCapability("browserName","");
 
 //            capabilities.setCapability("fullReset", true);
-            capabilities.setCapability("noReset", false);
-            capabilities.setCapability("newCommandTimeout", 600);
-            capabilities.setCapability("app", app.getAbsolutePath());
-            capabilities.setCapability("launchTimeout", 900000);
-            capabilities.setCapability("platformVersion", "13.3");
-            capabilities.setCapability("nativeInstrumentsLib", false);
-            capabilities.setCapability("clearSystemFiles", true);
+            capabilities.setCapability("appium:noReset", false);
+            capabilities.setCapability("appium:newCommandTimeout", 600);
+            capabilities.setCapability("appium:app", app.getAbsolutePath());
+            capabilities.setCapability("appium:launchTimeout", 900000);
+            capabilities.setCapability("appium:platformVersion", "13.3");
+            capabilities.setCapability("appium:nativeInstrumentsLib", false);
+            capabilities.setCapability("appium:clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);
-            capabilities.setCapability("maxTypingFrequency", 20);
+            capabilities.setCapability("appium:maxTypingFrequency", 20);
 //            capabilities.setCapability("sendKeyStrategy", "grouped");
 //            capabilities.setCapability("interKeyDelay", 2000);
             //capabilities.setCapability("appPackage", myAppPackage);

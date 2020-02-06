@@ -16,7 +16,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(groups = {"smoke4", "smoke", "all2", "all", "jft"})
+    @Test(groups = {"smoke4", "smoke", "all2", "all"})
     public void editCurrentUser() throws Exception {
         String pageSource;
 
@@ -394,7 +394,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void editVisibility() throws Exception {
 
         // ********* Constructor **********
@@ -810,6 +810,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         //For some reason after you log out - login the system needs this
         myMenu.selectMenu(myMenu.lists);
+        Thread.sleep(1000);
         myMenu.selectMenu(myMenu.directory);
         chooseUnit("Centinela 1st Ward");
     }

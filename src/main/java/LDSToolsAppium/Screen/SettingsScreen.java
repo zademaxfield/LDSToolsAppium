@@ -224,6 +224,10 @@ public class SettingsScreen extends BasePage {
         @iOSXCUITFindBy(accessibility = "Proxy")
         public  MobileElement proxy;
 
+    //Proxy Username
+    @iOSXCUITFindBy(xpath = "//*[contains(@name, 'Proxy Username')]")
+    public  MobileElement proxyUsername;
+
     //Select Proxy
     @AndroidFindBy(xpath = "//*[contains(@text, 'Select Proxy')]")
     public  MobileElement selectProxy;

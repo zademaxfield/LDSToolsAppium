@@ -127,7 +127,7 @@ public class MenuScreen extends BasePage {
     public void menuLogOut() throws Exception {
         SettingsScreen mySettings = new SettingsScreen(driver);
 
-        //Thread.sleep(6000);
+        Thread.sleep(1000);
         selectMenu(settings);
 
         mySettings.signOut.click();

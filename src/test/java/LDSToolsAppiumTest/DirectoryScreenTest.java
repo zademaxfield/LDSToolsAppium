@@ -70,7 +70,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
         myBasePage.rightsCheck("5420 W 140th St", 4, rights, pageSource);
         myBasePage.rightsCheck("Hawthorne, California 90250-6402", 4, rights, pageSource);
-        myBasePage.rightsCheck("33.904257, -118.375162", 4, rights, pageSource);
+
+        //TODO: iOS and Android handle this differently
+//        myBasePage.rightsCheck("33.904257, -118.375162", 4, rights, pageSource);
 
 
         //Membership Information
@@ -81,7 +83,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("Jan", 4, rights, pageSource);
 
         myBasePage.rightsCheck("Temple Recommend", 1, rights, pageSource);
-        myBasePage.rightsCheck("Nov 2021", 1, rights, pageSource);
+
 
         myBasePage.rightsCheck("Record Number", 1, rights, pageSource);
         myBasePage.rightsCheck("000-1189-3575", 1, rights, pageSource);
@@ -91,8 +93,12 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("Birth Date", 3, rights, pageSource);
         if (getRunningOS().equals("ios")) {
             myBasePage.rightsCheck("(74)", 1, rights, pageSource);
+            //Temple Recommend
+            myBasePage.rightsCheck("November 2021", 1, rights, pageSource);
         } else {
             myBasePage.rightsCheck("- 74", 1, rights, pageSource);
+            //Temple Recommend
+            myBasePage.rightsCheck("Nov 2021", 1, rights, pageSource);
         }
 
 
@@ -136,9 +142,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Callings and Classes - New in 3.0.0
         myBasePage.rightsCheck("Sunday School Teacher", 4, rights, pageSource);
-        myBasePage.rightsCheck("Organization - Gospel Doctrine", 4, rights, pageSource);
-        myBasePage.rightsCheck("Class Assignments", 4, rights, pageSource);
         myBasePage.rightsCheck("Gospel Doctrine", 4, rights, pageSource);
+        myBasePage.rightsCheck("Class Assignments", 4, rights, pageSource);
+        myBasePage.rightsCheck("Relief Society", 4, rights, pageSource);
 //        myBasePage.rightsCheck("Relief Society", 4, rights, pageSource);
 
     }

@@ -347,6 +347,9 @@ public class HelperMethods extends BasePage {
 
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
+//            mySettings.proxyUsername.click();
+//            mySettings.proxyEditField.setValue("kroqbandit");
+//            mySettings.proxyDone.click();
             waitForElementThenClick(backButton);
             waitForElementThenClick(backButton);
 

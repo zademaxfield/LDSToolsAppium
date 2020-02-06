@@ -106,8 +106,11 @@ public class MinisteringScreenTest extends BaseDriver {
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Abah", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-            myBasePage.backButton.click();
-            myBasePage.backButton.click();
+//            myBasePage.backButton.click();
+//            myBasePage.backButton.click();
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
+            Thread.sleep(2000);
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
 
 
             myMinistering.ministeringSistersReport.click();

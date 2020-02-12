@@ -29,7 +29,7 @@ public class FingerprintFaceTest extends BaseDriver {
         myBasePage.waitForElement(myLoginPage.loginName);
 
 
-        myHelper.setupUAT();
+        myHelper.setupUAT("");
 
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();

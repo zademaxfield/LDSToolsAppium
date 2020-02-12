@@ -36,12 +36,13 @@ public class HelperMethods extends BasePage {
     public void loginUAT(String userName, String password) throws Exception {
         //Enable Developer Settings and set the Network Environment to UAT
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+        String myTemp = "";
 
         if (checkForElement(allowButton)) {
             allowButton.click();
         }
 
-        setupUAT();
+        setupUAT(myTemp);
 
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();
@@ -90,39 +91,39 @@ public class HelperMethods extends BasePage {
         appName = driver.getCapabilities().getCapability("app").toString();
 //        System.out.println("App: "  + appName);
 
-        setupUAT();
+        setupUAT(proxyUserName);
 
-        if (appName.contains(".ipa")) {
-            driver.executeScript("mobile: terminateApp", ImmutableMap.of("bundleId", "com.apple.mobilesafari"));
-            //            //May need to replace -u with -U in 12.2
-            List args = new ArrayList();
-//            args.add("-U");
-            args.add("https://www.google.com");
-
-            Map<String, Object> params = new HashMap<>();
-            params.put("bundleId", "com.apple.mobilesafari");
-            params.put("arguments", args);
-            //TODO: Need to change sleeps to wait for element or text
-            driver.executeScript("mobile: launchApp", params);
-            Thread.sleep(10000);
-
-            driver.findElement(By.xpath("//XCUIElementTypeOther[@label='Address']")).click();
-            Thread.sleep(6000);
-
-            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Clear text']")).click();
-            Thread.sleep(6000);
-
-            driver.findElement(By.xpath("//XCUIElementTypeTextField[@label='Address']")).setValue("membertools://user/" + proxyUserName);
-            Thread.sleep(2000);
-            driver.findElement(By.xpath("//*[@name='Go']")).click();
-            Thread.sleep(6000);
-            driver.findElement(By.xpath("//*[@name='Open']")).click();
-        } else {
-            driver.get("https://www.google.com");
-            Thread.sleep(2000);
-            driver.get("membertools://user/" + proxyUserName);
-            Thread.sleep(3000);
-        }
+//        if (appName.contains(".ipa")) {
+//            driver.executeScript("mobile: terminateApp", ImmutableMap.of("bundleId", "com.apple.mobilesafari"));
+//            //            //May need to replace -u with -U in 12.2
+//            List args = new ArrayList();
+////            args.add("-U");
+//            args.add("https://www.google.com");
+//
+//            Map<String, Object> params = new HashMap<>();
+//            params.put("bundleId", "com.apple.mobilesafari");
+//            params.put("arguments", args);
+//            //TODO: Need to change sleeps to wait for element or text
+//            driver.executeScript("mobile: launchApp", params);
+//            Thread.sleep(10000);
+//
+//            driver.findElement(By.xpath("//XCUIElementTypeOther[@label='Address']")).click();
+//            Thread.sleep(6000);
+//
+//            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Clear text']")).click();
+//            Thread.sleep(6000);
+//
+//            driver.findElement(By.xpath("//XCUIElementTypeTextField[@label='Address']")).setValue("membertools://user/" + proxyUserName);
+//            Thread.sleep(2000);
+//            driver.findElement(By.xpath("//*[@name='Go']")).click();
+//            Thread.sleep(6000);
+//            driver.findElement(By.xpath("//*[@name='Open']")).click();
+//        } else {
+//            driver.get("https://www.google.com");
+//            Thread.sleep(2000);
+//            driver.get("membertools://user/" + proxyUserName);
+//            Thread.sleep(3000);
+//        }
 
 
 
@@ -313,7 +314,7 @@ public class HelperMethods extends BasePage {
         Thread.sleep(6000);
     }
 
-    public void setupUAT() throws Exception {
+    public void setupUAT(String proxyUserName) throws Exception {
 
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
@@ -341,9 +342,9 @@ public class HelperMethods extends BasePage {
 
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
-//            mySettings.proxyUsername.click();
-//            mySettings.proxyEditField.setValue("kroqbandit");
-//            mySettings.proxyDone.click();
+            mySettings.proxyUsername.click();
+            mySettings.proxyEditField.setValue(proxyUserName);
+            mySettings.proxyDone.click();
             waitForElementThenClick(backButton);
             waitForElementThenClick(backButton);
 
@@ -1015,12 +1016,13 @@ public class HelperMethods extends BasePage {
     public void uatInvalidLogin(String userName, String password) throws Exception {
         //Enable Developer Settings and set the Network Environment to UAT
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+        String myTemp = "";
 
         if (checkForElement(allowButton)) {
             allowButton.click();
         }
 
-        setupUAT();
+        setupUAT(myTemp);
 
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();

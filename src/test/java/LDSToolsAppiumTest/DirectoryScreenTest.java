@@ -2,6 +2,7 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
+import LDSToolsAppium.MemberToolsAPI;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.LoginPageScreen;
 import LDSToolsAppium.Screen.MenuScreen;
@@ -751,7 +752,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"goat"})
+    @Test(groups = {"NotUsed"})
     public void directoryLoginSpeedCheck() throws Exception {
         long startTime;
         long endTime;
@@ -848,11 +849,12 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(dataProvider = "Members", groups = {"smoke"})
-    public void testJunitReport(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+    @Test(groups = {"goat"})
+    public void testJunitReport() throws Exception {
+        MemberToolsAPI myApi = new MemberToolsAPI();
+        myApi.toolsService();
 
-        System.out.println("Calling: " + callingGroup);
-        Assert.assertTrue(callingGroup.contains("BISHOP"));
+
     }
 
 

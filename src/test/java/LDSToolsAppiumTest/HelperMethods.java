@@ -131,9 +131,6 @@ public class HelperMethods extends BasePage {
 
     public void proxyLogin(String proxyUserName) throws Exception {
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         BaseDriver myBaseDriver = new BaseDriver();
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
@@ -157,13 +154,10 @@ public class HelperMethods extends BasePage {
         }
         if (checkForElement(myLoginPage.cancelPass)){
             myLoginPage.cancelPass.click();
-            myLoginPage.loginName.clear();
-            myLoginPage.passWord.clear();
-        } else {
-
-            myLoginPage.loginName.clear();
-            myLoginPage.passWord.clear();
         }
+
+        myLoginPage.loginName.clear();
+        myLoginPage.passWord.clear();
 
 
         myLoginPage.loginName.sendKeys("zmaxfield");

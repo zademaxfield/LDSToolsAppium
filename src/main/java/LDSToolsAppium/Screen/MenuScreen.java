@@ -120,7 +120,8 @@ public class MenuScreen extends BasePage {
             } else {
                 scrollDownTEST(200);
             }
-            myElement.click();
+            myBase.waitForElementThenClick(myElement);
+//            myElement.click();
         }
     }
 

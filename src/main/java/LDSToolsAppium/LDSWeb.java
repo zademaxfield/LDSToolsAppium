@@ -1,10 +1,5 @@
 package LDSToolsAppium;
 
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,19 +9,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
-import org.apache.commons.io.FileUtils;
+
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.WordUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -40,26 +31,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
-//import bsh.org.objectweb.asm.Type;
 
 
 public class LDSWeb {
 	WebDriver driver;
 	private Properties prop;
-	private String myWindow;
 	private String driverRunning = null;
-	
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 	
 	@Before
-    public void setUp() throws Exception {
+    public void setUp()  {
 		//Moved setUp stuff to openWebPage - seems to work better this way. 
 		driverRunning = "Running";
 
@@ -71,132 +53,32 @@ public class LDSWeb {
 	@Test
 	public void simpleTest() throws Exception {
 
-		setupAfterUATReset();
+//		setupAfterUATReset();
+		loginSwagger();
+
+	}
+
+	public void loginSwagger() throws Exception {
+
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		byte[] decodeBytes = Base64.decodeBase64("UDFrQFNwMTc=");
 
 
-//		setupMinstering();
+		String url = "https://wam-membertools-api-stage.churchofjesuschrist.org/api/swagger-ui.html?signmein";
+		openWebPage(url);
+		driver.findElement(By.id("username")).sendKeys("zmaxfield");
+		driver.findElement(By.id("password")).sendKeys(new String(decodeBytes));
+		driver.findElement(By.id("sign-in")).click();
 
-//		String pageSource;
-//		quarterlyReportLogIn("LDSTools3", "toolstester");
-//		Thread.sleep(6000);
-//		pageSource = driver.getPageSource();
-//		getQuarterlyReport(pageSource, "Converts");
+		Thread.sleep(9000);
 
+		driver.findElement(By.id("operations-tag-User")).click();
+//		jse.executeScript("scroll(0, 500);");
+//		jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		driver.findElement(By.xpath("//div[@text='getAuthenticatedUserDetails']")).click();
 
+		Thread.sleep(6000);
 
-
-
-
-//		MyTemplePageLogIn("https://uat.lds.org/mls/mbr/?lang=eng", "LDSTools31", "password1");
-//		TempleGetName();
-		
-		/*
-		String url = "https://uat.lds.org/directory/";
-		String userName = "LDSTools3";
-		String passWord = "toolstester";
-		List<String> myList = new ArrayList<String>();
-		
-		openPageLogInDirectory(url, userName, passWord);
-	
-		Thread.sleep(10000);
-		
-		myList = getAllMembersOnPageDirectory("Ward Leaders", "High Priests Group", true);
-		
-		for(String oneUser : myList){
-			System.out.println("Web Found User: " + oneUser);
-		}
-		*/
-		
-		/*
-		List<String> myTempleList = new ArrayList<String>();
-		String mySource;
-		MyTemplePageLogIn("https://uat.lds.org/mls/mbr", "LDSTools3", "toolstester");
-		clickElement("Find a Temple", "linkText");
-		
-		mySource = getSourceOfMember("AllTemplesTable");
-		myTempleList = getAllTemples(mySource);
-		
-		String myFileName = "ConfigFiles/AllTemples.csv";
-		//List<String> foundUsers = new ArrayList<String>();
-		
-		try {
-			FileWriter writer = new FileWriter(myFileName, true);
-			for(String oneTemple : myTempleList){
-				System.out.println("Temple: " + oneTemple);
-				writer.append(oneTemple);
-				writer.append('\n');
-			}
-			
-		    writer.flush();
-		    writer.close();
-				
-		} catch(IOException e) {
-			 e.printStackTrace();
-		}
-		*/
-
-
-//		List<String> myTempleList = new ArrayList<String>();
-//		String mySource;
-//		openGuiMap();
-//		setUp();
-//
-//		Thread.sleep(4000);
-//		//openWebPage("https://uat.lds.org");
-//		openWebPage("https://www.lds.org");
-//		//Thread.sleep(4000);
-//		clickElement("MyAccountAndWard", "id");
-//		clickElement("My Temple", "linkText");
-//		Thread.sleep(2000);
-//		clickElement("Find a Temple", "linkText");
-//		clickElement("Temple List", "linkText");
-//
-//		mySource = getSourceOfMember("AllTemplesTable");
-//		myTempleList = getAllTemples(mySource);
-//
-//		for (String myTemple : myTempleList) {
-//			System.out.println(myTemple);
-//		}
-		
-		/*
-		String url = "https://uat.lds.org/mls/mbr/?lang=eng";
-		String userName = "LDSTools3";
-		String passWord = "toolstester";
-		
-		openPageLogIn(url, userName, passWord);
-	
-		Thread.sleep(10000);
-		*/
-		
-		
-
-		//AreaBookSetup();
-
-		//getAllMembersInHTVTReport("Elders Quorum",  "HouseholdsNotVisited", "ngiBPC1", "password1", "Bishopric");
-		
-		//getAllMembersInHTVTReport("Elders Quorum", "HouseholdsNotVisited", "LDSTools3", "toolstester", "Bishopric");
-		
-		
-		
-		
-		
-
-		/*
-		populateFile();
-		Thread.sleep(5000);
-		System.out.println("READ FILE: ");
-		readFile();
-		
-		
-		String myUserName = "LDSTools3";
-		String myPassword = "toolstester";
-		List<String> myList = new ArrayList<String>();
-		myList = getAllMembersOnPage("ReportsMenu", "Member List", myUserName, myPassword);
-		for(String oneUser : myList){
-			System.out.println("Web Found User: " + oneUser);
-		}
-		*/
-		
 	}
 	
 	public void setupAfterUATReset() throws Exception {
@@ -210,16 +92,6 @@ public class LDSWeb {
 		
 		openPageLogIn(url, userName, passWord);
 
-//		setupMembers();
-		setupCallings();
-
-
-//		setupDistricts();
-//		addCompanionHousehold();
-
-
-//		addJaneAaronToClass();
-// 		setupAJcalling();
 	}
 
 	public void setupMinstering() throws Exception {
@@ -914,7 +786,7 @@ public class LDSWeb {
 		
 		clickElement("HomeButton", "xpath");
 		
-		myWindow = driver.getWindowHandle();
+//		myWindow = driver.getWindowHandle();
 	}
 	
 //	public void robotAuth() throws Exception {

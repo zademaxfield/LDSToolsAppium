@@ -3,17 +3,17 @@
 <suite name="iOS Just For Testing " configfailurepolicy="continue" verbose="1" >
     <test name="iOS Just For Testing ">
         <parameter name="os" value="ios" />
-        <parameter name="fileName" value="LDS Tools.app" />
-<!--        <parameter name="fileName" value="LDSTools.ipa" />-->
+<!--        <parameter name="fileName" value="LDS Tools.app" />-->
+        <parameter name="fileName" value="LDSTools.ipa" />
 <!--        <parameter name="testDevice" value="iPhone Xs Max" />-->
 <!--        <parameter name="testDevice" value="iPhone 8" />-->
-        <parameter name="testDevice" value="iPhone 11" />
+<!--        <parameter name="testDevice" value="iPhone 11" />-->
         <!--<parameter name="testDevice" value="REAL-ZiphoneX" />-->
         <!--<parameter name="testDevice" value="REAL-Ziphone8plus" />-->
         <!--<parameter name="testDevice" value="REAL-Z6plus" />-->
 <!--        <parameter name="testDevice" value="REAL-Z6iphone" />-->
 <!--        <parameter name="testDevice" value="REAL-ZadesXSMax" />-->
-<!--        <parameter name="testDevice" value="REAL-Z11ProMax" />-->
+        <parameter name="testDevice" value="REAL-Z11ProMax" />
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -25,7 +25,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
         </classes>
     </test> <!-- iOS Just For Testing test -->
 </suite> <!-- suite iOS -->

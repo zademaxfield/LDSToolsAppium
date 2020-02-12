@@ -102,20 +102,20 @@ public class HelperMethods extends BasePage {
             Map<String, Object> params = new HashMap<>();
             params.put("bundleId", "com.apple.mobilesafari");
             params.put("arguments", args);
-
+            //TODO: Need to change sleeps to wait for element or text
             driver.executeScript("mobile: launchApp", params);
-            Thread.sleep(5000);
+            Thread.sleep(10000);
 
             driver.findElement(By.xpath("//XCUIElementTypeOther[@label='Address']")).click();
-            Thread.sleep(3000);
+            Thread.sleep(6000);
 
             driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Clear text']")).click();
-            Thread.sleep(3000);
+            Thread.sleep(6000);
 
             driver.findElement(By.xpath("//XCUIElementTypeTextField[@label='Address']")).setValue("membertools://user/" + proxyUserName);
-
+            Thread.sleep(2000);
             driver.findElement(By.xpath("//*[@name='Go']")).click();
-            Thread.sleep(3000);
+            Thread.sleep(6000);
             driver.findElement(By.xpath("//*[@name='Open']")).click();
         } else {
             driver.get("https://www.google.com");

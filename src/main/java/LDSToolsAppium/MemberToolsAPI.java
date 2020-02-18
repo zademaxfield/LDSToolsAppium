@@ -22,27 +22,14 @@ public class MemberToolsAPI {
 
     public void toolsService() throws Exception {
         LDSWeb myWeb = new LDSWeb();
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        TestWam2CredentialsManager credentialsManager = new TestWam2CredentialsManager("androidtest2", "androidtest123");
 
         OkHttpClient httpClient = new OkHttpClient.Builder()
-                .authenticator(new Authenticator() {
-                    @Nullable
-                    @Override
-                    public Request authenticate(@Nullable Route route, Response response) throws IOException {
-                        if (response.request().header("Authorization") != null) {
-                            System.out.println("Authorization Not Found!");
-                            return null;
-                        }
-
-                        System.out.println("Authenticating for response: " + response);
-                        System.out.println("Challenges: " + response.challenges());
-                        String credential = Credentials.basic("LDSTools2", "toolstester");
-                        return response.request().newBuilder()
-                                .header("Authorization", credential)
-                                .build();
-                    }
-                })
+                .addInterceptor(new TestAuthenticationInterceptor(new TestAuthenticationManager(credentialsManager)))
+                .addInterceptor(loggingInterceptor)
                 .connectTimeout(Duration.ofSeconds(360))
                 .writeTimeout(Duration.ofSeconds(360))
                 .readTimeout(Duration.ofSeconds(360))
@@ -51,7 +38,7 @@ public class MemberToolsAPI {
 
         Request request = new Request.Builder()
 //                .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/")
-                .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/user")
+                .url("https://identity-util-service-int.churchofjesuschrist.org/api/checkSession")
                 .build();
 
         try (Response response = httpClient.newCall(request).execute()) {

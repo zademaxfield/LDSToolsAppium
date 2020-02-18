@@ -3,26 +3,20 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
-
 import LDSToolsAppium.Screen.*;
-import com.google.common.collect.ImmutableMap;
+
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
-import io.appium.java_client.ios.IOSDriver;
 import org.apache.commons.codec.binary.Base64;
+
 import org.jsoup.nodes.Element;
-import org.openqa.selenium.By;
-import org.openqa.selenium.remote.SessionId;
+
+import org.testng.Assert;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 
 public class HelperMethods extends BasePage {
@@ -86,9 +80,9 @@ public class HelperMethods extends BasePage {
     }
 
     private void iosDeepLink(String proxyUserName) throws Exception {
-        String appName;
+//        String appName;
 
-        appName = driver.getCapabilities().getCapability("app").toString();
+//        appName = driver.getCapabilities().getCapability("app").toString();
 //        System.out.println("App: "  + appName);
 
         setupUAT(proxyUserName);
@@ -103,7 +97,6 @@ public class HelperMethods extends BasePage {
 //            Map<String, Object> params = new HashMap<>();
 //            params.put("bundleId", "com.apple.mobilesafari");
 //            params.put("arguments", args);
-//            //TODO: Need to change sleeps to wait for element or text
 //            driver.executeScript("mobile: launchApp", params);
 //            Thread.sleep(10000);
 //
@@ -320,12 +313,12 @@ public class HelperMethods extends BasePage {
         SettingsScreen mySettings = new SettingsScreen(driver);
         ScannerScreen myScanner = new ScannerScreen(driver);
 //        BaseDriver myBaseDriver = new BaseDriver();
-        String os = "android";
-        String fileName = "android-mobile-dev-release.apk";
+//        String os = "android";
+//        String fileName = "android-mobile-dev-release.apk";
 //        String testDeviceX = myBaseDriver.getTestngTestDevice();
-        String testDeviceX = driver.getCapabilities().getCapability("deviceName").toString();
-        int startSleepTime = 200;
-        SessionId toolsSessionId;
+//        String testDeviceX = driver.getCapabilities().getCapability("deviceName").toString();
+//        int startSleepTime = 200;
+//        SessionId toolsSessionId;
 
 
         if (getOS().equals("ios")) {
@@ -574,7 +567,7 @@ public class HelperMethods extends BasePage {
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);
 //        PinScreen myPin = new PinScreen(driver);
-        MenuScreen myMenuScreen = new MenuScreen(driver);
+//        MenuScreen myMenuScreen = new MenuScreen(driver);
 
         Thread.sleep(4000);
         checkForAlertsBeforePin();
@@ -843,7 +836,7 @@ public class HelperMethods extends BasePage {
         // ********* Constructor **********
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         BasePage myBasePage = new BasePage(driver);
-        ScannerScreen myScanner = new ScannerScreen(driver);
+//        ScannerScreen myScanner = new ScannerScreen(driver);
 
         //Check for Whats New Page
 //      if (myBasePage.checkForElement(myWhatsNew.whatsNewDone)) {
@@ -933,6 +926,8 @@ public class HelperMethods extends BasePage {
         String pageSource;
 
         pageSource = myBase.getSourceOfPage();
+
+        Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable."));
 
 //        myCheck = myBase.checkElementExists("OK");
         myCheck = pageSource.contains("OK");

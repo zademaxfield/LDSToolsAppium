@@ -1,4 +1,4 @@
-package LDSToolsAppium;
+package LDSToolsAppium.API;
 
 class TestWamConfig {
     final public String tokenEndpoint = "https://ident-int.churchofjesuschrist.org/sso/oauth2/access_token";

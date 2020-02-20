@@ -1,4 +1,4 @@
-package LDSToolsAppium;
+package LDSToolsAppium.API;
 
 import com.google.gson.annotations.SerializedName;
 

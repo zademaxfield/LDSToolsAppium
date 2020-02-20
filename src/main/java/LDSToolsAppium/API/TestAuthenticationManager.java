@@ -1,4 +1,4 @@
-package LDSToolsAppium;
+package LDSToolsAppium.API;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

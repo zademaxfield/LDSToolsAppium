@@ -2,18 +2,12 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
-import LDSToolsAppium.MemberToolsAPI;
+import LDSToolsAppium.API.MemberToolsAPI;
 import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.LoginPageScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
-import io.appium.java_client.ios.IOSDriver;
 import org.apache.commons.codec.binary.Base64;
-import org.jsoup.Connection;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -24,8 +18,6 @@ import okhttp3.RequestBody;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import java.awt.desktop.SystemEventListener;
-import java.io.File;
 import java.io.IOException;
 
 public class DirectoryScreenTest extends BaseDriver {

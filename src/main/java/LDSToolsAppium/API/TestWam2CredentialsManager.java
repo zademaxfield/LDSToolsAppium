@@ -1,4 +1,4 @@
-package LDSToolsAppium;
+package LDSToolsAppium.API;
 
 class TestWam2CredentialsManager {
 

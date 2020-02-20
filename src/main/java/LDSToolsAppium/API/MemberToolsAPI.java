@@ -1,24 +1,21 @@
-package LDSToolsAppium;
+package LDSToolsAppium.API;
 
+import LDSToolsAppium.API.TestAuthenticationInterceptor;
+import LDSToolsAppium.API.TestAuthenticationManager;
+import LDSToolsAppium.API.TestWam2CredentialsManager;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.*;
 
-import com.google.gson.reflect.TypeToken;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 
 import org.apache.commons.codec.binary.Base64;
-import org.openqa.selenium.json.Json;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-import javax.annotation.Nullable;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.lang.reflect.Type;
 import java.util.List;
 
 public class MemberToolsAPI {
@@ -132,8 +129,54 @@ public class MemberToolsAPI {
         }
     }
 
+    public void getOrganizationMembers(String organizationName, String proxyLogin, String unitNumber) throws Exception {
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/organizations?units=" + unitNumber, proxyLogin );
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
 
-    public void getOrganizationMembers(String organizationName, String proxyLogin, String unitNumber) {
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiOrganizationList = new TypeToken<ArrayList<ApiOrganization>>(){}.getType();
+
+        try (Response response = httpClient.newCall(request).execute()) {
+            assert response.body() != null;
+            responseData = response.body().string();
+            System.out.println("Response String: " + responseData);
+            JsonElement jsonElement = parser.parse(responseData);
+            System.out.println("Json element to String: " + jsonElement.toString());
+            if (jsonElement instanceof JsonObject) {
+                System.out.println("JSON Object!");
+                System.out.println("Name: " + ((JsonObject) jsonElement).get("name").getAsString());
+            } else if (jsonElement instanceof JsonArray) {
+                System.out.println("JSON Array!");
+                JsonArray jsonData = jsonElement.getAsJsonArray();
+                List<ApiOrganization> testOrg = gson.fromJson(jsonElement, apiOrganizationList);
+
+                for (ApiOrganization myOrg : testOrg) {
+                    System.out.println(myOrg.getName());
+                    if (myOrg.getChildOrgs() != null) {
+                        for (ChildOrg childOrgs : myOrg.getChildOrgs()) {
+                            System.out.println(childOrgs.getName());
+                            if (childOrgs.getName().equalsIgnoreCase(organizationName)) {
+                                if (childOrgs.getPositions() != null ) {
+                                    System.out.println(childOrgs.getPositions());
+                                    memberNames.add(getNameFromUuid(childOrgs.getPositions().toString(), unitNumber, proxyLogin));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void getOrganizationMember2(String organizationName, String proxyLogin, String unitNumber) {
         OkHttpClient httpClient = loginCred();
         Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/organizations?units=" + unitNumber, proxyLogin );
         JsonParser parser = new JsonParser();
@@ -160,12 +203,6 @@ public class MemberToolsAPI {
 
                 for (JsonElement orgName : jsonData) {
                     JsonObject orgObject = orgName.getAsJsonObject();
-//                    String myUuid = orgObject.get("uuid").getAsString();
-//                    String myOrgName = orgObject.get("name").getAsString();
-//                    String myUnitNumber = orgObject.get("unitNumber").getAsString();
-//                    String myOrgTypes = orgObject.get("orgTypes").getAsString();
-//                    String myChildOrg = orgObject.get("childOrgs").getAsString();
-
                     String myUuid = orgObject.get("uuid").getAsString();
                     String myOrgName = orgObject.get("name").getAsString();
                     String myOrgTypes = orgObject.get("orgTypes").getAsString();
@@ -211,6 +248,9 @@ public class MemberToolsAPI {
         String responseData;
 //        String myPositions = "";
         ArrayList<String> myPositions = new ArrayList<String>();
+        Gson gson = new Gson();
+
+        Type apiHousehold = new TypeToken<ArrayList<ApiHousehold>>(){}.getType();
 
         String memberName = "";
 
@@ -225,38 +265,18 @@ public class MemberToolsAPI {
                 System.out.println("Name: " + ((JsonObject) jsonElement).get("name").getAsString());
             } else if (jsonElement instanceof JsonArray) {
                 System.out.println("JSON Array!");
-//                JsonArray jsonData = new JsonArray(((JsonArray) jsonElement).size());
                 JsonArray jsonData = jsonElement.getAsJsonArray();
+                List<ApiHousehold> testHouseHold = gson.fromJson(jsonElement, apiHousehold);
 
-                for (JsonElement orgName : jsonData) {
-                    JsonObject orgObject = orgName.getAsJsonObject();
-                    String myUuid = orgObject.get("uuid").getAsString();
-//                    String myOrgName = orgObject.get("displayName").getAsString();
-
-                    if (myUuid.equalsIgnoreCase(uuidPersonal)) {
-                        memberName = orgObject.get("displayName").getAsString();
-
-                        System.out.println("****************************");
-                        System.out.println("uuid: " + myUuid);
-                        System.out.println("Member Name: " + memberName);
-                        System.out.println("****************************");
+                for (ApiHousehold household : testHouseHold) {
+//                    System.out.println(household.getDisplayName());
+//                    System.out.println(household.getUuid());
+                    for (Member searchForMember : household.getMembers()) {
+                        if (searchForMember.getUuid().equalsIgnoreCase(uuidPersonal)) {
+                            System.out.println(household.getDisplayName());
+                            memberName = searchForMember.getDisplayName();
+                        }
                     }
-
-//                    if (orgObject.has("members")) {
-//                        JsonArray positionsArray = orgObject.getAsJsonArray("uuid");
-//                        for (JsonElement posElement : positionsArray ) {
-////                        JsonObject orgPos = posElement.getAsJsonObject();
-//                            myPositions.add(posElement.getAsString());
-//                            if (uuidPersonal.equalsIgnoreCase(posElement.getAsString())) {
-//                                memberName = orgObject.get("displayName").getAsString();
-//                            }
-//                        }
-//                    }
-
-
-
-
-
                 }
             }
 

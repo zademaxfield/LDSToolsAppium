@@ -852,7 +852,8 @@ public class DirectoryScreenTest extends BaseDriver {
     @Test(groups = {"goat"})
     public void testJunitReport() throws Exception {
         MemberToolsAPI myApi = new MemberToolsAPI();
-        myApi.toolsService();
+//        myApi.toolsService();
+        myApi.apiRequest();
 
 
     }

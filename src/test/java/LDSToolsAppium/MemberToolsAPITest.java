@@ -12,6 +12,6 @@ public class MemberToolsAPITest {
 
     @Test
     public void testToolsService() throws Exception {
-        new MemberToolsAPI().toolsService();
+        new MemberToolsAPI().getOrganizationMembers("Elders Quorum Presidency", "kroqbandit", "21628");
     }
 }

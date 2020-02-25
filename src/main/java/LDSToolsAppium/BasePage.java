@@ -607,7 +607,7 @@ public class BasePage {
 
     public void waitUnitlTextIsGone(String myText) {
         //System.out.println("Start Checking for Element");
-        WebDriverWait wait = new WebDriverWait(driver, 120);
+        WebDriverWait wait = new WebDriverWait(driver, 180);
 
         if(getOS().equals("ios")) {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@value, '" + myText + "')]")));
@@ -747,6 +747,19 @@ public class BasePage {
             //System.out.println("TEXT: " + oneLine);
             checkSourceString(pageSource, oneLine);
         }
+    }
+
+    public void apiCheckData(List<String> jsonList) throws Exception {
+        String pageSource = null;
+        pageSource = getSourceOfPage();
+
+        //TODO: Scroll?
+
+        for (String apiUser : jsonList) {
+            System.out.println("API Data: "  + apiUser);
+            Assert.assertTrue(checkNoCaseList(apiUser, pageSource, "Contains"));
+        }
+
     }
 
     public void compareWebData(List<String> myList, List<String> androidList, Boolean onePage) throws Exception {

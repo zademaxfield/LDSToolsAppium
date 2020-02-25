@@ -222,9 +222,14 @@ public class OrganizationsScreen extends BasePage {
     public MobileElement priestsQuorum;
 
     //Priests Quorum Presidency
-    @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"presidency\")]")
+    @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"Priests Quorum Presidency\")]")
     @iOSXCUITFindBy(accessibility = "Priests Quorum Presidency")
     public MobileElement priestsQuorumPresidency;
+
+    //Priests Quorum Adult Leaders
+    @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"Priests Quorum Adult Leaders\")]")
+    @iOSXCUITFindBy(accessibility = "Priests Quorum Adult Leaders")
+    public MobileElement priestsQuorumAdultLeaders;
 
     //All Priests Quorum Members
     @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"all members\")]")
@@ -237,9 +242,14 @@ public class OrganizationsScreen extends BasePage {
     public MobileElement teachersQuorum;
 
     //Teachers Quorum Presidency
-    @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"presidency\")]")
+    @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"Teachers Quorum Presidency\")]")
     @iOSXCUITFindBy(accessibility = "Teachers Quorum Presidency")
     public MobileElement teachersQuorumPresidency;
+
+    //Teachers Quorum Adult Leaders
+    @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"Teachers Quorum Adult Leaders\")]")
+    @iOSXCUITFindBy(accessibility = "Teachers Quorum Adult Leaders")
+    public MobileElement teachersQuorumAdultLeaders;
 
     //All Priests Quorum Members
     @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"all members\")]")
@@ -255,6 +265,11 @@ public class OrganizationsScreen extends BasePage {
     @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"presidency\")]")
     @iOSXCUITFindBy(accessibility = "Deacons Quorum Presidency")
     public MobileElement deaconsQuorumPresidency;
+
+    //Deacons Quorum Adult Leaders
+    @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"Deacons Quorum Adult Leaders\")]")
+    @iOSXCUITFindBy(accessibility = "Deacons Quorum Adult Leaders")
+    public MobileElement deaconsQuorumAdultLeaders;
 
     //All Deacons Quorum Members
     @AndroidFindBy(xpath = "//*[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"all members\")]")
@@ -272,6 +287,16 @@ public class OrganizationsScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Young Women Presidency']")
     @iOSXCUITFindBy(accessibility = "Young Women Presidency")
     public MobileElement youngWomenPresidency;
+
+    //Young Women 12-18
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Young Women 12-18']")
+    @iOSXCUITFindBy(accessibility = "Young Women 12-18")
+    public MobileElement youngWomen12to18;
+
+    //Young Women Class Presidency
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Young Women Class Presidency']")
+    @iOSXCUITFindBy(accessibility = "Young Women Class Presidency")
+    public MobileElement youngWomenClassPresidency;
 
     //Laurel
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Laurel']")

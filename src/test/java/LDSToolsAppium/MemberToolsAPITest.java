@@ -17,7 +17,7 @@ public class MemberToolsAPITest {
         MemberToolsAPI apiTest = new MemberToolsAPI();
         List<String> memberList = new ArrayList<String>();
 
-        memberList = apiTest.getChildOrganizationMembers("History", "kroqbandit", "21628");
+        memberList = apiTest.getChildOrganizationMembers("Unassigned Teachers", "kroqbandit", "21628");
 //        memberList = apiTest.getChildOrganizationClasses("Other Callings", "kroqbandit", "21628");
 
 

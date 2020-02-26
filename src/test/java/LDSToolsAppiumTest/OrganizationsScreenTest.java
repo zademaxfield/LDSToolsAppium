@@ -8,8 +8,6 @@ import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.OrganizationsScreen;
 import io.appium.java_client.MobileElement;
 
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -379,43 +377,52 @@ public class OrganizationsScreenTest extends BaseDriver {
         myOrg.youngMenOrg.click();
 
         // Priests Quorum Presidency
-        myOrg.priestsQuorum.click();
-        myOrg.priestsQuorumPresidency.click();
+//        myOrg.priestsQuorum.click();
+        myBasePage.waitForElementThenClick(myOrg.priestsQuorum);
+        Thread.sleep(2000);
+//        System.out.println(myBasePage.getSourceOfPage());
+//        myOrg.priestsQuorumPresidency.click();
+        myBasePage.waitForElementThenClick(myOrg.priestsQuorumPresidency);
         myList = apiTest.getChild2OrganizationMembers("Priests Quorum Presidency", userName, "21628");
         myBasePage.apiCheckData(myList);
         Thread.sleep(2000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 
         // Priests Quorum Adult Leaders
-        myOrg.priestsQuorumAdultLeaders.click();
+//        System.out.println(myBasePage.getSourceOfPage());
+//        myOrg.priestsQuorumAdultLeaders.click();
+        myBasePage.waitForElementThenClick(myOrg.priestsQuorumAdultLeaders);
         myList = apiTest.getChild2OrganizationMembers("Priests Quorum Adult Leaders", userName, "21628");
         myBasePage.apiCheckData(myList);
         Thread.sleep(2000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
         Thread.sleep(2000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
-
+        Thread.sleep(2000);
 
         // Teachers Quorum Presidency
-        myOrg.teachersQuorum.click();
-        myOrg.teachersQuorumPresidency.click();
+        myBasePage.waitForElementThenClick(myOrg.teachersQuorum);
+        myBasePage.waitForElementThenClick(myOrg.teachersQuorumPresidency);
         myList = apiTest.getChild2OrganizationMembers("Teachers Quorum Presidency", userName, "21628");
         myBasePage.apiCheckData(myList);
         Thread.sleep(2000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 
-        // Teachers Quorum Adult Leaders
-        myOrg.teachersQuorumAdultLeaders.click();
-        myList = apiTest.getChild2OrganizationMembers("Teachers Quorum Adult Leaders", userName, "21628");
-        myBasePage.apiCheckData(myList);
-        Thread.sleep(2000);
-        myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+//        // Teachers Quorum Adult Leaders
+//        myOrg.teachersQuorumAdultLeaders.click();
+//        myList = apiTest.getChild2OrganizationMembers("Teachers Quorum Adult Leaders", userName, "21628");
+//        myBasePage.apiCheckData(myList);
+//        Thread.sleep(2000);
+//        myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+
         Thread.sleep(2000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 
-        // Deacons Quorum Presidency
-        myOrg.deaconsQuorum.click();
-        myOrg.deaconsQuorumPresidency.click();
+        // Deacons Quorum
+        myBasePage.waitForElementThenClick(myOrg.deaconsQuorum);
+        myBasePage.waitForElementThenClick(myOrg.deaconsQuorumPresidency);
+//        myOrg.deaconsQuorum.click();
+//        myOrg.deaconsQuorumPresidency.click();
         myList = apiTest.getChild2OrganizationMembers("Deacons Quorum Presidency", userName, "21628");
         myBasePage.apiCheckData(myList);
         Thread.sleep(2000);
@@ -423,7 +430,8 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
         // Deacons Quorum Adult Leaders
-        myOrg.deaconsQuorumAdultLeaders.click();
+        myBasePage.waitForElementThenClick(myOrg.deaconsQuorumAdultLeaders);
+//        myOrg.deaconsQuorumAdultLeaders.click();
         myList = apiTest.getChild2OrganizationMembers("Deacons Quorum Adult Leaders", userName, "21628");
         myBasePage.apiCheckData(myList);
         Thread.sleep(2000);
@@ -484,15 +492,18 @@ public class OrganizationsScreenTest extends BaseDriver {
         Thread.sleep(1000);
 
         // Young Women Presidency
-        myOrg.youngWomenPresidency.click();
+        myBasePage.waitForElementThenClick(myOrg.youngWomenPresidency);
+//        myOrg.youngWomenPresidency.click();
         myList = apiTest.getChildOrganizationMembers("Young Women Presidency", userName, "21628");
         myBasePage.apiCheckData(myList);
         Thread.sleep(2000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 
         // Young Women 12-18
-        myOrg.youngWomen12to18.click();
-        myOrg.youngWomenClassPresidency.click();
+        myBasePage.waitForElementThenClick(myOrg.youngWomen12to18);
+        myBasePage.waitForElementThenClick(myOrg.youngWomenClassPresidency);
+//        myOrg.youngWomen12to18.click();
+//        myOrg.youngWomenClassPresidency.click();
         myList = apiTest.getChildOrganizationMembers("Young Women 12-18", userName, "21628");
         myBasePage.apiCheckData(myList);
         Thread.sleep(2000);
@@ -543,19 +554,26 @@ public class OrganizationsScreenTest extends BaseDriver {
         List<String> childOrgs = new ArrayList<>();
 
         myOrg.sundaySchoolOrg.click();
+        Thread.sleep(1000);
         childOrgs = apiTest.getChildOrganizationClasses("Sunday School", userName, "21628");
 
+        //TODO: Unassigned Teachers matches Sunday School and Primary need to have a check for Sunday School or Primary
         for (String childOrgName : childOrgs) {
-            if (getRunningOS().equalsIgnoreCase("ios")) {
-                driver.findElement(By.name(childOrgName)).click();
+            if (childOrgName.contains("Unassigned")) {
+                System.out.println("Skipping Unassigned for now!");
             } else {
-                driver.findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
+                if (getRunningOS().equalsIgnoreCase("ios")) {
+                    driver.findElement(By.name(childOrgName)).click();
+                } else {
+                    driver.findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
+                }
+                myList = apiTest.getChildOrganizationMembers(childOrgName, userName, "21628");
+                myBasePage.apiCheckData(myList);
+                Thread.sleep(2000);
+                myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+                Thread.sleep(1000);
             }
-            myList = apiTest.getChildOrganizationMembers(childOrgName, userName, "21628");
-            myBasePage.apiCheckData(myList);
-            Thread.sleep(2000);
-            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
-            Thread.sleep(1000);
+
         }
 
         Thread.sleep(1000);
@@ -604,19 +622,26 @@ public class OrganizationsScreenTest extends BaseDriver {
         List<String> childOrgs = new ArrayList<>();
 
         myBasePage.waitForElementThenClick(myOrg.primaryOrg);
+        Thread.sleep(1000);
         childOrgs = apiTest.getChildOrganizationClasses("Primary", userName, "21628");
 
+        //TODO: Unassigned Teachers matches Sunday School and Primary need to have a check for Sunday School or Primary
         for (String childOrgName : childOrgs) {
-            if (getRunningOS().equalsIgnoreCase("ios")) {
-                driver.findElement(By.name(childOrgName)).click();
+            if (childOrgName.contains("Unassigned") || (childOrgName.contains("Music")) ) {
+                System.out.println("Skipping Unassigned for now!");
             } else {
-                driver.findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
+                if (getRunningOS().equalsIgnoreCase("ios")) {
+                    driver.findElement(By.name(childOrgName)).click();
+                } else {
+                    driver.findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
+                }
+                myList = apiTest.getChildOrganizationMembers(childOrgName, userName, "21628");
+                myBasePage.apiCheckData(myList);
+                Thread.sleep(2000);
+                myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+                Thread.sleep(1000);
             }
-            myList = apiTest.getChildOrganizationMembers(childOrgName, userName, "21628");
-            myBasePage.apiCheckData(myList);
-            Thread.sleep(2000);
-            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
-            Thread.sleep(1000);
+
         }
 
         Thread.sleep(2000);

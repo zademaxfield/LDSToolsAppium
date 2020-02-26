@@ -268,7 +268,7 @@ public class MemberToolsAPI {
     }
 
 
-    //TODO: Need a file check for the date then delete if older than 3 or so days? 
+    //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getOrganizationJson (String unitNumber, String proxyLogin) throws IOException {
         String responseData = "";
         File organizationFile = new File("ConfigFiles/organization.json");

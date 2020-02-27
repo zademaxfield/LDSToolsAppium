@@ -262,8 +262,9 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-
-    @Test(groups = {"smoke1", "smoke", "all1", "all"})
+    //TODO: Need to update
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"smoke1", "smoke", "all1", "all"})
     public void editPhoneInvalid() throws Exception {
 
         // ********* Constructor **********
@@ -328,7 +329,9 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke1", "smoke", "all1", "all"})
+    //TODO: Need to update
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"smoke1", "smoke", "all1", "all"})
     public void editEmailInvalid() throws Exception {
 
         // ********* Constructor **********
@@ -394,7 +397,9 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    //TODO: Need to update
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void editVisibility() throws Exception {
 
         // ********* Constructor **********
@@ -492,28 +497,37 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-
-    @Test(groups = {"all3", "all"})
+    //TODO: Need to update
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all3", "all"})
     public void editVisibilityPersonalEmail() throws Exception {
         visibilityTestSub("personal", "email");
     }
 
-    @Test(groups = {"all4", "all"})
+    //TODO: Need to update
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all4", "all"})
     public void editVisibilityPersonalPhone() throws Exception {
         visibilityTestSub("personal", "phone");
     }
 
-    @Test(groups = {"all2", "all"})
+    //TODO: Need to update
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all2", "all"})
     public void editVisibilityHouseholdEmail() throws Exception {
         visibilityTestSub("household", "email");
     }
 
-    @Test(groups = {"all1", "all"})
+    //TODO: Need to update
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all1", "all"})
     public void editVisibilityHouseholdPhone() throws Exception {
         visibilityTestSub("household", "phone");
     }
 
-    @Test(groups = {"all4", "all"})
+    //TODO: Need to update
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"all4", "all"})
     public void editVisibilityHouseholdAddress() throws Exception {
         visibilityTestSub("household", "address");
     }

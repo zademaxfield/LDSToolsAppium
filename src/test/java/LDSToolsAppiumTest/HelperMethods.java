@@ -12,6 +12,7 @@ import org.apache.commons.codec.binary.Base64;
 
 import org.jsoup.nodes.Element;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import java.util.ArrayList;
@@ -520,6 +521,9 @@ public class HelperMethods extends BasePage {
             Thread.sleep(4000);
             System.out.println("Enter PIN!!!");
             deviceName = driver.getCapabilities().getCapability("deviceName").toString();
+            if (getSourceOfPage().contains("Use password")) {
+                driver.findElement(By.xpath("//*[text='Use password']")).click();
+            }
             myBaseDriver.adbEnterPIN(deviceName);
 
 //            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_1));

@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class LoginPageTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "login"})
+    @Test (groups = {"all2", "all", "login", "jft"})
     public void validateLoginPage() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -201,7 +201,7 @@ public class LoginPageTest extends BaseDriver {
 
 
     // ******************* Invalid Username and Password Tests *******************
-    @Test ( groups = {"all1", "all", "login", "jft"})
+    @Test ( groups = {"all1", "all", "login"})
     public void invalidUsernameAndPasswordTest1() throws Exception {
         invalidCheck("sfjksdjissldjskldjslfjslfj", "toolste@#@$#^#$&%*%*&ster");
     }

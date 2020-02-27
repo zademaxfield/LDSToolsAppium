@@ -70,66 +70,66 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Membership Information
         myBasePage.rightsCheck("MEMBERSHIP INFORMATION", 3, rights, pageSource);
-        myBasePage.rightsCheck("FULL NAME", 1, rights, pageSource);
+        myBasePage.rightsCheck("FULL NAME", 2, rights, pageSource);
         myBasePage.rightsCheck("Dickson", 4, rights, pageSource);
-        myBasePage.rightsCheck("Emma", 1, rights, pageSource);
+        myBasePage.rightsCheck("Emma", 2, rights, pageSource);
         myBasePage.rightsCheck("Jan", 4, rights, pageSource);
 
-        myBasePage.rightsCheck("Temple Recommend", 1, rights, pageSource);
+        myBasePage.rightsCheck("Temple Recommend", 2, rights, pageSource);
 
 
-        myBasePage.rightsCheck("Record Number", 1, rights, pageSource);
-        myBasePage.rightsCheck("000-1189-3575", 1, rights, pageSource);
+        myBasePage.rightsCheck("Record Number", 2, rights, pageSource);
+        myBasePage.rightsCheck("000-1189-3575", 2, rights, pageSource);
 
         //Birth Date
-        myBasePage.rightsCheck("January 20, 1946", 1, rights, pageSource);
+        myBasePage.rightsCheck("January 20, 1946", 2, rights, pageSource);
         myBasePage.rightsCheck("Birth Date", 3, rights, pageSource);
         if (getRunningOS().equals("ios")) {
-            myBasePage.rightsCheck("(74)", 1, rights, pageSource);
+            myBasePage.rightsCheck("(74)", 2, rights, pageSource);
             //Temple Recommend
-            myBasePage.rightsCheck("November 2021", 1, rights, pageSource);
+            myBasePage.rightsCheck("November 2021", 2, rights, pageSource);
         } else {
-            myBasePage.rightsCheck("- 74", 1, rights, pageSource);
+            myBasePage.rightsCheck("- 74", 2, rights, pageSource);
             //Temple Recommend
-            myBasePage.rightsCheck("Nov 2021", 1, rights, pageSource);
+            myBasePage.rightsCheck("Nov 2021", 2, rights, pageSource);
         }
 
 
         //Ordinances
-        myBasePage.rightsCheck("Ordinances", 1, rights, pageSource);
-        myBasePage.rightsCheck("Baptism", 1, rights, pageSource);
-        myBasePage.rightsCheck("February 6, 1954", 1, rights, pageSource);
-        myBasePage.rightsCheck("Confirmation", 1, rights, pageSource);
-        myBasePage.rightsCheck("February 7, 1954", 1, rights, pageSource);
-        myBasePage.rightsCheck("Endowment", 1, rights, pageSource);
-        myBasePage.rightsCheck("March 23, 1967", 1, rights, pageSource);
+        myBasePage.rightsCheck("Ordinances", 2, rights, pageSource);
+        myBasePage.rightsCheck("Baptism", 2, rights, pageSource);
+        myBasePage.rightsCheck("February 6, 1954", 2, rights, pageSource);
+        myBasePage.rightsCheck("Confirmation", 2, rights, pageSource);
+        myBasePage.rightsCheck("February 7, 1954", 2, rights, pageSource);
+        myBasePage.rightsCheck("Endowment", 2, rights, pageSource);
+        myBasePage.rightsCheck("March 23, 1967", 2, rights, pageSource);
 
 
         //Marriage
-        myBasePage.rightsCheck("MARRIAGE", 1, rights, pageSource);
-        myBasePage.rightsCheck("Spouse", 1, rights, pageSource);
-        myBasePage.rightsCheck("Dickson, Clarence Eugene", 1, rights, pageSource);
-        myBasePage.rightsCheck("Spouse Birth Date", 1, rights, pageSource);
-        myBasePage.rightsCheck("September 9, 1944", 1, rights, pageSource);
-        myBasePage.rightsCheck("Marriage Date", 1, rights, pageSource);
-        myBasePage.rightsCheck("July 21, 1967", 1, rights, pageSource);
-        myBasePage.rightsCheck("Marriage Place", 1, rights, pageSource);
-        myBasePage.rightsCheck("Los Angeles, Los Angeles, California", 1, rights, pageSource);
-        myBasePage.rightsCheck("Maiden Name", 1, rights, pageSource);
+        myBasePage.rightsCheck("MARRIAGE", 2, rights, pageSource);
+        myBasePage.rightsCheck("Spouse", 2, rights, pageSource);
+        myBasePage.rightsCheck("Dickson, Clarence Eugene", 2, rights, pageSource);
+        myBasePage.rightsCheck("Spouse Birth Date", 2, rights, pageSource);
+        myBasePage.rightsCheck("September 9, 1944", 2, rights, pageSource);
+        myBasePage.rightsCheck("Marriage Date", 2, rights, pageSource);
+        myBasePage.rightsCheck("July 21, 1967", 2, rights, pageSource);
+        myBasePage.rightsCheck("Marriage Place", 2, rights, pageSource);
+        myBasePage.rightsCheck("Los Angeles, Los Angeles, California", 2, rights, pageSource);
+        myBasePage.rightsCheck("Maiden Name", 2, rights, pageSource);
 
         //Other Information
         myBasePage.rightsCheck("Gender", 3, rights, pageSource);
         myBasePage.rightsCheck("Female", 3, rights, pageSource);
-        myBasePage.rightsCheck("Gudmundson, Emma Jan", 1, rights, pageSource);
-        myBasePage.rightsCheck("Birthplace", 1, rights, pageSource);
-        myBasePage.rightsCheck("Santa Monica, Los Angeles, Cal", 1, rights, pageSource);
-        myBasePage.rightsCheck("Birth Country", 1, rights, pageSource);
-        myBasePage.rightsCheck("United States", 1, rights, pageSource);
-        myBasePage.rightsCheck("Father", 1, rights, pageSource);
-        myBasePage.rightsCheck("Gudmundson, Guy Leland", 1, rights, pageSource);
-        myBasePage.rightsCheck("Mother", 1, rights, pageSource);
-        myBasePage.rightsCheck("Shaffer, Nora", 1, rights, pageSource);
-        myBasePage.rightsCheck("Prior Unit", 1, rights, pageSource);
+        myBasePage.rightsCheck("Gudmundson, Emma Jan", 2, rights, pageSource);
+        myBasePage.rightsCheck("Birthplace", 2, rights, pageSource);
+        myBasePage.rightsCheck("Santa Monica, Los Angeles, Cal", 2, rights, pageSource);
+        myBasePage.rightsCheck("Birth Country", 2, rights, pageSource);
+        myBasePage.rightsCheck("United States", 2, rights, pageSource);
+        myBasePage.rightsCheck("Father", 2, rights, pageSource);
+        myBasePage.rightsCheck("Gudmundson, Guy Leland", 2, rights, pageSource);
+        myBasePage.rightsCheck("Mother", 2, rights, pageSource);
+        myBasePage.rightsCheck("Shaffer, Nora", 2, rights, pageSource);
+        myBasePage.rightsCheck("Prior Unit", 2, rights, pageSource);
 
 
 
@@ -137,7 +137,6 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("Sunday School Teacher", 4, rights, pageSource);
         myBasePage.rightsCheck("Gospel Doctrine", 4, rights, pageSource);
         myBasePage.rightsCheck("Class Assignments", 4, rights, pageSource);
-        myBasePage.rightsCheck("Relief Society", 4, rights, pageSource);
 //        myBasePage.rightsCheck("Relief Society", 4, rights, pageSource);
 
     }

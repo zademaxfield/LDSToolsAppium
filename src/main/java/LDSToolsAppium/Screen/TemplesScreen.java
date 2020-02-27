@@ -246,6 +246,7 @@ public class TemplesScreen extends BasePage {
             Thread.sleep(2000);
             myMenu.selectMenu(myMenu.settings);
 
+            myBasePage.scrollToTextGeneral("Show Temple Recommend Expiration");
             mySettings.templeShowTempleRecommendExpiration.click();
             mySettings.templeRecommendReminder.click();
 

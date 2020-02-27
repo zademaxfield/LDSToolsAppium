@@ -72,7 +72,7 @@ public class TemplesScreenTest extends BaseDriver {
 
         //Check the temple reminder
         Thread.sleep(6000);
-        Assert.assertTrue(myBasePage.checkForElement(myTemple.remindMeLater));
+//        Assert.assertTrue(myBasePage.checkForElement(myTemple.remindMeLater));
         Assert.assertTrue(myBasePage.checkForElement(myTemple.contactBishopric));
         Assert.assertTrue(myBasePage.checkForElement(myTemple.gotItThanks));
 

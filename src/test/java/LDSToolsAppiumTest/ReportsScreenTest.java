@@ -466,9 +466,9 @@ public class ReportsScreenTest extends BaseDriver {
         ReportsScreen myReports = new ReportsScreen(driver);
 
         myReports.membersMovedOutReport.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Quant", 3, rights, pageSource);
+        myBasePage.rightsCheck("Smith", 3, rights, pageSource);
 //        myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
 //        myBasePage.rightsCheck("Pesega", 1, rights, pageSource);
 
@@ -516,7 +516,7 @@ public class ReportsScreenTest extends BaseDriver {
             Thread.sleep(1000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Deacons", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Dedman, Ammon", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Smith", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("P0, C3", pageSource, "Contains"));
         }
 

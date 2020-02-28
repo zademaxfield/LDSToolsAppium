@@ -61,6 +61,7 @@ public class MemberToolsAPI {
     }
 
     public Request requestProxyURL(String apiUrl, String proxyUser ) {
+        proxyUser = "kroqbandit";
         Request request = new Request.Builder()
                 .url(apiUrl)
                 .addHeader("X-Proxy-User" , proxyUser)
@@ -135,6 +136,7 @@ public class MemberToolsAPI {
     }
 
     public List<String> getChildOrganizationMembers(String organizationName, String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -181,6 +183,7 @@ public class MemberToolsAPI {
 
     //This is for 2nd level child orgs like - Priests Quorum Presidency
     public List<String> getChild2OrganizationMembers(String organizationName, String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -230,6 +233,7 @@ public class MemberToolsAPI {
     }
 
     public List<String> getChildOrganizationClasses(String organizationName, String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -270,6 +274,7 @@ public class MemberToolsAPI {
 
     //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getOrganizationJson (String unitNumber, String proxyLogin) throws IOException {
+        proxyLogin = "kroqbandit";
         String responseData = "";
         File organizationFile = new File("ConfigFiles/organization.json");
         StringBuilder contentBuilder = new StringBuilder();
@@ -310,6 +315,7 @@ public class MemberToolsAPI {
 
 
     public String getHouseholdJson (String unitNumber, String proxyLogin) throws IOException {
+        proxyLogin = "kroqbandit";
         String responseData = "";
         File householdFile = new File("ConfigFiles/households.json");
         StringBuilder contentBuilder = new StringBuilder();
@@ -350,6 +356,7 @@ public class MemberToolsAPI {
 
 
     public String getNameFromUuid( String uuidPersonal, String unitNumber, String proxyLogin) throws IOException {
+        proxyLogin = "kroqbandit";
         OkHttpClient httpClient = loginCred();
         Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/households?units=" + unitNumber, proxyLogin );
         JsonParser parser = new JsonParser();

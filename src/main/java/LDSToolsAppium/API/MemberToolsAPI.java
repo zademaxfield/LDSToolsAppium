@@ -354,6 +354,47 @@ public class MemberToolsAPI {
     }
 
 
+    //TODO: Need a file check for the date then delete if older than 3 or so days?
+    public String getReportJson (String unitNumber, String proxyLogin) throws IOException {
+        proxyLogin = "kroqbandit";
+        String responseData = "";
+        File organizationFile = new File("ConfigFiles/reports.json");
+        StringBuilder contentBuilder = new StringBuilder();
+
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/reports?units="+ unitNumber, proxyLogin );
+
+        if (!organizationFile.exists()) {
+            try (Response response = httpClient.newCall(request).execute()) {
+                assert response.body() != null;
+                responseData = response.body().string();
+                try  {
+//                    FileWriter myWriter = new FileWriter("organization.json");
+                    FileWriter myWriter = new FileWriter(organizationFile);
+                    myWriter.write(responseData);
+                    myWriter.flush();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/reports.json")), StandardCharsets.UTF_8);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return responseData;
+    }
+
+
 
     public String getNameFromUuid( String uuidPersonal, String unitNumber, String proxyLogin) throws IOException {
         proxyLogin = "kroqbandit";
@@ -411,6 +452,77 @@ public class MemberToolsAPI {
 
 
         return memberName;
+
+    }
+
+
+
+    public List<String> getReportList(String reportName, String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiReports myReport = new ApiReports();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiReportList = new TypeToken<ArrayList<ApiReports>>(){}.getType();
+
+        responseData = getReportJson(unitNumber, proxyLogin);
+        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+            System.out.println("JSON Object!");
+            myReport = gson.fromJson(jsonElement, ApiReports.class);
+
+            System.out.println("");
+            System.out.println(" *************************************************************************************");
+            System.out.println(" *************************************************************************************");
+            System.out.println(" *************************************************************************************");
+            System.out.println("");
+
+
+            for (ReportUnit access : myReport.getAccess().getUnits()) {
+                System.out.println("Unit Number : " + access.getUnitNumber().toString());
+                System.out.println("Reports : " + access.getReports().toString());
+            }
+
+            System.out.println("");
+            System.out.println(" *************************************************************************************");
+            System.out.println(" *************************************************************************************");
+            System.out.println(" *************************************************************************************");
+            System.out.println("");
+
+            for (ReportActionInterview actionInterview : myReport.getActionInterviews()) {
+                System.out.println("Unit Number: " + actionInterview.getUnitNumber().toString());
+                System.out.println("Name: " + actionInterview.getName());
+                System.out.println("Description: " + actionInterview.getDescription());
+                System.out.println("Type: " + actionInterview.getType());
+                System.out.println("Members: " + actionInterview.getMembers().toString());
+                for (Member myMembers : actionInterview.getMembers()) {
+                    System.out.println("One Member: " + myMembers.getUuid());
+                }
+
+            }
+
+
+
+
+        } else if (jsonElement instanceof JsonArray) {
+//                System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
+
+            for (ApiReports myReport1 : testReport) {
+
+            }
+        }
+
+
+        return memberNames;
 
     }
 

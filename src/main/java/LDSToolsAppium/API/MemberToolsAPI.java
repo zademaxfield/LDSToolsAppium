@@ -167,7 +167,7 @@ public class MemberToolsAPI {
                             if (childOrgs.getPositions() != null ) {
 //                                    System.out.println("Positions: " + childOrgs.getPositions());
                                 for (String onePosition : childOrgs.getPositions()) {
-                                    memberNames.add(getNameFromUuid(onePosition, unitNumber, proxyLogin));
+                                    memberNames.add(getNameFromUuid(onePosition, unitNumber, proxyLogin, "position"));
                                 }
 
                             }
@@ -217,7 +217,7 @@ public class MemberToolsAPI {
                                     if (childOrgs2.getPositions() != null ) {
 //                                        System.out.println("Positions: " + childOrgs2.getPositions());
                                         for (String onePosition : childOrgs2.getPositions()) {
-                                            memberNames.add(getNameFromUuid(onePosition, unitNumber, proxyLogin));
+                                            memberNames.add(getNameFromUuid(onePosition, unitNumber, proxyLogin, "position"));
                                         }
                                     }
                                 }
@@ -396,7 +396,7 @@ public class MemberToolsAPI {
 
 
 
-    public String getNameFromUuid( String uuidPersonal, String unitNumber, String proxyLogin) throws IOException {
+    public String getNameFromUuid( String uuidPersonal, String unitNumber, String proxyLogin, String returnType) throws IOException {
         proxyLogin = "kroqbandit";
         OkHttpClient httpClient = loginCred();
         Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/households?units=" + unitNumber, proxyLogin );
@@ -435,14 +435,22 @@ public class MemberToolsAPI {
 //                        System.out.println("Personal: uuid: " + personalMember.getUuid());
 //                        System.out.println("Personal: Display Name: " + personalMember.getDisplayName());
 //                        System.out.println("Positions uuid: " + personalMember.getPositions());
+                        if (returnType.equalsIgnoreCase("personal")) {
+                            if (personalMember.getUuid().equalsIgnoreCase(uuidPersonal)) {
+                                memberName = personalMember.getDisplayName();
+                            }
+                        }
                         if (personalMember.getPositions() != null ) {
                             for (Position onePosition : personalMember.getPositions()) {
 //                                System.out.println("Positions uuid: " + onePosition.getUuid());
 //                                System.out.println("##### Position Name: " + onePosition.getName());
-                                if (onePosition.getUuid().equalsIgnoreCase(uuidPersonal)) {
-                                    memberName = personalMember.getDisplayName();
+                                if (returnType.equalsIgnoreCase("position")) {
+                                    if (onePosition.getUuid().equalsIgnoreCase(uuidPersonal)) {
+                                        memberName = personalMember.getDisplayName();
 //                                    System.out.println("*******Found*******" + memberName);
+                                    }
                                 }
+
                             }
                         }
                     }
@@ -456,8 +464,50 @@ public class MemberToolsAPI {
     }
 
 
+    //This will return a list of reports
+    public List<String> getReportNames(String proxyLogin, String unitNumber) throws Exception {
+//        proxyLogin = "kroqbandit";
+//        unitNumber = "21628";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiReports myReport = new ApiReports();
 
-    public List<String> getReportList(String reportName, String proxyLogin, String unitNumber) throws Exception {
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiReportList = new TypeToken<ArrayList<ApiReports>>(){}.getType();
+
+        responseData = getReportJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myReport = gson.fromJson(jsonElement, ApiReports.class);
+
+            for (ReportUnit access : myReport.getAccess().getUnits()) {
+//                System.out.println("Unit Number : " + access.getUnitNumber().toString());
+//                System.out.println("Reports : " + access.getReports().toString());
+                for (Object listReportName : access.getReports().toArray()) {
+//                    System.out.println("One Report: " + listReportName.toString());
+                    memberNames.add(listReportName.toString());
+                }
+            }
+
+
+        } else if (jsonElement instanceof JsonArray) {
+            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
+
+        }
+
+
+        return memberNames;
+
+    }
+
+    public List<String> getNamesFromActionInterviewReports(String reportName, String proxyLogin, String unitNumber) throws Exception {
         proxyLogin = "kroqbandit";
         JsonParser parser = new JsonParser();
         String responseData;
@@ -469,56 +519,36 @@ public class MemberToolsAPI {
         Type apiReportList = new TypeToken<ArrayList<ApiReports>>(){}.getType();
 
         responseData = getReportJson(unitNumber, proxyLogin);
-        System.out.println("Response String: " + responseData);
+//        System.out.println("Response String: " + responseData);
         JsonElement jsonElement = parser.parse(responseData);
 
 
 //            System.out.println("Json element to String ORG: " + jsonElement.toString());
         if (jsonElement instanceof JsonObject) {
-            System.out.println("JSON Object!");
+//            System.out.println("JSON Object!");
             myReport = gson.fromJson(jsonElement, ApiReports.class);
 
-            System.out.println("");
-            System.out.println(" *************************************************************************************");
-            System.out.println(" *************************************************************************************");
-            System.out.println(" *************************************************************************************");
-            System.out.println("");
-
-
-            for (ReportUnit access : myReport.getAccess().getUnits()) {
-                System.out.println("Unit Number : " + access.getUnitNumber().toString());
-                System.out.println("Reports : " + access.getReports().toString());
-            }
-
-            System.out.println("");
-            System.out.println(" *************************************************************************************");
-            System.out.println(" *************************************************************************************");
-            System.out.println(" *************************************************************************************");
-            System.out.println("");
 
             for (ReportActionInterview actionInterview : myReport.getActionInterviews()) {
-                System.out.println("Unit Number: " + actionInterview.getUnitNumber().toString());
-                System.out.println("Name: " + actionInterview.getName());
-                System.out.println("Description: " + actionInterview.getDescription());
-                System.out.println("Type: " + actionInterview.getType());
-                System.out.println("Members: " + actionInterview.getMembers().toString());
-                for (Member myMembers : actionInterview.getMembers()) {
-                    System.out.println("One Member: " + myMembers.getUuid());
+//                System.out.println("Unit Number: " + actionInterview.getUnitNumber().toString());
+//                System.out.println("Name: " + actionInterview.getName());
+//                System.out.println("Description: " + actionInterview.getDescription());
+//                System.out.println("Type: " + actionInterview.getType());
+//                System.out.println("Members: " + actionInterview.getMembers().toString());
+                if (actionInterview.getName().contains(reportName)) {
+                    for (Member myMembers : actionInterview.getMembers()) {
+//                        System.out.println("One Member: " + myMembers.getUuid());
+//                        System.out.println("One Member Name: " + getNameFromUuid( myMembers.getUuid(), unitNumber, proxyLogin, "personal"));
+                        memberNames.add(getNameFromUuid( myMembers.getUuid(), unitNumber, proxyLogin, "personal"));
+                    }
                 }
-
             }
-
-
-
 
         } else if (jsonElement instanceof JsonArray) {
 //                System.out.println("JSON Array!");
             JsonArray jsonData = jsonElement.getAsJsonArray();
             List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
 
-            for (ApiReports myReport1 : testReport) {
-
-            }
         }
 
 
@@ -526,126 +556,152 @@ public class MemberToolsAPI {
 
     }
 
-//
-//    public void getOrganizationMember2(String organizationName, String proxyLogin, String unitNumber) {
-//        OkHttpClient httpClient = loginCred();
-//        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/organizations?units=" + unitNumber, proxyLogin );
-//        JsonParser parser = new JsonParser();
-//        String responseData;
-////        String myPositions = "";
-//        ArrayList<String> myPositions = new ArrayList<String>();
-//        ArrayList<String> memberNames = new ArrayList<String>();
-//
-//
-//        try (Response response = httpClient.newCall(request).execute()) {
-//            assert response.body() != null;
-//            responseData = response.body().string();
-//            System.out.println("Response String: " + responseData);
-//            JsonElement jsonElement = parser.parse(responseData);
-//            System.out.println("Json element to String: " + jsonElement.toString());
-//            if (jsonElement instanceof JsonObject) {
-//                System.out.println("JSON Object!");
-//                System.out.println("Name: " + ((JsonObject) jsonElement).get("name").getAsString());
-//            } else if (jsonElement instanceof JsonArray) {
+    public List<String> getNamesFromMembersMovedOut(String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiReports myReport = new ApiReports();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiReportList = new TypeToken<ArrayList<ApiReports>>(){}.getType();
+
+        responseData = getReportJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myReport = gson.fromJson(jsonElement, ApiReports.class);
+
+
+            for (ReportMembersMovedOut membersMovedOut : myReport.getMembersMovedOut()) {
+//                System.out.println("Unit Number: " + membersMovedOut.getUnitNumber().toString());
+//                System.out.println("Display Name: " + membersMovedOut.getDisplayName());
+//                System.out.println("Moved Out Date: " + membersMovedOut.getPriorUnitMoveOutDate());
+//                System.out.println("Next Unit: " + membersMovedOut.getNextUnit());
+//                System.out.println("Members: " + actionInterview.getMembers().toString());
+                memberNames.add(membersMovedOut.getDisplayName());
+
+            }
+
+        } else if (jsonElement instanceof JsonArray) {
 //                System.out.println("JSON Array!");
-////                JsonArray jsonData = new JsonArray(((JsonArray) jsonElement).size());
-////                JsonArray jsonData = jsonElement.getAsJsonArray();
-//                JsonArray jsonData = jsonElement.getAsJsonArray();
-//
-//                for (JsonElement orgName : jsonData) {
-//                    JsonObject orgObject = orgName.getAsJsonObject();
-//                    String myUuid = orgObject.get("uuid").getAsString();
-//                    String myOrgName = orgObject.get("name").getAsString();
-//                    String myOrgTypes = orgObject.get("orgTypes").getAsString();
-//                    if (organizationName.equalsIgnoreCase(myOrgName)) {
-//                        if (orgObject.has("positions")) {
-//                            JsonArray positionsArray = orgObject.getAsJsonArray("positions");
-//                            for (JsonElement posElement : positionsArray ) {
-//                                myPositions.add(posElement.getAsString());
-//                                if (myOrgName.equalsIgnoreCase(organizationName)) {
-//                                    for (String posUuid : myPositions) {
-//                                        memberNames.add(getNameFromUuid(posUuid, unitNumber, proxyLogin));
-//                                    }
-//                                }
-//                            }
-//                        }
-//
-//                        System.out.println("****************************");
-//                        System.out.println("uuid: " + myUuid);
-//                        System.out.println("Org Name: " + myOrgName);
-////                            System.out.println("Unit Number: " + myUnitNumber);
-////                        System.out.println("Child Orgs: " + myChildOrg);
-//                        System.out.println("Org Type: " + myOrgTypes);
-//                        System.out.println("Positions: " + myPositions);
-//                        System.out.println("Member Names: " + memberNames);
-//                        System.out.println("****************************");
-//
-//                    }
-//                }
-//
-//
-//
-//            }
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//
-//
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
 
-//    //Test Request
-//    public void apiRequest() {
-//        OkHttpClient httpClient = loginCred();
-//        Request request = requestURL();
-//        String jsonData;
-//
-//        try (Response response = httpClient.newCall(request).execute()) {
-//            jsonData = response.body().string();
-//            System.out.println(jsonData);
-//            JsonObject jsonObject = (new JsonParser()).parse(jsonData).getAsJsonObject();
-//            System.out.println("Name: " + jsonObject.get("name").getAsString());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+        }
 
 
-//    public void toolsService() throws Exception {
-//        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-//        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-//        String jsonData;
-//
-//        byte[] decodeBytes = Base64.decodeBase64("UDFrQFNwMTc=");
-//
-//        TestWam2CredentialsManager credentialsManager = new TestWam2CredentialsManager("zmaxfield", new String(decodeBytes));
-//
-//        OkHttpClient httpClient = new OkHttpClient.Builder()
-//                .addInterceptor(new TestAuthenticationInterceptor(new TestAuthenticationManager(credentialsManager)))
-//                .addInterceptor(loggingInterceptor)
-//                .connectTimeout(Duration.ofSeconds(360))
-//                .writeTimeout(Duration.ofSeconds(360))
-//                .readTimeout(Duration.ofSeconds(360))
-//                .build();
-//
-//
-//        Request request = new Request.Builder()
-//                .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/organizations?units=111856")
-////                .url("https://identity-util-service-int.churchofjesuschrist.org/api/checkSession")
-////                .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/user")
-//                .build();
-//
-//        try (Response response = httpClient.newCall(request).execute()) {
-//            jsonData = response.body().string();
-//            System.out.println(jsonData);
-//            JsonObject jsonObject = (new JsonParser()).parse(jsonData).getAsJsonObject();
-//            System.out.println("Name: " + jsonObject.get("name").getAsString());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+        return memberNames;
 
+    }
+
+    public List<String> getNamesFromNewMembers(String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiReports myReport = new ApiReports();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiReportList = new TypeToken<ArrayList<ApiReports>>(){}.getType();
+
+        responseData = getReportJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myReport = gson.fromJson(jsonElement, ApiReports.class);
+
+
+            for (ReportNewMember newMember : myReport.getNewMembers()) {
+                System.out.println("Unit Number: " + newMember.getUnitNumber().toString());
+                System.out.println("Uuid: " + newMember.getUuid());
+
+                memberNames.add(getNameFromUuid( newMember.getUuid(), unitNumber, proxyLogin, "personal"));
+
+            }
+
+        } else if (jsonElement instanceof JsonArray) {
+//                System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
+
+        }
+
+
+        return memberNames;
+
+    }
+
+
+
+    public List<String> getInfoFromMinisteringBrothers(String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiReports myReport = new ApiReports();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiReportList = new TypeToken<ArrayList<ApiReports>>(){}.getType();
+
+        responseData = getReportJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myReport = gson.fromJson(jsonElement, ApiReports.class);
+
+
+            for (ReportMinisteringBrother ministeringBrother : myReport.getMinisteringBrothers()) {
+                System.out.println("Unit Number: " + ministeringBrother.getDistricts().toString());
+                for (ReportDistrict myDistrict : ministeringBrother.getDistricts()) {
+                    System.out.println("District Name: " + myDistrict.getName());
+                    // Send district name
+                    if (myDistrict.getCompanionships() != null) {
+                        for (ReportCompanionship myCompanionship : myDistrict.getCompanionships()) {
+                            System.out.println("Uuid: " + myCompanionship.getUuid());
+                            //Send Companionship?
+                            System.out.println("Companions: " + myCompanionship.getCompanions());
+                            for (ReportCompanion myCompanion : myCompanionship.getCompanions()) {
+                                System.out.println("Companion: " + myCompanion.getUuid());
+                                memberNames.add(getNameFromUuid( myCompanion.getUuid(), unitNumber, proxyLogin, "personal"));
+                                //Send Companion
+                            }
+                        }
+                    }
+
+
+                }
+
+//                memberNames.add(getNameFromUuid( newMember.getUuid(), unitNumber, proxyLogin, "personal"));
+
+            }
+
+        } else if (jsonElement instanceof JsonArray) {
+//                System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
+
+        }
+
+
+        return memberNames;
+
+    }
 
 
 

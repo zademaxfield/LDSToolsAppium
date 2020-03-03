@@ -17,7 +17,24 @@ public class MemberToolsAPITest {
         MemberToolsAPI apiTest = new MemberToolsAPI();
         List<String> memberList = new ArrayList<String>();
 
-        memberList = apiTest.getReportList("Unassigned Teachers", "kroqbandit", "21628");
+        //Get report list
+//        memberList = apiTest.getReportNames("kroqbandit", "21628");
+
+        //Get members from Action and Interview Reports
+//        memberList = apiTest.getNamesFromActionInterviewReports("Unbaptized Members", "kroqbandit", "21628");
+
+        //Get Members from Members Moved Out
+//        memberList = apiTest.getNamesFromMembersMovedOut("kroqbandit", "21628");
+
+        //Get Members from New Members
+//        memberList = apiTest.getNamesFromNewMembers("kroqbandit", "21628");
+
+        //Get Ministering Brother info
+        memberList = apiTest.getInfoFromMinisteringBrothers("kroqbandit", "21628");
+
+
+
+
 //        memberList = apiTest.getChildOrganizationMembers("Unassigned Teachers", "kroqbandit", "21628");
 //        memberList = apiTest.getChildOrganizationClasses("Other Callings", "kroqbandit", "21628");
 

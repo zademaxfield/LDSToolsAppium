@@ -1,5 +1,6 @@
 package LDSToolsAppiumTest;
 
+import LDSToolsAppium.API.MemberToolsAPI;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
@@ -464,13 +465,23 @@ public class ReportsScreenTest extends BaseDriver {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
+        MemberToolsAPI apiTest = new MemberToolsAPI();
+        List<String> memberList = new ArrayList<String>();
+        List<String> shortList = new ArrayList<>();
+
 
         myReports.membersMovedOutReport.click();
         Thread.sleep(2000);
-        pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("Smith", 3, rights, pageSource);
-//        myBasePage.rightsCheck("New Unit", 1, rights, pageSource);
-//        myBasePage.rightsCheck("Pesega", 1, rights, pageSource);
+
+        memberList = apiTest.getNamesFromMembersMovedOut("kroqbandit", "21628");
+
+        //Just take the first 5 members in the list
+        for (int i = 0; i < 4; i++ ) {
+            shortList.add(memberList.get(i));
+        }
+
+        myBasePage.apiCheckData(shortList);
+
 
         Thread.sleep(1000);
         myBasePage.backButton.click();

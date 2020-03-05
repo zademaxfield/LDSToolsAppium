@@ -639,7 +639,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.selectFilters(myReports.expiredSort);
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Garcia", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
 
         myReports.selectFilters(myReports.otherSort);

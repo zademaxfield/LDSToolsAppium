@@ -25,7 +25,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
         </classes>
     </test> <!-- iOS Just For Testing test -->
 </suite> <!-- suite iOS -->

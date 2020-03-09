@@ -468,7 +468,7 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.selectDistrict("RS - 2nd Counselor");
             Thread.sleep(4000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Smith", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));
 //            Assert.assertTrue(myBasePage.checkNoCaseList("LDS35", pageSource, "Contains"));
 //            Assert.assertFalse(myBasePage.checkNoCaseList("LDS16", pageSource, "Contains"));

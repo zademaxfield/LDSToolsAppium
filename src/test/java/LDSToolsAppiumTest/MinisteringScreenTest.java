@@ -79,7 +79,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4", "jft"})
     public void ministeringUnassignedHouseholds(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -423,7 +423,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    @Test (dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4"})
     public void companionshipsSisters(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

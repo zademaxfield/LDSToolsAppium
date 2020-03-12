@@ -390,8 +390,10 @@ public class BaseDriver implements ITest {
             }
 
 
+
             // set up appium
             File classpathRoot = new File(System.getProperty("user.dir"));
+            //TODO: Need a better path
             File appDir = new File(classpathRoot, "../../../Selenium");
             File app = new File(appDir, fileName);
 

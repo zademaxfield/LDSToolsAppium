@@ -28,7 +28,7 @@ public class DirectoryScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
     public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -64,7 +64,6 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("5420 W 140th St", 4, rights, pageSource);
         myBasePage.rightsCheck("Hawthorne, California 90250-6402", 4, rights, pageSource);
 
-        //TODO: iOS and Android handle this differently
         myBasePage.rightsCheck("33.9", 4, rights, pageSource);
         myBasePage.rightsCheck("-118.3", 4, rights, pageSource);
 
@@ -144,7 +143,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
     //This is an iOS only test now
-    @Test(groups = {"smoke4", "all4", "all"})
+    @Test(groups = {"smoke4", "all4", "all", "jft"})
     public void directoryNoCallingCheckMRN() throws Exception {
         String pageSource;
 
@@ -154,23 +153,20 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         if (getRunningOS().equals("ios")) {
-            //Login and enter in PIN
-//        myHelper.loginUAT("LDSTools5", "toolstester");
-//        myHelper.proxyLogin("dcbryson");
+
             myHelper.loginProduction("imaxfield", "ldsM0b1l3");
-//        myHelper.enterPin("1", "1", "3", "3");
             myHelper.nonLeaderNoPin();
 
             //Search and click on Tools, LDS5
-            myDirectory.searchAndClick("Bryson, David");
+            myDirectory.searchAndClick("Maxfield, Ian");
 
 
-            myBasePage.clickByTextContains("David Bryson");
+            myBasePage.clickByTextContains("Ian Maxfield");
             myDirectory.memebershipInformation.click();
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Show Record Number", pageSource, "Contains"));
             myDirectory.showRecordNumber.click();
-            myDirectory.accountPassword.sendKeys("toolstester");
+            myDirectory.accountPassword.sendKeys("ldsM0b1l3");
             myDirectory.accountPasswordOK.click();
             pageSource = myDirectory.getDirectoryUserData();
 
@@ -456,8 +452,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-
-    @Test(groups = {"all3", "all"})
+    //TODO: Need to update user
+//    @Test(groups = {"all2", "all"})
+    @Test(groups = {"needUpdate"})
     public void directoryIndividualHousehold() throws Exception {
         Dimension thumbNailDim;
 
@@ -499,7 +496,9 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all"})
+    //TODO: Need to update user
+//    @Test(groups = {"all2", "all"})
+    @Test(groups = {"needUpdate"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
 
         // ********* Constructor **********

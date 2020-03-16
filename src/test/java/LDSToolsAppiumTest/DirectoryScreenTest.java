@@ -65,8 +65,8 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("Hawthorne, California 90250-6402", 4, rights, pageSource);
 
         //TODO: iOS and Android handle this differently
-//        myBasePage.rightsCheck("33.904257, -118.375162", 4, rights, pageSource);
-
+        myBasePage.rightsCheck("33.9", 4, rights, pageSource);
+        myBasePage.rightsCheck("-118.3", 4, rights, pageSource);
 
         //Membership Information
         myBasePage.rightsCheck("MEMBERSHIP INFORMATION", 3, rights, pageSource);

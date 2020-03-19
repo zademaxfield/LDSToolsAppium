@@ -131,6 +131,7 @@ public class HelperMethods extends BasePage {
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
 
         String deviceName;
+        String pageSource;
 
 
         if (checkForElement(allowButton)) {
@@ -169,6 +170,10 @@ public class HelperMethods extends BasePage {
         Thread.sleep(2000);
 
         if (getOS().equals("ios")) {
+            //Check for Failed to download
+            pageSource = getSourceOfPage();
+            Assert.assertFalse(pageSource.contains("Failed to download."));
+
             System.out.println("Wait for text to appear: Update");
 
             waitForText("Update");

@@ -143,7 +143,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
     //This is an iOS only test now
-    @Test(groups = {"smoke4", "all4", "all", "jft"})
+    @Test(groups = {"smoke4", "all4", "all"})
     public void directoryNoCallingCheckMRN() throws Exception {
         String pageSource;
 
@@ -452,9 +452,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    //TODO: Need to update user
-//    @Test(groups = {"all2", "all"})
-    @Test(groups = {"needUpdate"})
+    //TODO: Need to test when iOS is working
+    @Test(groups = {"all2", "all"})
+//    @Test(groups = {"needUpdate"})
     public void directoryIndividualHousehold() throws Exception {
         Dimension thumbNailDim;
 
@@ -464,7 +464,8 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("kroqbandit");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Should be Household view by default
@@ -478,6 +479,7 @@ public class DirectoryScreenTest extends BaseDriver {
 //        System.out.println(myBasePage.getSourceOfPage());
         //The thumbNail is showing up a visible=false
         if (myBasePage.getOS().equals("ios")) {
+            System.out.println(myBasePage.getSourceOfPage());
             thumbNailDim = myDirectory.thumbNail.getSize();
 //            System.out.println("Height: " + thumbNailDim.getHeight());
 //            System.out.println("Width: " + thumbNailDim.getWidth());
@@ -496,9 +498,8 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    //TODO: Need to update user
-//    @Test(groups = {"all2", "all"})
-    @Test(groups = {"needUpdate"})
+
+    @Test(groups = {"all2", "all"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
 
         // ********* Constructor **********
@@ -506,29 +507,20 @@ public class DirectoryScreenTest extends BaseDriver {
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        //Login and enter in PIN
-        myHelper.loginUAT("LDSTools5", "toolstester");
-        myHelper.nonLeaderNoPin();
-
-        //Search and click on Aaron Jane
-        myDirectory.searchAndClick("Tools, LDS5");
-
-//        System.out.println(myBasePage.getOS());
-
         if (myBasePage.getOS().equals("ios")) {
+            myHelper.proxyLogin("dcbryson");
+            myHelper.nonLeaderNoPin();
+            myDirectory.searchAndClick("Bryson, David");
             myBasePage.scrollToTextiOS("Membership Information");
             myDirectory.memebershipInformation.click();
         } else {
             myDirectory.tabMembership.click();
         }
 
-
-
     }
 
-    //TODO: Need to update user
-//    @Test(groups = {"all2", "all", "jft"})
-    @Test(groups = {"needUpdate"})
+
+    @Test(groups = {"all2", "all"})
     public void directoryLatLongNoGPS() throws Exception {
         String pageSource;
 
@@ -537,11 +529,12 @@ public class DirectoryScreenTest extends BaseDriver {
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        //Login and enter in PIN
-        myHelper.loginUAT("LDSTools3", "toolstester");
+        //Login as Bishop
+        myHelper.proxyLogin("vlealaiauloto");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Tools, LDS29");
+        myDirectory.searchAndClick("AhNae, Atonio");
 
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
 
@@ -551,9 +544,8 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
-//    @Test(groups = {"all3", "all"})
+//    @Test(groups = {"needUpdate"})
+    @Test(groups = {"all3", "all"})
     public void directoryLatLongNoGPSNoCalling() throws Exception {
         String pageSource;
 
@@ -562,11 +554,12 @@ public class DirectoryScreenTest extends BaseDriver {
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        //Login and enter in PIN
-        myHelper.loginUAT("LDSTools5", "toolstester");
+        //Login as member with no calling
+        myHelper.proxyLogin("silapeamomoisea");
+//        myHelper.loginUAT("LDSTools5", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Aanamalili, Kimpley");
+        myDirectory.searchAndClick("AhNae, Atonio");
 
         //Get all info
         pageSource = myDirectory.getDirectoryUserData();
@@ -584,9 +577,8 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
-//    @Test(groups = {"all3", "all"})
+
+    @Test(groups = {"all3", "all"})
     public void directoryLatLongCheckLocation() throws Exception {
 
         // ********* Constructor **********
@@ -594,8 +586,8 @@ public class DirectoryScreenTest extends BaseDriver {
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        //Login and enter in PIN
-        myHelper.loginUAT("LDSTools3", "toolstester");
+        //Login as Bishop
+        myHelper.proxyLogin("vlealaiauloto");
         myHelper.enterPin("1", "1", "3", "3");
 
 //        myDirectory.searchAndClick("Pipi, Mafoe");
@@ -615,7 +607,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
     //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test(dataProvider = "Members", groups = {"all4", "all"})
     public void directoryLatLongNoGPSChooseLocation(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;

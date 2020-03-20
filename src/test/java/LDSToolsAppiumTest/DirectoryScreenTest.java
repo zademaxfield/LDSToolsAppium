@@ -578,7 +578,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryLatLongCheckLocation() throws Exception {
 
         // ********* Constructor **********
@@ -595,7 +595,8 @@ public class DirectoryScreenTest extends BaseDriver {
         if (myBasePage.getOS().contains("ios")) {
             myDirectory.searchAndClickHousehold("Pipi, Mafoe & Lalotoa");
 //            myBasePage.clickByTextContains("Pipi");
-            myBasePage.scrollDownIOS();
+//            myBasePage.scrollDownIOS();
+            myBasePage.scrollToTextGeneral("Adjust Household Location");
         } else {
             myDirectory.searchAndClickHousehold("Pipi, Mafoe");
         }
@@ -607,7 +608,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
     //TODO: Need to update user
-    @Test(groups = {"needUpdate", "jft"})
+    @Test(groups = {"needUpdate"})
 //    @Test(dataProvider = "Members", groups = {"all4", "all"})
     public void directoryLatLongNoGPSChooseLocation(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         String pageSource;

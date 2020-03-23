@@ -24,7 +24,8 @@ public class MeetinghousesScreen extends BasePage {
     // ****************** Before Main Screen Loads ******************
 
     //Allow access to your location
-    @AndroidFindBy(id = "md_button_positive")
+//    @AndroidFindBy(id = "md_button_positive")
+    @AndroidFindBy(xpath = "//*[text='OK']")
     @iOSXCUITFindBy(accessibility = "Allow")
     public MobileElement meetinghousesAllow;
 

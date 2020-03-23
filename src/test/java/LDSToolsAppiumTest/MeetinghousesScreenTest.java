@@ -32,6 +32,8 @@ public class MeetinghousesScreenTest extends BaseDriver {
 
         myMenu.selectMenu(myMenu.meetinghouses);
 
+//        Thread.sleep(2000);
+        System.out.println(myBasePage.getSourceOfPage());
         myMeetinghouses.meetinghousesAllow.click();
         Thread.sleep(5000);
         if (!getRunningOS().equals("ios")) {

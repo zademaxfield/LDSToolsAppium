@@ -33,9 +33,12 @@ public class MeetinghousesScreenTest extends BaseDriver {
         myMenu.selectMenu(myMenu.meetinghouses);
 
 //        Thread.sleep(2000);
-        System.out.println(myBasePage.getSourceOfPage());
-        myMeetinghouses.meetinghousesAllow.click();
-        Thread.sleep(5000);
+
+        if (myBasePage.checkForElement(myMeetinghouses.meetinghousesAllow)) {
+            myMeetinghouses.meetinghousesAllow.click();
+            Thread.sleep(5000);
+        }
+
         if (!getRunningOS().equals("ios")) {
             driver.switchTo().alert();
             myMeetinghouses.meetinghousesAllowAndroidPermissions.click();
@@ -48,15 +51,18 @@ public class MeetinghousesScreenTest extends BaseDriver {
 
         Thread.sleep(5000);
 
-        myMeetinghouses.meetinghouseSearch("12691 South 3600 West Rivertion UT");
+        myMeetinghouses.meetinghouseSearch("12691 South 3600 West Riverton UT");
 
 
-        Thread.sleep(3000);
+        Thread.sleep(7000);
 
+//        System.out.println(myBasePage.getSourceOfPage());
         myMeetinghouses.selectMeetinghouse();
-        Thread.sleep(3000);
+        Thread.sleep(6000);
 
-        myMeetinghouses.openMeetinghouseDetails("Meetinghouse, 12691 South 3600 West");
+//        myMeetinghouses.openMeetinghouseDetails("Meetinghouse, 12691 South 3600 West");
+        myMeetinghouses.openMeetinghouseDetails("12691 3600 West Riverton, Utah 84065 United States");
+
 
 
         Thread.sleep(2000);
@@ -76,7 +82,7 @@ public class MeetinghousesScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("10:30 am", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Riverton 19th Ward", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("12:00 pm", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("10:30 am", pageSource, "Contains"));
 
         myBasePage.checkForElement(myMeetinghouses.directionIcon);
 
@@ -96,7 +102,7 @@ public class MeetinghousesScreenTest extends BaseDriver {
 
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament meeting:", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("9:00 am", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("10:30 am", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("First meeting:", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
@@ -137,7 +143,7 @@ public class MeetinghousesScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("RIVERTON, Utah", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("Riverton 19th Ward", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament meeting:", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("12:00 pm", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("9:00 am", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("First meeting:", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));

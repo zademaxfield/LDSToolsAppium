@@ -25,8 +25,9 @@ public class MeetinghousesScreen extends BasePage {
 
     //Allow access to your location
 //    @AndroidFindBy(id = "md_button_positive")
-    @AndroidFindBy(xpath = "//*[text='OK']")
-    @iOSXCUITFindBy(accessibility = "Allow")
+    @AndroidFindBy(xpath = "//*[@text='OK']")
+//    @iOSXCUITFindBy(accessibility = "Allow")
+    @iOSXCUITFindBy(accessibility = "Allow While Using App")
     public MobileElement meetinghousesAllow;
 
 
@@ -154,6 +155,10 @@ public class MeetinghousesScreen extends BasePage {
         if (getOS().equals("ios")) {
             myElement = driver.findElement(By.name(meetinghouseAddress));
             myElement.click();
+//            Thread.sleep(4000);
+            System.out.println(getSourceOfPage());
+//            driver.findElement(By.name("Meetinghouse")).click();
+//            driver.findElement(By.xpath("//*[contains(@name,'Meetinghouse,')]")).click();
             clickAboveElement(myElement);
         } else {
             meetinghouseDetails.click();

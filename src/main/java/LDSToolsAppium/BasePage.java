@@ -1131,6 +1131,8 @@ public class BasePage {
         useThisLocationX = myElement.getLocation().getX();
         useThisLocationY = myElement.getLocation().getY();
 
+        System.out.println("Click above element - X: "  + useThisLocationX + " Y: " + useThisLocationY);
+
         new TouchAction(driver).press(PointOption.point(useThisLocationX, useThisLocationY - 50)).release().perform(); //50
     }
 

@@ -13,6 +13,7 @@ public class MeetinghousesScreenTest extends BaseDriver {
 
 
 
+    //TODO: iOS has problems with this test
     @Test(groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void meetinghousesSimpleTest() throws Exception {
         String pageSource;
@@ -60,8 +61,8 @@ public class MeetinghousesScreenTest extends BaseDriver {
         myMeetinghouses.selectMeetinghouse();
         Thread.sleep(6000);
 
-//        myMeetinghouses.openMeetinghouseDetails("Meetinghouse, 12691 South 3600 West");
-        myMeetinghouses.openMeetinghouseDetails("12691 3600 West Riverton, Utah 84065 United States");
+        myMeetinghouses.openMeetinghouseDetails("Meetinghouse, 12691 South 3600 West");
+//        myMeetinghouses.openMeetinghouseDetails("12691 3600 West Riverton, Utah 84065 United States");
 
 
 

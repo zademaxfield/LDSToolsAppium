@@ -144,7 +144,7 @@ public class MeetinghousesScreen extends BasePage {
 
     public void selectMeetinghouse() throws Exception {
         if (getOS().equals("ios")){
-            driver.findElement(By.xpath("//XCUIElementTypeOther[@name=' ']")).click();
+            driver.findElement(By.xpath("//XCUIElementTypeOther[@name=' '][1]")).click();
         } else {
             driver.findElement(By.xpath("//android.view.View[@content-desc='Google Map']/android.view.View[2]")).click();
         }
@@ -153,12 +153,13 @@ public class MeetinghousesScreen extends BasePage {
     public void openMeetinghouseDetails(String meetinghouseAddress) throws Exception {
         MobileElement myElement;
         if (getOS().equals("ios")) {
-            myElement = driver.findElement(By.name(meetinghouseAddress));
-            myElement.click();
-//            Thread.sleep(4000);
             System.out.println(getSourceOfPage());
-//            driver.findElement(By.name("Meetinghouse")).click();
-//            driver.findElement(By.xpath("//*[contains(@name,'Meetinghouse,')]")).click();
+//            myElement = driver.findElement(By.name(meetinghouseAddress));
+            myElement = driver.findElement(By.xpath("//*[contains(@name,'" + meetinghouseAddress + "')]"));
+            myElement.click();
+            Thread.sleep(2000);
+//            driver.findElement(By.name("ic action location directions ")).click();
+//            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='ic action location directions ']//following-sibling::XCUIElementTypeOther")).click();
             clickAboveElement(myElement);
         } else {
             meetinghouseDetails.click();

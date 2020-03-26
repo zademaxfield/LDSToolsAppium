@@ -5,7 +5,7 @@
     <test name="iOS Smoke Test - iPhone 11" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <parameter name="testDevice" value="iPhone 11" />
+        <parameter name="testDevice" value="FBSIM-iPhone 11" />
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -38,7 +38,7 @@
     <test name="iOS Smoke Test - iPhone 8" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <parameter name="testDevice" value="iPhone 8" />
+        <parameter name="testDevice" value="FBSIM-iPhone 8" />
         <parameter name="startSleepTime" value="60000" />
 
         <groups>

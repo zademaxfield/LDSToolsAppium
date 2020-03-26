@@ -489,6 +489,8 @@ public class BaseDriver implements ITest {
 
                 myUdid = getUDIDfromDeviceNameFBSIM(testDevice);
 
+                System.out.println("MY UDID: " + myUdid);
+
                 //Start Simulator
                 startFbSim(myUdid, tempPort);
 
@@ -718,7 +720,8 @@ public class BaseDriver implements ITest {
         System.out.println("EDIT TO SEARCH " + deviceNameSearch);
 
         //Process pr = run.exec(new String[] {"/bin/bash", "-c", "fbsimctl list ", " | grep", deviceNameSearch});
-        Process pr = run.exec(new String[] {"/bin/bash", "-c", "fbsimctl list | grep " + deviceNameSearch});
+//        Process pr = run.exec(new String[] {"/bin/bash", "-c", "fbsimctl list | grep " + deviceNameSearch});
+        Process pr = run.exec(new String[] {"/bin/bash", "-c", "idb list-targets | grep " + deviceNameSearch});
         pr.waitFor();
 
         BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
@@ -729,15 +732,17 @@ public class BaseDriver implements ITest {
 
         String[] parts = line.split(" | ");
         String simUDID = parts[0];
-//        String simName = parts[1];
-//        String simStatus = parts[2];
-//        String simModel = parts[3];
-//        String simOSVersion = parts[4];
+        String simName = parts[1];
+        String simStatus = parts[2];
+        String simModel = parts[3]; //This is the udid now
+        String simOSVersion = parts[4];
+//        System.out.println("Part 0: " + simUDID);
+//        System.out.println("Part 1: " + simName);
+//        System.out.println("Part 2: " + simStatus);
+//        System.out.println("Part 3: " + simModel);
+//        System.out.println("Part 4: " + simOSVersion);
 
-
-        //System.out.println(deviceName);
-
-        return simUDID;
+        return simModel;
     }
 
     private String getUDIDfromDeviceName(String deviceName) throws Exception {
@@ -817,7 +822,8 @@ public class BaseDriver implements ITest {
 
     private String getUDIDfromDeviceNameFBSIM(String deviceName) throws Exception {
         String simUDID;
-        String deviceNameSearch = "| " + deviceName + " |";
+//        String deviceNameSearch = "| " + deviceName + " |";
+        String deviceNameSearch = deviceName + " |";
         System.out.println("TO SEARCH: " + deviceNameSearch);
 
         simUDID = getUDIDfbsim(deviceNameSearch) ;
@@ -829,7 +835,8 @@ public class BaseDriver implements ITest {
         String line;
         String listenPort = Integer.toString(tempPort);
         Runtime run = Runtime.getRuntime();
-        Process pr = run.exec(new String[] {"/bin/bash", "-c", "fbsimctl ", myUdid, " boot"});
+//        Process pr = run.exec(new String[] {"/bin/bash", "-c", "fbsimctl ", myUdid, " boot"});
+        Process pr = run.exec(new String[] {"/bin/bash", "-c", "idb", "boot", "--udid", myUdid});
         //Process pr = run.exec(new String[] {"/bin/bash", "-c", "fbsimctl ", myUdid, " boot",  "--", "listen", "--http ", listenPort});
         //Process pr = run.exec(new String[] {"/bin/bash", "-c", "fbsimctl ", myUdid });
         pr.waitFor();

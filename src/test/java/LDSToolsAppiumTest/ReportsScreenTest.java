@@ -53,7 +53,7 @@ public class ReportsScreenTest extends BaseDriver {
 
             myBasePage.rightsCheck("Action and Interview List", 3, rights, pageSource);
             myBasePage.rightsCheck("Birthday List", 3, rights, pageSource);
-            myBasePage.rightsCheck("Ministering", 2, rights, pageSource);
+            myBasePage.rightsCheck("Ministering", 3, rights, pageSource);
             myBasePage.rightsCheck("Members Moved In", 3, rights, pageSource);
             myBasePage.rightsCheck("Members Moved Out", 3, rights, pageSource);
             myBasePage.rightsCheck("Members with Callings", 3, rights, pageSource);

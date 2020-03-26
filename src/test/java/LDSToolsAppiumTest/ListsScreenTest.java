@@ -17,9 +17,7 @@ public class ListsScreenTest extends BaseDriver {
 
 
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
-//    @Test(groups = {"smoke3", "smoke", "all3", "all"})
+    @Test(groups = {"smoke3", "smoke", "all3", "all"})
     public void listsSimpleTest() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -32,7 +30,8 @@ public class ListsScreenTest extends BaseDriver {
 
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools33", "password1");
+//        myHelper.loginUAT("LDSTools33", "password1");
+        myHelper.proxyLogin("darthjohn");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Go to Lists
@@ -44,11 +43,12 @@ public class ListsScreenTest extends BaseDriver {
 
         //Add a new List
         myBase.waitForElementThenClick(myLists.listsAddList);
+        System.out.println(myBase.getSourceOfPage());
         myLists.listsName.sendKeys("New Automated List");
         myLists.listsOk.click();
 
         //Add a member to the list
-        myLists.addMemberToList("lds32", "LDS32");
+        myLists.addMemberToList("jones, elizabeth", "Jones, Elizabeth");
         myBase.waitForElementThenClick(myLists.listsBackButton);
 
         Thread.sleep(2000);
@@ -62,8 +62,8 @@ public class ListsScreenTest extends BaseDriver {
         myLists.selectListName("New Automated List");
         Thread.sleep(4000);
         pageSource = myBase.getSourceOfPage();
-        Assert.assertTrue(myBase.checkNoCaseList("Tools", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("LDS32", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Jones", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Elizabeth", pageSource, "Contains"));
         myBase.backButton.click();
         Thread.sleep(2000);
 
@@ -78,7 +78,7 @@ public class ListsScreenTest extends BaseDriver {
     }
 
     //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test(groups = {"all3", "all"})
     public void listsMultipleSyncTest() throws Exception {
         String pageSource;
@@ -92,7 +92,8 @@ public class ListsScreenTest extends BaseDriver {
 
 
         //Login and enter in PIN
-        myHelper.loginUAT("LDSTools25", "password1");
+//        myHelper.loginUAT("LDSTools25", "password1");
+        myHelper.proxyLogin("darthjohn");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Go to Lists
@@ -109,12 +110,12 @@ public class ListsScreenTest extends BaseDriver {
         myLists.listsOk.click();
 
         //Add a member to the list
-        myLists.addMemberToList("lds20", "LDS20");
-        myLists.addMemberToList("lds21", "LDS21");
-        myLists.addMemberToList("lds22", "LDS22");
-        myLists.addMemberToList("lds23", "LDS23");
-        myLists.addMemberToList("lds24", "LDS24");
-        myLists.addMemberToList("lds25", "LDS25");
+        myLists.addMemberToList("jones, elizabeth", "Jones, Elizabeth");
+        myLists.addMemberToList("jones, gabrielle", "Jones, Gabrielle");
+        myLists.addMemberToList("jones, marvin", "Jones, Marvin");
+        myLists.addMemberToList("jones, michael", "Jones, Michael");
+        myLists.addMemberToList("jones, william", "Jones, William");
+        myLists.addMemberToList("johnson, donqwel", "johnson, Donqwel");
         myBase.waitForElementThenClick(myLists.listsBackButton);
 
         Thread.sleep(2000);
@@ -131,7 +132,8 @@ public class ListsScreenTest extends BaseDriver {
 
         //Logout - Login
         myMenu.menuLogOut();
-        myHelper.loginUAT("LDSTools25", "password1");
+//        myHelper.loginUAT("LDSTools25", "password1");
+        myHelper.proxyLogin("darthjohn");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Go to Lists
@@ -231,7 +233,7 @@ public class ListsScreenTest extends BaseDriver {
 
     //TODO: Need to update user
     @Test(groups = {"needUpdate"})
-//    @Test(groups = {"all4", "all", "jft"})
+//    @Test(groups = {"all4", "all"})
     public void listsOtherNames() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -887,13 +889,13 @@ public class ListsScreenTest extends BaseDriver {
         myLists.selectListName("Test List 1");
         Thread.sleep(4000);
         pageSource = myBase.getSourceOfPage();
-        Assert.assertTrue(myBase.checkNoCaseList("Tools", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("LDS20", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("LDS21", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("LDS22", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("LDS23", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("LDS24", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("LDS25", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("jones", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("elizabeth", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("marvin", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("michael", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("william", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("gabrielle", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Donqwel", pageSource, "Contains"));
         myBase.backButton.click();
         Thread.sleep(2000);
     }

@@ -47,18 +47,18 @@ public class ListsScreen extends BasePage {
     // ****************** Lists Screen ******************
 
     //New List Dialog - Name
-    @AndroidFindBy(id = "android:id/input")
+    @AndroidFindBy(id = "md_input_message")
 //    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
     @iOSXCUITFindBy(iOSNsPredicate =  "type == 'XCUIElementTypeTextField'")
     public MobileElement listsName;
 
     //New List Dialog - Cancel
-    @AndroidFindBy(id = "md_buttonDefaultNegative")
+    @AndroidFindBy(id = "md_button_negative")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public MobileElement listsCancel;
 
     //New List Dialog - OK or Done
-    @AndroidFindBy(id = "md_buttonDefaultPositive")
+    @AndroidFindBy(id = "md_button_positive")
     @iOSXCUITFindBy(accessibility = "Done")
     public MobileElement listsOk;
 

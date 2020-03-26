@@ -607,7 +607,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    //TODO: Need to update user
+    //TODO: Need to update user and use new api
     @Test(groups = {"needUpdate"})
 //    @Test(dataProvider = "Members", groups = {"all4", "all"})
     public void directoryLatLongNoGPSChooseLocation(String userName, String passWord, String rightsString, String callingGroup) throws Exception {

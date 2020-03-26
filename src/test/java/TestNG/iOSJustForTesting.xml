@@ -7,8 +7,8 @@
 <!--        <parameter name="fileName" value="LDSTools.ipa" />-->
 <!--        <parameter name="testDevice" value="iPhone Xs Max" />-->
 <!--        <parameter name="testDevice" value="iPhone 8" />-->
-<!--        <parameter name="testDevice" value="iPhone 11" />-->
-        <parameter name="testDevice" value="FBSIM-iPhone 11" />
+        <parameter name="testDevice" value="iPhone 11" />
+<!--        <parameter name="testDevice" value="FBSIM-iPhone 11" />-->
         <!--<parameter name="testDevice" value="REAL-ZiphoneX" />-->
         <!--<parameter name="testDevice" value="REAL-Ziphone8plus" />-->
         <!--<parameter name="testDevice" value="REAL-Z6plus" />-->
@@ -26,7 +26,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
         </classes>
     </test> <!-- iOS Just For Testing test -->
 </suite> <!-- suite iOS -->

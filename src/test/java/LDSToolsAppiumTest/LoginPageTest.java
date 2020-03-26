@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class LoginPageTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "login", "jft"})
+    @Test (groups = {"all2", "all", "login"})
     public void validateLoginPage() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -41,7 +41,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all", "login", "smoke", "smoke3"})
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "jft"})
     public void validateLoginPageLinks() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -60,21 +60,19 @@ public class LoginPageTest extends BaseDriver {
         Assert.assertTrue(myPageSource.contains("Account"));
         Assert.assertTrue(myPageSource.contains("Church Account"));
 
-        if (getRunningOS().equals("ios")) {
-            Assert.assertTrue(myPageSource.contains("Recover my Username and Password"));
-            Assert.assertTrue(myPageSource.contains("Recover my Password"));
-            myLoginPage.doneButton.click();
-        } else {
-            Assert.assertTrue(myPageSource.contains("Forgot your username"));
-            Assert.assertTrue(myPageSource.contains("Forgot your password"));
-            driver.navigate().back();
-        }
+
+        Assert.assertTrue(myPageSource.contains("Recover my Username and Password"));
+        Assert.assertTrue(myPageSource.contains("Recover my Password"));
+        System.out.println(myPageSource);
+
+
 
         //Appium cannot select the links on Android
         if (getRunningOS().equals("ios")) {
+            myLoginPage.doneButton.click();
 //            myLoginPage.privacyNotice.click();
             myBasePage.clickEndOfElementByCords(myLoginPage.privacyNotice);
-//            Thread.sleep(9000);
+            Thread.sleep(2000);
             myBasePage.waitForText("Privacy Notice");
 //        myBasePage.waitForText("Privacy Notice");
             myPageSource = myBasePage.getSourceOfPage();
@@ -100,9 +98,9 @@ public class LoginPageTest extends BaseDriver {
 
             if (myBasePage.getOS().equals("ios")) {
                 myLoginPage.doneButton.click();
-            } else {
-                driver.navigate().back();
             }
+        } else {
+            driver.navigate().back();
         }
 
 

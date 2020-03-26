@@ -477,6 +477,7 @@ public class BaseDriver implements ITest {
                 //myUdid = deviceUDID();
             }
 
+            //TODO: Add support for headless simulator
             if (testDevice.contains("FBSIM")) {
 
                 String[] parts = testDevice.split("-");

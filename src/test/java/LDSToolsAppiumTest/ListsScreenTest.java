@@ -10,13 +10,6 @@ import org.testng.annotations.Test;
 
 public class ListsScreenTest extends BaseDriver {
 
-    //1 = Bishopric
-    //2 = Ward Council
-    //3 = Special?
-    //4 = No Calling
-
-
-
     @Test(groups = {"smoke3", "smoke", "all3", "all"})
     public void listsSimpleTest() throws Exception {
         String pageSource;

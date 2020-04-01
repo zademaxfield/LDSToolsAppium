@@ -1047,6 +1047,7 @@ public class BasePage {
     public void clickByCords(String elementName) throws Exception {
         MobileElement myElement = null;
         TouchAction myAction = new TouchAction(driver);
+//        Thread.sleep(2000);
 
         System.out.println("Start Click by Cords");
         System.out.println(getSourceOfPage());

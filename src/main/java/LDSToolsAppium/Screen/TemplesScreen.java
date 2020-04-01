@@ -28,7 +28,8 @@ public class TemplesScreen extends BasePage {
     // ****************** Temple Main Screen ******************
     // Days till expiration
 //    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='android:id/input']")
-    @AndroidFindBy(id = "md_input_message")
+//    @AndroidFindBy(id = "md_input_message")
+    @AndroidFindBy(id = "editText")
     @iOSXCUITFindBy(xpath ="//XCUIElementTypeTextField[@value='Days until expiration']")
     public MobileElement templeDaysExpiration;
 
@@ -238,6 +239,7 @@ public class TemplesScreen extends BasePage {
             //Set the Number of days for the expiration
             mySettings.overrideTempleRecommendExpiration.click();
             Thread.sleep(3000);
+//            System.out.println(myBasePage.getSourceOfPage());
             templeDaysExpiration.setValue(numberOfDays);
             mySettings.alertOK.click();
             myBasePage.backButton.click();

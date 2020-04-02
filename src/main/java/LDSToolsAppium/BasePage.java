@@ -951,8 +951,9 @@ public class BasePage {
             System.out.println("BACK TO DIRECTORY!");
             pressBackToRoot();
             Thread.sleep(2000);
-            System.out.println("Try to clear text");
-            clickByCords("Clear text");
+
+//            System.out.println("Try to clear text");
+//            clickByCords("Clear text");
 //            clickByCords("Cancel");
             Thread.sleep(2000);
             cancel.click();

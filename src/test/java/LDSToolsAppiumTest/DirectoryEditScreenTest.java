@@ -16,7 +16,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(groups = {"smoke4", "smoke", "all2", "all"})
+    @Test(groups = {"smoke4", "smoke", "all2", "all", "jft"})
     public void editCurrentUser() throws Exception {
         String pageSource;
 
@@ -73,7 +73,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
-        listsDirectoryUnit();
+//        listsDirectoryUnit();
 
 
         //Search for logged in user
@@ -161,7 +161,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all"})
     public void editOtherUser() throws Exception {
         String pageSource;
 
@@ -826,6 +826,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myMenu.selectMenu(myMenu.lists);
         Thread.sleep(1000);
         myMenu.selectMenu(myMenu.directory);
+        Thread.sleep(1000);
         chooseUnit("Centinela 1st Ward");
     }
 

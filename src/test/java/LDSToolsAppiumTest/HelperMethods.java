@@ -652,56 +652,46 @@ public class HelperMethods extends BasePage {
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);
 //        PinScreen myPin = new PinScreen(driver);
-//        MenuScreen myMenuScreen = new MenuScreen(driver);
+        BaseDriver myBaseDriver = new BaseDriver();
+        MenuScreen myMenuScreen = new MenuScreen(driver);
 
+        String deviceName;
+
+
+        Thread.sleep(4000);
+
+        System.out.println("Check for Alerts Before PIN");
         checkForAlertsBeforePin();
 
-//        if (checkForElement(myPin.pinAlertDialogOK)) {
-//            myPin.pinAlertDialogOK.click();
-//        }
-//
-//        //This is for iOS on a non leader login
-//        if (checkForElement(myPin.pinAlertDialogYes)) {
-//            myPin.pinAlertDialogYes.click();
-//        }
-//
-//        //Check for Face ID then Disable Face ID
-//        System.out.println("Checking for Face ID");
-//        if (checkTextOnPage("Face ID")) {
-//            System.out.println("Face ID found hitting disable");
-//            myPin.pinDisableFaceID.click();
-//            Thread.sleep(2000);
-//            myPin.pinAlertDialogOK.click();
-//        }
-//
-//        //Check for Touch ID then press the ID
-//        System.out.println("Checking for Touch ID");
-//        if (checkTextOnPage("Touch ID")) {
-//            System.out.println("Enable Touch ID Button found, hitting the button");
-//            myPin.pinDisableTouchID.click();
-//            Thread.sleep(2000);
-//            myPin.pinAlertDialogOK.click();
-//        }
+        //Android needs this.
+        System.out.println("Check for MORE Alerts after whats new page");
+        checkForAlertsAfterPin();
 
 
-        Thread.sleep(2000);
+        if (getOS().equalsIgnoreCase("ios")) {
+            Thread.sleep(2000);
 
-        pressPinKeys(firstNumber);
-        pressPinKeys(secondNumber);
-        pressPinKeys(thirdNumber);
-        pressPinKeys(fourthNumber);
+            pressPinKeys(firstNumber);
+            pressPinKeys(secondNumber);
+            pressPinKeys(thirdNumber);
+            pressPinKeys(fourthNumber);
 
-        Thread.sleep(2000);
+            Thread.sleep(2000);
 
-        pressPinKeys(firstNumber);
-        pressPinKeys(secondNumber);
-        pressPinKeys(thirdNumber);
-        pressPinKeys(fourthNumber);
+            pressPinKeys(firstNumber);
+            pressPinKeys(secondNumber);
+            pressPinKeys(thirdNumber);
+            pressPinKeys(fourthNumber);
 
-        Thread.sleep(2000);
+            Thread.sleep(2000);
+        } else {
+            Thread.sleep(4000);
+            System.out.println("Enter PIN!!!");
+            deviceName = driver.getCapabilities().getCapability("deviceName").toString();
+            myBaseDriver.adbEnterPIN(deviceName);
 
 
-
+        }
     }
 
     private void checkForLater() {
@@ -927,6 +917,7 @@ public class HelperMethods extends BasePage {
     public void checkForAlertsBeforePin() throws Exception {
         PinScreen myPin = new PinScreen(driver);
         BasePage myBase = new BasePage(driver);
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
 
         Boolean myCheck = false;
         String pageSource;
@@ -964,6 +955,9 @@ public class HelperMethods extends BasePage {
         System.out.println("Checking for Touch ID");
 //        myCheck = myBase.checkElementExists("Disable Touch ID");
         myCheck = pageSource.contains("Disable Touch ID");
+        if (checkForElement(myWhatsNew.usePassword)) //Samsung phones need this
+            myWhatsNew.usePassword.click();
+
         if (myCheck) {
             System.out.println("Enable Touch ID Button found, hitting the button");
             myPin.pinDisableTouchID.click();

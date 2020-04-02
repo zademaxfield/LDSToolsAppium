@@ -33,6 +33,22 @@ public class WhatsNewScreen extends BasePage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeStaticText/XCUIElementTypeStaticText[2]")
     public MobileElement whatsNewTitleSub;
 
+    // Use Password button for Note8
+    @AndroidFindBy(className = "android.widget.Button")
+    public MobileElement usePassword;
+
+    // Auto update button
+    @AndroidFindBy(id = "autoUpdateSwitch")
+    public MobileElement autoUpdate;
+
+    // Use Wi-Fi only
+    @AndroidFindBy(id = "wifiSwitch")
+    public MobileElement wifiButton;
+
+    // Help tab What's New
+    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]")
+    public MobileElement helpWhatsNew;
+
     //Done Button
 //    @AndroidFindBy(id = "done")
     @AndroidFindBy(id = "doneButton")
@@ -42,4 +58,7 @@ public class WhatsNewScreen extends BasePage {
 
 
 
+
+
 }
+

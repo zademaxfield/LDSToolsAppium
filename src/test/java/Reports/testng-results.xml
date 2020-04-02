@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-04-02T11:20:55 MDT" name="Android Just For Testing Suite" finished-at="2020-04-02T11:22:25 MDT" duration-ms="90689">
+    <groups>
+      <group name="all">
+        <method signature="WhatsNewScreenTest.whatsNewSimple()[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3]" name="whatsNewSimple" class="LDSToolsAppiumTest.WhatsNewScreenTest"/>
+      </group> <!-- all -->
+      <group name="smoke1">
+        <method signature="WhatsNewScreenTest.whatsNewSimple()[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3]" name="whatsNewSimple" class="LDSToolsAppiumTest.WhatsNewScreenTest"/>
+      </group> <!-- smoke1 -->
+      <group name="smoke">
+        <method signature="WhatsNewScreenTest.whatsNewSimple()[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3]" name="whatsNewSimple" class="LDSToolsAppiumTest.WhatsNewScreenTest"/>
+      </group> <!-- smoke -->
+      <group name="jft">
+        <method signature="WhatsNewScreenTest.whatsNewSimple()[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3]" name="whatsNewSimple" class="LDSToolsAppiumTest.WhatsNewScreenTest"/>
+      </group> <!-- jft -->
+      <group name="all1">
+        <method signature="WhatsNewScreenTest.whatsNewSimple()[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3]" name="whatsNewSimple" class="LDSToolsAppiumTest.WhatsNewScreenTest"/>
+      </group> <!-- all1 -->
+    </groups>
+    <test started-at="2020-04-02T11:20:55 MDT" name="Android Just For Testing" finished-at="2020-04-02T11:22:25 MDT" duration-ms="90689">
+      <class name="LDSToolsAppiumTest.WhatsNewScreenTest">
+        <test-method is-config="true" signature="setUp(java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3]" started-at="2020-04-02T11:20:55 MDT" name="setUp" finished-at="2020-04-02T11:21:18 MDT" duration-ms="23459" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[android]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ldstools-alpha.apk]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[ce06171675347c0b027e]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="BeforeMethodTestName(java.lang.reflect.Method, [Ljava.lang.Object;, org.testng.ITestContext)[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3]" started-at="2020-04-02T11:21:18 MDT" name="BeforeMethodTestName" finished-at="2020-04-02T11:21:18 MDT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void LDSToolsAppiumTest.WhatsNewScreenTest.whatsNewSimple() throws java.lang.Exception]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[Ljava.lang.Object;@4cdd2c73]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@4abf3f0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BeforeMethodTestName -->
+        <test-method signature="whatsNewSimple()[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3]" started-at="2020-04-02T11:21:18 MDT" name="whatsNewSimple" finished-at="2020-04-02T11:22:09 MDT" duration-ms="51184" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- whatsNewSimple -->
+        <test-method is-config="true" signature="teardown(org.testng.ITestResult)[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3]" started-at="2020-04-02T11:22:09 MDT" name="teardown" finished-at="2020-04-02T11:22:24 MDT" duration-ms="14906" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=whatsNewSimple status=SUCCESS method=WhatsNewScreenTest.whatsNewSimple()[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:LDSToolsAppiumTest.WhatsNewScreenTest@43bc63a3]" started-at="2020-04-02T11:22:24 MDT" name="afterClass" finished-at="2020-04-02T11:22:25 MDT" duration-ms="1123" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- LDSToolsAppiumTest.WhatsNewScreenTest -->
+      <class name="LDSToolsAppium.BaseDriver">
+        <test-method is-config="true" signature="removeFilesBeforeTest()[pri:0, instance:LDSToolsAppium.BaseDriver@408d971b]" started-at="2020-04-02T11:20:55 MDT" name="removeFilesBeforeTest" finished-at="2020-04-02T11:20:55 MDT" duration-ms="51" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- removeFilesBeforeTest -->
+        <test-method is-config="true" signature="afterAllTests()[pri:0, instance:LDSToolsAppium.BaseDriver@408d971b]" started-at="2020-04-02T11:22:26 MDT" name="afterAllTests" finished-at="2020-04-02T11:22:29 MDT" duration-ms="3119" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterAllTests -->
+      </class> <!-- LDSToolsAppium.BaseDriver -->
+    </test> <!-- Android Just For Testing -->
+  </suite> <!-- Android Just For Testing Suite -->
+</testng-results>

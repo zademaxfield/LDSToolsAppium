@@ -7,11 +7,11 @@
     </listeners>
     <test name="Android Just For Testing">
         <parameter name="os" value="android" />
-<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-alpha.apk" />
 <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-        <parameter name="fileName" value="ldstools-release.apk" />
-<!--        <parameter name="testDevice" value="ce06171675347c0b027e" />-->
-        <parameter name="testDevice" value="emulator-5554" />
+<!--        <parameter name="fileName" value="ldstools-release.apk" />-->
+        <parameter name="testDevice" value="ce06171675347c0b027e" />
+<!--        <parameter name="testDevice" value="emulator-5554" />-->
 <!--        <parameter name="testDevice" value="99051FFBA000S7" /> &lt;!&ndash; Pixel 4 XL&ndash;&gt;-->
 <!--        <parameter name="testDevice" value="R38M803MWGM" /> &lt;!&ndash; Samsung Galaxy Note 10&ndash;&gt;-->
 <!--        <parameter name="testDevice" value="710KPBF0266213" /> &lt;!&ndash; Pixel 2 X &ndash;&gt;-->
@@ -38,7 +38,11 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
+<<<<<<< Updated upstream
             <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+=======
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+>>>>>>> Stashed changes
 
         </classes>
     </test > <!-- Default test -->

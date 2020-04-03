@@ -16,7 +16,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(groups = {"smoke4", "smoke", "all2", "all", "jft"})
+    @Test(groups = {"smoke4", "smoke", "all2", "all"})
     public void editCurrentUser() throws Exception {
         String pageSource;
 
@@ -161,7 +161,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all"})
+    @Test(groups = {"smoke4", "smoke", "all4", "all", "jft"})
     public void editOtherUser() throws Exception {
         String pageSource;
 
@@ -243,7 +243,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
 
-        listsDirectoryUnit();
+//        listsDirectoryUnit();
 
         //Search for logged in user
 //        myDirectory.searchAndClick("Tools, LDS44");
@@ -807,11 +807,15 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
     private void chooseUnit(String myUnit) throws Exception {
         DirectoryEditScreen myDirectoryEdit = new DirectoryEditScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
         //Choose different Unit
         System.out.println("Press the selector");
         myDirectoryEdit.unitSelector.click();
         Thread.sleep(2000);
         System.out.println("Choose unit: " + myUnit);
+
+        System.out.println(myBasePage.getSourceOfPage());
+
         if (getRunningOS().equalsIgnoreCase("ios")) {
             driver.findElement(By.xpath("//*[contains(@name,'" + myUnit + "')]")).click();
         } else {
@@ -828,6 +832,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myMenu.selectMenu(myMenu.directory);
         Thread.sleep(1000);
         chooseUnit("Centinela 1st Ward");
+//        chooseUnit("1st Ward");
     }
 
 

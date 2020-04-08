@@ -494,15 +494,15 @@ public class HelperMethods extends BasePage {
 
         Thread.sleep(4000);
 
-        System.out.println("Check for Alerts Before PIN");
-        checkForAlertsBeforePin();
+//        System.out.println("Check for Alerts Before PIN");
+//        checkForAlertsBeforePin();
 
-        System.out.println("Dismiss Whats New Page");
-        dismissWhatsNewPage();
+//        System.out.println("Dismiss Whats New Page");
+//        dismissWhatsNewPage();
 
         //Android needs this.
-        System.out.println("Check for MORE Alerts after whats new page");
-        checkForAlertsAfterPin();
+//        System.out.println("Check for MORE Alerts after whats new page");
+//        checkForAlertsAfterPin();
 
 
 

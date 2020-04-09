@@ -494,7 +494,8 @@ public class HelperMethods extends BasePage {
 
         Thread.sleep(4000);
 
-//        System.out.println("Check for Alerts Before PIN");
+        System.out.println("Check for non leader PIN prompt");
+        nonLeaderPinCheck();
 //        checkForAlertsBeforePin();
 
 //        System.out.println("Dismiss Whats New Page");
@@ -912,6 +913,24 @@ public class HelperMethods extends BasePage {
         }
 
 
+    }
+
+    public void nonLeaderPinCheck() throws Exception {
+        PinScreen myPin = new PinScreen(driver);
+        BasePage myBase = new BasePage(driver);
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+
+        Boolean myCheck = false;
+        String pageSource;
+
+        pageSource = myBase.getSourceOfPage();
+
+        Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable."));
+
+        myCheck = pageSource.contains("You can set up a Member Tools Passcode");
+        if (myCheck) {
+            myPin.pinAlertDialogYes.click();
+        }
     }
 
     public void checkForAlertsBeforePin() throws Exception {

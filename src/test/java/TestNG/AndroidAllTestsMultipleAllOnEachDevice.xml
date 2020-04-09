@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Android All Tests" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
-    <listeners>
-        <listener class-name="LDSToolsAppium.RetryListener"/>
-        <listener class-name= "LDSToolsAppium.CustomReporter" />
-        <listener class-name="LDSToolsAppium.TestListener" />
-    </listeners>
 
-    <test name="Android All Test 1" thread-count="1" parallel="false" >
+    <test name="Android All Test - Samsung Galaxy S9 plus" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <!--<parameter name="testDevice" value="0074a44f54c7289b" />-->
-        <parameter name="testDevice" value="STF-Pool" />
+        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-beta.apk" />
+        <parameter name="testDevice" value="364c5930534f3098" />
+        <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -26,26 +22,27 @@
             <class name="LDSToolsAppiumTest.CalendarScreenTest" />
             <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
             <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
-            <class name="LDSToolsAppiumTest.HeaderTest" />
             <class name="LDSToolsAppiumTest.LoginPageTest" />
             <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
             <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
             <class name="LDSToolsAppiumTest.PinScreenTest" />
-            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
             <class name="LDSToolsAppiumTest.ReportsScreenTest" />
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
             <class name="LDSToolsAppiumTest.ListsScreenTest" />
             <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
         </classes>
     </test>
 
-    <test name="Android All Test 2" thread-count="1" parallel="false" >
+    <test name="Android All Test - Samsung Galaxy Note 8" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <!--<parameter name="testDevice" value="ce061716cae890d10d7e" />-->
-        <parameter name="testDevice" value="STF-Pool" />
+        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-beta.apk" />
+        <parameter name="testDevice" value="ce061716cae890d10d7e" />
+        <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="60000" />
 
         <groups>
@@ -60,26 +57,27 @@
             <class name="LDSToolsAppiumTest.CalendarScreenTest" />
             <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
             <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
-            <class name="LDSToolsAppiumTest.HeaderTest" />
             <class name="LDSToolsAppiumTest.LoginPageTest" />
             <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
             <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
             <class name="LDSToolsAppiumTest.PinScreenTest" />
-            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
             <class name="LDSToolsAppiumTest.ReportsScreenTest" />
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
             <class name="LDSToolsAppiumTest.ListsScreenTest" />
             <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
         </classes>
     </test>
 
-    <test name="Android All Test 3" thread-count="1" parallel="false" >
+    <test name="Android All Test - Pixel 2 XL" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <!--<parameter name="testDevice" value="03aadbed215c8e5f" />-->
-        <parameter name="testDevice" value="STF-Pool" />
+        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-beta.apk" />
+        <parameter name="testDevice" value="710KPFX0305667" />
+        <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="120000" />
 
         <groups>
@@ -94,26 +92,27 @@
             <class name="LDSToolsAppiumTest.CalendarScreenTest" />
             <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
             <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
-            <class name="LDSToolsAppiumTest.HeaderTest" />
             <class name="LDSToolsAppiumTest.LoginPageTest" />
             <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
             <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
             <class name="LDSToolsAppiumTest.PinScreenTest" />
-            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
             <class name="LDSToolsAppiumTest.ReportsScreenTest" />
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
             <class name="LDSToolsAppiumTest.ListsScreenTest" />
             <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
         </classes>
     </test>
 
-    <test name="Android All Test 4" thread-count="1" parallel="false" >
+    <test name="Android All Test - Pixel 3 XL" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <!--<parameter name="testDevice" value="ce06171675347c0b027e" />-->
-        <parameter name="testDevice" value="STF-Pool" />
+        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-beta.apk" />
+        <parameter name="testDevice" value="89UY0C037" />
+        <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="180000" />
 
         <groups>
@@ -128,19 +127,19 @@
             <class name="LDSToolsAppiumTest.CalendarScreenTest" />
             <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
             <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
-            <class name="LDSToolsAppiumTest.HeaderTest" />
             <class name="LDSToolsAppiumTest.LoginPageTest" />
             <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
             <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
             <class name="LDSToolsAppiumTest.PinScreenTest" />
-            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
             <class name="LDSToolsAppiumTest.ReportsScreenTest" />
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
             <class name="LDSToolsAppiumTest.ListsScreenTest" />
             <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
         </classes>
     </test>
-
 </suite>

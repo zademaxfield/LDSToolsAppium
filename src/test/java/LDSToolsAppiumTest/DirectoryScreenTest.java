@@ -117,8 +117,8 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("Maiden Name", 2, rights, pageSource);
 
         //Other Information
-        myBasePage.rightsCheck("Gender", 2, rights, pageSource);
-        myBasePage.rightsCheck("Female", 2, rights, pageSource);
+        myBasePage.rightsCheck("Gender", 3, rights, pageSource);
+        myBasePage.rightsCheck("Female", 3, rights, pageSource);
         myBasePage.rightsCheck("Gudmundson, Emma Jan", 2, rights, pageSource);
         myBasePage.rightsCheck("Birthplace", 2, rights, pageSource);
         myBasePage.rightsCheck("Santa Monica, Los Angeles, Cal", 2, rights, pageSource);
@@ -128,7 +128,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("Gudmundson, Guy Leland", 2, rights, pageSource);
         myBasePage.rightsCheck("Mother", 2, rights, pageSource);
         myBasePage.rightsCheck("Shaffer, Nora", 2, rights, pageSource);
-        myBasePage.rightsCheck("Prior Unit", 2, rights, pageSource);
+//        myBasePage.rightsCheck("Prior Unit", 2, rights, pageSource);
 
 
 

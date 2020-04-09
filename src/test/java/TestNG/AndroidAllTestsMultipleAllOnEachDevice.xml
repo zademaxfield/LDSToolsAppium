@@ -5,7 +5,8 @@
     <test name="Android All Test - Samsung Galaxy S9 plus" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
-        <parameter name="fileName" value="ldstools-beta.apk" />
+<!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
+                <parameter name="fileName" value="ldstools-release.apk" />
         <parameter name="testDevice" value="364c5930534f3098" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="0200" />
@@ -40,7 +41,8 @@
     <test name="Android All Test - Samsung Galaxy Note 8" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
-        <parameter name="fileName" value="ldstools-beta.apk" />
+<!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
+                <parameter name="fileName" value="ldstools-release.apk" />
         <parameter name="testDevice" value="ce061716cae890d10d7e" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="60000" />
@@ -75,7 +77,8 @@
     <test name="Android All Test - Pixel 2 XL" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
-        <parameter name="fileName" value="ldstools-beta.apk" />
+<!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
+        <parameter name="fileName" value="ldstools-release.apk" />
         <parameter name="testDevice" value="710KPFX0305667" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="120000" />
@@ -110,7 +113,8 @@
     <test name="Android All Test - Pixel 3 XL" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
-        <parameter name="fileName" value="ldstools-beta.apk" />
+<!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
+        <parameter name="fileName" value="ldstools-release.apk" />
         <parameter name="testDevice" value="89UY0C037" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="180000" />

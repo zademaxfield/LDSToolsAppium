@@ -134,8 +134,8 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Callings and Classes - New in 3.0.0
         myBasePage.rightsCheck("Sunday School Teacher", 4, rights, pageSource);
-        myBasePage.rightsCheck("Gospel Doctrine", 4, rights, pageSource);
-        myBasePage.rightsCheck("Class Assignments", 3, rights, pageSource);
+        myBasePage.rightsCheck("Gospel Doctrine", 3, rights, pageSource);
+//        myBasePage.rightsCheck("Class Assignments", 3, rights, pageSource);
         myBasePage.rightsCheck("Relief Society", 3, rights, pageSource);
 
     }

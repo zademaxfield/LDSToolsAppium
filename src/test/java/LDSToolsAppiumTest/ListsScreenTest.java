@@ -36,7 +36,7 @@ public class ListsScreenTest extends BaseDriver {
 
         //Add a new List
         myBase.waitForElementThenClick(myLists.listsAddList);
-        System.out.println(myBase.getSourceOfPage());
+//        System.out.println(myBase.getSourceOfPage());
         myLists.listsName.sendKeys("New Automated List");
         myLists.listsOk.click();
 

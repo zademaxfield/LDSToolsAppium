@@ -47,7 +47,7 @@ public class ListsScreen extends BasePage {
     // ****************** Lists Screen ******************
 
     //New List Dialog - Name
-    @AndroidFindBy(id = "md_input_message")
+    @AndroidFindBy(id = "editText")
 //    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
     @iOSXCUITFindBy(iOSNsPredicate =  "type == 'XCUIElementTypeTextField'")
     public MobileElement listsName;
@@ -159,8 +159,13 @@ public class ListsScreen extends BasePage {
         BasePage myBasePage = new BasePage(driver);
         if (getOS().equals("ios")) {
             listsEdit.click();
+//            Thread.sleep(1000);
+            myBasePage.waitForElementThenClick(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")));
             driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")).click();
-            driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")).click();
+//            Thread.sleep(1000);
+            System.out.println(myBasePage.getSourceOfPage());
+            myBasePage.waitForElementThenClick(driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")));
+//            driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")).click();
 
             //If there more than one list this "Done" button will still be displayed
             if (checkForElement(listsDone)) {
@@ -172,7 +177,7 @@ public class ListsScreen extends BasePage {
             listsMoreOptions.click();
             listsMoreOptionsDelete.click();
 
-            System.out.println(getSourceOfPage());
+//            System.out.println(getSourceOfPage());
             myBasePage.waitForElementThenClick(listsOk);
 //            listsOk.click();
         }

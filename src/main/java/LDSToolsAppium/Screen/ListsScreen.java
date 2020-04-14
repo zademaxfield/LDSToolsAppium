@@ -58,7 +58,8 @@ public class ListsScreen extends BasePage {
     public MobileElement listsCancel;
 
     //New List Dialog - OK or Done
-    @AndroidFindBy(id = "md_button_positive")
+//    @AndroidFindBy(id = "button1")
+    @AndroidFindBy(xpath = "//*[@text='OK']")
     @iOSXCUITFindBy(accessibility = "Done")
     public MobileElement listsOk;
 
@@ -155,6 +156,7 @@ public class ListsScreen extends BasePage {
 
 
     public void deleteList(String myListName) throws Exception {
+        BasePage myBasePage = new BasePage(driver);
         if (getOS().equals("ios")) {
             listsEdit.click();
             driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")).click();
@@ -169,7 +171,10 @@ public class ListsScreen extends BasePage {
             selectListName(myListName);
             listsMoreOptions.click();
             listsMoreOptionsDelete.click();
-            listsOk.click();
+
+            System.out.println(getSourceOfPage());
+            myBasePage.waitForElementThenClick(listsOk);
+//            listsOk.click();
         }
     }
 

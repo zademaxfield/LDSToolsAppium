@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class ListsScreenTest extends BaseDriver {
 
-    @Test(groups = {"smoke3", "smoke", "all3", "all"})
+    @Test(groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void listsSimpleTest() throws Exception {
         String pageSource;
         String numberOfListMembers;
@@ -71,7 +71,7 @@ public class ListsScreenTest extends BaseDriver {
     }
 
     //TODO: Need to update user
-    @Test(groups = {"needUpdate", "jft"})
+    @Test(groups = {"needUpdate"})
 //    @Test(groups = {"all3", "all"})
     public void listsMultipleSyncTest() throws Exception {
         String pageSource;

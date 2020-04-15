@@ -158,13 +158,19 @@ public class ListsScreen extends BasePage {
     public void deleteList(String myListName) throws Exception {
         BasePage myBasePage = new BasePage(driver);
         if (getOS().equals("ios")) {
-            listsEdit.click();
-//            Thread.sleep(1000);
-            myBasePage.waitForElementThenClick(driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")));
-            driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")).click();
-//            Thread.sleep(1000);
+//            listsEdit.click();
+
+            myBasePage.waitForElementThenClick(listsEdit);
             System.out.println(myBasePage.getSourceOfPage());
-            myBasePage.waitForElementThenClick(driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")));
+            myBasePage.waitForElementThenClick(driver.findElement(By.xpath("//*[contains(@name, 'Delete " + myListName + "')]")));
+//            driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")).click();
+
+            Thread.sleep(1000);
+
+//            myBasePage.waitForElementThenClick(driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")));
+            myBasePage.waitForElementThenClick(driver.findElement(By.name("Delete")));
+            Thread.sleep(8000);
+
 //            driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")).click();
 
             //If there more than one list this "Done" button will still be displayed

@@ -55,7 +55,7 @@ public class MeetinghousesScreenTest extends BaseDriver {
         myMeetinghouses.meetinghouseSearch("12691 South 3600 West Riverton UT");
 
 
-        Thread.sleep(7000);
+        Thread.sleep(15000);
 
 //        System.out.println(myBasePage.getSourceOfPage());
         myMeetinghouses.selectMeetinghouse();

@@ -28,24 +28,177 @@ public class DirectoryScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all", "jft"})
-    public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+//    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
+//    public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+//        int rights = Integer.parseInt(rightsString);
+//        // ********* Constructor **********
+//        HelperMethods myHelper = new HelperMethods(driver);
+//        //Login and enter in PIN
+//        myHelper.proxyLogin(userName);
+//        myHelper.enterPin("1", "1", "3", "3");
+//        directoryJanDickson(rights);
+//    }
+
+    @Test(groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    public void directoryScreenTest_BISHOP() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("kroqbandit");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("fiti");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Camerado65");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_WARD_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("luke.ravitch");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_WARD_ASSISTANT_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("jdahmanson");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("iansalas");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_MEMBER1() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("dcbryson");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(4);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_MEMBER2() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Kimburrell");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(4);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("adambee");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("gabrielsmith");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Aloeb1013");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_ELDERS_QUORUM_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("murillodavid");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("bridgemp");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("blairlolohea");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mykalikat");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("rosettelambson");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_WOMEN_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mahina_12006");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("RIBITALOT@AOL.COM");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void directoryScreenTest_WARD_MISSION_LEADER() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Christian9");
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(3);
+    }
+
+    public void directoryJanDickson(int rights ) throws Exception {
         String pageSource;
-        int rights = Integer.parseInt(rightsString);
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        //Login and enter in PIN
-//        myHelper.loginUAT(userName, passWord);
-        myHelper.proxyLogin(userName);
-        myHelper.enterPin("1", "1", "3", "3");
-
-        System.out.println("Calling: " + callingGroup);
-
-        //Search and click on Aaron Jane
         myDirectory.searchAndClick("Dickson, Jan");
 
         //Get all info
@@ -137,7 +290,6 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheck("Gospel Doctrine", 3, rights, pageSource);
 //        myBasePage.rightsCheck("Class Assignments", 3, rights, pageSource);
         myBasePage.rightsCheck("Relief Society", 3, rights, pageSource);
-
     }
 
 

@@ -13,16 +13,154 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test ( dataProvider = "Members", groups = {"all4", "all", "smoke", "smoke4", "jft"})
-    public void calendarSimple(String userName, String passWord, String rightsString, String calling) throws Exception {
-        String pageSource;
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    public void calendarSimple_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("kroqbandit");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_BISHOP_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("fiti");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_BISHOP_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Camerado65");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_WARD_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("luke.ravitch");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_WARD_ASSISTANT_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("jdahmanson");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_WARD_EXECUTIVE_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("iansalas");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_MEMBER() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("dcbryson");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_ELDERS_QUORUM_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("adambee");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("gabrielsmith");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Aloeb1013");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_ELDERS_QUORUM_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("murillodavid");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("bridgemp");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("blairlolohea");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mykalikat");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_YOUNG_WOMEN_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("rosettelambson");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_YOUNG_WOMEN_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mahina_12006");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("RIBITALOT@AOL.COM");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    @Test (groups = {"all4", "all"})
+    public void calendarSimple_WARD_MISSION_LEADER() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Christian9");
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
+
+    public void calendarCheck() throws Exception {
+        String pageSource;
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
-
-        myHelper.proxyLogin(userName);
-        myHelper.enterPin("1", "1", "3", "3");
-
 
         myMenu.selectMenu(myMenu.calendar);
         Thread.sleep(2000);
@@ -36,9 +174,6 @@ public class CalendarScreenTest extends BaseDriver {
         } else {
             Assert.assertTrue(myBasePage.checkNoCaseList("Calendar", pageSource, "Contains"));
         }
-
-
-
     }
 
 

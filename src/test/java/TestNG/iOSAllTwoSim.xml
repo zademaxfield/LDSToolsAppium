@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="iOS Smoke Test" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="2">
+<suite name="iOS All Test 2 Sims" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="2">
 
     <listeners>
         <listener class-name="LDSToolsAppium.RetryListener"/>
@@ -8,7 +8,7 @@
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
 
-    <test name="iOS Smoke Test - iPhone 11" thread-count="1" parallel="false" >
+    <test name="iOS All Test - iPhone 11" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
         <parameter name="testDevice" value="FBSIM-iPhone 11" />
@@ -16,7 +16,8 @@
 
         <groups>
             <run>
-                <include name="smoke"/>
+                <include name="all1"/>
+                <include name="all3"/>
             </run>
         </groups>
 
@@ -41,7 +42,7 @@
         </classes>
     </test>
 
-    <test name="iOS Smoke Test - iPhone 8" thread-count="1" parallel="false" >
+    <test name="iOS All Test - iPhone 8" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
         <parameter name="testDevice" value="FBSIM-iPhone 8" />
@@ -49,7 +50,8 @@
 
         <groups>
             <run>
-                <include name="smoke"/>
+                <include name="all2"/>
+                <include name="all4"/>
             </run>
         </groups>
 

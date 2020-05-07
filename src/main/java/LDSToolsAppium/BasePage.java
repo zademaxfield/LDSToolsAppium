@@ -345,6 +345,22 @@ public class BasePage {
 
     }
 
+    public void swipeDownIOS() throws Exception {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        HashMap<String, String> scrollObject = new HashMap<String, String>();
+        scrollObject.put("direction", "down");
+        js.executeScript("mobile: swipe", scrollObject);
+
+    }
+
+    public void swipeUpIOS() throws Exception {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        HashMap<String, String> scrollObject = new HashMap<String, String>();
+        scrollObject.put("direction", "up");
+        js.executeScript("mobile: swipe", scrollObject);
+
+    }
+
     public void scrollDownToTextIOS(String myText) throws Exception {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;

@@ -4,6 +4,8 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
 import io.appium.java_client.MobileElement;
+import org.openqa.selenium.DeviceRotation;
+import org.openqa.selenium.ScreenOrientation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -391,8 +393,11 @@ public class MinisteringScreenTest extends BaseDriver {
 
             //iOS won't see the page source unless you scroll down.
             if (myBasePage.getOS().contains("ios")) {
-                myBasePage.scrollDownIOS();
-                myBasePage.scrollDownIOS();
+                myBasePage.swipeUpIOS();
+                myBasePage.swipeUpIOS();
+                myBasePage.swipeUpIOS();
+                myBasePage.swipeUpIOS();
+                Thread.sleep(2000);
             }
             pageSource = myBasePage.getSourceOfPage();
             System.out.println(pageSource);
@@ -409,8 +414,10 @@ public class MinisteringScreenTest extends BaseDriver {
             Thread.sleep(4000);
             //iOS won't see the page source unless you scroll down.
             if (myBasePage.getOS().contains("ios")) {
-                myBasePage.scrollDownIOS();
-                myBasePage.scrollDownIOS();
+                myBasePage.swipeUpIOS();
+                myBasePage.swipeUpIOS();
+                myBasePage.swipeUpIOS();
+                Thread.sleep(2000);
             }
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));

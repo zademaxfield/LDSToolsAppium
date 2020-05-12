@@ -76,7 +76,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringBasicCheck(4);
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "jft"})
     public void ministeringBasic_ELDERS_QUORUM_PRESIDENT() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("adambee");
@@ -290,7 +290,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheck(4);
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_PRESIDENT() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("adambee");
@@ -391,14 +391,7 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.unassignedHouseholds.click();
             Thread.sleep(2000);
 
-            //iOS won't see the page source unless you scroll down.
-            if (myBasePage.getOS().contains("ios")) {
-                myBasePage.swipeUpIOS();
-                myBasePage.swipeUpIOS();
-                myBasePage.swipeUpIOS();
-                myBasePage.swipeUpIOS();
-                Thread.sleep(2000);
-            }
+
             pageSource = myBasePage.getSourceOfPage();
             System.out.println(pageSource);
             Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
@@ -412,13 +405,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Thread.sleep(2000);
             myMinistering.unassignedSisters.click();
             Thread.sleep(4000);
-            //iOS won't see the page source unless you scroll down.
-            if (myBasePage.getOS().contains("ios")) {
-                myBasePage.swipeUpIOS();
-                myBasePage.swipeUpIOS();
-                myBasePage.swipeUpIOS();
-                Thread.sleep(2000);
-            }
+
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));

@@ -103,12 +103,12 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryJanDickson(4);
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryJanDickson(3);
     }
 
     @Test(groups = {"all2", "all"})
@@ -116,7 +116,7 @@ public class DirectoryScreenTest extends BaseDriver {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("gabrielsmith");
         myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryJanDickson(3);
     }
 
     @Test(groups = {"all2", "all"})
@@ -124,7 +124,7 @@ public class DirectoryScreenTest extends BaseDriver {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("Aloeb1013");
         myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryJanDickson(3);
     }
 
     @Test(groups = {"all2", "all"})
@@ -132,15 +132,15 @@ public class DirectoryScreenTest extends BaseDriver {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("murillodavid");
         myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryJanDickson(3);
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "jft"})
     public void directoryScreenTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("bridgemp");
         myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryJanDickson(3);
     }
 
     @Test(groups = {"all2", "all"})
@@ -148,7 +148,7 @@ public class DirectoryScreenTest extends BaseDriver {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("blairlolohea");
         myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryJanDickson(3);
     }
 
     @Test(groups = {"all2", "all"})
@@ -156,7 +156,7 @@ public class DirectoryScreenTest extends BaseDriver {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("mykalikat");
         myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryJanDickson(3);
     }
 
     @Test(groups = {"all2", "all"})

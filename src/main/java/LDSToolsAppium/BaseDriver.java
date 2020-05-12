@@ -538,7 +538,9 @@ public class BaseDriver implements ITest {
 //            capabilities.setCapability("showIOSLog", false);
 
 
-
+//            capabilities.setCapability("includeNonModalElements", true);
+//            capabilities.setCapability("shouldUseTestManagerForVisibilityDetection", true);
+//            capabilities.setCapability("simpleIsVisibleCheck", true);
 
 
             if (myUdid != null) {

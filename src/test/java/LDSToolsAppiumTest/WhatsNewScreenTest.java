@@ -23,8 +23,8 @@ public class WhatsNewScreenTest extends BaseDriver {
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
 
-//        myHelper.proxyLogin("kroqbandit");
-        myHelper.loginProduction("tyler55", "Eternity55!");
+        myHelper.proxyLogin("kroqbandit");
+//        myHelper.loginProduction("tyler55", "Eternity55!");
         myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
 
         Thread.sleep(2000);
@@ -35,15 +35,20 @@ public class WhatsNewScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Version 4.0", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Automatic update", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Record Weekly Sacrament Attendance", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament Attendance", pageSource, "Contains"));
 
         myWhatsNew.autoUpdate.click();
 
         Assert.assertTrue(myBasePage.checkNoCaseList("ON", pageSource, "Contains"));
 
         pageSource = myBasePage.getSourceOfPage();
+        
+        System.out.println(pageSource);
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("You're all set, we'll keep your ward and stake updated automatically!", pageSource, "Contains"));
+        if (getRunningOS().equalsIgnoreCase("android")) {
+            Assert.assertTrue(myBasePage.checkNoCaseList("You're all set, we'll keep your ward and stake updated automatically!", pageSource, "Contains"));
+        }
+
 
         myWhatsNew.wifiButton.click();
 

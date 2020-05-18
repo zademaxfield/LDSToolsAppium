@@ -39,10 +39,12 @@ public class WhatsNewScreen extends BasePage {
 
     // Auto update button
     @AndroidFindBy(id = "autoUpdateSwitch")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@name=\"Automatic update, Automatically updates your ward and stake data.\"]")
     public MobileElement autoUpdate;
 
     // Use Wi-Fi only
     @AndroidFindBy(id = "wifiSwitch")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@name=\"Update automatically only on Wi-Fi, Reduces data usage\"]")
     public MobileElement wifiButton;
 
     // Help tab What's New

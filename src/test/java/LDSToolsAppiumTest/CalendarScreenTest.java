@@ -177,7 +177,7 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all", "all3", "jft"})
+    @Test (groups = {"all", "all3"})
     public void calenderDisplayType() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);
@@ -225,7 +225,7 @@ public class CalendarScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all", "all4" })
+    @Test (groups = {"all", "all4", "jft" })
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);
@@ -238,7 +238,7 @@ public class CalendarScreenTest extends BaseDriver {
         //Login - need the sleep on slower devices
         Thread.sleep(20000);
 
-        myHelper.loginProduction("imaxfield", "ldsM0b1l3");
+        myHelper.proxyLogin("Christian9");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Go to Calendar
@@ -247,11 +247,11 @@ public class CalendarScreenTest extends BaseDriver {
 
 
         //Scroll to Stake Presidency Interviews in case it is off the screen
-        myBasePage.scrollToTextGeneral("Stake Presidency Interviews");
+        myBasePage.scrollToTextGeneral("FHE");
 
         //Check the page source to see Stake Presidency Interviews
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Stake Presidency Interviews", pageSource, "contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
 
         editCalendar();
 
@@ -259,7 +259,7 @@ public class CalendarScreenTest extends BaseDriver {
         myCalendar.calendarSubscriptions.click();
 
         myBasePage.scrollDownAndroidUIAutomator("0");
-        myCalendar.checkCalendarToDisplay("West Jordan YSA Stake Calendar", "check");
+        myCalendar.checkCalendarToDisplay("Stake Calendar", "check");
 
         myCalendar.calendarsSubscriptionsDone.click();
 
@@ -272,7 +272,7 @@ public class CalendarScreenTest extends BaseDriver {
 
         //Check the page source for Stake Event
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertFalse(myBasePage.checkNoCaseList("Stake Presidency Interviews", pageSource, "contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
 
 
         //Clean up
@@ -281,7 +281,7 @@ public class CalendarScreenTest extends BaseDriver {
         myCalendar.calendarSubscriptions.click();
 
         myBasePage.scrollDownAndroidUIAutomator("0");
-        myCalendar.checkCalendarToDisplay("West Jordan YSA Stake Calendar", "uncheck");
+        myCalendar.checkCalendarToDisplay("Stake Calendar", "uncheck");
 
         myCalendar.calendarsSubscriptionsDone.click();
 
@@ -295,7 +295,7 @@ public class CalendarScreenTest extends BaseDriver {
         Thread.sleep(2000);
         //Check the page source to see Stake Presidency Interviews
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Stake Presidency Interviews", pageSource, "contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
 
 
 

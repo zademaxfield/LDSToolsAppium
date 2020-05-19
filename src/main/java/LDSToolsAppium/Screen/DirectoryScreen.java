@@ -427,7 +427,7 @@ public class DirectoryScreen extends BasePage {
             pageSource = pageSource + getSourceOfPage();
 
             myCheck = checkForElement(tabMembership);
-            if (myCheck == true) {
+            if (myCheck) {
                 tabMembership.click();
                 Thread.sleep(1000);
                 pageSource = pageSource + getSourceOfPage();
@@ -441,39 +441,46 @@ public class DirectoryScreen extends BasePage {
             }
 
             myCheck = checkForElement(tabCallings);
-            if (myCheck == true) {
+            if (myCheck) {
                 tabCallings.click();
                 Thread.sleep(1000);
                 pageSource = pageSource + getSourceOfPage();
             }
 
             myCheck = checkForElement(tabHTVT);
-            if (myCheck == true) {
+            if (myCheck) {
                 tabHTVT.click();
                 Thread.sleep(1000);
                 pageSource = pageSource + getSourceOfPage();
             }
 
             myCheck = checkForElement(tabHTVT);
-            if (myCheck == true) {
+            if (myCheck) {
                 tabHTVT.click();
                 Thread.sleep(1000);
             }
 
             myCheck = checkForElement(tabCallings);
-            if (myCheck == true) {
+            if (myCheck) {
                 tabCallings.click();
                 Thread.sleep(1000);
             }
 
             myCheck = checkForElement(tabMembership);
-            if (myCheck == true) {
+            if (myCheck) {
                 tabMembership.click();
             }
 
-            tabHousehold.click();
-            //tabContact.click();
-            tabContact.click();
+            myCheck = checkForElement(tabHousehold);
+            if (myCheck) {
+                tabHousehold.click();
+            }
+
+            myCheck = checkForElement(tabContact);
+            if (myCheck) {
+                tabContact.click();
+            }
+
             pageSource = pageSource + getSourceOfPage();
 
         }

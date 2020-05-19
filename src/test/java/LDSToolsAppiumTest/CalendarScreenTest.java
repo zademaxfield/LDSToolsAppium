@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4"})
     public void calendarSimple_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
@@ -177,7 +177,7 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all", "all3"})
+    @Test (groups = {"all", "all3", "jft"})
     public void calenderDisplayType() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);
@@ -190,7 +190,7 @@ public class CalendarScreenTest extends BaseDriver {
         //Login - need the sleep on slower devices
         Thread.sleep(20000);
 
-        myHelper.loginProduction("imaxfield", "ldsM0b1l3");
+        myHelper.proxyLogin("Christian9");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Go to Calendar
@@ -199,28 +199,28 @@ public class CalendarScreenTest extends BaseDriver {
 
 
         //Scroll to Stake Presidency Interviews in case it is off the screen
-        myBasePage.scrollToTextGeneral("Stake Presidency Interviews");
+        myBasePage.scrollToTextGeneral("FHE");
 
         //Check the page source to see Stake Presidency Interviews
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Stake Presidency Interviews", pageSource, "contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
 
         //Turn off West Jordan YSA Stake Calendar
-        checkOrUncheckCalendarItem("West Jordan YSA Stake Calendar", "check");
+        checkOrUncheckCalendarItem("Stake Calendar", "check");
 
 
         //Search for Stake Presidency Interviews - Should not be found.
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertFalse(myBasePage.checkNoCaseList("Stake Presidency Interviews", pageSource, "contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
 
 
         //Turn on West Jordan YSA Stake Calendar
-        checkOrUncheckCalendarItem("West Jordan YSA Stake Calendar", "uncheck");
+        checkOrUncheckCalendarItem("Stake Calendar", "uncheck");
 
 
         //Search for Stake Presidency Interviews - make sure it is displayed
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Stake Presidency Interviews", pageSource, "contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
 
 
     }

@@ -18,7 +18,7 @@ import java.util.List;
 
 public class OrganizationsScreenTest extends BaseDriver {
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -62,7 +62,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"smoke2", "all2", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke2", "all2", "all"})
     public void organizationStakeHighPriestQuorum(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -627,7 +627,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         //TODO: Unassigned Teachers matches Sunday School and Primary need to have a check for Sunday School or Primary
         for (String childOrgName : childOrgs) {
-            if (childOrgName.contains("Unassigned") || (childOrgName.contains("Music")) ) {
+            if (childOrgName.contains("Unassigned") || (childOrgName.contains("Music") || (childOrgName.contains("Girls")) )) {
                 System.out.println("Skipping Unassigned for now!");
             } else {
                 if (getRunningOS().equalsIgnoreCase("ios")) {

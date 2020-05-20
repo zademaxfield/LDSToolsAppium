@@ -103,7 +103,7 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryJanDickson(4);
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("adambee");
@@ -183,12 +183,13 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryJanDickson(3);
     }
 
-    @Test(groups = {"all2", "all"})
+
+    @Test(groups = {"all2", "all", "jft"})
     public void directoryScreenTest_WARD_MISSION_LEADER() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("Christian9");
         myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(3);
+        directoryJanDickson(4);
     }
 
     public void directoryJanDickson(int rights ) throws Exception {

@@ -209,7 +209,6 @@ public class DirectoryScreenTest extends BaseDriver {
         //General Information
         myBasePage.rightsCheck("Centinela", 4, rights, pageSource);
 
-        System.out.println(pageSource);
         myBasePage.rightsCheck("JanDic60@yahoo.com", 4, rights, pageSource);
         myBasePage.rightsCheck("cedickson@sbcglobal.net", 4, rights, pageSource);
         myBasePage.rightsCheck("754-215-9330", 4, rights, pageSource);
@@ -288,9 +287,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Callings and Classes - New in 3.0.0
         myBasePage.rightsCheck("Sunday School Teacher", 4, rights, pageSource);
-        myBasePage.rightsCheck("Gospel Doctrine", 4, rights, pageSource);
+//        myBasePage.rightsCheck("Gospel Doctrine", 4, rights, pageSource);
 //        myBasePage.rightsCheck("Class Assignments", 3, rights, pageSource);
-        myBasePage.rightsCheck("Relief Society", 3, rights, pageSource);
+//        myBasePage.rightsCheck("Relief Society", 3, rights, pageSource);
     }
 
 

@@ -24,6 +24,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -749,6 +751,22 @@ public class BasePage {
         return myString;
     }
 
+    public String getSourceOfPageIDB() throws Exception {
+//        System.out.println("Start Get Source of Page");
+        String myString;
+        String myUdid;
+
+        //Get the udid of the connected device
+        myUdid = driver.getCapabilities().getCapability("udid").toString();
+
+        myString = idbConnectDescribeAll(myUdid);
+//        idbConnect(myUdid);
+//        myString = idbDescribeAll();
+
+
+        return myString;
+    }
+
     public void checkSourceString(String pageSource, String textToCheck) throws Exception {
         if (pageSource.contains(textToCheck)){
             Assert.assertTrue(true);
@@ -1154,6 +1172,45 @@ public class BasePage {
         new TouchAction(driver).press(PointOption.point(useThisLocationX, useThisLocationY - 50)).release().perform(); //50
     }
 
+    public String idbConnectDescribeAll(String myUdid) throws Exception {
+        String line;
+        Runtime run = Runtime.getRuntime();
+        Process pr;
+        BufferedReader buf;
+        System.out.println("UDID: "  + myUdid);
+
+//        pr = run.exec(new String[] {"/bin/bash", "-c", "idb_companion", "--udid", myUdid});
+        pr = run.exec(new String[] {"/bin/bash", "-c", "idb_companion"});
+        pr.waitFor();
+        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        line = buf.readLine();
+        System.out.println("idb_companion: " + line);
+
+        pr = run.exec(new String[] {"/bin/bash", "-c", "idb", "connect", myUdid});
+        pr.waitFor();
+        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        line = buf.readLine();
+        System.out.println("idb connect: " + line);
+
+        pr = run.exec(new String[] {"/bin/bash", "-c", "idb", "ui", "describe-all"});
+        pr.waitFor();
+        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        line = buf.readLine();
+        return line;
+    }
+
+    public String idbDescribeAll() throws Exception {
+        String line;
+        Runtime run = Runtime.getRuntime();
+        Process pr = run.exec(new String[] {"/bin/bash", "-c", "idb", "ui", "describe-all"});
+        pr.waitFor();
+
+        BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+
+        line = buf.readLine();
+        //System.out.println(line);
+        return line;
+    }
 
 
 

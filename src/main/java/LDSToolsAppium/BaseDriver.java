@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import net.bytebuddy.asm.Advice;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.OutputType;
@@ -849,6 +850,9 @@ public class BaseDriver implements ITest {
         line = buf.readLine();
         //System.out.println(line);
     }
+
+
+
 
     private void stopFbSim() throws Exception {
         String line;

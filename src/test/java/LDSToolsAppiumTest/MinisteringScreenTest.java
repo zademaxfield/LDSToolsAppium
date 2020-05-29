@@ -76,7 +76,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringBasicCheck(4);
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void ministeringBasic_ELDERS_QUORUM_PRESIDENT() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("adambee");
@@ -991,7 +991,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
     public void ministeringAssignedSisters_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
@@ -1156,7 +1156,15 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.assignedSisters.click();
 
             Thread.sleep(2000);
-            pageSource = myBasePage.getSourceOfPage();
+            if (getRunningOS().equalsIgnoreCase("ios")) {
+                pageSource = myBasePage.getSourceOfPageIDB();
+            } else {
+                pageSource = myBasePage.getSourceOfPage();
+            }
+
+
+            System.out.println(pageSource);
+
             Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
         }

@@ -1180,11 +1180,21 @@ public class BasePage {
         System.out.println("UDID: "  + myUdid);
 
 //        pr = run.exec(new String[] {"/bin/bash", "-c", "idb_companion", "--udid", myUdid});
+        pr = run.exec(new String[] {"/bin/bash", "-c", "idb", "kill"});
+        pr.waitFor();
+        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        line = buf.readLine();
+        System.out.println("idb_companion: " + line);
+
+
+
         pr = run.exec(new String[] {"/bin/bash", "-c", "idb_companion"});
         pr.waitFor();
         buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
         line = buf.readLine();
         System.out.println("idb_companion: " + line);
+
+        Thread.sleep(4000);
 
         pr = run.exec(new String[] {"/bin/bash", "-c", "idb", "connect", myUdid});
         pr.waitFor();

@@ -1030,7 +1030,7 @@ public class HelperMethods extends BasePage {
     public void uatInvalidLogin(String userName, String password) throws Exception {
         //Enable Developer Settings and set the Network Environment to UAT
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
-        String myTemp = "";
+        String myTemp = "kroqbandit";
 
         if (checkForElement(allowButton)) {
             allowButton.click();

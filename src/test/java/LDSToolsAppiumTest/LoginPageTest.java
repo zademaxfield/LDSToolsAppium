@@ -41,7 +41,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "jft"})
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3"})
     public void validateLoginPageLinks() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -108,7 +108,7 @@ public class LoginPageTest extends BaseDriver {
     }
 
     // ******************* Invalid Password Tests *******************
-    @Test (groups = {"all3", "all", "login"})
+    @Test (groups = {"all3", "all", "login", "jft"})
     public void invalidPasswordTest1() throws Exception {
         invalidCheck("zmaxfield", "<login>");
     }
@@ -326,7 +326,12 @@ public class LoginPageTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
 
-        myBasePage.waitForText("your username");
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            myBasePage.waitForText("Having trouble signing in");
+        } else {
+            myBasePage.waitForText("your username");
+        }
+
 
         if (myBasePage.checkForElement(myBasePage.allowButton)) {
             myBasePage.allowButton.click();

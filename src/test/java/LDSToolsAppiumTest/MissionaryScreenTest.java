@@ -222,7 +222,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke4", "smoke", "all4", "all"})
+    @Test(groups = {"all4", "all"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;
 

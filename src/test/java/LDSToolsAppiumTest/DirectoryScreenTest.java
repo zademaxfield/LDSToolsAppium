@@ -295,7 +295,9 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
     //This is an iOS only test now
-    @Test(groups = {"smoke4", "all4", "all"})
+    //TODO: Need to update
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"smoke4", "all4", "all"})
     public void directoryNoCallingCheckMRN() throws Exception {
         String pageSource;
 

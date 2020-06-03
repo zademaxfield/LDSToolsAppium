@@ -251,7 +251,7 @@ public class CalendarScreenTest extends BaseDriver {
 
         //Check the page source to see Stake Presidency Interviews
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("YM", pageSource, "contains"));
 
         editCalendar();
 

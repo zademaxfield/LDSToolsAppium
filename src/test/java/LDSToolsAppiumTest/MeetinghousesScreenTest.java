@@ -14,7 +14,9 @@ public class MeetinghousesScreenTest extends BaseDriver {
 
 
     //TODO: iOS has problems with this test
-    @Test(groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    //TODO: Need to update
+    @Test(groups = {"needUpdate"})
+//    @Test(groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void meetinghousesSimpleTest() throws Exception {
         String pageSource;
 

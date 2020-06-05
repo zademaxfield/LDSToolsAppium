@@ -39,7 +39,7 @@ public class DirectoryScreenTest extends BaseDriver {
 //        directoryJanDickson(rights);
 //    }
 
-    @Test(groups = {"smoke2", "smoke", "all2", "all"})
+    @Test(groups = {"smoke2", "smoke", "all2", "all", "jft"})
     public void directoryScreenTest_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
@@ -103,7 +103,7 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryJanDickson(4);
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("adambee");

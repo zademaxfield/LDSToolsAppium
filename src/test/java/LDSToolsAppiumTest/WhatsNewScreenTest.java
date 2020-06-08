@@ -13,8 +13,6 @@ import org.testng.asserts.Assertion;
 
 public class WhatsNewScreenTest extends BaseDriver {
 
-    //TODO: iOS
-//    @Test(groups = {"needUpdate"})
     @Test (groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void whatsNewSimple() throws Exception {
         String pageSource;
@@ -26,12 +24,8 @@ public class WhatsNewScreenTest extends BaseDriver {
         myHelper.proxyLogin("kroqbandit");
 //        myHelper.loginProduction("tyler55", "Eternity55!");
         myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
-
         Thread.sleep(2000);
-
         pageSource = myBasePage.getSourceOfPage();
-//        myBasePage.scrollDownTEST(500);
-//        pageSource = pageSource + myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Version 4.0", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Automatic update", pageSource, "Contains"));
@@ -43,7 +37,7 @@ public class WhatsNewScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
         
-        System.out.println(pageSource);
+
 
         if (getRunningOS().equalsIgnoreCase("android")) {
             Assert.assertTrue(myBasePage.checkNoCaseList("You're all set, we'll keep your ward and stake updated automatically!", pageSource, "Contains"));
@@ -51,25 +45,20 @@ public class WhatsNewScreenTest extends BaseDriver {
 
 
         myWhatsNew.wifiButton.click();
-
         pageSource = myBasePage.getSourceOfPage();
-
-        Assert.assertTrue(myBasePage.checkNoCaseList("OFF", pageSource, "Contains"));
-
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            Assert.assertTrue(myWhatsNew.wifiButton.getAttribute("value").equalsIgnoreCase("0"));
+        } else {
+            Assert.assertTrue(myBasePage.checkNoCaseList("OFF", pageSource, "Contains"));
+        }
 
         myWhatsNew.whatsNewDone.click();
-
-        myMenu.help.click();
-
+        myMenu.selectMenu(myMenu.help);
         myWhatsNew.helpWhatsNew.click();
-
         myWhatsNew.wifiButton.click();
-
         myWhatsNew.autoUpdate.click();
-
         myWhatsNew.whatsNewDone.click();
-
         Thread.sleep(2000);
     }
 
-    }
+}

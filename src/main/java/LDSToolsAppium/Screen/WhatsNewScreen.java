@@ -49,6 +49,7 @@ public class WhatsNewScreen extends BasePage {
 
     // Help tab What's New
     @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]")
+    @iOSXCUITFindBy(accessibility = "What's New")
     public MobileElement helpWhatsNew;
 
     //Done Button

@@ -41,7 +41,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all", "login", "smoke", "smoke3"})
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "jft"})
     public void validateLoginPageLinks() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -61,8 +61,7 @@ public class LoginPageTest extends BaseDriver {
         Assert.assertTrue(myPageSource.contains("Church Account"));
 
 
-        Assert.assertTrue(myPageSource.contains("Recover my Username and Password"));
-        Assert.assertTrue(myPageSource.contains("Recover my Password"));
+        Assert.assertTrue(myPageSource.contains("Account Recovery"));
         System.out.println(myPageSource);
 
 
@@ -108,7 +107,7 @@ public class LoginPageTest extends BaseDriver {
     }
 
     // ******************* Invalid Password Tests *******************
-    @Test (groups = {"all3", "all", "login", "jft"})
+    @Test (groups = {"all3", "all", "login"})
     public void invalidPasswordTest1() throws Exception {
         invalidCheck("zmaxfield", "<login>");
     }

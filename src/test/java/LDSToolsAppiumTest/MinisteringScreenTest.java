@@ -1156,13 +1156,15 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.assignedSisters.click();
 
             Thread.sleep(2000);
+
+            //TODO: Need a different way to get iOS source of page idb?
             if (getRunningOS().equalsIgnoreCase("ios")) {
                 pageSource = myBasePage.getSourceOfPageIDB();
             } else {
                 pageSource = myBasePage.getSourceOfPage();
             }
 
-
+//            pageSource = myBasePage.getSourceOfPage();
             System.out.println(pageSource);
 
             Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));

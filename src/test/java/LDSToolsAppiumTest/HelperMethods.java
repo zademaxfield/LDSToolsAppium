@@ -5,6 +5,7 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
@@ -17,6 +18,8 @@ import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 
 
@@ -81,46 +84,45 @@ public class HelperMethods extends BasePage {
     }
 
     private void iosDeepLink(String proxyUserName) throws Exception {
-//        String appName;
-
-//        appName = driver.getCapabilities().getCapability("app").toString();
-//        System.out.println("App: "  + appName);
-
         setupUAT(proxyUserName);
+//        deepLinkSelector(proxyUserName);
+    }
 
-//        if (appName.contains(".ipa")) {
-//            driver.executeScript("mobile: terminateApp", ImmutableMap.of("bundleId", "com.apple.mobilesafari"));
-//            //            //May need to replace -u with -U in 12.2
-//            List args = new ArrayList();
-////            args.add("-U");
-//            args.add("https://www.google.com");
-//
-//            Map<String, Object> params = new HashMap<>();
-//            params.put("bundleId", "com.apple.mobilesafari");
-//            params.put("arguments", args);
-//            driver.executeScript("mobile: launchApp", params);
-//            Thread.sleep(10000);
-//
-//            driver.findElement(By.xpath("//XCUIElementTypeOther[@label='Address']")).click();
-//            Thread.sleep(6000);
-//
-//            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Clear text']")).click();
-//            Thread.sleep(6000);
-//
-//            driver.findElement(By.xpath("//XCUIElementTypeTextField[@label='Address']")).setValue("membertools://user/" + proxyUserName);
-//            Thread.sleep(2000);
-//            driver.findElement(By.xpath("//*[@name='Go']")).click();
-//            Thread.sleep(6000);
-//            driver.findElement(By.xpath("//*[@name='Open']")).click();
-//        } else {
-//            driver.get("https://www.google.com");
-//            Thread.sleep(2000);
-//            driver.get("membertools://user/" + proxyUserName);
-//            Thread.sleep(3000);
-//        }
+    private void deepLinkSelector(String proxyUserName) throws Exception {
+        String appName;
+        appName = driver.getCapabilities().getCapability("app").toString();
+        System.out.println("App: "  + appName);
 
+        if (appName.contains(".ipa")) {
+            driver.executeScript("mobile: terminateApp", ImmutableMap.of("bundleId", "com.apple.mobilesafari"));
+            //            //May need to replace -u with -U in 12.2
+            List args = new ArrayList();
+//            args.add("-U");
+            args.add("https://www.google.com");
 
+            Map<String, Object> params = new HashMap<>();
+            params.put("bundleId", "com.apple.mobilesafari");
+            params.put("arguments", args);
+            driver.executeScript("mobile: launchApp", params);
+            Thread.sleep(10000);
 
+            driver.findElement(By.xpath("//XCUIElementTypeOther[@label='Address']")).click();
+            Thread.sleep(6000);
+
+            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Clear text']")).click();
+            Thread.sleep(6000);
+
+            driver.findElement(By.xpath("//XCUIElementTypeTextField[@label='Address']")).setValue("membertools://user/" + proxyUserName);
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("//*[@name='Go']")).click();
+            Thread.sleep(6000);
+            driver.findElement(By.xpath("//*[@name='Open']")).click();
+        } else {
+            driver.get("https://www.google.com");
+            Thread.sleep(2000);
+            driver.get("membertools://user/" + proxyUserName);
+            Thread.sleep(3000);
+        }
     }
 
 
@@ -341,6 +343,7 @@ public class HelperMethods extends BasePage {
 
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
+
             mySettings.proxyUsername.click();
             mySettings.proxyEditField.setValue(proxyUserName);
             mySettings.proxyDone.click();

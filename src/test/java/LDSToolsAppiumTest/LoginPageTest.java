@@ -62,7 +62,7 @@ public class LoginPageTest extends BaseDriver {
 
 
         Assert.assertTrue(myPageSource.contains("Account Recovery"));
-        System.out.println(myPageSource);
+//        System.out.println(myPageSource);
 
 
 

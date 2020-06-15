@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class MinisteringScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringBasic_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
@@ -23,7 +23,7 @@ public class MinisteringScreenTest extends BaseDriver {
     @Test (groups = {"all2", "all"})
     public void ministeringBasic_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("fiti");
+        myHelper.proxyLogin("Camerado65");
         myHelper.enterPin("1", "1", "3", "3");
         ministeringBasicCheck(1);
     }
@@ -31,7 +31,7 @@ public class MinisteringScreenTest extends BaseDriver {
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Camerado65");
+        myHelper.proxyLogin("soldiercloudstrife");
         myHelper.enterPin("1", "1", "3", "3");
         ministeringBasicCheck(1);
     }
@@ -237,7 +237,7 @@ public class MinisteringScreenTest extends BaseDriver {
     @Test (groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("fiti");
+        myHelper.proxyLogin("Camerado65");
         myHelper.enterPin("1", "1", "3", "3");
         ministeringUnassignedHouseholdsCheck(1);
     }
@@ -245,7 +245,7 @@ public class MinisteringScreenTest extends BaseDriver {
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Camerado65");
+        myHelper.proxyLogin("soldiercloudstrife");
         myHelper.enterPin("1", "1", "3", "3");
         ministeringUnassignedHouseholdsCheck(1);
     }
@@ -599,7 +599,7 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    @Test (groups = {"all3", "all", "smoke", "smoke3", "jft"})
+    @Test (groups = {"all3", "all", "smoke", "smoke3"})
     public void companionshipsElders_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
@@ -610,7 +610,7 @@ public class MinisteringScreenTest extends BaseDriver {
     @Test (groups = {"all2", "all"})
     public void companionshipsElders_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("fiti");
+        myHelper.proxyLogin("Camerado65");
         myHelper.enterPin("1", "1", "3", "3");
         companionshipsEldersCheck(1);
     }
@@ -618,7 +618,7 @@ public class MinisteringScreenTest extends BaseDriver {
     @Test(groups = {"all2", "all"})
     public void companionshipsElders_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Camerado65");
+        myHelper.proxyLogin("soldiercloudstrife");
         myHelper.enterPin("1", "1", "3", "3");
         companionshipsEldersCheck(1);
     }
@@ -1192,7 +1192,7 @@ public class MinisteringScreenTest extends BaseDriver {
     @Test (groups = {"all2", "all"})
     public void companionshipsSisters_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("fiti");
+        myHelper.proxyLogin("Camerado65");
         myHelper.enterPin("1", "1", "3", "3");
         companionshipsSistersCheck(1);
     }
@@ -1200,7 +1200,7 @@ public class MinisteringScreenTest extends BaseDriver {
     @Test(groups = {"all2", "all"})
     public void companionshipsSisters_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Camerado65");
+        myHelper.proxyLogin("soldiercloudstrife");
         myHelper.enterPin("1", "1", "3", "3");
         companionshipsSistersCheck(1);
     }

@@ -24,7 +24,7 @@ public class CalendarScreenTest extends BaseDriver {
     @Test (groups = {"all4", "all"})
     public void calendarSimple_BISHOP_FIRST_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("fiti");
+        myHelper.proxyLogin("Camerado65");
         myHelper.enterPin("1", "1", "3", "3");
         calendarCheck();
     }
@@ -32,7 +32,7 @@ public class CalendarScreenTest extends BaseDriver {
     @Test (groups = {"all4", "all"})
     public void calendarSimple_BISHOP_SECOND_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Camerado65");
+        myHelper.proxyLogin("soldiercloudstrife");
         myHelper.enterPin("1", "1", "3", "3");
         calendarCheck();
     }

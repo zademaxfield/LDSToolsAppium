@@ -50,7 +50,7 @@ public class DirectoryScreenTest extends BaseDriver {
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("fiti");
+        myHelper.proxyLogin("Camerado65");
         myHelper.enterPin("1", "1", "3", "3");
         directoryJanDickson(1);
     }
@@ -58,7 +58,7 @@ public class DirectoryScreenTest extends BaseDriver {
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Camerado65");
+        myHelper.proxyLogin("soldiercloudstrife");
         myHelper.enterPin("1", "1", "3", "3");
         directoryJanDickson(1);
     }

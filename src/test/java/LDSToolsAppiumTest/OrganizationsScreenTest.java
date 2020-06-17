@@ -18,7 +18,7 @@ import java.util.List;
 
 public class OrganizationsScreenTest extends BaseDriver {
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
     public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -62,7 +62,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"all2", "all"})
+    @Test(dataProvider = "Members", groups = {"all2", "all", "jft"})
     public void organizationStakeHighPriestQuorum(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -83,9 +83,9 @@ public class OrganizationsScreenTest extends BaseDriver {
         myOrg.organizationsDropdown.click();
         myOrg.inglewoodStake.click();
         myOrg.highPriestsQuorumOrg.click();
-        if (getRunningOS().equals("ios")) {
-            myOrg.highPriestsQuorumMembersOrg.click();
-        }
+//        if (getRunningOS().equals("ios")) {
+//            myOrg.highPriestsQuorumMembersOrg.click();
+//        }
         Thread.sleep(2000);
 
         pageSource = myBasePage.getSourceOfPage();
@@ -109,9 +109,9 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         myBasePage.backButton.click();
 
-        if (getRunningOS().equals("ios")) {
-            myBasePage.backButton.click();
-        }
+//        if (getRunningOS().equals("ios")) {
+//            myBasePage.backButton.click();
+//        }
 
 
     }

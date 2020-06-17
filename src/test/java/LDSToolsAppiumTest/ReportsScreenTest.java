@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -132,7 +132,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "report"})
+    @Test (groups = {"all4", "all", "report", "jft"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
 
@@ -175,9 +175,9 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.overdueAaronicPriesthoodOrdinationsReport.click();
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Camryn", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Estrada", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("December 21", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sale", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Talanoa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("June 21", pageSource, "Contains"));
         myBasePage.backButton.click();
 
         //Young Single Adult Interview
@@ -188,36 +188,36 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.youngSingleAdultInterviewsReport.click();
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Cortrell", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Clayton", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("January 22", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Kim", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Clark", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("June 11", pageSource, "Contains"));
         myBasePage.backButton.click();
 
         //Bishops Youth Interviews
         myReports.bishopsYouthInterviewsReport.click();
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Tyson", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Crumby", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("February 1", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Amelie", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Kristin", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("June 29", pageSource, "Contains"));
         myBasePage.backButton.click();
 
         //Bishops Counselor Youth Interviews
         myReports.bishopricCounselorYouthInterviewsReport.click();
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Joseph", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Dedman", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("July 10", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Dylan", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Rickett", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("January 12", pageSource, "Contains"));
         myBasePage.backButton.click();
 
         //Young Men Approaching Mission Age
         myReports.youngMenApproachingMissionAgeReport.click();
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Christopher", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Viveros", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("June 2", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Malakhi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Arce", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("February 7", pageSource, "Contains"));
         myBasePage.backButton.click();
 
         //Men Who Have Not Served a Mission
@@ -277,9 +277,9 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Arce", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Malakhi", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("May 2020", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Batimana", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Divyne", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("March 2021", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Limited-Use", pageSource, "Contains"));
 
         //TODO: Need a way to test this for iOS. iOS does this very different.

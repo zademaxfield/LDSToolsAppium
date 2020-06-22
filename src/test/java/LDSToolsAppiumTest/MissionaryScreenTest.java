@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class MissionaryScreenTest extends BaseDriver {
 
     //TODO: Add API data
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -53,7 +53,7 @@ public class MissionaryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void missionaryOtherUnits() throws Exception {
         //String pageSource;
 

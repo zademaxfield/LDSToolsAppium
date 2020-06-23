@@ -41,7 +41,7 @@ public class ListsScreenTest extends BaseDriver {
         myLists.listsOk.click();
 
         //Add a member to the list
-        myLists.addMemberToList("jones, elizabeth", "Jones, Elizabeth");
+        myLists.addMemberToList("lovell, heather", "Lovell, Heather");
         myBase.waitForElementThenClick(myLists.listsBackButton);
 
         Thread.sleep(2000);
@@ -55,8 +55,8 @@ public class ListsScreenTest extends BaseDriver {
         myLists.selectListName("New Automated List");
         Thread.sleep(4000);
         pageSource = myBase.getSourceOfPage();
-        Assert.assertTrue(myBase.checkNoCaseList("Jones", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("Elizabeth", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Lovell", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Heather", pageSource, "Contains"));
         myBase.backButton.click();
         Thread.sleep(2000);
 
@@ -103,12 +103,12 @@ public class ListsScreenTest extends BaseDriver {
         myLists.listsOk.click();
 
         //Add a member to the list
-        myLists.addMemberToList("jones, elizabeth", "Jones, Elizabeth");
-        myLists.addMemberToList("jones, gabrielle", "Jones, Gabrielle");
-        myLists.addMemberToList("jones, marvin", "Jones, Marvin");
-        myLists.addMemberToList("jones, michael", "Jones, Michael");
-        myLists.addMemberToList("jones, william", "Jones, William");
-        myLists.addMemberToList("johnson, donqwel", "johnson, Donqwel");
+        myLists.addMemberToList("lovell, heather", "Lovell, Heather");
+        myLists.addMemberToList("lovell, kyler", "Lovell, Kyler");
+        myLists.addMemberToList("carter, earon", "Carter, Earon");
+        myLists.addMemberToList("carter, genie", "Carter, Genie");
+        myLists.addMemberToList("carter, tanya", "Carter, Tanya");
+        myLists.addMemberToList("casas, sarai", "Casas, Sarai");
         myBase.waitForElementThenClick(myLists.listsBackButton);
 
         Thread.sleep(2000);

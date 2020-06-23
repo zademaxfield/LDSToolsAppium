@@ -259,6 +259,7 @@ public class ListsScreen extends BasePage {
 
         if (getOS().equals("ios")) {
             listsAddToListButton.click();
+            Thread.sleep(2000);
             listsSearch.sendKeys(memberToAdd);
             Thread.sleep(2000);
 //            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + memberToClickOn + "']")).click();

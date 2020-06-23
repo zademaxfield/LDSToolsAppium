@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class MinisteringScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringBasic_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
@@ -225,9 +225,9 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    //TODO: Need to update
-    @Test(groups = {"needUpdate"})
-//    @Test (groups = {"all4", "all", "jft"})
+
+
+    @Test (groups = {"all4", "all"})
     public void ministeringUnassignedHouseholds_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
@@ -235,150 +235,150 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheck(1);
     }
 
-//    @Test (groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Camerado65");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("soldiercloudstrife");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_WARD_CLERK() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("luke.ravitch");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_WARD_ASSISTANT_CLERK() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("jdahmanson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_WARD_EXECUTIVE_SECRETARY() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("iansalas");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_MEMBER1() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("dcbryson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(4);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_MEMBER2() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Kimburrell");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(4);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_ELDERS_QUORUM_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("adambee");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("gabrielsmith");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Aloeb1013");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_ELDERS_QUORUM_SECRETARY() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("murillodavid");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("bridgemp");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("blairlolohea");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("mykalikat");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_YOUNG_WOMEN_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("rosettelambson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(3);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_WOMEN_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("mahina_12006");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(3);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("RIBITALOT@AOL.COM");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(3);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringUnassignedHouseholds_WARD_MISSION_LEADER() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Christian9");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringUnassignedHouseholdsCheck(3);
-//    }
-//
+    @Test (groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Camerado65");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("soldiercloudstrife");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_WARD_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("luke.ravitch");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_WARD_ASSISTANT_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("jdahmanson");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_WARD_EXECUTIVE_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("iansalas");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_MEMBER1() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("dcbryson");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(4);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_MEMBER2() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Kimburrell");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(4);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_ELDERS_QUORUM_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("adambee");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("gabrielsmith");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Aloeb1013");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_ELDERS_QUORUM_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("murillodavid");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("bridgemp");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("blairlolohea");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mykalikat");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_YOUNG_WOMEN_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("rosettelambson");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_WOMEN_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mahina_12006");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("RIBITALOT@AOL.COM");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringUnassignedHouseholds_WARD_MISSION_LEADER() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Christian9");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheck(3);
+    }
+
     public void ministeringUnassignedHouseholdsCheck(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -392,11 +392,18 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.unassignedHouseholds.click();
             Thread.sleep(2000);
 
+            //For some reason the pageSource is broken for this page in iOS.
+            if (getRunningOS().equalsIgnoreCase("ios")) {
+                pageSource = myBasePage.getSourceOfPageIDB();
+                Assert.assertTrue(pageSource.contains("Adams"));
+                Assert.assertFalse(pageSource.contains("Skywalker"));
+            } else {
+                pageSource = myBasePage.getSourceOfPage();
+                Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            }
 
-            pageSource = myBasePage.getSourceOfPage();
-            System.out.println(pageSource);
-            Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
             myBasePage.waitForElementThenClick(myBasePage.backButton);
             Thread.sleep(2000);
             myBasePage.waitForElementThenClick(myBasePage.backButton);
@@ -407,9 +414,17 @@ public class MinisteringScreenTest extends BaseDriver {
             myMinistering.unassignedSisters.click();
             Thread.sleep(4000);
 
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+            if (getRunningOS().equalsIgnoreCase("ios")) {
+                pageSource = myBasePage.getSourceOfPageIDB();
+                Assert.assertTrue(pageSource.contains("Adams"));
+                Assert.assertFalse(pageSource.contains("Skywalker"));
+            } else {
+                pageSource = myBasePage.getSourceOfPage();
+                Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            }
+
 
             myBasePage.waitForElementThenClick(myBasePage.backButton);
             Thread.sleep(2000);
@@ -422,159 +437,158 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    //TODO: Need to update
-    @Test(groups = {"needUpdate"})
-//    @Test (groups = {"all2", "all"})
+
+    @Test (groups = {"all2", "all"})
     public void ministeringAssignedHouseholds_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
         ministeringAssignedHouseholdsCheck(1);
     }
-//
-//    @Test (groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("fiti");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Camerado65");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_WARD_CLERK() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("luke.ravitch");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_WARD_ASSISTANT_CLERK() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("jdahmanson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_WARD_EXECUTIVE_SECRETARY() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("iansalas");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_MEMBER1() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("dcbryson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(4);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_MEMBER2() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Kimburrell");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(4);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_ELDERS_QUORUM_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("adambee");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("gabrielsmith");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Aloeb1013");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_ELDERS_QUORUM_SECRETARY() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("murillodavid");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_RELIEF_SOCIETY_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("bridgemp");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("blairlolohea");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("mykalikat");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_YOUNG_WOMEN_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("rosettelambson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(3);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_WOMEN_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("mahina_12006");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(3);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("RIBITALOT@AOL.COM");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(3);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedHouseholds_WARD_MISSION_LEADER() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Christian9");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedHouseholdsCheck(3);
-//    }
+
+    @Test (groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("fiti");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Camerado65");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_WARD_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("luke.ravitch");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_WARD_ASSISTANT_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("jdahmanson");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_WARD_EXECUTIVE_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("iansalas");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_MEMBER1() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("dcbryson");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(4);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_MEMBER2() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Kimburrell");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(4);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_ELDERS_QUORUM_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("adambee");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("gabrielsmith");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Aloeb1013");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_ELDERS_QUORUM_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("murillodavid");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("bridgemp");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("blairlolohea");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mykalikat");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_YOUNG_WOMEN_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("rosettelambson");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_WOMEN_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mahina_12006");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("RIBITALOT@AOL.COM");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedHouseholds_WARD_MISSION_LEADER() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Christian9");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedHouseholdsCheck(3);
+    }
 
     public void ministeringAssignedHouseholdsCheck(int rights) throws Exception {
         String pageSource;
@@ -589,9 +603,17 @@ public class MinisteringScreenTest extends BaseDriver {
 
             Thread.sleep(2000);
 
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            //For some reason the pageSource is broken for this page in iOS.
+            if (getRunningOS().equalsIgnoreCase("ios")) {
+                pageSource = myBasePage.getSourceOfPageIDB();
+                Assert.assertTrue(pageSource.contains("Adams"));
+                Assert.assertFalse(pageSource.contains("Skywalker"));
+            } else {
+                pageSource = myBasePage.getSourceOfPage();
+                Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            }
+
         }
 
         if (rights == 4){
@@ -803,159 +825,158 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    //TODO: Need to update
-    @Test(groups = {"needUpdate"})
-//    @Test (groups = {"all1", "all"})
+
+    @Test (groups = {"all1", "all"})
     public void unassignedSisters_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
         unassignedSistersCheck(1, "bishopric");
     }
-//
-//    @Test (groups = {"all2", "all"})
-//    public void unassignedSisters_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("fiti");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(1, "bishopric");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Camerado65");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(1, "bishopric");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_WARD_CLERK() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("luke.ravitch");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(1, "bishopric");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_WARD_ASSISTANT_CLERK() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("jdahmanson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(1, "bishopric");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_WARD_EXECUTIVE_SECRETARY() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("iansalas");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(1, "bishopric");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_MEMBER1() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("dcbryson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(4, "member");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_MEMBER2() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Kimburrell");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(4, "member");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_ELDERS_QUORUM_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("adambee");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(2, "elders");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("gabrielsmith");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(2, "elders");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Aloeb1013");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(2, "elders");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_ELDERS_QUORUM_SECRETARY() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("murillodavid");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(2, "elders");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_RELIEF_SOCIETY_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("bridgemp");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(2, "relief");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("blairlolohea");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(2, "relief");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("mykalikat");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(2, "relief");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_YOUNG_WOMEN_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("rosettelambson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(3, "wardcouncil");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_WOMEN_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("mahina_12006");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(3, "wardcouncil");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("RIBITALOT@AOL.COM");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(3, "wardcouncil");
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void unassignedSisters_WARD_MISSION_LEADER() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Christian9");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        unassignedSistersCheck(3, "wardcouncil");
-//    }
+
+    @Test (groups = {"all2", "all"})
+    public void unassignedSisters_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("fiti");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(1, "bishopric");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Camerado65");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(1, "bishopric");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_WARD_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("luke.ravitch");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(1, "bishopric");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_WARD_ASSISTANT_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("jdahmanson");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(1, "bishopric");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_WARD_EXECUTIVE_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("iansalas");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(1, "bishopric");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_MEMBER1() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("dcbryson");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(4, "member");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_MEMBER2() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Kimburrell");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(4, "member");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_ELDERS_QUORUM_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("adambee");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(2, "elders");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("gabrielsmith");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(2, "elders");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Aloeb1013");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(2, "elders");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_ELDERS_QUORUM_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("murillodavid");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(2, "elders");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("bridgemp");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(2, "relief");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("blairlolohea");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(2, "relief");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mykalikat");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(2, "relief");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_YOUNG_WOMEN_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("rosettelambson");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(3, "wardcouncil");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_WOMEN_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mahina_12006");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(3, "wardcouncil");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("RIBITALOT@AOL.COM");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(3, "wardcouncil");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void unassignedSisters_WARD_MISSION_LEADER() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Christian9");
+        myHelper.enterPin("1", "1", "3", "3");
+        unassignedSistersCheck(3, "wardcouncil");
+    }
 
     public void unassignedSistersCheck(int rights, String calling) throws Exception {
         String pageSource;
@@ -972,9 +993,9 @@ public class MinisteringScreenTest extends BaseDriver {
                 if (getRunningOS().equals("ios")) {
                     myMinistering.unassignedSisters.click();
                     Thread.sleep(2000);
-                    pageSource = myBasePage.getSourceOfPage();
-                    Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
-                    Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+                    pageSource = myBasePage.getSourceOfPageIDB();
+                    Assert.assertTrue(pageSource.contains("Adams"));
+                    Assert.assertFalse(pageSource.contains("Skywalker"));
                 } else {
                     pageSource = myBasePage.getSourceOfPage();
                     Assert.assertFalse(myBasePage.checkNoCaseList("Unassigned Households", pageSource, "Contains"));
@@ -982,9 +1003,17 @@ public class MinisteringScreenTest extends BaseDriver {
             } else {
                 myMinistering.unassignedSisters.click();
                 Thread.sleep(2000);
-                pageSource = myBasePage.getSourceOfPage();
-                Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
-                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+                //For some reason the pageSource is broken for this page in iOS.
+                if (getRunningOS().equalsIgnoreCase("ios")) {
+                    pageSource = myBasePage.getSourceOfPageIDB();
+                    Assert.assertTrue(pageSource.contains("Adams"));
+                    Assert.assertFalse(pageSource.contains("Skywalker"));
+                } else {
+                    pageSource = myBasePage.getSourceOfPage();
+                    Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
+                    Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+                }
+
             }
         }
 
@@ -994,9 +1023,8 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
-    //TODO: Need to update
-    @Test(groups = {"needUpdate"})
-//    @Test (groups = {"all4", "all", "smoke", "smoke4"})
+
+    @Test (groups = {"all4", "all", "smoke", "smoke4"})
     public void ministeringAssignedSisters_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
@@ -1004,149 +1032,149 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedSistersCheck(1);
     }
 
-//    @Test (groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("fiti");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Camerado65");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_WARD_CLERK() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("luke.ravitch");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_WARD_ASSISTANT_CLERK() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("jdahmanson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_WARD_EXECUTIVE_SECRETARY() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("iansalas");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(1);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_MEMBER1() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("dcbryson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(4);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_MEMBER2() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Kimburrell");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(4);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_ELDERS_QUORUM_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("adambee");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("gabrielsmith");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Aloeb1013");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_ELDERS_QUORUM_SECRETARY() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("murillodavid");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_RELIEF_SOCIETY_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("bridgemp");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("blairlolohea");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("mykalikat");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(2);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_YOUNG_WOMEN_PRESIDENT() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("rosettelambson");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(3);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_WOMEN_SECOND_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("mahina_12006");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(3);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("RIBITALOT@AOL.COM");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(3);
-//    }
-//
-//    @Test(groups = {"all2", "all"})
-//    public void ministeringAssignedSisters_WARD_MISSION_LEADER() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        myHelper.proxyLogin("Christian9");
-//        myHelper.enterPin("1", "1", "3", "3");
-//        ministeringAssignedSistersCheck(3);
-//    }
+    @Test (groups = {"all2", "all"})
+    public void ministeringAssignedSisters_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("fiti");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Camerado65");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_WARD_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("luke.ravitch");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_WARD_ASSISTANT_CLERK() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("jdahmanson");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_WARD_EXECUTIVE_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("iansalas");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(1);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_MEMBER1() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("dcbryson");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(4);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_MEMBER2() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Kimburrell");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(4);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_ELDERS_QUORUM_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("adambee");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("gabrielsmith");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Aloeb1013");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_ELDERS_QUORUM_SECRETARY() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("murillodavid");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("bridgemp");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("blairlolohea");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mykalikat");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(2);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_YOUNG_WOMEN_PRESIDENT() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("rosettelambson");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_WOMEN_SECOND_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("mahina_12006");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("RIBITALOT@AOL.COM");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(3);
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void ministeringAssignedSisters_WARD_MISSION_LEADER() throws Exception {
+        HelperMethods myHelper = new HelperMethods(driver);
+        myHelper.proxyLogin("Christian9");
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringAssignedSistersCheck(3);
+    }
 
     public void ministeringAssignedSistersCheck(int rights) throws Exception {
         String pageSource;
@@ -1162,18 +1190,17 @@ public class MinisteringScreenTest extends BaseDriver {
 
             Thread.sleep(2000);
 
-            //TODO: Need a different way to get iOS source of page idb?
             if (getRunningOS().equalsIgnoreCase("ios")) {
                 pageSource = myBasePage.getSourceOfPageIDB();
+                Assert.assertTrue(pageSource.contains("Adams"));
+                Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {
                 pageSource = myBasePage.getSourceOfPage();
+                Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
             }
 
-//            pageSource = myBasePage.getSourceOfPage();
-            System.out.println(pageSource);
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
         }
 
         if (rights == 4){

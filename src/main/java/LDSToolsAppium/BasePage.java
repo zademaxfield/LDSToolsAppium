@@ -515,6 +515,7 @@ public class BasePage {
         return myReturnStatus;
     }
 
+
     public boolean checkNoCaseList(String textToCheck, String pageSource, String containEqual){
         Document doc = Jsoup.parse(pageSource);
         Elements myTest = doc.getAllElements();
@@ -1179,30 +1180,31 @@ public class BasePage {
         BufferedReader buf;
         System.out.println("UDID: "  + myUdid);
 
-//        pr = run.exec(new String[] {"/bin/bash", "-c", "idb_companion", "--udid", myUdid});
-        pr = run.exec(new String[] {"/bin/bash", "-c", "idb", "kill"});
-        pr.waitFor();
-        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-        line = buf.readLine();
-        System.out.println("idb_companion: " + line);
+
+//        pr = run.exec(new String[] {"/bin/bash", "-c", "idb kill"});
+//        pr.waitFor();
+//        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+//        line = buf.readLine();
+//        System.out.println("idb_kill: " + line);
 
 
 
-        pr = run.exec(new String[] {"/bin/bash", "-c", "idb_companion"});
-        pr.waitFor();
-        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-        line = buf.readLine();
-        System.out.println("idb_companion: " + line);
 
-        Thread.sleep(4000);
+//        pr = run.exec(new String[] {"/bin/bash", "-c", "idb_companion"});
+//        pr.waitFor();
+//        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+//        line = buf.readLine();
+//        System.out.println("idb_companion: " + line);
+//
+//        Thread.sleep(4000);
 
-        pr = run.exec(new String[] {"/bin/bash", "-c", "idb", "connect", myUdid});
+        pr = run.exec(new String[] {"/bin/bash", "-c", "idb connect" + myUdid});
         pr.waitFor();
         buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
         line = buf.readLine();
         System.out.println("idb connect: " + line);
 
-        pr = run.exec(new String[] {"/bin/bash", "-c", "idb", "ui", "describe-all"});
+        pr = run.exec(new String[] {"/bin/bash", "-c", "idb ui describe-all"});
         pr.waitFor();
         buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
         line = buf.readLine();

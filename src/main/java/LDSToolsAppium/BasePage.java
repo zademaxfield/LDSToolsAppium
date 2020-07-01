@@ -764,6 +764,7 @@ public class BasePage {
 //        idbConnect(myUdid);
 //        myString = idbDescribeAll();
 
+        System.out.println(myString);
 
         return myString;
     }
@@ -1181,33 +1182,43 @@ public class BasePage {
         System.out.println("UDID: "  + myUdid);
 
 
-//        pr = run.exec(new String[] {"/bin/bash", "-c", "idb kill"});
-//        pr.waitFor();
-//        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-//        line = buf.readLine();
-//        System.out.println("idb_kill: " + line);
+        pr = run.exec(new String[] {"/bin/bash", "-c", "idb kill"});
+        pr.waitFor();
+        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        line = buf.readLine();
+        System.out.println("idb kill: " + line);
 
+        Thread.sleep(2000);
 
+        pr = run.exec(new String[] {"/bin/bash", "-c", "idb_companion"});
+        pr.waitFor();
+        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        line = buf.readLine();
+        System.out.println("idb_companion: " + line);
 
+        Thread.sleep(2000);
 
-//        pr = run.exec(new String[] {"/bin/bash", "-c", "idb_companion"});
-//        pr.waitFor();
-//        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-//        line = buf.readLine();
-//        System.out.println("idb_companion: " + line);
-//
-//        Thread.sleep(4000);
+        pr = run.exec(new String[] {"/bin/bash", "-c", "idb list-targets"});
+        pr.waitFor();
+        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+        line = buf.readLine();
+        System.out.println("idb list-targets: " + line);
 
-        pr = run.exec(new String[] {"/bin/bash", "-c", "idb connect" + myUdid});
+        Thread.sleep(2000);
+
+        pr = run.exec(new String[] {"/bin/bash", "-c", "idb connect " + myUdid});
         pr.waitFor();
         buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
         line = buf.readLine();
         System.out.println("idb connect: " + line);
 
+        Thread.sleep(8000);
+
         pr = run.exec(new String[] {"/bin/bash", "-c", "idb ui describe-all"});
         pr.waitFor();
         buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
         line = buf.readLine();
+
         return line;
     }
 

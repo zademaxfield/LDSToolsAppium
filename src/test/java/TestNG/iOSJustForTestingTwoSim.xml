@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="iOS Smoke Test" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="2">
+
+    <test name="iOS Smoke Test - iPhone 11" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDS Tools.app" />
+        <parameter name="testDevice" value="FBSIM-iPhone 11" />
+        <parameter name="startSleepTime" value="0200" />
+
+        <groups>
+            <run>
+                <include name="jft"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppium.BaseDriver" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+        </classes>
+    </test>
+
+    <test name="iOS Smoke Test - iPhone 8" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDS Tools.app" />
+        <parameter name="testDevice" value="FBSIM-iPhone 8" />
+        <parameter name="startSleepTime" value="60000" />
+
+        <groups>
+            <run>
+                <include name="jft"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppium.BaseDriver" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+        </classes>
+    </test>
+
+
+
+</suite>

@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
     public void calendarSimple_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
@@ -165,19 +165,22 @@ public class CalendarScreenTest extends BaseDriver {
         myMenu.selectMenu(myMenu.calendar);
         Thread.sleep(2000);
 
-        pageSource = myBasePage.getSourceOfPage();
-        System.out.println(pageSource);
+//        pageSource = myBasePage.getSourceOfPage();
+//        System.out.println(pageSource);
 
         //TODO: Need to find out why iOS cannot see calendar items.
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            System.out.println("iOS cannot 'see' any calendar items");
+            pageSource = myBasePage.getSourceOfPageIDB();
+            Assert.assertTrue(pageSource.contains("Calendar"));
         } else {
+            pageSource = myBasePage.getSourceOfPage();
+            System.out.println(pageSource);
             Assert.assertTrue(myBasePage.checkNoCaseList("Calendar", pageSource, "Contains"));
         }
     }
 
 
-    @Test (groups = {"all", "all3", "jft"})
+    @Test (groups = {"all", "all3"})
     public void calenderDisplayType() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods(driver);

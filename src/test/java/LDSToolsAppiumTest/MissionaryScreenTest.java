@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class MissionaryScreenTest extends BaseDriver {
 
     //TODO: Add API data
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -40,8 +40,8 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Adolpho", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Porter", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Creighton", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Porter", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Creighton", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("McOmber", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Sister Alolisa", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Elder Gordon", pageSource, "Contains"));
@@ -53,7 +53,7 @@ public class MissionaryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all", "jft"})
+    @Test(groups = {"all4", "all"})
     public void missionaryOtherUnits() throws Exception {
         //String pageSource;
 

@@ -103,7 +103,7 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryJanDickson(4);
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("adambee");
@@ -293,43 +293,6 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-
-    //This is an iOS only test now
-    //TODO: Need to update
-    @Test(groups = {"needUpdate"})
-//    @Test(groups = {"smoke4", "all4", "all"})
-    public void directoryNoCallingCheckMRN() throws Exception {
-        String pageSource;
-
-        // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-
-        if (getRunningOS().equals("ios")) {
-
-            myHelper.loginProduction("imaxfield", "ldsM0b1l3");
-            myHelper.nonLeaderNoPin();
-
-            //Search and click on Tools, LDS5
-            myDirectory.searchAndClick("Maxfield, Ian");
-
-
-            myBasePage.clickByTextContains("Ian Maxfield");
-            myDirectory.memebershipInformation.click();
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Show Record Number", pageSource, "Contains"));
-            myDirectory.showRecordNumber.click();
-            myDirectory.accountPassword.sendKeys("ldsM0b1l3");
-            myDirectory.accountPasswordOK.click();
-            pageSource = myDirectory.getDirectoryUserData();
-
-
-            Assert.assertTrue(myBasePage.checkNoCaseList("Record Number", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("000-6493-067A", pageSource, "Contains"));
-        }
-
-    }
 
 
 
@@ -607,10 +570,11 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
     //TODO: Need to test when iOS is working
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "jft"})
 //    @Test(groups = {"needUpdate"})
     public void directoryIndividualHousehold() throws Exception {
         Dimension thumbNailDim;
+        String myPageSource;
 
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
@@ -633,7 +597,10 @@ public class DirectoryScreenTest extends BaseDriver {
 //        System.out.println(myBasePage.getSourceOfPage());
         //The thumbNail is showing up a visible=false
         if (myBasePage.getOS().equals("ios")) {
-            System.out.println(myBasePage.getSourceOfPage());
+//            myBasePage.scrollDownIOS();
+            myPageSource = myBasePage.getSourceOfPageIDB();
+            System.out.println(myPageSource);
+//            System.out.println(myBasePage.getSourceOfPageIDB());
             thumbNailDim = myDirectory.thumbNail.getSize();
 //            System.out.println("Height: " + thumbNailDim.getHeight());
 //            System.out.println("Width: " + thumbNailDim.getWidth());

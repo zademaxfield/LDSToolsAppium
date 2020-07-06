@@ -598,7 +598,8 @@ public class DirectoryScreenTest extends BaseDriver {
         //The thumbNail is showing up a visible=false
         if (myBasePage.getOS().equals("ios")) {
 //            myBasePage.scrollDownIOS();
-            myPageSource = myBasePage.getSourceOfPageIDB();
+//            myPageSource = myBasePage.getSourceOfPageIDB();
+            myPageSource = myBasePage.getSourceOfPage();
             System.out.println(myPageSource);
 //            System.out.println(myBasePage.getSourceOfPageIDB());
             thumbNailDim = myDirectory.thumbNail.getSize();

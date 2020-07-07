@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -80,7 +80,6 @@ public class ReportsScreenTest extends BaseDriver {
             //Bishopric Only Reports
             if (rights <= 1 ) {
 
-                //TODO: iOS getting the source of page isn't working
                 if (!getRunningOS().equalsIgnoreCase("ios")) {
                     getTempleRecommendStatus(rights);
                 }
@@ -132,7 +131,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "report", "jft"})
+    @Test (groups = {"all4", "all", "report"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
 
@@ -629,35 +628,92 @@ public class ReportsScreenTest extends BaseDriver {
 
         myReports.templeRecommendStatusReport.click();
         Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-//        System.out.println(pageSource);
-        Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Ahsoka, Tano", pageSource, "Contains"));
+
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            pageSource = myBasePage.getSourceOfPageIDB();
+            Assert.assertTrue(pageSource.contains("Alvaira"));
+            Assert.assertFalse(pageSource.contains("Ahsoka, Tano"));
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Ahsoka, Tano", pageSource, "Contains"));
+        }
+
+//        pageSource = myBasePage.getSourceOfPage();
+////        System.out.println(pageSource);
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Ahsoka, Tano", pageSource, "Contains"));
 
 
         myReports.selectFilters(myReports.activeSort);
         Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Maul, Darth", pageSource, "Contains"));
+
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            pageSource = myBasePage.getSourceOfPageIDB();
+            Assert.assertTrue(pageSource.contains("Anderson"));
+            Assert.assertFalse(pageSource.contains("Maul, Darth"));
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Maul, Darth", pageSource, "Contains"));
+        }
+
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Maul, Darth", pageSource, "Contains"));
 
         myReports.selectFilters(myReports.expiringSort);
         Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Expiring", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Windu, Mace", pageSource, "Contains"));
+
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            pageSource = myBasePage.getSourceOfPageIDB();
+            Assert.assertTrue(pageSource.contains("Expiring"));
+            Assert.assertFalse(pageSource.contains("Windu, Mace"));
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Expiring", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Windu, Mace", pageSource, "Contains"));
+        }
+
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Expiring", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Windu, Mace", pageSource, "Contains"));
 
         myReports.selectFilters(myReports.expiredSort);
         Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
+
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            pageSource = myBasePage.getSourceOfPageIDB();
+            Assert.assertTrue(pageSource.contains("Alvaira"));
+            Assert.assertFalse(pageSource.contains("Jinn, Qui-Gon"));
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
+        }
+
+
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
 
         myReports.selectFilters(myReports.otherSort);
         Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Del Real Cortes", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Calrissian, Lando", pageSource, "Contains"));
+
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            pageSource = myBasePage.getSourceOfPageIDB();
+            Assert.assertTrue(pageSource.contains("Del Real Cortes"));
+            Assert.assertFalse(pageSource.contains("Calrissian, Lando"));
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Del Real Cortes", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Calrissian, Lando", pageSource, "Contains"));
+        }
+
+
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Del Real Cortes", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Calrissian, Lando", pageSource, "Contains"));
 
 
         Thread.sleep(1000);

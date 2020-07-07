@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class LoginPageTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "login"})
+    @Test (groups = {"all2", "all", "login", "jft"})
     public void validateLoginPage() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -145,50 +145,49 @@ public class LoginPageTest extends BaseDriver {
 
     // ******************* Invalid Username Tests *******************
 
-    @Test(groups = {"needUpdate", "jft"})
-//    @Test ( groups = {"all4", "all", "login"})
+
+    @Test ( groups = {"all4", "all", "login"})
     public void invalidUsernameTest1() throws Exception {
         invalidCheck("Invalidtest1234", "toolstester");
     }
 
 
-    @Test(groups = {"needUpdate", "jft"})
-//    @Test ( groups = {"all1", "all", "login"})
+
+    @Test ( groups = {"all1", "all", "login"})
     public void invalidUsernameTest2() throws Exception {
         invalidCheck("Invalidtest1234123123", "password1");
     }
 
 
-    @Test(groups = {"needUpdate", "jft"})
-//    @Test ( groups = {"all2", "all", "login"})
+
+    @Test ( groups = {"all2", "all", "login"})
     public void invalidUsernameTest3() throws Exception {
         invalidCheck("********", "isjlsdkj");
     }
 
 
-    @Test(groups = {"needUpdate", "jft"})
-//    @Test ( groups = {"all3", "all", "login"})
+
+    @Test ( groups = {"all3", "all", "login"})
     public void invalidUsernameTest4() throws Exception {
         invalidCheck("select * from directory", "password1");
     }
 
 
-    @Test(groups = {"needUpdate", "jft"})
-//    @Test ( groups = {"all4", "all", "login"})
+    @Test ( groups = {"all4", "all", "login"})
     public void invalidUsernameTest5() throws Exception {
         invalidCheck("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", "password1");
     }
 
 
-    @Test(groups = {"needUpdate", "jft"})
-//    @Test ( groups = {"all1", "all", "login"})
+
+    @Test ( groups = {"all1", "all", "login"})
     public void invalidUsernameTest6() throws Exception {
         invalidCheck("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", "password1");
     }
 
 
-    @Test(groups = {"needUpdate", "jft"})
-//    @Test ( groups = {"all2", "all", "login"})
+
+    @Test ( groups = {"all2", "all", "login"})
     public void invalidUsernameTest7() throws Exception {
         invalidCheck(" LDSTools3", "toolstester");
     }

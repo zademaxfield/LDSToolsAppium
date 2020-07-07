@@ -9,6 +9,7 @@ import LDSToolsAppium.Screen.MenuScreen;
 
 import org.apache.commons.codec.binary.Base64;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -568,59 +569,6 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-
-    //TODO: Need to test when iOS is working
-    @Test(groups = {"all2", "all", "jft"})
-//    @Test(groups = {"needUpdate"})
-    public void directoryIndividualHousehold() throws Exception {
-        Dimension thumbNailDim;
-        String myPageSource;
-
-        // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-
-        //Login and enter in PIN
-        myHelper.proxyLogin("kroqbandit");
-//        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.enterPin("1", "1", "3", "3");
-
-        //Should be Household view by default
-        Assert.assertFalse(myBasePage.checkForElement(myDirectory.thumbNail));
-
-        myDirectory.directorySort.click();
-        myDirectory.sortIndividual.click();
-        //myDirectory.searchBar.sendKeys("Aaron");
-
-//        Thread.sleep(3000);
-//        System.out.println(myBasePage.getSourceOfPage());
-        //The thumbNail is showing up a visible=false
-        if (myBasePage.getOS().equals("ios")) {
-//            myBasePage.scrollDownIOS();
-//            myPageSource = myBasePage.getSourceOfPageIDB();
-            myPageSource = myBasePage.getSourceOfPage();
-            System.out.println(myPageSource);
-//            System.out.println(myBasePage.getSourceOfPageIDB());
-            thumbNailDim = myDirectory.thumbNail.getSize();
-//            System.out.println("Height: " + thumbNailDim.getHeight());
-//            System.out.println("Width: " + thumbNailDim.getWidth());
-            Assert.assertTrue(thumbNailDim.getHeight() != 0);
-        } else {
-            Assert.assertTrue(myBasePage.checkForElement(myDirectory.thumbNail));
-        }
-
-
-        myDirectory.directorySort.click();
-        myDirectory.sortHousehold.click();
-        //myDirectory.searchBar.sendKeys("Aaron");
-
-        Assert.assertFalse(myBasePage.checkForElement(myDirectory.thumbNail));
-
-    }
-
-
-
     @Test(groups = {"all2", "all"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
         // ********* Constructor **********
@@ -728,7 +676,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    //TODO: Need to update user and use new api
+    //TODO: LAT - Long Need to update user and use new api
     @Test(groups = {"needUpdate"})
 //    @Test(dataProvider = "Members", groups = {"all4", "all"})
     public void directoryLatLongNoGPSChooseLocation(String userName, String passWord, String rightsString, String callingGroup) throws Exception {

@@ -41,7 +41,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "jft"})
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3"})
     public void validateLoginPageLinks() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -144,50 +144,50 @@ public class LoginPageTest extends BaseDriver {
 
 
     // ******************* Invalid Username Tests *******************
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
+
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test ( groups = {"all4", "all", "login"})
     public void invalidUsernameTest1() throws Exception {
-        invalidCheck("LDSTools30", "toolstester");
+        invalidCheck("Invalidtest1234", "toolstester");
     }
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
+
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test ( groups = {"all1", "all", "login"})
     public void invalidUsernameTest2() throws Exception {
-        invalidCheck("LDSTools3", "password1");
+        invalidCheck("Invalidtest1234123123", "password1");
     }
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
+
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test ( groups = {"all2", "all", "login"})
     public void invalidUsernameTest3() throws Exception {
         invalidCheck("********", "isjlsdkj");
     }
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
+
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test ( groups = {"all3", "all", "login"})
     public void invalidUsernameTest4() throws Exception {
         invalidCheck("select * from directory", "password1");
     }
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
+
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test ( groups = {"all4", "all", "login"})
     public void invalidUsernameTest5() throws Exception {
         invalidCheck("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", "password1");
     }
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
+
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test ( groups = {"all1", "all", "login"})
     public void invalidUsernameTest6() throws Exception {
         invalidCheck("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%", "password1");
     }
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
+
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test ( groups = {"all2", "all", "login"})
     public void invalidUsernameTest7() throws Exception {
         invalidCheck(" LDSTools3", "toolstester");

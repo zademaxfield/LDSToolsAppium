@@ -24,7 +24,7 @@ public class MenuScreen extends BasePage {
     }
 
     //Directory
-    @AndroidFindBy(xpath = "//android.widget.CheckedTextView[@text='Directory']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Directory'][contains(@resource-id, 'titleTextView')]")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Directory'")
     public  MobileElement directory;
 
@@ -85,7 +85,7 @@ public class MenuScreen extends BasePage {
 
     // ********** Android Only **********
     //Later Button
-    @AndroidFindBy(id = "drawer_update_info_later_button")
+    @AndroidFindBy(id = "updateLaterButton")
     public  MobileElement laterButton;
 
     //Update My Info Button

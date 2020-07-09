@@ -444,7 +444,7 @@ public class BaseDriver implements ITest {
 //            capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
 //            capabilities.setCapability("maxTypingFrequency", "8");
 //            capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
-//            capabilities.setCapability("androidInstallTimeout", "40000");
+            capabilities.setCapability("androidInstallTimeout", "40000");
 //            capabilities.setCapability("unicodeKeyboard", "true");
 //            capabilities.setCapability("resetKeyboard", "true");
 

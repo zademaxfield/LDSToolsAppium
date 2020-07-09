@@ -2,7 +2,9 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
+import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.PinScreen;
+import LDSToolsAppium.Screen.SettingsScreen;
 import org.testng.Assert;
 import org.testng.annotations.NoInjection;
 import org.testng.annotations.Test;
@@ -10,15 +12,15 @@ import org.testng.annotations.Test;
 
 public class PinScreenTest extends BaseDriver {
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
-//    @Test (groups = {"all1", "all"})
+    //TODO: Bug iOS is allowing repeating numbers - MMIP-5824
+    @Test (groups = {"all1", "all"})
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("kroqbandit");
+//        myHelper.loginUAT("LDSTools3", "toolstester");
 
         myHelper.checkForAlertsBeforePin();
 
@@ -32,15 +34,15 @@ public class PinScreenTest extends BaseDriver {
         pinRepeatTestData();
     }
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
-//    @Test (groups = {"all1", "all"})
+    //TODO: Bug iOS is allowing repeating numbers - MMIP-5824
+    @Test (groups = {"all1", "all"})
     public void pinRepeatTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        myHelper.loginUAT("LDSTools5", "toolstester");
+        myHelper.proxyLogin("dcbryson");
+//        myHelper.loginUAT("LDSTools5", "toolstester");
 
 
         myHelper.checkForAlertsBeforePin();
@@ -55,22 +57,21 @@ public class PinScreenTest extends BaseDriver {
         pinRepeatTestData();
     }
 
+    //TODO: Android bug MMA-3502
     //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test (groups = {"all2", "all"})
     public void pinNoMatchTest() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
-        myHelper.loginUAT("LDSTools3", "toolstester");
+        myHelper.proxyLogin("kroqbandit");
+
 
 //        if (!getRunningOS().equals("ios")) {
-//            myHelper.checkForAlertsBeforePin();
+//            if (myPinScreen.pinAlertDialogOK.isDisplayed()) {
+//                myPinScreen.pinAlertDialogOK.click();
+//            }
 //        }
-
-
-        if (myPinScreen.pinAlertDialogOK.isDisplayed()) {
-            myPinScreen.pinAlertDialogOK.click();
-        }
 
         pinNoMatchTestData();
 
@@ -123,7 +124,7 @@ public class PinScreenTest extends BaseDriver {
 
     //TODO: Need to update user
     @Test(groups = {"needUpdate"})
-//    @Test (groups = {"all3", "all", "jft"})
+//    @Test (groups = {"all3", "all"})
     public void pinSequentialTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
@@ -196,6 +197,15 @@ public class PinScreenTest extends BaseDriver {
     private void pinNoMatchTestData() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPinScreen = new PinScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        SettingsScreen mySettings = new SettingsScreen(driver);
+
+
+        if (getRunningOS().equalsIgnoreCase("android")) {
+            myHelper.enterPin("1", "1", "3", "3");
+            myMenu.selectMenu(myMenu.settings);
+            mySettings.createAPIN.click();
+        }
 
 
         myHelper.pressPinKeys("3");
@@ -203,11 +213,19 @@ public class PinScreenTest extends BaseDriver {
         myHelper.pressPinKeys("9");
         myHelper.pressPinKeys("1");
 
+        if (getRunningOS().equalsIgnoreCase("android")) {
+            myPinScreen.pinKeyEnter.click();
+        }
+
 
         myHelper.pressPinKeys("7");
         myHelper.pressPinKeys("5");
         myHelper.pressPinKeys("3");
         myHelper.pressPinKeys("1");
+
+        if (getRunningOS().equalsIgnoreCase("android")) {
+            myPinScreen.pinKeyEnter.click();
+        }
 
         if (getRunningOS().equals("android")) {
             Assert.assertEquals("PINs do not match.", myPinScreen.pinKeyErrorMessage.getText());

@@ -29,6 +29,13 @@ public class SettingsScreen extends BasePage {
 
 
     // ********* PIN Stuff *********
+
+    //Change Your PIN - Update Passscode
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Create a PIN')]")
+    public MobileElement createAPIN;
+
+
+
     //Change Your PIN - Update Passscode
     @AndroidFindBy(xpath = "//*[contains(@text, 'Change Your PIN')]")
     @iOSXCUITFindBy(accessibility = "Passcode")

@@ -567,6 +567,8 @@ public class HelperMethods extends BasePage {
             Thread.sleep(2000);
             checkForLater();
             Thread.sleep(2000);
+
+//            System.out.println(getSourceOfPage());
             myMenuScreen.directory.click();
             Thread.sleep(2000);
         }

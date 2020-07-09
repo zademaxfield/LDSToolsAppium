@@ -7,10 +7,11 @@
     </listeners>
     <test name="Android Just For Testing">
         <parameter name="os" value="android" />
-<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-alpha.apk" />
 <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-        <parameter name="fileName" value="ldstools-release.apk" />
+<!--        <parameter name="fileName" value="ldstools-release.apk" />-->
 <!--        <parameter name="testDevice" value="ce06171675347c0b027e" />-->
+<!--        <parameter name="testDevice" value="HT69D0204296" />-->
         <parameter name="testDevice" value="emulator-5554" />
 <!--        <parameter name="testDevice" value="99051FFBA000S7" /> &lt;!&ndash; Pixel 4 XL&ndash;&gt;-->
 <!--        <parameter name="testDevice" value="R38M803MWGM" /> &lt;!&ndash; Samsung Galaxy Note 10&ndash;&gt;-->
@@ -38,7 +39,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

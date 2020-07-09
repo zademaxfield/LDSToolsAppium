@@ -54,7 +54,8 @@ public class BasePage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeButton")
     public MobileElement backAltButton;
 
-    @AndroidFindBy(accessibility = "Navigate up")
+//    @AndroidFindBy(accessibility = "Navigate up")
+    @AndroidFindBy(xpath = "//*[contains(@resource-id, 'ab_toolbar')]/android.widget.ImageButton")
     public MobileElement drawerButton;
 
     @AndroidFindBy(id = "clearTextImageButton")

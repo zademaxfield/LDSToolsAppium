@@ -102,52 +102,52 @@ public class PinScreen extends BasePage {
 
 
     //Pin Key 1
-    @AndroidFindBy(id = "pinKey1")
+    @AndroidFindBy(id = "oneButton")
     @iOSXCUITFindBy(accessibility = "1")
     public  MobileElement pinKey1;
 
     //Pin Key 2
-    @AndroidFindBy(id = "pinKey2")
+    @AndroidFindBy(id = "twoButton")
     @iOSXCUITFindBy(accessibility = "2")
     public  MobileElement pinKey2;
 
     //Pin Key 3
-    @AndroidFindBy(id = "pinKey3")
+    @AndroidFindBy(id = "threeButton")
     @iOSXCUITFindBy(accessibility = "3")
     public  MobileElement pinKey3;
 
     //Pin Key 4
-    @AndroidFindBy(id = "pinKey4")
+    @AndroidFindBy(id = "fourButton")
     @iOSXCUITFindBy(accessibility = "4")
     public  MobileElement pinKey4;
 
     //Pin Key 5
-    @AndroidFindBy(id = "pinKey5")
+    @AndroidFindBy(id = "fiveButton")
     @iOSXCUITFindBy(accessibility = "5")
     public  MobileElement pinKey5;
 
     //Pin Key 6
-    @AndroidFindBy(id = "pinKey6")
+    @AndroidFindBy(id = "sixButton")
     @iOSXCUITFindBy(accessibility = "6")
     public  MobileElement pinKey6;
 
     //Pin Key 7
-    @AndroidFindBy(id = "pinKey7")
+    @AndroidFindBy(id = "sevenButton")
     @iOSXCUITFindBy(accessibility = "7")
     public  MobileElement pinKey7;
 
     //Pin Key 8
-    @AndroidFindBy(id = "pinKey8")
+    @AndroidFindBy(id = "eightButton")
     @iOSXCUITFindBy(accessibility = "8")
     public  MobileElement pinKey8;
 
     //Pin Key 9
-    @AndroidFindBy(id = "pinKey9")
+    @AndroidFindBy(id = "nineButton")
     @iOSXCUITFindBy(accessibility = "9")
     public  MobileElement pinKey9;
 
     //Pin Key 0
-    @AndroidFindBy(id = "pinKey0")
+    @AndroidFindBy(id = "zeroButton")
     @iOSXCUITFindBy(accessibility = "0")
     public  MobileElement pinKey0;
 
@@ -155,6 +155,10 @@ public class PinScreen extends BasePage {
     @AndroidFindBy(id = "pinKeyVisibility")
     @iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'Stop Sync'")
     public  MobileElement pinKeyVisibility;
+
+    //Pin Key Enter
+    @AndroidFindBy(id = "enterButton")
+    public MobileElement pinKeyEnter;
 
     //Pin Key Delete
     @AndroidFindBy(id = "pinKeyVisibility")
@@ -167,7 +171,7 @@ public class PinScreen extends BasePage {
     public  MobileElement pinKeyMessage;
 
     //Pin Key Error Message
-    @AndroidFindBy(id = "attemptsTextView")
+    @AndroidFindBy(id = "pinStatusTextView")
     @iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'Stop Sync'")
     public  MobileElement pinKeyErrorMessage;
 

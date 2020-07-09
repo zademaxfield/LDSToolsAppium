@@ -24,7 +24,10 @@ public class MemberToolsAPITest {
 //        memberList = apiTest.getNamesFromActionInterviewReports("Unbaptized Members", "kroqbandit", "21628");
 
         //Get Members from Members Moved Out
-        memberList = apiTest.getNamesFromMembersMovedOut("kroqbandit", "21628");
+//        memberList = apiTest.getNamesFromMembersMovedOut("kroqbandit", "21628");
+
+        //Get Assigned Missionaries
+        memberList = apiTest.getAssignedMissionaries("kroqbandit", "21628");
 
         //Get Members from New Members
 //        memberList = apiTest.getNamesFromNewMembers("kroqbandit", "21628");

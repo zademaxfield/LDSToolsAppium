@@ -394,6 +394,46 @@ public class MemberToolsAPI {
         return responseData;
     }
 
+    //TODO: Need a file check for the date then delete if older than 3 or so days?
+    public String getMissionaryJson (String unitNumber, String proxyLogin) throws IOException {
+        proxyLogin = "kroqbandit";
+        String responseData = "";
+        File organizationFile = new File("ConfigFiles/missionary.json");
+        StringBuilder contentBuilder = new StringBuilder();
+
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/missionaries?units="+ unitNumber, proxyLogin );
+
+        if (!organizationFile.exists()) {
+            try (Response response = httpClient.newCall(request).execute()) {
+                assert response.body() != null;
+                responseData = response.body().string();
+                try  {
+//                    FileWriter myWriter = new FileWriter("organization.json");
+                    FileWriter myWriter = new FileWriter(organizationFile);
+                    myWriter.write(responseData);
+                    myWriter.flush();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/missionary.json")), StandardCharsets.UTF_8);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return responseData;
+    }
+
 
 
     public String getNameFromUuid( String uuidPersonal, String unitNumber, String proxyLogin, String returnType) throws IOException {
@@ -695,6 +735,59 @@ public class MemberToolsAPI {
 //                System.out.println("JSON Array!");
             JsonArray jsonData = jsonElement.getAsJsonArray();
             List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
+
+        }
+
+
+        return memberNames;
+
+    }
+
+
+    public List<String> getAssignedMissionaries(String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiMissionary myMissionary = new ApiMissionary();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+//        Type apiReportList = new TypeToken<ArrayList<ApiReports>>(){}.getType();
+        Type apiMissionary = new TypeToken<ArrayList<ApiMissionary>>(){}.getType();
+
+        responseData = getMissionaryJson(unitNumber, proxyLogin);
+
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myMissionary = gson.fromJson(jsonElement, ApiMissionary.class);
+
+
+            for (Assigned assignedMissionary : myMissionary.getAssigned()) {
+//                System.out.println("Assigned: " + assignedMissionary.getMission().toString() );
+//                System.out.println("Unit Numbers: " + assignedMissionary.getUnitNumbers().toString());
+//                System.out.println("Area ID: " + assignedMissionary.getAreaId().toString());
+//                System.out.println("Email: " + assignedMissionary.getEmail().toString());
+//                System.out.println("Phone: " + assignedMissionary.getPhone().toString());
+
+                for (Missionary missionaries : assignedMissionary.getMissionaries()) {
+//                    System.out.println("Missionaries Display Name: " + missionaries.getDisplayName());
+//                    System.out.println("Missionaries Preferred Name: " + missionaries.getPreferredName());
+                    memberNames.add(missionaries.getPreferredName());
+                }
+//                memberNames.add(assignedMissionary.getMissionaries()));
+
+            }
+
+        } else if (jsonElement instanceof JsonArray) {
+//                System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReports> testReport = gson.fromJson(jsonElement, apiMissionary);
 
         }
 

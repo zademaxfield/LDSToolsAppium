@@ -786,6 +786,15 @@ public class BasePage {
         }
     }
 
+    public void apiCheckDataPageSource(List<String> jsonList, String pageSource) throws Exception {
+
+        for (String apiUser : jsonList) {
+            System.out.println("API Data: "  + apiUser);
+            Assert.assertTrue(checkNoCaseList(apiUser, pageSource, "Contains"));
+        }
+
+    }
+
     public void apiCheckData(List<String> jsonList) throws Exception {
         String pageSource = null;
         pageSource = getSourceOfPage();

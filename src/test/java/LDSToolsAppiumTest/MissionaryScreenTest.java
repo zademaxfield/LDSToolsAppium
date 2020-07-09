@@ -1,11 +1,15 @@
 package LDSToolsAppiumTest;
 
+import LDSToolsAppium.API.MemberToolsAPI;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MissionaryScreenTest extends BaseDriver {
@@ -21,6 +25,9 @@ public class MissionaryScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         MissionaryScreen myMissionary = new MissionaryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
+        MemberToolsAPI apiTest = new MemberToolsAPI();
+        List<String> memberList = new ArrayList<String>();
+        List<String> shortList = new ArrayList<>();
 
         String pageSource;
 
@@ -34,20 +41,27 @@ public class MissionaryScreenTest extends BaseDriver {
         myMissionary.sendReferralButton.click();
         Thread.sleep(3000);
         myMissionary.cancelReferralButton.click();
-
-
         pageSource = myMissionary.getMissionaryPage();
 
+        memberList = apiTest.getAssignedMissionaries("kroqbandit", "21628");
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adolpho", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Porter", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Creighton", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("McOmber", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sister Alolisa", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elder Gordon", pageSource, "Contains"));
+        //Just take the first 5 members in the list
+//        for (int i = 0; i < 4; i++ ) {
+//            shortList.add(memberList.get(i));
+//        }
+//        myBasePage.apiCheckData(shortList);
+
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
 
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+
+
+//        pageSource = myMissionary.getMissionaryPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Adolpho", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("McOmber", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Sister Alolisa", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Elder Gordon", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
 
 
     }

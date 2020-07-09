@@ -135,6 +135,42 @@ public class MemberToolsAPI {
         }
     }
 
+    public List<String> getOrganizationMembers(String organizationName, String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiOrganizationList = new TypeToken<ArrayList<ApiOrganization>>(){}.getType();
+
+        responseData = getOrganizationJson(unitNumber, proxyLogin);
+//            System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+            System.out.println("JSON Object!");
+            System.out.println("Name: " + ((JsonObject) jsonElement).get("name").getAsString());
+        } else if (jsonElement instanceof JsonArray) {
+//                System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiOrganization> testOrg = gson.fromJson(jsonElement, apiOrganizationList);
+
+            for (ApiOrganization myOrg : testOrg) {
+//                System.out.println("Organizations: " + myOrg.getName());
+                if (myOrg.getName().equalsIgnoreCase(organizationName)) {
+                    for (String onePosition : myOrg.getPositions()) {
+                        memberNames.add(getNameFromUuid(onePosition, unitNumber, proxyLogin, "position"));
+                    }
+                }
+            }
+        }
+
+        return memberNames;
+
+    }
+
     public List<String> getChildOrganizationMembers(String organizationName, String proxyLogin, String unitNumber) throws Exception {
         proxyLogin = "kroqbandit";
         JsonParser parser = new JsonParser();
@@ -276,7 +312,7 @@ public class MemberToolsAPI {
     public String getOrganizationJson (String unitNumber, String proxyLogin) throws IOException {
         proxyLogin = "kroqbandit";
         String responseData = "";
-        File organizationFile = new File("ConfigFiles/organization.json");
+        File organizationFile = new File("ConfigFiles/organization" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
 
         OkHttpClient httpClient = loginCred();
@@ -301,7 +337,7 @@ public class MemberToolsAPI {
             }
         } else {
             try {
-                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/organization.json")), StandardCharsets.UTF_8);
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/organization" + unitNumber + ".json")), StandardCharsets.UTF_8);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -317,7 +353,7 @@ public class MemberToolsAPI {
     public String getHouseholdJson (String unitNumber, String proxyLogin) throws IOException {
         proxyLogin = "kroqbandit";
         String responseData = "";
-        File householdFile = new File("ConfigFiles/households.json");
+        File householdFile = new File("ConfigFiles/households" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
 
         OkHttpClient httpClient = loginCred();
@@ -342,7 +378,7 @@ public class MemberToolsAPI {
             }
         } else {
             try {
-                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/households.json")), StandardCharsets.UTF_8);
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/households" + unitNumber + ".json")), StandardCharsets.UTF_8);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -358,7 +394,7 @@ public class MemberToolsAPI {
     public String getReportJson (String unitNumber, String proxyLogin) throws IOException {
         proxyLogin = "kroqbandit";
         String responseData = "";
-        File organizationFile = new File("ConfigFiles/reports.json");
+        File organizationFile = new File("ConfigFiles/reports" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
 
         OkHttpClient httpClient = loginCred();
@@ -383,7 +419,7 @@ public class MemberToolsAPI {
             }
         } else {
             try {
-                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/reports.json")), StandardCharsets.UTF_8);
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/reports" + unitNumber + ".json")), StandardCharsets.UTF_8);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -398,7 +434,7 @@ public class MemberToolsAPI {
     public String getMissionaryJson (String unitNumber, String proxyLogin) throws IOException {
         proxyLogin = "kroqbandit";
         String responseData = "";
-        File organizationFile = new File("ConfigFiles/missionary.json");
+        File organizationFile = new File("ConfigFiles/missionary" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
 
         OkHttpClient httpClient = loginCred();
@@ -423,7 +459,7 @@ public class MemberToolsAPI {
             }
         } else {
             try {
-                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/missionary.json")), StandardCharsets.UTF_8);
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/missionary" + unitNumber + ".json")), StandardCharsets.UTF_8);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -783,6 +819,43 @@ public class MemberToolsAPI {
 //                memberNames.add(assignedMissionary.getMissionaries()));
 
             }
+
+        } else if (jsonElement instanceof JsonArray) {
+//                System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReports> testReport = gson.fromJson(jsonElement, apiMissionary);
+
+        }
+
+
+        return memberNames;
+
+    }
+
+    public List<String> getServingMissionaries(String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiMissionary myMissionary = new ApiMissionary();
+        ArrayList<String> memberNames = new ArrayList<String>();
+        Type apiMissionary = new TypeToken<ArrayList<ApiMissionary>>(){}.getType();
+
+        responseData = getMissionaryJson(unitNumber, proxyLogin);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+        if (jsonElement instanceof JsonObject) {
+            myMissionary = gson.fromJson(jsonElement, ApiMissionary.class);
+
+            if (myMissionary.getServing() != null) {
+                for (Serving servingMissionaries : myMissionary.getServing()) {
+//                System.out.println("Display Name: " + servingMissionaries.getDisplayName() );
+                    System.out.println("Preferred Name: " + servingMissionaries.getPreferredName());
+                    memberNames.add(servingMissionaries.getPreferredName());
+                }
+            }
+
 
         } else if (jsonElement instanceof JsonArray) {
 //                System.out.println("JSON Array!");

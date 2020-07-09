@@ -14,12 +14,8 @@ import java.util.List;
 
 public class MissionaryScreenTest extends BaseDriver {
 
-    //TODO: Add API data
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
-        //String pageSource;
-        int rights = Integer.parseInt(rightsString);
-
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         MenuScreen myMenu = new MenuScreen(driver);
@@ -27,12 +23,13 @@ public class MissionaryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
         MemberToolsAPI apiTest = new MemberToolsAPI();
         List<String> memberList = new ArrayList<String>();
-        List<String> shortList = new ArrayList<>();
+        List<String> memberListIos = new ArrayList<String>();
 
         String pageSource;
+        String memberFirstName;
+        String memberLastName;
+        int rights = Integer.parseInt(rightsString);
 
-        //Login and enter in PIN
-//        myHelper.loginUAT(userName, passWord);
         myHelper.proxyLogin(userName);
         myHelper.enterPin("1", "1", "3", "3");
 
@@ -43,31 +40,26 @@ public class MissionaryScreenTest extends BaseDriver {
         myMissionary.cancelReferralButton.click();
         pageSource = myMissionary.getMissionaryPage();
 
+        //Check Assigned Missionaries
         memberList = apiTest.getAssignedMissionaries("kroqbandit", "21628");
-
-        //Just take the first 5 members in the list
-//        for (int i = 0; i < 4; i++ ) {
-//            shortList.add(memberList.get(i));
-//        }
-//        myBasePage.apiCheckData(shortList);
-
         myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
+        //Check Serving Missionaries
+        memberList = apiTest.getServingMissionaries("kroqbandit", "21628");
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
-
-
-//        pageSource = myMissionary.getMissionaryPage();
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Adolpho", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("McOmber", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Sister Alolisa", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Elder Gordon", pageSource, "Contains"));
-//        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
+        //Check Ward Missionaries
+        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "kroqbandit", "21628");
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            memberListIos = myBasePage.swapLastNameCommaFirstName(memberList);
+            memberList = memberListIos;
+        }
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
     }
 
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void missionaryOtherUnits() throws Exception {
         //String pageSource;
 
@@ -77,6 +69,10 @@ public class MissionaryScreenTest extends BaseDriver {
         MissionaryScreen myMissionary = new MissionaryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        MemberToolsAPI apiTest = new MemberToolsAPI();
+        List<String> memberList = new ArrayList<String>();
+        List<String> memberListIos = new ArrayList<String>();
+        String unitNumber;
 
         String pageSource;
 
@@ -92,138 +88,42 @@ public class MissionaryScreenTest extends BaseDriver {
         myMissionary.cancelReferralButton.click();
 
 
-        pageSource = myMissionary.getMissionaryPage();
-
-        //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adolpho", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ostler", pageSource, "Contains"));
-        //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Franco", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("McOmber", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Rachel", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Murillo", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Stewart", pageSource, "Contains"));
-
-        //Serving
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Iosua", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lambson", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Nehasi", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ryan", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("New Zealand", pageSource, "Contains"));
-
-
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
+        //Centinela 1st Ward
+        unitNumber = "21628";
+        checkMissionaryByUnit(unitNumber);
 
         chooseUnit("Centinela 2nd Ward (Tongan)");
-        pageSource = myMissionary.getMissionaryPage();
-
-        //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adolpho", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ostler", pageSource, "Contains"));
-        //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Moala", pageSource, "Contains"));
-        //Serving
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Kaveinga", pageSource, "Contains"));
-
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+        unitNumber = "129798";
+        checkMissionaryByUnit(unitNumber);
 
         chooseUnit("El Segundo Ward");
-        pageSource = myMissionary.getMissionaryPage();
-
-        //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adriana", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Myers", pageSource, "Contains"));
-        //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Rock", pageSource, "Contains"));
-        //Serving
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Harper", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sorensen", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Felker", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Putnam", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Layne", pageSource, "Contains"));
-
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+        unitNumber = "76228";
+        checkMissionaryByUnit(unitNumber);
 
         chooseUnit("Figueroa Ward (Spanish)");
-        pageSource = myMissionary.getMissionaryPage();
-
-        //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Wood", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Gable", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Reyes", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Hamp", pageSource, "Contains"));
-        //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Armando", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adan", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Daysi", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Marta", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Romero", pageSource, "Contains"));
-        //Serving
-
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
-        chooseUnit("Inglewood Ward (Spanish)");
-        pageSource = myMissionary.getMissionaryPage();
-
-        //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Fawcett", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Rivera", pageSource, "Contains"));
-        //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Javier", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Camacho", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Rodriguez", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Gallegos", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Pool", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Navas", pageSource, "Contains"));
-        //Serving
-
-
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+        unitNumber = "216496";
+        checkMissionaryByUnit(unitNumber);
 
         chooseUnit("Southwest Los Angeles Branch");
-        pageSource = myMissionary.getMissionaryPage();
+        unitNumber = "141399";
+        checkMissionaryByUnit(unitNumber);
 
-        //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Gollaher", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Love", pageSource, "Contains"));
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            chooseUnit("Westchester  1st Ward");
+        } else {
+            chooseUnit("Westchester 1st Ward");
+        }
+        unitNumber = "21970";
+        checkMissionaryByUnit(unitNumber);
 
-        //Ward
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Barton", pageSource, "Contains"));
-
-        //Serving
-
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
-
-        chooseUnit("Westchester 1st Ward");
-        pageSource = myMissionary.getMissionaryPage();
-
-        //Assigned
-        Assert.assertTrue(myBasePage.checkNoCaseList("Reid", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Horlacher", pageSource, "Contains"));
-        //Ward
-        Assert.assertTrue(myBasePage.checkNoCaseList("Cox", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Dozier", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Estrada", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Estrada", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Van Wagoner", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sipherd", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Merrifield", pageSource, "Contains"));
-        //Serving
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sister", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Stevens", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Rex", pageSource, "Contains"));
-
-
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
+//        if (getRunningOS().equalsIgnoreCase("ios")) {
+//            chooseUnit("Westchester  3rd Ward (Tongan)");
+//        } else {
+//            chooseUnit("Westchester 3rd Ward (Tongan)");
+//        }
+        chooseUnit("Westchester 3rd Ward (Tongan)");
+        unitNumber = "179388";
+        checkMissionaryByUnit(unitNumber);
 
     }
 
@@ -470,6 +370,34 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
+    }
+
+    private void checkMissionaryByUnit(String unitNumber) throws Exception {
+        MissionaryScreen myMissionary = new MissionaryScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        MemberToolsAPI apiTest = new MemberToolsAPI();
+        List<String> memberList = new ArrayList<String>();
+        List<String> memberListIos = new ArrayList<String>();
+
+
+        String pageSource;
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Check Assigned Missionaries
+        memberList = apiTest.getAssignedMissionaries("kroqbandit", unitNumber);
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
+
+        //Check Serving Missionaries
+        memberList = apiTest.getServingMissionaries("kroqbandit", unitNumber);
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
+
+        //Check Ward Missionaries
+        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "kroqbandit", unitNumber);
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            memberListIos = myBasePage.swapLastNameCommaFirstName(memberList);
+            memberList = memberListIos;
+        }
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
     }
 
 

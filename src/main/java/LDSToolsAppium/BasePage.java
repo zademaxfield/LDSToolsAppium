@@ -1245,6 +1245,19 @@ public class BasePage {
         return line;
     }
 
+    public List<String> swapLastNameCommaFirstName (List<String> memberList) {
+        List<String> memberListIos = new ArrayList<String>();
+        String memberFirstName;
+        String memberLastName;
+        for (String fullName : memberList) {
+            String[] myMemberName = fullName.split(",");
+            memberLastName = myMemberName[0].trim();
+            memberFirstName = myMemberName[1].trim();
+            memberListIos.add(memberFirstName + " " + memberLastName);
+        }
+        return memberListIos;
+
+    }
 
 
 }

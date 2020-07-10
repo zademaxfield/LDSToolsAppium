@@ -61,28 +61,18 @@ public class MissionaryScreenTest extends BaseDriver {
 
     @Test(groups = {"all4", "all", "jft"})
     public void missionaryOtherUnits() throws Exception {
-        //String pageSource;
-
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         MissionaryScreen myMissionary = new MissionaryScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MemberToolsAPI apiTest = new MemberToolsAPI();
-        List<String> memberList = new ArrayList<String>();
-        List<String> memberListIos = new ArrayList<String>();
         String unitNumber;
 
-        String pageSource;
 
         //Login and enter in PIN
-//        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.missionary);
-
         myMissionary.sendReferralButton.click();
         Thread.sleep(3000);
         myMissionary.cancelReferralButton.click();
@@ -108,6 +98,7 @@ public class MissionaryScreenTest extends BaseDriver {
         unitNumber = "141399";
         checkMissionaryByUnit(unitNumber);
 
+        //iOS has 2 spaces between ward name and 1st ward
         if (getRunningOS().equalsIgnoreCase("ios")) {
             chooseUnit("Westchester  1st Ward");
         } else {
@@ -116,11 +107,6 @@ public class MissionaryScreenTest extends BaseDriver {
         unitNumber = "21970";
         checkMissionaryByUnit(unitNumber);
 
-//        if (getRunningOS().equalsIgnoreCase("ios")) {
-//            chooseUnit("Westchester  3rd Ward (Tongan)");
-//        } else {
-//            chooseUnit("Westchester 3rd Ward (Tongan)");
-//        }
         chooseUnit("Westchester 3rd Ward (Tongan)");
         unitNumber = "179388";
         checkMissionaryByUnit(unitNumber);

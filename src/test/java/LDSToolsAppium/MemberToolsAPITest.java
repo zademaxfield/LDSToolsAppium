@@ -19,19 +19,20 @@ public class MemberToolsAPITest {
 
         //Get report list
 //        memberList = apiTest.getReportNames("kroqbandit", "21628");
-
         //Get members from Action and Interview Reports
 //        memberList = apiTest.getNamesFromActionInterviewReports("Unbaptized Members", "kroqbandit", "21628");
-
         //Get Members from Members Moved Out
 //        memberList = apiTest.getNamesFromMembersMovedOut("kroqbandit", "21628");
+        //Unit Stats
+        memberList = apiTest.getReportUnitStatsNumbers("kroqbandit", "21628");
+
 
         //Get Assigned Missionaries
 //        memberList = apiTest.getAssignedMissionaries("kroqbandit", "21628");
         //Get Service Missionaries
 //        memberList = apiTest.getServingMissionaries("kroqbandit", "21628");
         //Get Ward Missionaries
-        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "kroqbandit", "21628");
+//        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "kroqbandit", "21628");
         //Get Bishopric
 //        memberList = apiTest.getOrganizationMembers("Bishopric", "kroqbandit", "21628");
 

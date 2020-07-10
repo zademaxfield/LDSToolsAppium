@@ -431,6 +431,46 @@ public class MemberToolsAPI {
     }
 
     //TODO: Need a file check for the date then delete if older than 3 or so days?
+    public String getReportUnitStatsJson (String unitNumber, String proxyLogin) throws IOException {
+        proxyLogin = "kroqbandit";
+        String responseData = "";
+        File organizationFile = new File("ConfigFiles/reportsUnitStats" + unitNumber + ".json");
+        StringBuilder contentBuilder = new StringBuilder();
+
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/reports/unit-statistics?units="+ unitNumber, proxyLogin );
+
+        if (!organizationFile.exists()) {
+            try (Response response = httpClient.newCall(request).execute()) {
+                assert response.body() != null;
+                responseData = response.body().string();
+                try  {
+//                    FileWriter myWriter = new FileWriter("organization.json");
+                    FileWriter myWriter = new FileWriter(organizationFile);
+                    myWriter.write(responseData);
+                    myWriter.flush();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/reportsUnitStats" + unitNumber + ".json")), StandardCharsets.UTF_8);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return responseData;
+    }
+
+    //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getMissionaryJson (String unitNumber, String proxyLogin) throws IOException {
         proxyLogin = "kroqbandit";
         String responseData = "";
@@ -771,6 +811,59 @@ public class MemberToolsAPI {
 //                System.out.println("JSON Array!");
             JsonArray jsonData = jsonElement.getAsJsonArray();
             List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
+
+        }
+
+
+        return memberNames;
+
+    }
+
+
+    //This will get the first 6 Unit Stat Numbers
+    public List<String> getReportUnitStatsNumbers(String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiReportUnitStat myReportUnitStats = new ApiReportUnitStat();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiReportUnitStat = new TypeToken<ArrayList<ApiReportUnitStat>>(){}.getType();
+
+        responseData = getReportUnitStatsJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myReportUnitStats = gson.fromJson(jsonElement, ApiReportUnitStat.class);
+
+
+
+//            for (ReportNewMember newMember : myReportUnitStats.getNewMembers()) {
+//                System.out.println("Unit Number: " + newMember.getUnitNumber().toString());
+//                System.out.println("Uuid: " + newMember.getUuid());
+//
+//                memberNames.add(getNameFromUuid( newMember.getUuid(), unitNumber, proxyLogin, "personal"));
+//
+//            }
+
+        } else if (jsonElement instanceof JsonArray) {
+            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReportUnitStat> testReport = gson.fromJson(jsonElement, apiReportUnitStat);
+            for (ApiReportUnitStat reportName : testReport) {
+                memberNames.add(reportName.getTotalMembers().toString());
+                memberNames.add(reportName.getMen().toString());
+                memberNames.add(reportName.getHighPriests().toString());
+                memberNames.add(reportName.getElders().toString());
+                memberNames.add(reportName.getProspectiveElders().toString());
+                memberNames.add(reportName.getWomen().toString());
+            }
 
         }
 

@@ -544,6 +544,7 @@ public class ReportsScreenTest extends BaseDriver {
         ReportsScreen myReports = new ReportsScreen(driver);
 
         myReports.membersWithOutCallingsReport.click();
+        Thread.sleep(5000);
         pageSource = myBasePage.getSourceOfPage();
 
 //        System.out.println(pageSource);
@@ -600,18 +601,24 @@ public class ReportsScreenTest extends BaseDriver {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
+        MemberToolsAPI apiTest = new MemberToolsAPI();
+        List<String> memberList = new ArrayList<String>();
 
         if (!getRunningOS().equals("ios")) {
             myBasePage.scrollToTextRecyclerView("Unit Statistics");
+            Thread.sleep(2000);
         } else {
             myBasePage.scrollToTextiOS("Unit Statistics");
         }
 
-
         myReports.unitStatisticsReport.click();
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.rightsCheck("21", 3, rights, pageSource);
+
+        memberList = apiTest.getReportUnitStatsNumbers("kroqbandit", "21628");
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
+
+//        myBasePage.rightsCheck("21", 3, rights, pageSource);
 
 
         Thread.sleep(1000);
@@ -688,7 +695,7 @@ public class ReportsScreenTest extends BaseDriver {
             Assert.assertFalse(pageSource.contains("Jinn, Qui-Gon"));
         } else {
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Anitema", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
         }
 

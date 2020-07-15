@@ -27,9 +27,13 @@ public class WhatsNewScreenTest extends BaseDriver {
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Version 4.0", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Version 4.0", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Automatic update", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament Attendance", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Prayer Roll", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Add names", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Version 4.1", pageSource, "Contains"));
 
         myWhatsNew.autoUpdate.click();
 
@@ -53,7 +57,20 @@ public class WhatsNewScreenTest extends BaseDriver {
         }
 
         myWhatsNew.whatsNewDone.click();
+
+        // Click on Later then Directory
+        if (!myBasePage.getSourceOfPage().equals("ios")) {
+            Thread.sleep(2000);
+            myHelper.checkForLater();
+            Thread.sleep(2000);
+            myMenu.directory.click();
+            Thread.sleep(2000);
+        }
+
+
+
         myMenu.selectMenu(myMenu.help);
+        System.out.println(myBasePage.getSourceOfPage());
         myWhatsNew.helpWhatsNew.click();
         myWhatsNew.wifiButton.click();
         myWhatsNew.autoUpdate.click();

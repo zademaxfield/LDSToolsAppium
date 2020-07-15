@@ -220,9 +220,9 @@ public class SettingsScreen extends BasePage {
         @iOSXCUITFindBy(accessibility = "Prod")
         public  MobileElement production;
 
-        //UAT
+        //UAT - UAT is now Stage
         @AndroidFindBy(xpath = "//*[contains(@text, 'UAT')]")
-        @iOSXCUITFindBy(xpath = "//*[contains(@name, 'UAT')]")
+        @iOSXCUITFindBy(xpath = "//*[contains(@name, 'Stage')]")
         //@iOSXCUITFindBy(accessibility = "UAT")
         public  MobileElement UAT;
 

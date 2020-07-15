@@ -700,7 +700,7 @@ public class HelperMethods extends BasePage {
         }
     }
 
-    private void checkForLater() {
+    public void checkForLater() {
         MenuScreen myMenuScreen = new MenuScreen(driver);
         if (checkForElement(myMenuScreen.laterButton)) {
             myMenuScreen.laterButton.click();

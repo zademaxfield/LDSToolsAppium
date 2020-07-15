@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4"})
     public void calendarSimple_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");
@@ -29,7 +29,7 @@ public class CalendarScreenTest extends BaseDriver {
         calendarCheck();
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all4", "all", "jft"})
     public void calendarSimple_BISHOP_SECOND_COUNSELOR() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("soldiercloudstrife");

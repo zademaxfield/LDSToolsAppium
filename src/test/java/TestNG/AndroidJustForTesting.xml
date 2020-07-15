@@ -39,7 +39,7 @@
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

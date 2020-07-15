@@ -491,6 +491,7 @@ public class HelperMethods extends BasePage {
 //        PinScreen myPin = new PinScreen(driver);
         MenuScreen myMenuScreen = new MenuScreen(driver);
         BaseDriver myBaseDriver = new BaseDriver();
+        BasePage myBasePage = new BasePage(driver);
 
         String deviceName;
 
@@ -569,6 +570,7 @@ public class HelperMethods extends BasePage {
             Thread.sleep(2000);
 
 //            System.out.println(getSourceOfPage());
+            myBasePage.waitForElement(myMenuScreen.directory);
             myMenuScreen.directory.click();
             Thread.sleep(2000);
         }

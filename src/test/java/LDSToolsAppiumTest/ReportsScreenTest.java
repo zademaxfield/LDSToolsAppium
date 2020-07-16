@@ -50,7 +50,7 @@ public class ReportsScreenTest extends BaseDriver {
 
             }
 
-
+            //Todo: change to an api call per user
             myBasePage.rightsCheck("Action and Interview List", 3, rights, pageSource);
             myBasePage.rightsCheck("Birthday List", 3, rights, pageSource);
             myBasePage.rightsCheck("Ministering", 3, rights, pageSource);
@@ -130,7 +130,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-
+    //Todo: need api test
     @Test (groups = {"all4", "all", "report"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
@@ -244,7 +244,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
 
-
+    //Todo: need api test
     @Test (groups = {"all3", "all", "report"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
@@ -442,6 +442,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }*/
 
+    //Todo: need api test
     private void getMembersMovedInReport(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -487,6 +488,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
     }
 
+    //Todo: need api test
     private void getMembersWithCallings(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -538,6 +540,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(2000);
     }
 
+    //Todo: need api test
     private void getMembersWithOutCallings(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -580,6 +583,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
     }
 
+    //Todo: need api test
     private void getNewMembers(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -596,7 +600,6 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
     }
 
-    //Todo: need more tests
     private void getUnitStats(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -627,7 +630,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-
+    //Todo: need api test
     private void getTempleRecommendStatus(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -992,6 +995,7 @@ public class ReportsScreenTest extends BaseDriver {
         myBasePage.compareWebData(myList, androidList, false);
 
         //Todo: need to check for record then select that record
+        //Todo: Wait for Missionary Progress!
 //        for(String oneUser : myList){
 //            myBasePage.scrollDownTEST(400);
 //            clickButton(oneUser, "text", "nameContains");

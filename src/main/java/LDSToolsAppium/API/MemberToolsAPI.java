@@ -471,6 +471,46 @@ public class MemberToolsAPI {
     }
 
     //TODO: Need a file check for the date then delete if older than 3 or so days?
+    public String getReportsActionAndInterview(String unitNumber, String proxyLogin) throws IOException {
+        proxyLogin = "kroqbandit";
+        String responseData = "";
+        File organizationFile = new File("ConfigFiles/reportsActionAndInterview" + unitNumber + ".json");
+        StringBuilder contentBuilder = new StringBuilder();
+
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/reports/action-interviews?units="+ unitNumber, proxyLogin );
+
+        if (!organizationFile.exists()) {
+            try (Response response = httpClient.newCall(request).execute()) {
+                assert response.body() != null;
+                responseData = response.body().string();
+                try  {
+//                    FileWriter myWriter = new FileWriter("organization.json");
+                    FileWriter myWriter = new FileWriter(organizationFile);
+                    myWriter.write(responseData);
+                    myWriter.flush();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/reportsActionAndInterview" + unitNumber + ".json")), StandardCharsets.UTF_8);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return responseData;
+    }
+
+    //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getMissionaryJson (String unitNumber, String proxyLogin) throws IOException {
         proxyLogin = "kroqbandit";
         String responseData = "";
@@ -871,6 +911,62 @@ public class MemberToolsAPI {
         return memberNames;
 
     }
+
+    public List<String> getNamesActionAndInterviewReports(String reportToGet, String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiReportActionAndInterview myReportActionAndInterview = new ApiReportActionAndInterview();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiReportListActionAndInterview = new TypeToken<ArrayList<ApiReportActionAndInterview>>(){}.getType();
+
+        responseData = getReportsActionAndInterview(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myReportActionAndInterview = gson.fromJson(jsonElement, ApiReportActionAndInterview.class);
+
+
+//            System.out.println("Type: " + myReportActionAndInterview.getType());
+
+//            for (ActionAndInterviewMember myMember : myReportActionAndInterview.getMembers()) {
+//                System.out.println("Unit Number: " + membersMovedOut.getUnitNumber().toString());
+//                System.out.println("Display Name: " + membersMovedOut.getDisplayName());
+//                System.out.println("Moved Out Date: " + membersMovedOut.getPriorUnitMoveOutDate());
+//                System.out.println("Next Unit: " + membersMovedOut.getNextUnit());
+//                System.out.println("Members: " + actionInterview.getMembers().toString());
+//                memberNames.add(membersMovedOut.getDisplayName());
+//
+//            }
+
+        } else if (jsonElement instanceof JsonArray) {
+//                System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReportActionAndInterview> testReport = gson.fromJson(jsonElement, apiReportListActionAndInterview);
+            for (ApiReportActionAndInterview actionAndInterview : testReport) {
+                if (actionAndInterview.getName().equalsIgnoreCase(reportToGet)) {
+                    for (ActionAndInterviewMember myMember: actionAndInterview.getMembers()) {
+//                        System.out.println("Member: " + myMember.getUuid());
+                        memberNames.add(getNameFromUuid( myMember.getUuid(), unitNumber, proxyLogin, "personal"));
+                    }
+                }
+            }
+        }
+
+
+        return memberNames;
+
+    }
+
+
+
 
 
     public List<String> getAssignedMissionaries(String proxyLogin, String unitNumber) throws Exception {

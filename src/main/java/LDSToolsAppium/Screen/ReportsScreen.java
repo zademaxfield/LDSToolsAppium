@@ -95,6 +95,10 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Visiting Teaching")
     public MobileElement visitingTeachingsReport;
 
+    //Sacrament Attendance
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Sacrament Attendance']")
+    @iOSXCUITFindBy(accessibility = "Sacrament Attendance")
+    public MobileElement sacramentAttendanceReport;
 
 
 
@@ -345,6 +349,46 @@ public class ReportsScreen extends BasePage {
     @AndroidFindBy(xpath = "//*[@text=\"Cancel\"]")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement mpCancel;
+
+    // ************ Sacrament Attendance Page
+    //Sacrament Attendance First Week
+    @AndroidFindBy(id = "week1EditText")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceFirstWeek;
+
+    //Sacrament Attendance Second Week
+    @AndroidFindBy(id = "week2EditText")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceSecondWeek;
+
+    //Sacrament Attendance Third Week
+    @AndroidFindBy(id = "week3EditText")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceThirdWeek;
+
+    //Sacrament Attendance Fourth Week
+    @AndroidFindBy(id = "week4EditText")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceFourthWeek;
+
+
+    //Sacrament Attendance Dialog Edit Field
+    @AndroidFindBy(id = "editText")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceDialogEditField;
+
+    //Sacrament Attendance Cancel
+    @AndroidFindBy(id = "button2")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceDialogCancel;
+
+    //Sacrament Attendance Ok
+    @AndroidFindBy(id = "button1")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceDialogOk;
+
+
+
 
 
     public void saveMissonaryProgressFilter() throws Exception {

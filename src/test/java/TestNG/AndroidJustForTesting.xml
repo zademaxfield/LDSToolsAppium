@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Android Just For Testing Suite" configfailurepolicy="continue" verbose="2">
+<suite name="Android Just For Testing Suite" configfailurepolicy="continue" verbose="10">
     <listeners>
 <!--        <listener class-name="LDSToolsAppium.TestListener" />-->
 <!--        <listener class-name= "LDSToolsAppium.CustomReporter" />-->
@@ -27,19 +27,16 @@
         <!--<parameter name="testDevice" value="STF-ce061716cae890d10d7e" />-->
         <parameter name="startSleepTime" value="0200" />
 
-
-
         <groups>
             <run>
                 <include name="jft"/>
-<!--                <include name="smoke"/>-->
-<!--                <include name="goat"/>-->
             </run>
         </groups>
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+<!--            <class name ="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner" />-->
+<!--            <class name="LDSToolsAppiumTest.ReportsScreenTest" />-->
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

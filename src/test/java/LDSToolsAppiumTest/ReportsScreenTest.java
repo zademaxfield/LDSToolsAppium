@@ -129,7 +129,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
     }
-    
+
     @Test (groups = {"all4", "all", "report", "jft"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;

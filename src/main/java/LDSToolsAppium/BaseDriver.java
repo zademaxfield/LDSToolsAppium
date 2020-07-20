@@ -4,6 +4,9 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
+import io.cucumber.testng.TestNGCucumberRunner;
 import net.bytebuddy.asm.Advice;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -23,7 +26,17 @@ import java.net.SocketException;
 import java.net.URL;
 import java.util.*;
 
-public class BaseDriver implements ITest {
+@CucumberOptions(
+        features = "src/test/java/LDSToolsAppiumTest/features",
+        glue = {"LDSToolsAppiumTest.steps"},
+        plugin = {
+                "pretty",
+                "html:target/cucumber-reports/cucumber-pretty",
+                "json:target/cucumber-reports/CucumberTestReport.json",
+                "rerun:target/cucumber-reports/rerun.txt"
+        })
+public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
+    private TestNGCucumberRunner testNGCucumberRunner;
     public AppiumDriver<MobileElement> driver;
     public AppiumDriver<MobileElement> driver2;
     public String deviceSerial = "";
@@ -50,7 +63,7 @@ public class BaseDriver implements ITest {
     public void removeFilesBeforeTest() {
 //        File reportsDirectory = new File ("/Users/zmaxfield/Documents/workspace/qa-membertools-all/src/test/java/Reports");
 //        File screenshotDirectory = new File ("/Users/zmaxfield/Documents/workspace/qa-membertools-all/screenshot");
-
+        testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
         File reportsDirectory = new File ("src/test/java/Reports");
         File screenshotDirectory = new File ("screenshot");
 
@@ -67,7 +80,7 @@ public class BaseDriver implements ITest {
     @BeforeClass(alwaysRun = true)
     @Parameters({"os", "fileName", "testDevice", "startSleepTime"})
     public void setUp(String os, String fileName, String testDevice, int startSleepTime) throws Exception {
-
+        testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
         int myPort;
         testOS = os;
         testngTestDevice = testDevice;

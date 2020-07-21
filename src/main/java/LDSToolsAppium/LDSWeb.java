@@ -23,8 +23,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -39,9 +37,8 @@ public class LDSWeb {
 	private Properties prop;
 	private String driverRunning = null;
 
-	
-	@Before
-    public void setUp()  {
+
+	public void setUp()  {
 		//Moved setUp stuff to openWebPage - seems to work better this way. 
 		driverRunning = "Running";
 
@@ -3548,7 +3545,7 @@ public class LDSWeb {
 	}
 
 	
-	@After
+
 	public void tearDown() throws Exception {
 		driver.close();
 		driver.quit();
@@ -3560,8 +3557,7 @@ public class LDSWeb {
 	}
 	
 	
-	
-	@Before
+
 	public void openGuiMap() {
 		
 		File file = new File("ConfigFiles/webUIMap.properties");

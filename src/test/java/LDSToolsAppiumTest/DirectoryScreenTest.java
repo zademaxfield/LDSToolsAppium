@@ -40,7 +40,18 @@ public class DirectoryScreenTest extends BaseDriver {
 //        directoryJanDickson(rights);
 //    }
 
-    @Test(groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(groups = {"jft"})
+    public void directoryScreenTest_JFT() throws Exception {
+        String calling;
+        HelperMethods myHelper = new HelperMethods(driver);
+        calling = myHelper.getMemberNameFromList("BISHOP");
+        myHelper.proxyLogin(calling);
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDickson(1);
+    }
+
+
+    @Test(groups = {"smoke2", "smoke", "all2", "all"})
     public void directoryScreenTest_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods(driver);
         myHelper.proxyLogin("kroqbandit");

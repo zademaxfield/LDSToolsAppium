@@ -16,11 +16,8 @@ import org.jsoup.nodes.Element;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
-
+import java.io.File;
+import java.util.*;
 
 
 public class HelperMethods extends BasePage {
@@ -1053,5 +1050,49 @@ public class HelperMethods extends BasePage {
         myLoginPage.signInButton.click();
         Thread.sleep(1000);
     }
+    public String getMemberNameFromList(String memberCalling) throws Exception {
+        String calling = null;
+        String loginName = null;
+        String rights = null;
+        memberCalling = memberCalling + ",";
+        List<String> fileList = openCallingsMembersFile();
+        for (String callingLine : fileList) {
+            if (callingLine.contains(memberCalling)) {
+                String[] membersArray = callingLine.split(",");
+                calling = membersArray[0];
+                loginName = membersArray[1];
+                rights = membersArray[2];
+
+                System.out.println("Calling: " + calling);
+                System.out.println("Login Name: " + loginName);
+                System.out.println("rights: " + rights);
+
+            }
+        }
+        
+        return loginName;
+    }
+    
+
+    public List<String> openCallingsMembersFile() throws Exception {
+        List<String> memberList = new ArrayList<>();
+        Scanner sc = new Scanner(new File("src/main/java/LDSToolsAppium/callings_members.csv"));
+//        sc.useDelimiter(",");
+        while (sc.hasNext()) {
+            memberList.add(sc.nextLine());
+//            System.out.println(sc.next());
+        }
+        
+        sc.close();
+        return memberList;
+
+//        for (String oneLine : memberList) {
+//            System.out.println(oneLine);
+//        }
+
+
+    }
+
+
 
 }

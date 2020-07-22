@@ -34,6 +34,7 @@ public class BaseDriver implements ITest {
     //public AppiumService myAppiumService;
     public AppiumService myAppiumService = new AppiumService();
 
+    
     protected LDSToolsApp app;
     protected MobileDevApp app2;
     public LDSWeb myWeb = new LDSWeb();

@@ -21,6 +21,7 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.lang.reflect.Type;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -751,6 +752,125 @@ public class MemberToolsAPI {
 
         }
 
+
+        return memberNames;
+
+    }
+
+    public List<String> getNamesTempleRecommendStatusActive(String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiReports myReport = new ApiReports();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiReportList = new TypeToken<ArrayList<ApiReports>>(){}.getType();
+
+        responseData = getReportJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myReport = gson.fromJson(jsonElement, ApiReports.class);
+
+            for (ReportUnitStatistic myUnitStats : myReport.getUnitStatistics()) {
+//                System.out.println("Unit Number: " + myUnitStats.getEndowedWithRecommendUuids().toString());
+                for (String memberList : myUnitStats.getEndowedWithRecommendUuids()) {
+                    memberNames.add(getNameFromUuid( memberList, unitNumber, proxyLogin, "personal"));
+//                    memberNames.add(memberList);
+                    Collections.sort(memberNames);
+                }
+            }
+
+        } else if (jsonElement instanceof JsonArray) {
+//                System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
+
+        }
+
+        return memberNames;
+
+    }
+
+    public List<String> getNamesTempleRecommendStatusAll(String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiReports myReport = new ApiReports();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiReportList = new TypeToken<ArrayList<ApiReports>>(){}.getType();
+
+        responseData = getReportJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myReport = gson.fromJson(jsonElement, ApiReports.class);
+
+            for (ReportUnitStatistic myUnitStats : myReport.getUnitStatistics()) {
+//                System.out.println("Unit Number: " + myUnitStats.getEndowedWithRecommendUuids().toString());
+                for (String memberList : myUnitStats.getEndowedAdultsUuids()) {
+                    memberNames.add(getNameFromUuid( memberList, unitNumber, proxyLogin, "personal"));
+//                    memberNames.add(memberList);
+                    Collections.sort(memberNames);
+                }
+            }
+
+        } else if (jsonElement instanceof JsonArray) {
+//                System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
+
+        }
+
+        return memberNames;
+
+    }
+
+    public List<String> getNewMembers(String proxyLogin, String unitNumber) throws Exception {
+        proxyLogin = "kroqbandit";
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiReports myReport = new ApiReports();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiReportList = new TypeToken<ArrayList<ApiReports>>(){}.getType();
+
+        responseData = getReportJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myReport = gson.fromJson(jsonElement, ApiReports.class);
+
+
+            for (ReportNewMember myNewMember : myReport.getNewMembers()) {
+                memberNames.add(getNameFromUuid( myNewMember.getUuid(), unitNumber, proxyLogin, "personal"));
+            }
+
+        } else if (jsonElement instanceof JsonArray) {
+//                System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiReports> testReport = gson.fromJson(jsonElement, apiReportList);
+
+        }
 
         return memberNames;
 

@@ -239,7 +239,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
 
-    //Todo: need api test
+    //There is no API for this
     @Test (groups = {"all3", "all", "report"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
@@ -437,7 +437,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }*/
 
-    //Todo: need api test
+    //No API test
     private void getMembersMovedInReport(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -483,7 +483,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
     }
 
-    //Todo: need api test
+    //No API method for this.
     private void getMembersWithCallings(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -535,7 +535,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(2000);
     }
 
-    //Todo: need api test
+    //No api method for this
     private void getMembersWithOutCallings(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -578,17 +578,24 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
     }
 
-    //Todo: need api test
     private void getNewMembers(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
+        MemberToolsAPI apiTest = new MemberToolsAPI();
+        List<String> memberList = new ArrayList<String>();
 
         myReports.newMembersReport.click();
         Thread.sleep(1000);
-        pageSource = myBasePage.getSourceOfPage();
+//        pageSource = myBasePage.getSourceOfPage();
 //        myBasePage.rightsCheck("Casas, Sarai", 3, rights, pageSource);
 //        myBasePage.rightsCheck("19", 3, rights, pageSource);
+
+        pageSource = myBasePage.getSourceOfPage();
+        memberList = apiTest.getNewMembers("kroqbandit", "21628");
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
+
+
 
         Thread.sleep(1000);
         myBasePage.backButton.click();
@@ -625,7 +632,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    //Todo: need api test
+    //No api method for this
     private void getTempleRecommendStatus(int rights) throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);

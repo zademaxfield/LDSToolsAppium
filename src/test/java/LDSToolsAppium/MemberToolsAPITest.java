@@ -22,9 +22,19 @@ public class MemberToolsAPITest {
         //Get members from Action and Interview Reports
 //        memberList = apiTest.getNamesFromActionInterviewReports("Unbaptized Members", "kroqbandit", "21628");
         //Get Members from Members Moved Out
-//        memberList = apiTest.getNamesFromMembersMovedOut("kroqbandit", "21628");
+
         //Unit Stats
 //        memberList = apiTest.getReportUnitStatsNumbers("kroqbandit", "21628");
+
+        //Temple Recommend Status - Sort of works this is looking a the unit stats.
+//        memberList = apiTest.getNamesTempleRecommendStatusActive("kroqbandit", "21628");
+//        memberList = apiTest.getNamesTempleRecommendStatusAll("kroqbandit", "21628");
+
+        //Reports New Members
+//        memberList = apiTest.getNewMembers("kroqbandit", "21628");
+        memberList = apiTest.getNewMembers("kroqbandit", "21628");
+
+
 
         //Action and Interview Tests
 //        memberList = apiTest.getNamesActionAndInterviewReports("Children Approaching Baptism Age","kroqbandit", "21628");
@@ -35,7 +45,7 @@ public class MemberToolsAPITest {
 //        memberList = apiTest.getNamesActionAndInterviewReports("Bishopric Counselor Youth Interviews","kroqbandit", "21628");
 //        memberList = apiTest.getNamesActionAndInterviewReports("Young Men Approaching Mission Age","kroqbandit", "21628");
 //        memberList = apiTest.getNamesActionAndInterviewReports("Men Who Have Not Served a Mission","kroqbandit", "21628");
-        memberList = apiTest.getNamesActionAndInterviewReports("Potential Missionary Couples","kroqbandit", "21628");
+//        memberList = apiTest.getNamesActionAndInterviewReports("Potential Missionary Couples","kroqbandit", "21628");
 
 
         //Get Assigned Missionaries

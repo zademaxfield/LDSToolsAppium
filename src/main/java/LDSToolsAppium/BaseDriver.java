@@ -37,6 +37,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
     //public AppiumService myAppiumService;
     public AppiumService myAppiumService = new AppiumService();
 
+    
     protected LDSToolsApp app;
     protected MobileDevApp app2;
     public LDSWeb myWeb = new LDSWeb();
@@ -525,7 +526,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
             capabilities.setCapability("appium:newCommandTimeout", 600);
             capabilities.setCapability("appium:app", app.getAbsolutePath());
             capabilities.setCapability("appium:launchTimeout", 900000);
-            capabilities.setCapability("appium:platformVersion", "13.5");
+            capabilities.setCapability("appium:platformVersion", "13.6");
             capabilities.setCapability("appium:nativeInstrumentsLib", false);
             capabilities.setCapability("appium:clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);

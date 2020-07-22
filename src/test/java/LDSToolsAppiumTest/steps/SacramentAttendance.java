@@ -5,13 +5,15 @@ import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.ReportsScreen;
 import LDSToolsAppiumTest.HelperMethods;
-import io.cucumber.java.en.And;
+//import io.cucumber.java.en.And;
+import com.qmetry.qaf.automation.step.QAFTestStepProvider;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 
+@QAFTestStepProvider
 public class SacramentAttendance extends BaseDriver {
     HelperMethods myHelper = new HelperMethods(driver);
     BasePage myBasePage = new BasePage(driver);

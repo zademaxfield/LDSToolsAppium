@@ -1050,15 +1050,16 @@ public class HelperMethods extends BasePage {
         myLoginPage.signInButton.click();
         Thread.sleep(1000);
     }
-    public String getMemberNameFromList(String memberCalling) throws Exception {
+    public String[] getMemberNameFromList(String memberCalling) throws Exception {
         String calling = null;
         String loginName = null;
         String rights = null;
+        String[] membersArray = new String[0];
         memberCalling = memberCalling + ",";
         List<String> fileList = openCallingsMembersFile();
         for (String callingLine : fileList) {
             if (callingLine.contains(memberCalling)) {
-                String[] membersArray = callingLine.split(",");
+                membersArray = callingLine.split(",");
                 calling = membersArray[0];
                 loginName = membersArray[1];
                 rights = membersArray[2];
@@ -1069,8 +1070,9 @@ public class HelperMethods extends BasePage {
 
             }
         }
+
         
-        return loginName;
+        return membersArray;
     }
     
 

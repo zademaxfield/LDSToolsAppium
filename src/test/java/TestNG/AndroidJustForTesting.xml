@@ -24,7 +24,6 @@
         <!--<parameter name="testDevice" value="STF-364c5930534f3098" />-->
 <!--        <parameter name="testDevice" value="710KPFX0305667" />-->
         <!--<parameter name="testDevice" value="STFMain-Pool" />-->
-        <!--<parameter name="testDevice" value="STF-ce061716cae890d10d7e" />-->
         <parameter name="startSleepTime" value="0200" />
 
 

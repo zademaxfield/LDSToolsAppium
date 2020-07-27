@@ -1,23 +1,45 @@
 package LDSToolsAppiumTest.testrunner;
 
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import io.cucumber.testng.CucumberOptions;
+
+import io.cucumber.testng.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 
 @CucumberOptions(
         features = "src/test/java/LDSToolsAppiumTest/features",
-//        glue = {"LDSToolsAppiumTest.steps"},
+        glue = {"LDSToolsAppiumTest.steps", "LDSToolsAppium.BaseDriver"},
         plugin = {
-                "com.qmetry.qaf.automation.cucumber.QAFCucumberPlugin",
-//                "com.qmetry.qaf.automation.step.client.text.BDDTestFactory2",
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json",
                 "rerun:target/cucumber-reports/rerun.txt"
 
         })
-public class SacramentAttendanceRunner {
+public class SacramentAttendanceRunner extends AbstractTestNGCucumberTests {
+        TestNGCucumberRunner testNGCucumberRunner;
+
+        @BeforeClass(alwaysRun = true)
+        public void setUpClass() {
+                testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
+        }
+
+        @Test(groups = "Cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios")
+        public void scenario(PickleEventWrapper pickleEvent, CucumberFeatureWrapper cucumberFeature) throws Throwable {
+                testNGCucumberRunner.runScenario(pickleEvent.getPickleEvent());
+        }
+
+        @DataProvider
+        public Object[][] scenarios() {
+                return testNGCucumberRunner.provideScenarios();
+        }
+
+        @AfterClass(alwaysRun = true)
+        public void tearDownClass()  {
+                testNGCucumberRunner.finish();
+        }
 
 //        BaseDriver myBaseDriver = new BaseDriver();
 //        @DataProvider(parallel = true)

@@ -617,6 +617,20 @@ public class BasePage {
 //        sa.assertAll();
     }
 
+    public void rightsCheckNewRights(String myItem, int itemVisibility, int rights, String pageSource) {
+        //This is just for testing
+//        SoftAssert sa = new SoftAssert();
+        System.out.println("Checking: " + myItem);
+        if (rights >= itemVisibility) {
+            Assert.assertTrue(checkNoCaseList(myItem, pageSource, "Contains"));
+//            sa.assertTrue(checkNoCaseList(myItem, pageSource, "Contains"));
+        } else {
+            Assert.assertFalse(checkNoCaseList(myItem, pageSource, "Contains"));
+//            sa.assertFalse(checkNoCaseList(myItem, pageSource, "Contains"));
+        }
+//        sa.assertAll();
+    }
+
     public void waitForTextToDisappear(MobileElement myElement) {
         System.out.println("Start Checking for Element");
         WebDriverWait wait = new WebDriverWait(driver, 60);

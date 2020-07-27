@@ -29,168 +29,101 @@ public class DirectoryScreenTest extends BaseDriver {
     //4 = No Calling
 
 
-//    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
-//    public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
-//        int rights = Integer.parseInt(rightsString);
-//        // ********* Constructor **********
-//        HelperMethods myHelper = new HelperMethods(driver);
-//        //Login and enter in PIN
-//        myHelper.proxyLogin(userName);
-//        myHelper.enterPin("1", "1", "3", "3");
-//        directoryJanDickson(rights);
-//    }
 
     @Test(groups = {"smoke2", "smoke", "all2", "all", "jft"})
     public void directoryScreenTest_BISHOP() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("kroqbandit");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(1);
+        directoryScreenSub("BISHOP");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Camerado65");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(1);
+        directoryScreenSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("soldiercloudstrife");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(1);
+        directoryScreenSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_WARD_CLERK() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("luke.ravitch");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(1);
+        directoryScreenSub("WARD_CLERK");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_WARD_ASSISTANT_CLERK() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("jdahmanson");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(1);
+        directoryScreenSub("WARD_ASSISTANT_CLERK");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("iansalas");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(1);
+        directoryScreenSub("WARD_EXECUTIVE_SECRETARY");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_MEMBER1() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("dcbryson");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(4);
+        directoryScreenSub("MEMBER1");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_MEMBER2() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Kimburrell");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(4);
+        directoryScreenSub("MEMBER2");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("adambee");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryScreenSub("ELDERS_QUORUM_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("gabrielsmith");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryScreenSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Aloeb1013");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryScreenSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_SECRETARY() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("murillodavid");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryScreenSub("ELDERS_QUORUM_SECRETARY");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("bridgemp");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryScreenSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("blairlolohea");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryScreenSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("mykalikat");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(2);
+        directoryScreenSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("rosettelambson");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(3);
+        directoryScreenSub("YOUNG_WOMEN_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_WOMEN_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("mahina_12006");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(3);
+        directoryScreenSub("WOMEN_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("RIBITALOT@AOL.COM");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(3);
+        directoryScreenSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
 
     @Test(groups = {"all2", "all"})
     public void directoryScreenTest_WARD_MISSION_LEADER() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Christian9");
-        myHelper.enterPin("1", "1", "3", "3");
-        directoryJanDickson(4);
+        directoryScreenSub("WARD_MISSION_LEADER");
     }
 
     public void directoryJanDickson(int rights ) throws Exception {
@@ -293,6 +226,105 @@ public class DirectoryScreenTest extends BaseDriver {
 //        myBasePage.rightsCheck("Relief Society", 3, rights, pageSource);
     }
 
+    public void directoryJanDicksonNewRights(int rights ) throws Exception {
+        String pageSource;
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+
+        myDirectory.searchAndClick("Dickson, Jan");
+
+        //Get all info
+        Thread.sleep(4000);
+        pageSource = myDirectory.getDirectoryUserData();
+
+        //General Information
+        myBasePage.rightsCheckNewRights("Centinela", 1, rights, pageSource);
+
+        myBasePage.rightsCheckNewRights("JanDic60@yahoo.com", 1, rights, pageSource);
+        myBasePage.rightsCheckNewRights("cedickson@sbcglobal.net", 1, rights, pageSource);
+        myBasePage.rightsCheckNewRights("754-215-9330", 1, rights, pageSource);
+        myBasePage.rightsCheckNewRights("310-643-8800", 1, rights, pageSource);
+
+        myBasePage.rightsCheckNewRights("5420 W 140th St", 1, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Hawthorne, California 90250-6402", 1, rights, pageSource);
+
+        myBasePage.rightsCheckNewRights("33.9", 1, rights, pageSource);
+        myBasePage.rightsCheckNewRights("-118.3", 1, rights, pageSource);
+
+        //Membership Information
+        myBasePage.rightsCheckNewRights("MEMBERSHIP INFORMATION", 4, rights, pageSource);
+//        myBasePage.rightsCheck("FULL NAME", 2, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Dickson", 1, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Emma", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Jan", 1, rights, pageSource);
+
+        myBasePage.rightsCheckNewRights("Temple Recommend", 6, rights, pageSource);
+
+
+        myBasePage.rightsCheckNewRights("Record Number", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("000-1189-3575", 6, rights, pageSource);
+
+        //Birth Date
+        myBasePage.rightsCheckNewRights("January 20, 1946", 5, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Birth Date", 4, rights, pageSource);
+        if (getRunningOS().equals("ios")) {
+            myBasePage.rightsCheckNewRights("(74)", 5, rights, pageSource);
+            //Temple Recommend
+            myBasePage.rightsCheckNewRights("November 2021", 6, rights, pageSource);
+        } else {
+            myBasePage.rightsCheckNewRights("- 74", 5, rights, pageSource);
+            //Temple Recommend
+            myBasePage.rightsCheckNewRights("Nov 2021", 6, rights, pageSource);
+        }
+
+
+        //Ordinances
+        myBasePage.rightsCheckNewRights("Ordinances", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Baptism", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("February 6, 1954", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Confirmation", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("February 7, 1954", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Endowment", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("March 23, 1967", 6, rights, pageSource);
+
+
+        //Marriage
+        myBasePage.rightsCheckNewRights("MARRIAGE", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Spouse", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Dickson, Clarence Eugene", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Spouse Birth Date", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("September 9, 1944", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Marriage Date", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("July 21, 1967", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Marriage Place", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Los Angeles, Los Angeles, California", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Maiden Name", 6, rights, pageSource);
+
+        //Other Information
+        myBasePage.rightsCheckNewRights("Gender", 4, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Female", 4, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Gudmundson, Emma Jan", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Birthplace", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Santa Monica, Los Angeles, Cal", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Birth Country", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("United States", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Father", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Gudmundson, Guy Leland", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Mother", 6, rights, pageSource);
+        myBasePage.rightsCheckNewRights("Shaffer, Nora", 6, rights, pageSource);
+//        myBasePage.rightsCheck("Prior Unit", 2, rights, pageSource);
+
+
+
+        //Callings and Classes - New in 3.0.0
+        myBasePage.rightsCheckNewRights("Sunday School Teacher", 1, rights, pageSource);
+//        myBasePage.rightsCheck("Gospel Doctrine", 4, rights, pageSource);
+//        myBasePage.rightsCheck("Class Assignments", 3, rights, pageSource);
+//        myBasePage.rightsCheck("Relief Society", 3, rights, pageSource);
+    }
 
 
 
@@ -931,5 +963,49 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
     }
+
+    public void directoryScreenSub(String callingForMember) throws Exception {
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods(driver);
+        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        directoryJanDicksonNewRights(Integer.parseInt(callingRights[2]));
+    }
+
+
+
+//    @Test(dataProvider = "Members", groups = {"smoke2", "smoke", "all2", "all"})
+//    public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
+//        int rights = Integer.parseInt(rightsString);
+//        // ********* Constructor **********
+//        HelperMethods myHelper = new HelperMethods(driver);
+//        //Login and enter in PIN
+//        myHelper.proxyLogin(userName);
+//        myHelper.enterPin("1", "1", "3", "3");
+//        directoryJanDickson(rights);
+//    }
+
+//    @Test(groups = {"jft"})
+//    public void directoryScreenTest_JFT() throws Exception {
+//        String[] callingRights;
+//        HelperMethods myHelper = new HelperMethods(driver);
+//        callingRights = myHelper.getMemberNameFromList("MEMBER1");
+//        myHelper.proxyLogin(callingRights[1]);
+//        myHelper.enterPin("1", "1", "3", "3");
+//        directoryJanDicksonNewRights(Integer.parseInt(callingRights[2]));
+//    }
+
+
+//    @Test(groups = {"smoke2", "smoke", "all2", "all"})
+//    public void directoryScreenTest_BISHOP() throws Exception {
+//        HelperMethods myHelper = new HelperMethods(driver);
+//        myHelper.proxyLogin("kroqbandit");
+//        myHelper.enterPin("1", "1", "3", "3");
+//        directoryJanDickson(1);
+//    }
+
+
+
 
 }

@@ -383,7 +383,8 @@ public class ReportsScreen extends BasePage {
     public  MobileElement sacramentAttendanceDialogCancel;
 
     //Sacrament Attendance Ok
-    @AndroidFindBy(id = "button1")
+//    @AndroidFindBy(id = "button1")
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='OK']")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceDialogOk;
 

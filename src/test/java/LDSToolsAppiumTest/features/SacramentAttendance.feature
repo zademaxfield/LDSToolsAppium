@@ -6,7 +6,13 @@
     Sacrament Attendance should not be displayed
 
     @smoke
-    Scenario: Sacrament Attendance simple test
-      Given a "bishop" is on the Sacrament Attendance page
+    Scenario: As a Bishop enter a number and have it saved
+      Given a "BISHOP" is on the Sacrament Attendance page
       When "159" is entered in the "First Date Field"
       Then I should see "159"
+
+    @smoke
+    Scenario: As a Ward Clerk enter a number and have it saved
+      Given a "WARD_CLERK" is on the Sacrament Attendance page
+      When "77" is entered in the "First Date Field"
+      Then I should see "77"

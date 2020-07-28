@@ -25,8 +25,10 @@ public class SacramentAttendance extends BaseDriver {
 
     @Given("a {string} is on the Sacrament Attendance page")
     public void aMemberIsOnTheSacramentAttendancePage(String memberCalling) throws Exception {
-//        System.out.println("Start of the Given!!!");
-        myHelper.proxyLogin("kroqbandit");
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList(memberCalling);
+        myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         myMenu.selectMenu(myMenu.reports);
         myReports.sacramentAttendanceReport.click();
@@ -36,11 +38,13 @@ public class SacramentAttendance extends BaseDriver {
     public void isEnteredInThe(String valueToEnter, String fieldToEnter) throws Exception  {
         myReports.sacramentAttendanceFirstWeek.click();
         myReports.sacramentAttendanceDialogEditField.setValue(valueToEnter);
-        System.out.println(myBasePage.getSourceOfPage());
-        myBasePage.waitForElement(myReports.sacramentAttendanceDialogOk);
         myReports.sacramentAttendanceDialogOk.click();
+        iShouldSee(valueToEnter);
         myBasePage.backButton.click();
+//        System.out.println(myBasePage.getSourceOfPage());
+        Thread.sleep(5000);
         myReports.sacramentAttendanceReport.click();
+        Thread.sleep(5000);
     }
 
     @Then("I should see {string}")

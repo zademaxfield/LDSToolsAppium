@@ -23,7 +23,7 @@ public class QuarterlyScreenTest extends BaseDriver {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         ReportsScreen myReport = new ReportsScreen(driver);

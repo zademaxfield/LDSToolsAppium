@@ -20,7 +20,7 @@ public class FingerprintFaceTest extends BaseDriver {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
 
         if (myBasePage.checkForElement(myBasePage.allowButton)) {
             myBasePage.allowButton.click();

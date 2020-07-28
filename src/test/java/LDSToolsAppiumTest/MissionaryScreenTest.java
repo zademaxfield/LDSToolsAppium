@@ -17,7 +17,7 @@ public class MissionaryScreenTest extends BaseDriver {
     @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         MissionaryScreen myMissionary = new MissionaryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
@@ -62,7 +62,7 @@ public class MissionaryScreenTest extends BaseDriver {
     @Test(groups = {"all4", "all", "jft"})
     public void missionaryOtherUnits() throws Exception {
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         MissionaryScreen myMissionary = new MissionaryScreen(driver);
         String unitNumber;
@@ -127,7 +127,7 @@ public class MissionaryScreenTest extends BaseDriver {
         //String pageSource;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         MissionaryScreen myMissionary = new MissionaryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
@@ -306,7 +306,7 @@ public class MissionaryScreenTest extends BaseDriver {
 //    @Test(groups = {"all4", "all"})
     public void missionaryReferralNoContactInfo() throws Exception {
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         MissionaryScreen myMissionary = new MissionaryScreen(driver);
         BasePage myBasePage = new BasePage(driver);

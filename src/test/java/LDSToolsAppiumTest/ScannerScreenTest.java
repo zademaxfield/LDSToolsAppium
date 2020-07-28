@@ -22,12 +22,6 @@ public class ScannerScreenTest extends BaseDriver {
 
     @Test ( groups = {"jft"})
     public void scannerSimple() throws Exception {
-        String pageSource;
-        HelperMethods myHelper = new HelperMethods(driver);
-        PinScreen myPinScreen = new PinScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         ScannerScreen myScanner = new ScannerScreen(driver);
 
         String userName = "LDSTools3";

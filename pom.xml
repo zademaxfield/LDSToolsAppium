@@ -35,15 +35,33 @@
         </plugins>
     </build>
     <dependencies>
+        <!--        Cucumber Stuff-->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>gherkin-jvm-deps</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>4.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>4.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>4.7.2</version>
+        </dependency>
+
+<!--        Older Stuff-->
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
             <version>7.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
@@ -101,35 +119,11 @@
             <artifactId>converter-gson</artifactId>
             <version>2.7.1</version>
         </dependency>
-
         <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-core</artifactId>
-            <version>6.2.2</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>gherkin-jvm-deps</artifactId>
-            <version>1.0.6</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>6.2.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>gherkin</artifactId>
-            <version>2.12.2</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>4.7.2</version>
-
+            <groupId>org.picocontainer</groupId>
+            <artifactId>picocontainer</artifactId>
+            <version>2.15</version>
+            <scope>test</scope>
         </dependency>
 
 

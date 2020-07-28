@@ -3,6 +3,8 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,6 +12,8 @@ import java.time.Duration;
 
 
 public class LoginPageTest extends BaseDriver {
+
+
 
     @Test (groups = {"all2", "all", "login", "jft"})
     public void validateLoginPage() throws Exception {
@@ -237,7 +241,7 @@ public class LoginPageTest extends BaseDriver {
         String myPinMessage;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
@@ -305,7 +309,7 @@ public class LoginPageTest extends BaseDriver {
 
 
     private void invalidCheck(String userName, String passWord) throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
 
         if (myBasePage.checkForElement(myBasePage.allowButton)) {

@@ -24,7 +24,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         int rights = Integer.parseInt(rightsString);
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
 
 
@@ -69,7 +69,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         OrganizationsScreen myOrg = new OrganizationsScreen(driver);
         BasePage myBasePage = new BasePage(driver);

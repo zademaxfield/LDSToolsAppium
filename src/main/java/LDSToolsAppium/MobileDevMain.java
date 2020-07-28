@@ -23,6 +23,7 @@ public class MobileDevMain extends BaseDriver {
 
 
     public MobileDevMain(String os, String fileName, String testDevice, int startSleepTime, String networkEnvironment) throws Exception {
+        super();
 
 //        setUp("android", "android-mobile-dev-release.apk", "emulator-5554", 200);
 

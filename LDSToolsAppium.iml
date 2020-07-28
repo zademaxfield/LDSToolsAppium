@@ -19,23 +19,20 @@
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.10.5" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:3.3.0" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20191001.1" level="project" />
-    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.11" level="project" />
-    <orderEntry type="library" name="Maven: com.beust:jcommander:1.72" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-core:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-gherkin:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-gherkin-messages:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:messages:12.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:tag-expressions:3.0.0" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-expressions:10.2.1" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:datatable:3.3.1" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-plugin:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:docstring:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:html-formatter:7.0.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
     <orderEntry type="library" name="Maven: io.cucumber:gherkin-jvm-deps:1.0.6" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-java:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: info.cukes:gherkin:2.12.2" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:cucumber-java:4.7.2" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:cucumber-core:4.7.2" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:gherkin:5.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:tag-expressions:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:cucumber-expressions:7.0.2" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:datatable:1.1.14" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:datatable-dependencies:1.1.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
     <orderEntry type="library" name="Maven: io.cucumber:cucumber-testng:4.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.testng:testng:6.14.3" level="project" />
+    <orderEntry type="library" name="Maven: com.beust:jcommander:1.72" level="project" />
+    <orderEntry type="library" name="Maven: org.apache-extras.beanshell:bsh:2.0b6" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:cucumber-picocontainer:4.7.2" level="project" />
     <orderEntry type="library" name="Maven: io.appium:java-client:7.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-java:3.141.59" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:3.141.59" level="project" />
@@ -65,12 +62,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.4" level="project" />
-    <orderEntry type="library" name="Maven: org.testng:testng:7.1.0" level="project" />
-    <orderEntry type="library" name="Maven: com.beust:jcommander:1.72" level="project" />
-    <orderEntry type="library" name="Maven: com.google.inject:guice:no_aop:4.1.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
-    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.21" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okhttp3:okhttp-apache:3.12.4" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okhttp3:logging-interceptor:3.12.8" level="project" />
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.9.2" level="project" />
@@ -92,20 +83,6 @@
     <orderEntry type="library" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.retrofit2:retrofit:2.7.1" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.retrofit2:converter-gson:2.7.1" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-core:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-gherkin:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-gherkin-messages:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:messages:12.2.0" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:tag-expressions:3.0.0" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-expressions:10.2.1" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:datatable:3.3.1" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-plugin:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:docstring:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:html-formatter:7.0.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:gherkin-jvm-deps:1.0.6" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-java:6.2.2" level="project" />
-    <orderEntry type="library" name="Maven: info.cukes:gherkin:2.12.2" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-testng:4.7.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.picocontainer:picocontainer:2.15" level="project" />
   </component>
 </module>

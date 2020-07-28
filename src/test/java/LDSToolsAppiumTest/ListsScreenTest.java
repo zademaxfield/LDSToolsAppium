@@ -17,7 +17,7 @@ public class ListsScreenTest extends BaseDriver {
 
         // ********* Constructor **********
         BasePage myBase = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         ListsScreen myLists = new ListsScreen(driver);
 
@@ -79,7 +79,7 @@ public class ListsScreenTest extends BaseDriver {
 
         // ********* Constructor **********
         BasePage myBase = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         ListsScreen myLists = new ListsScreen(driver);
 
@@ -159,7 +159,7 @@ public class ListsScreenTest extends BaseDriver {
 
         // ********* Constructor **********
         BasePage myBase = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         ListsScreen myLists = new ListsScreen(driver);
 
@@ -235,7 +235,7 @@ public class ListsScreenTest extends BaseDriver {
 
         // ********* Constructor **********
         BasePage myBase = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         ListsScreen myLists = new ListsScreen(driver);
 
@@ -313,7 +313,7 @@ public class ListsScreenTest extends BaseDriver {
 
         // ********* Constructor **********
         BasePage myBase = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         ListsScreen myLists = new ListsScreen(driver);
 
@@ -392,7 +392,7 @@ public class ListsScreenTest extends BaseDriver {
 
         // ********* Constructor **********
         BasePage myBase = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         ListsScreen myLists = new ListsScreen(driver);
 
@@ -483,7 +483,7 @@ public class ListsScreenTest extends BaseDriver {
 
         // ********* Constructor **********
         BasePage myBase = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         ListsScreen myLists = new ListsScreen(driver);
 
@@ -589,7 +589,7 @@ public class ListsScreenTest extends BaseDriver {
 
         // ********* Constructor **********
         BasePage myBase = new BasePage(driver);
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         ListsScreen myLists = new ListsScreen(driver);
 

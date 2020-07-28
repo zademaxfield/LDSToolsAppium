@@ -17,7 +17,7 @@ public class TemplesScreenTest extends BaseDriver {
     public void templeSimple() throws Exception {
         String pageSource;
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         TemplesScreen myTemple = new TemplesScreen(driver);
@@ -54,7 +54,7 @@ public class TemplesScreenTest extends BaseDriver {
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
@@ -92,7 +92,7 @@ public class TemplesScreenTest extends BaseDriver {
     public void templeRecommendReminder5Days() throws Exception {
         String pageSource;
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
@@ -129,7 +129,7 @@ public class TemplesScreenTest extends BaseDriver {
     public void templeRecommendReminderRemindLater() throws Exception {
         String pageSource;
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
@@ -167,7 +167,7 @@ public class TemplesScreenTest extends BaseDriver {
     public void templeRecommendReminderGoItThanks() throws Exception {
         String pageSource;
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
@@ -206,7 +206,7 @@ public class TemplesScreenTest extends BaseDriver {
     public void templeNearestTemples() throws Exception {
         String pageSource;
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         TemplesScreen myTemple = new TemplesScreen(driver);
@@ -244,7 +244,7 @@ public class TemplesScreenTest extends BaseDriver {
     public void templeAllTemples() throws Exception {
         String pageSource;
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         TemplesScreen myTemple = new TemplesScreen(driver);
@@ -277,7 +277,7 @@ public class TemplesScreenTest extends BaseDriver {
     public void templeSearch() throws Exception {
         String pageSource;
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         TemplesScreen myTemple = new TemplesScreen(driver);
@@ -312,7 +312,7 @@ public class TemplesScreenTest extends BaseDriver {
     public void templeSearchNewYork() throws Exception {
         String pageSource;
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         TemplesScreen myTemple = new TemplesScreen(driver);
@@ -350,7 +350,7 @@ public class TemplesScreenTest extends BaseDriver {
         String pageSource;
 
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         TemplesScreen myTemple = new TemplesScreen(driver);

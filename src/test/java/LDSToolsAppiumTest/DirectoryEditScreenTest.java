@@ -22,7 +22,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         String pageSource;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
         BasePage myBasePage = new BasePage(driver);
@@ -124,7 +124,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         String pageSource;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
         BasePage myBasePage = new BasePage(driver);
@@ -171,7 +171,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         String pageSource;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
@@ -273,7 +273,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     public void editPhoneInvalid() throws Exception {
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
 
@@ -340,7 +340,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     public void editEmailInvalid() throws Exception {
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
 
@@ -408,7 +408,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     public void editVisibility() throws Exception {
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
         BasePage myBase = new BasePage(driver);
@@ -541,7 +541,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
     private void visibilityTestSub(String visibilityType, String visibilityItem) throws Exception {
         String pageSource;
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
         BasePage myBase = new BasePage(driver);

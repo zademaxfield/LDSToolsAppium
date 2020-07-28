@@ -16,7 +16,7 @@ public class WhatsNewScreenTest extends BaseDriver {
     @Test (groups = {"all1", "all", "smoke", "smoke1", "jft"})
     public void whatsNewSimple() throws Exception {
         String pageSource;
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);

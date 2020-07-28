@@ -20,21 +20,23 @@ import java.io.File;
 import java.util.*;
 
 
-public class HelperMethods extends BasePage {
+public class HelperMethods extends BaseDriver {
 
-    public HelperMethods(AppiumDriver<MobileElement> driver) {
-        super(driver);
 
-    }
+
+//    public HelperMethods(AppiumDriver<MobileElement> driver) {
+//
+//    }
 
 
     public void loginUAT(String userName, String password) throws Exception {
         //Enable Developer Settings and set the Network Environment to UAT
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
         String myTemp = "";
 
-        if (checkForElement(allowButton)) {
-            allowButton.click();
+        if (myBasePage.checkForElement(myBasePage.allowButton)) {
+            myBasePage.allowButton.click();
         }
 
         setupUAT(myTemp);
@@ -50,25 +52,25 @@ public class HelperMethods extends BasePage {
         long startTime = System.nanoTime();
 
         System.out.println("Check for Sign In");
-        waitUnitlTextIsGone("Sign In");
+        myBasePage.waitUnitlTextIsGone("Sign In");
         System.out.println("Check for Sign In over ------ Check for Sync");
 
         Thread.sleep(2000);
 
-        if (getOS().equals("ios")) {
+        if (myBasePage.getOS().equals("ios")) {
             System.out.println("Wait for text to appear: UAT");
-            waitForText("UAT");
+            myBasePage.waitForText("UAT");
             System.out.println("Text found: UAT");
-            waitUnitlTextIsGone("UAT");
+            myBasePage.waitUnitlTextIsGone("UAT");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("UAT");
+            myBasePage.waitUnitlTextIsGone("UAT");
         } else {
-            waitUnitlTextIsGone("Authenticating");
-            waitForText("Updating");
+            myBasePage.waitUnitlTextIsGone("Authenticating");
+            myBasePage.waitForText("Updating");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Updating");
+            myBasePage.waitUnitlTextIsGone("Updating");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Updating");
+            myBasePage.waitUnitlTextIsGone("Updating");
         }
 
         long endTime = System.nanoTime();
@@ -133,8 +135,8 @@ public class HelperMethods extends BasePage {
         String pageSource;
 
 
-        if (checkForElement(allowButton)) {
-            allowButton.click();
+        if (myBasePage.checkForElement(myBasePage.allowButton)) {
+            myBasePage.allowButton.click();
         }
 
         byte[] decodeBytes = Base64.decodeBase64("UDFrQFNwMTc=");
@@ -147,7 +149,7 @@ public class HelperMethods extends BasePage {
             myBaseDriver.adbProxyStart(deviceName, proxyUserName);
             Thread.sleep(2000);
         }
-        if (checkForElement(myLoginPage.cancelPass)){
+        if (myBasePage.checkForElement(myLoginPage.cancelPass)){
             myLoginPage.cancelPass.click();
         }
 
@@ -163,34 +165,34 @@ public class HelperMethods extends BasePage {
         long startTime = System.nanoTime();
 
         System.out.println("Check for Sign In");
-        waitUnitlTextIsGone("Sign In");
+        myBasePage.waitUnitlTextIsGone("Sign In");
         System.out.println("Check for Sign In over ------ Check for Sync");
 
         Thread.sleep(2000);
 
-        if (getOS().equals("ios")) {
+        if (myBasePage.getOS().equals("ios")) {
             //Check for Failed to download
-            pageSource = getSourceOfPage();
+            pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(pageSource.contains("Failed to download."));
 
             System.out.println("Wait for text to appear: Update");
 
-            waitForText("Update");
+            myBasePage.waitForText("Update");
             System.out.println("Text found: Update");
 //            waitUnitlTextIsGone("Update");
 //            Thread.sleep(1000);
 //            waitUnitlTextIsGone("Update");
 //            System.out.println(getSourceOfPage());
             Thread.sleep(2000);
-            waitForText("Passcode");
+            myBasePage.waitForText("Passcode");
             System.out.println("Text found: Passcode");
         } else {
-            waitUnitlTextIsGone("Authenticating");
-            waitForText("Updating");
+            myBasePage.waitUnitlTextIsGone("Authenticating");
+            myBasePage. waitForText("Updating");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Updating");
+            myBasePage.waitUnitlTextIsGone("Updating");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Updating");
+            myBasePage.waitUnitlTextIsGone("Updating");
         }
 
         long endTime = System.nanoTime();
@@ -210,9 +212,10 @@ public class HelperMethods extends BasePage {
 
     public void loginProduction(String userName, String password) throws Exception {
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
 
-        if (checkForElement(allowButton)) {
-            allowButton.click();
+        if (myBasePage.checkForElement(myBasePage.allowButton)) {
+            myBasePage.allowButton.click();
         }
 
         myLoginPage.loginName.clear();
@@ -226,22 +229,22 @@ public class HelperMethods extends BasePage {
         long startTime = System.nanoTime();
 
         System.out.println("Check for Sign In");
-        waitUnitlTextIsGone("Sign In");
+        myBasePage.waitUnitlTextIsGone("Sign In");
         System.out.println("Check for Sign In over ------ Check for Sync");
 
         Thread.sleep(2000);
 
-        if (getOS().equals("ios")) {
+        if (myBasePage.getOS().equals("ios")) {
 //            Thread.sleep(5000);
-            waitUnitlTextIsGone("Stop Sync");
+            myBasePage.waitUnitlTextIsGone("Stop Sync");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Stop Sync");
+            myBasePage.waitUnitlTextIsGone("Stop Sync");
         } else {
-            waitUnitlTextIsGone("Authenticating");
+            myBasePage.waitUnitlTextIsGone("Authenticating");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Sync");
+            myBasePage.waitUnitlTextIsGone("Sync");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Sync");
+            myBasePage.waitUnitlTextIsGone("Sync");
         }
 
         long endTime = System.nanoTime();
@@ -254,20 +257,21 @@ public class HelperMethods extends BasePage {
     }
 
     public void syncTools() throws Exception {
+        BasePage myBasePage = new BasePage(driver);
         SyncScreen mySync = new SyncScreen(driver);
 
-        if (getOS().equals("ios")) {
+        if (myBasePage.getOS().equals("ios")) {
             mySync.syncNowButton.click();
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Sync");
+            myBasePage.waitUnitlTextIsGone("Sync");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Sync");
+            myBasePage.waitUnitlTextIsGone("Sync");
         } else {
             mySync.syncOKButton.click();
             Thread.sleep(2000);
-            waitUnitlTextIsGone("Stop Sync");
+            myBasePage.waitUnitlTextIsGone("Stop Sync");
             Thread.sleep(1000);
-            waitUnitlTextIsGone("Stop Sync");
+            myBasePage.waitUnitlTextIsGone("Stop Sync");
         }
 
     }
@@ -276,13 +280,14 @@ public class HelperMethods extends BasePage {
 
 
     public void loginProxy(String myId, String myUnit, String myPosition) throws Exception {
+        BasePage myBasePage = new BasePage(driver);
         //Enable Developer Settings and set the Network Environment to Proxy
         String userName = "paigekrebs";
         String password = "sweets2005";
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
 
-        if (checkForElement(allowButton)) {
-            allowButton.click();
+        if (myBasePage.checkForElement(myBasePage.allowButton)) {
+            myBasePage.allowButton.click();
         }
         setupProxy(myId, myUnit, myPosition);
 
@@ -297,10 +302,10 @@ public class HelperMethods extends BasePage {
         long startTime = System.nanoTime();
 
 
-        if (getOS().equals("ios")) {
-            waitUnitlTextIsGone("Stop Sync");
+        if (myBasePage.getOS().equals("ios")) {
+            myBasePage.waitUnitlTextIsGone("Stop Sync");
         } else {
-            waitUnitlTextIsGone("Sync Progress");
+            myBasePage.waitUnitlTextIsGone("Sync Progress");
         }
 
         long endTime = System.nanoTime();
@@ -313,7 +318,7 @@ public class HelperMethods extends BasePage {
     }
 
     public void setupUAT(String proxyUserName) throws Exception {
-
+        BasePage myBasePage = new BasePage(driver);
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
         ScannerScreen myScanner = new ScannerScreen(driver);
@@ -326,7 +331,7 @@ public class HelperMethods extends BasePage {
 //        SessionId toolsSessionId;
 
 
-        if (getOS().equals("ios")) {
+        if (myBasePage.getOS().equals("ios")) {
             myLoginPage.overflowMenu.click();
 
             if (myScanner.scannerCheckForText("Developer Settings") ) {
@@ -344,8 +349,8 @@ public class HelperMethods extends BasePage {
             mySettings.proxyUsername.click();
             mySettings.proxyEditField.setValue(proxyUserName);
             mySettings.proxyDone.click();
-            waitForElementThenClick(backButton);
-            waitForElementThenClick(backButton);
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
 
 
         } else {
@@ -406,8 +411,8 @@ public class HelperMethods extends BasePage {
         SettingsScreen mySettings = new SettingsScreen(driver);
         ScannerScreen myScanner = new ScannerScreen(driver);
 
-
-        if (getOS().equals("ios")) {
+        BasePage myBasePage = new BasePage(driver);
+        if (myBasePage.getOS().equals("ios")) {
             myLoginPage.overflowMenu.click();
 
             if (myScanner.scannerCheckForText("Developer Settings") ) {
@@ -421,14 +426,14 @@ public class HelperMethods extends BasePage {
             mySettings.networkEnvironment.click();
             mySettings.proxy.click();
             Thread.sleep(1000);
-            backButton.click();
+            myBasePage.backButton.click();
 
-            scrollDownIOS();
+            myBasePage.scrollDownIOS();
             mySettings.proxyId.click();
             mySettings.proxyEditField.setValue(myId);
             mySettings.proxyDone.click();
 
-            scrollDownIOS();
+            myBasePage.scrollDownIOS();
 
             mySettings.proxyUnits.click();
             mySettings.proxyEditField.setValue(myUnit);
@@ -439,56 +444,56 @@ public class HelperMethods extends BasePage {
             mySettings.proxyDone.click();
             Thread.sleep(1000);
 
-            backButton.click();
+            myBasePage.backButton.click();
             Thread.sleep(1000);
-            backButton.click();
+            myBasePage.backButton.click();
 
         } else {
             myLoginPage.overflowMenu.click();
             myLoginPage.overflowSettings.click();
-            scrollToTextRecyclerView("About");
+            myBasePage.scrollToTextRecyclerView("About");
             mySettings.about.click();
             for (int x = 1 ; x <= 7 ; x++ ) {
                 mySettings.aboutLogo.click();
             }
-            backButton.click();
-            scrollToTextRecyclerView("Network Environment");
+            myBasePage.backButton.click();
+            myBasePage.scrollToTextRecyclerView("Network Environment");
             //mySettings.resetWhatsNewPrompt.click();
 
             mySettings.networkEnvironment.click();
             mySettings.proxy.click();
 
-            scrollToTextRecyclerView("px_i");
+            myBasePage.scrollToTextRecyclerView("px_i");
             //scrollToText("px_u");
 
             mySettings.proxyId.click();
             mySettings.proxyEditField.setValue(myId);
             mySettings.proxyDone.click();
 
-            scrollToTextRecyclerView("px_u");
+            myBasePage.scrollToTextRecyclerView("px_u");
 
             mySettings.proxyUnits.click();
             mySettings.proxyEditField.setValue(myUnit);
             mySettings.proxyDone.click();
 
-            scrollToTextRecyclerView("px_p");
+            myBasePage.scrollToTextRecyclerView("px_p");
 
             mySettings.proxyPositions.click();
             mySettings.proxyEditField.setValue(myPosition);
             mySettings.proxyDone.click();
 
-            backButton.click();
+            myBasePage.backButton.click();
         }
 
     }
 
     public void enterPin(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
+        BasePage myBasePage = new BasePage(driver);
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);
 //        PinScreen myPin = new PinScreen(driver);
         MenuScreen myMenuScreen = new MenuScreen(driver);
         BaseDriver myBaseDriver = new BaseDriver();
-        BasePage myBasePage = new BasePage(driver);
 
         String deviceName;
 
@@ -508,7 +513,7 @@ public class HelperMethods extends BasePage {
 
 
 
-        if (getOS().equalsIgnoreCase("ios")) {
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             Thread.sleep(2000);
 
             pressPinKeys(firstNumber);
@@ -541,7 +546,7 @@ public class HelperMethods extends BasePage {
 
         //Sometimes there is a warning before the Whats new screen
         System.out.println("Check for Alerts AFTER PIN");
-        if (!getOS().equalsIgnoreCase("ios")) {
+        if (!myBasePage.getOS().equalsIgnoreCase("ios")) {
             //Android needs this.
             checkForAlertsAfterPin();
             Thread.sleep(2000);
@@ -561,7 +566,7 @@ public class HelperMethods extends BasePage {
 
 
         // Click on Later then Directory
-        if (!getOS().equals("ios")) {
+        if (!myBasePage.getOS().equals("ios")) {
             Thread.sleep(2000);
             checkForLater();
             Thread.sleep(2000);
@@ -610,12 +615,13 @@ public class HelperMethods extends BasePage {
         //HelperMethods myHelper = new HelperMethods(driver);
         PinScreen myPin = new PinScreen(driver);
         MenuScreen myMenuScreen = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
 
         Thread.sleep(4000);
 //        checkForAlertsBeforePin();
 
         //Android needs this.
-        if (!getOS().equals("ios")) {
+        if (!myBasePage.getOS().equals("ios")) {
             checkForAlertsAfterPin();
         }
 
@@ -643,7 +649,7 @@ public class HelperMethods extends BasePage {
 
 
         // Click on Later then Directory
-        if (!getOS().equals("ios")) {
+        if (!myBasePage.getOS().equals("ios")) {
             Thread.sleep(2000);
             checkForLater();
             Thread.sleep(2000);
@@ -659,6 +665,7 @@ public class HelperMethods extends BasePage {
 //        PinScreen myPin = new PinScreen(driver);
         BaseDriver myBaseDriver = new BaseDriver();
         MenuScreen myMenuScreen = new MenuScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
 
         String deviceName;
 
@@ -673,7 +680,7 @@ public class HelperMethods extends BasePage {
         checkForAlertsAfterPin();
 
 
-        if (getOS().equalsIgnoreCase("ios")) {
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             Thread.sleep(2000);
 
             pressPinKeys(firstNumber);
@@ -701,7 +708,8 @@ public class HelperMethods extends BasePage {
 
     public void checkForLater() {
         MenuScreen myMenuScreen = new MenuScreen(driver);
-        if (checkForElement(myMenuScreen.laterButton)) {
+        BasePage myBasePage = new BasePage(driver);
+        if (myBasePage.checkForElement(myMenuScreen.laterButton)) {
             myMenuScreen.laterButton.click();
         }
     }
@@ -720,10 +728,10 @@ public class HelperMethods extends BasePage {
     public void whatsNewPressDone() {
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
-
+        BasePage myBasePage = new BasePage(driver);
         myWhatsNew.whatsNewDone.click();
 
-        if(getOS().equals("android")) {
+        if(myBasePage.getOS().equals("android")) {
             myMenu.laterButton.click();
         }
         myMenu.directory.click();
@@ -777,7 +785,7 @@ public class HelperMethods extends BasePage {
         SyncScreen mySyncScreen = new SyncScreen(driver);
 
 
-        if (getOS().equals("ios")) {
+        if (myBasePage.getOS().equals("ios")) {
             myMenu.moreButton.click();
 
             //Check to see if the sync page is displayed
@@ -939,13 +947,13 @@ public class HelperMethods extends BasePage {
 
     public void checkForAlertsBeforePin() throws Exception {
         PinScreen myPin = new PinScreen(driver);
-        BasePage myBase = new BasePage(driver);
+        BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
 
         Boolean myCheck = false;
         String pageSource;
 
-        pageSource = myBase.getSourceOfPage();
+        pageSource = myBasePage.getSourceOfPage();
 
         Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable."));
 
@@ -954,14 +962,14 @@ public class HelperMethods extends BasePage {
 //        System.out.println(pageSource);
         if (myCheck) {
             myPin.pinAlertDialogOK.click();
-            pageSource = myBase.getSourceOfPage();
+            pageSource = myBasePage.getSourceOfPage();
         }
 
 //        myCheck = myBase.checkElementExists("Yes");
         myCheck = pageSource.contains("Yes");
         if (myCheck) {
             myPin.pinAlertDialogYes.click();
-            pageSource = myBase.getSourceOfPage();
+            pageSource = myBasePage.getSourceOfPage();
         }
 
         System.out.println("Checking for Face ID");
@@ -972,13 +980,13 @@ public class HelperMethods extends BasePage {
             myPin.pinDisableFaceID.click();
             Thread.sleep(2000);
             myPin.pinAlertDialogOK.click();
-            pageSource = myBase.getSourceOfPage();
+            pageSource = myBasePage.getSourceOfPage();
         }
 
         System.out.println("Checking for Touch ID");
 //        myCheck = myBase.checkElementExists("Disable Touch ID");
         myCheck = pageSource.contains("Disable Touch ID");
-        if (checkForElement(myWhatsNew.usePassword)) //Samsung phones need this
+        if (myBasePage.checkForElement(myWhatsNew.usePassword)) //Samsung phones need this
             myWhatsNew.usePassword.click();
 
         if (myCheck) {
@@ -994,30 +1002,30 @@ public class HelperMethods extends BasePage {
 
     public void checkForAlertsAfterPin() throws Exception {
         PinScreen myPin = new PinScreen(driver);
-        BasePage myBase = new BasePage(driver);
+        BasePage myBasePage = new BasePage(driver);
 
         String pageSource;
         Boolean myCheck = false;
 
-        pageSource = myBase.getSourceOfPage();
+        pageSource = myBasePage.getSourceOfPage();
 
         myCheck = pageSource.contains("OK");
         if (myCheck) {
             myPin.pinAlertDialogOK.click();
-            pageSource = myBase.getSourceOfPage();
+            pageSource = myBasePage.getSourceOfPage();
         }
 
         myCheck = pageSource.contains("Yes");
         if (myCheck) {
             myPin.pinAlertDialogYes.click();
-            pageSource = myBase.getSourceOfPage();
+            pageSource = myBasePage.getSourceOfPage();
         }
 
-        if (!getOS().equalsIgnoreCase("ios")) {
+        if (!myBasePage.getOS().equalsIgnoreCase("ios")) {
             myCheck = pageSource.contains("Allow");
             if (myCheck) {
                 myPin.pinAlertDialogAllow.click();
-                pageSource = myBase.getSourceOfPage();
+                pageSource = myBasePage.getSourceOfPage();
             }
 
             myCheck = pageSource.contains("Allow");
@@ -1034,10 +1042,11 @@ public class HelperMethods extends BasePage {
     public void uatInvalidLogin(String userName, String password) throws Exception {
         //Enable Developer Settings and set the Network Environment to UAT
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
         String myTemp = "kroqbandit";
 
-        if (checkForElement(allowButton)) {
-            allowButton.click();
+        if (myBasePage.checkForElement(myBasePage.allowButton)) {
+            myBasePage.allowButton.click();
         }
 
         setupUAT(myTemp);

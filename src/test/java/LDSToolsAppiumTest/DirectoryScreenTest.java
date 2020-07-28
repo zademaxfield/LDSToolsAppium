@@ -130,7 +130,7 @@ public class DirectoryScreenTest extends BaseDriver {
         String pageSource;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
@@ -230,7 +230,7 @@ public class DirectoryScreenTest extends BaseDriver {
         String pageSource;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
@@ -333,7 +333,7 @@ public class DirectoryScreenTest extends BaseDriver {
     public void directoryMemberInfoHousehold() throws Exception {
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
@@ -358,7 +358,7 @@ public class DirectoryScreenTest extends BaseDriver {
     @Test(groups = {"all3", "all"})
     public void directoryMemberInfoIndividual() throws Exception {
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
 
         //Login and enter in PIN
@@ -604,7 +604,7 @@ public class DirectoryScreenTest extends BaseDriver {
     @Test(groups = {"all2", "all"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
@@ -626,7 +626,7 @@ public class DirectoryScreenTest extends BaseDriver {
         String pageSource;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
@@ -651,7 +651,7 @@ public class DirectoryScreenTest extends BaseDriver {
         String pageSource;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
@@ -683,7 +683,7 @@ public class DirectoryScreenTest extends BaseDriver {
     public void directoryLatLongCheckLocation() throws Exception {
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
@@ -717,7 +717,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         DirectoryScreen myDirectory = new DirectoryScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
@@ -836,101 +836,101 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"NotUsed"})
-    public void directoryLoginSpeedCheck() throws Exception {
-        long startTime;
-        long endTime;
-        long duration;
-
-        // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
-        DirectoryScreen myDirectory = new DirectoryScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        BaseDriver myBaseDriver = new BaseDriver();
-        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
-
-//        byte[] encodeBytes = Base64.encodeBase64("toolstester".getBytes());
-//        System.out.println("Encoded Bytes: " + new String(encodeBytes));
-
-
-
-        byte[] decodeBytes = Base64.decodeBase64("UDFrQFNwMTc=");
-//        System.out.println("Decoded Bytes: " + new String(decodeBytes));
-
-
-
-        //Copy file to device
-        if (getRunningOS().equalsIgnoreCase("ios")) {
-//            ((IOSDriver)driver).pushFile("Image-1.jpg", new File("/Users/zmaxfield/Image-1.jpg"));
-//            driver.context("WEBVIEW");
-            if (myBasePage.checkForElement(myHelper.allowButton)) {
-                myHelper.allowButton.click();
-            }
-
-//            driver.get("http://10.109.45.163:8000");
-            driver.get("https://www.google.com");
-            Thread.sleep(2000);
-            driver.get("membertools://user/digbads");
-            Thread.sleep(5000);
-//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='DeepLinkTest.html']")).click();
+//    @Test(groups = {"NotUsed"})
+//    public void directoryLoginSpeedCheck() throws Exception {
+//        long startTime;
+//        long endTime;
+//        long duration;
+//
+//        // ********* Constructor **********
+//        HelperMethods myHelper = new HelperMethods();
+//        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+//        MenuScreen myMenu = new MenuScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        BaseDriver myBaseDriver = new BaseDriver();
+//        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+//
+////        byte[] encodeBytes = Base64.encodeBase64("toolstester".getBytes());
+////        System.out.println("Encoded Bytes: " + new String(encodeBytes));
+//
+//
+//
+//        byte[] decodeBytes = Base64.decodeBase64("UDFrQFNwMTc=");
+////        System.out.println("Decoded Bytes: " + new String(decodeBytes));
+//
+//
+//
+//        //Copy file to device
+//        if (getRunningOS().equalsIgnoreCase("ios")) {
+////            ((IOSDriver)driver).pushFile("Image-1.jpg", new File("/Users/zmaxfield/Image-1.jpg"));
+////            driver.context("WEBVIEW");
+//            if (myBasePage.checkForElement(myHelper.allowButton)) {
+//                myHelper.allowButton.click();
+//            }
+//
+////            driver.get("http://10.109.45.163:8000");
+//            driver.get("https://www.google.com");
 //            Thread.sleep(2000);
-//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Deep Link Test']")).click();
+//            driver.get("membertools://user/digbads");
 //            Thread.sleep(5000);
+////            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='DeepLinkTest.html']")).click();
+////            Thread.sleep(2000);
+////            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Deep Link Test']")).click();
+////            Thread.sleep(5000);
+////
+////            Thread.sleep(5000);
 //
-//            Thread.sleep(5000);
-
-//            myLoginPage.loginName.clear();
-//            myLoginPage.passWord.clear();
+////            myLoginPage.loginName.clear();
+////            myLoginPage.passWord.clear();
+////
+////            myLoginPage.loginName.sendKeys("zmaxfield");
+////            myLoginPage.passWord.sendKeys(new String(decodeBytes));
+////            myLoginPage.signInButton.click();
+////            Thread.sleep(20000);
+////            System.out.println(driver.getPageSource());
+////            driver.context("NATIVE_APP");
+//        } else {
 //
-//            myLoginPage.loginName.sendKeys("zmaxfield");
-//            myLoginPage.passWord.sendKeys(new String(decodeBytes));
-//            myLoginPage.signInButton.click();
-//            Thread.sleep(20000);
-//            System.out.println(driver.getPageSource());
-//            driver.context("NATIVE_APP");
-        } else {
-
-//            myLoginPage.troubleSigningIn.click();
-//            Thread.sleep(5000);
+////            myLoginPage.troubleSigningIn.click();
+////            Thread.sleep(5000);
+////
+////            driver.findElement(By.id("com.android.chrome:id/url_bar")).click();
+////            driver.findElement(By.id("com.android.chrome:id/url_bar")).setValue("http://10.0.0.110:8000");
+////
+////            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+////            Thread.sleep(5000);
+////            System.out.println(driver.getPageSource());
+////            driver.findElement(By.xpath("//*[@text='DeepLinkTest.html']")).click();
+////            Thread.sleep(2000);
+////            driver.findElement(By.xpath("//*[@text='Deep Link Test']")).click();
+////            Thread.sleep(5000);
+////            driver.findElement(By.xpath("//*[@text='Open']")).click();
+////            Thread.sleep(5000);
 //
-//            driver.findElement(By.id("com.android.chrome:id/url_bar")).click();
-//            driver.findElement(By.id("com.android.chrome:id/url_bar")).setValue("http://10.0.0.110:8000");
+//           myBaseDriver.adbProxyStart(myBaseDriver.deviceSerial, "digbads");
 //
-//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.ENTER));
-//            Thread.sleep(5000);
-//            System.out.println(driver.getPageSource());
-//            driver.findElement(By.xpath("//*[@text='DeepLinkTest.html']")).click();
-//            Thread.sleep(2000);
-//            driver.findElement(By.xpath("//*[@text='Deep Link Test']")).click();
-//            Thread.sleep(5000);
-//            driver.findElement(By.xpath("//*[@text='Open']")).click();
-//            Thread.sleep(5000);
-
-           myBaseDriver.adbProxyStart(myBaseDriver.deviceSerial, "digbads");
-
-        }
-
-
-        myLoginPage.loginName.clear();
-        myLoginPage.passWord.clear();
-
-        myLoginPage.loginName.sendKeys("zmaxfield");
-        myLoginPage.passWord.sendKeys(new String(decodeBytes));
-        myLoginPage.signInButton.click();
-        Thread.sleep(30000);
-
-
-
-        Assert.assertTrue(myDirectory.checkFirstDirectoryUser());
-        myMenu.selectMenu(myMenu.settings);
-        Thread.sleep(2000);
-        myMenu.selectMenu(myMenu.directory);
-        Thread.sleep(2000);
-        Assert.assertTrue(myBasePage.checkForElement(myMenu.reports));
-
-
-    }
+//        }
+//
+//
+//        myLoginPage.loginName.clear();
+//        myLoginPage.passWord.clear();
+//
+//        myLoginPage.loginName.sendKeys("zmaxfield");
+//        myLoginPage.passWord.sendKeys(new String(decodeBytes));
+//        myLoginPage.signInButton.click();
+//        Thread.sleep(30000);
+//
+//
+//
+//        Assert.assertTrue(myDirectory.checkFirstDirectoryUser());
+//        myMenu.selectMenu(myMenu.settings);
+//        Thread.sleep(2000);
+//        myMenu.selectMenu(myMenu.directory);
+//        Thread.sleep(2000);
+//        Assert.assertTrue(myBasePage.checkForElement(myMenu.reports));
+//
+//
+//    }
 
 
     @Test(groups = {"goat"})
@@ -947,7 +947,7 @@ public class DirectoryScreenTest extends BaseDriver {
     @Test(dataProvider = "Members", groups = {"notUsed"})
     public void directoryScrollTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
 
         //Login and enter in PIN
@@ -966,7 +966,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     public void directoryScreenSub(String callingForMember) throws Exception {
         String[] callingRights;
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         callingRights = myHelper.getMemberNameFromList(callingForMember);
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
@@ -979,7 +979,7 @@ public class DirectoryScreenTest extends BaseDriver {
 //    public void directoryScreenTest(String userName, String passWord, String rightsString, String callingGroup) throws Exception {
 //        int rights = Integer.parseInt(rightsString);
 //        // ********* Constructor **********
-//        HelperMethods myHelper = new HelperMethods(driver);
+//        HelperMethods myHelper = new HelperMethods();
 //        //Login and enter in PIN
 //        myHelper.proxyLogin(userName);
 //        myHelper.enterPin("1", "1", "3", "3");
@@ -989,7 +989,7 @@ public class DirectoryScreenTest extends BaseDriver {
 //    @Test(groups = {"jft"})
 //    public void directoryScreenTest_JFT() throws Exception {
 //        String[] callingRights;
-//        HelperMethods myHelper = new HelperMethods(driver);
+//        HelperMethods myHelper = new HelperMethods();
 //        callingRights = myHelper.getMemberNameFromList("MEMBER1");
 //        myHelper.proxyLogin(callingRights[1]);
 //        myHelper.enterPin("1", "1", "3", "3");
@@ -999,7 +999,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 //    @Test(groups = {"smoke2", "smoke", "all2", "all"})
 //    public void directoryScreenTest_BISHOP() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
+//        HelperMethods myHelper = new HelperMethods();
 //        myHelper.proxyLogin("kroqbandit");
 //        myHelper.enterPin("1", "1", "3", "3");
 //        directoryJanDickson(1);

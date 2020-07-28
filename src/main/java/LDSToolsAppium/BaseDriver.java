@@ -5,6 +5,8 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 
+import io.cucumber.testng.*;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.OutputType;
@@ -23,20 +25,20 @@ import java.net.SocketException;
 import java.net.URL;
 import java.util.*;
 
-import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 
+@CucumberOptions()
 public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
-    public AppiumDriver<MobileElement> driver;
-    public AppiumDriver<MobileElement> driver2;
+    public static AppiumDriver<MobileElement> driver;
+    public static AppiumDriver<MobileElement> driver2;
     public String deviceSerial = "";
     public String testOS = "";
     public String testngTestDevice = "";
     public int testngStartSleepTime = 200;
 
-    //public AppiumService myAppiumService;
     public AppiumService myAppiumService = new AppiumService();
 
+    public TestNGCucumberRunner testNGCucumberRunner;
     
     protected LDSToolsApp app;
     protected MobileDevApp app2;
@@ -50,8 +52,11 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 
     public ThreadLocal<String> dataTestName = new ThreadLocal<>();
 
+
+
     @BeforeSuite(alwaysRun = true)
     public void removeFilesBeforeTest() {
+        testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 //        File reportsDirectory = new File ("/Users/zmaxfield/Documents/workspace/qa-membertools-all/src/test/java/Reports");
 //        File screenshotDirectory = new File ("/Users/zmaxfield/Documents/workspace/qa-membertools-all/screenshot");
 
@@ -71,6 +76,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
     @BeforeClass(alwaysRun = true)
     @Parameters({"os", "fileName", "testDevice", "startSleepTime"})
     public void setUp(String os, String fileName, String testDevice, int startSleepTime) throws Exception {
+        testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
         int myPort;
         testOS = os;
         testngTestDevice = testDevice;
@@ -109,18 +115,18 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
         
     }
 
-    @BeforeMethod(alwaysRun = true)
-    public void BeforeMethodTestName (Method method, Object[] testData, ITestContext ctx) {
-        if (testData.length > 0) {
-            dataTestName.set(method.getName() + "_" + testData[3]);
-            ctx.setAttribute("testName", dataTestName.get());
-//            ctx.setAttribute("name", dataTestName.get());
-//            System.out.println(Arrays.toString(ctx.getAttributeNames().toArray()));
-        } else {
-            ctx.setAttribute("testName", method.getName());
-        }
-
-    }
+//    @BeforeMethod(alwaysRun = true)
+//    public void BeforeMethodTestName (Method method, Object[] testData, ITestContext ctx) {
+//        if (testData.length > 0) {
+//            dataTestName.set(method.getName() + "_" + testData[3]);
+//            ctx.setAttribute("testName", dataTestName.get());
+////            ctx.setAttribute("name", dataTestName.get());
+////            System.out.println(Arrays.toString(ctx.getAttributeNames().toArray()));
+//        } else {
+//            ctx.setAttribute("testName", method.getName());
+//        }
+//
+//    }
 
     @Override
     public String getTestName() {

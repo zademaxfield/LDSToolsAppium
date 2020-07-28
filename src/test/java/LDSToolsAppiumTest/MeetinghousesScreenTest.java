@@ -4,13 +4,14 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.MeetinghousesScreen;
 import LDSToolsAppium.Screen.MenuScreen;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
 
 public class MeetinghousesScreenTest extends BaseDriver {
-
 
 
     //TODO: iOS has problems with this test
@@ -21,7 +22,7 @@ public class MeetinghousesScreenTest extends BaseDriver {
         String pageSource;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         MeetinghousesScreen myMeetinghouses = new MeetinghousesScreen(driver);
         BasePage myBasePage = new BasePage(driver);
@@ -165,7 +166,7 @@ public class MeetinghousesScreenTest extends BaseDriver {
         String pageSource;
 
         // ********* Constructor **********
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         MeetinghousesScreen myMeetinghouses = new MeetinghousesScreen(driver);
         BasePage myBasePage = new BasePage(driver);

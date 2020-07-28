@@ -20,7 +20,7 @@ public class ReportsScreenTest extends BaseDriver {
         int rights = Integer.parseInt(rightsString);
 
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
@@ -101,7 +101,7 @@ public class ReportsScreenTest extends BaseDriver {
         String pageSource;
 
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
@@ -133,7 +133,7 @@ public class ReportsScreenTest extends BaseDriver {
     @Test (groups = {"all4", "all", "report", "jft"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
@@ -245,7 +245,7 @@ public class ReportsScreenTest extends BaseDriver {
         String pageSource;
 
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
@@ -382,7 +382,7 @@ public class ReportsScreenTest extends BaseDriver {
         int rights = Integer.parseInt(rightsString);
 
 
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
 

@@ -3,6 +3,7 @@ package LDSToolsAppium;
 
 import io.appium.java_client.*;
 
+
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -40,8 +41,8 @@ public class BasePage {
         this.driver = driver;
         Duration myDuration = Duration.ofSeconds(10);
         PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
-
     }
+
 
 
     //Universal Elements

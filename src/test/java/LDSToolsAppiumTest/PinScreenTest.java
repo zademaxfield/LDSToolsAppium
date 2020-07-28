@@ -16,7 +16,7 @@ public class PinScreenTest extends BaseDriver {
     //TODO: Android bug MMA-3502
     @Test (groups = {"all1", "all"})
     public void pinRepeatTest() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
@@ -39,7 +39,7 @@ public class PinScreenTest extends BaseDriver {
     //TODO: Android bug MMA-3502
     @Test (groups = {"all1", "all"})
     public void pinRepeatTestNonLeader() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
@@ -63,7 +63,7 @@ public class PinScreenTest extends BaseDriver {
 
     @Test (groups = {"all2", "all"})
     public void pinNoMatchTest() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         myHelper.proxyLogin("kroqbandit");
 
@@ -81,7 +81,7 @@ public class PinScreenTest extends BaseDriver {
 
     @Test (groups = {"all2", "all"})
     public void pinNoMatchTestNonLeader() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         myHelper.proxyLogin("dcbryson");
 //        myHelper.loginUAT("LDSTools5", "toolstester");
@@ -103,7 +103,7 @@ public class PinScreenTest extends BaseDriver {
     //TODO: Android bug MMA-3502
     @Test (groups = {"all3", "all"})
     public void pinSequentialTest() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         myHelper.proxyLogin("kroqbandit");
 //        myHelper.loginUAT("LDSTools3", "toolstester");
@@ -126,7 +126,7 @@ public class PinScreenTest extends BaseDriver {
     //TODO: Android bug MMA-3502
     @Test (groups = {"all3", "all", "jft"})
     public void pinSequentialTestNonLeader() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         myHelper.proxyLogin("dcbryson");
 //        myHelper.loginUAT("LDSTools5", "toolstester");
@@ -150,7 +150,7 @@ public class PinScreenTest extends BaseDriver {
     }
 
     private void sequentialTestData() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
@@ -223,7 +223,7 @@ public class PinScreenTest extends BaseDriver {
     }
 
     private void pinNoMatchTestData() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
@@ -264,7 +264,7 @@ public class PinScreenTest extends BaseDriver {
     }
 
     private void pinRepeatTestData() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);

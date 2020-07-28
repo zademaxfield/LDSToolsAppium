@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Android Just For Testing Suite" configfailurepolicy="continue" verbose="2">
-    <listeners>
-<!--        <listener class-name="LDSToolsAppium.TestListener" />-->
-<!--        <listener class-name= "LDSToolsAppium.CustomReporter" />-->
-    </listeners>
     <test name="Android Just For Testing">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
@@ -16,15 +12,13 @@
 
 <!--        <groups>-->
 <!--            <run>-->
-<!--                <include name="jft"/>-->
-<!--&lt;!&ndash;                <include name="smoke"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                <include name="goat"/>&ndash;&gt;-->
+<!--                <include name="@smoke"/>-->
 <!--            </run>-->
 <!--        </groups>-->
-
         <classes>
-            <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+<!--            <class name="LDSToolsAppium.BaseDriver"/>-->
+            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>
+<!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

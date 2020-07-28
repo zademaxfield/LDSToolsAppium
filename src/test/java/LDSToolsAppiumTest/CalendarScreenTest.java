@@ -133,7 +133,7 @@ public class CalendarScreenTest extends BaseDriver {
     @Test (groups = {"all", "all3"})
     public void calenderDisplayType() throws Exception {
         String pageSource;
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
@@ -181,7 +181,7 @@ public class CalendarScreenTest extends BaseDriver {
     @Test (groups = {"all", "all4", })
     public void calenderSubscriptions() throws Exception {
         String pageSource;
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
@@ -291,7 +291,7 @@ public class CalendarScreenTest extends BaseDriver {
 
     public void calendarSimpleSub(String callingForMember) throws Exception {
         String[] callingRights;
-        HelperMethods myHelper = new HelperMethods(driver);
+        HelperMethods myHelper = new HelperMethods();
         callingRights = myHelper.getMemberNameFromList(callingForMember);
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
@@ -300,7 +300,7 @@ public class CalendarScreenTest extends BaseDriver {
 
     //    @Test (groups = {"all4", "all", "smoke", "smoke4"})
 //    public void calendarSimple_BISHOP() throws Exception {
-//        HelperMethods myHelper = new HelperMethods(driver);
+//        HelperMethods myHelper = new HelperMethods();
 //        myHelper.proxyLogin("kroqbandit");
 //        myHelper.enterPin("1", "1", "3", "3");
 //        calendarCheck();

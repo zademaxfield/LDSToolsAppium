@@ -6,6 +6,8 @@ import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.ReportsScreen;
 import LDSToolsAppiumTest.HelperMethods;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,15 +15,17 @@ import org.testng.Assert;
 
 
 public class SacramentAttendance extends BaseDriver {
-    HelperMethods myHelper = new HelperMethods(driver);
     BasePage myBasePage = new BasePage(driver);
+    HelperMethods myHelper = new HelperMethods();
     MenuScreen myMenu = new MenuScreen(driver);
     ReportsScreen myReports = new ReportsScreen(driver);
     String pageSource;
 
 
+
     @Given("a {string} is on the Sacrament Attendance page")
     public void aMemberIsOnTheSacramentAttendancePage(String memberCalling) throws Exception {
+//        System.out.println("Start of the Given!!!");
         myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
         myMenu.selectMenu(myMenu.reports);
@@ -32,6 +36,8 @@ public class SacramentAttendance extends BaseDriver {
     public void isEnteredInThe(String valueToEnter, String fieldToEnter) throws Exception  {
         myReports.sacramentAttendanceFirstWeek.click();
         myReports.sacramentAttendanceDialogEditField.setValue(valueToEnter);
+        System.out.println(myBasePage.getSourceOfPage());
+        myBasePage.waitForElement(myReports.sacramentAttendanceDialogOk);
         myReports.sacramentAttendanceDialogOk.click();
         myBasePage.backButton.click();
         myReports.sacramentAttendanceReport.click();

@@ -13,148 +13,98 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4"})
+
+
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
     public void calendarSimple_BISHOP() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("kroqbandit");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("BISHOP");
     }
+
+
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_BISHOP_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Camerado65");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("BISHOP_FIRST_COUNSELOR");
     }
 
-    @Test (groups = {"all4", "all", "jft"})
+    @Test (groups = {"all4", "all"})
     public void calendarSimple_BISHOP_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("soldiercloudstrife");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("BISHOP_SECOND_COUNSELOR");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_WARD_CLERK() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("luke.ravitch");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("WARD_CLERK");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_WARD_ASSISTANT_CLERK() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("jdahmanson");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("WARD_ASSISTANT_CLERK");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_WARD_EXECUTIVE_SECRETARY() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("iansalas");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("WARD_EXECUTIVE_SECRETARY");
     }
 
     @Test (groups = {"all4", "all"})
-    public void calendarSimple_MEMBER() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("dcbryson");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+    public void calendarSimple_MEMBER1() throws Exception {
+        calendarSimpleSub("MEMBER1");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_ELDERS_QUORUM_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("adambee");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("ELDERS_QUORUM_PRESIDENT");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("gabrielsmith");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Aloeb1013");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_ELDERS_QUORUM_SECRETARY() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("murillodavid");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("ELDERS_QUORUM_SECRETARY");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_RELIEF_SOCIETY_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("bridgemp");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("blairlolohea");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("mykalikat");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_YOUNG_WOMEN_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("rosettelambson");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("YOUNG_WOMEN_PRESIDENT");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_YOUNG_WOMEN_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("mahina_12006");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("YOUNG_WOMEN_SECOND_COUNSELOR");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("RIBITALOT@AOL.COM");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_WARD_MISSION_LEADER() throws Exception {
-        HelperMethods myHelper = new HelperMethods(driver);
-        myHelper.proxyLogin("Christian9");
-        myHelper.enterPin("1", "1", "3", "3");
-        calendarCheck();
+        calendarSimpleSub("WARD_MISSION_LEADER");
     }
 
     public void calendarCheck() throws Exception {
@@ -339,7 +289,22 @@ public class CalendarScreenTest extends BaseDriver {
         Thread.sleep(2000);
     }
 
+    public void calendarSimpleSub(String callingForMember) throws Exception {
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods(driver);
+        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        calendarCheck();
+    }
 
+    //    @Test (groups = {"all4", "all", "smoke", "smoke4"})
+//    public void calendarSimple_BISHOP() throws Exception {
+//        HelperMethods myHelper = new HelperMethods(driver);
+//        myHelper.proxyLogin("kroqbandit");
+//        myHelper.enterPin("1", "1", "3", "3");
+//        calendarCheck();
+//    }
 
 
 }

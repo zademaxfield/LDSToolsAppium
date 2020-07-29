@@ -256,23 +256,23 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
         System.out.println("End teardown");
     }
 
-    @AfterClass(alwaysRun = true)
-    public void afterClass() throws Exception {
-        if (!getRunningOS().equals("ios")) {
-            driver.quit();
-            if (!deviceSerial.equals("")) {
-
-                STFService mySTFService = new STFService(stfURL, accessToken);
-                DeviceApi myDevice = new DeviceApi(mySTFService);
-                System.out.println("After Class - SERIAL NUMBER: " + deviceSerial);
-                myDevice.releaseDevice(deviceSerial);
-                Thread.sleep(3000);
-                adbRemoteDisconnect(testDevice);
-                myDevice.releaseDevice(deviceSerial);
-
-            }
-        }
-    }
+//    @AfterClass(alwaysRun = true)
+//    public void afterClass() throws Exception {
+//        if (!getRunningOS().equals("ios")) {
+//            driver.quit();
+//            if (!deviceSerial.equals("")) {
+//
+//                STFService mySTFService = new STFService(stfURL, accessToken);
+//                DeviceApi myDevice = new DeviceApi(mySTFService);
+//                System.out.println("After Class - SERIAL NUMBER: " + deviceSerial);
+//                myDevice.releaseDevice(deviceSerial);
+//                Thread.sleep(3000);
+//                adbRemoteDisconnect(testDevice);
+//                myDevice.releaseDevice(deviceSerial);
+//
+//            }
+//        }
+//    }
 
 
 

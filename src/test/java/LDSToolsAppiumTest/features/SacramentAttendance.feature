@@ -11,7 +11,7 @@
       When "159" is entered in the "First Date Field"
       Then I should see "159"
 
-    @smoke
+    @jft
     Scenario: As a Ward Clerk enter a number and have it saved
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When "77" is entered in the "First Date Field"

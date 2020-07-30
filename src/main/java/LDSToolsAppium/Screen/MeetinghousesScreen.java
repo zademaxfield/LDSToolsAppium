@@ -8,6 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
@@ -15,10 +16,10 @@ import java.time.Duration;
 
 public class MeetinghousesScreen extends BasePage {
 
-    public MeetinghousesScreen(AppiumDriver<MobileElement> driver) {
+    public MeetinghousesScreen(ThreadLocal<AppiumDriver> driver) {
         super(driver);
         Duration myDuration = Duration.ofSeconds(10);
-        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver.get(), myDuration), this);
     }
 
     // ****************** Before Main Screen Loads ******************
@@ -134,7 +135,7 @@ public class MeetinghousesScreen extends BasePage {
             meetinghousesSearchButton.click();
             System.out.println(getSourceOfPage());
             meetinghousesSearchField.sendKeys(searchText);
-            driver.getKeyboard().pressKey(Keys.ENTER);
+            driver.get().getKeyboard().pressKey(Keys.ENTER);
         }
 
 
@@ -144,9 +145,9 @@ public class MeetinghousesScreen extends BasePage {
 
     public void selectMeetinghouse() throws Exception {
         if (getOS().equals("ios")){
-            driver.findElement(By.xpath("//XCUIElementTypeOther[@name=' '][1]")).click();
+            driver.get().findElement(By.xpath("//XCUIElementTypeOther[@name=' '][1]")).click();
         } else {
-            driver.findElement(By.xpath("//android.view.View[@content-desc='Google Map']/android.view.View[2]")).click();
+            driver.get().findElement(By.xpath("//android.view.View[@content-desc='Google Map']/android.view.View[2]")).click();
         }
     }
 
@@ -155,7 +156,7 @@ public class MeetinghousesScreen extends BasePage {
         if (getOS().equals("ios")) {
             System.out.println(getSourceOfPage());
 //            myElement = driver.findElement(By.name(meetinghouseAddress));
-            myElement = driver.findElement(By.xpath("//*[contains(@name,'" + meetinghouseAddress + "')]"));
+            myElement = (MobileElement) driver.get().findElement(By.xpath("//*[contains(@name,'" + meetinghouseAddress + "')]"));
             myElement.click();
             Thread.sleep(2000);
 //            driver.findElement(By.name("ic action location directions ")).click();
@@ -179,7 +180,7 @@ public class MeetinghousesScreen extends BasePage {
         if (getOS().equals("ios")) {
             Thread.sleep(15000);
             System.out.println(getSourceOfPage());
-            driver.findElement(By.xpath("//XCUIElementTypeTable//XCUIElementTypeStaticText[contains(@name, '" + wardToSelect + "')]" )).click();
+            driver.get().findElement(By.xpath("//XCUIElementTypeTable//XCUIElementTypeStaticText[contains(@name, '" + wardToSelect + "')]" )).click();
 //            driver.findElementByCustom("ai:" + wardToSelect);
 
         } else {

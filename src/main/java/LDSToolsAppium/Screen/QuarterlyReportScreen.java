@@ -8,6 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
@@ -15,10 +16,10 @@ import java.time.Duration;
 
 public class QuarterlyReportScreen extends BasePage {
 
-    public QuarterlyReportScreen(AppiumDriver<MobileElement> driver) {
+    public QuarterlyReportScreen(ThreadLocal<AppiumDriver> driver) {
         super(driver);
         Duration myDuration = Duration.ofSeconds(10);
-        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver.get(), myDuration), this);
     }
 
 

@@ -172,7 +172,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
         //Check to see if locations services has been turned on.
         if (getRunningOS().equals("ios")) {
-            driver.switchTo().alert().accept();
+            driver.get().switchTo().alert().accept();
 
         } else {
             if (myBasePage.checkForElement(myBasePage.alertOK)) {
@@ -249,7 +249,7 @@ public class MissionaryScreenTest extends BaseDriver {
         myBasePage.clickByTextContains("Auto Test Name");
 
         Thread.sleep(2000);
-        pageSource = driver.getPageSource();
+        pageSource = driver.get().getPageSource();
         if (myBasePage.getOS().equals("mac")) {
             myBasePage.scrollDownTEST(400);
         } else {
@@ -257,7 +257,7 @@ public class MissionaryScreenTest extends BaseDriver {
         }
 
         Thread.sleep(2000);
-        pageSource = pageSource + driver.getPageSource();
+        pageSource = pageSource + driver.get().getPageSource();
 
         if (myBasePage.getOS().equals("mac")) {
             myBasePage.scrollDownTEST(400);
@@ -266,7 +266,7 @@ public class MissionaryScreenTest extends BaseDriver {
         }
 
         Thread.sleep(2000);
-        pageSource = pageSource + driver.getPageSource();
+        pageSource = pageSource + driver.get().getPageSource();
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Status", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Assigned to California San Jose Mission", pageSource, "Contains"));
@@ -393,9 +393,9 @@ public class MissionaryScreenTest extends BaseDriver {
         myMissionary.unitSelector.click();
         Thread.sleep(2000);
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            driver.findElement(By.xpath("//*[contains(@name,'" + myUnit + "')]")).click();
+            driver.get().findElement(By.xpath("//*[contains(@name,'" + myUnit + "')]")).click();
         } else {
-            driver.findElement(By.xpath("//*[contains(@text,'" + myUnit + "')]")).click();
+            driver.get().findElement(By.xpath("//*[contains(@text,'" + myUnit + "')]")).click();
         }
 
     }

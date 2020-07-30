@@ -9,6 +9,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
 import java.time.Duration;
 import java.util.*;
@@ -19,10 +20,10 @@ import org.testng.Assert;
 
 public class DirectoryScreen extends BasePage {
 
-    public DirectoryScreen(AppiumDriver<MobileElement> driver) {
+    public DirectoryScreen(ThreadLocal<AppiumDriver> driver) {
         super(driver);
         Duration myDuration = Duration.ofSeconds(10);
-        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver.get(), myDuration), this);
     }
 
 
@@ -268,14 +269,14 @@ public class DirectoryScreen extends BasePage {
     public void clickDirectoryUser(String myUser) throws Exception {
         if (getOS().equals("ios")) {
 //            clickByCords(myUser);
-            driver.findElement(MobileBy.AccessibilityId(myUser)).click();
-            driver.findElement(MobileBy.AccessibilityId(myUser)).click();
+            driver.get().findElement(MobileBy.AccessibilityId(myUser)).click();
+            driver.get().findElement(MobileBy.AccessibilityId(myUser)).click();
 //            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + myUser + "']")).click();
             //driver.findElement(By.xpath("//XCUIElementTypeCell/XCUIElementTypeStaticText[contains(@value, '" + myUser + "')]"));
         } else {
-            String appPackage = driver.getCapabilities().getCapability("appPackage").toString();
+            String appPackage = driver.get().getCapabilities().getCapability("appPackage").toString();
             System.out.println("App Package: " + appPackage);
-            driver.findElement(By.xpath("//android.widget.TextView[@resource-id='" + appPackage +":id/name'][@text='" + myUser + "']")).click();
+            driver.get().findElement(By.xpath("//android.widget.TextView[@resource-id='" + appPackage +":id/name'][@text='" + myUser + "']")).click();
 //            driver.findElement(By.xpath("//android.widget.TextView[@id='name'][@text='" + myUser + "']")).click();
         }
     }
@@ -355,9 +356,9 @@ public class DirectoryScreen extends BasePage {
 
 
         if (getOS().equals("ios")) {
-            options= driver.findElements(By.xpath("//*[@value='" + myUser + "']"));
+            options= driver.get().findElements(By.xpath("//*[@value='" + myUser + "']"));
         } else {
-            options= driver.findElements(By.xpath("//android.widget.TextView[@text='" + myUser + "']"));
+            options= driver.get().findElements(By.xpath("//android.widget.TextView[@text='" + myUser + "']"));
         }
 
         myReturnStatus = !options.isEmpty();
@@ -510,7 +511,7 @@ public class DirectoryScreen extends BasePage {
 
             //Get Stake and all Wards
             //options= driver.findElements(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell/UIAStaticText"));
-            options= driver.findElements(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText"));
+            options= driver.get().findElements(By.xpath("//XCUIElementTypeApplication/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell/XCUIElementTypeStaticText"));
 
             for (int i = 0 ; i < options.size(); i++ ) {
                 System.out.println(options.get(i).getText());
@@ -532,7 +533,7 @@ public class DirectoryScreen extends BasePage {
                     //directoryDropdown.click();
                     unitSelected.click();
                     Thread.sleep(2000);
-                    driver.findElement(By.xpath("//*[contains(@name,'" + StakeWardItem + "')]")).click();
+                    driver.get().findElement(By.xpath("//*[contains(@name,'" + StakeWardItem + "')]")).click();
                     //displayAllTextViewElements();
                     Thread.sleep(6000);
                     //This will check to see if the first user has text.
@@ -551,7 +552,7 @@ public class DirectoryScreen extends BasePage {
 
             //Get Stake and all Wards
             //options = driver.findElements(By.xpath("//*[@id='list_item']/*[@id='text1']"));
-            options = driver.findElements(By.xpath("//android.widget.LinearLayout[@resource-id='list_item']/android.widget.TextView[@resource-id='unitNameTextView']"));
+            options = driver.get().findElements(By.xpath("//android.widget.LinearLayout[@resource-id='list_item']/android.widget.TextView[@resource-id='unitNameTextView']"));
             //options = driver.findElements(By.xpath("//android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout/android.widget.TextView"));
             for (int i = 0 ; i < options.size(); i++ ) {
                 System.out.println(options.get(i).getText());
@@ -571,7 +572,7 @@ public class DirectoryScreen extends BasePage {
                     directoryDropdown.click();
 
                     Thread.sleep(2000);
-                    driver.findElement(By.xpath("//*[@text='" + StakeWardItem + "']")).click();
+                    driver.get().findElement(By.xpath("//*[@text='" + StakeWardItem + "']")).click();
 
                     Assert.assertTrue(checkFirstDirectoryUser());
                 }
@@ -595,11 +596,11 @@ public class DirectoryScreen extends BasePage {
         //String myString = driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[1]/UIAStaticText[1]")).getText();
         if (myBasePage.getOS().equals("ios")) {
             //myString = driver.findElement(By.xpath("//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIAStaticText[1]")).getText();
-            myString = driver.findElement(By.xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")).getText();
+            myString = driver.get().findElement(By.xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")).getText();
             //XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]
         } else {
             //myString = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='text1'][1]")).getText();
-            myString = driver.findElement(By.xpath("//*[@resource-id='recycler_view']/android.widget.FrameLayout/android.widget.TextView[@resource-id='name']")).getText();
+            myString = driver.get().findElement(By.xpath("//*[@resource-id='recycler_view']/android.widget.FrameLayout/android.widget.TextView[@resource-id='name']")).getText();
         }
 
 

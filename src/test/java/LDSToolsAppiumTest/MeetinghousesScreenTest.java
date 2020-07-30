@@ -44,7 +44,8 @@ public class MeetinghousesScreenTest extends BaseDriver {
         }
 
         if (!getRunningOS().equals("ios")) {
-            driver.switchTo().alert();
+            driver.get().switchTo().alert();
+
             myMeetinghouses.meetinghousesAllowAndroidPermissions.click();
         }
 
@@ -182,7 +183,7 @@ public class MeetinghousesScreenTest extends BaseDriver {
         myMeetinghouses.meetinghousesAllow.click();
         Thread.sleep(5000);
         if (!getRunningOS().equals("ios")) {
-            driver.switchTo().alert();
+            driver.get().switchTo().alert();
             myMeetinghouses.meetinghousesAllowAndroidPermissions.click();
         }
 

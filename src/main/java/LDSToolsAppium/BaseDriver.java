@@ -29,7 +29,10 @@ import java.util.*;
 
 @CucumberOptions()
 public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
-    public static AppiumDriver<MobileElement> driver;
+//    public static AppiumDriver<MobileElement> driver;
+    public static ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
+
+
     public static AppiumDriver<MobileElement> driver2;
     public String deviceSerial = "";
     public String testOS = "";
@@ -52,6 +55,9 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 
     public ThreadLocal<String> dataTestName = new ThreadLocal<>();
 
+    static AppiumDriver getDriver() {
+        return driver.get();
+    }
 
 
     @BeforeSuite(alwaysRun = true)
@@ -82,6 +88,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
         testngTestDevice = testDevice;
         testngStartSleepTime = startSleepTime;
 
+        System.out.println("Start of Setup");
 //        //Sleep so when multiple tests start they don't break
 //        System.out.println("Sleep Time: " + startSleepTime);
 //        System.out.println("File Name: " + fileName);
@@ -106,12 +113,15 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 
         if (fileName.contains("android-mobile-dev")) {
 //            System.out.println("File Name: " + fileName);
-            driver2 = appiumCapabilities(os, fileName, testDevice, myPort);
+//            driver2 = appiumCapabilities(os, fileName, testDevice, myPort);
             app2 = new MobileDevApp(driver2);
         } else {
-            driver = appiumCapabilities(os, fileName, testDevice, myPort);
+//            driver = appiumCapabilities(os, fileName, testDevice, myPort);
+            appiumCapabilities(os, fileName, testDevice, myPort);
             app = new LDSToolsApp(driver);
         }
+
+        System.out.println("End of Setup");
         
     }
 
@@ -201,7 +211,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
         BasePage myBasePage = new BasePage(driver);
         String testName;
 
-        System.out.println("Start teardown");
+        System.out.println("After Method - Start teardown");
         // Here will compare if test is failing then only it will enter into if condition
         if(ITestResult.FAILURE==result.getStatus()) {
             //printPageSource();
@@ -227,8 +237,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 ////            driver.installApp(driver.getCapabilities().getCapability("app").toString());
 //            driver.launchApp();
 
-
-            driver.resetApp();
+            getDriver().resetApp();
+//            driver.resetApp();
             System.out.println("End Reset App");
             Thread.sleep(5000);
 
@@ -237,7 +247,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
             }
 
         } else {
-            driver.resetApp();
+            getDriver().resetApp();
+//            driver.resetApp();
 //            System.out.println("Clear App");
 //            adbCommand("clearApp");
 //            Thread.sleep(5000);
@@ -246,12 +257,12 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
             System.out.println("SERIAL NUMBER: " + deviceSerial);
         }
 
-        System.out.println("Check to see if web is running");
-        if (myWeb.isRunning() == null) {
-            System.out.println("Web is not running!");
-        } else {
-            myWeb.tearDown();
-        }
+//        System.out.println("Check to see if web is running");
+//        if (myWeb.isRunning() == null) {
+//            System.out.println("Web is not running!");
+//        } else {
+//            myWeb.tearDown();
+//        }
 
         System.out.println("End teardown");
     }
@@ -278,12 +289,12 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 
     @AfterSuite(alwaysRun = true)
     public void afterAllTests() throws Exception {
-        System.out.println("Stopping the driver");
+        System.out.println("After Suite - Stopping the driver");
         if (getRunningOS().equals("ios")) {
 
             //I don't think this is needed anymore
-            driver.quit();
-            //driver.close();
+//            driver.quit();
+
 
             Thread.sleep(5000);
 //            stopFbSim();
@@ -316,10 +327,11 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 
         }
 
-        System.out.println("Killing Chrome and chromedriver");
-        //Killing Chrome is killing Slack!
-//        killProcess("Chrome");
-        killProcess("chromedriver");
+//        System.out.println("Killing Chrome and chromedriver");
+//        //Killing Chrome is killing Slack!
+////        killProcess("Chrome");
+//        killProcess("chromedriver");
+        System.out.println("Stopping the Appium Service");
         myAppiumService.stopAppiumService();
 
         Thread.sleep(1000);
@@ -330,7 +342,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 
     }
 
-    private AppiumDriver<MobileElement> appiumCapabilities(String os, String fileName, String testDevice, int myPort) throws Exception {
+//    private AppiumDriver<MobileElement> appiumCapabilities(String os, String fileName, String testDevice, int myPort) throws Exception {
+    private void appiumCapabilities(String os, String fileName, String testDevice, int myPort) throws Exception {
         String myAppPackage;
         String myUdid = null;
 
@@ -443,7 +456,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 
 
             capabilities.setCapability("fullReset", true);
-            capabilities.setCapability("dontStopAppOnReset", true);
+            capabilities.setCapability("dontStopAppOnReset", false);
 
 
             capabilities.setCapability("appium:clearDeviceLogsOnStart", true);
@@ -457,7 +470,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 //            capabilities.setCapability("unicodeKeyboard", "true");
 //            capabilities.setCapability("resetKeyboard", "true");
 
-            driver = new AndroidDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"), capabilities);
+            driver.set(new AndroidDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"), capabilities));
+//            driver = new AndroidDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"), capabilities);
 
             Thread.sleep(2000);
 
@@ -561,11 +575,11 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
                 capabilities.setCapability("appium:waitForQuiescence", false);
             }
 
-
-            driver = new IOSDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"),capabilities);
+            driver.set(new IOSDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"),capabilities));
+//            driver = new IOSDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"),capabilities);
         }
 
-        return driver;
+//        return driver;
     }
 
     private int getRandomPort() throws Exception {
@@ -966,7 +980,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
         new File(imagesLocation).mkdirs(); // Insure directory is there
 
         try {
-            File srcFile=driver.getScreenshotAs(OutputType.FILE);
+//            File srcFile=driver.getScreenshotAs(OutputType.FILE);
+            File srcFile=getDriver().getScreenshotAs(OutputType.FILE);
             String filename= UUID.randomUUID().toString();
             System.out.println("Screenshot File: " + filename);
             File targetFile=new File(imagesLocation + filename +".png");
@@ -980,7 +995,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 
     private void takeScreenShotDirectory(String filename, String imagesLocation) {
         try {
-            File srcFile=driver.getScreenshotAs(OutputType.FILE);
+//            File srcFile=driver.getScreenshotAs(OutputType.FILE);
+            File srcFile=getDriver().getScreenshotAs(OutputType.FILE);
             System.out.println("Screenshot File: " + filename);
             File targetFile=new File(imagesLocation + filename +".png");
             FileUtils.copyFile(srcFile,targetFile);
@@ -1024,7 +1040,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
         for(String myLog : logTypes) {
             //System.out.println(myLog);
             myLogData.add(" ******************* " + myLog +  " ******************* " );
-            logEntries = driver.manage().logs().get(myLog);
+//            logEntries = driver.manage().logs().get(myLog);
+            logEntries = getDriver().manage().logs().get(myLog);
             for (LogEntry entry : logEntries) {
                 myLogData.add(entry.getMessage());
                 //System.out.println(entry.getMessage());

@@ -6,22 +6,20 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
-import org.jsoup.Connection;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
 
 
 public class TemplesScreen extends BasePage {
 
-    public TemplesScreen(AppiumDriver<MobileElement> driver) {
+    public TemplesScreen(ThreadLocal<AppiumDriver> driver) {
         super(driver);
         Duration myDuration = Duration.ofSeconds(10);
-        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver.get(), myDuration), this);
     }
 
 

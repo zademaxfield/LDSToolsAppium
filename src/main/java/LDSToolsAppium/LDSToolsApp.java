@@ -6,9 +6,9 @@ import io.appium.java_client.MobileElement;
 import org.jsoup.Connection;
 
 public class LDSToolsApp {
-    private final AppiumDriver<MobileElement> driver;
+    private final ThreadLocal<AppiumDriver> driver;
 
-    public LDSToolsApp(AppiumDriver<MobileElement> driver) {
+    public LDSToolsApp(ThreadLocal<AppiumDriver> driver) {
         this.driver = driver;
     }
 

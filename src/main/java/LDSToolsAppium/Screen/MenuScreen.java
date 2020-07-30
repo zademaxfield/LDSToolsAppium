@@ -7,20 +7,18 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 
 public class MenuScreen extends BasePage {
 
-    public MenuScreen(AppiumDriver<MobileElement> driver) {
+    public MenuScreen(ThreadLocal<AppiumDriver> driver) {
         super(driver);
         Duration myDuration = Duration.ofSeconds(10);
-        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver.get(), myDuration), this);
     }
 
     //Directory
@@ -139,7 +137,7 @@ public class MenuScreen extends BasePage {
 
 
         if (getOS().equals("ios")) {
-            driver.resetApp();
+            driver.get().resetApp();
         }
     }
 

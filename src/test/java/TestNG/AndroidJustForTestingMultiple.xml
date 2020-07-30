@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Android Login Page Test" configfailurepolicy="continue" verbose="2" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="LDSToolsAppium.RetryListener"/>
+        <listener class-name= "LDSToolsAppium.CustomReporter" />
+        <listener class-name="LDSToolsAppium.TestListener" />
+    </listeners>
 
-    <test name="Android Login Page Test 1" thread-count="2" parallel="false" >
+    <test name="Android Org Page Test 1" thread-count="2" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="STF-Pool" />
+        <parameter name="testDevice" value="HT69D0204296" />
         <parameter name="startSleepTime" value="0200" />
 
         <classes>
-            <class name="LDSToolsAppium.BaseDriver" />
+<!--            <class name="LDSToolsAppium.BaseDriver" />-->
             <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
         </classes>
     </test> <!-- Default test -->
 
-    <test name="Android Login Page Test 2" thread-count="2" parallel="false">
+    <test name="Android Org Page Test 2" thread-count="2" parallel="false">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="STF-Pool" />
+        <parameter name="testDevice" value="R38M803MWGM" />
         <parameter name="startSleepTime" value="20000" />
 
         <classes>
-            <class name="LDSToolsAppium.BaseDriver" />
+<!--            <class name="LDSToolsAppium.BaseDriver" />-->
             <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
         </classes>
     </test> <!-- Default test -->

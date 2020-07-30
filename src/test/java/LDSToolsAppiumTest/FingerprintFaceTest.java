@@ -77,12 +77,12 @@ public class FingerprintFaceTest extends BaseDriver {
         myHelper.checkForAlertsAfterPin();
         Thread.sleep(2000);
 
-        if (getRunningOS().equalsIgnoreCase("ios")) {
-            ((IOSDriver)driver).toggleTouchIDEnrollment(true);
-            ((IOSDriver)driver).performTouchID(true);
-        } else {
-            ((AndroidDriver)driver).fingerPrint(1);
-        }
+//        if (getRunningOS().equalsIgnoreCase("ios")) {
+//            ((IOSDriver)driver).toggleTouchIDEnrollment(true);
+//            ((IOSDriver)driver).performTouchID(true);
+//        } else {
+//            ((AndroidDriver)driver).fingerPrint(1);
+//        }
 
         Thread.sleep(10000);
 

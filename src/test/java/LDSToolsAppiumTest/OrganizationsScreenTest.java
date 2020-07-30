@@ -563,9 +563,9 @@ public class OrganizationsScreenTest extends BaseDriver {
                 System.out.println("Skipping Unassigned for now!");
             } else {
                 if (getRunningOS().equalsIgnoreCase("ios")) {
-                    driver.findElement(By.name(childOrgName)).click();
+                    driver.get().findElement(By.name(childOrgName)).click();
                 } else {
-                    driver.findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
+                    driver.get().findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
                 }
                 myList = apiTest.getChildOrganizationMembers(childOrgName, userName, "21628");
                 myBasePage.apiCheckData(myList);
@@ -631,9 +631,9 @@ public class OrganizationsScreenTest extends BaseDriver {
                 System.out.println("Skipping Unassigned for now!");
             } else {
                 if (getRunningOS().equalsIgnoreCase("ios")) {
-                    driver.findElement(By.name(childOrgName)).click();
+                    driver.get().findElement(By.name(childOrgName)).click();
                 } else {
-                    driver.findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
+                    driver.get().findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
                 }
                 myList = apiTest.getChildOrganizationMembers(childOrgName, userName, "21628");
                 myBasePage.apiCheckData(myList);
@@ -690,9 +690,9 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         for (String childOrgName : childOrgs) {
             if (getRunningOS().equalsIgnoreCase("ios")) {
-                driver.findElement(By.name(childOrgName)).click();
+                driver.get().findElement(By.name(childOrgName)).click();
             } else {
-                driver.findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
+                driver.get().findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
             }
             myList = apiTest.getChildOrganizationMembers(childOrgName, userName, "21628");
             myBasePage.apiCheckData(myList);

@@ -5,18 +5,18 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 
 public class MinisteringScreen extends BasePage {
 
-    public MinisteringScreen(AppiumDriver<MobileElement> driver) {
+    public MinisteringScreen(ThreadLocal<AppiumDriver> driver) {
         super(driver);
         Duration myDuration = Duration.ofSeconds(10);
-        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver.get(), myDuration), this);
     }
 
 
@@ -194,7 +194,7 @@ public class MinisteringScreen extends BasePage {
         Thread.sleep(2000);
         //String myPageSource;
         if (getOS().equals("ios")) {
-            driver.findElementByAccessibilityId(districtToSelect).click();
+            driver.get().findElementByAccessibilityId(districtToSelect).click();
         } else {
             //myPageSource = getSourceOfPage();
             //System.out.println(myPageSource);
@@ -202,10 +202,10 @@ public class MinisteringScreen extends BasePage {
 
 
             if (myBase.checkElementExists(districtToSelect)) {
-                driver.findElement(By.xpath("//*[@text='" + districtToSelect + "']")).click();
+                driver.get().findElement(By.xpath("//*[@text='" + districtToSelect + "']")).click();
             } else {
                 districtToSelect = districtToSelect.toUpperCase();
-                driver.findElement(By.xpath("//*[@text='" + districtToSelect + "']")).click();
+                driver.get().findElement(By.xpath("//*[@text='" + districtToSelect + "']")).click();
             }
 
             //driver.findElement(By.xpath("//*[@text='" + districtToSelect + "']")).click();

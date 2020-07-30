@@ -46,7 +46,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
         myEditDirectory.directoryEditHouseholdPhone.sendKeys("(801) 867-5309");
         myEditDirectory.directoryEditPersonalEmail.sendKeys("personal@gmail.com");
         if (getRunningOS().equals("ios")) {
-            driver.findElement(By.name("Return")).click();
+            driver.get().findElement(By.name("Return")).click();
         }
 
         myEditDirectory.directoryEditHouseholdEmail.sendKeys("home@gmail.com");
@@ -822,9 +822,9 @@ public class DirectoryEditScreenTest extends BaseDriver {
         System.out.println(myBasePage.getSourceOfPage());
 
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            driver.findElement(By.xpath("//*[contains(@name,'" + myUnit + "')]")).click();
+            driver.get().findElement(By.xpath("//*[contains(@name,'" + myUnit + "')]")).click();
         } else {
-            driver.findElement(By.xpath("//*[contains(@text,'" + myUnit + "')]")).click();
+            driver.get().findElement(By.xpath("//*[contains(@text,'" + myUnit + "')]")).click();
         }
 
     }

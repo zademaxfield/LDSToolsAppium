@@ -1,23 +1,22 @@
 package LDSToolsAppium.Screen;
 
-import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.*;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
 
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 
 public class LoginPageScreen extends BasePage {
 
-    public LoginPageScreen(AppiumDriver<MobileElement> driver) {
+    public LoginPageScreen(ThreadLocal<AppiumDriver> driver) {
         super(driver);
         Duration myDuration = Duration.ofSeconds(10);
-        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver.get(), myDuration), this);
     }
 
     //Member Tools Heading

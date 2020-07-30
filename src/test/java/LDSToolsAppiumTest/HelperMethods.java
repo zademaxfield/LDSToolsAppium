@@ -89,11 +89,11 @@ public class HelperMethods extends BaseDriver {
 
     private void deepLinkSelector(String proxyUserName) throws Exception {
         String appName;
-        appName = driver.getCapabilities().getCapability("app").toString();
+        appName = driver.get().getCapabilities().getCapability("app").toString();
         System.out.println("App: "  + appName);
 
         if (appName.contains(".ipa")) {
-            driver.executeScript("mobile: terminateApp", ImmutableMap.of("bundleId", "com.apple.mobilesafari"));
+            driver.get().executeScript("mobile: terminateApp", ImmutableMap.of("bundleId", "com.apple.mobilesafari"));
             //            //May need to replace -u with -U in 12.2
             List args = new ArrayList();
 //            args.add("-U");
@@ -102,24 +102,24 @@ public class HelperMethods extends BaseDriver {
             Map<String, Object> params = new HashMap<>();
             params.put("bundleId", "com.apple.mobilesafari");
             params.put("arguments", args);
-            driver.executeScript("mobile: launchApp", params);
+            driver.get().executeScript("mobile: launchApp", params);
             Thread.sleep(10000);
 
-            driver.findElement(By.xpath("//XCUIElementTypeOther[@label='Address']")).click();
+            driver.get().findElement(By.xpath("//XCUIElementTypeOther[@label='Address']")).click();
             Thread.sleep(6000);
 
-            driver.findElement(By.xpath("//XCUIElementTypeButton[@name='Clear text']")).click();
+            driver.get().findElement(By.xpath("//XCUIElementTypeButton[@name='Clear text']")).click();
             Thread.sleep(6000);
 
-            driver.findElement(By.xpath("//XCUIElementTypeTextField[@label='Address']")).setValue("membertools://user/" + proxyUserName);
+            driver.get().findElement(By.xpath("//XCUIElementTypeTextField[@label='Address']")).sendKeys("membertools://user/" + proxyUserName);
             Thread.sleep(2000);
-            driver.findElement(By.xpath("//*[@name='Go']")).click();
+            driver.get().findElement(By.xpath("//*[@name='Go']")).click();
             Thread.sleep(6000);
-            driver.findElement(By.xpath("//*[@name='Open']")).click();
+            driver.get().findElement(By.xpath("//*[@name='Open']")).click();
         } else {
-            driver.get("https://www.google.com");
+            driver.get().get("https://www.google.com");
             Thread.sleep(2000);
-            driver.get("membertools://user/" + proxyUserName);
+            driver.get().get("membertools://user/" + proxyUserName);
             Thread.sleep(3000);
         }
     }
@@ -134,6 +134,8 @@ public class HelperMethods extends BaseDriver {
         String deviceName;
         String pageSource;
 
+        System.out.println("Start Proxy Login");
+
 
         if (myBasePage.checkForElement(myBasePage.allowButton)) {
             myBasePage.allowButton.click();
@@ -145,7 +147,9 @@ public class HelperMethods extends BaseDriver {
             iosDeepLink(proxyUserName);
 
         } else {
-            deviceName = driver.getCapabilities().getCapability("deviceName").toString();
+            System.out.println("Get the device name");
+            deviceName = driver.get().getCapabilities().getCapability("deviceName").toString();
+            System.out.println("adb - proxy start");
             myBaseDriver.adbProxyStart(deviceName, proxyUserName);
             Thread.sleep(2000);
         }
@@ -153,6 +157,7 @@ public class HelperMethods extends BaseDriver {
             myLoginPage.cancelPass.click();
         }
 
+        System.out.println("Clear login and password");
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();
 
@@ -532,7 +537,7 @@ public class HelperMethods extends BaseDriver {
         } else {
             Thread.sleep(4000);
             System.out.println("Enter PIN!!!");
-            deviceName = driver.getCapabilities().getCapability("deviceName").toString();
+            deviceName = driver.get().getCapabilities().getCapability("deviceName").toString();
             myBaseDriver.adbEnterPIN(deviceName);
 
 //            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_1));
@@ -699,7 +704,7 @@ public class HelperMethods extends BaseDriver {
         } else {
             Thread.sleep(4000);
             System.out.println("Enter PIN!!!");
-            deviceName = driver.getCapabilities().getCapability("deviceName").toString();
+            deviceName = driver.get().getCapabilities().getCapability("deviceName").toString();
             myBaseDriver.adbEnterPIN(deviceName);
 
 

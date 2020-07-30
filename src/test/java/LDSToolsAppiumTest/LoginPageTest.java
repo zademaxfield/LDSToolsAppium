@@ -86,7 +86,7 @@ public class LoginPageTest extends BaseDriver {
             if (myBasePage.getOS().equals("ios")) {
                 myLoginPage.doneButton.click();
             } else {
-                driver.navigate().back();
+                driver.get().navigate().back();
             }
 
 //            myLoginPage.termsOfUse.click();
@@ -103,7 +103,7 @@ public class LoginPageTest extends BaseDriver {
                 myLoginPage.doneButton.click();
             }
         } else {
-            driver.navigate().back();
+            driver.get().navigate().back();
         }
 
 
@@ -278,11 +278,11 @@ public class LoginPageTest extends BaseDriver {
             }
 
 
-            driver.closeApp();
+            driver.get().closeApp();
 //            driver.terminateApp("org.lds.ldstools");
 //            driver.runAppInBackground(Duration.ofSeconds(1));
 //            Thread.sleep(4000);
-            driver.launchApp();
+            driver.get().launchApp();
 //            driver.activateApp("org.lds.ldstools");
 
             myHelper.enterCurrentPin("4", "4", "6", "6");

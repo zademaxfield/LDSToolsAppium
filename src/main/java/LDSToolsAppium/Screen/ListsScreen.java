@@ -11,6 +11,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -19,10 +20,10 @@ import java.time.Duration;
 
 public class ListsScreen extends BasePage {
 
-    public ListsScreen(AppiumDriver<MobileElement> driver) {
+    public ListsScreen(ThreadLocal<AppiumDriver> driver) {
         super(driver);
         Duration myDuration = Duration.ofSeconds(10);
-        PageFactory.initElements(new AppiumFieldDecorator(driver, myDuration), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver.get(), myDuration), this);
     }
 
     // ****************** Lists Screen ******************
@@ -162,16 +163,16 @@ public class ListsScreen extends BasePage {
 
             myBasePage.waitForElementThenClick(listsEdit);
             System.out.println(myBasePage.getSourceOfPage());
-            myBasePage.waitForElementThenClick(driver.findElement(By.xpath("//*[contains(@name, 'Delete " + myListName + "')]")));
-//            driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")).click();
+            myBasePage.waitForElementThenClick((MobileElement) driver.get().findElement(By.xpath("//*[contains(@name, 'Delete " + myListName + "')]")));
+//            driver.get().findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")).click();
 
             Thread.sleep(1000);
 
-//            myBasePage.waitForElementThenClick(driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")));
-            myBasePage.waitForElementThenClick(driver.findElement(By.name("Delete")));
+//            myBasePage.waitForElementThenClick(driver.get().findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")));
+            myBasePage.waitForElementThenClick((MobileElement) driver.get().findElement(By.name("Delete")));
             Thread.sleep(8000);
 
-//            driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")).click();
+//            driver.get().findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")).click();
 
             //If there more than one list this "Done" button will still be displayed
             if (checkForElement(listsDone)) {
@@ -192,8 +193,8 @@ public class ListsScreen extends BasePage {
     public void deleteMemberFromList(String memberName) throws Exception {
         if (getOS().equals("ios")) {
             listsEdit.click();
-            driver.findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + memberName + "')]")).click();
-            driver.findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")).click();
+            driver.get().findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + memberName + "')]")).click();
+            driver.get().findElement(MobileBy.iOSNsPredicateString("name == 'Delete' ")).click();
 
             //If there more than one list this "Done" button will still be displayed
             if (checkForElement(listsDone)) {
@@ -204,7 +205,7 @@ public class ListsScreen extends BasePage {
             listsMoreOptions.click();
             listsMoreOptionsEdit.click();
             Thread.sleep(2000);
-            driver.findElement(By.xpath("//android.widget.TextView[@text='" + memberName + "']/../../../../android.widget.ImageView")).click();
+            driver.get().findElement(By.xpath("//android.widget.TextView[@text='" + memberName + "']/../../../../android.widget.ImageView")).click();
 
         }
 
@@ -215,7 +216,7 @@ public class ListsScreen extends BasePage {
 
     public String getLastListMember() throws Exception {
         String lastListMember;
-        lastListMember = driver.findElement(By.xpath("//android.widget.FrameLayout[contains(@resource-id, 'individualView')][last()]//android.widget.TextView[contains(@resource-id, 'name')]")).getText();
+        lastListMember = driver.get().findElement(By.xpath("//android.widget.FrameLayout[contains(@resource-id, 'individualView')][last()]//android.widget.TextView[contains(@resource-id, 'name')]")).getText();
         System.out.println("Last Member: " + lastListMember);
         return lastListMember;
 
@@ -227,18 +228,18 @@ public class ListsScreen extends BasePage {
 
     public void selectListName(String myListName) throws Exception{
         if (getOS().equals("ios")) {
-            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + myListName + "']")).click();
+            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + myListName + "']")).click();
         } else {
-            driver.findElement(By.xpath("//android.widget.TextView[@text='"+ myListName + "']")).click();
+            driver.get().findElement(By.xpath("//android.widget.TextView[@text='"+ myListName + "']")).click();
         }
     }
 
     public String getNumberOfListMembers(String myListName) throws Exception{
         String listNumber;
         if (getOS().equals("ios")) {
-            listNumber = driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + myListName + "']/following-sibling::XCUIElementTypeStaticText")).getAttribute("name").toString();
+            listNumber = driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + myListName + "']/following-sibling::XCUIElementTypeStaticText")).getAttribute("name").toString();
         } else {
-            listNumber = driver.findElement(By.xpath("//android.widget.TextView[@text='"+ myListName + "']/following-sibling::android.widget.TextView")).getAttribute("text").toString();
+            listNumber = driver.get().findElement(By.xpath("//android.widget.TextView[@text='"+ myListName + "']/following-sibling::android.widget.TextView")).getAttribute("text").toString();
             if (listNumber.contains("people")) {
                 listNumber = listNumber.replace(" people", "");
             } else {
@@ -262,18 +263,18 @@ public class ListsScreen extends BasePage {
             Thread.sleep(2000);
             listsSearch.sendKeys(memberToAdd);
             Thread.sleep(2000);
-//            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + memberToClickOn + "']")).click();
-            driver.findElement(By.xpath("//XCUIElementTypeStaticText[contains(@name, '" + memberToClickOn + "')]")).click();
+//            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + memberToClickOn + "']")).click();
+            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[contains(@name, '" + memberToClickOn + "')]")).click();
             backButton.click();
 
 
         } else {
             listsAddMemberName.sendKeys(memberToAdd);
-//            driver.findElement(By.xpath("//*[@text='" + memberToClickOn + "']"));
+//            driver.get().findElement(By.xpath("//*[@text='" + memberToClickOn + "']"));
             elementX = listsAddMemberName.getLocation().getX();
             elementY = listsAddMemberName.getLocation().getY();
 
-            TouchAction clickElement = new TouchAction(driver).press(PointOption.point(elementX + 60, elementY + 200)).release();
+            TouchAction clickElement = new TouchAction(driver.get()).press(PointOption.point(elementX + 60, elementY + 200)).release();
             clickElement.perform();
         }
     }

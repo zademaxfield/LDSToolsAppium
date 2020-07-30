@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void templeSimple() throws Exception {
         String pageSource;
 
@@ -28,6 +28,7 @@ public class TemplesScreenTest extends BaseDriver {
 
         //Go to Temple
         myMenu.selectMenu(myMenu.temples);
+        System.out.println(myBasePage.getSourceOfPage());
         myBasePage.waitForElementThenClick(myTemple.yesRemindMe);
         myBasePage.waitForText("Los Angeles");
 
@@ -240,7 +241,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all2", "jft"})
+    @Test (groups= { "all", "all2"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class MinisteringScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringBasic_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         myHelper.proxyLogin("kroqbandit");
@@ -1024,7 +1024,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4"})
     public void ministeringAssignedSisters_BISHOP() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         myHelper.proxyLogin("kroqbandit");

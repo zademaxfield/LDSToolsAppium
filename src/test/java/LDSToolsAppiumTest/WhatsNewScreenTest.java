@@ -70,7 +70,7 @@ public class WhatsNewScreenTest extends BaseDriver {
 
 
         myMenu.selectMenu(myMenu.help);
-        System.out.println(myBasePage.getSourceOfPage());
+//        System.out.println(myBasePage.getSourceOfPage());
         myWhatsNew.helpWhatsNew.click();
         myWhatsNew.wifiButton.click();
         myWhatsNew.autoUpdate.click();

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report"})
+    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -130,7 +130,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all4", "all", "report", "jft"})
+    @Test (groups = {"all4", "all", "report"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
@@ -503,7 +503,7 @@ public class ReportsScreenTest extends BaseDriver {
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Anakin", pageSource, "Equals"));
 
             myReports.selectSort(myReports.organizationSort);
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
@@ -512,7 +512,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
             myReports.selectSort(myReports.durationSort);
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Assistant Librarian", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Talanoa", pageSource, "Contains"));
@@ -520,7 +520,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
             myReports.selectSort(myReports.notSetApartSort);
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Deacons", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Smith", pageSource, "Contains"));
@@ -584,16 +584,20 @@ public class ReportsScreenTest extends BaseDriver {
         ReportsScreen myReports = new ReportsScreen(driver);
         MemberToolsAPI apiTest = new MemberToolsAPI();
         List<String> memberList = new ArrayList<String>();
+        List<String> shortList = new ArrayList<>();
 
         myReports.newMembersReport.click();
         Thread.sleep(1000);
-//        pageSource = myBasePage.getSourceOfPage();
-//        myBasePage.rightsCheck("Casas, Sarai", 3, rights, pageSource);
-//        myBasePage.rightsCheck("19", 3, rights, pageSource);
 
         pageSource = myBasePage.getSourceOfPage();
         memberList = apiTest.getNewMembers("kroqbandit", "21628");
-        myBasePage.apiCheckDataPageSource(memberList, pageSource);
+//        myBasePage.apiCheckDataPageSource(memberList, pageSource);
+
+        //Just take the first 5 members in the list
+        for (int i = 0; i < 4; i++ ) {
+            shortList.add(memberList.get(i));
+        }
+        myBasePage.apiCheckData(shortList);
 
 
 
@@ -610,6 +614,7 @@ public class ReportsScreenTest extends BaseDriver {
         List<String> memberList = new ArrayList<String>();
 
         if (!getRunningOS().equals("ios")) {
+            Thread.sleep(2000);
             myBasePage.scrollToTextRecyclerView("Unit Statistics");
             Thread.sleep(2000);
         } else {

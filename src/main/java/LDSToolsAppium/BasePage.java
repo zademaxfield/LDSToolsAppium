@@ -105,7 +105,7 @@ public class BasePage extends BaseDriver {
     //Scrolling Methods
 
     public void scrollToTextiOS(String myElement) throws Exception {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap scrollObject = new HashMap();
         scrollObject.put("direction", "up");
         scrollObject.put("xpath", "//XCUIElementTypeStaticText[@name='" + myElement + "']");
@@ -343,7 +343,8 @@ public class BasePage extends BaseDriver {
 
 
     public void scrollDownIOS() throws Exception {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap<String, String> scrollObject = new HashMap<String, String>();
         scrollObject.put("direction", "down");
         js.executeScript("mobile: scroll", scrollObject);
@@ -351,7 +352,7 @@ public class BasePage extends BaseDriver {
     }
 
     public void swipeDownIOS() throws Exception {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap<String, String> scrollObject = new HashMap<String, String>();
         scrollObject.put("direction", "down");
         js.executeScript("mobile: swipe", scrollObject);
@@ -359,7 +360,7 @@ public class BasePage extends BaseDriver {
     }
 
     public void swipeUpIOS() throws Exception {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap<String, String> scrollObject = new HashMap<String, String>();
         scrollObject.put("direction", "up");
         js.executeScript("mobile: swipe", scrollObject);
@@ -368,7 +369,7 @@ public class BasePage extends BaseDriver {
 
     public void scrollDownToTextIOS(String myText) throws Exception {
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap<String, String> scrollObject = new HashMap<String, String>();
         scrollObject.put("predicateString", "value == '" + myText + "'");
         js.executeScript("mobile: scroll", scrollObject);
@@ -488,7 +489,7 @@ public class BasePage extends BaseDriver {
 
 
     public void scrollUpIOS() throws Exception {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap<String, String> scrollObject = new HashMap<String, String>();
         scrollObject.put("direction", "up");
         js.executeScript("mobile: scroll", scrollObject);

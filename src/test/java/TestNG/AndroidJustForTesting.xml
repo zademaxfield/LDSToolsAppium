@@ -6,8 +6,8 @@
         <parameter name="fileName" value="ldstools-alpha.apk" />
 <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
 <!--        <parameter name="fileName" value="ldstools-release.apk" />-->
-<!--        <parameter name="testDevice" value="HT69D0204296" />-->
-        <parameter name="testDevice" value="emulator-5554" />
+        <parameter name="testDevice" value="HT69D0204296" />
+<!--        <parameter name="testDevice" value="emulator-5554" />-->
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -18,7 +18,7 @@
         <classes>
 <!--            <class name="LDSToolsAppium.BaseDriver"/>-->
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
-            <class name="LDSToolsAppiumTest.ListsScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

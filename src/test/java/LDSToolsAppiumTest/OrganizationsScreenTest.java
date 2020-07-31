@@ -18,7 +18,7 @@ import java.util.List;
 
 public class OrganizationsScreenTest extends BaseDriver {
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
+    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -62,7 +62,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"all2", "all", "jft"})
+    @Test(dataProvider = "Members", groups = {"all2", "all"})
     public void organizationStakeHighPriestQuorum(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -633,6 +633,9 @@ public class OrganizationsScreenTest extends BaseDriver {
                 if (getRunningOS().equalsIgnoreCase("ios")) {
                     driver.get().findElement(By.name(childOrgName)).click();
                 } else {
+                    if (!myBasePage.checkForText(childOrgName)) {
+                        myBasePage.scrollDownAndroidUIAutomator("0");
+                    }
                     driver.get().findElement(By.xpath("//android.widget.TextView[@text='" + childOrgName + "']")).click();
                 }
                 myList = apiTest.getChildOrganizationMembers(childOrgName, userName, "21628");

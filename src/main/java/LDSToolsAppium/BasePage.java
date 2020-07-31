@@ -728,8 +728,6 @@ public class BasePage extends BaseDriver {
             options = driver.get().findElements(By.xpath("//*[@text='" + textElement + "']"));
         }
 
-
-
         if (options != null) {
             if (options.isEmpty()) {
                 myReturnStatus = false;
@@ -741,6 +739,22 @@ public class BasePage extends BaseDriver {
         }
 
         //System.out.println("Searching for " + textElement + " Found: " + myReturnStatus);
+
+        return myReturnStatus;
+    }
+
+    public Boolean checkForText(String textElement) throws Exception {
+        Boolean myReturnStatus;
+        String pageSource;
+        pageSource = getSourceOfPage();
+        pageSource = pageSource.toLowerCase();
+        textElement = textElement.toLowerCase();
+
+        if (pageSource.contains(textElement)) {
+            myReturnStatus = true;
+        } else {
+            myReturnStatus = false;
+        }
 
         return myReturnStatus;
     }

@@ -180,9 +180,9 @@ public class HelperMethods extends BaseDriver {
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(pageSource.contains("Failed to download."));
 
-            System.out.println("Wait for text to appear: Update");
+            System.out.println("Wait for text to appear: Updat");
 
-            myBasePage.waitForText("Update");
+            myBasePage.waitForText("Updat");
             System.out.println("Text found: Update");
 //            waitUnitlTextIsGone("Update");
 //            Thread.sleep(1000);

@@ -36,7 +36,8 @@ public class SacramentAttendance extends BaseDriver {
 
     @When("{string} is entered in the {string}")
     public void isEnteredInThe(String valueToEnter, String fieldToEnter) throws Exception  {
-        myReports.sacramentAttendanceFirstWeek.click();
+//        myReports.sacramentAttendanceFirstWeek.click();
+        clickElement(fieldToEnter);
         myReports.sacramentAttendanceDialogEditField.setValue(valueToEnter);
         myReports.sacramentAttendanceDialogOk.click();
         iShouldSee(valueToEnter);
@@ -52,6 +53,55 @@ public class SacramentAttendance extends BaseDriver {
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(pageSource.contains(searchItem));
     }
+
+    @Then("I should see {string} in the {string}")
+    public void iShouldSeeInThe(String textToCheck, String fieldToCheck) throws Exception {
+        String textFromElement = getTextFromElement(fieldToCheck);
+        Assert.assertTrue(textToCheck.contains(textFromElement));
+    }
+
+
+    public void clickElement(String elementName) throws Exception {
+        switch(elementName) {
+            case "First Date Field":
+                myReports.sacramentAttendanceFirstWeek.click();
+                break;
+            case "Second Date Field":
+                myReports.sacramentAttendanceSecondWeek.click();
+                break;
+            case "Third Date Field":
+                myReports.sacramentAttendanceThirdWeek.click();
+                break;
+            case "Fourth Date Field":
+                myReports.sacramentAttendanceFourthWeek.click();
+                break;
+            default:
+                System.out.println("Element not found!");
+        }
+    }
+
+    public String getTextFromElement(String elementName) throws Exception {
+        String myText = null;
+        switch(elementName) {
+            case "First Date Field":
+                myText = myReports.sacramentAttendanceFirstWeek.getAttribute("Text");
+                break;
+            case "Second Date Field":
+                myText = myReports.sacramentAttendanceSecondWeek.getAttribute("Text");
+                break;
+            case "Third Date Field":
+                myText = myReports.sacramentAttendanceThirdWeek.getAttribute("Text");
+                break;
+            case "Fourth Date Field":
+                myText = myReports.sacramentAttendanceFourthWeek.getAttribute("Text");
+                break;
+            default:
+                System.out.println("Element not found!");
+        }
+        
+        return myText;
+    }
+
 
 
 }

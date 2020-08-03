@@ -9,10 +9,10 @@
     Scenario: As a Bishop enter a number and have it saved
       Given a "BISHOP" is on the Sacrament Attendance page
       When "159" is entered in the "First Date Field"
-      Then I should see "159"
+      Then I should see "159" in the "First Date Field"
 
     @jft
     Scenario: As a Ward Clerk enter a number and have it saved
       Given a "WARD_CLERK" is on the Sacrament Attendance page
-      When "77" is entered in the "First Date Field"
-      Then I should see "77"
+      When "77" is entered in the "Second Date Field"
+      Then I should see "77" in the "Second Date Field"

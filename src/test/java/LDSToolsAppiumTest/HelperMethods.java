@@ -509,8 +509,8 @@ public class HelperMethods extends BaseDriver {
         nonLeaderPinCheck();
 //        checkForAlertsBeforePin();
 
-//        System.out.println("Dismiss Whats New Page");
-//        dismissWhatsNewPage();
+        System.out.println("Dismiss Whats New Page");
+        dismissWhatsNewPage();
 
         //Android needs this.
 //        System.out.println("Check for MORE Alerts after whats new page");
@@ -578,7 +578,9 @@ public class HelperMethods extends BaseDriver {
 
 //            System.out.println(getSourceOfPage());
             myBasePage.waitForElement(myMenuScreen.directory);
-            myMenuScreen.directory.click();
+            myMenuScreen.organizations.click();
+            myMenuScreen.selectMenu(myMenuScreen.directory);
+//            myMenuScreen.directory.click();
             Thread.sleep(2000);
         }
 

@@ -29,7 +29,8 @@ public class MissionaryScreen extends BasePage {
     public MobileElement sendReferralButton;
 
     //Cancel Referral
-    @AndroidFindBy(accessibility = "Navigate up")
+//    @AndroidFindBy(accessibility = "Navigate up")
+    @AndroidFindBy(xpath = "//*[contains(@resource-id, 'toolbar')]/android.widget.ImageButton")
     @iOSXCUITFindBy(accessibility = "Back")
     public MobileElement cancelReferralButton;
 

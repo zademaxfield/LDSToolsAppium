@@ -31,6 +31,9 @@ public class SacramentAttendance extends BaseDriver {
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         myMenu.selectMenu(myMenu.reports);
+        if (!myBasePage.checkForElement(myReports.sacramentAttendanceReport)) {
+            myBasePage.scrollDownAndroidUIAutomator("0");
+        }
         myReports.sacramentAttendanceReport.click();
     }
 
@@ -104,5 +107,35 @@ public class SacramentAttendance extends BaseDriver {
     }
 
 
+    @Given("a {string} is on the Reports page")
+    public void aIsOnTheReportsPage(String memberCalling) throws Exception {
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList(memberCalling);
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        myMenu.selectMenu(myMenu.reports);
+    }
 
+    @Then("I should not see {string}")
+    public void iShouldNotSee(String searchItem) throws Exception {
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertFalse(pageSource.contains(searchItem));
+    }
+
+
+    @When("a {string} is entered using the counter")
+    public void aIsEnteredUsingTheCounter(String counterNumber) throws Exception {
+        int counterTotal;
+        counterTotal = Integer.parseInt(counterNumber);
+        myReports.sacramentAttendanceCounterIcon.click();
+        for (int x = 1; x <= counterTotal; x++) {
+            myReports.sacramentAttendanceAddButton.click();
+        }
+        iShouldSee(counterNumber);
+        myBasePage.backButton.click();
+        Thread.sleep(2000);
+        iShouldSee(counterNumber);
+
+    }
 }

@@ -4,8 +4,8 @@
     <test name="Android Just For Testing - Cucumber">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-<!--        <parameter name="testDevice" value="HT69D0204296" />-->
-        <parameter name="testDevice" value="emulator-5554" />
+        <parameter name="testDevice" value="HT69D0204296" />
+<!--        <parameter name="testDevice" value="emulator-5554" />-->
         <parameter name="startSleepTime" value="0200" />
         <classes>
             <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>

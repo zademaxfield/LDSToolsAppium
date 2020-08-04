@@ -353,44 +353,61 @@ public class ReportsScreen extends BasePage {
     public  MobileElement mpCancel;
 
     // ************ Sacrament Attendance Page
+    //Todo: need to add ios
     //Sacrament Attendance First Week
     @AndroidFindBy(id = "week1EditText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceFirstWeek;
 
+    //Todo: need to add ios
     //Sacrament Attendance Second Week
     @AndroidFindBy(id = "week2EditText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceSecondWeek;
 
+    //Todo: need to add ios
     //Sacrament Attendance Third Week
     @AndroidFindBy(id = "week3EditText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceThirdWeek;
 
+    //Todo: need to add ios
     //Sacrament Attendance Fourth Week
     @AndroidFindBy(id = "week4EditText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceFourthWeek;
 
-
+    //Todo: need to add ios
     //Sacrament Attendance Dialog Edit Field
     @AndroidFindBy(id = "editText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceDialogEditField;
 
+    //Todo: need to add ios
     //Sacrament Attendance Cancel
     @AndroidFindBy(id = "button2")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceDialogCancel;
 
+    //Todo: need to add ios
     //Sacrament Attendance Ok
-//    @AndroidFindBy(id = "button1")
     @AndroidFindBy(xpath = "//android.widget.Button[@text='OK']")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceDialogOk;
 
+    //Todo: need to add ios
+    //Sacrament Attendance Counter Icon
+    @AndroidFindBy(id = "text_input_end_icon")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceCounterIcon;
 
+
+
+    //Todo: need to add ios
+    //Sacrament Attendance Add Button
+    @AndroidFindBy(id = "counterTextView")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceAddButton;
 
 
 

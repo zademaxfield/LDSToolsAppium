@@ -409,6 +409,18 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceAddButton;
 
+    //Todo: need to add ios
+    //Sacrament Attendance Next Section
+    @AndroidFindBy(id = "sectionButton")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceCounterNextSection;
+
+    //Todo: need to add ios
+    //Sacrament Attendance Counter Save Button
+    @AndroidFindBy(id = "saveButton")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceCounterSave;
+
 
 
     public void saveMissonaryProgressFilter() throws Exception {

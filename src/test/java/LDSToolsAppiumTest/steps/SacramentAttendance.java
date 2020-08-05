@@ -8,6 +8,7 @@ import LDSToolsAppiumTest.HelperMethods;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -64,6 +65,56 @@ public class SacramentAttendance extends BaseDriver {
         Assert.assertTrue(textToCheck.contains(textFromElement));
     }
 
+    @Given("a {string} is on the Reports page")
+    public void aIsOnTheReportsPage(String memberCalling) throws Exception {
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList(memberCalling);
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        myMenu.selectMenu(myMenu.reports);
+    }
+
+    @Then("I should not see {string}")
+    public void iShouldNotSee(String searchItem) throws Exception {
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertFalse(pageSource.contains(searchItem));
+    }
+
+
+    @When("a {string} is entered using the counter")
+    public void aIsEnteredUsingTheCounter(String counterNumber) throws Exception {
+        int counterTotal;
+        counterTotal = Integer.parseInt(counterNumber);
+        myReports.sacramentAttendanceCounterIcon.click();
+        counterPressAdd(counterTotal);
+        iShouldSee(counterNumber);
+        myReports.sacramentAttendanceCounterSave.click();
+//        myBasePage.backButton.click();
+        Thread.sleep(2000);
+//        iShouldSee(counterNumber);
+
+    }
+
+    @When("a {int} {int} {int} {int} is entered using the counter and next section")
+    public void aIsEnteredUsingTheCounterAndNextSection(int firstNumber, int secondNumber, int thirdNumber, int fourthNumber) throws Exception {
+        myReports.sacramentAttendanceCounterIcon.click();
+        counterPressAdd(firstNumber);
+        myReports.sacramentAttendanceCounterNextSection.click();
+        counterPressAdd(secondNumber);
+        myReports.sacramentAttendanceCounterNextSection.click();
+        counterPressAdd(thirdNumber);
+        myReports.sacramentAttendanceCounterNextSection.click();
+        counterPressAdd(fourthNumber);
+        myReports.sacramentAttendanceCounterNextSection.click();
+        myReports.sacramentAttendanceCounterSave.click();
+    }
+
+    public void counterPressAdd(int myCounter) throws Exception {
+        for (int x = 1; x <= myCounter; x++) {
+            myReports.sacramentAttendanceAddButton.click();
+        }
+    }
 
     public void clickElement(String elementName) throws Exception {
         switch(elementName) {
@@ -102,40 +153,44 @@ public class SacramentAttendance extends BaseDriver {
             default:
                 System.out.println("Element not found!");
         }
-        
+
         return myText;
     }
 
-
-    @Given("a {string} is on the Reports page")
-    public void aIsOnTheReportsPage(String memberCalling) throws Exception {
-        String[] callingRights;
-        HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(memberCalling);
-        myHelper.proxyLogin(callingRights[1]);
-        myHelper.enterPin("1", "1", "3", "3");
-        myMenu.selectMenu(myMenu.reports);
-    }
-
-    @Then("I should not see {string}")
-    public void iShouldNotSee(String searchItem) throws Exception {
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertFalse(pageSource.contains(searchItem));
-    }
-
-
-    @When("a {string} is entered using the counter")
-    public void aIsEnteredUsingTheCounter(String counterNumber) throws Exception {
-        int counterTotal;
-        counterTotal = Integer.parseInt(counterNumber);
-        myReports.sacramentAttendanceCounterIcon.click();
-        for (int x = 1; x <= counterTotal; x++) {
-            myReports.sacramentAttendanceAddButton.click();
+    public void sacramentAttendanceCleanUp() throws Exception {
+        if (checkForEnabled(myReports.sacramentAttendanceFirstWeek).equalsIgnoreCase("true")) {
+            myReports.sacramentAttendanceFirstWeek.click();
+            myReports.sacramentAttendanceDialogEditField.setValue("0");
+            myReports.sacramentAttendanceDialogOk.click();
         }
-        iShouldSee(counterNumber);
-        myBasePage.backButton.click();
-        Thread.sleep(2000);
-        iShouldSee(counterNumber);
-
+        if (checkForEnabled(myReports.sacramentAttendanceSecondWeek).equalsIgnoreCase("true")) {
+            myReports.sacramentAttendanceSecondWeek.click();
+            myReports.sacramentAttendanceDialogEditField.setValue("0");
+            myReports.sacramentAttendanceDialogOk.click();
+        }
+        if (checkForEnabled(myReports.sacramentAttendanceThirdWeek).equalsIgnoreCase("true")) {
+            myReports.sacramentAttendanceThirdWeek.click();
+            myReports.sacramentAttendanceDialogEditField.setValue("0");
+            myReports.sacramentAttendanceDialogOk.click();
+        }
+        if (checkForEnabled(myReports.sacramentAttendanceFourthWeek).equalsIgnoreCase("true")) {
+            myReports.sacramentAttendanceFourthWeek.click();
+            myReports.sacramentAttendanceDialogEditField.setValue("0");
+            myReports.sacramentAttendanceDialogOk.click();
+        }
     }
+
+    public String checkForEnabled(MobileElement elementToCheck) throws Exception {
+        String returnStatus;
+        returnStatus = elementToCheck.getAttribute("enabled");
+        return  returnStatus;
+    }
+
+    @After
+    public void cleanup() throws Exception {
+        if (checkForEnabled(myReports.sacramentAttendanceFirstWeek).equalsIgnoreCase("true")) {
+            sacramentAttendanceCleanUp();
+        }
+    }
+
 }

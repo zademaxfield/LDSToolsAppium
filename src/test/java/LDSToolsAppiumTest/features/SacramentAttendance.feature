@@ -26,7 +26,19 @@
     @all @jft
     Scenario: Enter Sacrament Attendance using the counter
       Given a "WARD_CLERK" is on the Sacrament Attendance page
-      When a "25" is entered using the counter
-      Then I should see "25"
+      When a "27" is entered using the counter
+      Then I should see "27"
 
+    @all
+    Scenario: In the counter use the next section several times
+      Given a "WARD_CLERK" is on the Sacrament Attendance page
+      When a 27 35 5 48 is entered using the counter and next section
+      Then I should see "115"
 
+#    Scenario: On the Sacrament counter use both plus and minus
+#
+#    Scenario: Use the counter then hit cancel
+#
+#    Scenario: Show Past Months - check data?
+#
+#    Scenario: Check graph?

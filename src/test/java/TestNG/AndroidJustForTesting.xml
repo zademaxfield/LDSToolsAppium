@@ -18,7 +18,7 @@
         <classes>
 <!--            <class name="LDSToolsAppium.BaseDriver"/>-->
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

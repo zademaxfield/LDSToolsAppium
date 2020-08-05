@@ -23,17 +23,17 @@ public class WhatsNewScreenTest extends BaseDriver {
 
         myHelper.proxyLogin("kroqbandit");
 //        myHelper.loginProduction("tyler55", "Eternity55!");
-        myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
+
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("Version 4.0", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Automatic update", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament Attendance", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament Attendance", pageSource, "Contains"));
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Prayer Roll", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Add names", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Version 4.1", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Prayer Roll", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Add names", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Version 4.1", pageSource, "Contains"));
 
         myWhatsNew.autoUpdate.click();
 
@@ -55,15 +55,21 @@ public class WhatsNewScreenTest extends BaseDriver {
         } else {
             Assert.assertTrue(myBasePage.checkNoCaseList("OFF", pageSource, "Contains"));
         }
-
         myWhatsNew.whatsNewDone.click();
+        myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
+
 
         // Click on Later then Directory
-        if (!myBasePage.getSourceOfPage().equals("ios")) {
+        if (!myBasePage.getOS().equals("ios")) {
             Thread.sleep(2000);
             myHelper.checkForLater();
             Thread.sleep(2000);
-            myMenu.directory.click();
+
+//            System.out.println(getSourceOfPage());
+            myBasePage.waitForElement(myMenu.directory);
+            myMenu.organizations.click();
+            myMenu.selectMenu(myMenu.directory);
+//            myMenuScreen.directory.click();
             Thread.sleep(2000);
         }
 

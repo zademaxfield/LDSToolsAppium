@@ -116,7 +116,8 @@ public class MenuScreen extends BasePage {
 //                myBase.checkForElement(moreMenu);
                 moreMenu.click();
             } else {
-                scrollDownTEST(200);
+//                scrollDownTEST(200);
+                scrollDownAndroidUIAutomator("0");
             }
             myBase.waitForElementThenClick(myElement);
 //            myElement.click();

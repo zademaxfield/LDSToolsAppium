@@ -186,10 +186,15 @@ public class SacramentAttendance extends BaseDriver {
         return  returnStatus;
     }
 
-    @After
+    @After("@all and not @nonBishopric")
     public void cleanup() throws Exception {
         if (checkForEnabled(myReports.sacramentAttendanceFirstWeek).equalsIgnoreCase("true")) {
             sacramentAttendanceCleanUp();
+            if (myBasePage.getOS().equalsIgnoreCase("android")) {
+                myBasePage.scrollDownAndroidUIAutomator("1");
+                Thread.sleep(4000);
+            }
+            myBasePage.backButton.click();
         }
     }
 

@@ -12,162 +12,151 @@ import org.testng.annotations.Test;
 
 public class MinisteringScreenTest extends BaseDriver {
 
+
+
     @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void ministeringBasic_BISHOP() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("kroqbandit");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(1);
+        ministeringBasicSub("BISHOP");
     }
 
     @Test (groups = {"all2", "all"})
     public void ministeringBasic_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("Camerado65");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(1);
+        ministeringBasicSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("soldiercloudstrife");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(1);
+        ministeringBasicSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_WARD_CLERK() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("luke.ravitch");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(1);
+        ministeringBasicSub("WARD_CLERK");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_WARD_ASSISTANT_CLERK() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("jdahmanson");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(1);
+        ministeringBasicSub("WARD_ASSISTANT_CLERK");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_WARD_EXECUTIVE_SECRETARY() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("iansalas");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(1);
+        ministeringBasicSub("WARD_EXECUTIVE_SECRETARY");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_MEMBER1() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("dcbryson");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(4);
+        ministeringBasicSub("MEMBER1");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_MEMBER2() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("Kimburrell");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(4);
+        ministeringBasicSub("MEMBER2");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_ELDERS_QUORUM_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("adambee");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(2);
+        ministeringBasicSub("ELDERS_QUORUM_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("gabrielsmith");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(2);
+        ministeringBasicSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("Aloeb1013");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(2);
+        ministeringBasicSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_ELDERS_QUORUM_SECRETARY() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("murillodavid");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(2);
+        ministeringBasicSub("ELDERS_QUORUM_SECRETARY");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_RELIEF_SOCIETY_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("bridgemp");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(2);
+        ministeringBasicSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("blairlolohea");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(2);
+        ministeringBasicSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("mykalikat");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(2);
+        ministeringBasicSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_YOUNG_WOMEN_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("rosettelambson");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(3);
+        ministeringBasicSub("YOUNG_WOMEN_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_WOMEN_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("mahina_12006");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(3);
+        ministeringBasicSub("WOMEN_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("RIBITALOT@AOL.COM");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(3);
+        ministeringBasicSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringBasic_WARD_MISSION_LEADER() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("Christian9");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringBasicCheck(3);
+        ministeringBasicSub("WARD_MISSION_LEADER");
     }
-    
-    
-    
-    
-    
+
+
+
+
+    public void ministeringBasicCheckNewRights(int rights) throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+
+        if (rights >= 4) {
+            myMenu.selectMenu(myMenu.reports);
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+
+
+            myMinistering.ministeringBrothersReport.click();
+
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("Companionships Interviewed", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Assigned Households", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Households", pageSource, "Contains"));
+
+            myBasePage.backButton.click();
+
+            myMinistering.ministeringSistersReport.click();
+
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+
+            Assert.assertTrue(myBasePage.checkNoCaseList("Companionships Interviewed", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Assigned Sisters", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Sisters", pageSource, "Contains"));
+
+            myBasePage.backButton.click();
+
+        }
+
+        if (rights == 1){
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
+    }
     
     
     
@@ -225,158 +214,167 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
+    public void ministeringUnassignedHouseholdsCheckSub(String callingForMember) throws Exception {
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringUnassignedHouseholdsCheckNewRights(Integer.parseInt(callingRights[2]));
+    }
 
 
     @Test (groups = {"all4", "all"})
     public void ministeringUnassignedHouseholds_BISHOP() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("kroqbandit");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(1);
+        ministeringUnassignedHouseholdsCheckSub("BISHOP");
     }
 
     @Test (groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("Camerado65");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(1);
+        ministeringUnassignedHouseholdsCheckSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("soldiercloudstrife");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(1);
+        ministeringUnassignedHouseholdsCheckSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_WARD_CLERK() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("luke.ravitch");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(1);
+        ministeringUnassignedHouseholdsCheckSub("WARD_CLERK");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_WARD_ASSISTANT_CLERK() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("jdahmanson");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(1);
+        ministeringUnassignedHouseholdsCheckSub("WARD_ASSISTANT_CLERK");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_WARD_EXECUTIVE_SECRETARY() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("iansalas");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(1);
+        ministeringUnassignedHouseholdsCheckSub("WARD_EXECUTIVE_SECRETARY");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_MEMBER1() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("dcbryson");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(4);
+        ministeringUnassignedHouseholdsCheckSub("MEMBER1");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_MEMBER2() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("Kimburrell");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(4);
+        ministeringUnassignedHouseholdsCheckSub("MEMBER2");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("adambee");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(2);
+        ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("gabrielsmith");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(2);
+        ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("Aloeb1013");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(2);
+        ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_SECRETARY() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("murillodavid");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(2);
+        ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("bridgemp");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(2);
+        ministeringUnassignedHouseholdsCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("blairlolohea");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(2);
+        ministeringUnassignedHouseholdsCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("mykalikat");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(2);
+        ministeringUnassignedHouseholdsCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_YOUNG_WOMEN_PRESIDENT() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("rosettelambson");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(3);
+        ministeringUnassignedHouseholdsCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_WOMEN_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("mahina_12006");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(3);
+        ministeringUnassignedHouseholdsCheckSub("WOMEN_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("RIBITALOT@AOL.COM");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(3);
+        ministeringUnassignedHouseholdsCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_WARD_MISSION_LEADER() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("Christian9");
-        myHelper.enterPin("1", "1", "3", "3");
-        ministeringUnassignedHouseholdsCheck(3);
+        ministeringUnassignedHouseholdsCheckSub("WARD_MISSION_LEADER");
+    }
+
+    public void ministeringUnassignedHouseholdsCheckNewRights(int rights) throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+
+        if (rights <= 3) {
+            myMenu.selectMenu(myMenu.reports);
+            myMinistering.ministeringBrothersReport.click();
+            Thread.sleep(2000);
+            myMinistering.unassignedHouseholds.click();
+            Thread.sleep(2000);
+
+            //For some reason the pageSource is broken for this page in iOS.
+            if (getRunningOS().equalsIgnoreCase("ios")) {
+                pageSource = myBasePage.getSourceOfPageIDB();
+                Assert.assertTrue(pageSource.contains("Adams"));
+                Assert.assertFalse(pageSource.contains("Skywalker"));
+            } else {
+                pageSource = myBasePage.getSourceOfPage();
+                Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            }
+
+
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
+            Thread.sleep(2000);
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
+
+
+            myMinistering.ministeringSistersReport.click();
+            Thread.sleep(2000);
+            myMinistering.unassignedSisters.click();
+            Thread.sleep(4000);
+
+
+            if (getRunningOS().equalsIgnoreCase("ios")) {
+                pageSource = myBasePage.getSourceOfPageIDB();
+                Assert.assertTrue(pageSource.contains("Adams"));
+                Assert.assertFalse(pageSource.contains("Skywalker"));
+            } else {
+                pageSource = myBasePage.getSourceOfPage();
+                Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            }
+
+
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
+            Thread.sleep(2000);
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
+        }
+
+        if (rights == 4){
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
     }
 
     public void ministeringUnassignedHouseholdsCheck(int rights) throws Exception {
@@ -437,6 +435,8 @@ public class MinisteringScreenTest extends BaseDriver {
         }
     }
 
+
+    //Todo: need to update new rights
 
     @Test (groups = {"all2", "all"})
     public void ministeringAssignedHouseholds_BISHOP() throws Exception {
@@ -1398,285 +1398,311 @@ public class MinisteringScreenTest extends BaseDriver {
 
     }
 
-
-
-
-    private void assignedMinisteringBrothers() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.assignedMinisteringBrothers.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPTen", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.assignedMinisteringBrothers);
-
-    }
-
-    private void notAssignedMinisteringBrothers() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.notAssignedMinisteringBrothers.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Han Solo", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.notAssignedMinisteringBrothers);
-
-    }
-
-    private void newAndMovedInMembers() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.newAndMovedInMembers.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Mene", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.newAndMovedInMembers);
-
-    }
-
-    private void ssAges18to30() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.singleSistersAges18to30.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Fagaesea", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Yoda", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.singleSistersAges18to30);
-
-    }
-
-    private void ssAge32AndOlder() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.singleSistersAge31AndOver.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Mace", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.singleSistersAge31AndOver);
-
-    }
-
-    private void sbAges18to30() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.singleBrothersAges18to30.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.singleBrothersAges18to30);
-
-    }
-
-    private void sbAge32AndOlder() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.singleBrothersAge31AndOver.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEleven", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.singleBrothersAge31AndOver);
-
+    public void ministeringBasicSub(String callingForMember) throws Exception {
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        ministeringBasicCheckNewRights(Integer.parseInt(callingRights[2]));
     }
 
 
-
-    //******************* SISTERS **************************
-
-
-    private void assignedMinisteringSisters() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.assignedMinisteringSisters.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Bond", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.assignedMinisteringSisters);
-
-    }
-
-    private void notAssignedMinisteringSisters() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.notAssignedMinisteringSisters.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.notAssignedMinisteringSisters);
-
-    }
-
-    private void newAndMovedInMembersSisters() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.newAndMovedInMembers.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Mene", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.newAndMovedInMembers);
-
-    }
-
-    private void ssAges18to30Sisters() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.singleSistersAges18to30.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
+//    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
+//    public void ministeringBasic_BISHOP() throws Exception {
+//        HelperMethods myHelper = new HelperMethods();
+//        myHelper.proxyLogin("kroqbandit");
+//        myHelper.enterPin("1", "1", "3", "3");
+//        ministeringBasicCheck(1);
+//    }
 
 
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+//
+//
+//    private void assignedMinisteringBrothers() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.assignedMinisteringBrothers.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("AFPTen", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.assignedMinisteringBrothers);
+//
+//    }
+//
+//    private void notAssignedMinisteringBrothers() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.notAssignedMinisteringBrothers.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Han Solo", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.notAssignedMinisteringBrothers);
+//
+//    }
+//
+//    private void newAndMovedInMembers() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.newAndMovedInMembers.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Mene", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Vader", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.newAndMovedInMembers);
+//
+//    }
+//
+//    private void ssAges18to30() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.singleSistersAges18to30.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Fagaesea", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Yoda", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.singleSistersAges18to30);
+//
+//    }
+//
+//    private void ssAge32AndOlder() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.singleSistersAge31AndOver.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Mace", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.singleSistersAge31AndOver);
+//
+//    }
+//
+//    private void sbAges18to30() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.singleBrothersAges18to30.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.singleBrothersAges18to30);
+//
+//    }
+//
+//    private void sbAge32AndOlder() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.singleBrothersAge31AndOver.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEleven", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.singleBrothersAge31AndOver);
+//
+//    }
+//
+//
+//
+//    //******************* SISTERS **************************
+//
+//
+//    private void assignedMinisteringSisters() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.assignedMinisteringSisters.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Aaron", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Bond", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.assignedMinisteringSisters);
+//
+//    }
+//
+//    private void notAssignedMinisteringSisters() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.notAssignedMinisteringSisters.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.notAssignedMinisteringSisters);
+//
+//    }
+//
+//    private void newAndMovedInMembersSisters() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.newAndMovedInMembers.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Mene", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.newAndMovedInMembers);
+//
+//    }
+//
+//    private void ssAges18to30Sisters() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.singleSistersAges18to30.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Ami", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.singleSistersAges18to30);
+//
+//    }
+//
+//    private void ssAge32AndOlderSisters() throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//        String pageSource;
+//
+//        myMinistering.filters.click();
+//        myMinistering.singleSistersAge31AndOver.click();
+//        myMinistering.saveMissonaryProgressFilter();
+//
+//        Thread.sleep(1000);
+//
+//        //Check Data
+//        pageSource = myBasePage.getSourceOfPage();
+//        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+//
+//        //Clear Filter
+//        clearFilter(myMinistering.singleSistersAge31AndOver);
+//
+//    }
+//
 
-        //Clear Filter
-        clearFilter(myMinistering.singleSistersAges18to30);
+//
+//
+//    private void clearFilter(MobileElement myElement) throws Exception {
+//        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+//        BasePage myBasePage = new BasePage(driver);
+//
+//        if (getRunningOS().equals("ios")) {
+//            myMinistering.filters.click();
+//            myElement.click();
+//            myBasePage.backButton.click();
+//        } else {
+//            Thread.sleep(1000);
+//            //myMinistering.ministeringExpandFilter.click();
+//            //Thread.sleep(9000);
+//            myMinistering.ministeringRemoveFilter.click();
+//        }
+//    }
+//
 
-    }
-
-    private void ssAge32AndOlderSisters() throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-        String pageSource;
-
-        myMinistering.filters.click();
-        myMinistering.singleSistersAge31AndOver.click();
-        myMinistering.saveMissonaryProgressFilter();
-
-        Thread.sleep(1000);
-
-        //Check Data
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("AFPEighteen", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-
-        //Clear Filter
-        clearFilter(myMinistering.singleSistersAge31AndOver);
-
-    }
-
-
-
-
-    private void clearFilter(MobileElement myElement) throws Exception {
-        MinisteringScreen myMinistering = new MinisteringScreen(driver);
-        BasePage myBasePage = new BasePage(driver);
-
-        if (getRunningOS().equals("ios")) {
-            myMinistering.filters.click();
-            myElement.click();
-            myBasePage.backButton.click();
-        } else {
-            Thread.sleep(1000);
-            //myMinistering.ministeringExpandFilter.click();
-            //Thread.sleep(9000);
-            myMinistering.ministeringRemoveFilter.click();
-        }
-    }
-
+    //    @Test (groups = {"all4", "all"})
+//    public void ministeringUnassignedHouseholds_BISHOP() throws Exception {
+//        HelperMethods myHelper = new HelperMethods();
+//        myHelper.proxyLogin("kroqbandit");
+//        myHelper.enterPin("1", "1", "3", "3");
+//        ministeringUnassignedHouseholdsCheck(1);
+//    }
 
 
 

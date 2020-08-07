@@ -42,7 +42,7 @@ public class SacramentAttendance extends BaseDriver {
     @When("{string} is entered in the {string}")
     public void isEnteredInThe(String valueToEnter, String fieldToEnter) throws Exception  {
 //        myReports.sacramentAttendanceFirstWeek.click();
-        System.out.println(myBasePage.getSourceOfPage());
+//        System.out.println(myBasePage.getSourceOfPage());
         clickElement(fieldToEnter);
         myReports.sacramentAttendanceDialogEditField.setValue(valueToEnter);
         myReports.sacramentAttendanceDialogOk.click();

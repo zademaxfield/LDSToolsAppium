@@ -28,7 +28,7 @@ import java.util.*;
 
 
 @CucumberOptions()
-public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
+public class BaseDriver extends AbstractTestNGCucumberTests {
 //    public static AppiumDriver<MobileElement> driver;
     public static ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
 
@@ -138,11 +138,11 @@ public class BaseDriver extends AbstractTestNGCucumberTests implements ITest {
 //
 //    }
 
-    @Override
-    public String getTestName() {
-        return dataTestName.get();
-
-    }
+//    @Override
+//    public String getTestName() {
+//        return dataTestName.get();
+//
+//    }
 
 
     @DataProvider(name = "Members")

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Android Login Page Test" configfailurepolicy="continue" verbose="2" parallel="tests" thread-count="2">
+<suite name="Calendar Screen JFT" configfailurepolicy="continue" verbose="2" parallel="tests" thread-count="2">
     <listeners>
         <listener class-name="LDSToolsAppium.RetryListener"/>
         <listener class-name= "LDSToolsAppium.CustomReporter" />
@@ -13,21 +13,42 @@
         <parameter name="testDevice" value="HT69D0204296" />
         <parameter name="startSleepTime" value="0200" />
 
+        <groups>
+            <run>
+                <include name="jft"/>
+            </run>
+        </groups>
+
         <classes>
-<!--            <class name="LDSToolsAppium.BaseDriver" />-->
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
         </classes>
     </test> <!-- Default test -->
 
-    <test name="Android Org Page Test 2" thread-count="2" parallel="false">
+    <test name="Directory Screen JFT" thread-count="2" parallel="false">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="R38M803MWGM" />
+        <parameter name="testDevice" value="emulator-5554" />
+        <parameter name="startSleepTime" value="20000" />
+
+        <groups>
+            <run>
+                <include name="jft"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest"> </class>
+        </classes>
+    </test> <!-- Default test -->
+
+    <test name="Sacrament Attendance Smoke" thread-count="2" parallel="true">
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <parameter name="testDevice" value="HT69D0204296" />
         <parameter name="startSleepTime" value="20000" />
 
         <classes>
-<!--            <class name="LDSToolsAppium.BaseDriver" />-->
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunnerSmoke"> </class>
         </classes>
     </test> <!-- Default test -->
 

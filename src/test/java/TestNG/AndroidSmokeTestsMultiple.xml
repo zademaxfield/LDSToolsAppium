@@ -149,7 +149,7 @@
     </test>
 
 
-    <test name="Android Smoke Test 4 - Pixel 3 XL - Cucumber Tests" thread-count="2" parallel="true">
+    <test name="Android Smoke Test 5 - Pixel 3 XL - Cucumber Tests" thread-count="2" parallel="true">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="89UY0C037" />
@@ -158,7 +158,7 @@
         <classes>
             <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunnerSmoke"> </class>
         </classes>
-    </test> <!-- Default test -->
+    </test>
 
 
 

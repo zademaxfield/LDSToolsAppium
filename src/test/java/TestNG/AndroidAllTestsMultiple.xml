@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Android All Tests" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
     <listeners>
-<!--        <listener class-name="LDSToolsAppium.RetryListener"/>-->
+        <listener class-name="LDSToolsAppium.RetryListener"/>
         <listener class-name= "LDSToolsAppium.CustomReporter" />
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
@@ -148,6 +148,17 @@
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
             <class name="LDSToolsAppiumTest.ListsScreenTest" />
             <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
+        </classes>
+    </test>
+
+    <test name="Android All Test 5 - Pixel 3 XL - Cucumber Tests" thread-count="2" parallel="true">
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <parameter name="testDevice" value="89UY0C037" />
+        <parameter name="startSleepTime" value="180000" />
+
+        <classes>
+            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunnerSmokeAll"> </class>
         </classes>
     </test>
 

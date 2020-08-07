@@ -9,6 +9,7 @@ import LDSToolsAppiumTest.HelperMethods;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.cucumber.java.After;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -90,10 +91,26 @@ public class SacramentAttendance extends BaseDriver {
         counterPressAdd(counterTotal);
         iShouldSee(counterNumber);
         myReports.sacramentAttendanceCounterSave.click();
-//        myBasePage.backButton.click();
         Thread.sleep(2000);
-//        iShouldSee(counterNumber);
+    }
 
+    @When("a {string} is entered using the counter without saving")
+    public void aIsEnteredUsingTheCounterWithoutSaving(String counterNumber) throws Exception{
+        int counterTotal;
+        counterTotal = Integer.parseInt(counterNumber);
+        myReports.sacramentAttendanceCounterIcon.click();
+        counterPressAdd(counterTotal);
+    }
+
+    @And("a {string} is entered in using the minus counter")
+    public void aIsEnteredInUsingTheMinusCounter(String counterNumber) throws Exception{
+        int counterTotal;
+        counterTotal = Integer.parseInt(counterNumber);
+//        myReports.sacramentAttendanceCounterIcon.click();
+        counterPressMinus(counterTotal);
+        iShouldSee(counterNumber);
+        myReports.sacramentAttendanceCounterSave.click();
+        Thread.sleep(2000);
     }
 
     @When("a {int} {int} {int} {int} is entered using the counter and next section")
@@ -113,6 +130,12 @@ public class SacramentAttendance extends BaseDriver {
     public void counterPressAdd(int myCounter) throws Exception {
         for (int x = 1; x <= myCounter; x++) {
             myReports.sacramentAttendanceAddButton.click();
+        }
+    }
+
+    public void counterPressMinus(int myCounter) throws Exception {
+        for (int x = 1; x <= myCounter; x++) {
+            myReports.sacramentAttendanceMinusButton.click();
         }
     }
 
@@ -197,5 +220,7 @@ public class SacramentAttendance extends BaseDriver {
             myBasePage.backButton.click();
         }
     }
+
+
 
 }

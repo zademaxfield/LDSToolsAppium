@@ -410,6 +410,12 @@ public class ReportsScreen extends BasePage {
     public  MobileElement sacramentAttendanceAddButton;
 
     //Todo: need to add ios
+    //Sacrament Attendance Minus Button
+    @AndroidFindBy(id = "decrementFab")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceMinusButton;
+
+    //Todo: need to add ios
     //Sacrament Attendance Next Section
     @AndroidFindBy(id = "sectionButton")
     @iOSXCUITFindBy(accessibility = "Cancel")

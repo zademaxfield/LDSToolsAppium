@@ -29,15 +29,20 @@
       When a "27" is entered using the counter
       Then I should see "27"
 
-    @all @jft
+    @all
     Scenario: In the counter use the next section several times
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When a 27 35 5 48 is entered using the counter and next section
       Then I should see "115"
 
-#    Scenario: On the Sacrament counter use both plus and minus
-#
-#
+    @all @jft
+    Scenario: On the Sacrament counter use both plus and minus
+      Given a "WARD_CLERK" is on the Sacrament Attendance page
+      When a "38" is entered using the counter without saving
+      And a "5" is entered in using the minus counter
+      Then I should see "33"
+
+
 #    Scenario: Long press and enter a number from the counter
 #
 #    Scenario: Use the counter then hit cancel

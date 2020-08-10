@@ -13,6 +13,7 @@ import io.cucumber.testng.CucumberOptions;
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json",
+                "junit:target/cucumber-reports/CucumberTestReport.xml",
                 "rerun:target/cucumber-reports/rerun.txt"
         })
 public class SacramentAttendanceRunner extends BaseDriver {

@@ -231,8 +231,22 @@ public class SettingsScreen extends BasePage {
         public  MobileElement proxy;
 
     //Proxy Username
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Proxy Username')]")
     @iOSXCUITFindBy(xpath = "//*[contains(@name, 'Proxy Username')]")
     public  MobileElement proxyUsername;
+
+
+    //Proxy Username Edit Text
+    @AndroidFindBy(id = "android:id/edit")
+    public  MobileElement proxyUsernameEditText;
+
+    //Proxy Username Edit Cancel
+    @AndroidFindBy(id = "android:id/button2")
+    public  MobileElement proxyUsernameEditCancel;
+
+    //Proxy Username Edit OK
+    @AndroidFindBy(id = "android:id/button1")
+    public  MobileElement proxyUsernameEditOK;
 
     //Select Proxy
     @AndroidFindBy(xpath = "//*[contains(@text, 'Select Proxy')]")

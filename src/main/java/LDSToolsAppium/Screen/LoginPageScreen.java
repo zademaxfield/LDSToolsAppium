@@ -23,6 +23,14 @@ public class LoginPageScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Member Tools']")
     public MobileElement titleMemberTools;
 
+    //Member Tools Heading STAGE
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Member Tools - STAGE']")
+    public MobileElement titleMemberToolsSTAGE;
+
+
+    //Member Tools Heading TEST
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Member Tools - TEST']")
+    public MobileElement titleMemberToolsTEST;
 
 
     //Login Name

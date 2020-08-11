@@ -130,9 +130,11 @@ public class HelperMethods extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
         BaseDriver myBaseDriver = new BaseDriver();
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+        SettingsScreen mySettings = new SettingsScreen(driver);
 
         String deviceName;
         String pageSource;
+        int myCounter = 1;
 
         System.out.println("Start Proxy Login");
 
@@ -147,11 +149,28 @@ public class HelperMethods extends BaseDriver {
             iosDeepLink(proxyUserName);
 
         } else {
-            System.out.println("Get the device name");
-            deviceName = driver.get().getCapabilities().getCapability("deviceName").toString();
-            System.out.println("adb - proxy start");
-            myBaseDriver.adbProxyStart(deviceName, proxyUserName);
-            Thread.sleep(2000);
+
+            while(!myBasePage.checkForElement(myLoginPage.titleMemberToolsSTAGE)|| myCounter > 4) {
+                myLoginPage.titleMemberTools.click();
+                myCounter++;
+            }
+
+
+            myLoginPage.overflowMenu.click();
+            myLoginPage.overflowSettings.click();
+            myBasePage.scrollToTextGeneral("Proxy Username");
+            mySettings.proxyUsername.click();
+            mySettings.proxyUsernameEditText.setValue(proxyUserName);
+            mySettings.proxyUsernameEditOK.click();
+            myBasePage.backButton.click();
+
+
+
+//            System.out.println("Get the device name");
+//            deviceName = driver.get().getCapabilities().getCapability("deviceName").toString();
+//            System.out.println("adb - proxy start");
+//            myBaseDriver.adbProxyStart(deviceName, proxyUserName);
+//            Thread.sleep(2000);
         }
         if (myBasePage.checkForElement(myLoginPage.cancelPass)){
             myLoginPage.cancelPass.click();

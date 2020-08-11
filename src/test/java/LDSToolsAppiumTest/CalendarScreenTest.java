@@ -23,13 +23,13 @@ public class CalendarScreenTest extends BaseDriver {
 
 
     @Test (groups = {"all4", "all"})
-    public void calendarSimple_BISHOP_FIRST_COUNSELOR() throws Exception {
-        calendarSimpleSub("BISHOP_FIRST_COUNSELOR");
+    public void calendarSimple_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+        calendarSimpleSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
     @Test (groups = {"all4", "all"})
     public void calendarSimple_BISHOP_SECOND_COUNSELOR() throws Exception {
-        calendarSimpleSub("BISHOP_SECOND_COUNSELOR");
+        calendarSimpleSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
     @Test (groups = {"all4", "all"})

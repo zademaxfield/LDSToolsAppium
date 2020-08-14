@@ -296,14 +296,13 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            driver.quit();
 
 
-            Thread.sleep(5000);
-//            stopFbSim();
-            System.out.println("Kill instruments");
-            killProcess("instruments");
-            System.out.println("Kill Simulator");
-            killProcess("Simulator");
-            System.out.println("Kill CoreSimulator");
-            killProcess("com.apple.CoreSimulator.CoreSimulatorService");
+//            Thread.sleep(5000);
+//            System.out.println("Kill instruments");
+//            killProcess("instruments");
+//            System.out.println("Kill Simulator");
+//            killProcess("Simulator");
+//            System.out.println("Kill CoreSimulator");
+//            killProcess("com.apple.CoreSimulator.CoreSimulatorService");
 
         } else {
             //driver.quit();

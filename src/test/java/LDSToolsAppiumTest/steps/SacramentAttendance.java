@@ -49,14 +49,17 @@ public class SacramentAttendance extends BaseDriver {
 
     @When("{string} is entered in the {string}")
     public void isEnteredInThe(String valueToEnter, String fieldToEnter) throws Exception  {
+        MobileElement sacToEnter;
         //Need to scroll down or iOS cannot see the elements.
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.scrollDownIOS();
         }
         clickElement(fieldToEnter);
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-            getSunday(fieldToEnter).setValue(valueToEnter);
-            driver.get().getKeyboard().pressKey(Keys.RETURN);
+            sacToEnter = getSunday(fieldToEnter);
+            sacToEnter.clear();
+            sacToEnter.setValue(valueToEnter);
+            myBasePage.keyboardReturn.click();
         } else {
             myReports.sacramentAttendanceDialogEditField.setValue(valueToEnter);
             myReports.sacramentAttendanceDialogOk.click();
@@ -79,6 +82,9 @@ public class SacramentAttendance extends BaseDriver {
     @Then("I should see {string} in the {string}")
     public void iShouldSeeInThe(String textToCheck, String fieldToCheck) throws Exception {
         Thread.sleep(2000);
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myBasePage.scrollDownIOS();
+        }
         String textFromElement = getTextFromElement(fieldToCheck);
         Assert.assertTrue(textToCheck.contains(textFromElement));
     }
@@ -293,17 +299,21 @@ public class SacramentAttendance extends BaseDriver {
         fieldName.add("Fourth Date Field");
 
 
+
+
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-            fieldName.add("First Date Field");
-            fieldName.add("Second Date Field");
-            fieldName.add("Third Date Field");
-            fieldName.add("Fourth Date Field");
+            myBasePage.backButton.click();
+            myReports.sacramentAttendanceReport.click();
+            myBasePage.scrollDownIOS();
             for (String dayToClear : fieldName) {
                 myElement = getSunday(dayToClear);
                 if(checkForEnabled(myElement).equalsIgnoreCase("true")) {
+                    myElement.click();
+                    Thread.sleep(2000);
+                    myElement.click();
                     myElement.clear();
                     myElement.setValue("0");
-                    driver.get().getKeyboard().pressKey(Keys.RETURN);
+                    myBasePage.keyboardReturn.click();
                 }
             }
 

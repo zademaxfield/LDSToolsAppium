@@ -99,6 +99,16 @@ public class BasePage extends BaseDriver {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeStaticText/XCUIElementTypeStaticText")
     public MobileElement menuTitle;
 
+    //Return Key
+    @iOSXCUITFindBy(accessibility = "Return")
+    public MobileElement keyboardReturn;
+
+
+
+
+
+
+
     public BasePage(AppiumDriver<MobileElement> driver) {
 
     }

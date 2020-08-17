@@ -43,6 +43,8 @@
       Then I should see "33"
 
 
+
+
 #    Scenario: Long press and enter a number from the counter
 #
 #    Scenario: Use the counter then hit cancel

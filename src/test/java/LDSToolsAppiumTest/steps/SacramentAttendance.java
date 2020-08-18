@@ -300,22 +300,25 @@ public class SacramentAttendance extends BaseDriver {
 
 
 
-
+        //Skipping ios for now
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-            myBasePage.backButton.click();
-            myReports.sacramentAttendanceReport.click();
-            myBasePage.scrollDownIOS();
-            for (String dayToClear : fieldName) {
-                myElement = getSunday(dayToClear);
-                if(checkForEnabled(myElement).equalsIgnoreCase("true")) {
-                    myElement.click();
-                    Thread.sleep(2000);
-                    myElement.click();
-                    myElement.clear();
-                    myElement.setValue("0");
-                    myBasePage.keyboardReturn.click();
-                }
-            }
+//            myBasePage.backButton.click();
+//            myMenu.selectMenu(myMenu.lists);
+//            myMenu.selectMenu(myMenu.reports);
+//            myReports.sacramentAttendanceReport.click();
+//            myBasePage.scrollDownIOS();
+//
+//            for (String dayToClear : fieldName) {
+//                myElement = getSunday(dayToClear);
+//                if(checkForEnabled(myElement).equalsIgnoreCase("true")) {
+//                    myElement.click();
+//                    Thread.sleep(2000);
+//                    myElement.click();
+//                    myElement.clear();
+//                    myElement.setValue("0");
+//                    myBasePage.keyboardReturn.click();
+//                }
+//            }
 
         } else {
             if (checkForEnabled(myReports.sacramentAttendanceFirstWeek).equalsIgnoreCase("true")) {

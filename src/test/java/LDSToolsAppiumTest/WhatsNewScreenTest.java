@@ -24,6 +24,7 @@ public class WhatsNewScreenTest extends BaseDriver {
         myHelper.proxyLogin("kroqbandit");
 //        myHelper.loginProduction("tyler55", "Eternity55!");
 
+        myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
@@ -56,7 +57,7 @@ public class WhatsNewScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("OFF", pageSource, "Contains"));
         }
         myWhatsNew.whatsNewDone.click();
-        myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
+//        myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
 
 
         // Click on Later then Directory
@@ -68,6 +69,7 @@ public class WhatsNewScreenTest extends BaseDriver {
 //            System.out.println(getSourceOfPage());
             myBasePage.waitForElement(myMenu.directory);
             myMenu.organizations.click();
+            Thread.sleep(1000);
             myMenu.selectMenu(myMenu.directory);
 //            myMenuScreen.directory.click();
             Thread.sleep(2000);

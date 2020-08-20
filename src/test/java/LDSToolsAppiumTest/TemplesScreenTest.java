@@ -35,7 +35,7 @@ public class TemplesScreenTest extends BaseDriver {
         pageSource = myBasePage.getSourceOfPage();
 
         //This is for debug
-        System.out.println(pageSource);
+//        System.out.println(pageSource);
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Los Angeles California Temple", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("310-474-5569", pageSource, "Contains"));

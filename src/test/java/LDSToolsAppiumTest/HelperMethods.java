@@ -598,6 +598,7 @@ public class HelperMethods extends BaseDriver {
 //            System.out.println(getSourceOfPage());
             myBasePage.waitForElement(myMenuScreen.directory);
             myMenuScreen.organizations.click();
+            Thread.sleep(1000);
             myMenuScreen.selectMenu(myMenuScreen.directory);
 //            myMenuScreen.directory.click();
             Thread.sleep(2000);

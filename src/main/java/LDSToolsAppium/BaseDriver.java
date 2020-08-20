@@ -247,6 +247,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             }
 
         } else {
+            Thread.sleep(2000);
             getDriver().resetApp();
 //            driver.resetApp();
 //            System.out.println("Clear App");

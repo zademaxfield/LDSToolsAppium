@@ -7,5 +7,7 @@ foreach $i (@a) {
     system("adb -s " . $i . " uninstall org.lds.ldstools.alpha");
     system("adb -s " . $i . " uninstall io.appium.uiautomator2.server");
     system("adb -s " . $i . " uninstall io.appium.uiautomator2.server.test");
+    system("adb -s " . $i . " uninstall io.appium.unlock");
+    system("adb -s " . $i . " uninstall io.appium.settings");
 }
 exit(0);

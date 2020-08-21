@@ -62,7 +62,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
 
-    @Test(dataProvider = "Members", groups = {"all2", "all"})
+    @Test(dataProvider = "Members", groups = {"all2", "all", "jft"})
     public void organizationStakeHighPriestQuorum(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -80,6 +80,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.organizations);
+        Thread.sleep(2000);
         myOrg.organizationsDropdown.click();
         myOrg.inglewoodStake.click();
         myOrg.highPriestsQuorumOrg.click();

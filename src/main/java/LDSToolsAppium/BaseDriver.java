@@ -455,8 +455,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("gpsEnabled", true);
 
 
-            capabilities.setCapability("fullReset", true);
-            capabilities.setCapability("dontStopAppOnReset", false);
+            capabilities.setCapability("fullReset", false);
+            capabilities.setCapability("dontStopAppOnReset", true);
 
 
             capabilities.setCapability("appium:clearDeviceLogsOnStart", true);

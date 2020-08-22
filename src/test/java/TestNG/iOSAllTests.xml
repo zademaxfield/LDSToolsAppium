@@ -2,10 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="iOS All Tests Suite" configfailurepolicy="continue" verbose="2">
 
-    <test name="iOS All Tests">
+    <listeners>
+        <listener class-name="LDSToolsAppium.RetryListener"/>
+        <listener class-name= "LDSToolsAppium.CustomReporter" />
+        <listener class-name="LDSToolsAppium.TestListener" />
+    </listeners>
+
+    <test name="iOS All Tests - iPhone 11">
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <parameter name="testDevice" value="iPhone X Test" />
+<!--        <parameter name="testDevice" value="iPhone X Test" />-->
+        <parameter name="testDevice" value="iPhone 11" />
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -27,11 +34,12 @@
             <class name="LDSToolsAppiumTest.ReportsScreenTest" />
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
             <class name="LDSToolsAppiumTest.HeaderTest" />
             <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
             <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
             <class name="LDSToolsAppiumTest.ListsScreenTest" />
             <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
         </classes>
-    </test> <!-- Default test -->
-</suite> <!-- Default suite -->
+    </test>
+</suite>

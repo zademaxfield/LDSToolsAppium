@@ -2,10 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Android All Tests Suite" configfailurepolicy="continue" verbose="2">
 
+    <listeners>
+        <listener class-name="LDSToolsAppium.RetryListener"/>
+        <listener class-name= "LDSToolsAppium.CustomReporter" />
+        <listener class-name="LDSToolsAppium.TestListener" />
+    </listeners>
+
     <test name="Android All Tests">
         <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="STF-Pool" />
+        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
+        <parameter name="fileName" value="ldstools-release.apk" />
+        <parameter name="testDevice" value="89UY0C037" />
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -26,6 +34,7 @@
             <class name="LDSToolsAppiumTest.PinScreenTest" />
             <class name="LDSToolsAppiumTest.ReportsScreenTest" />
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
             <class name="LDSToolsAppiumTest.HeaderTest" />
             <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />

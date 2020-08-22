@@ -146,4 +146,21 @@
             <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
         </classes>
     </test>
+
+
+    <test name="Android All Test 5 - Pixel 3 XL - Cucumber Tests" thread-count="2" parallel="true">
+        <parameter name="os" value="android" />
+        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
+        <parameter name="fileName" value="ldstools-release.apk" />
+        <parameter name="testDevice" value="89UY0C037" />
+        <parameter name="startSleepTime" value="180000" />
+
+        <classes>
+            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunnerAll"> </class>
+        </classes>
+    </test>
+
+
+
 </suite>

@@ -15,7 +15,7 @@ import io.cucumber.testng.CucumberOptions;
                 "junit:target/cucumber-reports/CucumberTestReport.xml",
                 "rerun:target/cucumber-reports/rerun.txt"
         })
-public class SacramentAttendanceRunnerSmokeAll extends BaseDriver {
+public class SacramentAttendanceRunnerAll extends BaseDriver {
 
 
 }

@@ -160,7 +160,7 @@
         <parameter name="startSleepTime" value="180000" />
 
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunnerSmokeAll"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunnerAll"> </class>
         </classes>
     </test>
 

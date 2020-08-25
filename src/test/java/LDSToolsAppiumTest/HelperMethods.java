@@ -136,7 +136,7 @@ public class HelperMethods extends BaseDriver {
         String pageSource;
         int myCounter = 1;
 
-        System.out.println("Start Proxy Login");
+        LOGGER.info("Start Proxy Login");
 
 
         if (myBasePage.checkForElement(myBasePage.allowButton)) {
@@ -176,7 +176,7 @@ public class HelperMethods extends BaseDriver {
             myLoginPage.cancelPass.click();
         }
 
-        System.out.println("Clear login and password");
+        LOGGER.info("Clear login and password");
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();
 
@@ -188,9 +188,9 @@ public class HelperMethods extends BaseDriver {
 
         long startTime = System.nanoTime();
 
-        System.out.println("Check for Sign In");
+        LOGGER.info("Check for Sign In");
         myBasePage.waitUnitlTextIsGone("Sign In");
-        System.out.println("Check for Sign In over ------ Check for Sync");
+        LOGGER.info("Check for Sign In over ------ Check for Sync");
 
         Thread.sleep(2000);
 
@@ -199,17 +199,17 @@ public class HelperMethods extends BaseDriver {
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(pageSource.contains("Failed to download."));
 
-            System.out.println("Wait for text to appear: Updat");
+            LOGGER.info("Wait for text to appear: Updat");
 
             myBasePage.waitForText("Updat");
-            System.out.println("Text found: Update");
+            LOGGER.info("Text found: Update");
 //            waitUnitlTextIsGone("Update");
 //            Thread.sleep(1000);
 //            waitUnitlTextIsGone("Update");
-//            System.out.println(getSourceOfPage());
+//            LOGGER.info(getSourceOfPage());
             Thread.sleep(2000);
             myBasePage.waitForText("Passcode");
-            System.out.println("Text found: Passcode");
+            LOGGER.info("Text found: Passcode");
         } else {
             myBasePage.waitUnitlTextIsGone("Authenticating");
             myBasePage. waitForText("Updating");
@@ -222,7 +222,7 @@ public class HelperMethods extends BaseDriver {
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);
         duration = duration / 1000000;
-        System.out.println("Done waiting for Text to disappear: Sync Took: " + duration);
+        LOGGER.info("Done waiting for Text to disappear: Sync Took: " + duration);
 
 
         Thread.sleep(1000);
@@ -524,15 +524,15 @@ public class HelperMethods extends BaseDriver {
 
         Thread.sleep(4000);
 
-        System.out.println("Check for non leader PIN prompt");
+        LOGGER.info("Check for non leader PIN prompt");
         nonLeaderPinCheck();
 //        checkForAlertsBeforePin();
 
-        System.out.println("Dismiss Whats New Page");
+        LOGGER.info("Dismiss Whats New Page");
         dismissWhatsNewPage();
 
         //Android needs this.
-//        System.out.println("Check for MORE Alerts after whats new page");
+//        LOGGER.info("Check for MORE Alerts after whats new page");
 //        checkForAlertsAfterPin();
 
 
@@ -555,7 +555,7 @@ public class HelperMethods extends BaseDriver {
             Thread.sleep(2000);
         } else {
             Thread.sleep(4000);
-            System.out.println("Enter PIN!!!");
+            LOGGER.info("Enter PIN!!!");
             deviceName = driver.get().getCapabilities().getCapability("deviceName").toString();
             myBaseDriver.adbEnterPIN(deviceName);
 
@@ -569,7 +569,7 @@ public class HelperMethods extends BaseDriver {
 
 
         //Sometimes there is a warning before the Whats new screen
-        System.out.println("Check for Alerts AFTER PIN");
+        LOGGER.info("Check for Alerts AFTER PIN");
         if (!myBasePage.getOS().equalsIgnoreCase("ios")) {
             //Android needs this.
             checkForAlertsAfterPin();
@@ -595,7 +595,7 @@ public class HelperMethods extends BaseDriver {
             checkForLater();
             Thread.sleep(2000);
 
-//            System.out.println(getSourceOfPage());
+//            LOGGER.info(getSourceOfPage());
             myBasePage.waitForElement(myMenuScreen.directory);
             myMenuScreen.organizations.click();
             Thread.sleep(1000);
@@ -1100,9 +1100,9 @@ public class HelperMethods extends BaseDriver {
                 loginName = membersArray[1];
                 rights = membersArray[2];
 
-                System.out.println("Calling: " + calling);
-                System.out.println("Login Name: " + loginName);
-                System.out.println("rights: " + rights);
+                LOGGER.info("Calling: " + calling);
+                LOGGER.info("Login Name: " + loginName);
+                LOGGER.info("rights: " + rights);
 
             }
         }

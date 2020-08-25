@@ -35,6 +35,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @Given("a {string} is on the Sacrament Attendance page")
     public void aMemberIsOnTheSacramentAttendancePage(String memberCalling) throws Exception {
+        LOGGER.info("a " + memberCalling + " is on the Sacrament Attendance page");
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
         callingRights = myHelper.getMemberNameFromList(memberCalling);
@@ -75,6 +76,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @Then("I should see {string}")
     public void iShouldSee(String searchItem) throws Exception {
+        LOGGER.info("I should see " + searchItem);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(pageSource.contains(searchItem));
     }
@@ -108,6 +110,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @When("a {string} is entered using the counter")
     public void aIsEnteredUsingTheCounter(String counterNumber) throws Exception {
+        LOGGER.info("a " + counterNumber + " is entered using the counter");
         int counterTotal;
         counterTotal = Integer.parseInt(counterNumber);
         myReports.sacramentAttendanceCounterIcon.click();

@@ -13,6 +13,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.logging.*;
+import org.picocontainer.classname.ClassName;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -24,7 +25,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.*;
-
+import java.util.logging.Logger;
 
 
 @CucumberOptions()
@@ -32,6 +33,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //    public static AppiumDriver<MobileElement> driver;
     public static ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
 
+    public static final Logger LOGGER = Logger.getLogger(ClassName.class.getName());
 
     public static AppiumDriver<MobileElement> driver2;
     public String deviceSerial = "";
@@ -69,6 +71,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         File reportsDirectory = new File ("src/test/java/Reports");
         File screenshotDirectory = new File ("screenshot");
 
+        LOGGER.info("LOGGER: Start clean directories");
         System.out.println("Start clean directories");
         try {
             FileUtils.cleanDirectory(reportsDirectory);
@@ -455,7 +458,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("gpsEnabled", true);
 
 
-            capabilities.setCapability("fullReset", false);
+            capabilities.setCapability("fullReset", true);
             capabilities.setCapability("dontStopAppOnReset", true);
 
 

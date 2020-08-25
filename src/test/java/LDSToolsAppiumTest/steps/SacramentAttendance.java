@@ -256,6 +256,16 @@ public class SacramentAttendance extends BaseDriver {
                 }
 
                 break;
+
+            case "Fifth Date Field":
+                if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+                    returnElement = (MobileElement) driver.get().findElement(By.xpath(
+                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]/XCUIElementTypeTextField[@name='" + sundayNumber.get(4) + "']"));
+                } else {
+                    returnElement = myReports.sacramentAttendanceFifthWeek;
+                }
+
+                break;
             default:
                 System.out.println("Element not found!");
         }
@@ -300,6 +310,7 @@ public class SacramentAttendance extends BaseDriver {
         fieldName.add("Second Date Field");
         fieldName.add("Third Date Field");
         fieldName.add("Fourth Date Field");
+        fieldName.add("Fifth Date Field");
 
 
 
@@ -344,6 +355,14 @@ public class SacramentAttendance extends BaseDriver {
                 myReports.sacramentAttendanceDialogEditField.setValue("0");
                 myReports.sacramentAttendanceDialogOk.click();
             }
+            if (myBasePage.checkForElement(myReports.sacramentAttendanceFifthWeek)) {
+                if (checkForEnabled(myReports.sacramentAttendanceFifthWeek).equalsIgnoreCase("true")) {
+                    myReports.sacramentAttendanceFifthWeek.click();
+                    myReports.sacramentAttendanceDialogEditField.setValue("0");
+                    myReports.sacramentAttendanceDialogOk.click();
+                }
+            }
+
         }
 
     }

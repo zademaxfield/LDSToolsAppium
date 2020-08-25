@@ -25,6 +25,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.*;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 
@@ -64,6 +65,16 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
     @BeforeSuite(alwaysRun = true)
     public void removeFilesBeforeTest() {
+        //Turn off logging
+//        LogManager.getLogManager().reset();
+//        LOGGER.severe("Severe Message");
+//        LOGGER.warning("Warning Message");
+//        LOGGER.info("Info Message");
+//        LOGGER.config("Config Message");
+//        LOGGER.fine("Fine Message");
+//        LOGGER.finer("Finer Message");
+//        LOGGER.finest("Finest Message");
+
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 //        File reportsDirectory = new File ("/Users/zmaxfield/Documents/workspace/qa-membertools-all/src/test/java/Reports");
 //        File screenshotDirectory = new File ("/Users/zmaxfield/Documents/workspace/qa-membertools-all/screenshot");

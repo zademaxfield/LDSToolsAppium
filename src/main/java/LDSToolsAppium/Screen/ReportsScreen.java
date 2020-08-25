@@ -378,6 +378,12 @@ public class ReportsScreen extends BasePage {
     public  MobileElement sacramentAttendanceFourthWeek;
 
     //Todo: need to add ios
+    //Sacrament Attendance Fifth Week
+    @AndroidFindBy(id = "week5EditText")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement sacramentAttendanceFifthWeek;
+
+    //Todo: need to add ios
     //Sacrament Attendance Dialog Edit Field
     @AndroidFindBy(id = "editText")
     @iOSXCUITFindBy(accessibility = "Cancel")

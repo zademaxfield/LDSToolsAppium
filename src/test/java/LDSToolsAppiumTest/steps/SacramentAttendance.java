@@ -50,6 +50,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @When("{string} is entered in the {string}")
     public void isEnteredInThe(String valueToEnter, String fieldToEnter) throws Exception  {
+        LOGGER.info(valueToEnter + " is entered in the " + fieldToEnter);
         MobileElement sacToEnter;
         //Need to scroll down or iOS cannot see the elements.
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
@@ -83,6 +84,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @Then("I should see {string} in the {string}")
     public void iShouldSeeInThe(String textToCheck, String fieldToCheck) throws Exception {
+        LOGGER.info("I should see " + textToCheck + " in the " + fieldToCheck);
         Thread.sleep(2000);
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.scrollDownIOS();
@@ -93,6 +95,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @Given("a {string} is on the Reports page")
     public void aIsOnTheReportsPage(String memberCalling) throws Exception {
+        LOGGER.info("a " + memberCalling + " is on the Reports page");
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
         callingRights = myHelper.getMemberNameFromList(memberCalling);
@@ -103,6 +106,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @Then("I should not see {string}")
     public void iShouldNotSee(String searchItem) throws Exception {
+        LOGGER.info("I should not see " + searchItem);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertFalse(pageSource.contains(searchItem));
     }
@@ -111,8 +115,18 @@ public class SacramentAttendance extends BaseDriver {
     @When("a {string} is entered using the counter")
     public void aIsEnteredUsingTheCounter(String counterNumber) throws Exception {
         LOGGER.info("a " + counterNumber + " is entered using the counter");
+        MobileElement sacToEnter;
         int counterTotal;
         counterTotal = Integer.parseInt(counterNumber);
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myBasePage.scrollDownIOS();
+            Thread.sleep(2000);
+            sacToEnter = getSunday("First Date Field");
+            sacToEnter.clear();
+            sacToEnter.setValue("000");
+            myBasePage.keyboardReturn.click();
+            Thread.sleep(2000);
+        }
         myReports.sacramentAttendanceCounterIcon.click();
         counterPressAdd(counterTotal);
         iShouldSee(counterNumber);
@@ -122,6 +136,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @When("a {string} is entered using the counter without saving")
     public void aIsEnteredUsingTheCounterWithoutSaving(String counterNumber) throws Exception{
+        LOGGER.info("a " + counterNumber + " is entered using the counter without saving");
         int counterTotal;
         counterTotal = Integer.parseInt(counterNumber);
         myReports.sacramentAttendanceCounterIcon.click();
@@ -130,6 +145,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @And("a {string} is entered in using the minus counter")
     public void aIsEnteredInUsingTheMinusCounter(String counterNumber) throws Exception{
+        LOGGER.info("a " + counterNumber + " is entered in using the minus counter");
         int counterTotal;
         counterTotal = Integer.parseInt(counterNumber);
 //        myReports.sacramentAttendanceCounterIcon.click();
@@ -141,6 +157,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @When("a {int} {int} {int} {int} is entered using the counter and next section")
     public void aIsEnteredUsingTheCounterAndNextSection(int firstNumber, int secondNumber, int thirdNumber, int fourthNumber) throws Exception {
+        LOGGER.info("a " + firstNumber + secondNumber + thirdNumber + fourthNumber + " is entered using the counter and next section");
         myReports.sacramentAttendanceCounterIcon.click();
         counterPressAdd(firstNumber);
         myReports.sacramentAttendanceCounterNextSection.click();
@@ -375,6 +392,7 @@ public class SacramentAttendance extends BaseDriver {
 
     @After("@all and not @nonBishopric")
     public void cleanup() throws Exception {
+        LOGGER.info("Cleanup - Sacrament Attendance");
         if(checkForEnabled(getSunday("First Date Field")).equalsIgnoreCase("true")) {
 //        if (checkForEnabled(myReports.sacramentAttendanceFirstWeek).equalsIgnoreCase("true")) {
             sacramentAttendanceCleanUp();

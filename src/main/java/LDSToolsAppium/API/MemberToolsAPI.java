@@ -35,7 +35,17 @@ public class MemberToolsAPI {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        byte[] decodeBytes = Base64.decodeBase64("UDFrQFNwMTc=");
+
+//        // Encode data on your side using BASE64
+//        byte[] bytesEncoded = Base64.encodeBase64(str.getBytes());
+//        System.out.println("encoded value is " + new String(bytesEncoded));
+//
+//        // Decode data on other side, by processing encoded data
+//        byte[] valueDecoded = Base64.decodeBase64(bytesEncoded);
+//        System.out.println("Decoded value is " + new String(valueDecoded));
+
+
+        byte[] decodeBytes = Base64.decodeBase64("QkBiMDBuU3AxNzIwMjA=");
 
         TestWam2CredentialsManager credentialsManager = new TestWam2CredentialsManager("zmaxfield", new String(decodeBytes));
 

@@ -143,7 +143,7 @@ public class HelperMethods extends BaseDriver {
             myBasePage.allowButton.click();
         }
 
-        byte[] decodeBytes = Base64.decodeBase64("UDFrQFNwMTc=");
+        byte[] decodeBytes = Base64.decodeBase64("QkBiMDBuU3AxNzIwMjA=");
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
 
             iosDeepLink(proxyUserName);

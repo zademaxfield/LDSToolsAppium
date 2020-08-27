@@ -404,21 +404,20 @@ public class ReportsScreen extends BasePage {
     //Todo: need to add ios
     //Sacrament Attendance Counter Icon
     @AndroidFindBy(id = "text_input_end_icon")
-    @iOSXCUITFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(accessibility = "sacramentCounterIcon")
     public  MobileElement sacramentAttendanceCounterIcon;
 
 
 
-    //Todo: need to add ios
     //Sacrament Attendance Add Button
     @AndroidFindBy(id = "counterTextView")
-    @iOSXCUITFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeButton[1]")
     public  MobileElement sacramentAttendanceAddButton;
 
-    //Todo: need to add ios
+
     //Sacrament Attendance Minus Button
     @AndroidFindBy(id = "decrementFab")
-    @iOSXCUITFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(accessibility = "minus.circle")
     public  MobileElement sacramentAttendanceMinusButton;
 
     //Todo: need to add ios
@@ -430,7 +429,7 @@ public class ReportsScreen extends BasePage {
     //Todo: need to add ios
     //Sacrament Attendance Counter Save Button
     @AndroidFindBy(id = "saveButton")
-    @iOSXCUITFindBy(accessibility = "Cancel")
+    @iOSXCUITFindBy(accessibility = "Save")
     public  MobileElement sacramentAttendanceCounterSave;
 
 

@@ -22,20 +22,19 @@
       Given a "ELDERS_QUORUM_PRESIDENT" is on the Reports page
       Then I should not see "Sacrament Attendance"
 
-
-    @all @jft
+    @all
     Scenario: Enter Sacrament Attendance using the counter
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When a "27" is entered using the counter
       Then I should see "27"
 
-    @all
+    @all @androidOnly
     Scenario: In the counter use the next section several times
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When a 27 35 5 48 is entered using the counter and next section
       Then I should see "115"
 
-    @all
+    @all @jft
     Scenario: On the Sacrament counter use both plus and minus
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When a "38" is entered using the counter without saving

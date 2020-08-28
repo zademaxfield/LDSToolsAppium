@@ -121,9 +121,11 @@ public class SacramentAttendance extends BaseDriver {
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.scrollDownIOS();
             Thread.sleep(2000);
+            clickElement("First Date Field");
             sacToEnter = getSunday("First Date Field");
             sacToEnter.clear();
-            sacToEnter.setValue("000");
+//            Thread.sleep(2000);
+            sacToEnter.setValue("0");
             myBasePage.keyboardReturn.click();
             Thread.sleep(2000);
         }
@@ -137,8 +139,20 @@ public class SacramentAttendance extends BaseDriver {
     @When("a {string} is entered using the counter without saving")
     public void aIsEnteredUsingTheCounterWithoutSaving(String counterNumber) throws Exception{
         LOGGER.info("a " + counterNumber + " is entered using the counter without saving");
+        MobileElement sacToEnter;
         int counterTotal;
         counterTotal = Integer.parseInt(counterNumber);
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myBasePage.scrollDownIOS();
+            Thread.sleep(2000);
+            clickElement("First Date Field");
+            sacToEnter = getSunday("First Date Field");
+            sacToEnter.clear();
+//            Thread.sleep(2000);
+            sacToEnter.setValue("0");
+            myBasePage.keyboardReturn.click();
+            Thread.sleep(2000);
+        }
         myReports.sacramentAttendanceCounterIcon.click();
         counterPressAdd(counterTotal);
     }
@@ -186,22 +200,6 @@ public class SacramentAttendance extends BaseDriver {
         MobileElement myElement = null;
         myElement = getSunday(elementName);
         myElement.click();
-//        switch(elementName) {
-//            case "First Date Field":
-//                myReports.sacramentAttendanceFirstWeek.click();
-//                break;
-//            case "Second Date Field":
-//                myReports.sacramentAttendanceSecondWeek.click();
-//                break;
-//            case "Third Date Field":
-//                myReports.sacramentAttendanceThirdWeek.click();
-//                break;
-//            case "Fourth Date Field":
-//                myReports.sacramentAttendanceFourthWeek.click();
-//                break;
-//            default:
-//                System.out.println("Element not found!");
-//        }
     }
 
     public String getTextFromElement(String elementName) throws Exception {

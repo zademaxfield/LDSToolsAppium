@@ -571,6 +571,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             //capabilities.setCapability("simpleIsVisibleCheck", true);
 //            capabilities.setCapability("connectHardwareKeyboard", false);
 
+//            capabilities.setCapability("fullReset", true);
+
 
             //Change this to false for more debug
 //            capabilities.setCapability("showIOSLog", false);

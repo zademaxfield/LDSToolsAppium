@@ -199,12 +199,12 @@ public class HelperMethods extends BaseDriver {
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(pageSource.contains("Failed to download."));
 
-
-            if (pageSource.contains("Updat")) {
-                LOGGER.info("Wait for text to appear: Updat");
-                myBasePage.waitForText("Updat");
-                LOGGER.info("Text found: Update");
-            }
+        //May not need this
+//            if (pageSource.contains("Updat")) {
+//                LOGGER.info("Wait for text to appear: Updat");
+//                myBasePage.waitForText("Updat");
+//                LOGGER.info("Text found: Update");
+//            }
 
             Thread.sleep(2000);
             myBasePage.waitForText("Passcode");

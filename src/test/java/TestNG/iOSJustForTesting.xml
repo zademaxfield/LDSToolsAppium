@@ -25,8 +25,8 @@
         </groups>
 
         <classes>
-            <class name="LDSToolsAppium.BaseDriver" />
-            <class name="LDSToolsAppiumTest.CalendarScreenTest"/>
+<!--            <class name="LDSToolsAppium.BaseDriver" />-->
+            <class name="LDSToolsAppiumTest.ReportsScreenTest"/>
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
         </classes>
     </test> <!-- iOS Just For Testing test -->

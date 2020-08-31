@@ -74,6 +74,19 @@
         </classes>
     </test>
 
+    <test name="iOS iPhone 11 - Cucumber Test" thread-count="2" parallel="true">
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDS Tools.app" />
+        <!--        <parameter name="fileName" value="LDSTools.ipa" />-->
+        <!--        <parameter name="testDevice" value="iPhone 8" />-->
+        <parameter name="testDevice" value="iPhone 11" />
+        <parameter name="startSleepTime" value="0200" />
+
+        <classes>
+            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunnerSmoke"> </class>
+        </classes>
+    </test>
+
 
 
 </suite>

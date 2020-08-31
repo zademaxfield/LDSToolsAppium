@@ -198,6 +198,7 @@ public class HelperMethods extends BaseDriver {
             //Check for Failed to download
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(pageSource.contains("Failed to download."));
+            Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable"));
 
         //May not need this
 //            if (pageSource.contains("Updat")) {

@@ -5,6 +5,7 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 
 import LDSToolsAppium.Screen.MenuScreen;
+import LDSToolsAppium.Screen.MissionaryScreen;
 import LDSToolsAppium.Screen.OrganizationsScreen;
 import io.appium.java_client.MobileElement;
 
@@ -18,27 +19,119 @@ import java.util.List;
 
 public class OrganizationsScreenTest extends BaseDriver {
 
-    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
-    public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
-        //String pageSource;
-        int rights = Integer.parseInt(rightsString);
 
+    @Test (groups = {"smoke1", "smoke", "all1", "all"})
+    public void organizationTest_BISHOP() throws Exception {
+        organizationTestCheckSub("BISHOP");
+    }
+
+    @Test (groups = {"all2", "all"})
+    public void missionaryTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+        organizationTestCheckSub("BISHOPRIC_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+        organizationTestCheckSub("BISHOPRIC_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WARD_CLERK() throws Exception {
+        organizationTestCheckSub("WARD_CLERK");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WARD_ASSISTANT_CLERK() throws Exception {
+        organizationTestCheckSub("WARD_ASSISTANT_CLERK");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
+        organizationTestCheckSub("WARD_EXECUTIVE_SECRETARY");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_MEMBER1() throws Exception {
+        organizationTestCheckSub("MEMBER1");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_MEMBER2() throws Exception {
+        organizationTestCheckSub("MEMBER2");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
+        organizationTestCheckSub("ELDERS_QUORUM_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+        organizationTestCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+        organizationTestCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_ELDERS_QUORUM_SECRETARY() throws Exception {
+        organizationTestCheckSub("ELDERS_QUORUM_SECRETARY");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+        organizationTestCheckSub("RELIEF_SOCIETY_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+        organizationTestCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+        organizationTestCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
+        organizationTestCheckSub("YOUNG_WOMEN_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WOMEN_SECOND_COUNSELOR() throws Exception {
+        organizationTestCheckSub("WOMEN_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        organizationTestCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WARD_MISSION_LEADER() throws Exception {
+        organizationTestCheckSub("WARD_MISSION_LEADER");
+    }
+
+    public void organizationTestCheckSub(String callingForMember) throws Exception {
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        organizationTestCheckNewRights(Integer.parseInt(callingRights[2]), callingRights[1]);
+    }
+
+    public void organizationTestCheckNewRights(int rights, String userName) throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
-
-
-        //Login and enter in PIN
-//        myHelper.loginUAT(userName, passWord);
-        myHelper.proxyLogin(userName);
-        myHelper.enterPin("1", "1", "3", "3");
+        
 
         myMenu.selectMenu(myMenu.organizations);
-//        if (rights <= 3) {
-//            myWeb.openPageLogIn("https://lcr-uat.lds.org", userName, passWord);
-//        }
-
-
+        
         getBishopricInfo(rights);
 
         getEldersQuorum(rights, userName);
@@ -53,16 +146,155 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         getPrimaryInfo(rights, userName);
 
-
-
-//        getOtherInfo(rights);
-        //getHighPriestsGroupInfo(rights);
-
     }
 
 
 
-    @Test(dataProvider = "Members", groups = {"all2", "all", "jft"})
+    @Test (groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_BISHOP() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("BISHOP");
+    }
+
+    @Test (groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("BISHOPRIC_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("BISHOPRIC_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_WARD_CLERK() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("WARD_CLERK");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_WARD_ASSISTANT_CLERK() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("WARD_ASSISTANT_CLERK");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_WARD_EXECUTIVE_SECRETARY() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("WARD_EXECUTIVE_SECRETARY");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_MEMBER1() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("MEMBER1");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_MEMBER2() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("MEMBER2");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_PRESIDENT() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all", "jft"})
+    public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_SECRETARY() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_SECRETARY");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("RELIEF_SOCIETY_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_YOUNG_WOMEN_PRESIDENT() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("YOUNG_WOMEN_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_WOMEN_SECOND_COUNSELOR() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("WOMEN_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void organizationStakeHighPriestQuorum_WARD_MISSION_LEADER() throws Exception {
+        organizationStakeHighPriestQuorumCheckSub("WARD_MISSION_LEADER");
+    }
+
+    public void organizationStakeHighPriestQuorumCheckSub(String callingForMember) throws Exception {
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        organizationStakeHighPriestQuorumNewRights(Integer.parseInt(callingRights[2]), callingRights[1]);
+    }
+
+
+    //Todo: API test needed.
+    public void organizationStakeHighPriestQuorumNewRights(int rights, String userName) throws Exception {
+        // ********* Constructor **********
+        MenuScreen myMenu = new MenuScreen(driver);
+        OrganizationsScreen myOrg = new OrganizationsScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myMenu.selectMenu(myMenu.organizations);
+        Thread.sleep(2000);
+        myOrg.organizationsDropdown.click();
+        myOrg.inglewoodStake.click();
+        myOrg.highPriestsQuorumOrg.click();
+        Thread.sleep(2000);
+
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(myBasePage.checkNoCaseList("Arce", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Martin", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Anthony", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Dozier", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Paul", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ronald", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Scott", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Carlson", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lloyd", pageSource, "Contains"));
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Cox", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Tom", pageSource, "Contains"));
+
+
+        myBasePage.backButton.click();
+    }
+    
+    
+
+//    @Test(dataProvider = "Members", groups = {"all2", "all"})
     public void organizationStakeHighPriestQuorum(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -711,6 +943,49 @@ public class OrganizationsScreenTest extends BaseDriver {
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
         Thread.sleep(1000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+
+    }
+
+
+    //    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
+        //String pageSource;
+        int rights = Integer.parseInt(rightsString);
+
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods();
+        MenuScreen myMenu = new MenuScreen(driver);
+
+
+        //Login and enter in PIN
+//        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin(userName);
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myMenu.selectMenu(myMenu.organizations);
+//        if (rights <= 3) {
+//            myWeb.openPageLogIn("https://lcr-uat.lds.org", userName, passWord);
+//        }
+
+
+        getBishopricInfo(rights);
+
+        getEldersQuorum(rights, userName);
+
+        getReliefSociety(rights, userName);
+
+        getYoungMenInfo(rights, userName);
+
+        getYoungWomenInfo(rights, userName);
+
+        getSundaySchoolInfo(rights, userName);
+
+        getPrimaryInfo(rights, userName);
+
+
+
+//        getOtherInfo(rights);
+        //getHighPriestsGroupInfo(rights);
 
     }
 

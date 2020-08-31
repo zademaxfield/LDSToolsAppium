@@ -14,7 +14,154 @@ import java.util.List;
 
 public class MissionaryScreenTest extends BaseDriver {
 
-    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
+
+
+
+
+    @Test (groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    public void missionaryTest_BISHOP() throws Exception {
+        missionaryTestCheckSub("BISHOP");
+    }
+
+    @Test (groups = {"all2", "all"})
+    public void missionaryTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+        missionaryTestCheckSub("BISHOPRIC_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+        missionaryTestCheckSub("BISHOPRIC_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WARD_CLERK() throws Exception {
+        missionaryTestCheckSub("WARD_CLERK");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WARD_ASSISTANT_CLERK() throws Exception {
+        missionaryTestCheckSub("WARD_ASSISTANT_CLERK");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
+        missionaryTestCheckSub("WARD_EXECUTIVE_SECRETARY");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_MEMBER1() throws Exception {
+        missionaryTestCheckSub("MEMBER1");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_MEMBER2() throws Exception {
+        missionaryTestCheckSub("MEMBER2");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
+        missionaryTestCheckSub("ELDERS_QUORUM_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+        missionaryTestCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+        missionaryTestCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_ELDERS_QUORUM_SECRETARY() throws Exception {
+        missionaryTestCheckSub("ELDERS_QUORUM_SECRETARY");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+        missionaryTestCheckSub("RELIEF_SOCIETY_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+        missionaryTestCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+        missionaryTestCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
+        missionaryTestCheckSub("YOUNG_WOMEN_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WOMEN_SECOND_COUNSELOR() throws Exception {
+        missionaryTestCheckSub("WOMEN_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        missionaryTestCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WARD_MISSION_LEADER() throws Exception {
+        missionaryTestCheckSub("WARD_MISSION_LEADER");
+    }
+
+    public void missionaryTestCheckSub(String callingForMember) throws Exception {
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        missionaryTestCheckNewRights(Integer.parseInt(callingRights[2]));
+    }
+
+    public void missionaryTestCheckNewRights(int rights) throws Exception {
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods();
+        MenuScreen myMenu = new MenuScreen(driver);
+        MissionaryScreen myMissionary = new MissionaryScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        MemberToolsAPI apiTest = new MemberToolsAPI();
+        List<String> memberList = new ArrayList<String>();
+        List<String> memberListIos = new ArrayList<String>();
+
+        String pageSource;
+        String memberFirstName;
+        String memberLastName;
+
+        myMenu.selectMenu(myMenu.missionary);
+
+        myMissionary.sendReferralButton.click();
+        Thread.sleep(3000);
+        myMissionary.cancelReferralButton.click();
+        pageSource = myMissionary.getMissionaryPage();
+
+        //Check Assigned Missionaries
+        memberList = apiTest.getAssignedMissionaries("kroqbandit", "21628");
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
+
+        //Check Serving Missionaries
+        memberList = apiTest.getServingMissionaries("kroqbandit", "21628");
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
+
+        //Check Ward Missionaries
+        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "kroqbandit", "21628");
+        if (getRunningOS().equalsIgnoreCase("ios")) {
+            memberListIos = myBasePage.swapLastNameCommaFirstName(memberList);
+            memberList = memberListIos;
+        }
+        myBasePage.apiCheckDataPageSource(memberList, pageSource);
+    }
+
+
+//    @Test(dataProvider = "Members", groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods();
@@ -59,7 +206,7 @@ public class MissionaryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all", "jft"})
+    @Test(groups = {"all4", "all"})
     public void missionaryOtherUnits() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods();

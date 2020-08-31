@@ -14,7 +14,185 @@ import java.util.List;
 
 public class ReportsScreenTest extends BaseDriver {
 
-    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
+
+    @Test (groups = {"all1", "all", "smoke", "smoke1", "report"})
+    public void reportsBasic_BISHOP() throws Exception {
+        reportsBasicCheckSub("BISHOP");
+    }
+
+    @Test (groups = {"all2", "all"})
+    public void missionaryTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("BISHOPRIC_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all3", "all"})
+    public void missionaryTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("BISHOPRIC_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all4", "all"})
+    public void missionaryTest_WARD_CLERK() throws Exception {
+        reportsBasicCheckSub("WARD_CLERK");
+    }
+
+    @Test(groups = {"all1", "all"})
+    public void missionaryTest_WARD_ASSISTANT_CLERK() throws Exception {
+        reportsBasicCheckSub("WARD_ASSISTANT_CLERK");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
+        reportsBasicCheckSub("WARD_EXECUTIVE_SECRETARY");
+    }
+
+    @Test(groups = {"all3", "all"})
+    public void missionaryTest_MEMBER1() throws Exception {
+        reportsBasicCheckSub("MEMBER1");
+    }
+
+    @Test(groups = {"all4", "all"})
+    public void missionaryTest_MEMBER2() throws Exception {
+        reportsBasicCheckSub("MEMBER2");
+    }
+
+    @Test(groups = {"all1", "all", "jft"})
+    public void missionaryTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
+        reportsBasicCheckSub("ELDERS_QUORUM_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all3", "all"})
+    public void missionaryTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all4", "all"})
+    public void missionaryTest_ELDERS_QUORUM_SECRETARY() throws Exception {
+        reportsBasicCheckSub("ELDERS_QUORUM_SECRETARY");
+    }
+
+    @Test(groups = {"all1", "all"})
+    public void missionaryTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+        reportsBasicCheckSub("RELIEF_SOCIETY_PRESIDENT");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all3", "all"})
+    public void missionaryTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all4", "all"})
+    public void missionaryTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
+        reportsBasicCheckSub("YOUNG_WOMEN_PRESIDENT");
+    }
+
+    @Test(groups = {"all1", "all"})
+    public void missionaryTest_WOMEN_SECOND_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("WOMEN_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void missionaryTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all3", "all"})
+    public void missionaryTest_WARD_MISSION_LEADER() throws Exception {
+        reportsBasicCheckSub("WARD_MISSION_LEADER");
+    }
+
+    public void reportsBasicCheckSub(String callingForMember) throws Exception {
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        reportsBasicCheckSubCheckNewRights(Integer.parseInt(callingRights[2]), callingRights[1]);
+    }
+
+    public void reportsBasicCheckSubCheckNewRights(int rights, String userName) throws Exception {
+        HelperMethods myHelper = new HelperMethods();
+        PinScreen myPinScreen = new PinScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+
+        String pageSource;
+
+        if (rights >= 4) {
+            myMenu.selectMenu(myMenu.reports);
+            Thread.sleep(2000);
+
+            pageSource = myBasePage.getSourceOfPage();
+
+            if (getRunningOS().equals("ios")) {
+                //pageSource = myBasePage.getSourceOfPage();
+            } else {
+                //pageSource = pageSource + myBasePage.getSourceOfPage();
+                //myBasePage.scrollDownTEST(800);
+                myBasePage.scrollDownAndroidUIAutomator("0");
+                pageSource = pageSource + myBasePage.getSourceOfPage();
+                //myBasePage.scrollUp(300);
+                myBasePage.scrollUpAndroidUIAutomator("0");
+
+            }
+
+            //Todo: change to an api call per user
+            myBasePage.rightsCheckNewRights("Action and Interview List", 4, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Birthday List", 4, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Ministering", 4, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Members Moved In", 4, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Members Moved Out", 4, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Members with Callings", 4, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Members without Callings", 4, rights, pageSource);
+            // myBasePage.rightsCheck("Missionary Progress Record", 2, rights, pageSource);
+            myBasePage.rightsCheckNewRights("New Members", 4, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Temple Recommend Status", 6, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Unit Statistics", 4, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Quarterly Report", 4, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Youth Recommend Status", 6, rights, pageSource);
+
+
+            getMembersMovedInReport(rights);
+            getMembersMovedOutReport(rights);
+            getMembersWithCallings(rights);
+            getMembersWithOutCallings(rights);
+            getNewMembers(rights);
+            getUnitStats(rights);
+
+            //Bishopric Only Reports
+            //Todo: Add youth temple recommend reports
+            if (rights >= 6 ) {
+                if (!getRunningOS().equalsIgnoreCase("ios")) {
+                    getTempleRecommendStatus(rights);
+                }
+            }
+
+
+
+        } else {
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+
+//    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);

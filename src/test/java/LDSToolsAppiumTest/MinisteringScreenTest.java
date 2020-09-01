@@ -814,7 +814,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all1", "all", "jft"})
+    @Test (groups = {"all1", "all"})
     public void unassignedSisters_BISHOP() throws Exception {
         unassignedSistersSub("BISHOP");
     }
@@ -879,7 +879,7 @@ public class MinisteringScreenTest extends BaseDriver {
         unassignedSistersSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "jft"})
     public void unassignedSisters_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         unassignedSistersSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
@@ -1381,7 +1381,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-//    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
+//    @Test (groups = {"all2", "all", "smoke", "smoke2"})
 //    public void ministeringBasic_BISHOP() throws Exception {
 //        HelperMethods myHelper = new HelperMethods();
 //        myHelper.proxyLogin("kroqbandit");

@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/java/LDSToolsAppiumTest/features",
         glue = {"LDSToolsAppiumTest.steps"},
-        tags = {"@smoke and @SacramentAttendance"},
+        tags = {"@all"},
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
@@ -15,7 +15,7 @@ import io.cucumber.testng.CucumberOptions;
                 "junit:target/cucumber-reports/CucumberTestReport.xml",
                 "rerun:target/cucumber-reports/rerun.txt"
         })
-public class SacramentAttendanceRunnerSmoke extends BaseDriver {
+public class CucumberRunnerAll extends BaseDriver {
 
 
 }

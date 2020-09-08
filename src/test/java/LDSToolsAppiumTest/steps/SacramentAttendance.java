@@ -6,7 +6,7 @@ import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.ReportsScreen;
 import LDSToolsAppiumTest.HelperMethods;
 
-import io.appium.java_client.AppiumDriver;
+
 import io.appium.java_client.MobileElement;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
@@ -14,7 +14,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+
 import org.testng.Assert;
 
 import java.text.SimpleDateFormat;
@@ -388,7 +388,7 @@ public class SacramentAttendance extends BaseDriver {
         return  returnStatus;
     }
 
-    @After("@all and not @nonBishopric")
+    @After("@all and @SacramentAttendance and not @nonBishopric")
     public void cleanup() throws Exception {
         LOGGER.info("Cleanup - Sacrament Attendance");
         if(checkForEnabled(getSunday("First Date Field")).equalsIgnoreCase("true")) {

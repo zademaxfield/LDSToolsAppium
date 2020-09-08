@@ -143,6 +143,48 @@ public class TemplesScreen extends BasePage {
     public MobileElement previousButton;
 
 
+    //Prayer Roll Stuff
+    //Prayer Roll Button
+    @AndroidFindBy(id = "prayerRollButton")
+    @iOSXCUITFindBy(accessibility = "      Prayer Roll      ")
+    public MobileElement prayerRollButton;
+
+    //Prayer Roll 1st Name Field
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.EditText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[5]")
+    public MobileElement prayerRoll1stName;
+
+    //Prayer Roll 2nd Name Field
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.EditText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[1]")
+    public MobileElement prayerRoll2ndName;
+
+    //Prayer Roll 3rd Name Field
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[3]/android.widget.FrameLayout/android.widget.EditText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[2]")
+    public MobileElement prayerRoll3rdName;
+
+    //Prayer Roll 4th Name Field
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[4]/android.widget.FrameLayout/android.widget.EditText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[3]")
+    public MobileElement prayerRoll4thName;
+
+    //Prayer Roll 5th Name Field
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.EditText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField[5]")
+    public MobileElement prayerRoll5thName;
+
+    //Prayer Roll Submit Names
+    @AndroidFindBy(id = "submitButton")
+    @iOSXCUITFindBy(accessibility = "Submit Names")
+    public MobileElement prayerRollSubmitNames;
+
+    //Prayer Roll Cancel Button
+    @AndroidFindBy(accessibility = "Navigate up")
+    @iOSXCUITFindBy(accessibility = "Back")
+    public MobileElement prayerRollCancelButton;
+
+
 
 
     public void chooseDifferentTab(MobileElement myElement ) throws Exception {

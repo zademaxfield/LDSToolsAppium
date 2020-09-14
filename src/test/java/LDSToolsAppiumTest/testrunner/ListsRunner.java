@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/java/LDSToolsAppiumTest/features",
         glue = {"LDSToolsAppiumTest.steps"},
-        tags = {"@jft and @PrayerRoll"},
+        tags = {"@jft and @Lists"},
         plugin = {
                 "pretty",
                 "html:src/test/java/Reports/cucumber-reports/cucumber-pretty",
@@ -15,7 +15,7 @@ import io.cucumber.testng.CucumberOptions;
                 "junit:src/test/java/Reports/cucumber-reports/CucumberTestReport.xml",
                 "rerun:src/test/java/Reports/cucumber-reports/rerun.txt"
         })
-public class PrayerRollRunner extends BaseDriver {
+public class ListsRunner extends BaseDriver {
 
 
 }

@@ -162,7 +162,7 @@ public class ListsScreen extends BasePage {
 //            listsEdit.click();
 
             myBasePage.waitForElementThenClick(listsEdit);
-            System.out.println(myBasePage.getSourceOfPage());
+//            System.out.println(myBasePage.getSourceOfPage());
             myBasePage.waitForElementThenClick((MobileElement) driver.get().findElement(By.xpath("//*[contains(@name, 'Delete " + myListName + "')]")));
 //            driver.get().findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")).click();
 
@@ -259,6 +259,7 @@ public class ListsScreen extends BasePage {
         int elementY;
 
         if (getOS().equals("ios")) {
+            Thread.sleep(2000);
             listsAddToListButton.click();
             Thread.sleep(2000);
             listsSearch.sendKeys(memberToAdd);

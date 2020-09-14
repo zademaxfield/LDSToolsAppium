@@ -10,10 +10,10 @@ import io.cucumber.testng.CucumberOptions;
         tags = {"@smoke"},
         plugin = {
                 "pretty",
-                "html:target/cucumber-reports/cucumber-pretty",
-                "json:target/cucumber-reports/CucumberTestReport.json",
-                "junit:target/cucumber-reports/CucumberTestReport.xml",
-                "rerun:target/cucumber-reports/rerun.txt"
+                "html:src/test/java/Reports/cucumber-reports/cucumber-pretty",
+                "json:src/test/java/Reports/cucumber-reports/CucumberTestReport.json",
+                "junit:src/test/java/Reports/cucumber-reports/CucumberTestReport.xml",
+                "rerun:src/test/java/Reports/cucumber-reports/rerun.txt"
         })
 public class CucumberRunnerSmoke extends BaseDriver {
 

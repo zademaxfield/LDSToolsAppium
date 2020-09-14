@@ -162,6 +162,7 @@ public class ListsScreen extends BasePage {
 //            listsEdit.click();
 
             myBasePage.waitForElementThenClick(listsEdit);
+            Thread.sleep(2000);
 //            System.out.println(myBasePage.getSourceOfPage());
             myBasePage.waitForElementThenClick((MobileElement) driver.get().findElement(By.xpath("//*[contains(@name, 'Delete " + myListName + "')]")));
 //            driver.get().findElement(By.xpath("//XCUIElementTypeButton[contains(@name, 'Delete " + myListName + "')]")).click();

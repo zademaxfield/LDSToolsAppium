@@ -14,7 +14,7 @@
 <!--        <parameter name="testDevice" value="emulator-5554" />-->
         <parameter name="startSleepTime" value="0200" />
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.ListsRunner"> </class>
         </classes>
     </test >
 <!--    <test name="Android Just For Testing - TestNG">-->

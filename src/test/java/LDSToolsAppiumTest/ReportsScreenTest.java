@@ -15,7 +15,7 @@ import java.util.List;
 public class ReportsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"all1", "all", "smoke", "smoke1", "report"})
+    @Test (groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
     public void reportsBasic_BISHOP() throws Exception {
         reportsBasicCheckSub("BISHOP");
     }
@@ -55,7 +55,7 @@ public class ReportsScreenTest extends BaseDriver {
         reportsBasicCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all1", "all", "jft"})
+    @Test(groups = {"all1", "all"})
     public void missionaryTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         reportsBasicCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -879,11 +879,11 @@ public class ReportsScreenTest extends BaseDriver {
 
         if (getRunningOS().equalsIgnoreCase("ios")) {
             pageSource = myBasePage.getSourceOfPageIDB();
-            Assert.assertTrue(pageSource.contains("Alvaira"));
+            Assert.assertTrue(pageSource.contains("Banuelos"));
             Assert.assertFalse(pageSource.contains("Jinn, Qui-Gon"));
         } else {
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Anitema", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Banuelos", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
         }
 

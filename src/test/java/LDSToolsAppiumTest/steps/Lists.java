@@ -39,6 +39,13 @@ public class Lists extends BaseDriver  {
         myLists.listsOk.click();
     }
 
+    @When("I add a List {string}")
+    public void iAddAList(String listName) {
+        myBasePage.waitForElementThenClick(myLists.listsAddList);
+        myLists.listsName.sendKeys(listName);
+        myLists.listsOk.click();
+    }
+
 
     @And("I add members to the list")
     public void iAddMembersToTheList() throws Exception {
@@ -48,15 +55,15 @@ public class Lists extends BaseDriver  {
         Thread.sleep(2000);
     }
 
-    @Then("the New List with the members should be displayed.")
-    public void theNewListWithTheMembersShouldBeDisplayed() throws Exception {
+    @Then("the {string} with the members should be displayed.")
+    public void theWithTheMembersShouldBeDisplayed(String listName) throws Exception {
         //Check the expected number of members in the list
-        numberOfListMembers = myLists.getNumberOfListMembers("New Automated List");
+        numberOfListMembers = myLists.getNumberOfListMembers(listName);
         System.out.println("Number of List Members: " + numberOfListMembers);
         Assert.assertEquals("1", numberOfListMembers);
 
         //Check the list members
-        myLists.selectListName("New Automated List");
+        myLists.selectListName(listName);
         Thread.sleep(4000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Lovell", pageSource, "Contains"));
@@ -70,6 +77,81 @@ public class Lists extends BaseDriver  {
         //Make Sure the List is deleted
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertFalse(myBasePage.checkNoCaseList("New Automated List", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList(listName, pageSource, "Contains"));
+    }
+
+
+    @And("I add six members to the list")
+    public void iAddSixMembersToTheList() throws Exception {
+        //Add a member to the list
+        myLists.addMemberToList("lovell, heather", "Lovell, Heather");
+        myLists.addMemberToList("lovell, kyler", "Lovell, Kyler");
+        myLists.addMemberToList("carter, earon", "Carter, Earon");
+        myLists.addMemberToList("carter, genie", "Carter, Genie");
+        myLists.addMemberToList("carter, tanya", "Carter, Tanya");
+        myLists.addMemberToList("casas, sarai", "Casas, Sarai");
+        myBasePage.waitForElementThenClick(myLists.listsBackButton);
+    }
+
+
+
+
+    @Then("the {string} six members should be displayed on the list")
+    public void theSixMembersShouldBeDisplayedOnTheList(String listName) throws Exception {
+        //Check the expected number of members in the list
+        numberOfListMembers = myLists.getNumberOfListMembers("Test List 1");
+        System.out.println("Number of List Members: " + numberOfListMembers);
+        Assert.assertEquals("6", numberOfListMembers);
+
+        //Check the list members
+        checkListMembers();
+
+        //Todo: this should be its own sub.
+        //Logout - Login
+        myMenu.menuLogOut();
+//        myHelper.loginUAT("LDSTools25", "password1");
+        myHelper.proxyLogin("darthjohn");
+        myHelper.enterPin("1", "1", "3", "3");
+
+        //Go to Lists
+        myMenu.selectMenu(myMenu.lists);
+
+        //Check the list members
+        checkListMembers();
+
+        //Delete the List
+        myLists.deleteList("Test List 1");
+
+        //Make Sure the List is deleted
+        Thread.sleep(5000);
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertFalse(myBasePage.checkNoCaseList("Test List 1", pageSource, "Contains"));
+
+    }
+
+
+
+
+
+
+
+    private void checkListMembers() throws Exception {
+        String pageSource;
+
+        // ********* Constructor **********
+        BasePage myBase = new BasePage(driver);
+        ListsScreen myLists = new ListsScreen(driver);
+
+        myLists.selectListName("Test List 1");
+        Thread.sleep(4000);
+        pageSource = myBase.getSourceOfPage();
+        Assert.assertTrue(myBase.checkNoCaseList("Earon", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Genie", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Tanya", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Sarai", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Heather", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("Kyler", pageSource, "Contains"));
+        myBase.backButton.click();
+        Thread.sleep(2000);
     }
 }

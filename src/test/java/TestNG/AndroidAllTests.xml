@@ -10,9 +10,9 @@
 
     <test name="Android All Tests">
         <parameter name="os" value="android" />
-        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+                <parameter name="fileName" value="ldstools-alpha.apk" />
         <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-        <parameter name="fileName" value="ldstools-release.apk" />
+<!--        <parameter name="fileName" value="ldstools-release.apk" />-->
         <parameter name="testDevice" value="HT69D0204296" />
         <parameter name="startSleepTime" value="0200" />
 
@@ -23,14 +23,14 @@
         </groups>
 
         <classes>
-<!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
 <!--            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.LoginPageTest" />-->
 <!--            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.PinScreenTest" />-->
-            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+<!--            <class name="LDSToolsAppiumTest.ReportsScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.TemplesScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.HeaderTest" />-->

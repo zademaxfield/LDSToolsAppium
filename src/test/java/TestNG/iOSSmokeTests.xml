@@ -7,10 +7,10 @@
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
 
-    <test name="iOS Smoke Test" >
+    <test name="iOS Smoke Test - iPhone 11" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <parameter name="testDevice" value="iPhone X Test" />
+        <parameter name="testDevice" value="iPhone 11" />
         <parameter name="startSleepTime" value="0200" />
 
         <groups>
@@ -32,11 +32,22 @@
             <class name="LDSToolsAppiumTest.ReportsScreenTest" />
             <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
             <class name="LDSToolsAppiumTest.TemplesScreenTest" />
-            <class name="LDSToolsAppiumTest.HeaderTest" />
             <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
             <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
             <class name="LDSToolsAppiumTest.ListsScreenTest" />
             <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
         </classes>
     </test>
+
+    <test name="iOS iPhone 11 - Cucumber Test" thread-count="2" parallel="true">
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDS Tools.app" />
+        <parameter name="testDevice" value="iPhone 11" />
+        <parameter name="startSleepTime" value="2000" />
+
+        <classes>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke"> </class>
+        </classes>
+    </test>
+
 </suite>

@@ -25,93 +25,93 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("BISHOP");
     }
 
-    @Test (groups = {"all2", "all"})
-    public void missionaryTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+    @Test (groups = {"all2", "all", "jft"})
+    public void organizationTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         organizationTestCheckSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+    public void organizationTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         organizationTestCheckSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_WARD_CLERK() throws Exception {
+    public void organizationTest_WARD_CLERK() throws Exception {
         organizationTestCheckSub("WARD_CLERK");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_WARD_ASSISTANT_CLERK() throws Exception {
+    public void organizationTest_WARD_ASSISTANT_CLERK() throws Exception {
         organizationTestCheckSub("WARD_ASSISTANT_CLERK");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
+    public void organizationTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
         organizationTestCheckSub("WARD_EXECUTIVE_SECRETARY");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_MEMBER1() throws Exception {
+    public void organizationTest_MEMBER1() throws Exception {
         organizationTestCheckSub("MEMBER1");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_MEMBER2() throws Exception {
+    public void organizationTest_MEMBER2() throws Exception {
         organizationTestCheckSub("MEMBER2");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
+    public void organizationTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+    public void organizationTest_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+    public void organizationTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_ELDERS_QUORUM_SECRETARY() throws Exception {
+    public void organizationTest_ELDERS_QUORUM_SECRETARY() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+    public void organizationTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         organizationTestCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+    public void organizationTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         organizationTestCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+    public void organizationTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         organizationTestCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
+    public void organizationTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
         organizationTestCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_WOMEN_SECOND_COUNSELOR() throws Exception {
+    public void organizationTest_WOMEN_SECOND_COUNSELOR() throws Exception {
         organizationTestCheckSub("WOMEN_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+    public void organizationTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
         organizationTestCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_WARD_MISSION_LEADER() throws Exception {
+    public void organizationTest_WARD_MISSION_LEADER() throws Exception {
         organizationTestCheckSub("WARD_MISSION_LEADER");
     }
 
@@ -205,7 +205,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_SECRETARY() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_SECRETARY");
     }
@@ -624,14 +624,19 @@ public class OrganizationsScreenTest extends BaseDriver {
         // Priests Quorum Adult Leaders
 //        System.out.println(myBasePage.getSourceOfPage());
 //        myOrg.priestsQuorumAdultLeaders.click();
-        myBasePage.waitForElementThenClick(myOrg.priestsQuorumAdultLeaders);
-        myList = apiTest.getChild2OrganizationMembers("Priests Quorum Adult Leaders", userName, "21628");
-        myBasePage.apiCheckData(myList);
         Thread.sleep(2000);
+        if (myBasePage.checkForElement(myOrg.priestsQuorumAdultLeaders)) {
+            //        myBasePage.waitForElementThenClick(myOrg.priestsQuorumAdultLeaders);
+            myList = apiTest.getChild2OrganizationMembers("Priests Quorum Adult Leaders", userName, "21628");
+            myBasePage.apiCheckData(myList);
+            Thread.sleep(2000);
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+            Thread.sleep(2000);
+        }
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
         Thread.sleep(2000);
-        myBasePage.waitForElementThenClick(myBasePage.backAltButton);
-        Thread.sleep(2000);
+        
+
 
         // Teachers Quorum Presidency
         myBasePage.waitForElementThenClick(myOrg.teachersQuorum);

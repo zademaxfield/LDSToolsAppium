@@ -21,3 +21,6 @@ Feature: Prayer Roll tests
     Given a member is on the prayer roll page
     When the member enters in five names then cancels
     Then the names should not be submitted
+
+#  Scenario: As a member test the max length of prayer roll (Android - 60)
+#  Scenario: As a member test that every temple sends names to the assigned temple

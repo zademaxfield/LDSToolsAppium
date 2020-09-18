@@ -635,7 +635,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         }
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
         Thread.sleep(2000);
-        
+
 
 
         // Teachers Quorum Presidency

@@ -160,7 +160,7 @@ public class PinScreen extends BasePage {
     public MobileElement pinKeyEnter;
 
     //Pin Key Delete
-    @AndroidFindBy(id = "pinKeyVisibility")
+    @AndroidFindBy(id = "deleteButton")
     @iOSXCUITFindBy(accessibility = "DELETE")
     public  MobileElement pinKeyDelete;
 

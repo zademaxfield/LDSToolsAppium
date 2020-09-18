@@ -14,7 +14,7 @@ public class PinScreenTest extends BaseDriver {
 
     //TODO: Bug iOS is allowing repeating numbers - MMIP-5824
     //TODO: Android bug MMA-3502
-    @Test (groups = {"all1", "all"})
+    @Test (groups = {"all1", "all", "jft"})
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -124,7 +124,7 @@ public class PinScreenTest extends BaseDriver {
     }
 
     //TODO: Android bug MMA-3502
-    @Test (groups = {"all3", "all", "jft"})
+    @Test (groups = {"all3", "all"})
     public void pinSequentialTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -154,6 +154,7 @@ public class PinScreenTest extends BaseDriver {
         PinScreen myPinScreen = new PinScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
 
         if (getRunningOS().equalsIgnoreCase("android")) {
             myHelper.enterPin("1", "1", "3", "3");
@@ -171,26 +172,34 @@ public class PinScreenTest extends BaseDriver {
 
         if (getRunningOS().equalsIgnoreCase("android")) {
             myPinScreen.pinKeyEnter.click();
-        }
-
-
-        //Should get an error on iOS .... Android needs to enter in the digits again to get an error
-        if (getRunningOS().equals("android")) {
-            myHelper.pressPinKeys("1");
-            myHelper.pressPinKeys("2");
-            myHelper.pressPinKeys("3");
-            myHelper.pressPinKeys("4");
-
-
-            myPinScreen.pinKeyEnter.click();
-
-
             Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
-
+//            System.out.println(myBasePage.getSourceOfPage());
+            for (int x = 1; x <= 4; x++) {
+                myPinScreen.pinKeyDelete.click();
+            }
         } else {
             Assert.assertEquals("Passcode can't have sequential numbers.", myPinScreen.pinAlertDialogMessage.getText());
             myPinScreen.pinAlertDialogOK.click();
         }
+
+
+//        //Should get an error on iOS .... Android needs to enter in the digits again to get an error
+//        if (getRunningOS().equals("android")) {
+////            myHelper.pressPinKeys("1");
+////            myHelper.pressPinKeys("2");
+////            myHelper.pressPinKeys("3");
+////            myHelper.pressPinKeys("4");
+////
+////
+////            myPinScreen.pinKeyEnter.click();
+//
+//
+////            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
+//
+//        } else {
+//            Assert.assertEquals("Passcode can't have sequential numbers.", myPinScreen.pinAlertDialogMessage.getText());
+//            myPinScreen.pinAlertDialogOK.click();
+//        }
 
         //Sequential Numbers
         myHelper.pressPinKeys("9");
@@ -200,26 +209,34 @@ public class PinScreenTest extends BaseDriver {
 
         if (getRunningOS().equalsIgnoreCase("android")) {
             myPinScreen.pinKeyEnter.click();
-        }
-
-
-        //Should get an error on iOS .... Android needs to enter in the digits again to get an error
-        if (getRunningOS().equals("android")) {
-            myHelper.pressPinKeys("9");
-            myHelper.pressPinKeys("8");
-            myHelper.pressPinKeys("7");
-            myHelper.pressPinKeys("6");
-
-
-            myPinScreen.pinKeyEnter.click();
-
-
             Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
-
+//            System.out.println(myBasePage.getSourceOfPage());
+            for (int x = 1; x <= 4; x++) {
+                myPinScreen.pinKeyDelete.click();
+            }
         } else {
             Assert.assertEquals("Passcode can't have sequential numbers.", myPinScreen.pinAlertDialogMessage.getText());
             myPinScreen.pinAlertDialogOK.click();
         }
+
+
+//        //Should get an error on iOS .... Android needs to enter in the digits again to get an error
+//        if (getRunningOS().equals("android")) {
+////            myHelper.pressPinKeys("9");
+////            myHelper.pressPinKeys("8");
+////            myHelper.pressPinKeys("7");
+////            myHelper.pressPinKeys("6");
+////
+////            Thread.sleep(1000);
+////            myPinScreen.pinKeyEnter.click();
+//
+//
+//            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
+//
+//        } else {
+//            Assert.assertEquals("Passcode can't have sequential numbers.", myPinScreen.pinAlertDialogMessage.getText());
+//            myPinScreen.pinAlertDialogOK.click();
+//        }
     }
 
     private void pinNoMatchTestData() throws Exception {
@@ -281,28 +298,44 @@ public class PinScreenTest extends BaseDriver {
         myHelper.pressPinKeys("1");
         myHelper.pressPinKeys("1");
 
+
         if (getRunningOS().equalsIgnoreCase("android")) {
             myPinScreen.pinKeyEnter.click();
-        }
-
-        //Should get an error on iOS .... Android needs to enter in the digits again to get an error
-        if (getRunningOS().equals("android")) {
-            myHelper.pressPinKeys("1");
-            myHelper.pressPinKeys("1");
-            myHelper.pressPinKeys("1");
-            myHelper.pressPinKeys("1");
-
-
-            myPinScreen.pinKeyEnter.click();
-
-
             Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
-
+//            System.out.println(myBasePage.getSourceOfPage());
+            for (int x = 1; x <= 4; x++) {
+                myPinScreen.pinKeyDelete.click();
+            }
         } else {
-            //System.out.println(myBasePage.getSourceOfPage());
             Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
             myPinScreen.pinAlertDialogOK.click();
         }
+
+//
+//
+//
+//        if (getRunningOS().equalsIgnoreCase("android")) {
+//            myPinScreen.pinKeyEnter.click();
+//        }
+//
+//        //Should get an error on iOS .... Android needs to enter in the digits again to get an error
+//        if (getRunningOS().equals("android")) {
+//            myHelper.pressPinKeys("1");
+//            myHelper.pressPinKeys("1");
+//            myHelper.pressPinKeys("1");
+//            myHelper.pressPinKeys("1");
+//
+//
+//            myPinScreen.pinKeyEnter.click();
+//
+//
+//            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
+//
+//        } else {
+//            //System.out.println(myBasePage.getSourceOfPage());
+//            Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
+//            myPinScreen.pinAlertDialogOK.click();
+//        }
 
         //3 of the same number in a row
         myHelper.pressPinKeys("5");
@@ -312,25 +345,40 @@ public class PinScreenTest extends BaseDriver {
 
         if (getRunningOS().equalsIgnoreCase("android")) {
             myPinScreen.pinKeyEnter.click();
-        }
-
-        //Should get an error on iOS .... Android needs to enter in the digits again to get an error
-        if (getRunningOS().equals("android")) {
-            myHelper.pressPinKeys("5");
-            myHelper.pressPinKeys("6");
-            myHelper.pressPinKeys("6");
-            myHelper.pressPinKeys("6");
-
-
-            myPinScreen.pinKeyEnter.click();
-
-
             Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
-
+//            System.out.println(myBasePage.getSourceOfPage());
+            for (int x = 1; x <= 4; x++) {
+                myPinScreen.pinKeyDelete.click();
+            }
         } else {
             Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
             myPinScreen.pinAlertDialogOK.click();
         }
+
+
+
+
+//        if (getRunningOS().equalsIgnoreCase("android")) {
+//            myPinScreen.pinKeyEnter.click();
+//        }
+//
+//        //Should get an error on iOS .... Android needs to enter in the digits again to get an error
+//        if (getRunningOS().equals("android")) {
+//            myHelper.pressPinKeys("5");
+//            myHelper.pressPinKeys("6");
+//            myHelper.pressPinKeys("6");
+//            myHelper.pressPinKeys("6");
+//
+//
+//            myPinScreen.pinKeyEnter.click();
+//
+//
+//            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
+//
+//        } else {
+//            Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
+//            myPinScreen.pinAlertDialogOK.click();
+//        }
 
     }
 

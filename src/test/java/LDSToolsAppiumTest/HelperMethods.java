@@ -374,7 +374,9 @@ public class HelperMethods extends BaseDriver {
             mySettings.proxyEditField.setValue(proxyUserName);
             mySettings.proxyDone.click();
             myBasePage.waitForElementThenClick(myBasePage.backButton);
-            myBasePage.waitForElementThenClick(myBasePage.backButton);
+//            Thread.sleep(500);
+//            System.out.println(myBasePage.getSourceOfPage());
+            myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 
 
         } else {
@@ -515,56 +517,102 @@ public class HelperMethods extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
         // ********** Page Instantiations **********
         //HelperMethods myHelper = new HelperMethods(driver);
-//        PinScreen myPin = new PinScreen(driver);
+        PinScreen myPin = new PinScreen(driver);
         MenuScreen myMenuScreen = new MenuScreen(driver);
         BaseDriver myBaseDriver = new BaseDriver();
 
         String deviceName;
+        Boolean pinCheck = false;
+        String pageSource;
+        int myCounter = 1;
 
 
         Thread.sleep(4000);
 
-        LOGGER.info("Check for non leader PIN prompt");
-        nonLeaderPinCheck();
-//        checkForAlertsBeforePin();
+        while (!pinCheck) {
+            LOGGER.info("Check for non leader PIN prompt");
+            nonLeaderPinCheck();
 
-        LOGGER.info("Dismiss Whats New Page");
-        dismissWhatsNewPage();
+            LOGGER.info("Dismiss Whats New Page");
+            dismissWhatsNewPage();
+
+            LOGGER.info("Check for PIN or Touch ID");
+            pageSource = myBasePage.getSourceOfPage();
+            if (pageSource.contains("Choose your PIN")) {
+                pinCheck = true;
+            }
+            if (pageSource.contains("Would you like to use")) {
+                pinCheck = true;
+                myPin.pinDisableTouchID.click();
+                myPin.alertOK.click();
+            }
+
+            if (myCounter >= 3) {
+                pinCheck = true;
+            }
+            myCounter++;
+        }
+
+
 
         //Android needs this.
 //        LOGGER.info("Check for MORE Alerts after whats new page");
 //        checkForAlertsAfterPin();
 
+        Thread.sleep(2000);
 
+        pressPinKeys(firstNumber);
+        pressPinKeys(secondNumber);
+        pressPinKeys(thirdNumber);
+        pressPinKeys(fourthNumber);
 
-        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-            Thread.sleep(2000);
-
-            pressPinKeys(firstNumber);
-            pressPinKeys(secondNumber);
-            pressPinKeys(thirdNumber);
-            pressPinKeys(fourthNumber);
-
-            Thread.sleep(2000);
-
-            pressPinKeys(firstNumber);
-            pressPinKeys(secondNumber);
-            pressPinKeys(thirdNumber);
-            pressPinKeys(fourthNumber);
-
-            Thread.sleep(2000);
-        } else {
-            Thread.sleep(4000);
-            LOGGER.info("Enter PIN!!!");
-            deviceName = driver.get().getCapabilities().getCapability("deviceName").toString();
-            myBaseDriver.adbEnterPIN(deviceName);
-
-//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_1));
-//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_1));
-//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_3));
-//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_3));
-//            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myPin.pinKeyEnter.click();
         }
+
+        Thread.sleep(2000);
+
+        pressPinKeys(firstNumber);
+        pressPinKeys(secondNumber);
+        pressPinKeys(thirdNumber);
+        pressPinKeys(fourthNumber);
+
+        Thread.sleep(2000);
+
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myPin.pinKeyEnter.click();
+        }
+
+
+
+//        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+//            Thread.sleep(2000);
+//
+//            pressPinKeys(firstNumber);
+//            pressPinKeys(secondNumber);
+//            pressPinKeys(thirdNumber);
+//            pressPinKeys(fourthNumber);
+//
+//            Thread.sleep(2000);
+//
+//            pressPinKeys(firstNumber);
+//            pressPinKeys(secondNumber);
+//            pressPinKeys(thirdNumber);
+//            pressPinKeys(fourthNumber);
+//
+//            Thread.sleep(2000);
+//        } else {
+//            Thread.sleep(4000);
+//            LOGGER.info("Enter PIN!!!");
+//            deviceName = driver.get().getCapabilities().getCapability("deviceName").toString();
+//            myBaseDriver.adbEnterPIN(deviceName);
+//
+////            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_1));
+////            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_1));
+////            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_3));
+////            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.BUTTON_3));
+////            ((AndroidDriver)driver).pressKey(new KeyEvent(AndroidKey.ENTER));
+//        }
 
 
 
@@ -966,7 +1014,7 @@ public class HelperMethods extends BaseDriver {
 
         Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable."));
 
-        myCheck = pageSource.contains("You can set up a Member Tools Passcode");
+        myCheck = pageSource.contains("Member Tools Passcode");
         if (myCheck) {
             myPin.pinAlertDialogYes.click();
         }

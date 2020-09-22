@@ -369,7 +369,7 @@ public class HelperMethods extends BaseDriver {
 
             mySettings.networkEnvironment.click();
             mySettings.UAT.click();
-
+            myBasePage.waitForElement(mySettings.proxyUsername);
             mySettings.proxyUsername.click();
             myBasePage.waitForElement(mySettings.proxyEditField);
             mySettings.proxyEditField.setValue(proxyUserName);

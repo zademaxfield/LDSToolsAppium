@@ -371,8 +371,10 @@ public class HelperMethods extends BaseDriver {
             mySettings.UAT.click();
 
             mySettings.proxyUsername.click();
+            Thread.sleep(1000);
             mySettings.proxyEditField.setValue(proxyUserName);
             mySettings.proxyDone.click();
+            Thread.sleep(1000);
             myBasePage.waitForElementThenClick(myBasePage.backButton);
 //            Thread.sleep(500);
 //            System.out.println(myBasePage.getSourceOfPage());
@@ -731,7 +733,6 @@ public class HelperMethods extends BaseDriver {
             myMenuScreen.directory.click();
             Thread.sleep(2000);
         }
-
     }
 
     public void enterPinKeepWhatsNew(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
@@ -739,7 +740,7 @@ public class HelperMethods extends BaseDriver {
         //HelperMethods myHelper = new HelperMethods(driver);
 //        PinScreen myPin = new PinScreen(driver);
         BaseDriver myBaseDriver = new BaseDriver();
-        MenuScreen myMenuScreen = new MenuScreen(driver);
+//        MenuScreen myMenuScreen = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
         String deviceName;

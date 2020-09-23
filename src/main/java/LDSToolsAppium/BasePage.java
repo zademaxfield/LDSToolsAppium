@@ -1233,15 +1233,16 @@ public class BasePage extends BaseDriver {
         BufferedReader buf;
         System.out.println("UDID: "  + myUdid);
 
-
-        pr = run.exec(new String[] {"/bin/bash", "-c", "idb kill"});
-        pr.waitFor();
-        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
-        line = buf.readLine();
-        System.out.println("idb kill: " + line);
+//        System.out.println("START idb kill: ");
+//        pr = run.exec(new String[] {"/bin/bash", "-c", "idb kill"});
+//        pr.waitFor();
+//        buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+//        line = buf.readLine();
+//        System.out.println("idb kill: " + line);
 
         Thread.sleep(2000);
 
+        System.out.println("START idb_companion: ");
         pr = run.exec(new String[] {"/bin/bash", "-c", "idb_companion"});
         pr.waitFor();
         buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
@@ -1250,6 +1251,7 @@ public class BasePage extends BaseDriver {
 
         Thread.sleep(2000);
 
+        System.out.println("START idb list-targets: ");
         pr = run.exec(new String[] {"/bin/bash", "-c", "idb list-targets"});
         pr.waitFor();
         buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
@@ -1258,6 +1260,7 @@ public class BasePage extends BaseDriver {
 
         Thread.sleep(2000);
 
+        System.out.println("START idb connect: ");
         pr = run.exec(new String[] {"/bin/bash", "-c", "idb connect " + myUdid});
         pr.waitFor();
         buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
@@ -1266,6 +1269,7 @@ public class BasePage extends BaseDriver {
 
         Thread.sleep(8000);
 
+        System.out.println("START idb ui describe-all ");
         pr = run.exec(new String[] {"/bin/bash", "-c", "idb ui describe-all"});
         pr.waitFor();
         buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));

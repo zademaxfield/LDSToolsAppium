@@ -15,7 +15,7 @@ public class CalendarScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
     public void calendarSimple_BISHOP() throws Exception {
         calendarSimpleSub("BISHOP");
     }
@@ -180,7 +180,7 @@ public class CalendarScreenTest extends BaseDriver {
 
 
     //Todo: need a check to make sure all calendars are selected. Check iOS!
-    @Test (groups = {"all", "all4", "jft" })
+    @Test (groups = {"all", "all4" })
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
@@ -206,6 +206,12 @@ public class CalendarScreenTest extends BaseDriver {
 
         //Check the page source to see Stake Presidency Interviews
         pageSource = myBasePage.getSourceOfPage();
+//        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+//            Thread.sleep(10000);
+//            pageSource = pageSource + myBasePage.getSourceOfPageIDB();
+//            pageSource = pageSource + myBasePage.getSourceOfPage();
+//        }
+        System.out.println(pageSource);
         Assert.assertTrue(myBasePage.checkNoCaseList("YM", pageSource, "contains"));
 
         editCalendar();

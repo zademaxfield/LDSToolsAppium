@@ -10,7 +10,7 @@
         <parameter name="startSleepTime" value="0200" />
 
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.ListsRunner"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke"> </class>
         </classes>
     </test>
 </suite>

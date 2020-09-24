@@ -145,7 +145,8 @@ public class TemplesScreen extends BasePage {
 
     //Prayer Roll Stuff
     //Prayer Roll Button
-    @AndroidFindBy(id = "prayerRollButton")
+//    @AndroidFindBy(id = "prayerRollButton")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Prayer Roll')]")
     @iOSXCUITFindBy(accessibility = "      Prayer Roll      ")
     public MobileElement prayerRollButton;
 

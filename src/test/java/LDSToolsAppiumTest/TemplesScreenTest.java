@@ -31,8 +31,14 @@ public class TemplesScreenTest extends BaseDriver {
         System.out.println(myBasePage.getSourceOfPage());
         myBasePage.waitForElementThenClick(myTemple.yesRemindMe);
         myBasePage.waitForText("Los Angeles");
-
         pageSource = myBasePage.getSourceOfPage();
+
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myBasePage.scrollDownAndroidUIAutomator("1");
+            pageSource = pageSource + myBasePage.getSourceOfPage();
+        }
+
+
 
         //This is for debug
 //        System.out.println(pageSource);

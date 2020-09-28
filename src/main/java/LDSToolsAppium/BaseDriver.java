@@ -94,13 +94,14 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
 
     @BeforeClass(alwaysRun = true)
-    @Parameters({"os", "fileName", "testDevice", "startSleepTime"})
-    public void setUp(String os, String fileName, String testDevice, int startSleepTime) throws Exception {
+    @Parameters({"os", "fileName", "testDevice", "startSleepTime", "systemPort"})
+    public void setUp(String os, String fileName, String testDevice, int startSleepTime, int systemPort) throws Exception {
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
         int myPort;
         testOS = os;
         testngTestDevice = testDevice;
         testngStartSleepTime = startSleepTime;
+
 
         System.out.println("Start of Setup");
 //        //Sleep so when multiple tests start they don't break
@@ -131,7 +132,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             app2 = new MobileDevApp(driver2);
         } else {
 //            driver = appiumCapabilities(os, fileName, testDevice, myPort);
-            appiumCapabilities(os, fileName, testDevice, myPort);
+            appiumCapabilities(os, fileName, testDevice, myPort, systemPort);
             app = new LDSToolsApp(driver);
         }
 
@@ -357,7 +358,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
     }
 
 //    private AppiumDriver<MobileElement> appiumCapabilities(String os, String fileName, String testDevice, int myPort) throws Exception {
-    private void appiumCapabilities(String os, String fileName, String testDevice, int myPort) throws Exception {
+    private void appiumCapabilities(String os, String fileName, String testDevice, int myPort, int systemPort) throws Exception {
         String myAppPackage;
         String myUdid = null;
         int mySystemPort;
@@ -427,7 +428,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
                 adbRemoteConnect(testDevice);
             }
 
-            mySystemPort = getRandomPortSystemPort();
+            mySystemPort = systemPort;
 
             // set up appium
             File classpathRoot = new File(System.getProperty("user.dir"));

@@ -30,10 +30,11 @@ public class MobileDevMain extends BaseDriver {
 //        System.out.println("OS: " + os);
 //        System.out.println("File Name: " + fileName);
 //        System.out.println("Test Device: " + testDevice);
+        int systemPort = 8222;
 
 
 
-        setUp(os, fileName, testDevice, startSleepTime);
+        setUp(os, fileName, testDevice, startSleepTime, systemPort);
 
         if (driver2.findElement(By.id("devModeCheckBox")).getAttribute("checked").equalsIgnoreCase("false")) {
             driver2.findElement(By.id("devModeCheckBox")).click();

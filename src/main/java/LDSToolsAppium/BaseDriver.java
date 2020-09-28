@@ -360,6 +360,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
     private void appiumCapabilities(String os, String fileName, String testDevice, int myPort) throws Exception {
         String myAppPackage;
         String myUdid = null;
+        int mySystemPort;
 
         //Android Setup
         if (os.equals("android")) {
@@ -426,7 +427,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
                 adbRemoteConnect(testDevice);
             }
 
-
+            mySystemPort = getRandomPortSystemPort();
 
             // set up appium
             File classpathRoot = new File(System.getProperty("user.dir"));
@@ -483,6 +484,9 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             capabilities.setCapability("androidInstallTimeout", "60000");
 //            capabilities.setCapability("unicodeKeyboard", "true");
 //            capabilities.setCapability("resetKeyboard", "true");
+
+            capabilities.setCapability("systemPort", mySystemPort);
+
 
             driver.set(new AndroidDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"), capabilities));
 //            driver = new AndroidDriver<>(new URL("http://127.0.0.1:" + myPort + "/wd/hub"), capabilities);
@@ -623,6 +627,25 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
         //System.out.println("OS: " + os);
         //System.out.println("PORT: " + myPort);
+
+        return myPort;
+
+    }
+
+    private int getRandomPortSystemPort() throws Exception {
+        Random randomPort = new Random();
+        int myPort;
+        int lowPort = 8201;
+        int highPort = 8299;
+
+        Boolean portOpen;
+
+        //Check to see if the random port is open
+        //If the port is in use try a different port
+        do {
+            myPort = randomPort.nextInt(highPort - lowPort) + lowPort;
+            portOpen = portCheck(myPort);
+        } while (portOpen.equals(false));
 
         return myPort;
 

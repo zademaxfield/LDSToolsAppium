@@ -13,6 +13,7 @@
         <parameter name="fileName" value="LDS Tools.app" />
         <parameter name="testDevice" value="FBSIM-iPhone 11" />
         <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8201" />
 
         <groups>
             <run>
@@ -47,6 +48,7 @@
         <parameter name="fileName" value="LDS Tools.app" />
         <parameter name="testDevice" value="FBSIM-iPhone 8" />
         <parameter name="startSleepTime" value="60000" />
+        <parameter name="systemPort" value="8202" />
 
         <groups>
             <run>
@@ -83,6 +85,7 @@
         <!--        <parameter name="testDevice" value="iPhone 8" />-->
         <parameter name="testDevice" value="iPhone 11" />
         <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8203" />
 
         <classes>
             <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll"> </class>

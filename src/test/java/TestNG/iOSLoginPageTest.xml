@@ -7,6 +7,7 @@
         <parameter name="fileName" value="LDS Tools.app" />
         <parameter name="testDevice" value="iPhone X Test" />
         <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8201" />
 
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />

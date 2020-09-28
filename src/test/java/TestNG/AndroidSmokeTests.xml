@@ -13,6 +13,7 @@
         <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
         <parameter name="testDevice" value="STF-Pool" />
         <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8201" />
 
         <groups>
             <run>

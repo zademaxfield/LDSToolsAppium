@@ -16,6 +16,7 @@
 <!--        <parameter name="testDevice" value="REAL-ZadesXSMax" />-->
 <!--        <parameter name="testDevice" value="REAL-Z11ProMax" />-->
         <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8201" />
         
         <groups>
             <run>

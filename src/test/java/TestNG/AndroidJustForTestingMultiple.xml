@@ -12,6 +12,7 @@
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="HT69D0204296" />
         <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8201" />
 
         <groups>
             <run>
@@ -29,6 +30,7 @@
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="emulator-5554" />
         <parameter name="startSleepTime" value="20000" />
+        <parameter name="systemPort" value="8202" />
 
         <groups>
             <run>
@@ -46,6 +48,7 @@
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="HT69D0204296" />
         <parameter name="startSleepTime" value="20000" />
+        <parameter name="systemPort" value="8203" />
 
         <classes>
             <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke"> </class>

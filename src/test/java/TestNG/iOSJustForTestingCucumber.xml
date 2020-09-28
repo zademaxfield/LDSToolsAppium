@@ -8,9 +8,10 @@
 <!--        <parameter name="testDevice" value="iPhone 8" />-->
         <parameter name="testDevice" value="iPhone 11" />
         <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8201" />
 
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.ListsRunner"> </class>
         </classes>
     </test>
 </suite>

@@ -12,6 +12,7 @@
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-ZiphoneX" />
         <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8201" />
 
         <groups>
             <run>
@@ -30,6 +31,7 @@
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-Z6SPlus" />
         <parameter name="startSleepTime" value="60000" />
+        <parameter name="systemPort" value="8202" />
 
         <groups>
             <run>
@@ -48,6 +50,7 @@
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-Ziphone7" />
         <parameter name="startSleepTime" value="120000" />
+        <parameter name="systemPort" value="8203" />
 
         <groups>
             <run>
@@ -66,6 +69,7 @@
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-Ziphone8plus" />
         <parameter name="startSleepTime" value="180000" />
+        <parameter name="systemPort" value="8204" />
 
         <groups>
             <run>

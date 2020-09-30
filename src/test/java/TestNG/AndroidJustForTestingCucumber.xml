@@ -19,18 +19,20 @@
             <class name="LDSToolsAppiumTest.testrunner.PrayerRollRunner"> </class>
         </classes>
     </test >
-<!--    <test name="Android Just For Testing - TestNG">-->
-<!--        <parameter name="os" value="android" />-->
-<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
-<!--        <parameter name="testDevice" value="HT69D0204296" />-->
-<!--        <parameter name="startSleepTime" value="0200" />-->
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="jft"/>-->
-<!--            </run>-->
-<!--        </groups>-->
-<!--        <classes>-->
-<!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
-<!--        </classes>-->
-<!--    </test >-->
+
+    <test name="Android Just For Testing - TestNG">
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <parameter name="testDevice" value="R38M803MWGM" />
+        <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8202" />
+        <groups>
+            <run>
+                <include name="jft"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+        </classes>
+    </test >
 </suite>

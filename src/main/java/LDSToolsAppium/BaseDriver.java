@@ -102,7 +102,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         testOS = os;
         testngTestDevice = testDevice;
         testngStartSleepTime = startSleepTime;
-        
+
 
 
         System.out.println("Start of Setup");
@@ -352,9 +352,11 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         myAppiumService.stopAppiumService();
 
         Thread.sleep(1000);
-        System.out.println("Killing the Appium Service");
-        killProcess("main.js");
-//        killProcess("adb");
+
+        //This may be causing problems.
+//        System.out.println("Killing the Appium Service");
+//        killProcess("main.js");
+
 
 
     }

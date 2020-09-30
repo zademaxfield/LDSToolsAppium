@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Android Just For Testing Suite" configfailurepolicy="continue" verbose="2">
-<!--    <listeners>-->
-<!--        <listener class-name="LDSToolsAppium.RetryListener"/>-->
-<!--        <listener class-name= "LDSToolsAppium.CustomReporter" />-->
-<!--        <listener class-name="LDSToolsAppium.TestListener" />-->
-<!--    </listeners>-->
-
     <test name="Android Just For Testing - Cucumber">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
 <!--        <parameter name="testDevice" value="HT69D0204296" />-->
-        <parameter name="testDevice" value="R38M803MWGM" />
-<!--        <parameter name="testDevice" value="emulator-5554" />-->
+<!--        <parameter name="testDevice" value="R38M803MWGM" />-->
+        <parameter name="testDevice" value="emulator-5554" />
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8201" />
         <classes>
@@ -20,19 +14,19 @@
         </classes>
     </test >
 
-    <test name="Android Just For Testing - TestNG">
-        <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="R38M803MWGM" />
-        <parameter name="startSleepTime" value="0200" />
-        <parameter name="systemPort" value="8202" />
-        <groups>
-            <run>
-                <include name="jft"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
-        </classes>
-    </test >
+<!--    <test name="Android Just For Testing - TestNG">-->
+<!--        <parameter name="os" value="android" />-->
+<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+<!--        <parameter name="testDevice" value="R38M803MWGM" />-->
+<!--        <parameter name="startSleepTime" value="0200" />-->
+<!--        <parameter name="systemPort" value="8202" />-->
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="jft"/>-->
+<!--            </run>-->
+<!--        </groups>-->
+<!--        <classes>-->
+<!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
+<!--        </classes>-->
+<!--    </test >-->
 </suite>

@@ -11,7 +11,7 @@
         <parameter name="systemPort" value="8201" />
 
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.ListsRunner"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.PrayerRollRunner"> </class>
         </classes>
     </test>
 </suite>

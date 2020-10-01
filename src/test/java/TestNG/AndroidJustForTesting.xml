@@ -10,7 +10,7 @@
         <parameter name="testDevice" value="R38M803MWGM" />
 <!--        <parameter name="testDevice" value="emulator-5554" />-->
         <parameter name="startSleepTime" value="0200" />
-        <parameter name="systemPort" value="8201" />
+        <parameter name="systemPort" value="8251" />
 
         <groups>
             <run>
@@ -22,7 +22,7 @@
         <classes>
 <!--            <class name="LDSToolsAppium.BaseDriver"/>-->
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
-            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

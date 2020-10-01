@@ -7,7 +7,7 @@
         <parameter name="fileName" value="LDS Tools.app" />
         <parameter name="testDevice" value="FBSIM-iPhone 11" />
         <parameter name="startSleepTime" value="0200" />
-        <parameter name="systemPort" value="8201" />
+        <parameter name="systemPort" value="8251" />
 
         <groups>
             <run>

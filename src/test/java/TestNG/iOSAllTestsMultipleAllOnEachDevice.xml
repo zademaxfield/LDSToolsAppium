@@ -12,7 +12,7 @@
         <parameter name="fileName" value="LDSTools.ipa" />
         <parameter name="testDevice" value="REAL-Ziphone7plus" />
         <parameter name="startSleepTime" value="0200" />
-        <parameter name="systemPort" value="8201" />
+        <parameter name="systemPort" value="8251" />
 
         <groups>
             <run>

@@ -76,7 +76,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //        LOGGER.finer("Finer Message");
 //        LOGGER.finest("Finest Message");
         LOGGER.info("Killing all appium nodes");
-        killProcess("node");
+        killProcess("main.js");
 
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 //        File reportsDirectory = new File ("/Users/zmaxfield/Documents/workspace/qa-membertools-all/src/test/java/Reports");

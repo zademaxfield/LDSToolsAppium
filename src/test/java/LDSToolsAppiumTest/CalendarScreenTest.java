@@ -22,17 +22,17 @@ public class CalendarScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all3", "all", "jft"})
     public void calendarSimple_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         calendarSimpleSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all2", "all"})
     public void calendarSimple_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         calendarSimpleSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all1", "all"})
     public void calendarSimple_WARD_CLERK() throws Exception {
         calendarSimpleSub("WARD_CLERK");
     }
@@ -42,17 +42,17 @@ public class CalendarScreenTest extends BaseDriver {
         calendarSimpleSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all3", "all"})
     public void calendarSimple_WARD_EXECUTIVE_SECRETARY() throws Exception {
         calendarSimpleSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all2", "all"})
     public void calendarSimple_MEMBER1() throws Exception {
         calendarSimpleSub("MEMBER1");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all1", "all"})
     public void calendarSimple_ELDERS_QUORUM_PRESIDENT() throws Exception {
         calendarSimpleSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -62,17 +62,17 @@ public class CalendarScreenTest extends BaseDriver {
         calendarSimpleSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all3", "all"})
     public void calendarSimple_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         calendarSimpleSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all2", "all"})
     public void calendarSimple_ELDERS_QUORUM_SECRETARY() throws Exception {
         calendarSimpleSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all1", "all"})
     public void calendarSimple_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         calendarSimpleSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -82,17 +82,17 @@ public class CalendarScreenTest extends BaseDriver {
         calendarSimpleSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all3", "all"})
     public void calendarSimple_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         calendarSimpleSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all2", "all"})
     public void calendarSimple_YOUNG_WOMEN_PRESIDENT() throws Exception {
         calendarSimpleSub("YOUNG_WOMEN_PRESIDENT");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all1", "all"})
     public void calendarSimple_YOUNG_WOMEN_SECOND_COUNSELOR() throws Exception {
         calendarSimpleSub("YOUNG_WOMEN_SECOND_COUNSELOR");
     }
@@ -102,7 +102,7 @@ public class CalendarScreenTest extends BaseDriver {
         calendarSimpleSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all3", "all"})
     public void calendarSimple_WARD_MISSION_LEADER() throws Exception {
         calendarSimpleSub("WARD_MISSION_LEADER");
     }

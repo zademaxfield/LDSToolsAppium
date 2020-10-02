@@ -93,7 +93,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         }
     }
 
-
+    //    @BeforeTest(alwaysRun = true)
     @BeforeClass(alwaysRun = true)
     @Parameters({"os", "fileName", "testDevice", "startSleepTime", "systemPort"})
     public void setUp(String os, String fileName, String testDevice, int startSleepTime, int systemPort) throws Exception {
@@ -266,6 +266,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         } else {
             Thread.sleep(2000);
             getDriver().resetApp();
+//            getDriver().quit();
 //            driver.resetApp();
 //            System.out.println("Clear App");
 //            adbCommand("clearApp");
@@ -281,6 +282,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //        } else {
 //            myWeb.tearDown();
 //        }
+
 
         System.out.println("End teardown");
     }
@@ -344,20 +346,10 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
         }
 
-//        System.out.println("Killing Chrome and chromedriver");
-//        //Killing Chrome is killing Slack!
-////        killProcess("Chrome");
-//        killProcess("chromedriver");
         System.out.println("Stopping the Appium Service");
         myAppiumService.stopAppiumService();
 
         Thread.sleep(1000);
-
-        //This may be causing problems.
-//        System.out.println("Killing the Appium Service");
-//        killProcess("main.js");
-
-
 
     }
 
@@ -476,7 +468,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("gpsEnabled", true);
 
 
-            capabilities.setCapability("fullReset", true);
+            capabilities.setCapability("fullReset", false);
             capabilities.setCapability("dontStopAppOnReset", true);
 
 

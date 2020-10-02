@@ -65,7 +65,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
 
     @BeforeSuite(alwaysRun = true)
-    public void removeFilesBeforeTest() {
+    public void removeFilesBeforeTest() throws Exception {
         //Turn off logging
 //        LogManager.getLogManager().reset();
 //        LOGGER.severe("Severe Message");
@@ -75,6 +75,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //        LOGGER.fine("Fine Message");
 //        LOGGER.finer("Finer Message");
 //        LOGGER.finest("Finest Message");
+        LOGGER.info("Killing all appium nodes");
+        killProcess("node");
 
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 //        File reportsDirectory = new File ("/Users/zmaxfield/Documents/workspace/qa-membertools-all/src/test/java/Reports");
@@ -310,23 +312,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
     @AfterSuite(alwaysRun = true)
     public void afterAllTests() throws Exception {
         System.out.println("After Suite - Stopping the driver");
-        if (getRunningOS().equals("ios")) {
-
-            //I don't think this is needed anymore
-//            driver.quit();
-
-
-//            Thread.sleep(5000);
-//            System.out.println("Kill instruments");
-//            killProcess("instruments");
-//            System.out.println("Kill Simulator");
-//            killProcess("Simulator");
-//            System.out.println("Kill CoreSimulator");
-//            killProcess("com.apple.CoreSimulator.CoreSimulatorService");
-
-        } else {
-            //driver.quit();
-
+        if (getRunningOS().equals("android")) {
             STFService mySTFService = new STFService(stfURL, accessToken);
             DeviceApi myDevice = new DeviceApi(mySTFService);
 
@@ -340,10 +326,6 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
                 myDevice.releaseDevice(deviceSerial);
 
             }
-
-
-
-
         }
 
         System.out.println("Stopping the Appium Service");

@@ -19,17 +19,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringBasicSub("BISHOP");
     }
 
-    @Test (groups = {"all2", "all"})
+    @Test (groups = {"all3", "all"})
     public void ministeringBasic_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         ministeringBasicSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringBasic_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         ministeringBasicSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringBasic_WARD_CLERK() throws Exception {
         ministeringBasicSub("WARD_CLERK");
     }
@@ -39,17 +39,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringBasicSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringBasic_WARD_EXECUTIVE_SECRETARY() throws Exception {
         ministeringBasicSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringBasic_MEMBER1() throws Exception {
         ministeringBasicSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringBasic_MEMBER2() throws Exception {
         ministeringBasicSub("MEMBER2");
     }
@@ -59,17 +59,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringBasicSub("ELDERS_QUORUM_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringBasic_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
         ministeringBasicSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringBasic_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         ministeringBasicSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringBasic_ELDERS_QUORUM_SECRETARY() throws Exception {
         ministeringBasicSub("ELDERS_QUORUM_SECRETARY");
     }
@@ -79,17 +79,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringBasicSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringBasic_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         ministeringBasicSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringBasic_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         ministeringBasicSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringBasic_YOUNG_WOMEN_PRESIDENT() throws Exception {
         ministeringBasicSub("YOUNG_WOMEN_PRESIDENT");
     }
@@ -99,12 +99,12 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringBasicSub("WOMEN_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringBasic_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
         ministeringBasicSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringBasic_WARD_MISSION_LEADER() throws Exception {
         ministeringBasicSub("WARD_MISSION_LEADER");
     }
@@ -229,7 +229,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("BISHOP");
     }
 
-    @Test (groups = {"all2", "all"})
+    @Test (groups = {"all3", "all"})
     public void ministeringUnassignedHouseholds_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("BISHOPRIC_FIRST_COUNSELOR");
     }
@@ -239,17 +239,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringUnassignedHouseholds_WARD_CLERK() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("WARD_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringUnassignedHouseholds_WARD_ASSISTANT_CLERK() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringUnassignedHouseholds_WARD_EXECUTIVE_SECRETARY() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("WARD_EXECUTIVE_SECRETARY");
     }
@@ -259,17 +259,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringUnassignedHouseholds_MEMBER2() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_PRESIDENT() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
@@ -279,17 +279,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_SECRETARY() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringUnassignedHouseholds_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
@@ -299,17 +299,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringUnassignedHouseholds_YOUNG_WOMEN_PRESIDENT() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringUnassignedHouseholds_WOMEN_SECOND_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("WOMEN_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringUnassignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
@@ -442,17 +442,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedHouseholdsSub("BISHOP");
     }
 
-    @Test (groups = {"all2", "all"})
+    @Test (groups = {"all3", "all"})
     public void ministeringAssignedHouseholds_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         ministeringAssignedHouseholdsSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringAssignedHouseholds_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         ministeringAssignedHouseholdsSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringAssignedHouseholds_WARD_CLERK() throws Exception {
         ministeringAssignedHouseholdsSub("WARD_CLERK");
     }
@@ -462,17 +462,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedHouseholdsSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringAssignedHouseholds_WARD_EXECUTIVE_SECRETARY() throws Exception {
         ministeringAssignedHouseholdsSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringAssignedHouseholds_MEMBER1() throws Exception {
         ministeringAssignedHouseholdsSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringAssignedHouseholds_MEMBER2() throws Exception {
         ministeringAssignedHouseholdsSub("MEMBER2");
     }
@@ -482,17 +482,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedHouseholdsSub("ELDERS_QUORUM_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringAssignedHouseholds_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
         ministeringAssignedHouseholdsSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringAssignedHouseholds_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         ministeringAssignedHouseholdsSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringAssignedHouseholds_ELDERS_QUORUM_SECRETARY() throws Exception {
         ministeringAssignedHouseholdsSub("ELDERS_QUORUM_SECRETARY");
     }
@@ -502,17 +502,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedHouseholdsSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringAssignedHouseholds_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         ministeringAssignedHouseholdsSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringAssignedHouseholds_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         ministeringAssignedHouseholdsSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringAssignedHouseholds_YOUNG_WOMEN_PRESIDENT() throws Exception {
         ministeringAssignedHouseholdsSub("YOUNG_WOMEN_PRESIDENT");
     }
@@ -522,12 +522,12 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedHouseholdsSub("WOMEN_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringAssignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
         ministeringAssignedHouseholdsSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringAssignedHouseholds_WARD_MISSION_LEADER() throws Exception {
         ministeringAssignedHouseholdsSub("WARD_MISSION_LEADER");
     }
@@ -618,17 +618,17 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsEldersSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void companionshipsElders_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         companionshipsEldersSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void companionshipsElders_WARD_CLERK() throws Exception {
         companionshipsEldersSub("WARD_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void companionshipsElders_WARD_ASSISTANT_CLERK() throws Exception {
         companionshipsEldersSub("WARD_ASSISTANT_CLERK");
     }
@@ -638,17 +638,17 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsEldersSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void companionshipsElders_MEMBER1() throws Exception {
         companionshipsEldersSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void companionshipsElders_MEMBER2() throws Exception {
         companionshipsEldersSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void companionshipsElders_ELDERS_QUORUM_PRESIDENT() throws Exception {
         companionshipsEldersSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -658,17 +658,17 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsEldersSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void companionshipsElders_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         companionshipsEldersSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void companionshipsElders_ELDERS_QUORUM_SECRETARY() throws Exception {
         companionshipsEldersSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void companionshipsElders_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         companionshipsEldersSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -678,17 +678,17 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsEldersSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void companionshipsElders_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         companionshipsEldersSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void companionshipsElders_YOUNG_WOMEN_PRESIDENT() throws Exception {
         companionshipsEldersSub("YOUNG_WOMEN_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void companionshipsElders_WOMEN_SECOND_COUNSELOR() throws Exception {
         companionshipsEldersSub("WOMEN_SECOND_COUNSELOR");
     }
@@ -698,7 +698,7 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsEldersSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void companionshipsElders_WARD_MISSION_LEADER() throws Exception {
         companionshipsEldersSub("WARD_MISSION_LEADER");
     }
@@ -824,17 +824,17 @@ public class MinisteringScreenTest extends BaseDriver {
         unassignedSistersSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void unassignedSisters_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         unassignedSistersSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void unassignedSisters_WARD_CLERK() throws Exception {
         unassignedSistersSub("WARD_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void unassignedSisters_WARD_ASSISTANT_CLERK() throws Exception {
         unassignedSistersSub("WARD_ASSISTANT_CLERK");
     }
@@ -844,17 +844,17 @@ public class MinisteringScreenTest extends BaseDriver {
         unassignedSistersSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void unassignedSisters_MEMBER1() throws Exception {
         unassignedSistersSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void unassignedSisters_MEMBER2() throws Exception {
         unassignedSistersSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void unassignedSisters_ELDERS_QUORUM_PRESIDENT() throws Exception {
         unassignedSistersSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -864,17 +864,17 @@ public class MinisteringScreenTest extends BaseDriver {
         unassignedSistersSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void unassignedSisters_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         unassignedSistersSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void unassignedSisters_ELDERS_QUORUM_SECRETARY() throws Exception {
         unassignedSistersSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void unassignedSisters_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         unassignedSistersSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -884,17 +884,17 @@ public class MinisteringScreenTest extends BaseDriver {
         unassignedSistersSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void unassignedSisters_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         unassignedSistersSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void unassignedSisters_YOUNG_WOMEN_PRESIDENT() throws Exception {
         unassignedSistersSub("YOUNG_WOMEN_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void unassignedSisters_WOMEN_SECOND_COUNSELOR() throws Exception {
         unassignedSistersSub("WOMEN_SECOND_COUNSELOR");
     }
@@ -904,7 +904,7 @@ public class MinisteringScreenTest extends BaseDriver {
         unassignedSistersSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void unassignedSisters_WARD_MISSION_LEADER() throws Exception {
         unassignedSistersSub("WARD_MISSION_LEADER");
     }
@@ -1014,7 +1014,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedSistersSub("BISHOP");
     }
 
-    @Test (groups = {"all2", "all"})
+    @Test (groups = {"all3", "all"})
     public void ministeringAssignedSisters_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         ministeringAssignedSistersSub("BISHOPRIC_FIRST_COUNSELOR");
     }
@@ -1024,17 +1024,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedSistersSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringAssignedSisters_WARD_CLERK() throws Exception {
         ministeringAssignedSistersSub("WARD_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringAssignedSisters_WARD_ASSISTANT_CLERK() throws Exception {
         ministeringAssignedSistersSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringAssignedSisters_WARD_EXECUTIVE_SECRETARY() throws Exception {
         ministeringAssignedSistersSub("WARD_EXECUTIVE_SECRETARY");
     }
@@ -1044,17 +1044,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedSistersSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringAssignedSisters_MEMBER2() throws Exception {
         ministeringAssignedSistersSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringAssignedSisters_ELDERS_QUORUM_PRESIDENT() throws Exception {
         ministeringAssignedSistersSub("ELDERS_QUORUM_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringAssignedSisters_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
         ministeringAssignedSistersSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
@@ -1064,17 +1064,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedSistersSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringAssignedSisters_ELDERS_QUORUM_SECRETARY() throws Exception {
         ministeringAssignedSistersSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringAssignedSisters_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         ministeringAssignedSistersSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringAssignedSisters_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         ministeringAssignedSistersSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
@@ -1084,17 +1084,17 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringAssignedSistersSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void ministeringAssignedSisters_YOUNG_WOMEN_PRESIDENT() throws Exception {
         ministeringAssignedSistersSub("YOUNG_WOMEN_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void ministeringAssignedSisters_WOMEN_SECOND_COUNSELOR() throws Exception {
         ministeringAssignedSistersSub("WOMEN_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void ministeringAssignedSisters_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
         ministeringAssignedSistersSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
@@ -1186,7 +1186,7 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsSistersSub("BISHOP");
     }
 
-    @Test (groups = {"all2", "all"})
+    @Test (groups = {"all1", "all"})
     public void companionshipsSisters_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         companionshipsSistersSub("BISHOPRIC_FIRST_COUNSELOR");
     }
@@ -1196,17 +1196,17 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsSistersSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void companionshipsSisters_WARD_CLERK() throws Exception {
         companionshipsSistersSub("WARD_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void companionshipsSisters_WARD_ASSISTANT_CLERK() throws Exception {
         companionshipsSistersSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void companionshipsSisters_WARD_EXECUTIVE_SECRETARY() throws Exception {
         companionshipsSistersSub("WARD_EXECUTIVE_SECRETARY");
     }
@@ -1216,17 +1216,17 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsSistersSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void companionshipsSisters_MEMBER2() throws Exception {
         companionshipsSistersSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void companionshipsSisters_ELDERS_QUORUM_PRESIDENT() throws Exception {
         companionshipsSistersSub("ELDERS_QUORUM_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void companionshipsSisters_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
         companionshipsSistersSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
@@ -1236,17 +1236,17 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsSistersSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void companionshipsSisters_ELDERS_QUORUM_SECRETARY() throws Exception {
         companionshipsSistersSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void companionshipsSisters_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         companionshipsSistersSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void companionshipsSisters_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         companionshipsSistersSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
@@ -1256,7 +1256,7 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsSistersSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void companionshipsSisters_YOUNG_WOMEN_PRESIDENT() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         myHelper.proxyLogin("rosettelambson");
@@ -1264,29 +1264,6 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsSistersCheck(3);
     }
 
-    @Test(groups = {"all2", "all"})
-    public void companionshipsSisters_WOMEN_SECOND_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("mahina_12006");
-        myHelper.enterPin("1", "1", "3", "3");
-        companionshipsSistersCheck(3);
-    }
-
-    @Test(groups = {"all2", "all"})
-    public void companionshipsSisters_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("RIBITALOT@AOL.COM");
-        myHelper.enterPin("1", "1", "3", "3");
-        companionshipsSistersCheck(3);
-    }
-
-    @Test(groups = {"all2", "all"})
-    public void companionshipsSisters_WARD_MISSION_LEADER() throws Exception {
-        HelperMethods myHelper = new HelperMethods();
-        myHelper.proxyLogin("Christian9");
-        myHelper.enterPin("1", "1", "3", "3");
-        companionshipsSistersCheck(3);
-    }
 
     public void companionshipsSistersSub(String callingForMember) throws Exception {
         String[] callingRights;

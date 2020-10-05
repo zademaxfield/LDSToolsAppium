@@ -35,17 +35,17 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("BISHOP");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void directoryScreenTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         directoryScreenSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void directoryScreenTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         directoryScreenSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void directoryScreenTest_WARD_CLERK() throws Exception {
         directoryScreenSub("WARD_CLERK");
     }
@@ -55,17 +55,17 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void directoryScreenTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
         directoryScreenSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void directoryScreenTest_MEMBER1() throws Exception {
         directoryScreenSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void directoryScreenTest_MEMBER2() throws Exception {
         directoryScreenSub("MEMBER2");
     }
@@ -75,17 +75,17 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("ELDERS_QUORUM_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
         directoryScreenSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         directoryScreenSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void directoryScreenTest_ELDERS_QUORUM_SECRETARY() throws Exception {
         directoryScreenSub("ELDERS_QUORUM_SECRETARY");
     }
@@ -95,17 +95,17 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void directoryScreenTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         directoryScreenSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void directoryScreenTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         directoryScreenSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void directoryScreenTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
         directoryScreenSub("YOUNG_WOMEN_PRESIDENT");
     }
@@ -115,13 +115,13 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("WOMEN_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void directoryScreenTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
         directoryScreenSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void directoryScreenTest_WARD_MISSION_LEADER() throws Exception {
         directoryScreenSub("WARD_MISSION_LEADER");
     }

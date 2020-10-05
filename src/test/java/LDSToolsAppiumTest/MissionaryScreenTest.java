@@ -28,17 +28,17 @@ public class MissionaryScreenTest extends BaseDriver {
         missionaryTestCheckSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void missionaryTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         missionaryTestCheckSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void missionaryTest_WARD_CLERK() throws Exception {
         missionaryTestCheckSub("WARD_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void missionaryTest_WARD_ASSISTANT_CLERK() throws Exception {
         missionaryTestCheckSub("WARD_ASSISTANT_CLERK");
     }
@@ -48,17 +48,17 @@ public class MissionaryScreenTest extends BaseDriver {
         missionaryTestCheckSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void missionaryTest_MEMBER1() throws Exception {
         missionaryTestCheckSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void missionaryTest_MEMBER2() throws Exception {
         missionaryTestCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void missionaryTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         missionaryTestCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -68,17 +68,17 @@ public class MissionaryScreenTest extends BaseDriver {
         missionaryTestCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void missionaryTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         missionaryTestCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void missionaryTest_ELDERS_QUORUM_SECRETARY() throws Exception {
         missionaryTestCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void missionaryTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         missionaryTestCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -88,17 +88,17 @@ public class MissionaryScreenTest extends BaseDriver {
         missionaryTestCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void missionaryTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         missionaryTestCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void missionaryTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
         missionaryTestCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void missionaryTest_WOMEN_SECOND_COUNSELOR() throws Exception {
         missionaryTestCheckSub("WOMEN_SECOND_COUNSELOR");
     }
@@ -108,7 +108,7 @@ public class MissionaryScreenTest extends BaseDriver {
         missionaryTestCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void missionaryTest_WARD_MISSION_LEADER() throws Exception {
         missionaryTestCheckSub("WARD_MISSION_LEADER");
     }

@@ -37,7 +37,7 @@ public class PinScreenTest extends BaseDriver {
 
     //TODO: Bug iOS is allowing repeating numbers - MMIP-5824
     //TODO: Android bug MMA-3502
-    @Test (groups = {"all1", "all"})
+    @Test (groups = {"all2", "all"})
     public void pinRepeatTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -61,7 +61,7 @@ public class PinScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all"})
+    @Test (groups = {"all3", "all"})
     public void pinNoMatchTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -101,7 +101,7 @@ public class PinScreenTest extends BaseDriver {
 
 
     //TODO: Android bug MMA-3502
-    @Test (groups = {"all3", "all"})
+    @Test (groups = {"all4", "all"})
     public void pinSequentialTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -124,7 +124,7 @@ public class PinScreenTest extends BaseDriver {
     }
 
     //TODO: Android bug MMA-3502
-    @Test (groups = {"all3", "all"})
+    @Test (groups = {"all1", "all"})
     public void pinSequentialTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);

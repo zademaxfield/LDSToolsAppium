@@ -30,17 +30,17 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void organizationTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         organizationTestCheckSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void organizationTest_WARD_CLERK() throws Exception {
         organizationTestCheckSub("WARD_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void organizationTest_WARD_ASSISTANT_CLERK() throws Exception {
         organizationTestCheckSub("WARD_ASSISTANT_CLERK");
     }
@@ -50,17 +50,17 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void organizationTest_MEMBER1() throws Exception {
         organizationTestCheckSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void organizationTest_MEMBER2() throws Exception {
         organizationTestCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void organizationTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -70,17 +70,17 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void organizationTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void organizationTest_ELDERS_QUORUM_SECRETARY() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void organizationTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         organizationTestCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -90,17 +90,17 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void organizationTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         organizationTestCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void organizationTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
         organizationTestCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void organizationTest_WOMEN_SECOND_COUNSELOR() throws Exception {
         organizationTestCheckSub("WOMEN_SECOND_COUNSELOR");
     }
@@ -110,7 +110,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void organizationTest_WARD_MISSION_LEADER() throws Exception {
         organizationTestCheckSub("WARD_MISSION_LEADER");
     }
@@ -155,17 +155,17 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("BISHOP");
     }
 
-    @Test (groups = {"all2", "all"})
+    @Test (groups = {"all1", "all"})
     public void organizationStakeHighPriestQuorum_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void organizationStakeHighPriestQuorum_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void organizationStakeHighPriestQuorum_WARD_CLERK() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("WARD_CLERK");
     }
@@ -175,17 +175,17 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void organizationStakeHighPriestQuorum_WARD_EXECUTIVE_SECRETARY() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void organizationStakeHighPriestQuorum_MEMBER1() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("MEMBER1");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void organizationStakeHighPriestQuorum_MEMBER2() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("MEMBER2");
     }
@@ -195,17 +195,17 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_SECRETARY() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_SECRETARY");
     }
@@ -215,17 +215,17 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void organizationStakeHighPriestQuorum_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void organizationStakeHighPriestQuorum_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all3", "all"})
     public void organizationStakeHighPriestQuorum_YOUNG_WOMEN_PRESIDENT() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
@@ -235,12 +235,12 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("WOMEN_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all1", "all"})
     public void organizationStakeHighPriestQuorum_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all4", "all"})
     public void organizationStakeHighPriestQuorum_WARD_MISSION_LEADER() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("WARD_MISSION_LEADER");
     }

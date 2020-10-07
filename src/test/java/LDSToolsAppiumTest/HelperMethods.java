@@ -1135,13 +1135,14 @@ public class HelperMethods extends BaseDriver {
         myLoginPage.signInButton.click();
         Thread.sleep(1000);
     }
-    public String[] getMemberNameFromList(String memberCalling) throws Exception {
+
+    public String[] getMemberNameFromList(String memberCalling, String unit) throws Exception {
         String calling = null;
         String loginName = null;
         String rights = null;
         String[] membersArray = new String[0];
         memberCalling = memberCalling + ",";
-        List<String> fileList = openCallingsMembersFile();
+        List<String> fileList = openCallingsMembersFile(unit);
         for (String callingLine : fileList) {
             if (callingLine.contains(memberCalling)) {
                 membersArray = callingLine.split(",");
@@ -1156,15 +1157,24 @@ public class HelperMethods extends BaseDriver {
             }
         }
 
-        
         return membersArray;
     }
     
 
-    public List<String> openCallingsMembersFile() throws Exception {
+    public List<String> openCallingsMembersFile(String unit) throws Exception {
         List<String> memberList = new ArrayList<>();
+        //Default if unit is not found
         Scanner sc = new Scanner(new File("src/main/java/LDSToolsAppium/callings_members.csv"));
-//        sc.useDelimiter(",");
+
+        if (unit.equalsIgnoreCase("Centinela 1st")) {
+            sc = new Scanner(new File("src/main/java/LDSToolsAppium/Units/callings_members_Centinela1st.csv"));
+        }
+
+        if (unit.equalsIgnoreCase("Auburn Hills")) {
+            sc = new Scanner(new File("src/main/java/LDSToolsAppium/Units/callings_members_AuburnHills.csv"));
+        }
+
+
         while (sc.hasNext()) {
             memberList.add(sc.nextLine());
 //            System.out.println(sc.next());
@@ -1172,12 +1182,6 @@ public class HelperMethods extends BaseDriver {
         
         sc.close();
         return memberList;
-
-//        for (String oneLine : memberList) {
-//            System.out.println(oneLine);
-//        }
-
-
     }
 
 

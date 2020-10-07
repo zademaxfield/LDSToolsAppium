@@ -113,7 +113,7 @@ public class ReportsScreenTest extends BaseDriver {
     public void reportsBasicCheckSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         reportsBasicCheckSubCheckNewRights(Integer.parseInt(callingRights[2]), callingRights[1]);

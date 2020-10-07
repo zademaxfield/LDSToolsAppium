@@ -217,7 +217,7 @@ public class MinisteringScreenTest extends BaseDriver {
     public void ministeringUnassignedHouseholdsCheckSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         ministeringUnassignedHouseholdsCheckNewRights(Integer.parseInt(callingRights[2]));
@@ -536,7 +536,7 @@ public class MinisteringScreenTest extends BaseDriver {
     public void ministeringAssignedHouseholdsSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         ministeringAssignedHouseholdsCheckNewRights(Integer.parseInt(callingRights[2]));
@@ -706,7 +706,7 @@ public class MinisteringScreenTest extends BaseDriver {
     public void companionshipsEldersSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         companionshipsEldersCheckNewRights(Integer.parseInt(callingRights[2]));
@@ -912,7 +912,7 @@ public class MinisteringScreenTest extends BaseDriver {
     public void unassignedSistersSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         unassignedSistersCheckNewRights(Integer.parseInt(callingRights[2]));
@@ -1107,7 +1107,7 @@ public class MinisteringScreenTest extends BaseDriver {
     public void ministeringAssignedSistersSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         ministeringAssignedSistersCheckNewRights(Integer.parseInt(callingRights[2]));
@@ -1268,7 +1268,7 @@ public class MinisteringScreenTest extends BaseDriver {
     public void companionshipsSistersSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         ministeringBasicCheckNewRights(Integer.parseInt(callingRights[2]));
@@ -1351,7 +1351,7 @@ public class MinisteringScreenTest extends BaseDriver {
     public void ministeringBasicSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         ministeringBasicCheckNewRights(Integer.parseInt(callingRights[2]));

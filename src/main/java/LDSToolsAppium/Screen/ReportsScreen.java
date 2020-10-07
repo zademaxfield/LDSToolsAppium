@@ -8,6 +8,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
 
@@ -101,6 +102,11 @@ public class ReportsScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Sacrament Attendance']")
     @iOSXCUITFindBy(accessibility = "Sacrament Attendance")
     public MobileElement sacramentAttendanceReport;
+
+    //Progress Record
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Progress Record']")
+    @iOSXCUITFindBy(accessibility = "Progress Record")
+    public MobileElement progressRecordReport;
 
 
 
@@ -352,6 +358,27 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement mpCancel;
 
+
+    //*************************************************************************************
+    //******************************** Progress Record ************************************
+    //*************************************************************************************
+
+    //New Members
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='NEW MEMBERS']")
+    @iOSXCUITFindBy(accessibility = "New Members")
+    public  MobileElement prNewMembers;
+
+    //People being taught
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='PEOPLE BEING TAUGHT']")
+    @iOSXCUITFindBy(accessibility = "People being taught")
+    public  MobileElement prPeopleBeingTaught;
+
+
+
+
+
+
+
     // ************ Sacrament Attendance Page
     //Todo: need to add ios
     //Sacrament Attendance First Week
@@ -464,9 +491,6 @@ public class ReportsScreen extends BasePage {
         }
 
     }
-
-
-
 
 
 

@@ -118,7 +118,7 @@ public class OrganizationsScreenTest extends BaseDriver {
     public void organizationTestCheckSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         organizationTestCheckNewRights(Integer.parseInt(callingRights[2]), callingRights[1]);
@@ -248,7 +248,7 @@ public class OrganizationsScreenTest extends BaseDriver {
     public void organizationStakeHighPriestQuorumCheckSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember);
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         organizationStakeHighPriestQuorumNewRights(Integer.parseInt(callingRights[2]), callingRights[1]);

@@ -19,7 +19,6 @@ public class ProgressRecord extends BaseDriver {
     HelperMethods myHelper = new HelperMethods();
     MenuScreen myMenu = new MenuScreen(driver);
     ReportsScreen myReports = new ReportsScreen(driver);
-    TemplesScreen myTemple = new TemplesScreen(driver);
     String pageSource;
 
 
@@ -27,7 +26,6 @@ public class ProgressRecord extends BaseDriver {
     public void aLeaderLogsInAndIsOnTheProgressRecordPage(String memberCalling) throws Exception {
        LOGGER.info("a " + memberCalling + " logs in and is on the Progress Record Page");
         String[] callingRights;
-        HelperMethods myHelper = new HelperMethods();
         callingRights = myHelper.getMemberNameFromList(memberCalling, "Auburn Hills");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
@@ -48,9 +46,10 @@ public class ProgressRecord extends BaseDriver {
     }
 
 
+
     //Todo: add api call to get the info to check
-    @Then("the members record will be displayed")
-    public void theMembersRecordWillBeDisplayed() throws Exception {
+    @Then("the {string} will be displayed")
+    public void theMemberRecordWillBeDisplayed(String memberRecord) throws Exception {
         LOGGER.info("the members record will be displayed");
         pageSource = getProgressRecordDetails();
 
@@ -83,7 +82,6 @@ public class ProgressRecord extends BaseDriver {
         } else {
             Assert.assertFalse(myBasePage.checkNoCaseList("Add Friend", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Update Principles Taught", pageSource, "Contains"));
-            Assert.assertFalse(myBasePage.checkNoCaseList("View All", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("OPT OUT", pageSource, "Contains"));
         }
     }
@@ -112,9 +110,6 @@ public class ProgressRecord extends BaseDriver {
 
         return pageSource;
     }
-
-
-
 
 
 

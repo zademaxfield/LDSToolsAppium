@@ -42,7 +42,8 @@ public class ProgressRecord extends BaseDriver {
         LOGGER.info("a " + memberRecord + " is selected under the New Members tab");
         myBasePage.waitForElement(myReports.prNewMembers);
         myReports.prNewMembers.click();
-        selectProgressRecordMember(memberRecord);
+        searchForMemberAndClick(memberRecord);
+//        selectProgressRecordMember(memberRecord);
     }
 
 
@@ -53,11 +54,10 @@ public class ProgressRecord extends BaseDriver {
         LOGGER.info("the members record will be displayed");
         pageSource = getProgressRecordDetails();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ivey, Delores", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList(memberRecord, pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Member for", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament Attendance", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("View All", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Packard", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Calling", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Assignment", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
@@ -76,7 +76,7 @@ public class ProgressRecord extends BaseDriver {
 
         if (editable.equalsIgnoreCase("true")) {
             Assert.assertTrue(myBasePage.checkNoCaseList("Add Friend", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Update Principles Taught", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Principles Taught", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("View All", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("OPT OUT", pageSource, "Contains"));
         } else {
@@ -86,6 +86,12 @@ public class ProgressRecord extends BaseDriver {
         }
     }
 
+    public void searchForMemberAndClick(String memberRecord) throws Exception {
+        myReports.prSearchField.sendKeys(memberRecord);
+        Thread.sleep(2000);
+        selectProgressRecordMember(memberRecord);
+
+    }
 
 
 

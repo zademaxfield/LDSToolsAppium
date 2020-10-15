@@ -8,25 +8,24 @@
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-      | leader                          | memberRecord    | can        |
-      | "BISHOP"                        | "Ivey, Delores" | "true"     |
-#      | "BISHOPRIC_SECOND_COUNSELOR"    | "Ivey, Delores" | "true"     |
-#      | "BISHOPRIC_SECOND_COUNSELOR"     | "White, Koty Lucas"  | "true"     |
-#      | WARD_CLERK                      | Joe User        | true     |
-#      | WARD_ASSISTANT_CLERK            | Joe User        | true     |
-#      | WARD_EXECUTIVE_SECRETARY        | Joe User        | true     |
-#      | ELDERS_QUORUM_PRESIDENT         | Joe User        | true     |
-#      | "ELDERS_QUORUM_FIRST_COUNSELOR" | "Ivey, Delores" | "false"   |
-#      | ELDERS_QUORUM_SECOND_COUNSELOR  | Joe User        | false    |
-#      | ELDERS_QUORUM_SECRETARY         | Joe User        | false    |
-#      | RELIEF_SOCIETY_PRESIDENT        | Joe User        | true     |
-#      | RELIEF_SOCIETY_FIRST_COUNSELOR  | Joe User        | false    |
-#      | RELIEF_SOCIETY_SECOND_COUNSELOR | Joe User        | false    |
-#      | YOUNG_WOMEN_PRESIDENT           | Joe User        | false    |
-#      | YOUNG_WOMEN_SECOND_COUNSELOR    | Joe User        | false    |
-#        | "SUNDAY_SCHOOL_PRESIDENT"      | "Ivey, Delores" | "false"   |
-#      | SUNDAY_SCHOOL_FIRST_COUNSELOR   | Joe User        | false    |
-#      | "WARD_MISSION_LEADER"            | "Ivey, Delores" | "true"   |
+      | leader                            | memberRecord              | can        |
+      | "BISHOP"                          | "Ivey, Delores"           | "true"     |
+      | "BISHOPRIC_SECOND_COUNSELOR"      | "Ivey, Delores"           | "true"     |
+      | "BISHOPRIC_SECOND_COUNSELOR"      | "White, Koty Lucas"       | "true"     |
+      | "WARD_CLERK"                      | "Johnson, Jasean Marvin"  | "true"     |
+      | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann"  | "true"     |
+      | "ELDERS_QUORUM_PRESIDENT"         | "Perry, Keegan Krue"      | "true"     |
+      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
+      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"             | "false"    |
+      | "ELDERS_QUORUM_SECRETARY"         | "Ivey, Delores"           | "false"    |
+      | "RELIEF_SOCIETY_PRESIDENT"        | "White, Koty Lucas"       | "true"     |
+      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin"  | "false"    |
+      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann"  | "false"    |
+      | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"      | "false"    |
+      | "YOUNG_WOMEN_SECOND_COUNSELOR:    | "White, Koty Lucas"       | "false"    |
+      | "SUNDAY_SCHOOL_PRESIDENT"         | "Ivey, Delores"           | "false"    |
+      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
+      | "WARD_MISSION_LEADER"             | "Ivey, Delores"           | "true"     |
 #      | STAKE_PRESIDENT                 | Joe User        | false    |
 #      | STAKE_PRESIDENT_FIRST_COUNSELOR | Joe User        | false    |
 #      | STAKE_PRESIDENT_SECOND_COUNSELOR| Joe User        | false    |

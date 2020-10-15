@@ -373,6 +373,11 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "People being taught")
     public  MobileElement prPeopleBeingTaught;
 
+    //Search Field
+    @AndroidFindBy(id = "filterEditText")
+    @iOSXCUITFindBy(accessibility = "Search")
+    public  MobileElement prSearchField;
+
 
 
 

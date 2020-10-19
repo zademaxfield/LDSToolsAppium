@@ -1,7 +1,7 @@
 @ProgressRecord
   Feature: Progress Record tests - Used to be Missionary Progress Record
 
-    @jft
+
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -9,40 +9,50 @@
       And the members record <can> be edited
       Examples:
       | leader                            | memberRecord              | can        |
-      | "BISHOP"                          | "Ivey, Delores"           | "true"     |
-      | "BISHOPRIC_SECOND_COUNSELOR"      | "Ivey, Delores"           | "true"     |
-      | "BISHOPRIC_SECOND_COUNSELOR"      | "White, Koty Lucas"       | "true"     |
+#      | "BISHOP"                          | "Ivey, Delores"           | "true"     |
+#      | "BISHOPRIC_SECOND_COUNSELOR"      | "Ivey, Delores"           | "true"     |
+#      | "BISHOPRIC_SECOND_COUNSELOR"      | "White, Koty Lucas"       | "true"     |
       | "WARD_CLERK"                      | "Johnson, Jasean Marvin"  | "true"     |
-      | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann"  | "true"     |
+#      | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann"  | "true"     |
       | "ELDERS_QUORUM_PRESIDENT"         | "Perry, Keegan Krue"      | "true"     |
-      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
-      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"             | "false"    |
-      | "ELDERS_QUORUM_SECRETARY"         | "Ivey, Delores"           | "false"    |
+#      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
+#      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"             | "false"    |
+#      | "ELDERS_QUORUM_SECRETARY"         | "Ivey, Delores"           | "false"    |
       | "RELIEF_SOCIETY_PRESIDENT"        | "White, Koty Lucas"       | "true"     |
-      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin"  | "false"    |
-      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann"  | "false"    |
-      | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"      | "false"    |
-      | "YOUNG_WOMEN_SECOND_COUNSELOR:    | "White, Koty Lucas"       | "false"    |
-      | "SUNDAY_SCHOOL_PRESIDENT"         | "Ivey, Delores"           | "false"    |
-      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
-      | "WARD_MISSION_LEADER"             | "Ivey, Delores"           | "true"     |
-#      | STAKE_PRESIDENT                 | Joe User        | false    |
-#      | STAKE_PRESIDENT_FIRST_COUNSELOR | Joe User        | false    |
-#      | STAKE_PRESIDENT_SECOND_COUNSELOR| Joe User        | false    |
-#      | STAKE_CLERK                     | Joe User        | false    |
-#      | STAKE_ASSISTANT_CLERK           | Joe User        | true     |
-#      | STAKE_EXECUTIVE_SECRETARY       | Joe User        | true     |
+#      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin"  | "false"    |
+#      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann"  | "false"    |
+#      | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"      | "false"    |
+#      | "YOUNG_WOMEN_SECOND_COUNSELOR:    | "White, Koty Lucas"       | "false"    |
+#      | "SUNDAY_SCHOOL_PRESIDENT"         | "Ivey, Delores"           | "false"    |
+#      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
+#      | "WARD_MISSION_LEADER"             | "Ivey, Delores"           | "true"     |
 
-#
-#    Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
-#      Given a <leader> logs in and is on the Progress Record Page
-#      When a <memberRecord> is selected under the People Being Taught tab
-#      Then the members record will be displayed
-#      And the members record <can> be edited
-#
-#      Examples:
-#        | leader                          | memberRecord    | can      |
-#        | BISHOP                          | Joe User        | true     |
+#    Bug in iOS
+#    Need to changes member record and Unit
+    Scenario Outline: As a leader I should have access to the New Members under Progress Record
+      Given a <leader> logs in selects a <unit> and is on the Progress Record Page
+      When a <memberRecord> is selected under the New Members tab
+      Then the <memberRecord> will be displayed
+      And the members record <can> be edited
+      Examples:
+        | leader                              | memberRecord              | can        | unit            |
+        | "STAKE_PRESIDENT"                   | "Ivey, Delores"           | "false"    | "Auburn Hills"  |
+        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Ivey, Delores"           | "false"    | "Auburn Hills"  |
+        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Ivey, Delores"           | "false"    | "Auburn Hills"  |
+        | "STAKE_CLERK"                       | "Ivey, Delores"           | "false"    | "Auburn Hills"  |
+        | "STAKE_EXECUTIVE_SECRETARY"         | "Ivey, Delores"           | "false"    | "Auburn Hills"  |
+
+
+    @jft
+    Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
+      Given a <leader> logs in and is on the Progress Record Page
+      When a <memberRecord> is selected under the People Being Taught tab
+      Then the <memberRecord> for People Being Taught will be displayed
+      And the members record for People Being Taught <can> be edited
+
+      Examples:
+        | leader                            | memberRecord              | can        |
+        | "BISHOP"                          | "Doramus, Barbara"        | "true"     |
 #        | BISHOPRIC_SECOND_COUNSELOR      | Joe User        | true     |
 #        | BISHOPRIC_SECOND_COUNSELOR      | Joe User        | true     |
 #        | WARD_CLERK                      | Joe User        | true     |
@@ -125,7 +135,7 @@
 #    Scenario: Get to the members Progress Record from the Directory
 #    Scenario: Login as progress record member check My Covenant Path
 
-
+#    Scenario: Check callings that should not have access to Progress record
 
 
 

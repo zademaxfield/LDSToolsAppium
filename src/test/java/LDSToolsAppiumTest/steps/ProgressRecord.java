@@ -2,6 +2,7 @@ package LDSToolsAppiumTest.steps;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
+import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.ReportsScreen;
 import LDSToolsAppium.Screen.TemplesScreen;
@@ -19,12 +20,13 @@ public class ProgressRecord extends BaseDriver {
     HelperMethods myHelper = new HelperMethods();
     MenuScreen myMenu = new MenuScreen(driver);
     ReportsScreen myReports = new ReportsScreen(driver);
+    DirectoryScreen myDirectory = new DirectoryScreen(driver);
     String pageSource;
 
 
     @Given("a {string} logs in and is on the Progress Record Page")
     public void aLeaderLogsInAndIsOnTheProgressRecordPage(String memberCalling) throws Exception {
-       LOGGER.info("a " + memberCalling + " logs in and is on the Progress Record Page");
+        LOGGER.info("a " + memberCalling + " logs in and is on the Progress Record Page");
         String[] callingRights;
         callingRights = myHelper.getMemberNameFromList(memberCalling, "Auburn Hills");
         myHelper.proxyLogin(callingRights[1]);
@@ -36,6 +38,21 @@ public class ProgressRecord extends BaseDriver {
         myReports.progressRecordReport.click();
     }
 
+    @Given("a {string} logs in selects a {string} and is on the Progress Record Page")
+    public void aLeaderLogsInSelectsAUnitAndIsOnTheProgressRecordPage(String memberCalling, String unit)  throws Exception {
+        LOGGER.info("a " + memberCalling + " logs in selects a " + unit + " and is on the Progress Record Page");
+        String[] callingRights;
+        callingRights = myHelper.getMemberNameFromList(memberCalling, "Auburn Hills");
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+        chooseUnit(unit);
+        myMenu.selectMenu(myMenu.reports);
+        if (!myBasePage.checkForElement(myReports.progressRecordReport)) {
+            myBasePage.scrollDownAndroidUIAutomator("0");
+        }
+        myReports.progressRecordReport.click();
+
+    }
 
     @When("a {string} is selected under the New Members tab")
     public void aMemberRecordIsSelectedUnderTheNewMembersTab(String memberRecord) throws Exception {
@@ -43,7 +60,14 @@ public class ProgressRecord extends BaseDriver {
         myBasePage.waitForElement(myReports.prNewMembers);
         myReports.prNewMembers.click();
         searchForMemberAndClick(memberRecord);
-//        selectProgressRecordMember(memberRecord);
+    }
+
+    @When("a {string} is selected under the People Being Taught tab")
+    public void aMemberRecordIsSelectedUnderThePeopleBeingTaughtTab(String memberRecord) throws Exception {
+        LOGGER.info("a " + memberRecord + " is selected under the People being taught");
+        myBasePage.waitForElement(myReports.prNewMembers);
+        myReports.prPeopleBeingTaught.click();
+        searchForMemberAndClick(memberRecord);
     }
 
 
@@ -86,6 +110,39 @@ public class ProgressRecord extends BaseDriver {
         }
     }
 
+    @Then("the {string} for People Being Taught will be displayed")
+    public void theMemberRecordForPeopleBeingTaughtWillBeDisplayed(String memberRecord) throws Exception {
+        LOGGER.info("the " + memberRecord + " for People Being Taught will be displayed");
+        pageSource = getProgressRecordDetails();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList(memberRecord, pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament Attendance", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("View All", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Calling", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Assignment", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Temple Ordinances", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Principles Taught", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Other Commitments", pageSource, "Contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Self-Reliance Class", pageSource, "Contains"));
+    }
+
+    @And("the members record for People Being Taught {string} be edited")
+    public void theMembersRecordForPeopleBeingTaughtCanBeEdited(String editable) throws Exception {
+        LOGGER.info("the members record for People Being Taught " + editable + " be edited");
+        if (editable.equalsIgnoreCase("true")) {
+            Assert.assertTrue(myBasePage.checkNoCaseList("Add Friend", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Principles Taught", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("View All", pageSource, "Contains"));
+//            Assert.assertTrue(myBasePage.checkNoCaseList("OPT OUT", pageSource, "Contains"));
+        } else {
+            Assert.assertFalse(myBasePage.checkNoCaseList("Add Friend", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("Update Principles Taught", pageSource, "Contains"));
+            Assert.assertFalse(myBasePage.checkNoCaseList("OPT OUT", pageSource, "Contains"));
+        }
+
+    }
+
     public void searchForMemberAndClick(String memberRecord) throws Exception {
         myReports.prSearchField.sendKeys(memberRecord);
         Thread.sleep(2000);
@@ -106,16 +163,39 @@ public class ProgressRecord extends BaseDriver {
 
     public String getProgressRecordDetails() throws Exception {
         String pageSource;
+        Thread.sleep(500);
         pageSource = myBasePage.getSourceOfPage();
         if (myBasePage.getOS().equalsIgnoreCase("android")) {
             myBasePage.scrollDownAndroidUIAutomator("0");
+            Thread.sleep(500);
             pageSource = pageSource + myBasePage.getSourceOfPage();
             myBasePage.scrollDownAndroidUIAutomator("0");
+            Thread.sleep(500);
+            pageSource = pageSource + myBasePage.getSourceOfPage();
+            myBasePage.scrollDownAndroidUIAutomator("0");
+            Thread.sleep(500);
             pageSource = pageSource + myBasePage.getSourceOfPage();
         }
 
         return pageSource;
     }
+
+    public void chooseUnit(String unit) throws Exception {
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myBasePage.scrollDownIOS();
+        }
+//        System.out.println(myBasePage.getSourceOfPage());
+        myDirectory.directoryDropdown.click();
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            Thread.sleep(2000);
+            driver.get().findElement(By.xpath("//*[contains(@name,'" + unit + "')]")).click();
+        } else {
+            Thread.sleep(2000);
+            driver.get().findElement(By.xpath("//*[contains(@text,'" + unit + "')]")).click();
+        }
+        Thread.sleep(6000);
+    }
+
 
 
 

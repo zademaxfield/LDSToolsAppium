@@ -72,7 +72,7 @@ public class MemberToolsAPI {
     }
 
     public Request requestProxyURL(String apiUrl, String proxyUser ) {
-        proxyUser = "kroqbandit";
+//        proxyUser = "kroqbandit";
         Request request = new Request.Builder()
                 .url(apiUrl)
                 .addHeader("X-Proxy-User" , proxyUser)
@@ -560,6 +560,99 @@ public class MemberToolsAPI {
 
         return responseData;
     }
+
+
+    //TODO: Need a file check for the date then delete if older than 3 or so days?
+    public String getCovenantPathJson(String unitNumber, String proxyLogin) throws IOException {
+        String responseData = "";
+        File organizationFile = new File("ConfigFiles/covenantPath" + unitNumber + ".json");
+        StringBuilder contentBuilder = new StringBuilder();
+
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/covenant-path?units="+ unitNumber, proxyLogin );
+
+        if (!organizationFile.exists()) {
+            try (Response response = httpClient.newCall(request).execute()) {
+                assert response.body() != null;
+                responseData = response.body().string();
+                try  {
+//                    FileWriter myWriter = new FileWriter("organization.json");
+                    FileWriter myWriter = new FileWriter(organizationFile);
+                    myWriter.write(responseData);
+                    myWriter.flush();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/covenantPath" + unitNumber + ".json")), StandardCharsets.UTF_8);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return responseData;
+    }
+
+
+    public List<String> getCovenantPathNames(String proxyLogin, String unitNumber) throws Exception {
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiCovenantPath myCovenantPath = new ApiCovenantPath();
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        Type apiCovenantPath = new TypeToken<ArrayList<ApiCovenantPath>>(){}.getType();
+
+        responseData = getCovenantPathJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+//            System.out.println("Json element to String ORG: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myCovenantPath = gson.fromJson(jsonElement, ApiCovenantPath.class);
+
+            System.out.println("Name: " + myCovenantPath.getDisplayName());
+            System.out.println("Sort Name: " + myCovenantPath.getSortName());
+            System.out.println("ID: " + myCovenantPath.getId());
+
+//            for (ReportMembersMovedOut membersMovedOut : myCovenantPath.get) {
+//                System.out.println("Unit Number: " + membersMovedOut.getUnitNumber().toString());
+//                System.out.println("Display Name: " + membersMovedOut.getDisplayName());
+//                System.out.println("Moved Out Date: " + membersMovedOut.getPriorUnitMoveOutDate());
+//                System.out.println("Next Unit: " + membersMovedOut.getNextUnit());
+//                System.out.println("Members: " + actionInterview.getMembers().toString());
+//                memberNames.add(membersMovedOut.getDisplayName());
+//
+//            }
+
+        } else if (jsonElement instanceof JsonArray) {
+//            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiCovenantPath> testCovenantPath = gson.fromJson(jsonElement, apiCovenantPath);
+            for(ApiCovenantPath name : testCovenantPath) {
+                System.out.println("Name: " + name.getDisplayName());
+                System.out.println("Sort Name: " + name.getSortName());
+                System.out.println("ID: " + name.getId());
+            }
+
+        }
+
+
+        return memberNames;
+
+    }
+
 
 
 

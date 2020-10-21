@@ -32,8 +32,11 @@ public class MemberToolsAPITest {
 
         //Reports New Members
 //        memberList = apiTest.getNewMembers("kroqbandit", "21628");
-        memberList = apiTest.getNewMembers("kroqbandit", "21628");
+//        memberList = apiTest.getNewMembers("kroqbandit", "21628");
 
+
+        //One Work - Covenant Path
+        memberList = apiTest.getCovenantPathNames("extractor", "111074");
 
 
         //Action and Interview Tests

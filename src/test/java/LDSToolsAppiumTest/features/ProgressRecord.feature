@@ -1,7 +1,7 @@
 @ProgressRecord
   Feature: Progress Record tests - Used to be Missionary Progress Record
 
-
+#    Ward clerk, EQ Pres and RS pres bug in Android
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -22,28 +22,28 @@
 #      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin"  | "false"    |
 #      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann"  | "false"    |
 #      | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"      | "false"    |
-#      | "YOUNG_WOMEN_SECOND_COUNSELOR:    | "White, Koty Lucas"       | "false"    |
+#      | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "White, Koty Lucas"       | "false"    |
 #      | "SUNDAY_SCHOOL_PRESIDENT"         | "Ivey, Delores"           | "false"    |
 #      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
 #      | "WARD_MISSION_LEADER"             | "Ivey, Delores"           | "true"     |
 
 #    Bug in iOS
-#    Need to changes member record and Unit
+
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-        | leader                              | memberRecord              | can        | unit            |
-        | "STAKE_PRESIDENT"                   | "Ivey, Delores"           | "false"    | "Auburn Hills"  |
-        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Ivey, Delores"           | "false"    | "Auburn Hills"  |
-        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Ivey, Delores"           | "false"    | "Auburn Hills"  |
-        | "STAKE_CLERK"                       | "Ivey, Delores"           | "false"    | "Auburn Hills"  |
-        | "STAKE_EXECUTIVE_SECRETARY"         | "Ivey, Delores"           | "false"    | "Auburn Hills"  |
+        | leader                              | memberRecord              | can        | unit             |
+        | "STAKE_PRESIDENT"                   | "Evans, Ava"              | "false"    | "Maize"          |
+#        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Walker, Steph"           | "false"    | "Newton"         |
+#        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Lopez, Jordan"           | "false"    | "Wellington"     |
+#        | "STAKE_CLERK"                       | "Studd, Blu Lee"          | "false"    | "Pratt"          |
+#        | "STAKE_EXECUTIVE_SECRETARY"         | "Ivey, Delores"           | "false"    | "Auburn Hills"   |
 
 
-    @jft
+
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
@@ -52,31 +52,40 @@
 
       Examples:
         | leader                            | memberRecord              | can        |
-        | "BISHOP"                          | "Doramus, Barbara"        | "true"     |
-#        | BISHOPRIC_SECOND_COUNSELOR      | Joe User        | true     |
-#        | BISHOPRIC_SECOND_COUNSELOR      | Joe User        | true     |
-#        | WARD_CLERK                      | Joe User        | true     |
-#        | WARD_ASSISTANT_CLERK            | Joe User        | true     |
-#        | WARD_EXECUTIVE_SECRETARY        | Joe User        | true     |
-#        | ELDERS_QUORUM_PRESIDENT         | Joe User        | true     |
-#        | ELDERS_QUORUM_FIRST_COUNSELOR   | Joe User        | false    |
-#        | ELDERS_QUORUM_SECOND_COUNSELOR  | Joe User        | false    |
-#        | ELDERS_QUORUM_SECRETARY         | Joe User        | false    |
-#        | RELIEF_SOCIETY_PRESIDENT        | Joe User        | true     |
-#        | RELIEF_SOCIETY_FIRST_COUNSELOR  | Joe User        | false    |
-#        | RELIEF_SOCIETY_SECOND_COUNSELOR | Joe User        | false    |
-#        | YOUNG_WOMEN_PRESIDENT           | Joe User        | false    |
-#        | YOUNG_WOMEN_SECOND_COUNSELOR    | Joe User        | false    |
-#        | SUNDAY_SCHOOL_FIRST_COUNSELOR   | Joe User        | false    |
-#        | WARD_MISSION_LEADER             | Joe User        | true     |
-#        | WARD_MISSION_LEADER             | Joe User        | true     |
-#        | STAKE_PRESIDENT                 | Joe User        | false    |
-#        | STAKE_PRESIDENT_FIRST_COUNSELOR | Joe User        | false    |
-#        | STAKE_PRESIDENT_SECOND_COUNSELOR| Joe User        | false    |
-#        | STAKE_CLERK                     | Joe User        | false    |
-#        | STAKE_ASSISTANT_CLERK           | Joe User        | true     |
-#        | STAKE_EXECUTIVE_SECRETARY       | Joe User        | true     |
-#
+#        | "BISHOP"                          | "Doramus, Barbara"        | "true"     |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Doramus, Dale"           | "true"     |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Faber, Tesla"            | "true"     |
+#        | "WARD_CLERK"                      | "Patrick, Anna"           | "true"     |
+#        | "WARD_EXECUTIVE_SECRETARY"        | "Pettengill, Wyatt"       | "true"     |
+#        | "ELDERS_QUORUM_PRESIDENT"         | "Shepherd, Camden"        | "true"     |
+#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Thompson, Sebastian"     | "false"    |
+#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Zoey"                    | "false"    |
+#        | "ELDERS_QUORUM_SECRETARY"         | "Doramus, Barbara"        | "false"    |
+#        | "RELIEF_SOCIETY_PRESIDENT"        | "Doramus, Dale"           | "true"     |
+#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Faber, Tesla"            | "false"    |
+#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Patrick, Anna"           | "false"    |
+#        | "YOUNG_WOMEN_PRESIDENT"           | "Pettengill, Wyatt"       | "false"    |
+        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Shepherd, Camden"       | "false"    |
+#        | "SUNDAY_SCHOOL_PRESIDENT"         | "Thompson, Sebastian"     | "false"    |
+#        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Zoey"                    | "false"    |
+#        | "WARD_MISSION_LEADER"             | "Doramus, Barbara"        | "true"     |
+
+
+    @jft
+    Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
+      Given a <leader> logs in selects a <unit> and is on the Progress Record Page
+      When a <memberRecord> is selected under the People Being Taught tab
+      Then the <memberRecord> for People Being Taught will be displayed
+      And the members record for People Being Taught <can> be edited
+      Examples:
+        | leader                              | memberRecord              | can        | unit             |
+        | "STAKE_PRESIDENT"                   | "Melody"                  | "false"    | "Maize"          |
+#        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Corum, Will"             | "false"    | "Newton"         |
+#        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Cesar"                   | "false"    | "Hutchinson"     |
+#        | "STAKE_CLERK"                       | "Riggs, Eugene"           | "false"    | "Pratt"          |
+#        | "STAKE_EXECUTIVE_SECRETARY"         | "Zoey"                    | "false"    | "Auburn Hills"   |
+
+
 #  #  Check from Member Record page and check from details?
 #    Scenario: As a leader edit the Sacrament Meeting Attendance for a member record
 #      Given a leader has a member record open

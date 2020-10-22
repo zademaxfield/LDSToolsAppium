@@ -602,55 +602,117 @@ public class MemberToolsAPI {
     }
 
 
-    public List<String> getCovenantPathNames(String proxyLogin, String unitNumber) throws Exception {
+    public List<String> getCovenantPathNames(String proxyLogin, String unitNumber, String progressRecordType) throws Exception {
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
         ApiCovenantPath myCovenantPath = new ApiCovenantPath();
-
         ArrayList<String> memberNames = new ArrayList<String>();
-
         Type apiCovenantPath = new TypeToken<ArrayList<ApiCovenantPath>>(){}.getType();
-
         responseData = getCovenantPathJson(unitNumber, proxyLogin);
 //        System.out.println("Response String: " + responseData);
         JsonElement jsonElement = parser.parse(responseData);
 
-
-//            System.out.println("Json element to String ORG: " + jsonElement.toString());
         if (jsonElement instanceof JsonObject) {
 //            System.out.println("JSON Object!");
             myCovenantPath = gson.fromJson(jsonElement, ApiCovenantPath.class);
 
-            System.out.println("Name: " + myCovenantPath.getDisplayName());
-            System.out.println("Sort Name: " + myCovenantPath.getSortName());
-            System.out.println("ID: " + myCovenantPath.getId());
-
-//            for (ReportMembersMovedOut membersMovedOut : myCovenantPath.get) {
-//                System.out.println("Unit Number: " + membersMovedOut.getUnitNumber().toString());
-//                System.out.println("Display Name: " + membersMovedOut.getDisplayName());
-//                System.out.println("Moved Out Date: " + membersMovedOut.getPriorUnitMoveOutDate());
-//                System.out.println("Next Unit: " + membersMovedOut.getNextUnit());
-//                System.out.println("Members: " + actionInterview.getMembers().toString());
-//                memberNames.add(membersMovedOut.getDisplayName());
-//
-//            }
 
         } else if (jsonElement instanceof JsonArray) {
 //            System.out.println("JSON Array!");
             JsonArray jsonData = jsonElement.getAsJsonArray();
             List<ApiCovenantPath> testCovenantPath = gson.fromJson(jsonElement, apiCovenantPath);
             for(ApiCovenantPath name : testCovenantPath) {
-                System.out.println("Name: " + name.getDisplayName());
-                System.out.println("Sort Name: " + name.getSortName());
-                System.out.println("ID: " + name.getId());
+                if (progressRecordType.contains("new")) {
+                    if (name.getStatus().equalsIgnoreCase("NEW_MEMBER")) {
+                        memberNames.add(name.getDisplayName());
+                    }
+                } else {
+                    if (!name.getStatus().equalsIgnoreCase("NEW_MEMBER")) {
+                        memberNames.add(name.getDisplayName());
+                    }
+                }
             }
-
         }
 
+        return memberNames;
+    }
+
+
+    public List<String> getCovenantPathUserDetails(String proxyLogin, String unitNumber, String userName) throws Exception {
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiCovenantPath myCovenantPath = new ApiCovenantPath();
+        ArrayList<String> memberNames = new ArrayList<String>();
+        Type apiCovenantPath = new TypeToken<ArrayList<ApiCovenantPath>>(){}.getType();
+        responseData = getCovenantPathJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myCovenantPath = gson.fromJson(jsonElement, ApiCovenantPath.class);
+
+
+        } else if (jsonElement instanceof JsonArray) {
+//            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiCovenantPath> testCovenantPath = gson.fromJson(jsonElement, apiCovenantPath);
+            for(ApiCovenantPath name : testCovenantPath) {
+                if (name.getDisplayName().equalsIgnoreCase(userName)) {
+                    System.out.println("Name: " + name.getDisplayName());
+                    System.out.println("Sac Missed: " + name.getSacramentMeetingsMissed());
+                    System.out.println("Baptism Goal Date: " + name.getBaptismGoalDate());
+                    System.out.println("Confirmation Date: " + name.getConfirmationDate());
+                    System.out.println("Endowment Eligibility Date: " + name.getEndowmentEligibilityDate());
+                    System.out.println("First Taught: " + name.getFirstTaught());
+                    System.out.println("Friends Display: " + name.getFriendsDisplay());
+                    System.out.println("Status: " + name.getStatus());
+                    System.out.println("Address: " + name.getAddress());
+                    System.out.println("Opted Out: " + name.getOptedOut());
+                    System.out.println("Sort Name: " + name.getSortName());
+                    System.out.println("Next Appointment: " + name.getNextAppointment());
+                    System.out.println("Priesthood Eligibility: " + name.getPriesthoodEligibility());
+                    System.out.println("Sealed to Parents: " + name.getSealedToParents());
+                    System.out.println("Sealed to Spouse: " + name.getSealedToSpouse());
+                }
+            }
+        }
 
         return memberNames;
+    }
 
+    public int getCovenantPathUserSacramentMissed(String proxyLogin, String unitNumber, String userName) throws Exception {
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiCovenantPath myCovenantPath = new ApiCovenantPath();
+        ArrayList<String> memberNames = new ArrayList<String>();
+        Type apiCovenantPath = new TypeToken<ArrayList<ApiCovenantPath>>(){}.getType();
+        responseData = getCovenantPathJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+        int sacramentMissed = 0;
+
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myCovenantPath = gson.fromJson(jsonElement, ApiCovenantPath.class);
+
+
+        } else if (jsonElement instanceof JsonArray) {
+//            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiCovenantPath> testCovenantPath = gson.fromJson(jsonElement, apiCovenantPath);
+            for(ApiCovenantPath name : testCovenantPath) {
+                if (name.getDisplayName().equalsIgnoreCase(userName)) {
+                    System.out.println("Sac Missed: " + name.getSacramentMeetingsMissed());
+                    sacramentMissed = name.getSacramentMeetingsMissed();
+                }
+            }
+        }
+
+        return sacramentMissed;
     }
 
 

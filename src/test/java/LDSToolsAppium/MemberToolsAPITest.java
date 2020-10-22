@@ -36,7 +36,14 @@ public class MemberToolsAPITest {
 
 
         //One Work - Covenant Path
-        memberList = apiTest.getCovenantPathNames("extractor", "111074");
+//        memberList = apiTest.getCovenantPathNames("extractor", "111074", "new member");
+//        memberList = apiTest.getCovenantPathNames("extractor", "111074", "People being taught");
+
+
+//        memberList = apiTest.getCovenantPathUserDetails("extractor", "111074", "Ivey, Delores");
+//        memberList = apiTest.getCovenantPathUserDetails("extractor", "111074", "Doramus, Barbara");
+        int sacMissed = apiTest.getCovenantPathUserSacramentMissed("extractor", "111074", "Doramus, Barbara");
+
 
 
         //Action and Interview Tests

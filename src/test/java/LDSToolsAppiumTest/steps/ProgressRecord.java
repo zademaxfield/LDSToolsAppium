@@ -1,5 +1,6 @@
 package LDSToolsAppiumTest.steps;
 
+import LDSToolsAppium.API.MemberToolsAPI;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.DirectoryScreen;
@@ -15,12 +16,18 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProgressRecord extends BaseDriver {
     BasePage myBasePage = new BasePage(driver);
     HelperMethods myHelper = new HelperMethods();
     MenuScreen myMenu = new MenuScreen(driver);
     ReportsScreen myReports = new ReportsScreen(driver);
     DirectoryScreen myDirectory = new DirectoryScreen(driver);
+    MemberToolsAPI apiTest = new MemberToolsAPI();
+    List<String> memberList = new ArrayList<String>();
     String pageSource;
 
 
@@ -36,6 +43,13 @@ public class ProgressRecord extends BaseDriver {
             myBasePage.scrollDownAndroidUIAutomator("0");
         }
         myReports.progressRecordReport.click();
+    }
+
+    @When("the New Members tab is selected")
+    public void theNewMembersTabIsSelected() throws Exception {
+        LOGGER.info("the New Members tab is selected");
+        myBasePage.waitForElement(myReports.prNewMembers);
+        myReports.prNewMembers.click();
     }
 
     @Given("a {string} logs in selects a {string} and is on the Progress Record Page")
@@ -143,6 +157,39 @@ public class ProgressRecord extends BaseDriver {
 
     }
 
+
+
+    @Then("the members quick card information should be displayed")
+    public void theMembersQuickCardInformationShouldBeDisplayed() throws Exception {
+        LOGGER.info("the members quick card information should be displayed");
+        int sacramentMissed;
+        String sacNumber;
+        memberList = apiTest.getCovenantPathNames("extractor", "111074", "new member");
+
+        for (String oneUser: memberList) {
+            System.out.println(oneUser);
+            myReports.prSearchField.sendKeys(oneUser);
+            Thread.sleep(2000);
+            pageSource = myBasePage.getSourceOfPage();
+            sacramentMissed = apiTest.getCovenantPathUserSacramentMissed("extractor", "111074", oneUser);
+            sacNumber = Integer.toString(sacramentMissed);
+
+            //Todo: member for x years x months
+            Assert.assertTrue(myBasePage.checkNoCaseList(oneUser, pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList(sacNumber + " sacrament meetings missed", pageSource, "Contains"));
+            //Todo: Friends in the church
+
+            //Cancel Search
+            myReports.prClearSearch.click();
+            Thread.sleep(2000);
+        }
+     }
+
+
+
+
+
+
     public void searchForMemberAndClick(String memberRecord) throws Exception {
         myReports.prSearchField.sendKeys(memberRecord);
         Thread.sleep(2000);
@@ -195,7 +242,6 @@ public class ProgressRecord extends BaseDriver {
         }
         Thread.sleep(6000);
     }
-
 
 
 

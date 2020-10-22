@@ -379,7 +379,10 @@ public class ReportsScreen extends BasePage {
     public  MobileElement prSearchField;
 
 
-
+    //Cancel Search
+    @AndroidFindBy(id = "clearTextImageButton")
+    @iOSXCUITFindBy(accessibility = "Clear text")
+    public MobileElement prClearSearch;
 
 
 

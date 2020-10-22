@@ -9,16 +9,16 @@
       And the members record <can> be edited
       Examples:
       | leader                            | memberRecord              | can        |
-#      | "BISHOP"                          | "Ivey, Delores"           | "true"     |
+      | "BISHOP"                          | "Ivey, Delores"           | "true"     |
 #      | "BISHOPRIC_SECOND_COUNSELOR"      | "Ivey, Delores"           | "true"     |
 #      | "BISHOPRIC_SECOND_COUNSELOR"      | "White, Koty Lucas"       | "true"     |
-      | "WARD_CLERK"                      | "Johnson, Jasean Marvin"  | "true"     |
+#      | "WARD_CLERK"                      | "Johnson, Jasean Marvin"  | "true"     |
 #      | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann"  | "true"     |
-      | "ELDERS_QUORUM_PRESIDENT"         | "Perry, Keegan Krue"      | "true"     |
+#      | "ELDERS_QUORUM_PRESIDENT"         | "Perry, Keegan Krue"      | "true"     |
 #      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
 #      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"             | "false"    |
 #      | "ELDERS_QUORUM_SECRETARY"         | "Ivey, Delores"           | "false"    |
-      | "RELIEF_SOCIETY_PRESIDENT"        | "White, Koty Lucas"       | "true"     |
+#      | "RELIEF_SOCIETY_PRESIDENT"        | "White, Koty Lucas"       | "true"     |
 #      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin"  | "false"    |
 #      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann"  | "false"    |
 #      | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"      | "false"    |
@@ -71,7 +71,7 @@
 #        | "WARD_MISSION_LEADER"             | "Doramus, Barbara"        | "true"     |
 
 
-    @jft
+
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
@@ -85,7 +85,17 @@
 #        | "STAKE_CLERK"                       | "Riggs, Eugene"           | "false"    | "Pratt"          |
 #        | "STAKE_EXECUTIVE_SECRETARY"         | "Zoey"                    | "false"    | "Auburn Hills"   |
 
+    @jft
+    Scenario: As a BISHOP check the quick card for New Members
+      Given a "BISHOP" logs in and is on the Progress Record Page
+      When the New Members tab is selected
+      Then the members quick card information should be displayed
 
+
+
+
+
+#    Todo: no way to check if the box is checked or not in Android and iOS
 #  #  Check from Member Record page and check from details?
 #    Scenario: As a leader edit the Sacrament Meeting Attendance for a member record
 #      Given a leader has a member record open
@@ -94,10 +104,7 @@
 #      And a checked Sacrament Meeting Attendance date is selected
 #      Then the date should be cleared
 #
-#    Scenario: As a leadership calling check the quick card for New Members
-#      Given a leader is on the Progress Record page
-#      When the New Members tab is selected
-#      Then the members quick card information should be displayed
+
 #
 #    Scenario: As a leadership calling check the quick card for People Being Taught
 #      Given a leader is on the Progress Record page

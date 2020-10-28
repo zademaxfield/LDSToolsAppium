@@ -22,7 +22,7 @@ public class CalendarScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all", "jft"})
+    @Test (groups = {"all3", "all"})
     public void calendarSimple_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         calendarSimpleSub("BISHOPRIC_FIRST_COUNSELOR");
     }
@@ -120,7 +120,10 @@ public class CalendarScreenTest extends BaseDriver {
 
         //TODO: Need to find out why iOS cannot see calendar items.
         if (getRunningOS().equalsIgnoreCase("ios")) {
+            myBasePage.scrollDownIOS();
             pageSource = myBasePage.getSourceOfPageIDB();
+//            pageSource = myBasePage.getSourceOfPage();
+            System.out.println(pageSource);
             Assert.assertTrue(pageSource.contains("Calendar"));
         } else {
             pageSource = myBasePage.getSourceOfPage();

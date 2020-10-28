@@ -30,7 +30,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(groups = {"smoke2", "smoke", "all2", "all"})
     public void directoryScreenTest_BISHOP() throws Exception {
         directoryScreenSub("BISHOP");
     }
@@ -373,6 +373,22 @@ public class DirectoryScreenTest extends BaseDriver {
 //        checkMemberInfoBishop();
 //        checkMemberInfoFaimeaitaSeuamuli();
         checkMemberInfoKenRyan();
+    }
+
+    @Test(groups = {"jft"}, invocationCount = 10)
+//    @Test(groups = {"jft"})
+    public void directoryLoginTest() throws Exception {
+        // ********* Constructor **********
+        HelperMethods myHelper = new HelperMethods();
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+
+        myHelper.proxyLogin("fitzpatrickkb");
+        myHelper.enterPin("1", "1", "3", "3");
+        myBasePage.scrollDownIOS();
+        pageSource = myBasePage.getSourceOfPage();
+//        System.out.println(pageSource);
+        Assert.assertTrue(myBasePage.checkNoCaseList("Directory", pageSource, "Contains"));
     }
 
 

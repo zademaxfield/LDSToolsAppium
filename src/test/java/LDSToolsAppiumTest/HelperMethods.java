@@ -87,6 +87,12 @@ public class HelperMethods extends BaseDriver {
 //        deepLinkSelector(proxyUserName);
     }
 
+    private void iosDeepLinkProd(String proxyUserName) throws Exception {
+        setupProdProxy(proxyUserName);
+    }
+
+
+
     private void deepLinkSelector(String proxyUserName) throws Exception {
         String appName;
         appName = driver.get().getCapabilities().getCapability("app").toString();
@@ -229,6 +235,92 @@ public class HelperMethods extends BaseDriver {
     }
 
 
+    public void proxyLoginProd(String proxyUserName) throws Exception {
+        // ********* Constructor **********
+        BasePage myBasePage = new BasePage(driver);
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+        SettingsScreen mySettings = new SettingsScreen(driver);
+        String pageSource;
+        int myCounter = 1;
+
+        LOGGER.info("Start Proxy Login");
+        if (myBasePage.checkForElement(myBasePage.allowButton)) {
+            myBasePage.allowButton.click();
+        }
+        byte[] decodeBytes = Base64.decodeBase64("QkBiMDBuU3AxNzIwMjA=");
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            iosDeepLinkProd(proxyUserName);
+        } else {
+
+            while(!myBasePage.checkForElement(myLoginPage.titleMemberTools)|| myCounter > 4) {
+                myLoginPage.titleMemberTools.click();
+                myCounter++;
+            }
+
+
+            myLoginPage.overflowMenu.click();
+            myLoginPage.overflowSettings.click();
+            myBasePage.scrollToTextGeneral("Proxy Username");
+            mySettings.proxyUsername.click();
+            mySettings.proxyUsernameEditText.setValue(proxyUserName);
+            mySettings.proxyUsernameEditOK.click();
+            myBasePage.backButton.click();
+        }
+        if (myBasePage.checkForElement(myLoginPage.cancelPass)){
+            myLoginPage.cancelPass.click();
+        }
+
+        LOGGER.info("Clear login and password");
+        myLoginPage.loginName.clear();
+        myLoginPage.passWord.clear();
+
+
+        myLoginPage.loginName.sendKeys("zmaxfield");
+        myLoginPage.passWord.sendKeys(new String(decodeBytes));
+        myLoginPage.signInButton.click();
+        Thread.sleep(1000);
+
+        long startTime = System.nanoTime();
+
+        LOGGER.info("Check for Sign In");
+        myBasePage.waitUnitlTextIsGone("Sign In");
+        LOGGER.info("Check for Sign In over ------ Check for Sync");
+
+        Thread.sleep(2000);
+
+        if (myBasePage.getOS().equals("ios")) {
+            //Check for Failed to download
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(pageSource.contains("Failed to download."));
+            Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable"));
+
+            //May not need this
+//            if (pageSource.contains("Updat")) {
+//                LOGGER.info("Wait for text to appear: Updat");
+//                myBasePage.waitForText("Updat");
+//                LOGGER.info("Text found: Update");
+//            }
+
+            Thread.sleep(4000);
+            myBasePage.waitForText("passcode");
+            LOGGER.info("Text found: Passcode");
+        } else {
+            myBasePage.waitUnitlTextIsGone("Authenticating");
+            myBasePage. waitForText("Updating");
+            Thread.sleep(1000);
+            myBasePage.waitUnitlTextIsGone("Updating");
+            Thread.sleep(1000);
+            myBasePage.waitUnitlTextIsGone("Updating");
+        }
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        duration = duration / 1000000;
+        LOGGER.info("Done waiting for Text to disappear: Sync Took: " + duration);
+
+
+        Thread.sleep(1000);
+    }
 
 
 
@@ -431,6 +523,31 @@ public class HelperMethods extends BaseDriver {
 
         }
 
+    }
+
+
+    public void setupProdProxy(String proxyUserName) throws Exception {
+        BasePage myBasePage = new BasePage(driver);
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+        SettingsScreen mySettings = new SettingsScreen(driver);
+        ScannerScreen myScanner = new ScannerScreen(driver);
+
+        myLoginPage.overflowMenu.click();
+        if (myScanner.scannerCheckForText("Developer Settings") ) {
+            myLoginPage.developerButton.click();
+        } else {
+            for (int x = 1; x <= 5; x++) {
+                myLoginPage.enterDeveloperButton.click();
+            }
+        }
+        myBasePage.waitForElement(mySettings.proxyUsername);
+        mySettings.proxyUsername.click();
+        myBasePage.waitForElement(mySettings.proxyEditField);
+        mySettings.proxyEditField.setValue(proxyUserName);
+        mySettings.proxyDone.click();
+        Thread.sleep(1000);
+        myBasePage.waitForElementThenClick(myBasePage.backButton);
+        myBasePage.waitForElementThenClick(myBasePage.backAltButton);
     }
 
 

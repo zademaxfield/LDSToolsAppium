@@ -1,5 +1,7 @@
 package LDSToolsAppium;
 
+import LDSToolsAppium.Screen.LoginPageScreen;
+import LDSToolsAppium.Screen.MenuScreen;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -555,11 +557,11 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             //capabilities.setCapability("simpleIsVisibleCheck", true);
 //            capabilities.setCapability("connectHardwareKeyboard", false);
 
-//            capabilities.setCapability("fullReset", true);
+//            capabilities.setCapability("fullReset", true);ƒ
 
 
             //Change this to false for more debug
-//            capabilities.setCapability("showIOSLog", false);
+//            capabilities.setCapability("showIOSLog", true);
 
 
 //            capabilities.setCapability("includeNonModalElements", true);
@@ -1045,6 +1047,9 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         myLogData.add(testName);
         myLogData.add("******************* LOGS *********************");
 
+//        Set<String> sourceSet = getDriver().manage().logs().getAvailableLogTypes();
+//        logTypes = new ArrayList<>(sourceSet);
+
         if (getRunningOS().contains("ios")) {
             //logTypes.add("syslog");
             logTypes.add("crashlog");
@@ -1055,16 +1060,18 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             logTypes.add("server");
         }
 
-        //Set<String> logTypes = driver.manage().logs().getAvailableLogTypes();
+
         for(String myLog : logTypes) {
-            //System.out.println(myLog);
-            myLogData.add(" ******************* " + myLog +  " ******************* " );
-//            logEntries = driver.manage().logs().get(myLog);
-            logEntries = getDriver().manage().logs().get(myLog);
-            for (LogEntry entry : logEntries) {
-                myLogData.add(entry.getMessage());
-                //System.out.println(entry.getMessage());
+            if (!myLog.contains("performance")) {
+                System.out.println(myLog);
+                myLogData.add(" ******************* " + myLog +  " ******************* " );
+                logEntries = getDriver().manage().logs().get(myLog);
+                for (LogEntry entry : logEntries) {
+                    myLogData.add(entry.getMessage());
+                    //System.out.println(entry.getMessage());
+                }
             }
+
 
         }
 
@@ -1076,6 +1083,21 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         }
         pw.close();
 
+    }
+
+    private String getIOSToolsLog() throws Exception {
+        String myLogs = null;
+        MenuScreen myMenu = new MenuScreen(driver);
+        BasePage myBase = new BasePage(driver);
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
+
+        myMenu.selectMenu(myMenu.help);
+        myLoginPage.developerButton.click();
+        
+
+
+
+        return myLogs;
     }
 
     public String getTestOS() {

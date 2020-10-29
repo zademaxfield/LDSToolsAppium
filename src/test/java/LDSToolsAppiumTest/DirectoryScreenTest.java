@@ -375,7 +375,7 @@ public class DirectoryScreenTest extends BaseDriver {
         checkMemberInfoKenRyan();
     }
 
-    @Test(groups = {"jft"}, invocationCount = 10)
+    @Test(groups = {"jft"}, invocationCount = 1)
 //    @Test(groups = {"jft"})
     public void directoryLoginTest() throws Exception {
         // ********* Constructor **********
@@ -384,6 +384,7 @@ public class DirectoryScreenTest extends BaseDriver {
         String pageSource;
 
         myHelper.proxyLogin("fitzpatrickkb");
+//        myHelper.proxyLoginProd("fitzpatrickkb");
         myHelper.enterPin("1", "1", "3", "3");
         myBasePage.scrollDownIOS();
         pageSource = myBasePage.getSourceOfPage();

@@ -701,7 +701,7 @@ public class ReportsScreenTest extends BaseDriver {
             Thread.sleep(3000);
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Deacons", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Smith", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Sokia", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("P0, C3", pageSource, "Contains"));
         }
 
@@ -886,7 +886,7 @@ public class ReportsScreenTest extends BaseDriver {
             Assert.assertFalse(pageSource.contains("Jinn, Qui-Gon"));
         } else {
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Banuelos", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Franco", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
         }
 

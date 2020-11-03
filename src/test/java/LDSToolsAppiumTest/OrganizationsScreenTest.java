@@ -20,12 +20,12 @@ import java.util.List;
 public class OrganizationsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"smoke1", "smoke", "all1", "all"})
+    @Test (groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void organizationTest_BISHOP() throws Exception {
         organizationTestCheckSub("BISHOP");
     }
 
-    @Test (groups = {"all2", "all", "jft"})
+    @Test (groups = {"all2", "all"})
     public void organizationTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         organizationTestCheckSub("BISHOPRIC_FIRST_COUNSELOR");
     }
@@ -627,6 +627,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         Thread.sleep(2000);
         if (myBasePage.checkForElement(myOrg.priestsQuorumAdultLeaders)) {
             //        myBasePage.waitForElementThenClick(myOrg.priestsQuorumAdultLeaders);
+            myOrg.priestsQuorumAdultLeaders.click();
             myList = apiTest.getChild2OrganizationMembers("Priests Quorum Adult Leaders", userName, "21628");
             myBasePage.apiCheckData(myList);
             Thread.sleep(2000);

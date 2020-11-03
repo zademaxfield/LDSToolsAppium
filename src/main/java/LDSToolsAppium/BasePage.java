@@ -674,7 +674,7 @@ public class BasePage extends BaseDriver {
 
     public void waitForText(String myText) {
         //System.out.println("Start Checking for Element");
-        WebDriverWait wait = new WebDriverWait(driver.get(), 90);
+        WebDriverWait wait = new WebDriverWait(driver.get(), 180);
         if(getOS().equals("ios")) {
 //            WebElement iosElement = driver.get().findElement(By.xpath("//*[contains(@value, '" + myText + "')]"));
 //            wait.until(ExpectedConditions.textToBePresentInElement(iosElement, myText));

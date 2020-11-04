@@ -14,7 +14,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2"})
     public void ministeringBasic_BISHOP() throws Exception {
         ministeringBasicSub("BISHOP");
     }
@@ -1009,7 +1009,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
     public void ministeringAssignedSisters_BISHOP() throws Exception {
         ministeringAssignedSistersSub("BISHOP");
     }
@@ -1128,7 +1128,10 @@ public class MinisteringScreenTest extends BaseDriver {
             Thread.sleep(2000);
 
             if (getRunningOS().equalsIgnoreCase("ios")) {
-                pageSource = myBasePage.getSourceOfPageIDB();
+//                pageSource = myBasePage.getSourceOfPageIDB();
+                myBasePage.scrollDownIOS();
+                pageSource = myBasePage.getSourceOfPage();
+                System.out.println(pageSource);
                 Assert.assertTrue(pageSource.contains("Adams"));
                 Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {

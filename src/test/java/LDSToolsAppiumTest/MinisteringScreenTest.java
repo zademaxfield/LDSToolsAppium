@@ -334,7 +334,8 @@ public class MinisteringScreenTest extends BaseDriver {
 
             //For some reason the pageSource is broken for this page in iOS.
             if (getRunningOS().equalsIgnoreCase("ios")) {
-                pageSource = myBasePage.getSourceOfPageIDB();
+//                pageSource = myBasePage.getSourceOfPage();
+                pageSource = myBasePage.getSourceOfPage();
                 Assert.assertTrue(pageSource.contains("Adams"));
                 Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {
@@ -356,7 +357,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
             if (getRunningOS().equalsIgnoreCase("ios")) {
-                pageSource = myBasePage.getSourceOfPageIDB();
+                pageSource = myBasePage.getSourceOfPage();
                 Assert.assertTrue(pageSource.contains("Adams"));
                 Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {
@@ -392,7 +393,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
             //For some reason the pageSource is broken for this page in iOS.
             if (getRunningOS().equalsIgnoreCase("ios")) {
-                pageSource = myBasePage.getSourceOfPageIDB();
+                pageSource = myBasePage.getSourceOfPage();
                 Assert.assertTrue(pageSource.contains("Adams"));
                 Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {
@@ -414,7 +415,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
             if (getRunningOS().equalsIgnoreCase("ios")) {
-                pageSource = myBasePage.getSourceOfPageIDB();
+                pageSource = myBasePage.getSourceOfPage();
                 Assert.assertTrue(pageSource.contains("Adams"));
                 Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {
@@ -557,7 +558,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
             //For some reason the pageSource is broken for this page in iOS.
             if (getRunningOS().equalsIgnoreCase("ios")) {
-                pageSource = myBasePage.getSourceOfPageIDB();
+                pageSource = myBasePage.getSourceOfPage();
                 Assert.assertTrue(pageSource.contains("Adams"));
                 Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {
@@ -589,7 +590,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
             //For some reason the pageSource is broken for this page in iOS.
             if (getRunningOS().equalsIgnoreCase("ios")) {
-                pageSource = myBasePage.getSourceOfPageIDB();
+                pageSource = myBasePage.getSourceOfPage();
                 Assert.assertTrue(pageSource.contains("Adams"));
                 Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {
@@ -933,7 +934,7 @@ public class MinisteringScreenTest extends BaseDriver {
 //                if (getRunningOS().equals("ios")) {
 //                    myMinistering.unassignedSisters.click();
 //                    Thread.sleep(2000);
-//                    pageSource = myBasePage.getSourceOfPageIDB();
+//                    pageSource = myBasePage.getSourceOfPage();
 //                    Assert.assertTrue(pageSource.contains("Adams"));
 //                    Assert.assertFalse(pageSource.contains("Skywalker"));
 //                } else {
@@ -945,7 +946,7 @@ public class MinisteringScreenTest extends BaseDriver {
                 Thread.sleep(2000);
                 //For some reason the pageSource is broken for this page in iOS.
                 if (getRunningOS().equalsIgnoreCase("ios")) {
-                    pageSource = myBasePage.getSourceOfPageIDB();
+                    pageSource = myBasePage.getSourceOfPage();
                     Assert.assertTrue(pageSource.contains("Adams"));
                     Assert.assertFalse(pageSource.contains("Skywalker"));
                 } else {
@@ -978,7 +979,7 @@ public class MinisteringScreenTest extends BaseDriver {
                 if (getRunningOS().equals("ios")) {
                     myMinistering.unassignedSisters.click();
                     Thread.sleep(2000);
-                    pageSource = myBasePage.getSourceOfPageIDB();
+                    pageSource = myBasePage.getSourceOfPage();
                     Assert.assertTrue(pageSource.contains("Adams"));
                     Assert.assertFalse(pageSource.contains("Skywalker"));
                 } else {
@@ -990,7 +991,7 @@ public class MinisteringScreenTest extends BaseDriver {
                 Thread.sleep(2000);
                 //For some reason the pageSource is broken for this page in iOS.
                 if (getRunningOS().equalsIgnoreCase("ios")) {
-                    pageSource = myBasePage.getSourceOfPageIDB();
+                    pageSource = myBasePage.getSourceOfPage();
                     Assert.assertTrue(pageSource.contains("Adams"));
                     Assert.assertFalse(pageSource.contains("Skywalker"));
                 } else {
@@ -1128,7 +1129,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Thread.sleep(2000);
 
             if (getRunningOS().equalsIgnoreCase("ios")) {
-//                pageSource = myBasePage.getSourceOfPageIDB();
+//                pageSource = myBasePage.getSourceOfPage();
                 myBasePage.scrollDownIOS();
                 pageSource = myBasePage.getSourceOfPage();
                 System.out.println(pageSource);
@@ -1164,7 +1165,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Thread.sleep(2000);
 
             if (getRunningOS().equalsIgnoreCase("ios")) {
-                pageSource = myBasePage.getSourceOfPageIDB();
+                pageSource = myBasePage.getSourceOfPage();
                 Assert.assertTrue(pageSource.contains("Adams"));
                 Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {

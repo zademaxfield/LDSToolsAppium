@@ -120,9 +120,9 @@ public class CalendarScreenTest extends BaseDriver {
 
         //TODO: Need to find out why iOS cannot see calendar items.
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            myBasePage.scrollDownIOS();
-            pageSource = myBasePage.getSourceOfPageIDB();
-//            pageSource = myBasePage.getSourceOfPage();
+//            myBasePage.scrollDownIOS();
+//            pageSource = myBasePage.getSourceOfPageIDB();
+            pageSource = myBasePage.getSourceOfPage();
             System.out.println(pageSource);
             Assert.assertTrue(pageSource.contains("Calendar"));
         } else {

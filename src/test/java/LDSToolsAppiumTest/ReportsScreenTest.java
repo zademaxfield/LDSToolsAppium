@@ -828,7 +828,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
 
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            pageSource = myBasePage.getSourceOfPageIDB();
+            pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(pageSource.contains("Alvaira"));
             Assert.assertFalse(pageSource.contains("Ahsoka, Tano"));
         } else {
@@ -847,7 +847,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
 
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            pageSource = myBasePage.getSourceOfPageIDB();
+            pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(pageSource.contains("Anderson"));
             Assert.assertFalse(pageSource.contains("Maul, Darth"));
         } else {
@@ -864,7 +864,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
 
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            pageSource = myBasePage.getSourceOfPageIDB();
+            pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(pageSource.contains("Expiring"));
             Assert.assertFalse(pageSource.contains("Windu, Mace"));
         } else {
@@ -881,7 +881,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
 
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            pageSource = myBasePage.getSourceOfPageIDB();
+            pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(pageSource.contains("Banuelos"));
             Assert.assertFalse(pageSource.contains("Jinn, Qui-Gon"));
         } else {
@@ -899,7 +899,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
 
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            pageSource = myBasePage.getSourceOfPageIDB();
+            pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(pageSource.contains("Del Real Cortes"));
             Assert.assertFalse(pageSource.contains("Calrissian, Lando"));
         } else {

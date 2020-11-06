@@ -556,7 +556,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             //capabilities.setCapability("appPackage", myAppPackage);
             //capabilities.setCapability("simpleIsVisibleCheck", true);
 //            capabilities.setCapability("connectHardwareKeyboard", false);
-
+            capabilities.setCapability("customSnapshotTimeout", 100);
+            capabilities.setCapability("snapshotMaxDepth", 100);
 //            capabilities.setCapability("fullReset", true);ƒ
 
 

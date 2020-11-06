@@ -4,6 +4,7 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.Setting;
 import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.ScreenOrientation;
 import org.testng.Assert;

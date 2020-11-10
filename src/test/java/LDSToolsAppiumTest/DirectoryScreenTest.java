@@ -375,7 +375,7 @@ public class DirectoryScreenTest extends BaseDriver {
         checkMemberInfoKenRyan();
     }
 
-    @Test(groups = {"jft"}, invocationCount = 10)
+    @Test(groups = {"jft"}, invocationCount = 200)
 //    @Test(groups = {"jft"})
     public void directoryLoginTest() throws Exception {
         // ********* Constructor **********
@@ -386,7 +386,9 @@ public class DirectoryScreenTest extends BaseDriver {
         myHelper.proxyLogin("fitzpatrickkb");
 //        myHelper.proxyLoginProd("fitzpatrickkb");
         myHelper.enterPin("1", "1", "3", "3");
-        myBasePage.scrollDownIOS();
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myBasePage.scrollDownIOS();
+        }
         pageSource = myBasePage.getSourceOfPage();
 //        System.out.println(pageSource);
         Assert.assertTrue(myBasePage.checkNoCaseList("Directory", pageSource, "Contains"));

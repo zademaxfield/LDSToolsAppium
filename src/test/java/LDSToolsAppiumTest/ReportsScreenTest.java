@@ -721,7 +721,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         myReports.membersWithOutCallingsReport.click();
         Thread.sleep(5000);
-        if (myBasePage.getOS().contains("ios")) {
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.scrollDownIOS();
         }
         pageSource = myBasePage.getSourceOfPage();

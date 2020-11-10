@@ -463,7 +463,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
 //            capabilities.setCapability("maxTypingFrequency", "8");
 //            capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
-            capabilities.setCapability("androidInstallTimeout", "60000");
+            capabilities.setCapability("androidInstallTimeout", "90000");
 //            capabilities.setCapability("unicodeKeyboard", "true");
 //            capabilities.setCapability("resetKeyboard", "true");
 
@@ -556,13 +556,17 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             //capabilities.setCapability("appPackage", myAppPackage);
             //capabilities.setCapability("simpleIsVisibleCheck", true);
 //            capabilities.setCapability("connectHardwareKeyboard", false);
-            capabilities.setCapability("customSnapshotTimeout", 100);
+            capabilities.setCapability("customSnapshotTimeout", 500);
             capabilities.setCapability("snapshotMaxDepth", 100);
 //            capabilities.setCapability("fullReset", true);ƒ
 
+//            capabilities.setCapability("wdaConnectionTimeout", 5000000);
+//            capabilities.setCapability("appium:waitForQuiescence", false);
+
+
 
             //Change this to false for more debug
-//            capabilities.setCapability("showIOSLog", true);
+            capabilities.setCapability("showIOSLog", true);
 
 
 //            capabilities.setCapability("includeNonModalElements", true);

@@ -240,6 +240,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             testName = result.getName();
             //System.out.println("getName " + result.getName());
 
+
+
             screenshotAndLogs(testName);
 
 
@@ -1084,12 +1086,12 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
         myLogData.add("******************* END LOGS *********************");
 
-
         // Comment for extra debug ... this could fill up your email
         if (!getRunningOS().equalsIgnoreCase("ios")) {
             System.out.println("Sending Android Logs");
             sendAndroidLog();
         }
+
 
         PrintWriter pw = new PrintWriter(new FileOutputStream(logFile));
         for (String logItem : myLogData) {
@@ -1114,8 +1116,20 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
     private void sendAndroidLog() throws Exception {
         MenuScreen myMenu = new MenuScreen(driver);
         HelpScreen myHelp = new HelpScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        LoginPageScreen myLoginPage = new LoginPageScreen(driver);
 
-        myMenu.selectMenu(myMenu.help);
+        if (myBasePage.checkForElement(myBasePage.alertOK)) {
+            myBasePage.alertOK.click();
+            Thread.sleep(4000);
+            driver.get().launchApp();
+            Thread.sleep(4000);
+            myLoginPage.overflowMenu.click();
+        } else {
+            myMenu.selectMenu(myMenu.help);
+        }
+
+
         myHelp.helpContactUs.click();
 
         myHelp.contactUsName.sendKeys("Zade");

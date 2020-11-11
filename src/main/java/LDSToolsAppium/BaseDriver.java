@@ -1086,11 +1086,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
         myLogData.add("******************* END LOGS *********************");
 
-        // Comment for extra debug ... this could fill up your email
-        if (!getRunningOS().equalsIgnoreCase("ios")) {
-            System.out.println("Sending Android Logs");
-            sendAndroidLog();
-        }
+
 
 
         PrintWriter pw = new PrintWriter(new FileOutputStream(logFile));
@@ -1113,7 +1109,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         return myLogs;
     }
 
-    private void sendAndroidLog() throws Exception {
+    public void sendAndroidLog() throws Exception {
         MenuScreen myMenu = new MenuScreen(driver);
         HelpScreen myHelp = new HelpScreen(driver);
         BasePage myBasePage = new BasePage(driver);

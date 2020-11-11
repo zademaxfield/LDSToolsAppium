@@ -200,6 +200,10 @@ public class HelperMethods extends BaseDriver {
 
         Thread.sleep(2000);
 
+        unavailableCheck();
+
+
+
         if (myBasePage.getOS().equals("ios")) {
             //Check for Failed to download
             pageSource = myBasePage.getSourceOfPage();
@@ -218,11 +222,15 @@ public class HelperMethods extends BaseDriver {
             LOGGER.info("Text found: Passcode");
         } else {
             myBasePage.waitUnitlTextIsGone("Authenticating");
-            myBasePage. waitForText("Updating");
+            unavailableCheck();
+
+
+            myBasePage.waitForText("Updating");
             Thread.sleep(1000);
             myBasePage.waitUnitlTextIsGone("Updating");
             Thread.sleep(1000);
             myBasePage.waitUnitlTextIsGone("Updating");
+            unavailableCheck();
         }
 
         long endTime = System.nanoTime();
@@ -232,6 +240,20 @@ public class HelperMethods extends BaseDriver {
 
 
         Thread.sleep(1000);
+    }
+
+    public void unavailableCheck() throws Exception {
+        BasePage myBasePage = new BasePage(driver);
+        String pageSource;
+        pageSource = myBasePage.getSourceOfPage();
+        if (pageSource.contains("Member Tools Services are unavailable")) {
+            // Comment for extra debug ... this could fill up your email
+            if (!getRunningOS().equalsIgnoreCase("ios")) {
+                System.out.println("Sending Android Logs");
+                sendAndroidLog();
+            }
+            Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable"));
+        }
     }
 
 

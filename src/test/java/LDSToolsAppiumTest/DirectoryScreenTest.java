@@ -375,7 +375,7 @@ public class DirectoryScreenTest extends BaseDriver {
         checkMemberInfoKenRyan();
     }
 
-    @Test(groups = {"jft"}, invocationCount = 1)
+    @Test(groups = {"jft"}, invocationCount = 200)
 //    @Test(groups = {"jft"})
     public void directoryLoginTest() throws Exception {
         // ********* Constructor **********
@@ -394,7 +394,7 @@ public class DirectoryScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Directory", pageSource, "Contains"));
 
         //Just to cause a failure for testing.
-        Assert.assertTrue(myBasePage.checkNoCaseList("WOOKIES!!!!!", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("WOOKIES!!!!!", pageSource, "Contains"));
     }
 
 

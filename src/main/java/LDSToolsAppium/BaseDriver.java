@@ -1,5 +1,6 @@
 package LDSToolsAppium;
 
+import LDSToolsAppium.Screen.HelpScreen;
 import LDSToolsAppium.Screen.LoginPageScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import io.appium.java_client.AppiumDriver;
@@ -1063,6 +1064,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             logTypes.add("logcat");
 //            logTypes.add("bugreport");
             logTypes.add("server");
+            logTypes.add("client");
         }
 
 
@@ -1082,6 +1084,13 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
         myLogData.add("******************* END LOGS *********************");
 
+
+        // Comment for extra debug ... this could fill up your email
+        if (!getRunningOS().equalsIgnoreCase("ios")) {
+            System.out.println("Sending Android Logs");
+            sendAndroidLog();
+        }
+
         PrintWriter pw = new PrintWriter(new FileOutputStream(logFile));
         for (String logItem : myLogData) {
             pw.println(logItem);
@@ -1099,10 +1108,23 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         myMenu.selectMenu(myMenu.help);
         myLoginPage.developerButton.click();
 
-
-
-
         return myLogs;
+    }
+
+    private void sendAndroidLog() throws Exception {
+        MenuScreen myMenu = new MenuScreen(driver);
+        HelpScreen myHelp = new HelpScreen(driver);
+
+        myMenu.selectMenu(myMenu.help);
+        myHelp.helpContactUs.click();
+
+        myHelp.contactUsName.sendKeys("Zade");
+        myHelp.contactUsEmail.sendKeys("zmaxfield@churchofjesuschrist.org");
+        myHelp.contactUsCategory.click();
+        myHelp.contactUsDescription.click();
+        myHelp.contactUsDescription.sendKeys("sendto:zmaxfield@churchofjesuschrist.org");
+        myHelp.helpSendFeedback.click();
+
     }
 
     public String getTestOS() {

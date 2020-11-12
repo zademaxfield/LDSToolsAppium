@@ -1118,8 +1118,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         if (myBasePage.checkForElement(myBasePage.alertOK)) {
             myBasePage.alertOK.click();
             Thread.sleep(4000);
-            driver.get().launchApp();
-            Thread.sleep(4000);
+//            driver.get().launchApp();
+//            Thread.sleep(4000);
             myLoginPage.overflowMenu.click();
         } else {
             myMenu.selectMenu(myMenu.help);

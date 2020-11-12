@@ -200,7 +200,7 @@ public class HelperMethods extends BaseDriver {
 
         Thread.sleep(2000);
 
-        unavailableCheck();
+//        unavailableCheck();
 
 
 
@@ -222,7 +222,7 @@ public class HelperMethods extends BaseDriver {
             LOGGER.info("Text found: Passcode");
         } else {
             myBasePage.waitUnitlTextIsGone("Authenticating");
-            unavailableCheck();
+//            unavailableCheck();
 
 
             myBasePage.waitForText("Updating");
@@ -230,7 +230,7 @@ public class HelperMethods extends BaseDriver {
             myBasePage.waitUnitlTextIsGone("Updating");
             Thread.sleep(1000);
             myBasePage.waitUnitlTextIsGone("Updating");
-            unavailableCheck();
+//            unavailableCheck();
         }
 
         long endTime = System.nanoTime();
@@ -876,14 +876,9 @@ public class HelperMethods extends BaseDriver {
 
     public void enterPinKeepWhatsNew(String firstNumber, String secondNumber, String thirdNumber, String fourthNumber) throws Exception {
         // ********** Page Instantiations **********
-        //HelperMethods myHelper = new HelperMethods(driver);
-//        PinScreen myPin = new PinScreen(driver);
+        PinScreen myPin = new PinScreen(driver);
         BaseDriver myBaseDriver = new BaseDriver();
-//        MenuScreen myMenuScreen = new MenuScreen(driver);
         BasePage myBasePage = new BasePage(driver);
-
-        String deviceName;
-
 
         Thread.sleep(4000);
 
@@ -894,31 +889,55 @@ public class HelperMethods extends BaseDriver {
         System.out.println("Check for MORE Alerts after whats new page");
         checkForAlertsAfterPin();
 
+        Thread.sleep(2000);
 
-        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-            Thread.sleep(2000);
+        pressPinKeys(firstNumber);
+        pressPinKeys(secondNumber);
+        pressPinKeys(thirdNumber);
+        pressPinKeys(fourthNumber);
 
-            pressPinKeys(firstNumber);
-            pressPinKeys(secondNumber);
-            pressPinKeys(thirdNumber);
-            pressPinKeys(fourthNumber);
-
-            Thread.sleep(2000);
-
-            pressPinKeys(firstNumber);
-            pressPinKeys(secondNumber);
-            pressPinKeys(thirdNumber);
-            pressPinKeys(fourthNumber);
-
-            Thread.sleep(2000);
-        } else {
-            Thread.sleep(4000);
-            System.out.println("Enter PIN!!!");
-            deviceName = driver.get().getCapabilities().getCapability("deviceName").toString();
-            myBaseDriver.adbEnterPIN(deviceName);
-
-
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myPin.pinKeyEnter.click();
         }
+
+        Thread.sleep(2000);
+
+        pressPinKeys(firstNumber);
+        pressPinKeys(secondNumber);
+        pressPinKeys(thirdNumber);
+        pressPinKeys(fourthNumber);
+
+        Thread.sleep(2000);
+
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myPin.pinKeyEnter.click();
+        }
+
+
+//        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+//            Thread.sleep(2000);
+//
+//            pressPinKeys(firstNumber);
+//            pressPinKeys(secondNumber);
+//            pressPinKeys(thirdNumber);
+//            pressPinKeys(fourthNumber);
+//
+//            Thread.sleep(2000);
+//
+//            pressPinKeys(firstNumber);
+//            pressPinKeys(secondNumber);
+//            pressPinKeys(thirdNumber);
+//            pressPinKeys(fourthNumber);
+//
+//            Thread.sleep(2000);
+//        } else {
+//            Thread.sleep(4000);
+//            System.out.println("Enter PIN!!!");
+//            deviceName = driver.get().getCapabilities().getCapability("deviceName").toString();
+//            myBaseDriver.adbEnterPIN(deviceName);
+//
+//
+//        }
     }
 
     public void checkForLater() {
@@ -1201,8 +1220,8 @@ public class HelperMethods extends BaseDriver {
         System.out.println("Checking for Touch ID");
 //        myCheck = myBase.checkElementExists("Disable Touch ID");
         myCheck = pageSource.contains("Disable Touch ID");
-        if (myBasePage.checkForElement(myWhatsNew.usePassword)) //Samsung phones need this
-            myWhatsNew.usePassword.click();
+//        if (myBasePage.checkForElement(myWhatsNew.usePassword)) //Samsung phones need this
+//            myWhatsNew.usePassword.click();
 
         if (myCheck) {
             System.out.println("Enable Touch ID Button found, hitting the button");

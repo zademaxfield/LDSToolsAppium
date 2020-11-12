@@ -1067,6 +1067,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            logTypes.add("bugreport");
             logTypes.add("server");
             logTypes.add("client");
+
+//            sendAndroidLog();
         }
 
 

@@ -375,7 +375,7 @@ public class DirectoryScreenTest extends BaseDriver {
         checkMemberInfoKenRyan();
     }
 
-    @Test(groups = {"jft"}, invocationCount = 200)
+    @Test(groups = {"jft"}, invocationCount = 20)
 //    @Test(groups = {"jft"})
     public void directoryLoginTest() throws Exception {
         // ********* Constructor **********

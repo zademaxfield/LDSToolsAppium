@@ -724,12 +724,13 @@ public class ReportsScreenTest extends BaseDriver {
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.scrollDownIOS();
         }
-        pageSource = myBasePage.getSourceOfPage();
+
 
 //        System.out.println(pageSource);
 
         //This is broken for iOS right now
         if (!getRunningOS().equalsIgnoreCase("ios")) {
+            pageSource = myBasePage.getSourceOfPage();
 
             Assert.assertTrue(myBasePage.checkNoCaseList("Abah", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("John", pageSource, "Contains"));

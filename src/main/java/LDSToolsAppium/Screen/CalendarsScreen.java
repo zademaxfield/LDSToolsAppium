@@ -57,7 +57,7 @@ public class CalendarsScreen extends BasePage {
 
 
     //Subscriptions Done
-    @AndroidFindBy(id = "menu_item_done")
+    @AndroidFindBy(id = "menu_item_save")
     @iOSXCUITFindBy(accessibility = "Done")
     public MobileElement calendarsSubscriptionsDone;
 

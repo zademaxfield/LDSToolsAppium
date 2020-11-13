@@ -81,7 +81,7 @@ public class ListsScreen extends BasePage {
 
 
     //iOS - Add Member Button
-    @iOSXCUITFindBy(accessibility = "Add to List")
+    @iOSXCUITFindBy(accessibility = "Add")
     public MobileElement listsAddToListButton;
 
     //iOS - Search Field
@@ -258,9 +258,12 @@ public class ListsScreen extends BasePage {
     public void addMemberToList(String memberToAdd, String memberToClickOn) throws Exception {
         int elementX;
         int elementY;
+        BasePage myBasePage = new BasePage(driver);
 
         if (getOS().equals("ios")) {
             Thread.sleep(2000);
+//            myBasePage.scrollDownIOS();
+//            System.out.println(myBasePage.getSourceOfPage());
             listsAddToListButton.click();
             Thread.sleep(2000);
             listsSearch.sendKeys(memberToAdd);

@@ -24,7 +24,7 @@ public class ListsScreenTest extends BaseDriver {
 
         //Login and enter in PIN
 //        myHelper.loginUAT("LDSTools33", "password1");
-        myHelper.proxyLogin("darthjohn");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Go to Lists
@@ -86,7 +86,7 @@ public class ListsScreenTest extends BaseDriver {
 
         //Login and enter in PIN
 //        myHelper.loginUAT("LDSTools25", "password1");
-        myHelper.proxyLogin("darthjohn");
+        myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Go to Lists

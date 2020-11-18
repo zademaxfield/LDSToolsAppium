@@ -566,10 +566,11 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("wdaConnectionTimeout", 5000000);
 //            capabilities.setCapability("appium:waitForQuiescence", false);
 
+            capabilities.setCapability("appium:waitForQuiescence", false);
 
 
             //Change this to false for more debug
-            capabilities.setCapability("showIOSLog", true);
+//            capabilities.setCapability("showIOSLog", false);
 
 
 //            capabilities.setCapability("includeNonModalElements", true);

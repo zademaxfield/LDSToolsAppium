@@ -15,12 +15,10 @@ public class CalendarScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
     public void calendarSimple_BISHOP() throws Exception {
         calendarSimpleSub("BISHOP");
     }
-
-
 
     @Test (groups = {"all3", "all"})
     public void calendarSimple_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
@@ -183,7 +181,7 @@ public class CalendarScreenTest extends BaseDriver {
 
 
     //Todo: need a check to make sure all calendars are selected. Check iOS!
-    @Test (groups = {"all", "all4", "jft" })
+    @Test (groups = {"all", "all4" })
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();

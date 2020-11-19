@@ -15,7 +15,7 @@ import java.util.List;
 public class ReportsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
+    @Test (groups = {"all1", "all", "smoke", "smoke1", "report"})
     public void reportsBasic_BISHOP() throws Exception {
         reportsBasicCheckSub("BISHOP");
     }
@@ -192,7 +192,7 @@ public class ReportsScreenTest extends BaseDriver {
     
     
 
-//    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
+//    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "report"})
     public void reportsBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
         String pageSource;
         int rights = Integer.parseInt(rightsString);
@@ -418,7 +418,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
     //There is no API for this
-    @Test (groups = {"all3", "all", "report"})
+    @Test (groups = {"all3", "all", "report", "jft"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
 
@@ -451,7 +451,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Batimana", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Divyne", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("March 2021", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("May 2020", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Limited-Use", pageSource, "Contains"));
 
         //TODO: Need a way to test this for iOS. iOS does this very different.
@@ -478,7 +478,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Arce", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Laeci", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Batimana", pageSource, "Contains"));
 
     }
@@ -506,8 +506,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Dedman", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ammon", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Thomas", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lambert", pageSource, "Contains"));
 
     }
 

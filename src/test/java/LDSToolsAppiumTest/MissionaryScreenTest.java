@@ -18,7 +18,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test (groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest_BISHOP() throws Exception {
         missionaryTestCheckSub("BISHOP");
     }
@@ -206,7 +206,7 @@ public class MissionaryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void missionaryOtherUnits() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods();
@@ -360,6 +360,7 @@ public class MissionaryScreenTest extends BaseDriver {
         } else {
             myBasePage.scrollToTextGeneral("SEND");
         }
+//        System.out.println(myBasePage.getSourceOfPage());
         myMissionary.referralMessageField.setValue("Hello this is a test");
 
         if (getRunningOS().equals("ios")) {
@@ -415,20 +416,26 @@ public class MissionaryScreenTest extends BaseDriver {
         Thread.sleep(2000);
         pageSource = pageSource + driver.get().getPageSource();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Status", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Assigned to California San Jose Mission", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("California San Jose Mission Office", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("408-578-9794", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Rodney B. Norling", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("408-733-8125", pageSource, "Contains"));
+        if (pageSource.contains("Pending")) {
+            Assert.assertTrue(myBasePage.checkNoCaseList("Status", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Pending Assignment to Missionaries", pageSource, "Contains"));
+        } else {
+            Assert.assertTrue(myBasePage.checkNoCaseList("Status", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Assigned to California San Jose Mission", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Elder", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("California San Jose Mission Office", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("408-578-9794", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Rodney B. Norling", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("408-733-8125", pageSource, "Contains"));
 
-        if (myBasePage.getOS().equals("ios")) {
-            Assert.assertTrue(myBasePage.checkNoCaseList("408-614-3854", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("@missionary.org", pageSource, "Contains"));
+            if (myBasePage.getOS().equals("ios")) {
+                Assert.assertTrue(myBasePage.checkNoCaseList("408-614-3854", pageSource, "Contains"));
+                Assert.assertTrue(myBasePage.checkNoCaseList("@missionary.org", pageSource, "Contains"));
 
+            }
         }
+
 
 
         //Remove Referral
@@ -440,6 +447,8 @@ public class MissionaryScreenTest extends BaseDriver {
             myMissionary.referralOverflowButton.click();
             myMissionary.referralRemove.click();
 //            myBasePage.alertOK.click();
+            Thread.sleep(1000);
+//            System.out.println(myBasePage.getSourceOfPage());
             myMissionary.referralRemoveFromList.click();
         }
 

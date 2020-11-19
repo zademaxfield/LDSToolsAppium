@@ -101,7 +101,7 @@ public class MissionaryScreen extends BasePage {
 
 
     //Referral Message field
-    @AndroidFindBy(id = "helpfulMessageEditText")
+    @AndroidFindBy(id = "helpfulMessageInputEditText")
     @iOSXCUITFindBy(accessibility = "Message")
     public MobileElement referralMessageField;
 
@@ -121,7 +121,8 @@ public class MissionaryScreen extends BasePage {
     public MobileElement referralRemove;
 
     //Remove from list?
-    @AndroidFindBy(id = "md_buttonDefaultPositive")
+//    @AndroidFindBy(id = "button1")
+    @AndroidFindBy(xpath = "//android.widget.Button[@text='REMOVE']")
     public MobileElement referralRemoveFromList;
 
 

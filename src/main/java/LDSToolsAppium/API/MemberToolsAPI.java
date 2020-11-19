@@ -171,8 +171,10 @@ public class MemberToolsAPI {
             for (ApiOrganization myOrg : testOrg) {
 //                System.out.println("Organizations: " + myOrg.getName());
                 if (myOrg.getName().equalsIgnoreCase(organizationName)) {
-                    for (String onePosition : myOrg.getPositions()) {
-                        memberNames.add(getNameFromUuid(onePosition, unitNumber, proxyLogin, "position"));
+                    if (myOrg.getPositions() != null) {
+                        for (String onePosition : myOrg.getPositions()) {
+                            memberNames.add(getNameFromUuid(onePosition, unitNumber, proxyLogin, "position"));
+                        }
                     }
                 }
             }

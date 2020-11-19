@@ -255,7 +255,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "jft"})
     public void ministeringUnassignedHouseholds_MEMBER1() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("MEMBER1");
     }
@@ -326,7 +326,7 @@ public class MinisteringScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         MinisteringScreen myMinistering = new MinisteringScreen(driver);
 
-        if (rights <= 3) {
+        if (rights >= 4) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringBrothersReport.click();
             Thread.sleep(2000);
@@ -1011,7 +1011,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4"})
     public void ministeringAssignedSisters_BISHOP() throws Exception {
         ministeringAssignedSistersSub("BISHOP");
     }

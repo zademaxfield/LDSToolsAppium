@@ -460,8 +460,9 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
 
             capabilities.setCapability("appium:clearDeviceLogsOnStart", true);
-            capabilities.setCapability("appium:unlockType", "pin");
-            capabilities.setCapability("appium:unlockKey", "1133");
+
+//            capabilities.setCapability("appium:unlockType", "pin");
+//            capabilities.setCapability("appium:unlockKey", "1133");
 
 //            capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
 //            capabilities.setCapability("maxTypingFrequency", "8");

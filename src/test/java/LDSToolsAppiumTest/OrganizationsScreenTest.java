@@ -20,7 +20,7 @@ import java.util.List;
 public class OrganizationsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test (groups = {"smoke1", "smoke", "all1", "all"})
     public void organizationTest_BISHOP() throws Exception {
         organizationTestCheckSub("BISHOP");
     }
@@ -55,7 +55,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("MEMBER1");
     }
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void organizationTest_MEMBER2() throws Exception {
         organizationTestCheckSub("MEMBER2");
     }
@@ -402,9 +402,10 @@ public class OrganizationsScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Salas", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Ian", pageSource, "Contains"));
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ward Clerk", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Ravitch", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Luke", pageSource, "Contains"));
+//Moved out
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Ward Clerk", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Ravitch", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Luke", pageSource, "Contains"));
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Ward Assistant Clerk", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Ahmanson", pageSource, "Contains"));
@@ -504,8 +505,12 @@ public class OrganizationsScreenTest extends BaseDriver {
 //        eldersQuorumData();
 
         myList = apiTest.getChildOrganizationMembers("Elders Quorum Presidency", userName, "21628");
+        //The following members are marked private.
+        if (rights <= 3) {
+            myList.remove("Smith, Gabriel");
+            myList.remove("Loeb, Andrew");
+        }
         myBasePage.apiCheckData(myList);
-
 
         if(getRunningOS().equals("ios")) {
             myBasePage.waitForElementThenClick(myBasePage.backAltButton);

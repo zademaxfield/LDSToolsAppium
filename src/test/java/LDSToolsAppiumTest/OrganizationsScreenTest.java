@@ -55,7 +55,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("MEMBER1");
     }
 
-    @Test(groups = {"all4", "all", "jft"})
+    @Test(groups = {"all4", "all"})
     public void organizationTest_MEMBER2() throws Exception {
         organizationTestCheckSub("MEMBER2");
     }
@@ -155,7 +155,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("BISHOP");
     }
 
-    @Test (groups = {"all1", "all"})
+    @Test (groups = {"all1", "all", "jft"})
     public void organizationStakeHighPriestQuorum_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("BISHOPRIC_FIRST_COUNSELOR");
     }
@@ -958,7 +958,7 @@ public class OrganizationsScreenTest extends BaseDriver {
     }
 
 
-    //    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    //    @Test(dataProvider = "Members", groups = {"smoke1", "smoke", "all1", "all"})
     public void organizationTest(String userName, String passWord, String rightsString, String calling) throws Exception {
         //String pageSource;
         int rights = Integer.parseInt(rightsString);

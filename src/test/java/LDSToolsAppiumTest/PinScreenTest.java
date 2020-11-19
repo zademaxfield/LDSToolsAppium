@@ -14,7 +14,7 @@ public class PinScreenTest extends BaseDriver {
 
     //TODO: Bug iOS is allowing repeating numbers - MMIP-5824
     //TODO: Android bug MMA-3502
-    @Test (groups = {"all1", "all", "jft"})
+    @Test (groups = {"all1", "all"})
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -101,7 +101,7 @@ public class PinScreenTest extends BaseDriver {
 
 
     //TODO: Android bug MMA-3502
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all4", "all", "jft"})
     public void pinSequentialTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -156,11 +156,11 @@ public class PinScreenTest extends BaseDriver {
         SettingsScreen mySettings = new SettingsScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        if (getRunningOS().equalsIgnoreCase("android")) {
-            myHelper.enterPin("1", "1", "3", "3");
-            myMenu.selectMenu(myMenu.settings);
-            mySettings.createAPIN.click();
-        }
+//        if (getRunningOS().equalsIgnoreCase("android")) {
+//            myHelper.enterPin("1", "1", "3", "3");
+//            myMenu.selectMenu(myMenu.settings);
+//            mySettings.createAPIN.click();
+//        }
 
 
 
@@ -246,11 +246,11 @@ public class PinScreenTest extends BaseDriver {
         SettingsScreen mySettings = new SettingsScreen(driver);
 
 
-        if (getRunningOS().equalsIgnoreCase("android")) {
-            myHelper.enterPin("1", "1", "3", "3");
-            myMenu.selectMenu(myMenu.settings);
-            mySettings.createAPIN.click();
-        }
+//        if (getRunningOS().equalsIgnoreCase("android")) {
+//            myHelper.enterPin("1", "1", "3", "3");
+//            myMenu.selectMenu(myMenu.settings);
+//            mySettings.createAPIN.click();
+//        }
 
 
         myHelper.pressPinKeys("3");
@@ -286,11 +286,11 @@ public class PinScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
 
-        if (getRunningOS().equalsIgnoreCase("android")) {
-            myHelper.enterPin("1", "1", "3", "3");
-            myMenu.selectMenu(myMenu.settings);
-            mySettings.createAPIN.click();
-        }
+//        if (getRunningOS().equalsIgnoreCase("android")) {
+//            myHelper.enterPin("1", "1", "3", "3");
+//            myMenu.selectMenu(myMenu.settings);
+//            mySettings.createAPIN.click();
+//        }
 
         //All four of the same number
         myHelper.pressPinKeys("1");

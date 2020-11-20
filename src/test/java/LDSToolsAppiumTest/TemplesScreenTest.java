@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2"})
     public void templeSimple() throws Exception {
         String pageSource;
 
@@ -247,7 +247,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all2"})
+    @Test (groups= { "all", "all2", "jft"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 
@@ -268,9 +268,20 @@ public class TemplesScreenTest extends BaseDriver {
         myTemple.chooseDifferentTab(myTemple.allTab);
 
 
+
+
+
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            Thread.sleep(5000);
+            System.out.println("Scroll UP!!!!");
+            myBasePage.scrollUpAndroidUIAutomator("2");
+            myBasePage.scrollUpAndroidUIAutomator("2");
+            myBasePage.scrollUpAndroidUIAutomator("2");
+
+        }
+
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Aba", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Abidjan", pageSource, "Contains"));

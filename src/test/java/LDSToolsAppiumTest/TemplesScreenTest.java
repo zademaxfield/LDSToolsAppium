@@ -209,7 +209,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all1"})
+    @Test (groups= { "all", "all1", "jft"})
     public void templeNearestTemples() throws Exception {
         String pageSource;
 
@@ -230,6 +230,8 @@ public class TemplesScreenTest extends BaseDriver {
 
         if (!myBasePage.getOS().contains("ios")) {
             myBasePage.alertOK.click();
+//            Thread.sleep(1000);
+//            System.out.println(myBasePage.getSourceOfPage());
             myBasePage.allowButton.click();
         } else {
             myBasePage.allowWhileUsingApp.click();
@@ -247,7 +249,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all2", "jft"})
+    @Test (groups= { "all", "all2"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 

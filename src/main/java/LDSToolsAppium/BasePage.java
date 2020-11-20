@@ -77,7 +77,8 @@ public class BasePage extends BaseDriver {
     public MobileElement cancel;
 
     //Allow button
-    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"com.android.packageinstaller:id/permission_allow_button\"]")
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"com.android.permissioncontroller:id/permission_allow_foreground_only_button\"]")
+//    @AndroidFindBy(id = "permission_allow_foreground_only_button")
     @iOSXCUITFindBy(accessibility = "Allow")
     public MobileElement allowButton;
 

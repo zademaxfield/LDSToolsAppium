@@ -93,7 +93,8 @@ public class TemplesScreen extends BasePage {
 
     // ******************** Ordinance Schedule ********************
     //Ordinance Schedule Button
-    @AndroidFindBy(id = "ordinanceScheduleButton")
+//    @AndroidFindBy(id = "ordinanceScheduleButton")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ordinance Schedule']")
     @iOSXCUITFindBy(accessibility = "Ordinance Schedule")
     public MobileElement ordinanceScheduleButton;
 

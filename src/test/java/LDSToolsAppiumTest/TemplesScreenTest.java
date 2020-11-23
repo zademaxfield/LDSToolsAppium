@@ -209,7 +209,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all1", "jft"})
+    @Test (groups= { "all", "all1"})
     public void templeNearestTemples() throws Exception {
         String pageSource;
 
@@ -365,7 +365,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all4"})
+    @Test (groups= { "all", "all4", "jft"})
     public void templeOrdinanceSchedule() throws Exception {
         String pageSource;
 
@@ -386,6 +386,7 @@ public class TemplesScreenTest extends BaseDriver {
 
         myMenu.selectMenu(myMenu.temples);
         myTemple.yesRemindMe.click();
+        System.out.println(myBasePage.getSourceOfPage());
         myTemple.ordinanceScheduleButton.click();
 
         checkOrdinanceDate();

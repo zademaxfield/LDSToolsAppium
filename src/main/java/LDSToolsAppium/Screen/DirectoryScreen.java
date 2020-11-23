@@ -66,7 +66,7 @@ public class DirectoryScreen extends BasePage {
     //Sort Button
     @AndroidFindBy(id = "filterMenuImageButton")
     //@AndroidFindBy(xpath = "//*[@resource-id='filterMenuImageButton']")
-    @iOSXCUITFindBy(accessibility = "Sort Options")
+    @iOSXCUITFindBy(accessibility = "Sort")
     public  MobileElement directorySort;
 
     //Households
@@ -291,6 +291,10 @@ public class DirectoryScreen extends BasePage {
         BasePage myBase = new BasePage(driver);
         String tempMyUser = myUser.toLowerCase();
 
+        if (myBase.getOS().equalsIgnoreCase("ios")) {
+            myBase.scrollDownIOS();
+//            System.out.println(myBase.getSourceOfPage());
+        }
         myBase.waitForElementThenClick(directorySort);
 //        directorySort.click();
 //        Thread.sleep(2000);

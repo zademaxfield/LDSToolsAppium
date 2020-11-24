@@ -10,6 +10,8 @@ import org.testng.annotations.NoInjection;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
 
+import java.awt.*;
+
 
 public class WhatsNewScreenTest extends BaseDriver {
 
@@ -32,10 +34,6 @@ public class WhatsNewScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Automatic update", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Prayer Roll", pageSource, "Contains"));
 
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Prayer Roll", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Add names", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Version 4.1", pageSource, "Contains"));
-
         myWhatsNew.autoUpdate.click();
 
         Assert.assertTrue(myBasePage.checkNoCaseList("ON", pageSource, "Contains"));
@@ -52,7 +50,8 @@ public class WhatsNewScreenTest extends BaseDriver {
         myWhatsNew.wifiButton.click();
         pageSource = myBasePage.getSourceOfPage();
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            Assert.assertTrue(myWhatsNew.wifiButton.getAttribute("value").equalsIgnoreCase("0"));
+            System.out.println(myBasePage.getSourceOfPage());
+            Assert.assertTrue(myWhatsNew.wifiButton.getAttribute("value").equalsIgnoreCase("1"));
         } else {
             Assert.assertTrue(myBasePage.checkNoCaseList("OFF", pageSource, "Contains"));
         }

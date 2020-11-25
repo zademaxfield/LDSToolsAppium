@@ -55,6 +55,8 @@ public class SacramentAttendance extends BaseDriver {
         //Need to scroll down or iOS cannot see the elements.
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.scrollDownIOS();
+//            System.out.println(myBasePage.getSourceOfPage());
+            myBasePage.scrollUpIOS();
         }
         clickElement(fieldToEnter);
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {

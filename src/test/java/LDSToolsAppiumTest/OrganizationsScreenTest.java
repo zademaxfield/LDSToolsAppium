@@ -20,7 +20,7 @@ import java.util.List;
 public class OrganizationsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"smoke1", "smoke", "all1", "all"})
+    @Test (groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void organizationTest_BISHOP() throws Exception {
         organizationTestCheckSub("BISHOP");
     }
@@ -155,7 +155,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("BISHOP");
     }
 
-    @Test (groups = {"all1", "all", "jft"})
+    @Test (groups = {"all1", "all"})
     public void organizationStakeHighPriestQuorum_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("BISHOPRIC_FIRST_COUNSELOR");
     }
@@ -515,6 +515,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         if(getRunningOS().equals("ios")) {
             myBasePage.waitForElementThenClick(myBasePage.backAltButton);
         }
+        System.out.println(myBasePage.getSourceOfPage());
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
         Thread.sleep(1000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
@@ -569,7 +570,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         if(getRunningOS().equals("ios")) {
             myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 //            myBasePage.backAltButton.click();
-//            Thread.sleep(1000);
+            Thread.sleep(1000);
         }
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
         Thread.sleep(2000);

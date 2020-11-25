@@ -7,12 +7,12 @@
         <parameter name="fileName" value="ldstools-beta.apk" />
 <!--        <parameter name="fileName" value="ldstools-release.apk" />-->
 <!--        <parameter name="testDevice" value="HT69D0204296" />-->
-        <parameter name="testDevice" value="R38M803MWGM" />
+        <parameter name="testDevice" value="R9TN80AQ57J" />
 <!--        <parameter name="testDevice" value="emulator-5554" />-->
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8251" />
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.PrayerRollRunner"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.ProgressRecordRunner"> </class>
         </classes>
     </test >
 

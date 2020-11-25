@@ -2,6 +2,7 @@
   Feature: Progress Record tests - Used to be Missionary Progress Record
 
 #    Ward clerk, EQ Pres and RS pres bug in Android
+    @jft
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -9,7 +10,7 @@
       And the members record <can> be edited
       Examples:
       | leader                            | memberRecord              | can        |
-      | "BISHOP"                          | "Ivey, Delores"           | "true"     |
+#      | "BISHOP"                          | "Ivey, Delores"           | "true"     |
 #      | "BISHOPRIC_SECOND_COUNSELOR"      | "Ivey, Delores"           | "true"     |
 #      | "BISHOPRIC_SECOND_COUNSELOR"      | "White, Koty Lucas"       | "true"     |
 #      | "WARD_CLERK"                      | "Johnson, Jasean Marvin"  | "true"     |
@@ -23,7 +24,7 @@
 #      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann"  | "false"    |
 #      | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"      | "false"    |
 #      | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "White, Koty Lucas"       | "false"    |
-#      | "SUNDAY_SCHOOL_PRESIDENT"         | "Ivey, Delores"           | "false"    |
+      | "SUNDAY_SCHOOL_PRESIDENT"         | "Ivey, Delores"           | "false"    |
 #      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
 #      | "WARD_MISSION_LEADER"             | "Ivey, Delores"           | "true"     |
 
@@ -85,7 +86,7 @@
 #        | "STAKE_CLERK"                       | "Riggs, Eugene"           | "false"    | "Pratt"          |
 #        | "STAKE_EXECUTIVE_SECRETARY"         | "Zoey"                    | "false"    | "Auburn Hills"   |
 
-    @jft
+
     Scenario: As a BISHOP check the quick card for New Members
       Given a "BISHOP" logs in and is on the Progress Record Page
       When the New Members tab is selected

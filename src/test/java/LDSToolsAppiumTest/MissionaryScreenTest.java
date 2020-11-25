@@ -18,7 +18,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"smoke3", "smoke", "all3", "all"})
+    @Test (groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void missionaryTest_BISHOP() throws Exception {
         missionaryTestCheckSub("BISHOP");
     }
@@ -206,7 +206,7 @@ public class MissionaryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all", "jft"})
+    @Test(groups = {"all4", "all"})
     public void missionaryOtherUnits() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods();

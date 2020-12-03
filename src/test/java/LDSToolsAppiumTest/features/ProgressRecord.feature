@@ -2,7 +2,7 @@
   Feature: Progress Record tests - Used to be Missionary Progress Record
 
 #    Ward clerk, EQ Pres and RS pres bug in Android
-    @jft
+
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -10,23 +10,23 @@
       And the members record <can> be edited
       Examples:
       | leader                            | memberRecord              | can        |
-#      | "BISHOP"                          | "Ivey, Delores"           | "true"     |
-#      | "BISHOPRIC_SECOND_COUNSELOR"      | "Ivey, Delores"           | "true"     |
-#      | "BISHOPRIC_SECOND_COUNSELOR"      | "White, Koty Lucas"       | "true"     |
-#      | "WARD_CLERK"                      | "Johnson, Jasean Marvin"  | "true"     |
-#      | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann"  | "true"     |
-#      | "ELDERS_QUORUM_PRESIDENT"         | "Perry, Keegan Krue"      | "true"     |
-#      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
-#      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"             | "false"    |
-#      | "ELDERS_QUORUM_SECRETARY"         | "Ivey, Delores"           | "false"    |
-#      | "RELIEF_SOCIETY_PRESIDENT"        | "White, Koty Lucas"       | "true"     |
-#      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin"  | "false"    |
-#      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann"  | "false"    |
-#      | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"      | "false"    |
-#      | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "White, Koty Lucas"       | "false"    |
-      | "SUNDAY_SCHOOL_PRESIDENT"         | "Ivey, Delores"           | "false"    |
-#      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
-#      | "WARD_MISSION_LEADER"             | "Ivey, Delores"           | "true"     |
+      | "BISHOP"                          | "White, Koty Lucas"       | "true"     |
+      | "BISHOPRIC_SECOND_COUNSELOR"      | "White, Koty Lucas"       | "true"     |
+      | "BISHOPRIC_SECOND_COUNSELOR"      | "White, Koty Lucas"       | "true"     |
+      | "WARD_CLERK"                      | "Johnson, Jasean Marvin"  | "true"     |
+      | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann"  | "true"     |
+      | "ELDERS_QUORUM_PRESIDENT"         | "Perry, Keegan Krue"      | "true"     |
+      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
+      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"             | "false"    |
+      | "ELDERS_QUORUM_SECRETARY"         | "White, Koty Lucas"       | "false"    |
+      | "RELIEF_SOCIETY_PRESIDENT"        | "White, Koty Lucas"       | "true"     |
+      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin"  | "false"    |
+      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann"  | "false"    |
+      | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"      | "false"    |
+      | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "White, Koty Lucas"       | "false"    |
+      | "SUNDAY_SCHOOL_PRESIDENT"         | "White, Koty Lucas"       | "false"    |
+      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
+      | "WARD_MISSION_LEADER"             | "White, Koty Lucas"       | "true"     |
 
 #    Bug in iOS
 
@@ -41,10 +41,10 @@
 #        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Walker, Steph"           | "false"    | "Newton"         |
 #        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Lopez, Jordan"           | "false"    | "Wellington"     |
 #        | "STAKE_CLERK"                       | "Studd, Blu Lee"          | "false"    | "Pratt"          |
-#        | "STAKE_EXECUTIVE_SECRETARY"         | "Ivey, Delores"           | "false"    | "Auburn Hills"   |
+#        | "STAKE_EXECUTIVE_SECRETARY"         | "White, Koty Lucas"       | "false"    | "Auburn Hills"   |
 
 
-
+    @jft
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
@@ -59,18 +59,17 @@
 #        | "WARD_CLERK"                      | "Patrick, Anna"           | "true"     |
 #        | "WARD_EXECUTIVE_SECRETARY"        | "Pettengill, Wyatt"       | "true"     |
 #        | "ELDERS_QUORUM_PRESIDENT"         | "Shepherd, Camden"        | "true"     |
-#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Thompson, Sebastian"     | "false"    |
+        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Thompson, Sebastian"     | "false"    |
 #        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Zoey"                    | "false"    |
 #        | "ELDERS_QUORUM_SECRETARY"         | "Doramus, Barbara"        | "false"    |
 #        | "RELIEF_SOCIETY_PRESIDENT"        | "Doramus, Dale"           | "true"     |
 #        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Faber, Tesla"            | "false"    |
 #        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Patrick, Anna"           | "false"    |
 #        | "YOUNG_WOMEN_PRESIDENT"           | "Pettengill, Wyatt"       | "false"    |
-        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Shepherd, Camden"       | "false"    |
+#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Shepherd, Camden"       | "false"    |
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Thompson, Sebastian"     | "false"    |
 #        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Zoey"                    | "false"    |
 #        | "WARD_MISSION_LEADER"             | "Doramus, Barbara"        | "true"     |
-
 
 
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record

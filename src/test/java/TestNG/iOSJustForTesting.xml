@@ -21,7 +21,7 @@
 
         <classes>
 <!--            <class name="LDSToolsAppium.BaseDriver" />-->
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest"/>
+            <class name="LDSToolsAppiumTest.ListsScreenTest"/>
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
         </classes>
     </test> <!-- iOS Just For Testing test -->

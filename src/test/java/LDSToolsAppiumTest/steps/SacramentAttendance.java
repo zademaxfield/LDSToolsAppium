@@ -122,6 +122,8 @@ public class SacramentAttendance extends BaseDriver {
         counterTotal = Integer.parseInt(counterNumber);
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.scrollDownIOS();
+            Thread.sleep(500);
+            myBasePage.scrollUpIOS();
             Thread.sleep(2000);
             clickElement("First Date Field");
             sacToEnter = getSunday("First Date Field");

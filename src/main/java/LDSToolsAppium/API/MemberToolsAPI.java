@@ -12,6 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
+import org.jsoup.select.Evaluator;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -603,6 +604,65 @@ public class MemberToolsAPI {
         return responseData;
     }
 
+    //TODO: Need a file check for the date then delete if older than 3 or so days?
+    public String getClassQuorumJson(String unitNumber, String proxyLogin) throws IOException {
+        String responseData = "";
+        File organizationFile = new File("ConfigFiles/classquorum" + unitNumber + ".json");
+        StringBuilder contentBuilder = new StringBuilder();
+
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/reports/class-quorum-attendance?units="+ unitNumber, proxyLogin );
+
+
+        try (Response response = httpClient.newCall(request).execute()) {
+            assert response.body() != null;
+            responseData = response.body().string();
+            try  {
+//                    FileWriter myWriter = new FileWriter("organization.json");
+                FileWriter myWriter = new FileWriter(organizationFile);
+                myWriter.write(responseData);
+                myWriter.flush();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+//        if (!organizationFile.exists()) {
+//            try (Response response = httpClient.newCall(request).execute()) {
+//                assert response.body() != null;
+//                responseData = response.body().string();
+//                try  {
+////                    FileWriter myWriter = new FileWriter("organization.json");
+//                    FileWriter myWriter = new FileWriter(organizationFile);
+//                    myWriter.write(responseData);
+//                    myWriter.flush();
+//
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        } else {
+//            try {
+//                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/classquorum" + unitNumber + ".json")), StandardCharsets.UTF_8);
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+
+        return responseData;
+    }
+
 
     public List<String> getCovenantPathNames(String proxyLogin, String unitNumber, String progressRecordType) throws Exception {
         JsonParser parser = new JsonParser();
@@ -684,6 +744,48 @@ public class MemberToolsAPI {
 
         return memberNames;
     }
+
+
+    public List<String> getClassAndQuorum(String proxyLogin, String unitNumber, String weekToCheck) throws Exception {
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiClassQuorumAttendance myClassQuorumAttendance = new ApiClassQuorumAttendance();
+        ArrayList<String> memberNames = new ArrayList<String>();
+        Type apiClassQuorumAttendance = new TypeToken<ArrayList<ApiClassQuorumAttendance>>(){}.getType();
+        responseData = getClassQuorumJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+        if (jsonElement instanceof JsonObject) {
+            System.out.println("JSON Object!");
+            myClassQuorumAttendance = gson.fromJson(jsonElement, ApiClassQuorumAttendance.class);
+
+        } else if (jsonElement instanceof JsonArray) {
+            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiClassQuorumAttendance> testClassQuorumAttendance = gson.fromJson(jsonElement, apiClassQuorumAttendance);
+            for (ApiClassQuorumAttendance testItem : testClassQuorumAttendance) {
+                for (Week oneWeek : testItem.getWeeks()) {
+//                    System.out.println("Week Name: " + oneWeek.getWeek());
+                    if (oneWeek.getWeek().equalsIgnoreCase(weekToCheck)) {
+//                        System.out.println("Week Found!");
+                        if (oneWeek.getAttended() != null ) {
+                            for (String oneUser : oneWeek.getAttended()) {
+//                                System.out.println("Name from UUID: " + getNameFromUuid(oneUser, unitNumber, proxyLogin, "personal"));
+                                memberNames.add(getNameFromUuid(oneUser, unitNumber, proxyLogin, "personal"));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return memberNames;
+    }
+
+
 
     public int getCovenantPathUserSacramentMissed(String proxyLogin, String unitNumber, String userName) throws Exception {
         JsonParser parser = new JsonParser();

@@ -15,7 +15,7 @@ public class CalendarScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4"})
     public void calendarSimple_BISHOP() throws Exception {
         calendarSimpleSub("BISHOP");
     }
@@ -181,7 +181,7 @@ public class CalendarScreenTest extends BaseDriver {
 
 
     //Todo: need a check to make sure all calendars are selected. Check iOS!
-    @Test (groups = {"all", "all4" })
+    @Test (groups = {"all", "all4", "jft" })
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
@@ -250,6 +250,10 @@ public class CalendarScreenTest extends BaseDriver {
         myBasePage.waitUnitlTextIsGone("Syncing");
         if (getRunningOS().equals("ios")) {
             myCalendar.calendarDone.click();
+            Thread.sleep(1000);
+            myBasePage.scrollUpIOS();
+            Thread.sleep(1000);
+            myBasePage.scrollUpIOS();
         } else {
             myBasePage.backButton.click();
         }

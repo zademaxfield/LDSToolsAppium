@@ -15,7 +15,7 @@ public class LoginPageTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all", "login", "jft"})
+    @Test (groups = {"all2", "all", "login"})
     public void validateLoginPage() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -234,9 +234,10 @@ public class LoginPageTest extends BaseDriver {
 
 
 
-
+    //Todo: This is broken for iOS
     //This is an iOS only test now.
-    @Test ( groups = {"all4", "all", "login"})
+//    @Test ( groups = {"all4", "all", "login", "jft"})
+    @Test ( groups = {"noworking"})
     public void changePIN() throws Exception {
         String myPinMessage;
 

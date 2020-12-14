@@ -95,7 +95,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all2", "jft"})
+    @Test (groups= { "all", "all2"})
     public void templeRecommendReminder5Days() throws Exception {
         String pageSource;
 
@@ -249,7 +249,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all2"})
+    @Test (groups= { "all", "all2", "jft"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 
@@ -267,6 +267,7 @@ public class TemplesScreenTest extends BaseDriver {
 
         myMenu.selectMenu(myMenu.temples);
         myTemple.yesRemindMe.click();
+        Thread.sleep(500);
         myTemple.chooseDifferentTab(myTemple.allTab);
 
 
@@ -283,6 +284,13 @@ public class TemplesScreenTest extends BaseDriver {
         }
 
         Thread.sleep(2000);
+
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myBasePage.scrollDownIOS();
+            myBasePage.scrollUpIOS();
+        }
+
+
         pageSource = myBasePage.getSourceOfPage();
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Aba", pageSource, "Contains"));

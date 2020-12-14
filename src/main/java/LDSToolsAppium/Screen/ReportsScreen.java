@@ -452,7 +452,8 @@ public class ReportsScreen extends BasePage {
 
     //Sacrament Attendance Minus Button
     @AndroidFindBy(id = "decrementFab")
-    @iOSXCUITFindBy(accessibility = "minus.circle")
+//    @iOSXCUITFindBy(accessibility = "minus.circle")
+    @iOSXCUITFindBy(accessibility = "remove")
     public  MobileElement sacramentAttendanceMinusButton;
 
     //Todo: need to add ios

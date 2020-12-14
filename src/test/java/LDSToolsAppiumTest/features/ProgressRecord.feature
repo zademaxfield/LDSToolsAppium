@@ -1,8 +1,18 @@
 @ProgressRecord
   Feature: Progress Record tests - Used to be Missionary Progress Record
 
-#    Ward clerk, EQ Pres and RS pres bug in Android
+    @smoke
+    Scenario Outline: SMOKE as a leader I should have access to the New Members under Progress Record
+      Given a <leader> logs in and is on the Progress Record Page
+      When a <memberRecord> is selected under the New Members tab
+      Then the <memberRecord> will be displayed
+      And the members record <can> be edited
+      Examples:
+        | leader                            | memberRecord              | can        |
+        | "BISHOP"                          | "White, Koty Lucas"       | "true"     |
 
+
+    @all @jft
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -28,8 +38,7 @@
       | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
       | "WARD_MISSION_LEADER"             | "White, Koty Lucas"       | "true"     |
 
-#    Bug in iOS
-
+    @all
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -38,40 +47,39 @@
       Examples:
         | leader                              | memberRecord              | can        | unit             |
         | "STAKE_PRESIDENT"                   | "Evans, Ava"              | "false"    | "Maize"          |
-#        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Walker, Steph"           | "false"    | "Newton"         |
-#        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Lopez, Jordan"           | "false"    | "Wellington"     |
-#        | "STAKE_CLERK"                       | "Studd, Blu Lee"          | "false"    | "Pratt"          |
-#        | "STAKE_EXECUTIVE_SECRETARY"         | "White, Koty Lucas"       | "false"    | "Auburn Hills"   |
+        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Walker, Steph"           | "false"    | "Newton"         |
+        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Lopez, Jordan"           | "false"    | "Wellington"     |
+        | "STAKE_CLERK"                       | "Studd, Blu Lee"          | "false"    | "Pratt"          |
+        | "STAKE_EXECUTIVE_SECRETARY"         | "White, Koty Lucas"       | "false"    | "Auburn Hills"   |
 
 
-    @jft
+    @all
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
       Then the <memberRecord> for People Being Taught will be displayed
       And the members record for People Being Taught <can> be edited
-
       Examples:
         | leader                            | memberRecord              | can        |
-#        | "BISHOP"                          | "Doramus, Barbara"        | "true"     |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Doramus, Dale"           | "true"     |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Faber, Tesla"            | "true"     |
-#        | "WARD_CLERK"                      | "Patrick, Anna"           | "true"     |
-#        | "WARD_EXECUTIVE_SECRETARY"        | "Pettengill, Wyatt"       | "true"     |
-#        | "ELDERS_QUORUM_PRESIDENT"         | "Shepherd, Camden"        | "true"     |
+        | "BISHOP"                          | "Doramus, Barbara"        | "true"     |
+        | "BISHOPRIC_SECOND_COUNSELOR"      | "Doramus, Dale"           | "true"     |
+        | "BISHOPRIC_SECOND_COUNSELOR"      | "Faber, Tesla"            | "true"     |
+        | "WARD_CLERK"                      | "Patrick, Anna"           | "true"     |
+        | "WARD_EXECUTIVE_SECRETARY"        | "Pettengill, Wyatt"       | "true"     |
+        | "ELDERS_QUORUM_PRESIDENT"         | "Shepherd, Camden"        | "true"     |
         | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Thompson, Sebastian"     | "false"    |
-#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Zoey"                    | "false"    |
-#        | "ELDERS_QUORUM_SECRETARY"         | "Doramus, Barbara"        | "false"    |
-#        | "RELIEF_SOCIETY_PRESIDENT"        | "Doramus, Dale"           | "true"     |
-#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Faber, Tesla"            | "false"    |
-#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Patrick, Anna"           | "false"    |
-#        | "YOUNG_WOMEN_PRESIDENT"           | "Pettengill, Wyatt"       | "false"    |
-#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Shepherd, Camden"       | "false"    |
-#        | "SUNDAY_SCHOOL_PRESIDENT"         | "Thompson, Sebastian"     | "false"    |
-#        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Zoey"                    | "false"    |
-#        | "WARD_MISSION_LEADER"             | "Doramus, Barbara"        | "true"     |
+        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Zoey"                    | "false"    |
+        | "ELDERS_QUORUM_SECRETARY"         | "Doramus, Barbara"        | "false"    |
+        | "RELIEF_SOCIETY_PRESIDENT"        | "Doramus, Dale"           | "true"     |
+        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Faber, Tesla"            | "false"    |
+        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Patrick, Anna"           | "false"    |
+        | "YOUNG_WOMEN_PRESIDENT"           | "Pettengill, Wyatt"       | "false"    |
+        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Shepherd, Camden"       | "false"    |
+        | "SUNDAY_SCHOOL_PRESIDENT"         | "Thompson, Sebastian"     | "false"    |
+        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Zoey"                    | "false"    |
+        | "WARD_MISSION_LEADER"             | "Doramus, Barbara"        | "true"     |
 
-
+    @all
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
@@ -79,17 +87,17 @@
       And the members record for People Being Taught <can> be edited
       Examples:
         | leader                              | memberRecord              | can        | unit             |
-        | "STAKE_PRESIDENT"                   | "Melody"                  | "false"    | "Maize"          |
-#        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Corum, Will"             | "false"    | "Newton"         |
-#        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Cesar"                   | "false"    | "Hutchinson"     |
-#        | "STAKE_CLERK"                       | "Riggs, Eugene"           | "false"    | "Pratt"          |
-#        | "STAKE_EXECUTIVE_SECRETARY"         | "Zoey"                    | "false"    | "Auburn Hills"   |
+        | "STAKE_PRESIDENT"                   | "Corum, Will"             | "false"    | "Newton"         |
+        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Corum, Will"             | "false"    | "Newton"         |
+        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Cesar"                   | "false"    | "Hutchinson"     |
+        | "STAKE_CLERK"                       | "Casas, Charlotte"        | "false"    | "Pratt"          |
+        | "STAKE_EXECUTIVE_SECRETARY"         | "Thrash, Tori"             | "false"    | "Auburn Hills"  |
 
 
-    Scenario: As a BISHOP check the quick card for New Members
-      Given a "BISHOP" logs in and is on the Progress Record Page
-      When the New Members tab is selected
-      Then the members quick card information should be displayed
+#    Scenario: As a BISHOP check the quick card for New Members
+#      Given a "BISHOP" logs in and is on the Progress Record Page
+#      When the New Members tab is selected
+#      Then the members quick card information should be displayed
 
 
 

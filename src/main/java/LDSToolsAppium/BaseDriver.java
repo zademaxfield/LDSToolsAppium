@@ -545,7 +545,6 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             capabilities.setCapability("appium:automationName","XCUITest");
             capabilities.setCapability("browserName","");
 
-//            capabilities.setCapability("fullReset", true);
             capabilities.setCapability("appium:noReset", false);
             capabilities.setCapability("appium:newCommandTimeout", 600);
             capabilities.setCapability("appium:app", app.getAbsolutePath());

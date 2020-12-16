@@ -108,6 +108,10 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Progress Record")
     public MobileElement progressRecordReport;
 
+    //Progress Record
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Class and Quorum Attendance']")
+    @iOSXCUITFindBy(accessibility = "Class and Quorum Attendance")
+    public MobileElement classAndQuorumAttendanceReport;
 
 
 
@@ -467,6 +471,17 @@ public class ReportsScreen extends BasePage {
     @AndroidFindBy(id = "saveButton")
     @iOSXCUITFindBy(accessibility = "Save")
     public  MobileElement sacramentAttendanceCounterSave;
+
+
+    //************* Class and Quorum Attendance ******************
+
+    //Class and Quorum - Search
+    @AndroidFindBy(id = "filterEditText")
+    @iOSXCUITFindBy(accessibility = "Search")
+    public  MobileElement classAndQuorumSearch;
+
+
+
 
 
 

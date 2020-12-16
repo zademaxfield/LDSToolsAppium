@@ -137,6 +137,7 @@ public class HelperMethods extends BaseDriver {
         BaseDriver myBaseDriver = new BaseDriver();
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
+        String loginName = "zmaxfield";
 
         String deviceName;
         String pageSource;
@@ -152,7 +153,8 @@ public class HelperMethods extends BaseDriver {
         byte[] decodeBytes = Base64.decodeBase64("QkBiMDBuU3AxNzIwMjA=");
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
 
-            iosDeepLink(proxyUserName);
+//            iosDeepLink(proxyUserName);
+            loginName = "zmaxfield/stage/" + proxyUserName;
 
         } else {
 
@@ -187,7 +189,7 @@ public class HelperMethods extends BaseDriver {
         myLoginPage.passWord.clear();
 
 
-        myLoginPage.loginName.sendKeys("zmaxfield");
+        myLoginPage.loginName.sendKeys(loginName);
         myLoginPage.passWord.sendKeys(new String(decodeBytes));
         myLoginPage.signInButton.click();
         Thread.sleep(1000);

@@ -236,8 +236,8 @@ public class LoginPageTest extends BaseDriver {
 
     //Todo: This is broken for iOS
     //This is an iOS only test now.
-//    @Test ( groups = {"all4", "all", "login", "jft"})
-    @Test ( groups = {"noworking"})
+    @Test ( groups = {"all4", "all", "login", "jft"})
+//    @Test ( groups = {"noworking"})
     public void changePIN() throws Exception {
         String myPinMessage;
 
@@ -274,17 +274,18 @@ public class LoginPageTest extends BaseDriver {
 
             myHelper.changePIN("4", "4", "6", "6");
 
-            if (!getRunningOS().equalsIgnoreCase("ios")) {
+            if (getRunningOS().equalsIgnoreCase("ios")) {
+                driver.get().closeApp();
+                driver.get().launchApp();
+
+            } else {
                 myBasePage.backButton.click();
+                driver.get().closeApp();
+                driver.get().launchApp();
             }
 
 
-            driver.get().closeApp();
-//            driver.terminateApp("org.lds.ldstools");
-//            driver.runAppInBackground(Duration.ofSeconds(1));
-//            Thread.sleep(4000);
-            driver.get().launchApp();
-//            driver.activateApp("org.lds.ldstools");
+
 
             myHelper.enterCurrentPin("4", "4", "6", "6");
 

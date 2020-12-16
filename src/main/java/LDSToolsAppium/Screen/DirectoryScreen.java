@@ -439,6 +439,12 @@ public class DirectoryScreen extends BasePage {
             if (myCheck) {
                 tabMembership.click();
                 Thread.sleep(1000);
+                myBasePage.scrollDownAndroidUIAutomator("1");
+                myBasePage.scrollDownAndroidUIAutomator("1");
+                Thread.sleep(2000);
+                myBasePage.scrollUpAndroidUIAutomator("1");
+                myBasePage.scrollUpAndroidUIAutomator("1");
+                Thread.sleep(1000);
                 pageSource = pageSource + getSourceOfPage();
                 //scrollDownTEST(800);
                 myBasePage.scrollDownAndroidUIAutomator("1");

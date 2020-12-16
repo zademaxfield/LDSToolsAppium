@@ -8,10 +8,10 @@
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
 
-    <test name="iOS All Test - iPhone 11" thread-count="1" parallel="false" >
+    <test name="iOS All Test - iPhone 12" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <parameter name="testDevice" value="FBSIM-iPhone 11" />
+        <parameter name="testDevice" value="FBSIM-iPhone 12" />
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8251" />
 
@@ -78,12 +78,12 @@
         </classes>
     </test>
 
-<!--    <test name="iOS iPhone 11 - Cucumber Test" thread-count="2" parallel="true">-->
+<!--    <test name="iOS iPhone 12 - Cucumber Test" thread-count="2" parallel="true">-->
 <!--        <parameter name="os" value="ios" />-->
 <!--        <parameter name="fileName" value="LDS Tools.app" />-->
 <!--        &lt;!&ndash;        <parameter name="fileName" value="LDSTools.ipa" />&ndash;&gt;-->
 <!--        &lt;!&ndash;        <parameter name="testDevice" value="iPhone 8" />&ndash;&gt;-->
-<!--        <parameter name="testDevice" value="iPhone 11" />-->
+<!--        <parameter name="testDevice" value="iPhone 12" />-->
 <!--        <parameter name="startSleepTime" value="0200" />-->
 <!--        <parameter name="systemPort" value="8203" />-->
 

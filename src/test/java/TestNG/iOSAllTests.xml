@@ -8,11 +8,11 @@
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
 
-    <test name="iOS All Tests - iPhone 11">
+    <test name="iOS All Tests - iPhone 12">
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
 <!--        <parameter name="testDevice" value="iPhone X Test" />-->
-        <parameter name="testDevice" value="iPhone 11" />
+        <parameter name="testDevice" value="iPhone 12" />
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8251" />
 
@@ -43,12 +43,12 @@
         </classes>
     </test>
 
-    <test name="iOS iPhone 11 - Cucumber Test" thread-count="2" parallel="true">
+    <test name="iOS iPhone 12 - Cucumber Test" thread-count="2" parallel="true">
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
         <!--        <parameter name="fileName" value="LDSTools.ipa" />-->
         <!--        <parameter name="testDevice" value="iPhone 8" />-->
-        <parameter name="testDevice" value="iPhone 11" />
+        <parameter name="testDevice" value="iPhone 12" />
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8203" />
 

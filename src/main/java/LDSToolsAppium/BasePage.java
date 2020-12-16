@@ -347,6 +347,7 @@ public class BasePage extends BaseDriver {
     public void scrollUpAndroidUIAutomator(String myInstance) throws Exception {
         try {
             driver.get().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(" + myInstance + ")).flingBackward();"));
+//            driver.get().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(" + myInstance + ")).scrollBackward(45);"));
         } catch (Exception ignored) {
 
         }

@@ -1,7 +1,7 @@
 @ClassAndQuorum
   Feature: Class and Quorum Attendance tests
 
-    @jft
+    @all @smoke @jft
     Scenario Outline: As a leader I should have access to Class and Quorum Attendance reports
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecord> is searched for
@@ -28,7 +28,7 @@
 #      | "WARD_MISSION_LEADER"             | "Bryson, David"             | "true"     |
 
 
-
+    @all @smoke
     Scenario Outline: Check edit rights in the API
       Given a <leader> account checks the Class and Quorum Attendance for the API
       Then the editable field is <status>

@@ -785,6 +785,47 @@ public class MemberToolsAPI {
         return memberNames;
     }
 
+    public List<String> getClassAndQuorumRights(String proxyLogin, String unitNumber) throws Exception {
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiClassQuorumAttendance myClassQuorumAttendance = new ApiClassQuorumAttendance();
+        ArrayList<String> memberNames = new ArrayList<String>();
+        Type apiClassQuorumAttendance = new TypeToken<ArrayList<ApiClassQuorumAttendance>>(){}.getType();
+        responseData = getClassQuorumJson(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+
+        if (jsonElement instanceof JsonObject) {
+            System.out.println("JSON Object!");
+            myClassQuorumAttendance = gson.fromJson(jsonElement, ApiClassQuorumAttendance.class);
+
+        } else if (jsonElement instanceof JsonArray) {
+            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiClassQuorumAttendance> testClassQuorumAttendance = gson.fromJson(jsonElement, apiClassQuorumAttendance);
+            for (ApiClassQuorumAttendance testItem : testClassQuorumAttendance) {
+                for (Week oneWeek : testItem.getWeeks()) {
+//                    System.out.println("Week Name: " + oneWeek.getWeek());
+                    System.out.println("Editable: " +oneWeek.getEditable());
+
+//                    if (oneWeek.getWeek().equalsIgnoreCase(weekToCheck)) {
+////                        System.out.println("Week Found!");
+//                        if (oneWeek.getAttended() != null ) {
+//                            for (String oneUser : oneWeek.getAttended()) {
+////                                System.out.println("Name from UUID: " + getNameFromUuid(oneUser, unitNumber, proxyLogin, "personal"));
+//                                memberNames.add(getNameFromUuid(oneUser, unitNumber, proxyLogin, "personal"));
+//                            }
+//                        }
+//                    }
+                }
+            }
+        }
+
+        return memberNames;
+    }
+
 
 
     public int getCovenantPathUserSacramentMissed(String proxyLogin, String unitNumber, String userName) throws Exception {

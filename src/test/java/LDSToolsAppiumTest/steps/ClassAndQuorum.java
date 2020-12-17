@@ -70,5 +70,21 @@ public class ClassAndQuorum extends BaseDriver {
     }
 
 
+    @Given("a {string} account checks the Class and Quorum Attendance for the API")
+    public void aLeaderAccountChecksTheClassAndQuorumAttendanceForTheAPI(String memberCalling) throws Exception {
+        LOGGER.info("a " + memberCalling + " account checks the Class and Quorum Attendance for the API");
+        String[] callingRights;
+        callingRights = myHelper.getMemberNameFromList(memberCalling, "Centinela 1st");
+        memberList = apiTest.getClassAndQuorumRights(callingRights[1], "21628");
+    }
 
+
+    @Then("the editable field is {string}")
+    public void theEditableFieldIsStatus(String status) {
+        LOGGER.info("the editable field is " + status);
+        for (String memberStatus : memberList) {
+            System.out.println("Member Status: " + memberStatus + " Should be: " + status);
+            Assert.assertTrue(memberStatus.equalsIgnoreCase(status));
+        }
+    }
 }

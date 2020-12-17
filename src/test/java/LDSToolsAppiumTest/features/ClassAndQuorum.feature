@@ -32,3 +32,6 @@
 #    Scenario: Check edit rights in the API
 #    Scenario: As a leader I should be able to mark a members attendance
 #    Scenario: Filters?
+#    Scenario: Check attendance from individual users page
+#    Scenario: Check graph - ?
+#    Scenario: Stake member?

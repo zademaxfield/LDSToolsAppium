@@ -1,7 +1,7 @@
 @ClassAndQuorum
   Feature: Class and Quorum Attendance tests
 
-    @all @smoke @jft
+    @all @smoke
     Scenario Outline: As a leader I should have access to Class and Quorum Attendance reports
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecord> is searched for
@@ -18,9 +18,9 @@
 #      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     |
 #      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bryson, David"             | "true"     |
       | "ELDERS_QUORUM_SECRETARY"         | "Bryson, David"             | "true"     |
-      | "RELIEF_SOCIETY_PRESIDENT"        | "Bryson, David"             | "true"     |
-#      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Bryson, David"             | "true"     |
-#      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Bryson, David"             | "true"     |
+      | "RELIEF_SOCIETY_PRESIDENT"        | "Borden, Shirley"           | "true"     |
+#      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Borden, Shirley"            | "true"     |
+#      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Borden, Shirley"            | "true"     |
       | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"             | "true"     |
 #      | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"             | "true"     |
       | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"             | "true"     |
@@ -53,8 +53,13 @@
         | "WARD_MISSION_LEADER"             | "true"     |
 
 
+    @jft
+    Scenario: As a Bishopric member I should be able to mark a members attendance
+      Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
+      When week one is marked attended
+      Then week one will have a check mark
 
-#    Scenario: As a leader I should be able to mark a members attendance
+
 #    Scenario: Filters?
 #    Scenario: Check attendance from individual users page
 #    Scenario: Check graph - ?

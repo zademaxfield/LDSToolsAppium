@@ -11,7 +11,8 @@
     <test name="iOS Smoke Test - iPhone 12" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <parameter name="testDevice" value="FBSIM-iPhone 12" />
+<!--        <parameter name="testDevice" value="FBSIM-iPhone 12" />-->
+        <parameter name="testDevice" value="iPhone 12" />
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8251" />
 
@@ -45,7 +46,8 @@
     <test name="iOS Smoke Test - iPhone 8" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <parameter name="testDevice" value="FBSIM-iPhone 8" />
+<!--        <parameter name="testDevice" value="FBSIM-iPhone 8" />-->
+        <parameter name="testDevice" value="iPhone 8" />
         <parameter name="startSleepTime" value="60000" />
         <parameter name="systemPort" value="8202" />
 
@@ -76,20 +78,21 @@
         </classes>
     </test>
 
-    <test name="iOS iPhone 12 - Cucumber Test" thread-count="2" parallel="true">
-        <parameter name="os" value="ios" />
-        <parameter name="fileName" value="LDS Tools.app" />
-        <!--        <parameter name="fileName" value="LDSTools.ipa" />-->
-        <!--        <parameter name="testDevice" value="iPhone 8" />-->
-        <parameter name="testDevice" value="iPhone 12" />
-        <parameter name="startSleepTime" value="0200" />
-        <parameter name="systemPort" value="8203" />
+<!--    <test name="iOS iPhone 12 - Cucumber Test" thread-count="2" parallel="true">-->
+<!--        <parameter name="os" value="ios" />-->
+<!--        <parameter name="fileName" value="LDS Tools.app" />-->
+<!--        &lt;!&ndash;        <parameter name="fileName" value="LDSTools.ipa" />&ndash;&gt;-->
+<!--        &lt;!&ndash;        <parameter name="testDevice" value="iPhone 8" />&ndash;&gt;-->
+<!--        <parameter name="testDevice" value="iPhone 12" />-->
+<!--        <parameter name="startSleepTime" value="0200" />-->
+<!--        <parameter name="systemPort" value="8203" />-->
 
-        <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke"> </class>
-        </classes>
-    </test>
+<!--        <classes>-->
+<!--            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke"> </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 
+</suite>
 
-xf`1
+

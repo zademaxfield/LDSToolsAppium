@@ -481,6 +481,27 @@ public class ReportsScreen extends BasePage {
     public  MobileElement classAndQuorumSearch;
 
 
+    //Class and Quorum First Week
+    @AndroidFindBy(id = "week1")
+    public  MobileElement classAndQuorumFirstWeek;
+
+
+    //Class and Quorum Second Week
+    @AndroidFindBy(id = "week2")
+    public  MobileElement classAndQuorumSecondWeek;
+
+
+    //Class and Quorum Third Week
+    @AndroidFindBy(id = "week3")
+    public  MobileElement classAndQuorumThirdWeek;
+
+    //Class and Quorum Fourth Week
+    @AndroidFindBy(id = "week4")
+    public  MobileElement classAndQuorumFourthWeek;
+
+    //Class and Quorum Fifth Week
+    @AndroidFindBy(id = "week5")
+    public  MobileElement classAndQuorumFifthWeek;
 
 
 

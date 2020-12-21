@@ -503,6 +503,50 @@ public class ReportsScreen extends BasePage {
     @AndroidFindBy(id = "week5")
     public  MobileElement classAndQuorumFifthWeek;
 
+    //Class and Quorum - Filters
+    @AndroidFindBy(id = "iconImageView")
+    @iOSXCUITFindBy(accessibility = "Filter")
+    public  MobileElement classAndQuorumFilter;
+
+    //Class and Quorum - Filters - All
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='All Classes and Quorums']")
+    @iOSXCUITFindBy(accessibility = "All")
+    public  MobileElement classAndQuorumFilterAll;
+
+    //Class and Quorum - Filters - All Aaronic
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Aaronic Priesthood Quorums']")
+    @iOSXCUITFindBy(accessibility = "Aaronic Priesthood Quorums")
+    public  MobileElement classAndQuorumFilterAaronic;
+
+    //Class and Quorum - Filters - All Classes
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='All Classes']")
+    @iOSXCUITFindBy(accessibility = "All")
+    public  MobileElement classAndQuorumFilterAaronicAllClasses;
+
+    //Class and Quorum - Filters - Deacons Quorum
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Deacons Quorum']")
+    @iOSXCUITFindBy(accessibility = "Deacons Quorum")
+    public  MobileElement classAndQuorumFilterDeaconsQuorum;
+
+    //Class and Quorum - Filters - Teachers Quorum
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Teachers Quorum']")
+    @iOSXCUITFindBy(accessibility = "Teachers Quorum")
+    public  MobileElement classAndQuorumFilterTeachersQuorum;
+
+    //Class and Quorum - Filters - Priests Quorum
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Priests Quorum']")
+    @iOSXCUITFindBy(accessibility = "Priests Quorum")
+    public  MobileElement classAndQuorumFilterPriestsQuorum;
+
+    //Class and Quorum - Filters - Elders Quorum
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Elders Quorum']")
+    @iOSXCUITFindBy(accessibility = "Elders Quorum")
+    public  MobileElement classAndQuorumFilterEldersQuorum;
+
+    //Class and Quorum - Filters - Primary
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Primary']")
+    @iOSXCUITFindBy(accessibility = "Primary")
+    public  MobileElement classAndQuorumFilterPrimary;
 
 
 

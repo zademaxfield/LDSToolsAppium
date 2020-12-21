@@ -46,7 +46,7 @@ public class MemberToolsAPITest {
 
         //Class and Quorum
 //        memberList = apiTest.getClassAndQuorum("kroqbandit", "21628", "2020-12-06");
-        memberList = apiTest.getClassAndQuorumRights("kroqbandit", "21628");
+//        memberList = apiTest.getClassAndQuorumRights("kroqbandit", "21628");
 
 
         //Action and Interview Tests
@@ -82,6 +82,10 @@ public class MemberToolsAPITest {
 
 //        memberList = apiTest.getChildOrganizationMembers("Unassigned Teachers", "kroqbandit", "21628");
 //        memberList = apiTest.getChildOrganizationClasses("Other Callings", "kroqbandit", "21628");
+
+        memberList = apiTest.getChildOrganizationClasses("Young Women" , "kroqbandit", "21628");
+//        memberList = apiTest.getChildOrganizationMembers("Elders Quorum", "kroqbandit", "21628"); //Doesn't give member list
+//        memberList = apiTest.getOrganizationMembers("Elders Quorum", "kroqbandit", "21628"); //Doesn't give member list
 
 
 //        memberList = apiTest.getOrganizationMembers("Bishopric", "kroqbandit", "21628");

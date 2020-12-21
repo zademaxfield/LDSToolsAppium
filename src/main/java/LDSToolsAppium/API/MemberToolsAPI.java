@@ -165,12 +165,12 @@ public class MemberToolsAPI {
             System.out.println("JSON Object!");
             System.out.println("Name: " + ((JsonObject) jsonElement).get("name").getAsString());
         } else if (jsonElement instanceof JsonArray) {
-//                System.out.println("JSON Array!");
+//            System.out.println("JSON Array!");
             JsonArray jsonData = jsonElement.getAsJsonArray();
             List<ApiOrganization> testOrg = gson.fromJson(jsonElement, apiOrganizationList);
 
             for (ApiOrganization myOrg : testOrg) {
-//                System.out.println("Organizations: " + myOrg.getName());
+                System.out.println("Organizations: " + myOrg.getName());
                 if (myOrg.getName().equalsIgnoreCase(organizationName)) {
                     if (myOrg.getPositions() != null) {
                         for (String onePosition : myOrg.getPositions()) {

@@ -104,7 +104,7 @@ public class ClassAndQuorum extends BaseDriver {
         LOGGER.info("week one is marked attended");
         clearAllAttendance("Mara, Alma Vida");
         searchClassAndQuorum("Mara, Alma Vida");
-        getWeekElement("week1").click();
+        getWeekElement("week1", "main").click();
     }
 
 
@@ -114,32 +114,105 @@ public class ClassAndQuorum extends BaseDriver {
         myBasePage.backButton.click();
         myReports.classAndQuorumAttendanceReport.click();
         searchClassAndQuorum("Mara, Alma Vida");
-        Assert.assertTrue(getWeekAttendanceStatus("week1").equalsIgnoreCase("attended"));
+        Assert.assertTrue(getWeekAttendanceStatus("week1", "main").equalsIgnoreCase("attended"));
         //Clean Up
-        getWeekElement("week1").click();
+        getWeekElement("week1", "main").click();
         myBasePage.backButton.click();
     }
+
+
+    @When("filters is selected")
+    public void filtersIsSelected() throws Exception {
+        LOGGER.info("filters is selected");
+        myReports.classAndQuorumFilter.click();
+    }
+
+    @Then("a list of classes will be displayed")
+    public void aListOfClassesWillBeDisplayed() throws Exception {
+        LOGGER.info("a list of classes will be displayed");
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(pageSource.contains("Aaronic Priesthood"));
+        Assert.assertTrue(pageSource.contains("Elders Quorum"));
+        Assert.assertTrue(pageSource.contains("Primary"));
+        Assert.assertTrue(pageSource.contains("Relief Society"));
+        Assert.assertTrue(pageSource.contains("Sunday School"));
+        Assert.assertTrue(pageSource.contains("Young Women"));
+    }
+
+    @When("I select a class")
+    public void iSelectAClass() throws Exception {
+        LOGGER.info("I select a class");
+        myReports.classAndQuorumFilterAaronic.click();
+        myReports.classAndQuorumFilterDeaconsQuorum.click();
+    }
+
+    @Then("The class list will be displayed")
+    public void theClassListWillBeDisplayed() throws Exception {
+        LOGGER.info("The class list will be displayed");
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(pageSource.contains("Auton, James"));
+        Assert.assertTrue(pageSource.contains("Male"));
+        Assert.assertTrue(pageSource.contains("Deacons"));
+    }
+
+    @When("a member record is selected")
+    public void aMemberRecordIsSelected() throws Exception{
+        LOGGER.info("a member record is selected");
+        clearAllAttendance("Rickett, Dylan");
+        searchClassAndQuorum("Rickett, Dylan");
+        getWeekElement("week1", "main").click();
+        getWeekElement("week3", "main").click();
+        myBasePage.backButton.click();
+        myReports.classAndQuorumAttendanceReport.click();
+        searchClassAndQuorum("Rickett, Dylan");
+        Thread.sleep(500);
+        clickMemberRecord("Rickett, Dylan");
+        Thread.sleep(1000);
+    }
+
+    @Then("the individual attendance should be displayed")
+    public void theIndividualAttendanceShouldBeDisplayed() throws Exception {
+        LOGGER.info("the individual attendance should be displayed");
+        Assert.assertTrue(getWeekAttendanceStatus("week1", "detail").equalsIgnoreCase("attended"));
+        Assert.assertTrue(getWeekAttendanceStatus("week2", "detail").equalsIgnoreCase("not attended"));
+        Assert.assertTrue(getWeekAttendanceStatus("week3", "detail").equalsIgnoreCase("attended"));
+        Assert.assertTrue(getWeekAttendanceStatus("week4", "detail").equalsIgnoreCase("not attended"));
+        //Clean Up
+        getWeekElement("week1", "detail").click();
+        getWeekElement("week3", "detail").click();
+        myBasePage.backButton.click();
+        myBasePage.backButton.click();
+    }
+
+    public void clickMemberRecord(String myText) throws Exception {
+        if(myBasePage.getOS().equals("ios")) {
+            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@label='" + myText + "']")).click();
+        } else {
+            driver.get().findElement(By.xpath("//android.widget.TextView[@text='" + myText + "']")).click();
+        }
+    }
+
 
     public void clearAllAttendance(String memberRecord) throws Exception {
         searchClassAndQuorum(memberRecord);
         visibleDates = getVisibleDates();
-        if (getWeekAttendanceStatus("week1").equalsIgnoreCase("attended")) {
-            getWeekElement("week1").click();
+        if (getWeekAttendanceStatus("week1", "main").equalsIgnoreCase("attended")) {
+            getWeekElement("week1", "main").click();
             Thread.sleep(2000);
         }
 
-        if (getWeekAttendanceStatus("week2").equalsIgnoreCase("attended")) {
-            getWeekElement("week2").click();
+        if (getWeekAttendanceStatus("week2", "main").equalsIgnoreCase("attended")) {
+            getWeekElement("week2", "main").click();
             Thread.sleep(2000);
         }
 
-        if (getWeekAttendanceStatus("week3").equalsIgnoreCase("attended")) {
-            getWeekElement("week3").click();
+        if (getWeekAttendanceStatus("week3", "main").equalsIgnoreCase("attended")) {
+            getWeekElement("week3", "main").click();
             Thread.sleep(2000);
         }
 
-        if (getWeekAttendanceStatus("week4").equalsIgnoreCase("attended")) {
-            getWeekElement("week4").click();
+        if (getWeekAttendanceStatus("week4", "main").equalsIgnoreCase("attended")) {
+            getWeekElement("week4", "main").click();
             Thread.sleep(2000);
         }
 
@@ -176,11 +249,13 @@ public class ClassAndQuorum extends BaseDriver {
         return visibleDates;
     }
 
-    public String getWeekAttendanceStatus(String weekName) throws Exception {
+    public String getWeekAttendanceStatus(String weekName, String pageType) throws Exception {
         String returnStatus = null;
         MobileElement weekCheckBox;
 
-        weekCheckBox = getWeekElement(weekName);
+        System.out.println("Week: " + weekName);
+        System.out.println("Page Type: " + pageType);
+        weekCheckBox = getWeekElement(weekName, pageType);
         if (myBasePage.getOS().contains("ios")) {
             returnStatus = weekCheckBox.getAttribute("name");
             if (returnStatus.contains("not")) {
@@ -190,6 +265,7 @@ public class ClassAndQuorum extends BaseDriver {
             }
         } else {
             returnStatus = weekCheckBox.getAttribute("selected");
+            System.out.println("Return Status: " + returnStatus);
             if (returnStatus.equalsIgnoreCase("false")) {
                 returnStatus = "not attended";
             } else {
@@ -200,9 +276,10 @@ public class ClassAndQuorum extends BaseDriver {
         return returnStatus;
     }
 
-    public MobileElement getWeekElement(String weekName) throws Exception{
+    public MobileElement getWeekElement(String weekName, String pageType) throws Exception{
         MobileElement returnElement = null;
         List<String> dateToCheck;
+        String numberOnly;
         dateToCheck = getVisibleDates();
         switch(weekName) {
             case "week1":
@@ -210,7 +287,16 @@ public class ClassAndQuorum extends BaseDriver {
                     returnElement = (MobileElement) driver.get().findElement(By.xpath(
                             "//XCUIElementTypeStaticText[contains(@name, '" + dateToCheck.get(0) +"')]"));
                 } else {
-                    returnElement = myReports.classAndQuorumFirstWeek;
+                    if (pageType.equalsIgnoreCase("main")) {
+                        returnElement = myReports.classAndQuorumFirstWeek;
+                    } else {
+                        System.out.println("Detail check for week 1");
+                        numberOnly = dateToCheck.get(0).replaceAll("[^0-9]", "");
+                        System.out.println("Number Only: " + numberOnly);
+                        returnElement = (MobileElement) driver.get().findElement(By.xpath(
+                                "//android.widget.TextView[@text = '" + numberOnly +"']"));
+                    }
+
                 }
                 break;
             case "week2":
@@ -218,7 +304,16 @@ public class ClassAndQuorum extends BaseDriver {
                     returnElement = (MobileElement) driver.get().findElement(By.xpath(
                             "//XCUIElementTypeStaticText[contains(@name, '" + dateToCheck.get(1) +"')]"));
                 } else {
-                    returnElement = myReports.classAndQuorumSecondWeek;
+                    if (pageType.equalsIgnoreCase("main")) {
+                        returnElement = myReports.classAndQuorumSecondWeek;
+                    } else {
+                        System.out.println("Detail check for week 2");
+                        numberOnly = dateToCheck.get(1).replaceAll("[^0-9]", "");
+                        System.out.println("Number Only: " + numberOnly);
+                        returnElement = (MobileElement) driver.get().findElement(By.xpath(
+                                "//android.widget.TextView[@text = '" + numberOnly +"']"));
+                    }
+
                 }
 
                 break;
@@ -227,7 +322,14 @@ public class ClassAndQuorum extends BaseDriver {
                     returnElement = (MobileElement) driver.get().findElement(By.xpath(
                             "//XCUIElementTypeStaticText[contains(@name, '" + dateToCheck.get(2) +"')]"));
                 } else {
-                    returnElement = myReports.classAndQuorumThirdWeek;
+                    if (pageType.equalsIgnoreCase("main")) {
+                        returnElement = myReports.classAndQuorumThirdWeek;
+                    } else {
+                        numberOnly = dateToCheck.get(2).replaceAll("[^0-9]", "");
+                        returnElement = (MobileElement) driver.get().findElement(By.xpath(
+                                "//android.widget.TextView[@text = '" + numberOnly +"']"));
+                    }
+
                 }
 
                 break;
@@ -236,7 +338,14 @@ public class ClassAndQuorum extends BaseDriver {
                     returnElement = (MobileElement) driver.get().findElement(By.xpath(
                             "//XCUIElementTypeStaticText[contains(@name, '" + dateToCheck.get(3) +"')]"));
                 } else {
-                    returnElement = myReports.classAndQuorumFourthWeek;
+                    if (pageType.equalsIgnoreCase("main")) {
+                        returnElement = myReports.classAndQuorumFourthWeek;
+                    } else {
+                        numberOnly = dateToCheck.get(3).replaceAll("[^0-9]", "");
+                        returnElement = (MobileElement) driver.get().findElement(By.xpath(
+                                "//android.widget.TextView[@text = '" + numberOnly +"']"));
+                    }
+
                 }
 
                 break;
@@ -246,7 +355,14 @@ public class ClassAndQuorum extends BaseDriver {
                     returnElement = (MobileElement) driver.get().findElement(By.xpath(
                             "//XCUIElementTypeStaticText[contains(@name, '" + dateToCheck.get(4) +"')]"));
                 } else {
-                    returnElement = myReports.classAndQuorumFifthWeek;
+                    if (pageType.equalsIgnoreCase("main")) {
+                        returnElement = myReports.classAndQuorumFifthWeek;
+                    } else {
+                        numberOnly = dateToCheck.get(4).replaceAll("[^0-9]", "");
+                        returnElement = (MobileElement) driver.get().findElement(By.xpath(
+                                "//android.widget.TextView[@text = '" + numberOnly +"']"));
+                    }
+
                 }
 
                 break;
@@ -262,6 +378,7 @@ public class ClassAndQuorum extends BaseDriver {
         myReports.classAndQuorumSearch.setValue(memberToSearch);
         //Done button?
     }
+
 
 
 }

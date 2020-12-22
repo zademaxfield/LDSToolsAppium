@@ -773,6 +773,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
         memberList = apiTest.getNewMembers("kroqbandit", "21628");
+        java.util.Collections.sort(memberList);
 //        myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
         //Just take the first 5 members in the list

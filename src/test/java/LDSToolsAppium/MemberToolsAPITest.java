@@ -25,6 +25,7 @@ public class MemberToolsAPITest {
 
         //Unit Stats
 //        memberList = apiTest.getReportUnitStatsNumbers("kroqbandit", "21628");
+        memberList = apiTest.getReportUnitStatsNumbers("kroqbandit", "21628");
 
         //Temple Recommend Status - Sort of works this is looking a the unit stats.
 //        memberList = apiTest.getNamesTempleRecommendStatusActive("kroqbandit", "21628");
@@ -83,7 +84,7 @@ public class MemberToolsAPITest {
 //        memberList = apiTest.getChildOrganizationMembers("Unassigned Teachers", "kroqbandit", "21628");
 //        memberList = apiTest.getChildOrganizationClasses("Other Callings", "kroqbandit", "21628");
 
-        memberList = apiTest.getChildOrganizationClasses("Young Women" , "kroqbandit", "21628");
+//        memberList = apiTest.getChildOrganizationClasses("Young Women" , "kroqbandit", "21628");
 //        memberList = apiTest.getChildOrganizationMembers("Elders Quorum", "kroqbandit", "21628"); //Doesn't give member list
 //        memberList = apiTest.getOrganizationMembers("Elders Quorum", "kroqbandit", "21628"); //Doesn't give member list
 

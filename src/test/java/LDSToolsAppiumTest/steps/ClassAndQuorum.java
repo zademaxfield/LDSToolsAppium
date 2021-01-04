@@ -161,6 +161,7 @@ public class ClassAndQuorum extends BaseDriver {
         clearAllAttendance("Rickett, Dylan");
         searchClassAndQuorum("Rickett, Dylan");
         getWeekElement("week1", "main").click();
+        Thread.sleep(500);
         getWeekElement("week3", "main").click();
         myBasePage.backButton.click();
         myReports.classAndQuorumAttendanceReport.click();
@@ -185,8 +186,12 @@ public class ClassAndQuorum extends BaseDriver {
     }
 
     public void clickMemberRecord(String myText) throws Exception {
+        //Bug in iOS
         if(myBasePage.getOS().equals("ios")) {
-            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@label='" + myText + "']")).click();
+//            System.out.println(myBasePage.getSourceOfPage());
+//            Thread.sleep(2000);
+            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + myText + "']")).click();
+//            driver.get().findElement(By.name("chevron")).click();
         } else {
             driver.get().findElement(By.xpath("//android.widget.TextView[@text='" + myText + "']")).click();
         }

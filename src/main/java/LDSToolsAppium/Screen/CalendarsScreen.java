@@ -57,12 +57,12 @@ public class CalendarsScreen extends BasePage {
 
 
     //Subscriptions Done
-    @AndroidFindBy(id = "menu_item_save")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_item_save")
     @iOSXCUITFindBy(accessibility = "Done")
     public MobileElement calendarsSubscriptionsDone;
 
     //Subscriptions Cancel
-    @AndroidFindBy(id = "menu_item_cancel")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_item_cancel")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public MobileElement calendarsSubscriptionsCancel;
 

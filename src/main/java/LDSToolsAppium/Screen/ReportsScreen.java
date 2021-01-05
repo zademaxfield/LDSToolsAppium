@@ -263,67 +263,67 @@ public class ReportsScreen extends BasePage {
     public  MobileElement missionaryProgressFilter;
 
     //Missionary Progress Investigators with Baptism Date
-    @AndroidFindBy(id = "mpFilterInvestigatorsWithBaptismDateSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterInvestigatorsWithBaptismDateSwitchCompat")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label='Investigators with Baptism Date']")
     public  MobileElement mpInvestigatorsWithBaptismDate;
 
     //Missionary Progress Progressing Investigators
-    @AndroidFindBy(id = "mpFilterProgressingInvestigatorsSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterProgressingInvestigatorsSwitchCompat")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Progressing Investigators\"]")
     public  MobileElement mpProgressingInvestigators;
 
     //Missionary Progress New Investigators
-    @AndroidFindBy(id = "mpFilterNewInvestigatorsSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterNewInvestigatorsSwitchCompat")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"New Investigators\"]")
     public  MobileElement mpNewInvestigators;
 
     //Missionary Progress Other Investigators
-    @AndroidFindBy(id = "mpFilterOtherInvestigatorsSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterOtherInvestigatorsSwitchCompat")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Other Investigators\"]")
     public  MobileElement mpOtherInvestigators;
 
     //Missionary Progress Potential Investigators
-    @AndroidFindBy(id = "mpFilterPotentialInvestigatorsSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterPotentialInvestigatorsSwitchCompat")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Potential Investigators\"]")
     public  MobileElement mpPotentialInvestigators;
 
     //Missionary Progress Recent Converts
-    @AndroidFindBy(id = "mpFilterRecentConvertsSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterRecentConvertsSwitchCompat")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Recent Converts\"]")
     public  MobileElement mpRecentConverts;
 
 
     //Missionary Progress Members Being Taught
-    @AndroidFindBy(id = "mpFilterMembersBeingTaughtSwitchCompat")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterMembersBeingTaughtSwitchCompat")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label=\"Members Being Taught\"]")
     public  MobileElement mpMembersBeingTaught;
 
     //Missionary Progress Save
-    @AndroidFindBy(id = "menu_item_save")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_item_save")
     public  MobileElement mpSave;
 
     //Missionary Progress Expand Filter
-    @AndroidFindBy(id = "filterHeaderArrow")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterHeaderArrow")
     public  MobileElement mpExpandFilter;
 
 
     //Missionary Progress Remove Filter Button
-    @AndroidFindBy(id = "removeFiltersButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/removeFiltersButton")
     @iOSXCUITFindBy(accessibility = "Remove")
     public  MobileElement mpRemoveFilterButton;
 
     //Missionary Progress Received a Visit
-    @AndroidFindBy(id = "mpFilterReceivedAVisitTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterReceivedAVisitTextView")
     @iOSXCUITFindBy(accessibility = "Received a Visit")
     public  MobileElement mpReceivedAVisit;
 
     //Missionary Progress Attended Sacrament
-    @AndroidFindBy(id = "mpFilterSacramentAttendanceTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterSacramentAttendanceTextView")
     @iOSXCUITFindBy(accessibility = "Attended Sacrament")
     public  MobileElement mpAttendedSacrament;
 
     //Missionary Progress Assigned
-    @AndroidFindBy(id = "mpFilterFellowshippersTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mpFilterFellowshippersTextView")
     @iOSXCUITFindBy(accessibility = "Assigned")
     public  MobileElement mpAssigned;
 
@@ -378,13 +378,13 @@ public class ReportsScreen extends BasePage {
     public  MobileElement prPeopleBeingTaught;
 
     //Search Field
-    @AndroidFindBy(id = "filterEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
     @iOSXCUITFindBy(accessibility = "Search")
     public  MobileElement prSearchField;
 
 
     //Cancel Search
-    @AndroidFindBy(id = "clearTextImageButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/clearTextImageButton")
     @iOSXCUITFindBy(accessibility = "Clear text")
     public MobileElement prClearSearch;
 
@@ -394,43 +394,43 @@ public class ReportsScreen extends BasePage {
     // ************ Sacrament Attendance Page
     //Todo: need to add ios
     //Sacrament Attendance First Week
-    @AndroidFindBy(id = "week1EditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week1EditText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceFirstWeek;
 
     //Todo: need to add ios
     //Sacrament Attendance Second Week
-    @AndroidFindBy(id = "week2EditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week2EditText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceSecondWeek;
 
     //Todo: need to add ios
     //Sacrament Attendance Third Week
-    @AndroidFindBy(id = "week3EditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week3EditText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceThirdWeek;
 
     //Todo: need to add ios
     //Sacrament Attendance Fourth Week
-    @AndroidFindBy(id = "week4EditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week4EditText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceFourthWeek;
 
     //Todo: need to add ios
     //Sacrament Attendance Fifth Week
-    @AndroidFindBy(id = "week5EditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week5EditText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceFifthWeek;
 
     //Todo: need to add ios
     //Sacrament Attendance Dialog Edit Field
-    @AndroidFindBy(id = "editText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/editText")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceDialogEditField;
 
     //Todo: need to add ios
     //Sacrament Attendance Cancel
-    @AndroidFindBy(id = "button2")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/button2")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceDialogCancel;
 
@@ -442,33 +442,33 @@ public class ReportsScreen extends BasePage {
 
     //Todo: need to add ios
     //Sacrament Attendance Counter Icon
-    @AndroidFindBy(id = "text_input_end_icon")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/text_input_end_icon")
     @iOSXCUITFindBy(accessibility = "sacramentCounterIcon")
     public  MobileElement sacramentAttendanceCounterIcon;
 
 
 
     //Sacrament Attendance Add Button
-    @AndroidFindBy(id = "counterTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/counterTextView")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeButton[1]")
     public  MobileElement sacramentAttendanceAddButton;
 
 
     //Sacrament Attendance Minus Button
-    @AndroidFindBy(id = "decrementFab")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/decrementFab")
 //    @iOSXCUITFindBy(accessibility = "minus.circle")
     @iOSXCUITFindBy(accessibility = "remove")
     public  MobileElement sacramentAttendanceMinusButton;
 
     //Todo: need to add ios
     //Sacrament Attendance Next Section
-    @AndroidFindBy(id = "sectionButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/sectionButton")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceCounterNextSection;
 
     //Todo: need to add ios
     //Sacrament Attendance Counter Save Button
-    @AndroidFindBy(id = "saveButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/saveButton")
     @iOSXCUITFindBy(accessibility = "Save")
     public  MobileElement sacramentAttendanceCounterSave;
 
@@ -476,35 +476,35 @@ public class ReportsScreen extends BasePage {
     //************* Class and Quorum Attendance ******************
 
     //Class and Quorum - Search
-    @AndroidFindBy(id = "filterEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
     @iOSXCUITFindBy(accessibility = "Search")
     public  MobileElement classAndQuorumSearch;
 
 
     //Class and Quorum First Week
-    @AndroidFindBy(id = "week1")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week1")
     public  MobileElement classAndQuorumFirstWeek;
 
 
     //Class and Quorum Second Week
-    @AndroidFindBy(id = "week2")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week2")
     public  MobileElement classAndQuorumSecondWeek;
 
 
     //Class and Quorum Third Week
-    @AndroidFindBy(id = "week3")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week3")
     public  MobileElement classAndQuorumThirdWeek;
 
     //Class and Quorum Fourth Week
-    @AndroidFindBy(id = "week4")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week4")
     public  MobileElement classAndQuorumFourthWeek;
 
     //Class and Quorum Fifth Week
-    @AndroidFindBy(id = "week5")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week5")
     public  MobileElement classAndQuorumFifthWeek;
 
     //Class and Quorum - Filters
-    @AndroidFindBy(id = "iconImageView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/iconImageView")
     @iOSXCUITFindBy(accessibility = "Filter")
     public  MobileElement classAndQuorumFilter;
 

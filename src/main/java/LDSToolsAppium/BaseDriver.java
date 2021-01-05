@@ -58,6 +58,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
     public String accessToken = "5b5e50c533cf4e00aa32c8caf1aa1d8fad972f9414a64f71abdce9d06d6a5248";
     public String stfURL = "http://10.109.45.146:7100";
     public String testDevice = "";
+
     public String androidAppPackage = "org.lds.ldstools.alpha";
 
     public ThreadLocal<String> dataTestName = new ThreadLocal<>();
@@ -435,14 +436,13 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
                 }
             }
 
-
             androidAppPackage = myAppPackage;
 
             capabilities.setCapability("deviceName", testDevice);
             capabilities.setCapability("udid", testDevice);
             capabilities.setCapability("platformName", "android");
             capabilities.setCapability("automationName","uiautomator2");
-            capabilities.setCapability("appPackage", myAppPackage);
+//            capabilities.setCapability("appPackage", myAppPackage);
             capabilities.setCapability("newCommandTimeout", 5000);
 
 

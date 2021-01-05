@@ -25,7 +25,7 @@ public class MeetinghousesScreen extends BasePage {
     // ****************** Before Main Screen Loads ******************
 
     //Allow access to your location
-//    @AndroidFindBy(id = "md_button_positive")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/md_button_positive")
     @AndroidFindBy(xpath = "//*[@text='OK']")
 //    @iOSXCUITFindBy(accessibility = "Allow")
     @iOSXCUITFindBy(accessibility = "Allow While Using App")
@@ -33,12 +33,12 @@ public class MeetinghousesScreen extends BasePage {
 
 
     //Deny access to your location
-    @AndroidFindBy(id = "permission_deny_button")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/permission_deny_button")
     @iOSXCUITFindBy(accessibility = "Deny")
     public MobileElement meetinghousesDeny;
 
     //Allow access to your location - Android Permissions Dialog
-//    @AndroidFindBy(id = "permission_allow_button")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/permission_allow_button")
     @AndroidFindBy(xpath = "//android.widget.Button[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"allow\")]")
     public MobileElement meetinghousesAllowAndroidPermissions;
 
@@ -49,7 +49,7 @@ public class MeetinghousesScreen extends BasePage {
     // ****************** Meetinghouses Toolbar Screen ******************
 
     //Current Location
-    @AndroidFindBy(id = "my_location_fab")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/my_location_fab")
     @iOSXCUITFindBy(accessibility = "icon current location")
     public MobileElement meetinghousesCurrentLocation;
 
@@ -91,11 +91,11 @@ public class MeetinghousesScreen extends BasePage {
 
 
     //Search Button - Android only
-    @AndroidFindBy(id = "menu_map_search")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_map_search")
     public MobileElement meetinghousesSearchButton;
 
     //Search Text Field
-    @AndroidFindBy(id = "search_src_text")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/search_src_text")
     @iOSXCUITFindBy(accessibility = "Search")
     public MobileElement meetinghousesSearchField;
 
@@ -104,13 +104,13 @@ public class MeetinghousesScreen extends BasePage {
     public MobileElement keyboardSearchButton;
 
     //Directions Icon
-    @AndroidFindBy(id = "directionsImageView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/directionsImageView")
     @iOSXCUITFindBy(accessibility = "ic action location directions")
     public MobileElement directionIcon;
 
 
     //Go into Meetinghouse details
-    @AndroidFindBy(id = "map_item_title")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/map_item_title")
     public MobileElement meetinghouseDetails;
 
 

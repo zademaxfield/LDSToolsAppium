@@ -44,19 +44,19 @@ public class DirectoryScreen extends BasePage {
 
     // ****************** Search ******************
     //Search Directory
-    @AndroidFindBy(id = "filterEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
     @iOSXCUITFindBy(accessibility = "Search")
     public  MobileElement searchBar;
 
     //Clear Search
-    @AndroidFindBy(id = "clearTextImageButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/clearTextImageButton")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement searchCancel;
 
 
     // ****************** Directory Users ******************
     // Picture
-    @AndroidFindBy(id = "individual_thumbnail_image_view")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/individual_thumbnail_image_view")
 //    @iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[@name='missing'])")
     @iOSXCUITFindBy(accessibility = "missing")
     public MobileElement thumbNail;
@@ -64,7 +64,7 @@ public class DirectoryScreen extends BasePage {
 
     // ****************** Sort ******************
     //Sort Button
-    @AndroidFindBy(id = "filterMenuImageButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterMenuImageButton")
     //@AndroidFindBy(xpath = "//*[@resource-id='filterMenuImageButton']")
     @iOSXCUITFindBy(accessibility = "Sort")
     public  MobileElement directorySort;
@@ -82,7 +82,7 @@ public class DirectoryScreen extends BasePage {
 
     // ****************** Edit ******************
     //Edit Button
-    @AndroidFindBy(id = "edit_fab")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/edit_fab")
     @iOSXCUITFindBy(accessibility = "Edit")
     public  MobileElement directoryEdit;
 
@@ -160,7 +160,7 @@ public class DirectoryScreen extends BasePage {
     public MobileElement gpsHouseholdLocation;
 
     //Household Location Lat Long
-    @AndroidFindBy(id = "latLngTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/latLngTextView")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name = 'Household Location']/following-sibling::XCUIElementTypeStaticText")
     public MobileElement gpsHouseholdLocationLatLong;
 
@@ -175,20 +175,20 @@ public class DirectoryScreen extends BasePage {
     public MobileElement gpsHouseholdLocationLegal;
 
     //Adjust Household Location
-    @AndroidFindBy(id = "adjustHouseholdLocationButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/adjustHouseholdLocationButton")
 //    @iOSXCUITFindBy(accessibility = "Adjust Household Location")
     @iOSXCUITFindBy(accessibility = "ADJUST HOUSEHOLD LOCATION")
     public MobileElement gpsAdjustHouseholdLocation;
 
     //Adjust Household Location Lowercase
-    @AndroidFindBy(id = "adjustHouseholdLocationButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/adjustHouseholdLocationButton")
     @iOSXCUITFindBy(accessibility = "Adjust Household Location")
     public MobileElement gpsAdjustHouseholdLocationLowerCase;
 
 
     //LAT LONG MAP Stuff
     //Permission Title Allow
-    @AndroidFindBy(id = "md_buttonDefaultPositive")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/md_buttonDefaultPositive")
     @iOSXCUITFindBy(accessibility = "Allow")
     public MobileElement gpsAllowOK;
 
@@ -204,13 +204,13 @@ public class DirectoryScreen extends BasePage {
 
 
     //GPS Search
-    @AndroidFindBy(id = "filterEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
     @iOSXCUITFindBy(accessibility = "Search")
     public MobileElement gpsSearch;
 
 
     //GPS Use this Location
-    @AndroidFindBy(id = "useLocationFab")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/useLocationFab")
     @iOSXCUITFindBy(accessibility = "Use This Location")
     public MobileElement gpsUseThisLocation;
 
@@ -218,13 +218,13 @@ public class DirectoryScreen extends BasePage {
 
     //Errors
     //Household Location Missing
-//    @AndroidFindBy(id = "latLngTextView")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/latLngTextView")
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Household Location Missing']")
     @iOSXCUITFindBy(accessibility = "Household Location Missing")
     public MobileElement gpsHouseholdLocationMissing;
 
     //Household Location Missing icon
-    @AndroidFindBy(id = "warningImageView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/warningImageView")
     @iOSXCUITFindBy(accessibility = "icn_error")
     public MobileElement gpsHouseholdLocationErrorIcon;
 
@@ -242,7 +242,7 @@ public class DirectoryScreen extends BasePage {
     public MobileElement gpsAdjustLocationTitle;
 
     //Adjust Location Current Location Icon
-    @AndroidFindBy(id = "myLocationFab")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/myLocationFab")
     @iOSXCUITFindBy(accessibility = "icon current location")
     public MobileElement gpsAdjustLocationCurrentLocation;
 
@@ -251,7 +251,7 @@ public class DirectoryScreen extends BasePage {
     public MobileElement gpsAdjustLocationIconLocation;
 
     //Adjust Location Search
-    @AndroidFindBy(id = "filterEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
     @iOSXCUITFindBy(accessibility = "Empty list")
     public MobileElement gpsAdjustLocationSearch;
 

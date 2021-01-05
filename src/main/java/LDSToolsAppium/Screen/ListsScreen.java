@@ -38,7 +38,7 @@ public class ListsScreen extends BasePage {
 
 
     //Add List
-    @AndroidFindBy(id = "fab")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/fab")
     @iOSXCUITFindBy(accessibility = "Add List")
     public MobileElement listsAddList;
 
@@ -48,18 +48,18 @@ public class ListsScreen extends BasePage {
     // ****************** Lists Screen ******************
 
     //New List Dialog - Name
-    @AndroidFindBy(id = "editText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/editText")
 //    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
     @iOSXCUITFindBy(iOSNsPredicate =  "type == 'XCUIElementTypeTextField'")
     public MobileElement listsName;
 
     //New List Dialog - Cancel
-    @AndroidFindBy(id = "md_button_negative")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/md_button_negative")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public MobileElement listsCancel;
 
     //New List Dialog - OK or Done
-//    @AndroidFindBy(id = "button1")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/button1")
     @AndroidFindBy(xpath = "//*[@text='OK']")
     @iOSXCUITFindBy(accessibility = "Done")
     public MobileElement listsOk;
@@ -72,11 +72,11 @@ public class ListsScreen extends BasePage {
     //Into Lists - Android and iOS does this differently
 
     //Android - Edit List Name
-    @AndroidFindBy(id = "menu_item_edit_name")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_item_edit_name")
     public MobileElement listsEditName;
 
     //Android - Add member name text field
-    @AndroidFindBy(id = "individualLookupAutoCompleteTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/individualLookupAutoCompleteTextView")
     public MobileElement listsAddMemberName;
 
 
@@ -99,15 +99,15 @@ public class ListsScreen extends BasePage {
     //Share - Map - Text
 
     //Share - Email button
-    @AndroidFindBy(id = "menu_send_email")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_send_email")
     public MobileElement listsSendEmail;
 
     //Show On Map
-    @AndroidFindBy(id = "menu_show_on_map")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_show_on_map")
     public MobileElement listsShowOnMap;
 
     //Send Text to List
-    @AndroidFindBy(id = "menu_show_on_map")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_show_on_map")
     public MobileElement listsSendText;
 
     //More Options

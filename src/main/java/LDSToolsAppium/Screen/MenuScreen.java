@@ -83,11 +83,11 @@ public class MenuScreen extends BasePage {
 
     // ********** Android Only **********
     //Later Button
-    @AndroidFindBy(id = "updateLaterButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/updateLaterButton")
     public  MobileElement laterButton;
 
     //Update My Info Button
-    @AndroidFindBy(id = "drawer_update_info_button")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/drawer_update_info_button")
     public  MobileElement updateMyInfo;
 
     //Drawer Message

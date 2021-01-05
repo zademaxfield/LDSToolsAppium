@@ -1,5 +1,6 @@
 package LDSToolsAppium.Screen;
 
+import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -19,6 +20,9 @@ public class LoginPageScreen extends BasePage {
         PageFactory.initElements(new AppiumFieldDecorator(driver.get(), myDuration), this);
     }
 
+
+
+
     //Member Tools Heading
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Member Tools']")
     public MobileElement titleMemberTools;
@@ -34,20 +38,20 @@ public class LoginPageScreen extends BasePage {
 
 
     //Login Name
-//    @AndroidFindBy(id = "usernameEditText")
-    @AndroidFindBy(id = "usernameEditText")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/usernameEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/usernameEditText")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeTextField")
     public  MobileElement loginName;
 
     //Password
-//    @AndroidFindBy(id = "passwordEditText")
-    @AndroidFindBy(id = "passwordEditText")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/passwordEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/passwordEditText")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther/XCUIElementTypeSecureTextField")
     public  MobileElement passWord;
 
     //Sign In Button
-//    @AndroidFindBy(id = "ldsAccountSignInButton")
-    @AndroidFindBy(id = "ldsAccountSignInButton")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/ldsAccountSignInButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/ldsAccountSignInButton")
     @iOSXCUITFindBy(accessibility = "Sign In")
     public  MobileElement signInButton;
 
@@ -85,7 +89,7 @@ public class LoginPageScreen extends BasePage {
     public MobileElement loginErrorMessage;
 
     //Trouble Signing In?
-    @AndroidFindBy(id = "ldsAccountLoginForgotCredentialsButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/ldsAccountLoginForgotCredentialsButton")
     @iOSXCUITFindBy(accessibility = "Having trouble signing in?")
     public  MobileElement troubleSigningIn;
 

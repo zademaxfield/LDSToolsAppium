@@ -20,7 +20,7 @@ public class HelpScreen extends BasePage {
     }
 
     //Send Feedback
-    @AndroidFindBy(id = "feedback_submit")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/feedback_submit")
     public  MobileElement helpSendFeedback;
 
 
@@ -43,15 +43,15 @@ public class HelpScreen extends BasePage {
     public  MobileElement helpContactUs;
 
         //Name
-        @AndroidFindBy(id = "feedbackNameTextInputEditText")
+        @AndroidFindBy(id = "org.lds.ldstools.alpha:id/feedbackNameTextInputEditText")
         public  MobileElement contactUsName;
 
         //Email
-        @AndroidFindBy(id = "feedbackEmailTextInputEditText")
+        @AndroidFindBy(id = "org.lds.ldstools.alpha:id/feedbackEmailTextInputEditText")
         public  MobileElement contactUsEmail;
 
         //Category
-        @AndroidFindBy(id = "feedbackCategoryDropdownTextView")
+        @AndroidFindBy(id = "org.lds.ldstools.alpha:id/feedbackCategoryDropdownTextView")
         public  MobileElement contactUsCategory;
 
             //Other
@@ -60,6 +60,6 @@ public class HelpScreen extends BasePage {
 
 
         //Category
-        @AndroidFindBy(id = "feedbackDescriptionEditText")
+        @AndroidFindBy(id = "org.lds.ldstools.alpha:id/feedbackDescriptionEditText")
         public  MobileElement contactUsDescription;
 }

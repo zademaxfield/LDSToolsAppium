@@ -10,22 +10,22 @@
       Examples:
       | leader                            | memberRecord                | can        |
       | "BISHOP"                          | "Bryson, David"             | "true"     |
-#      | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"             | "true"     |
-#      | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"             | "true"     |
-#      | "WARD_CLERK"                      | "Bryson, David"             | "true"     |
-#      | "WARD_EXECUTIVE_SECRETARY"        | "Bryson, David"             | "true"     |
-#      | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"             | "true"     |
-#      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     |
-#      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bryson, David"             | "true"     |
-#      | "ELDERS_QUORUM_SECRETARY"         | "Bryson, David"             | "true"     |
-#      | "RELIEF_SOCIETY_PRESIDENT"        | "Borden, Shirley"           | "true"     |
-#      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Borden, Shirley"           | "true"     |
-#      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Borden, Shirley"           | "true"     |
-#      | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"             | "true"     |
-#      | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"             | "true"     |
-#      | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"             | "true"     |
-#      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     |
-#      | "WARD_MISSION_LEADER"             | "Bryson, David"             | "true"     |
+      | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"             | "true"     |
+      | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"             | "true"     |
+      | "WARD_CLERK"                      | "Bryson, David"             | "true"     |
+      | "WARD_EXECUTIVE_SECRETARY"        | "Bryson, David"             | "true"     |
+      | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"             | "true"     |
+      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     |
+      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bryson, David"             | "true"     |
+      | "ELDERS_QUORUM_SECRETARY"         | "Bryson, David"             | "true"     |
+      | "RELIEF_SOCIETY_PRESIDENT"        | "Borden, Shirley"           | "true"     |
+      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Borden, Shirley"           | "true"     |
+      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Borden, Shirley"           | "true"     |
+      | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"             | "true"     |
+      | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"             | "true"     |
+      | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"             | "true"     |
+      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     |
+      | "WARD_MISSION_LEADER"             | "Bryson, David"             | "true"     |
 
 
     @all @smoke
@@ -58,7 +58,7 @@
       When week one is marked attended
       Then week one will have a check mark
 
-    @all
+    @all @jft
     Scenario: As a Bishopric member I should have access to the filters in Class and Quorum Attendance
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When filters is selected
@@ -66,7 +66,7 @@
       When I select a class
       Then The class list will be displayed
 
-    @all @jft
+    @all
     Scenario: Check attendance from individual users page
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When a member record is selected

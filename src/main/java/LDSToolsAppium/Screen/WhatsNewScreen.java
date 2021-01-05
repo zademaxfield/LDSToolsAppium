@@ -38,12 +38,12 @@ public class WhatsNewScreen extends BasePage {
     public MobileElement usePassword;
 
     // Auto update button
-    @AndroidFindBy(id = "autoUpdateSwitch")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/autoUpdateSwitch")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@name='Automatic update, Ward and Stake data can now be automatically updated.']")
     public MobileElement autoUpdate;
 
     // Use Wi-Fi only
-    @AndroidFindBy(id = "wifiSwitch")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/wifiSwitch")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@name=\"Update automatically only on Wi-Fi, Reduces data usage\"]")
 
     public MobileElement wifiButton;
@@ -54,8 +54,8 @@ public class WhatsNewScreen extends BasePage {
     public MobileElement helpWhatsNew;
 
     //Done Button
-//    @AndroidFindBy(id = "done")
-    @AndroidFindBy(id = "doneButton")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/done")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/doneButton")
     @iOSXCUITFindBy(accessibility = "Done")
     public MobileElement whatsNewDone;
 

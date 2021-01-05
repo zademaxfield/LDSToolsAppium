@@ -141,7 +141,7 @@ public class SettingsScreen extends BasePage {
     public  MobileElement acknowledgements;
 
     //About Logo
-    @AndroidFindBy(id = "aboutLogo")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/aboutLogo")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[3]")
     public  MobileElement aboutLogo;
 
@@ -269,14 +269,14 @@ public class SettingsScreen extends BasePage {
 
 
         //Proxy Edit Field
-        @AndroidFindBy(id = "android:id/edit")
+        @AndroidFindBy(id = "org.lds.ldstools.alpha:id/android:id/edit")
         @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
         public MobileElement proxyEditField;
 
 
 
         //Done ios OK android
-        @AndroidFindBy(id = "android:id/button1")
+        @AndroidFindBy(id = "org.lds.ldstools.alpha:id/android:id/button1")
         @iOSXCUITFindBy(accessibility = "Done")
         public MobileElement proxyDone;
 
@@ -390,7 +390,7 @@ public class SettingsScreen extends BasePage {
 
 
     //Cancel
-    @AndroidFindBy(id = "button2")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/button2")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement dialogCancel;
 }

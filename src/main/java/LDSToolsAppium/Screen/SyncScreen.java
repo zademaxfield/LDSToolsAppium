@@ -28,7 +28,7 @@ public class SyncScreen extends BasePage {
     public  MobileElement syncButton;
 
     //Update Button
-    @AndroidFindBy(id = "manuallyUpdateButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/manuallyUpdateButton")
     @iOSXCUITFindBy(accessibility = "Update")
     public  MobileElement updateButton;
 
@@ -37,11 +37,11 @@ public class SyncScreen extends BasePage {
     public  MobileElement syncNowButton;
 
     //OK Button
-    @AndroidFindBy(id = "md_buttonDefaultPositive")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/md_buttonDefaultPositive")
     public  MobileElement syncOKButton;
 
     //Cancel Button
-    @AndroidFindBy(id = "md_buttonDefaultNegative")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/md_buttonDefaultNegative")
     public  MobileElement syncCancelButton;
 
 

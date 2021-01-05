@@ -26,23 +26,23 @@ public class TemplesScreen extends BasePage {
     // ****************** Temple Main Screen ******************
     // Days till expiration
 //    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='android:id/input']")
-//    @AndroidFindBy(id = "md_input_message")
-    @AndroidFindBy(id = "editText")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/md_input_message")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/editText")
     @iOSXCUITFindBy(xpath ="//XCUIElementTypeTextField[@value='Days until expiration']")
     public MobileElement templeDaysExpiration;
 
     //Remind Me Later
-    @AndroidFindBy(id = "remindMeLaterTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/remindMeLaterTextView")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Remind me later'")
     public MobileElement remindMeLater;
 
     //Contact Bishopric
-    @AndroidFindBy(id = "contactBishopricTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/contactBishopricTextView")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Contact bishopric'")
     public MobileElement contactBishopric;
 
     //Got It Thanks
-    @AndroidFindBy(id = "gotItThanksTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/gotItThanksTextView")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Got it, thanks'")
     public MobileElement gotItThanks;
 
@@ -55,7 +55,7 @@ public class TemplesScreen extends BasePage {
 
 
     // Search
-    @AndroidFindBy(id = "filterEditText")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
     @iOSXCUITFindBy(accessibility = "Search")
     public MobileElement searchTemple;
 
@@ -67,8 +67,8 @@ public class TemplesScreen extends BasePage {
     public MobileElement noThanks;
 
     //Yes, remind me
-//    @AndroidFindBy(id = "md_button_positive")
-    @AndroidFindBy(id = "android:id/button1")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/md_button_positive")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/android:id/button1")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Yes, remind me'")
     public MobileElement yesRemindMe;
 
@@ -93,13 +93,13 @@ public class TemplesScreen extends BasePage {
 
     // ******************** Ordinance Schedule ********************
     //Ordinance Schedule Button
-//    @AndroidFindBy(id = "ordinanceScheduleButton")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/ordinanceScheduleButton")
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ordinance Schedule']")
     @iOSXCUITFindBy(accessibility = "Ordinance Schedule")
     public MobileElement ordinanceScheduleButton;
 
     //All Ordinances Button
-    @AndroidFindBy(id = "ordinanceTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/ordinanceTextView")
     @iOSXCUITFindBy(accessibility = "All Ordinances")
     public MobileElement allOrdinancesButton;
 
@@ -129,24 +129,24 @@ public class TemplesScreen extends BasePage {
         public MobileElement sealingSelection;
 
     //Date
-    @AndroidFindBy(id = "dateTextView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/dateTextView")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[2]/XCUIElementTypeButton[2]")
     public MobileElement templeDate;
 
     //Next Button
-    @AndroidFindBy(id = "nextNavigationImageView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/nextNavigationImageView")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='Button'][2]")
     public MobileElement nextButton;
 
     //Previous Button
-    @AndroidFindBy(id = "previousNavigationImageView")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/previousNavigationImageView")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='Button']")
     public MobileElement previousButton;
 
 
     //Prayer Roll Stuff
     //Prayer Roll Button
-//    @AndroidFindBy(id = "prayerRollButton")
+//    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/prayerRollButton")
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Prayer Roll')]")
     @iOSXCUITFindBy(accessibility = "Prayer Roll")
     public MobileElement prayerRollButton;
@@ -177,7 +177,7 @@ public class TemplesScreen extends BasePage {
     public MobileElement prayerRoll5thName;
 
     //Prayer Roll Submit Names
-    @AndroidFindBy(id = "submitButton")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/submitButton")
     @iOSXCUITFindBy(accessibility = "Submit Names")
     public MobileElement prayerRollSubmitNames;
 

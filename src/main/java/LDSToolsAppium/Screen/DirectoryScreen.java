@@ -438,6 +438,8 @@ public class DirectoryScreen extends BasePage {
             myCheck = checkForElement(tabMembership);
             if (myCheck) {
                 tabMembership.click();
+
+                //The headings are taking a while to load
                 Thread.sleep(1000);
                 myBasePage.scrollDownAndroidUIAutomator("1");
                 myBasePage.scrollDownAndroidUIAutomator("1");
@@ -445,13 +447,17 @@ public class DirectoryScreen extends BasePage {
                 myBasePage.scrollUpAndroidUIAutomator("1");
                 myBasePage.scrollUpAndroidUIAutomator("1");
                 Thread.sleep(1000);
+
                 pageSource = pageSource + getSourceOfPage();
                 //scrollDownTEST(800);
                 myBasePage.scrollDownAndroidUIAutomator("1");
+                Thread.sleep(500);
                 pageSource = pageSource + getSourceOfPage();
                 myBasePage.scrollDownAndroidUIAutomator("1");
+                Thread.sleep(500);
                 pageSource = pageSource + getSourceOfPage();
                 myBasePage.scrollDownAndroidUIAutomator("1");
+                Thread.sleep(500);
                 pageSource = pageSource + getSourceOfPage();
             }
 

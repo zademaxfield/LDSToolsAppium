@@ -30,7 +30,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(groups = {"smoke2", "smoke", "all2", "all"})
     public void directoryScreenTest_BISHOP() throws Exception {
         directoryScreenSub("BISHOP");
     }
@@ -329,7 +329,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryMemberInfoHousehold() throws Exception {
 
         // ********* Constructor **********
@@ -535,7 +535,7 @@ public class DirectoryScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Mother", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("McElveen, Thelma Amiliea", pageSource, "Contains"));
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Sunday School First Counselor", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ward Assistant Clerk", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("Sustained", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("February 25, 2018", pageSource, "Contains"));
 

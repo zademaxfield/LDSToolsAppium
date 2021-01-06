@@ -178,7 +178,7 @@ public class BasePage extends BaseDriver {
 
         } else {
             if (!checkTextOnPage(myElement)) {
-                MobileElement list = (MobileElement) driver.get().findElement(By.id("list"));
+                MobileElement list = (MobileElement) driver.get().findElement(By.id("org.lds.ldstools.alpha:id/list"));
                 MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                         + "new UiSelector().text(\"" + myElement + "\"));"));
 
@@ -218,7 +218,7 @@ public class BasePage extends BaseDriver {
         int myLoopStatus = 0;
 
         if (!checkTextOnPage(myElement)) {
-            MobileElement list = (MobileElement) driver.get().findElement(By.id("scroll_area"));
+            MobileElement list = (MobileElement) driver.get().findElement(By.id("org.lds.ldstools.alpha:id/scroll_area"));
             MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                     + "new UiSelector().text(\"" + myElement + "\"));"));
 
@@ -276,7 +276,7 @@ public class BasePage extends BaseDriver {
         int myLoopStatus = 0;
 
         if (!checkTextOnPage(myElement)) {
-            MobileElement list = (MobileElement) driver.get().findElement(By.id("recycler_view"));
+            MobileElement list = (MobileElement) driver.get().findElement(By.id("org.lds.ldstools.alpha:id/recycler_view"));
             MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                     + "new UiSelector().text(\"" + myElement + "\"));"));
 
@@ -305,7 +305,7 @@ public class BasePage extends BaseDriver {
         int myLoopStatus = 0;
 
         if (!checkTextOnPage(myElement)) {
-            MobileElement list = (MobileElement) driver.get().findElement(By.id("navigation_menu"));
+            MobileElement list = (MobileElement) driver.get().findElement(By.id("org.lds.ldstools.alpha:id/navigation_menu"));
             MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                     + "new UiSelector().text(\"" + myElement + "\"));"));
 
@@ -334,7 +334,7 @@ public class BasePage extends BaseDriver {
             scrollDownIOS();
         } else {
             try {
-                driver.get().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(" + myInstance + ")).scrollForward(45);"));
+                driver.get().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(" + myInstance + ")).scrollForward(70);"));
             } catch (Exception ignored) {
 
             }

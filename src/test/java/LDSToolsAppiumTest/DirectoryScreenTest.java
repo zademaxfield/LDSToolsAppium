@@ -23,11 +23,6 @@ import java.io.IOException;
 
 public class DirectoryScreenTest extends BaseDriver {
 
-    //1 = Bishopric
-    //2 = Ward Council
-    //3 = Special?
-    //4 = No Calling
-
 
 
     @Test(groups = {"smoke2", "smoke", "all2", "all"})
@@ -538,7 +533,6 @@ public class DirectoryScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Ward Assistant Clerk", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("Sustained", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("February 25, 2018", pageSource, "Contains"));
-
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Class Assignments", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Gospel Doctrine", pageSource, "Contains"));

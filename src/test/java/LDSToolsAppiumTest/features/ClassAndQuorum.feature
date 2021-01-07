@@ -1,7 +1,7 @@
 @ClassAndQuorum
   Feature: Class and Quorum Attendance tests
 
-    @all
+    @MQA-3517 @MQA-2225 @all
     Scenario Outline: As a leader I should have access to Class and Quorum Attendance reports
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecord> is searched for
@@ -28,7 +28,7 @@
       | "WARD_MISSION_LEADER"             | "Bryson, David"             | "true"     |
 
 
-    @all @smoke
+    @MQA-3518 @all @smoke
     Scenario Outline: Check edit rights in the API
       Given a <leader> account checks the Class and Quorum Attendance for the API
       Then the editable field is <status>
@@ -52,13 +52,13 @@
         | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "true"     |
         | "WARD_MISSION_LEADER"             | "true"     |
 
-    @all @smoke
+    @MQA-3519 @all @smoke
     Scenario: As a Bishopric member I should be able to mark a members attendance
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When week one is marked attended
       Then week one will have a check mark
 
-    @all @jft
+    @MQA-3520 @all @jft
     Scenario: As a Bishopric member I should have access to the filters in Class and Quorum Attendance
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When filters is selected
@@ -66,7 +66,7 @@
       When I select a class
       Then The class list will be displayed
 
-    @all
+    @MQA-3520 @all
     Scenario: Check attendance from individual users page
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When a member record is selected

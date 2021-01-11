@@ -15,6 +15,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import javax.swing.*;
@@ -63,10 +64,6 @@ public class ClassAndQuorum extends BaseDriver {
         LOGGER.info("the attendance " + editRights + " be edited");
         System.out.println("Not sure if needed?");
     }
-
-
-
-
 
 
     @Given("a {string} account checks the Class and Quorum Attendance for the API")
@@ -184,6 +181,59 @@ public class ClassAndQuorum extends BaseDriver {
         myBasePage.backButton.click();
         myBasePage.backButton.click();
     }
+
+
+    @Then("the {string} member {string} either {string} or will not be displayed")
+    public void theClassAndQuorumMemberMemberRecordEitherWillOrWillNotBeDisplayed(String classAndQuorum, String memberRecord, String will) throws Exception {
+        LOGGER.info("the " + classAndQuorum + " member " + memberRecord + " either " + will + " or will not be displayed");
+        pageSource = myBasePage.getSourceOfPage();
+        if (will.equalsIgnoreCase("true")) {
+            Assert.assertTrue(myBasePage.checkNoCaseList(memberRecord, pageSource, "Contains"));
+        } else {
+            Assert.assertFalse(myBasePage.checkNoCaseList(memberRecord, pageSource, "Contains"));
+        }
+    }
+
+    @Then("the member {string} either {string} or will not be displayed")
+    public void theMemberMemberRecordElderEitherWillElderOrWillNotBeDisplayed(String memberRecordElder, String willElder) throws Exception {
+        LOGGER.info("the member " + memberRecordElder + " either " + willElder + " or will not be displayed");
+        checkIfMemberIsDisplayed(memberRecordElder, willElder);
+    }
+
+    public void checkIfMemberIsDisplayed(String memberRecord, String status) throws Exception {
+        String foundName = null;
+        MobileElement elementToCheck;
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+//            elementToCheck = (MobileElement) driver.get().findElement(By.name(memberRecord));
+            if(!driver.get().findElements(By.name(memberRecord)).isEmpty()) {
+                foundName = driver.get().findElement(By.name(memberRecord)).getAttribute("value");
+            } else {
+                foundName = "NOT FOUND!";
+            }
+        } else {
+//            elementToCheck = (MobileElement) driver.get().findElement(By.id("org.lds.ldstools.alpha:id/nameTextView"));
+            if(!driver.get().findElements(By.id("org.lds.ldstools.alpha:id/nameTextView")).isEmpty()) {
+                foundName = driver.get().findElement(By.id("org.lds.ldstools.alpha:id/nameTextView")).getAttribute("text");
+            } else {
+                foundName = "NOT FOUND!";
+            }
+        }
+        foundName = foundName.trim();
+
+        System.out.println("Member Record: " + memberRecord);
+        System.out.println("Found Name: "  + foundName);
+
+        if (status.equalsIgnoreCase("true")) {
+            Assert.assertTrue(memberRecord.equalsIgnoreCase(foundName));
+//            Assert.assertTrue(myBasePage.checkNoCaseList(memberRecord, foundName, "Contains"));
+        } else {
+            Assert.assertFalse(memberRecord.equalsIgnoreCase(foundName));
+//            Assert.assertFalse(myBasePage.checkNoCaseList(memberRecord, foundName, "Contains"));
+        }
+        myReports.classAndQuorumClearSearch.click();
+        Thread.sleep(500);
+    }
+
 
     public void clickMemberRecord(String myText) throws Exception {
         //Bug in iOS

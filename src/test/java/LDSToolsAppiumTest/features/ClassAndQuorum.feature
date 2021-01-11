@@ -25,7 +25,7 @@
       | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"             | "true"     |
       | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"             | "true"     |
       | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     |
-      | "WARD_MISSION_LEADER"             | "Bryson, David"             | "true"     |
+#      | "WARD_MISSION_LEADER"             | "Bryson, David"             | "true"     | No Ward Mission Leader for this Ward right now
 
 
     @MQA-3518 @all @smoke
@@ -58,7 +58,7 @@
       When week one is marked attended
       Then week one will have a check mark
 
-    @MQA-3520 @all @jft
+    @MQA-3520 @all
     Scenario: As a Bishopric member I should have access to the filters in Class and Quorum Attendance
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When filters is selected
@@ -72,8 +72,47 @@
       When a member record is selected
       Then the individual attendance should be displayed
 
+    @jft
+    Scenario Outline: As a leader I should be able to search for members in Class and Quorum Attendance
+      Given a <leader> logs in and is on the Class and Quorum Attendance page
+      When a <memberRecordElder> is searched for
+      Then the member <memberRecordElder> either <willElder> or will not be displayed
+      When a <memberRecordRS> is searched for
+      Then the member <memberRecordRS> either <willRS> or will not be displayed
+      When a <memberRecordAaronic> is searched for
+      Then the member <memberRecordAaronic> either <willAaronic> or will not be displayed
+      When a <memberRecordYW> is searched for
+      Then the member <memberRecordYW> either <willYW> or will not be displayed
+      When a <memberRecordPrimary> is searched for
+      Then the member <memberRecordPrimary> either <willPrimary> or will not be displayed
+      Examples:
+        | leader                            | memberRecordElder     | willElder  | memberRecordRS         | willRS  | memberRecordAaronic    | willAaronic  | memberRecordYW    | willYW    | memberRecordPrimary  | willPrimary  |
+#        | "BISHOP"                          | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      |
+#        | "WARD_CLERK"                      |
+#        | "WARD_EXECUTIVE_SECRETARY"        |
+        | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   |
+#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  |
+#        | "ELDERS_QUORUM_SECRETARY"         |
+#        | "RELIEF_SOCIETY_PRESIDENT"        |
+#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  |
+#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" |
+#        | "YOUNG_WOMEN_PRESIDENT"           |
+#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    |
+#        | "SUNDAY_SCHOOL_PRESIDENT"         |
+#        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   |
+#        | "WARD_MISSION_LEADER"             |
+
+
+
+
+
+
 
 
 #    Scenario: Search tests - men, women, young adult and children.
+#    Scenario: Filter tests - By calling?
 #    Scenario: Check graph - ?
 #    Scenario: Stake member?

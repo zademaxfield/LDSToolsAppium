@@ -480,6 +480,11 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Search")
     public  MobileElement classAndQuorumSearch;
 
+    //Class and Quorum - Clear Search
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/clearTextImageButton")
+    @iOSXCUITFindBy(accessibility = "Clear text")
+    public  MobileElement classAndQuorumClearSearch;
+
 
     //Class and Quorum First Week
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week1")

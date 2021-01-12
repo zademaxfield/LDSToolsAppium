@@ -687,6 +687,7 @@ public class HelperMethods extends BaseDriver {
             if (pageSource.contains("Would you like to use")) {
                 pinCheck = true;
                 myPin.pinDisableTouchID.click();
+                Thread.sleep(1000);
                 myPin.alertOK.click();
             }
 

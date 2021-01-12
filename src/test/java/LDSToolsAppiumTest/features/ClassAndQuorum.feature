@@ -72,44 +72,38 @@
       When a member record is selected
       Then the individual attendance should be displayed
 
-    @jft
+    @MQA-3522 @all @jft
     Scenario Outline: As a leader I should be able to search for members in Class and Quorum Attendance
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecordElder> is searched for
-      Then the member <memberRecordElder> either <willElder> or will not be displayed
+      Then the member <memberRecordElder> will <willElder> be displayed
       When a <memberRecordRS> is searched for
-      Then the member <memberRecordRS> either <willRS> or will not be displayed
+      Then the member <memberRecordRS> will <willRS> be displayed
       When a <memberRecordAaronic> is searched for
-      Then the member <memberRecordAaronic> either <willAaronic> or will not be displayed
+      Then the member <memberRecordAaronic> will <willAaronic> be displayed
       When a <memberRecordYW> is searched for
-      Then the member <memberRecordYW> either <willYW> or will not be displayed
+      Then the member <memberRecordYW> will <willYW> be displayed
       When a <memberRecordPrimary> is searched for
-      Then the member <memberRecordPrimary> either <willPrimary> or will not be displayed
+      Then the member <memberRecordPrimary> will <willPrimary> be displayed
       Examples:
         | leader                            | memberRecordElder     | willElder  | memberRecordRS         | willRS  | memberRecordAaronic    | willAaronic  | memberRecordYW    | willYW    | memberRecordPrimary  | willPrimary  |
-#        | "BISHOP"                          | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      |
-#        | "WARD_CLERK"                      |
-#        | "WARD_EXECUTIVE_SECRETARY"        |
+        | "BISHOP"                          | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
+        | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
+        | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
+        | "WARD_CLERK"                      | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
+        | "WARD_EXECUTIVE_SECRETARY"        | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
         | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
-#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   |
-#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  |
-#        | "ELDERS_QUORUM_SECRETARY"         |
-#        | "RELIEF_SOCIETY_PRESIDENT"        |
-#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  |
-#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" |
-#        | "YOUNG_WOMEN_PRESIDENT"           |
-#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    |
-#        | "SUNDAY_SCHOOL_PRESIDENT"         |
-#        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   |
+        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+        | "ELDERS_QUORUM_SECRETARY"         | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+        | "RELIEF_SOCIETY_PRESIDENT"        | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+        | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "false"      |
+        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "false"      |
+        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "false"      |
+        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "false"      |
 #        | "WARD_MISSION_LEADER"             |
-
-
-
-
-
-
 
 
 #    Scenario: Search tests - men, women, young adult and children.

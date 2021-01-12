@@ -194,11 +194,12 @@ public class ClassAndQuorum extends BaseDriver {
         }
     }
 
-    @Then("the member {string} either {string} or will not be displayed")
-    public void theMemberMemberRecordElderEitherWillElderOrWillNotBeDisplayed(String memberRecordElder, String willElder) throws Exception {
-        LOGGER.info("the member " + memberRecordElder + " either " + willElder + " or will not be displayed");
+    @Then("the member {string} will {string} be displayed")
+    public void theMemberMemberRecordElderWillWillElderBeDisplayed(String memberRecordElder, String willElder) throws Exception{
+        LOGGER.info("the member " + memberRecordElder + " will " + willElder + " be displayed");
         checkIfMemberIsDisplayed(memberRecordElder, willElder);
     }
+
 
     public void checkIfMemberIsDisplayed(String memberRecord, String status) throws Exception {
         String foundName = null;
@@ -212,7 +213,9 @@ public class ClassAndQuorum extends BaseDriver {
             }
         } else {
 //            elementToCheck = (MobileElement) driver.get().findElement(By.id("org.lds.ldstools.alpha:id/nameTextView"));
+            Thread.sleep(1000);
             if(!driver.get().findElements(By.id("org.lds.ldstools.alpha:id/nameTextView")).isEmpty()) {
+                Thread.sleep(1000);
                 foundName = driver.get().findElement(By.id("org.lds.ldstools.alpha:id/nameTextView")).getAttribute("text");
             } else {
                 foundName = "NOT FOUND!";

@@ -68,7 +68,7 @@ public class TemplesScreen extends BasePage {
 
     //Yes, remind me
 //    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/md_button_positive")
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/android:id/button1")
+    @AndroidFindBy(id = "android:id/button1")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Yes, remind me'")
     public MobileElement yesRemindMe;
 

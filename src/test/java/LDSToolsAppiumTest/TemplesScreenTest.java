@@ -57,7 +57,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= {"all", "all1"})
+    @Test (groups= {"all", "all1", "jft"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -74,8 +74,8 @@ public class TemplesScreenTest extends BaseDriver {
 //        myHelper.loginUAT("ngibpc1", "password1");
         myHelper.enterPin("1", "1", "3", "3");
 
-
-        myTemple.enableTempleRecommendReminder("25", mySettings.active, mySettings.temple4Weeks);
+        //Bug making this wrong
+        myTemple.enableTempleRecommendReminder("0", mySettings.active, mySettings.temple4Weeks);
 
         //Check the temple reminder
         Thread.sleep(6000);
@@ -113,7 +113,7 @@ public class TemplesScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
 
-        myTemple.enableTempleRecommendReminder("5", mySettings.active, mySettings.temple6Weeks);
+        myTemple.enableTempleRecommendReminder("0", mySettings.active, mySettings.temple6Weeks);
 
         //Check the temple reminder
         Thread.sleep(6000);
@@ -151,7 +151,7 @@ public class TemplesScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
 
-        myTemple.enableTempleRecommendReminder("25", mySettings.active, mySettings.temple6Weeks);
+        myTemple.enableTempleRecommendReminder("0", mySettings.active, mySettings.temple6Weeks);
 
         //Check the temple reminder
         Thread.sleep(6000);
@@ -189,7 +189,7 @@ public class TemplesScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
 
-        myTemple.enableTempleRecommendReminder("25", mySettings.active, mySettings.temple6Weeks);
+        myTemple.enableTempleRecommendReminder("0", mySettings.active, mySettings.temple6Weeks);
 
         //Check the temple reminder
         Thread.sleep(6000);
@@ -249,7 +249,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all2", "jft"})
+    @Test (groups= { "all", "all2"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 
@@ -353,6 +353,7 @@ public class TemplesScreenTest extends BaseDriver {
 
 
         myMenu.selectMenu(myMenu.temples);
+//        System.out.println(myBasePage.getSourceOfPage());
         myTemple.yesRemindMe.click();
         myTemple.chooseDifferentTab(myTemple.allTab);
 

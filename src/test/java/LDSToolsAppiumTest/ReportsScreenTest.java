@@ -15,7 +15,7 @@ import java.util.List;
 public class ReportsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
+    @Test (groups = {"all1", "all", "smoke", "smoke1", "report"})
     public void reportsBasic_BISHOP() throws Exception {
         reportsBasicCheckSub("BISHOP");
     }
@@ -418,7 +418,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
     //There is no API for this
-    @Test (groups = {"all3", "all", "report"})
+    @Test (groups = {"all3", "all", "report", "jft"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
 
@@ -451,7 +451,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Batimana", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Divyne", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("March 2021", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("May 2020", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Limited-Use", pageSource, "Contains"));
 
         //TODO: Need a way to test this for iOS. iOS does this very different.

@@ -225,7 +225,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "jft"})
+    @Test (groups = {"all4", "all"})
     public void ministeringUnassignedHouseholds_BISHOP() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("BISHOP");
     }
@@ -310,7 +310,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("WOMEN_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void ministeringUnassignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
@@ -373,7 +373,7 @@ public class MinisteringScreenTest extends BaseDriver {
             myBasePage.waitForElementThenClick(myBasePage.backButton);
         }
 
-        if (rights == 4){
+        if (rights == 3){
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(myBasePage.checkNoCaseList("Reports", pageSource, "Contains"));
         }

@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import io.cucumber.java.en_scouse.An;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
 
@@ -182,7 +183,8 @@ public class TemplesScreen extends BasePage {
     public MobileElement prayerRollSubmitNames;
 
     //Prayer Roll Cancel Button
-    @AndroidFindBy(accessibility = "Navigate up")
+//    @AndroidFindBy(accessibility = "Navigate up")
+    @AndroidFindBy(xpath = "//android.widget.ImageButton")
     @iOSXCUITFindBy(accessibility = "Back")
     public MobileElement prayerRollCancelButton;
 

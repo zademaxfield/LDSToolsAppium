@@ -11,7 +11,7 @@
       When "159" is entered in the "First Date Field"
       Then I should see "159" in the "First Date Field"
 
-    @MQA-3184 @all
+    @MQA-3184 @all @jft
     Scenario: As a Ward Clerk enter a number and have it saved
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When "77" is entered in the "Second Date Field"
@@ -34,7 +34,7 @@
       When a 27 35 5 48 is entered using the counter and next section
       Then I should see "115"
 
-    @MQA-3188 @all @jft
+    @MQA-3188 @all
     Scenario: On the Sacrament counter use both plus and minus
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When a "38" is entered using the counter without saving

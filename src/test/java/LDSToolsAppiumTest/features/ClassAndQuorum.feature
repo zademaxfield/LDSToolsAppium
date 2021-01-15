@@ -106,7 +106,6 @@
 #        | "WARD_MISSION_LEADER"             |
 
 
-#    Scenario: Search tests - men, women, young adult and children.
 #    Scenario: Filter tests - By calling?
 #    Scenario: Check graph - ?
 #    Scenario: Stake member?

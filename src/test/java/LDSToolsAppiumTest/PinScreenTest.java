@@ -36,8 +36,9 @@ public class PinScreenTest extends BaseDriver {
     }
 
     //TODO: Bug iOS is allowing repeating numbers - MMIP-5824
-    //TODO: Android bug MMA-3502
-    @Test (groups = {"all2", "all"})
+    //TODO: Android Bug - https://jira.churchofjesuschrist.org/browse/MMA-3610
+//    @Test (groups = {"all2", "all"})
+    @Test (groups = {"waitForFix"})
     public void pinRepeatTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);

@@ -305,12 +305,12 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void ministeringUnassignedHouseholds_WOMEN_SECOND_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("WOMEN_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void ministeringUnassignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
@@ -366,7 +366,6 @@ public class MinisteringScreenTest extends BaseDriver {
                 Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
                 Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
             }
-
 
             myBasePage.waitForElementThenClick(myBasePage.backButton);
             Thread.sleep(2000);

@@ -52,7 +52,7 @@
         | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "true"     |
         | "WARD_MISSION_LEADER"             | "true"     |
 
-    @MQA-3519 @all @smoke @jft
+    @MQA-3519 @all @smoke
     Scenario: As a Bishopric member I should be able to mark a members attendance
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When week one is marked attended
@@ -72,7 +72,7 @@
       When a member record is selected
       Then the individual attendance should be displayed
 
-    @MQA-3522 @all
+    @MQA-3522 @all @jft
     Scenario Outline: As a leader I should be able to search for members in Class and Quorum Attendance
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecordElder> is searched for
@@ -99,8 +99,8 @@
         | "RELIEF_SOCIETY_PRESIDENT"        | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
         | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
         | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
-        | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "false"      |
-        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "false"      |
+        | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"      |
+        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"      |
         | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "false"      |
         | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "false"      |
 #        | "WARD_MISSION_LEADER"             |

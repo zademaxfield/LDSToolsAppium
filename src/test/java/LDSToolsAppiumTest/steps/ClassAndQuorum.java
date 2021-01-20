@@ -287,7 +287,9 @@ public class ClassAndQuorum extends BaseDriver {
         if (visibleDates.isEmpty()) {
             if (myBasePage.getOS().equalsIgnoreCase("ios")) {
                 for (int x = 2; x <= 5; x++) {
-                    tempDate = (driver.get().findElement(By.xpath("//XCUIElementTypeTable/XCUIElementTypeCell[2]/XCUIElementTypeStaticText[" + x + "]")).getAttribute("value"));
+//                    Thread.sleep(2000);
+//                    System.out.println(myBasePage.getSourceOfPage());
+                    tempDate = (driver.get().findElement(By.xpath("//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[" + x + "]")).getAttribute("value"));
 //                    System.out.println("TEMP DATE: "  + tempDate);
 //                    System.out.println(myBasePage.getSourceOfPage());
                     dateArray = tempDate.split(":");

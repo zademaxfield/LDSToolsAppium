@@ -12,8 +12,6 @@ import org.testng.annotations.Test;
 
 public class PinScreenTest extends BaseDriver {
 
-    //TODO: Bug iOS is allowing repeating numbers - MMIP-5824
-    //TODO: Android bug MMA-3502
     @Test (groups = {"all1", "all", "jft"})
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
@@ -35,10 +33,7 @@ public class PinScreenTest extends BaseDriver {
         pinRepeatTestData();
     }
 
-    //TODO: Bug iOS is allowing repeating numbers - MMIP-5824
-    //TODO: Android Bug - https://jira.churchofjesuschrist.org/browse/MMA-3610
-//    @Test (groups = {"all2", "all"})
-    @Test (groups = {"waitForFix"})
+    @Test (groups = {"all2", "all", "jft"})
     public void pinRepeatTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -287,12 +282,6 @@ public class PinScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
 
-//        if (getRunningOS().equalsIgnoreCase("android")) {
-//            myHelper.enterPin("1", "1", "3", "3");
-//            myMenu.selectMenu(myMenu.settings);
-//            mySettings.createAPIN.click();
-//        }
-
         //All four of the same number
         myHelper.pressPinKeys("1");
         myHelper.pressPinKeys("1");
@@ -311,79 +300,7 @@ public class PinScreenTest extends BaseDriver {
             Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
             myPinScreen.pinAlertDialogOK.click();
         }
-
-//
-//
-//
-//        if (getRunningOS().equalsIgnoreCase("android")) {
-//            myPinScreen.pinKeyEnter.click();
-//        }
-//
-//        //Should get an error on iOS .... Android needs to enter in the digits again to get an error
-//        if (getRunningOS().equals("android")) {
-//            myHelper.pressPinKeys("1");
-//            myHelper.pressPinKeys("1");
-//            myHelper.pressPinKeys("1");
-//            myHelper.pressPinKeys("1");
-//
-//
-//            myPinScreen.pinKeyEnter.click();
-//
-//
-//            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
-//
-//        } else {
-//            //System.out.println(myBasePage.getSourceOfPage());
-//            Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
-//            myPinScreen.pinAlertDialogOK.click();
-//        }
-
-        //3 of the same number in a row
-        myHelper.pressPinKeys("5");
-        myHelper.pressPinKeys("6");
-        myHelper.pressPinKeys("6");
-        myHelper.pressPinKeys("6");
-
-        if (getRunningOS().equalsIgnoreCase("android")) {
-            myPinScreen.pinKeyEnter.click();
-            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
-//            System.out.println(myBasePage.getSourceOfPage());
-            for (int x = 1; x <= 4; x++) {
-                myPinScreen.pinKeyDelete.click();
-            }
-        } else {
-            Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
-            myPinScreen.pinAlertDialogOK.click();
-        }
-
-
-
-
-//        if (getRunningOS().equalsIgnoreCase("android")) {
-//            myPinScreen.pinKeyEnter.click();
-//        }
-//
-//        //Should get an error on iOS .... Android needs to enter in the digits again to get an error
-//        if (getRunningOS().equals("android")) {
-//            myHelper.pressPinKeys("5");
-//            myHelper.pressPinKeys("6");
-//            myHelper.pressPinKeys("6");
-//            myHelper.pressPinKeys("6");
-//
-//
-//            myPinScreen.pinKeyEnter.click();
-//
-//
-//            Assert.assertEquals("PIN cannot have sequential or repeating numbers.", myPinScreen.pinKeyErrorMessage.getText());
-//
-//        } else {
-//            Assert.assertEquals("Passcode must not repeat a number three times.", myPinScreen.pinAlertDialogMessage.getText());
-//            myPinScreen.pinAlertDialogOK.click();
-//        }
-
     }
-
-
 
 
 }

@@ -25,7 +25,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke2", "smoke", "all2", "all"})
+    @Test(groups = {"smoke2", "smoke", "all2", "all", "jft"})
     public void directoryScreenTest_BISHOP() throws Exception {
         directoryScreenSub("BISHOP");
     }
@@ -266,7 +266,7 @@ public class DirectoryScreenTest extends BaseDriver {
         myBasePage.rightsCheckNewRights("January 20, 1946", 5, rights, pageSource);
         myBasePage.rightsCheckNewRights("Birth Date", 4, rights, pageSource);
         if (getRunningOS().equals("ios")) {
-            myBasePage.rightsCheckNewRights("(74)", 5, rights, pageSource);
+            myBasePage.rightsCheckNewRights("(75)", 5, rights, pageSource);
             //Temple Recommend
             myBasePage.rightsCheckNewRights("November 2021", 6, rights, pageSource);
         } else {
@@ -324,7 +324,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryMemberInfoHousehold() throws Exception {
 
         // ********* Constructor **********

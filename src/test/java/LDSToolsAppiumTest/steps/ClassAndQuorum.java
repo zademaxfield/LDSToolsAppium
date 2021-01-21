@@ -179,6 +179,7 @@ public class ClassAndQuorum extends BaseDriver {
         getWeekElement("week1", "detail").click();
         getWeekElement("week3", "detail").click();
         myBasePage.backButton.click();
+        Thread.sleep(1000);
         myBasePage.backButton.click();
     }
 

@@ -245,8 +245,9 @@ public class SacramentAttendance extends BaseDriver {
         switch(elementName) {
             case "First Date Field":
                 if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+//                    System.out.println(myBasePage.getSourceOfPage());
                     returnElement = (MobileElement) driver.get().findElement(By.xpath(
-                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]/XCUIElementTypeTextField[@name='" + sundayNumber.get(0) + "']"));
+                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]//XCUIElementTypeTextField[@name='" + sundayNumber.get(0) + "']"));
                 } else {
                     returnElement = myReports.sacramentAttendanceFirstWeek;
                 }
@@ -254,7 +255,7 @@ public class SacramentAttendance extends BaseDriver {
             case "Second Date Field":
                 if (myBasePage.getOS().equalsIgnoreCase("ios")) {
                     returnElement = (MobileElement) driver.get().findElement(By.xpath(
-                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]/XCUIElementTypeTextField[@name='" + sundayNumber.get(1) + "']"));
+                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]//XCUIElementTypeTextField[@name='" + sundayNumber.get(1) + "']"));
                 } else {
                     returnElement = myReports.sacramentAttendanceSecondWeek;
                 }
@@ -263,7 +264,7 @@ public class SacramentAttendance extends BaseDriver {
             case "Third Date Field":
                 if (myBasePage.getOS().equalsIgnoreCase("ios")) {
                     returnElement = (MobileElement) driver.get().findElement(By.xpath(
-                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]/XCUIElementTypeTextField[@name='" + sundayNumber.get(2) + "']"));
+                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]//XCUIElementTypeTextField[@name='" + sundayNumber.get(2) + "']"));
                 } else {
                     returnElement = myReports.sacramentAttendanceThirdWeek;
                 }
@@ -272,7 +273,7 @@ public class SacramentAttendance extends BaseDriver {
             case "Fourth Date Field":
                 if (myBasePage.getOS().equalsIgnoreCase("ios")) {
                     returnElement = (MobileElement) driver.get().findElement(By.xpath(
-                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]/XCUIElementTypeTextField[@name='" + sundayNumber.get(3) + "']"));
+                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]//XCUIElementTypeTextField[@name='" + sundayNumber.get(3) + "']"));
                 } else {
                     returnElement = myReports.sacramentAttendanceFourthWeek;
                 }
@@ -282,7 +283,7 @@ public class SacramentAttendance extends BaseDriver {
             case "Fifth Date Field":
                 if (myBasePage.getOS().equalsIgnoreCase("ios")) {
                     returnElement = (MobileElement) driver.get().findElement(By.xpath(
-                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]/XCUIElementTypeTextField[@name='" + sundayNumber.get(4) + "']"));
+                            "//XCUIElementTypeTable/XCUIElementTypeCell[4]//XCUIElementTypeTextField[@name='" + sundayNumber.get(4) + "']"));
                 } else {
                     returnElement = myReports.sacramentAttendanceFifthWeek;
                 }

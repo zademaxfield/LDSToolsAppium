@@ -339,6 +339,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
         if (myBasePage.getOS().contains("ios")) {
             myDirectory.searchAndClickHousehold("Ryan, Ken & Julie");
+            Thread.sleep(1000);
             myBasePage.clickByTextContains("Ryan, Ken");
         } else {
             myDirectory.searchAndClickHousehold("Ryan, Ken");

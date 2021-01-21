@@ -13,6 +13,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
+import org.springframework.ui.context.Theme;
 
 
 import java.time.Duration;
@@ -81,7 +82,8 @@ public class ListsScreen extends BasePage {
 
 
     //iOS - Add Member Button
-    @iOSXCUITFindBy(accessibility = "Add")
+//    @iOSXCUITFindBy(accessibility = "Add")
+    @iOSXCUITFindBy(accessibility = " + ")
     public MobileElement listsAddToListButton;
 
     //iOS - Search Field
@@ -263,7 +265,7 @@ public class ListsScreen extends BasePage {
         if (getOS().equals("ios")) {
             Thread.sleep(2000);
 //            myBasePage.scrollDownIOS();
-//            System.out.println(myBasePage.getSourceOfPage());
+            System.out.println(myBasePage.getSourceOfPage());
             listsAddToListButton.click();
             Thread.sleep(2000);
             listsSearch.sendKeys(memberToAdd);
@@ -271,7 +273,7 @@ public class ListsScreen extends BasePage {
 //            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + memberToClickOn + "']")).click();
             driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[contains(@name, '" + memberToClickOn + "')]")).click();
             backButton.click();
-
+            Thread.sleep(2000);
 
         } else {
             listsAddMemberName.sendKeys(memberToAdd);

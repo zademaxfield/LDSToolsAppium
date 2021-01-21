@@ -42,6 +42,7 @@ public class ListsScreenTest extends BaseDriver {
 
         //Add a member to the list
         myLists.addMemberToList("lovell, heather", "Lovell, Heather");
+//        System.out.println(myBase.getSourceOfPage());
         myBase.waitForElementThenClick(myLists.listsBackButton);
 
         Thread.sleep(2000);

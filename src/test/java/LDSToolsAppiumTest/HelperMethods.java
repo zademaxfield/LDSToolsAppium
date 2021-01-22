@@ -185,6 +185,7 @@ public class HelperMethods extends BaseDriver {
         }
 
         LOGGER.info("Clear login and password");
+        myBasePage.waitForElement(myLoginPage.loginName);
         myLoginPage.loginName.clear();
         myLoginPage.passWord.clear();
 
@@ -208,18 +209,14 @@ public class HelperMethods extends BaseDriver {
 
         if (myBasePage.getOS().equals("ios")) {
             //Check for Failed to download
+            Thread.sleep(2000);
+            LOGGER.info("Check for failed to download");
             pageSource = myBasePage.getSourceOfPage();
             Assert.assertFalse(pageSource.contains("Failed to download."));
             Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable"));
+            LOGGER.info("Done checking for failed to download");
 
-        //May not need this
-//            if (pageSource.contains("Updat")) {
-//                LOGGER.info("Wait for text to appear: Updat");
-//                myBasePage.waitForText("Updat");
-//                LOGGER.info("Text found: Update");
-//            }
-
-            Thread.sleep(4000);
+            Thread.sleep(10000);
             myBasePage.waitForText("passcode");
             LOGGER.info("Text found: Passcode");
         } else {

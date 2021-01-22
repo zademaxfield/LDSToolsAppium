@@ -528,6 +528,18 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
             }
 
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+
+            if (testDevice.contains("HEADLESS")) {
+                String[] parts = testDevice.split("-");
+                //String part1 = parts[0];
+                //Remove all whitespace
+                //part1 = part1.trim();
+                //part2 = part2.trim();
+                testDevice = parts[1];
+                capabilities.setCapability("isHeadless", true);
+            }
+
             System.out.println("Device Name: " + testDevice + " UDID: " + myUdid);
 
 
@@ -537,7 +549,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             File app = new File(appDir, fileName);
             myAppPackage = "org.lds.ldstools.alpha";
             
-            DesiredCapabilities capabilities = new DesiredCapabilities();
+
 
             capabilities.setCapability("platformName", "iOS");
             capabilities.setCapability(CapabilityType.BROWSER_NAME, "Safari");

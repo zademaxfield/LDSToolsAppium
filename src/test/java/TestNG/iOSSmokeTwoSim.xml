@@ -12,7 +12,7 @@
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
 <!--        <parameter name="testDevice" value="FBSIM-iPhone 12" />-->
-        <parameter name="testDevice" value="iPhone 12" />
+        <parameter name="testDevice" value="HEADLESS-iPhone 12" />
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8251" />
 
@@ -47,7 +47,7 @@
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
 <!--        <parameter name="testDevice" value="FBSIM-iPhone 8" />-->
-        <parameter name="testDevice" value="iPhone 12 Pro" />
+        <parameter name="testDevice" value="HEADLESS-iPhone 12 Pro" />
         <parameter name="startSleepTime" value="60000" />
         <parameter name="systemPort" value="8202" />
 

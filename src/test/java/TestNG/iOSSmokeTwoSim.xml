@@ -11,8 +11,8 @@
     <test name="iOS Smoke Test - iPhone 12" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-<!--        <parameter name="testDevice" value="FBSIM-iPhone 12" />-->
-        <parameter name="testDevice" value="HEADLESS-iPhone 12" />
+        <parameter name="testDevice" value="iPhone 12" />
+<!--        <parameter name="testDevice" value="iPhone 12" />-->
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8251" />
 
@@ -43,11 +43,11 @@
         </classes>
     </test>
 
-    <test name="iOS Smoke Test - iPhone 8" thread-count="1" parallel="false" >
+    <test name="iOS Smoke Test - iPhone 11" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-<!--        <parameter name="testDevice" value="FBSIM-iPhone 8" />-->
-        <parameter name="testDevice" value="HEADLESS-iPhone 12 Pro" />
+        <parameter name="testDevice" value="iPhone 11" />
+<!--        <parameter name="testDevice" value="FBSIM-iPhone 12 Pro" />-->
         <parameter name="startSleepTime" value="60000" />
         <parameter name="systemPort" value="8202" />
 

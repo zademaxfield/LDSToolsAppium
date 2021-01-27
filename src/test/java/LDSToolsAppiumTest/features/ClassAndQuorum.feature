@@ -1,7 +1,7 @@
 @ClassAndQuorum
   Feature: Class and Quorum Attendance tests
 
-    @MQA-3517 @MQA-2225 @all
+    @MQA-3517 @MQA-2225 @all @all1
     Scenario Outline: As a leader I should have access to Class and Quorum Attendance reports
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecord> is searched for
@@ -28,7 +28,7 @@
 #      | "WARD_MISSION_LEADER"             | "Bryson, David"             | "true"     | No Ward Mission Leader for this Ward right now
 
 
-    @MQA-3518 @all @smoke
+    @MQA-3518 @all @smoke @all1
     Scenario Outline: Check edit rights in the API
       Given a <leader> account checks the Class and Quorum Attendance for the API
       Then the editable field is <status>
@@ -52,13 +52,13 @@
         | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "true"     |
         | "WARD_MISSION_LEADER"             | "true"     |
 
-    @MQA-3519 @all @smoke
+    @MQA-3519 @all @smoke @all1
     Scenario: As a Bishopric member I should be able to mark a members attendance
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When week one is marked attended
       Then week one will have a check mark
 
-    @MQA-3520 @all
+    @MQA-3520 @all @all1
     Scenario: As a Bishopric member I should have access to the filters in Class and Quorum Attendance
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When filters is selected
@@ -66,13 +66,13 @@
       When I select a class
       Then The class list will be displayed
 
-    @MQA-3520 @all @jft
+    @MQA-3520 @all @all1 @jft
     Scenario: Check attendance from individual users page
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When a member record is selected
       Then the individual attendance should be displayed
 
-    @MQA-3522 @all
+    @MQA-3522 @all @all1
     Scenario Outline: As a leader I should be able to search for members in Class and Quorum Attendance
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecordElder> is searched for

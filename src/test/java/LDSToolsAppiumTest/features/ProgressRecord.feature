@@ -12,7 +12,7 @@
         | "BISHOP"                          | "White, Koty Lucas"       | "true"     |
 
 
-    @all @jft
+    @all @all3 @jft
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -38,7 +38,7 @@
       | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
       | "WARD_MISSION_LEADER"             | "White, Koty Lucas"       | "true"     |
 
-    @all
+    @all @all3
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -53,7 +53,7 @@
         | "STAKE_EXECUTIVE_SECRETARY"         | "White, Koty Lucas"       | "false"    | "Auburn Hills"   |
 
 
-    @all
+    @all @all3
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
@@ -79,7 +79,7 @@
         | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Zoey"                    | "false"    |
         | "WARD_MISSION_LEADER"             | "Doramus, Barbara"        | "true"     |
 
-    @all
+    @all @all3
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab

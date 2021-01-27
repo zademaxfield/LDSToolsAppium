@@ -155,17 +155,51 @@
         </classes>
     </test>
 
-    <test name="Android All Test 5 - Samsung Galaxy Note 10 - Cucumber Tests" thread-count="2" parallel="true">
+    <test name="Android All - Samsung Galaxy Note 10 - Cucumber Tests 1" thread-count="2" parallel="true">
         <parameter name="os" value="android" />
-                <parameter name="fileName" value="ldstools-alpha.apk" />
-        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-<!--        <parameter name="fileName" value="ldstools-release.apk" />-->
+        <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="R38M803MWGM" />
-        <parameter name="startSleepTime" value="180000" />
+        <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8205" />
 
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll1"> </class>
+        </classes>
+    </test>
+
+    <test name="Android All - Pixel 4 XL - Cucumber Tests 2" thread-count="2" parallel="true">
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <parameter name="testDevice" value="99051FFBA000S7" />
+        <parameter name="startSleepTime" value="9000" />
+        <parameter name="systemPort" value="8205" />
+
+        <classes>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll2"> </class>
+        </classes>
+    </test>
+
+    <test name="Android All -Samsung Galaxy Note 8 - Cucumber Tests 3" thread-count="2" parallel="true">
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <parameter name="testDevice" value="R38M803MWGM" />
+        <parameter name="startSleepTime" value="18000" />
+        <parameter name="systemPort" value="8205" />
+
+        <classes>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll3"> </class>
+        </classes>
+    </test>
+
+    <test name="Android All - Samsung Galaxy S9 plus - Cucumber Tests 1" thread-count="2" parallel="true">
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <parameter name="testDevice" value="364c5930534f3098" />
+        <parameter name="startSleepTime" value="27000" />
+        <parameter name="systemPort" value="8205" />
+
+        <classes>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll4"> </class>
         </classes>
     </test>
 

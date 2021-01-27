@@ -208,15 +208,32 @@ public class HelperMethods extends BaseDriver {
 
 
         if (myBasePage.getOS().equals("ios")) {
-            //Check for Failed to download
-            Thread.sleep(2000);
+            boolean syncChecker = true;
+            int syncCounter = 1;
             LOGGER.info("Check for failed to download");
-            pageSource = myBasePage.getSourceOfPage();
-            Assert.assertFalse(pageSource.contains("Failed to download."));
-            Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable"));
+
+            while (syncChecker) {
+                LOGGER.info("Sync Checker: " + syncCounter);
+                pageSource = myBasePage.getSourceOfPage();
+                Assert.assertFalse(pageSource.contains("Failed to download."));
+                Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable"));
+
+                if (pageSource.contains("passcode")) {
+                    LOGGER.info("Found Passcode");
+                    syncChecker = false;
+                }
+
+                if (syncCounter >= 5 ) {
+                    syncChecker = false;
+                }
+                syncCounter++;
+
+                Thread.sleep(1000);
+
+            }
+
             LOGGER.info("Done checking for failed to download");
 
-            Thread.sleep(10000);
             myBasePage.waitForText("passcode");
             LOGGER.info("Text found: Passcode");
         } else {

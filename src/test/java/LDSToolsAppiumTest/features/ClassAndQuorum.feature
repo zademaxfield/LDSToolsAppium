@@ -66,13 +66,13 @@
       When I select a class
       Then The class list will be displayed
 
-    @MQA-3520 @all @all1 @jft
+    @MQA-3520 @all @all1
     Scenario: Check attendance from individual users page
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When a member record is selected
       Then the individual attendance should be displayed
 
-    @MQA-3522 @all @all1
+    @MQA-3522 @all @all1  @jft
     Scenario Outline: As a leader I should be able to search for members in Class and Quorum Attendance
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecordElder> is searched for

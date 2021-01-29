@@ -131,14 +131,15 @@ public class ProgressRecord extends BaseDriver {
 
         Assert.assertTrue(myBasePage.checkNoCaseList(memberRecord, pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Sacrament Attendance", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("View All", pageSource, "Contains"));
+        //View All doesn't show up unless there is something to view
+//        Assert.assertTrue(myBasePage.checkNoCaseList("View All", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Calling", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Assignment", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Temple Ordinances", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Principles Taught", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Other Commitments", pageSource, "Contains"));
-        Assert.assertFalse(myBasePage.checkNoCaseList("Self-Reliance Class", pageSource, "Contains"));
+//        Assert.assertFalse(myBasePage.checkNoCaseList("Self-Reliance Class", pageSource, "Contains"));
     }
 
     @And("the members record for People Being Taught {string} be edited")
@@ -147,7 +148,7 @@ public class ProgressRecord extends BaseDriver {
         if (editable.equalsIgnoreCase("true")) {
             Assert.assertTrue(myBasePage.checkNoCaseList("Add Friend", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Principles Taught", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("View All", pageSource, "Contains"));
+//            Assert.assertTrue(myBasePage.checkNoCaseList("View All", pageSource, "Contains"));
 //            Assert.assertTrue(myBasePage.checkNoCaseList("OPT OUT", pageSource, "Contains"));
         } else {
             Assert.assertFalse(myBasePage.checkNoCaseList("Add Friend", pageSource, "Contains"));
@@ -213,6 +214,9 @@ public class ProgressRecord extends BaseDriver {
         Thread.sleep(500);
         pageSource = myBasePage.getSourceOfPage();
         if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myBasePage.scrollUpAndroidUIAutomator("0");
+            Thread.sleep(500);
+            pageSource = pageSource + myBasePage.getSourceOfPage();
             myBasePage.scrollDownAndroidUIAutomator("0");
             Thread.sleep(500);
             pageSource = pageSource + myBasePage.getSourceOfPage();

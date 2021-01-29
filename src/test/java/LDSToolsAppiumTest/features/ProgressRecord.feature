@@ -12,7 +12,7 @@
         | "BISHOP"                          | "White, Koty Lucas"       | "true"     |
 
 
-    @all @all3 @jft
+    @all @all3
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -53,7 +53,7 @@
         | "STAKE_EXECUTIVE_SECRETARY"         | "White, Koty Lucas"       | "false"    | "Auburn Hills"   |
 
 
-    @all @all3
+    @all @all3 @jft
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
@@ -61,23 +61,22 @@
       And the members record for People Being Taught <can> be edited
       Examples:
         | leader                            | memberRecord              | can        |
-        | "BISHOP"                          | "Doramus, Barbara"        | "true"     |
-        | "BISHOPRIC_SECOND_COUNSELOR"      | "Doramus, Dale"           | "true"     |
-        | "BISHOPRIC_SECOND_COUNSELOR"      | "Faber, Tesla"            | "true"     |
-        | "WARD_CLERK"                      | "Patrick, Anna"           | "true"     |
+#        | "BISHOP"                          | "Mulaudzi, Naome"         | "true"     |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Sosa, Monique"           | "true"     |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Faber, Tesla"            | "true"     |
+#        | "WARD_CLERK"                      | "Anibal, Meury"           | "true"     |
         | "WARD_EXECUTIVE_SECRETARY"        | "Pettengill, Wyatt"       | "true"     |
-        | "ELDERS_QUORUM_PRESIDENT"         | "Shepherd, Camden"        | "true"     |
-        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Thompson, Sebastian"     | "false"    |
-        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Zoey"                    | "false"    |
-        | "ELDERS_QUORUM_SECRETARY"         | "Doramus, Barbara"        | "false"    |
-        | "RELIEF_SOCIETY_PRESIDENT"        | "Doramus, Dale"           | "true"     |
-        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Faber, Tesla"            | "false"    |
-        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Patrick, Anna"           | "false"    |
+#        | "ELDERS_QUORUM_PRESIDENT"         | "Shepherd, Camden"        | "true"     |
+#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Faber, Tesla"            | "false"    |
+#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Mulaudzi, Naome"         | "false"    |
+#        | "ELDERS_QUORUM_SECRETARY"         | "Mulaudzi, Naome"         | "false"    |
+#        | "RELIEF_SOCIETY_PRESIDENT"        | "Sosa, Monique"           | "true"     |
+#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Faber, Tesla"            | "false"    |
+#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Anibal, Meury"           | "false"    |
         | "YOUNG_WOMEN_PRESIDENT"           | "Pettengill, Wyatt"       | "false"    |
-        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Shepherd, Camden"       | "false"    |
-        | "SUNDAY_SCHOOL_PRESIDENT"         | "Thompson, Sebastian"     | "false"    |
-        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Zoey"                    | "false"    |
-        | "WARD_MISSION_LEADER"             | "Doramus, Barbara"        | "true"     |
+#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Shepherd, Camden"        | "false"    |
+#        | "SUNDAY_SCHOOL_PRESIDENT"         | "Faber, Tesla"            | "false"    |
+#        | "WARD_MISSION_LEADER"             | "Mulaudzi, Naome"         | "true"     |
 
     @all @all3
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record

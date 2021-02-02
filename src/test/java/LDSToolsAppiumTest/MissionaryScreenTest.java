@@ -18,7 +18,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"smoke3", "smoke", "all3", "all"})
+    @Test (groups = {"smoke3", "smoke", "all3", "all", "jft"})
     public void missionaryTest_BISHOP() throws Exception {
         missionaryTestCheckSub("BISHOP");
     }
@@ -43,7 +43,7 @@ public class MissionaryScreenTest extends BaseDriver {
         missionaryTestCheckSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void missionaryTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
         missionaryTestCheckSub("WARD_EXECUTIVE_SECRETARY");
     }

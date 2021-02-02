@@ -24,7 +24,7 @@
       | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"             | "true"     |
       | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"             | "true"     |
       | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"             | "true"     |
-      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     |
+#      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     | No Sunday School First Counselor
 #      | "WARD_MISSION_LEADER"             | "Bryson, David"             | "true"     | No Ward Mission Leader for this Ward right now
 
 

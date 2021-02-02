@@ -25,21 +25,21 @@
         <classes>
             <class name="LDSToolsAppium.BaseDriver" />
 
-            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
-            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
-            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+<!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />-->
             <class name="LDSToolsAppiumTest.LoginPageTest" />
             <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
             <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
-            <class name="LDSToolsAppiumTest.PinScreenTest" />
-            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
-            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
-            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
-            <class name="LDSToolsAppiumTest.HeaderTest" />
-            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
-            <class name="LDSToolsAppiumTest.ListsScreenTest" />
-            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
+<!--            <class name="LDSToolsAppiumTest.PinScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.ReportsScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.TemplesScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.HeaderTest" />-->
+<!--            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.ListsScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />-->
         </classes>
     </test>
 

@@ -139,6 +139,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Households", pageSource, "Contains"));
 
             myBasePage.backButton.click();
+            Thread.sleep(1000);
 
             myMinistering.ministeringSistersReport.click();
 
@@ -275,7 +276,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "jft"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
@@ -305,7 +306,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
 
-    @Test(groups = {"all4", "all", "jft"})
+    @Test(groups = {"all4", "all"})
     public void ministeringUnassignedHouseholds_WOMEN_SECOND_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("WOMEN_SECOND_COUNSELOR");
     }

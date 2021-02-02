@@ -30,23 +30,23 @@
             <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
             <class name="LDSToolsAppiumTest.LoginPageTest" />
             <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
-            <class name="LDSToolsAppiumTest.PinScreenTest" />
-            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
-            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
-            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
-            <class name="LDSToolsAppiumTest.HeaderTest" />
-            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
-            <class name="LDSToolsAppiumTest.ListsScreenTest" />
-            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
+<!--            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.PinScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.ReportsScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.TemplesScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.HeaderTest" />-->
+<!--            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.ListsScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />-->
         </classes>
     </test>
 
-    <test name="iOS All Test - iPhone 12 Pro" thread-count="1" parallel="false" >
+    <test name="iOS All Test - iPhone 11" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <parameter name="testDevice" value="iPhone 12 Pro" />
+        <parameter name="testDevice" value="iPhone 11" />
         <parameter name="startSleepTime" value="60000" />
         <parameter name="systemPort" value="8202" />
 
@@ -65,16 +65,16 @@
             <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
             <class name="LDSToolsAppiumTest.LoginPageTest" />
             <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
-            <class name="LDSToolsAppiumTest.PinScreenTest" />
-            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
-            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
-            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
-            <class name="LDSToolsAppiumTest.HeaderTest" />
-            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
-            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
-            <class name="LDSToolsAppiumTest.ListsScreenTest" />
-            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
+<!--            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.PinScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.ReportsScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.TemplesScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.HeaderTest" />-->
+<!--            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.ListsScreenTest" />-->
+<!--            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />-->
         </classes>
     </test>
 

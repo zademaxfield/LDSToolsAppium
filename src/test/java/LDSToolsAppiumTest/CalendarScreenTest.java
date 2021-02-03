@@ -213,7 +213,7 @@ public class CalendarScreenTest extends BaseDriver {
 //            pageSource = pageSource + myBasePage.getSourceOfPage();
 //        }
 //        System.out.println(pageSource);
-        Assert.assertTrue(myBasePage.checkNoCaseList("YM", pageSource, "contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
 
         editCalendar();
 

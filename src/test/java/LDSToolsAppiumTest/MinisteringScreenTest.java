@@ -276,7 +276,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
@@ -640,7 +640,7 @@ public class MinisteringScreenTest extends BaseDriver {
         companionshipsEldersSub("WARD_EXECUTIVE_SECRETARY");
     }
 
-    @Test(groups = {"all1", "all"})
+    @Test(groups = {"all1", "all", "jft"})
     public void companionshipsElders_MEMBER1() throws Exception {
         companionshipsEldersSub("MEMBER1");
     }

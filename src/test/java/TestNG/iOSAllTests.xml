@@ -28,9 +28,9 @@
 <!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />-->
-            <class name="LDSToolsAppiumTest.LoginPageTest" />
+<!--            <class name="LDSToolsAppiumTest.LoginPageTest" />-->
             <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+<!--            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.PinScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.ReportsScreenTest" />-->
 <!--            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />-->

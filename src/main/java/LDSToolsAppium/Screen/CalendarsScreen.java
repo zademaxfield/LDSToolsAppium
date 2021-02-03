@@ -83,11 +83,13 @@ public class CalendarsScreen extends BasePage {
         } else {
             checkBox = "no_teach";
         }
+        Thread.sleep(8000);
 
         if (getOS().contains("ios")) {
 //            System.out.println(getSourceOfPage());
 //            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+ calendarItem + "']/preceding-sibling::XCUIElementTypeImage[@name='" + checkBox +"']")).click();
             driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+ calendarItem + "']/preceding-sibling::XCUIElementTypeImage")).click();
+
         } else {
             driver.get().findElement(By.xpath("//android.widget.TextView[@text='"+ calendarItem + "']/following-sibling::android.widget.CheckBox")).click();
         }

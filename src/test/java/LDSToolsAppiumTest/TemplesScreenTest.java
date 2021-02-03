@@ -57,7 +57,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= {"all", "all1"})
+    @Test (groups= {"all", "all1", "jft"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -374,7 +374,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all4", "jft"})
+    @Test (groups= { "all", "all4"})
     public void templeOrdinanceSchedule() throws Exception {
         String pageSource;
 
@@ -400,11 +400,13 @@ public class TemplesScreenTest extends BaseDriver {
         if (myBasePage.checkForElement(myTemple.gotItThanks)) {
             myTemple.gotItThanks.click();
         }
-        System.out.println(myBasePage.getSourceOfPage());
-        myTemple.ordinanceScheduleButton.click();
 
-        checkOrdinanceDate();
-        checkTempleDates(10);
+        //Ordinance schedule is off for COVID
+//`        System.out.println(myBasePage.getSourceOfPage());
+//        myTemple.ordinanceScheduleButton.click();
+//
+//        checkOrdinanceDate();
+//        checkTempleDates(10);`
 
 
     }

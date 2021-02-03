@@ -235,9 +235,10 @@ public class LoginPageTest extends BaseDriver {
 
 
     //Todo: This is broken for iOS
+    //Todo: Need a way to force close the app without logging out
     //This is an iOS only test now.
-    @Test ( groups = {"all4", "all", "login", "jft"})
-//    @Test ( groups = {"noworking"})
+//    @Test ( groups = {"all4", "all", "login", "jft"})
+    @Test ( groups = {"noworking"})
     public void changePIN() throws Exception {
         String myPinMessage;
 

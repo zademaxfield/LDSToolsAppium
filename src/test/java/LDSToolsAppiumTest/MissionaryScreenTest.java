@@ -18,7 +18,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test (groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest_BISHOP() throws Exception {
         missionaryTestCheckSub("BISHOP");
     }
@@ -269,7 +269,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;
 
@@ -319,7 +319,9 @@ public class MissionaryScreenTest extends BaseDriver {
 
         //Check to see if locations services has been turned on.
         if (getRunningOS().equals("ios")) {
-            driver.get().switchTo().alert().accept();
+            Thread.sleep(4000);
+            myBasePage.allowWhileUsingApp.click();
+//            driver.get().switchTo().alert().accept();
 
         } else {
             if (myBasePage.checkForElement(myBasePage.alertOK)) {
@@ -365,6 +367,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
         if (getRunningOS().equals("ios")) {
             //driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='Message']/following-sibling::XCUIElementTypeImage[@name='minus']")).click();
+//            System.out.println(myBasePage.getSourceOfPage());
             myMissionary.referralCancelMessage.click();
             Thread.sleep(2000);
             myBasePage.scrollDownIOS();
@@ -373,6 +376,7 @@ public class MissionaryScreenTest extends BaseDriver {
         }
 
         //printPageSource();
+//        System.out.println(myBasePage.getSourceOfPage());
         myMissionary.referralSendReferral.click();
 
         //Check for icon to disappear
@@ -404,7 +408,7 @@ public class MissionaryScreenTest extends BaseDriver {
             myBasePage.scrollDownAndroidUIAutomator("0");
         }
 
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         pageSource = pageSource + driver.get().getPageSource();
 
         if (myBasePage.getOS().equals("mac")) {
@@ -413,12 +417,12 @@ public class MissionaryScreenTest extends BaseDriver {
             myBasePage.scrollDownAndroidUIAutomator("0");
         }
 
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         pageSource = pageSource + driver.get().getPageSource();
-
-        if (pageSource.contains("Pending")) {
-            Assert.assertTrue(myBasePage.checkNoCaseList("Status", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Pending Assignment to Missionaries", pageSource, "Contains"));
+        pageSource = pageSource.toLowerCase();
+        if (pageSource.contains("pending")) {
+            Assert.assertTrue(myBasePage.checkNoCaseList("status", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("pending assignment to missionaries", pageSource, "Contains"));
         } else {
             Assert.assertTrue(myBasePage.checkNoCaseList("Status", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Assigned to California San Jose Mission", pageSource, "Contains"));

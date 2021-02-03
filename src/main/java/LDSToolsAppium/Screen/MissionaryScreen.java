@@ -94,7 +94,8 @@ public class MissionaryScreen extends BasePage {
 
     //Referral Cancel Message Button iOS only
     //@iOSXCUITFindBy(accessibility = "minus")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Message']/following-sibling::XCUIElementTypeImage[@name='minus']")
+//    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Message']/following-sibling::XCUIElementTypeImage[@name='minus']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@name='Message']/following-sibling::XCUIElementTypeImage")
     public MobileElement referralCancelMessage;
 
 
@@ -107,7 +108,7 @@ public class MissionaryScreen extends BasePage {
 
     //Referral Send Referral Button
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/sendReferralButton")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Send Referral']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell/XCUIElementTypeStaticText[@value='Send Referral']")
     public MobileElement referralSendReferral;
 
     //Overflow Button - Android only

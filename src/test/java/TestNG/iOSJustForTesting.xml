@@ -15,13 +15,13 @@
         <groups>
             <run>
                 <include name="jft"/>
-<!--                <include name="goat"/>-->
+<!--                <include name="all"/>-->
             </run>
         </groups>
 
         <classes>
 <!--            <class name="LDSToolsAppium.BaseDriver" />-->
-            <class name="LDSToolsAppiumTest.PinScreenTest"/>
+            <class name="LDSToolsAppiumTest.TemplesScreenTest"/>
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
         </classes>
     </test> <!-- iOS Just For Testing test -->

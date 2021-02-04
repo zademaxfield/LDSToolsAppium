@@ -3,6 +3,7 @@ package LDSToolsAppiumTest;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
+import org.openqa.selenium.html5.Location;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -151,7 +152,7 @@ public class TemplesScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
 
-        myTemple.enableTempleRecommendReminder("0", mySettings.active, mySettings.temple6Weeks);
+        myTemple.enableTempleRecommendReminder("25", mySettings.active, mySettings.temple6Weeks);
 
         //Check the temple reminder
         Thread.sleep(6000);
@@ -170,7 +171,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all4", "jft"})
+    @Test (groups= { "all", "all4"})
     public void templeRecommendReminderGoItThanks() throws Exception {
         String pageSource;
 
@@ -218,7 +219,7 @@ public class TemplesScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         TemplesScreen myTemple = new TemplesScreen(driver);
 
-
+//        driver.get().setLocation(new Location(40.61222818077769, -111.95469497658807, 10));
 //        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
@@ -226,6 +227,7 @@ public class TemplesScreenTest extends BaseDriver {
 
         myMenu.selectMenu(myMenu.temples);
         myTemple.yesRemindMe.click();
+        Thread.sleep(1000);
         myTemple.chooseDifferentTab(myTemple.nearestTab);
 
         if (!myBasePage.getOS().contains("ios")) {
@@ -234,6 +236,7 @@ public class TemplesScreenTest extends BaseDriver {
 //            System.out.println(myBasePage.getSourceOfPage());
             myBasePage.allowButton.click();
         } else {
+
             myBasePage.allowWhileUsingApp.click();
         }
 
@@ -249,7 +252,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all2"})
+    @Test (groups= { "all", "all2", "jft"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 

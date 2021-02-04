@@ -57,7 +57,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= {"all", "all1", "jft"})
+    @Test (groups= {"all", "all1"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -170,7 +170,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all4"})
+    @Test (groups= { "all", "all4", "jft"})
     public void templeRecommendReminderGoItThanks() throws Exception {
         String pageSource;
 
@@ -189,7 +189,7 @@ public class TemplesScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
 
-        myTemple.enableTempleRecommendReminder("0", mySettings.active, mySettings.temple6Weeks);
+        myTemple.enableTempleRecommendReminder("20", mySettings.active, mySettings.temple6Weeks);
 
         //Check the temple reminder
         Thread.sleep(6000);

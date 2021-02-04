@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class PinScreenTest extends BaseDriver {
 
-    @Test (groups = {"all1", "all", "jft"})
+    @Test (groups = {"all1", "all"})
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -33,7 +33,7 @@ public class PinScreenTest extends BaseDriver {
         pinRepeatTestData();
     }
 
-    @Test (groups = {"all2", "all", "jft"})
+    @Test (groups = {"all2", "all"})
     public void pinRepeatTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -57,7 +57,7 @@ public class PinScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all"})
+    @Test (groups = {"all3", "all", "jft"})
     public void pinNoMatchTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -69,7 +69,7 @@ public class PinScreenTest extends BaseDriver {
 //                myPinScreen.pinAlertDialogOK.click();
 //            }
 //        }
-
+        myHelper.checkForAlertsBeforePin();
         pinNoMatchTestData();
 
     }
@@ -260,9 +260,9 @@ public class PinScreenTest extends BaseDriver {
 
 
         myHelper.pressPinKeys("7");
-        myHelper.pressPinKeys("5");
-        myHelper.pressPinKeys("3");
+        myHelper.pressPinKeys("4");
         myHelper.pressPinKeys("1");
+        myHelper.pressPinKeys("8");
 
         if (getRunningOS().equalsIgnoreCase("android")) {
             myPinScreen.pinKeyEnter.click();

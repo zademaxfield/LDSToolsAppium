@@ -324,7 +324,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryMemberInfoHousehold() throws Exception {
 
         // ********* Constructor **********
@@ -617,7 +617,8 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all2", "all"})
+//    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"notValid"})
     public void directoryMemberInfoNonLeaderNoPassword() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods();

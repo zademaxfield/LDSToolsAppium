@@ -351,7 +351,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Thread.sleep(2000);
             myBasePage.waitForElementThenClick(myBasePage.backButton);
 
-
+            Thread.sleep(2000);
             myMinistering.ministeringSistersReport.click();
             Thread.sleep(2000);
             myMinistering.unassignedSisters.click();

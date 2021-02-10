@@ -88,6 +88,10 @@ public class LDSToolsApp {
     public ListsScreen listsScreen() { return new ListsScreen(driver);
     }
 
+    //Finance Screen
+    public FinanceScreen financeScreensScreen() { return new FinanceScreen(driver);
+    }
+
     //Help Screen
     public HelpScreen helpScreen() { return new HelpScreen(driver);
     }

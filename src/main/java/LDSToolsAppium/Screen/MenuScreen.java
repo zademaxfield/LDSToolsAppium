@@ -61,6 +61,11 @@ public class MenuScreen extends BasePage {
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Temples'")
     public  MobileElement temples;
 
+    //Finance
+    @AndroidFindBy(xpath = "//*[@text='Finance']")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Finance'")
+    public  MobileElement finance;
+
     //Sync
     @AndroidFindBy(xpath = "//*[@text='Sync']")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Sync'")

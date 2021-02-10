@@ -237,7 +237,7 @@ public class SettingsScreen extends BasePage {
 
 
     //Proxy Username Edit Text
-    @AndroidFindBy(id = "android:id/edit")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/editText")
     public  MobileElement proxyUsernameEditText;
 
     //Proxy Username Edit Cancel

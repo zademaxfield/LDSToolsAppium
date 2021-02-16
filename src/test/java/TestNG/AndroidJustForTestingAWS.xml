@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Android Just For Testing Suite" configfailurepolicy="continue" verbose="2">
+    <test name="Android Just For Testing">
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <parameter name="testDevice" value="emulator-5554" />
+        <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8251" />
+
+        <groups>
+            <run>
+                <include name="jft"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+        </classes>
+    </test > <!-- Default test -->
+</suite> <!-- Default suite -->

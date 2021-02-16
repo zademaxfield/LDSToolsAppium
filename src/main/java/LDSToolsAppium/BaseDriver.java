@@ -417,7 +417,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             // set up appium
             File classpathRoot = new File(System.getProperty("user.dir"));
             //TODO: Need a better path
-            File appDir = new File(classpathRoot, "../../../Selenium");
+//            File appDir = new File(classpathRoot, "../../../Selenium");
+            File appDir = new File(classpathRoot, "/AppUnderTest");
             File app = new File(appDir, fileName);
 
             DesiredCapabilities capabilities = new DesiredCapabilities();

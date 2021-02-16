@@ -4,31 +4,16 @@
     <test name="Android Just For Testing - Cucumber">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-<!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-<!--        <parameter name="fileName" value="ldstools-release.apk" />-->
+<!--        <parameter name="fileName" value="app-debug.apk" />-->
 <!--        <parameter name="testDevice" value="09251FDD4003MU" />-->
         <parameter name="testDevice" value="RFCN80KVV5P" />
 <!--        <parameter name="testDevice" value="emulator-5554" />-->
         <parameter name="startSleepTime" value="0200" />
-        <parameter name="systemPort" value="8251" />
+        <parameter name="systemPort" value="8255" />
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.ClassAndQuorumRunner"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.PaymentRequestsRunner"> </class>
         </classes>
     </test >
 
-<!--    <test name="Android Just For Testing - TestNG">-->
-<!--        <parameter name="os" value="android" />-->
-<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
-<!--        <parameter name="testDevice" value="R38M803MWGM" />-->
-<!--        <parameter name="startSleepTime" value="0200" />-->
-<!--        <parameter name="systemPort" value="8202" />-->
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="jft"/>-->
-<!--            </run>-->
-<!--        </groups>-->
-<!--        <classes>-->
-<!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
-<!--        </classes>-->
-<!--    </test >-->
+
 </suite>

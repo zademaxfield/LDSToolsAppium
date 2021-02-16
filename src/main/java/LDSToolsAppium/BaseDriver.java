@@ -429,12 +429,15 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             } else {
                 if (fileName.contains("alpha")) {
                     capabilities.setCapability("appPackage", "org.lds.ldstools.alpha"); // *** ALPHA ***
+//                    capabilities.setCapability("appPackage", "io.appium.espressoserver.test"); // *** ALPHA ***
                     myAppPackage = "org.lds.ldstools.alpha";
                 } else {
                     capabilities.setCapability("appPackage", "org.lds.ldstools"); //*** BETA and RELEASE ***
                     myAppPackage = "org.lds.ldstools";
                 }
             }
+//            capabilities.setCapability("appPackage", "io.appium.espressoserver.test"); // *** ALPHA ***
+//            myAppPackage = "org.lds.ldstools.alpha";
 
             androidAppPackage = myAppPackage;
 
@@ -442,6 +445,9 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             capabilities.setCapability("udid", testDevice);
             capabilities.setCapability("platformName", "android");
             capabilities.setCapability("automationName","uiautomator2");
+//            capabilities.setCapability("automationName","espresso");
+//            capabilities.setCapability("forceEspressoRebuild",true);
+            capabilities.setCapability("fullReset", false);
 //            capabilities.setCapability("appPackage", myAppPackage);
             capabilities.setCapability("newCommandTimeout", 5000);
 
@@ -455,7 +461,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("gpsEnabled", true);
 
 
-            capabilities.setCapability("fullReset", false);
+
             capabilities.setCapability("dontStopAppOnReset", true);
 
 

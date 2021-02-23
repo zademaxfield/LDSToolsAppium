@@ -276,7 +276,8 @@ public class BasePage extends BaseDriver {
         int myLoopStatus = 0;
 
         if (!checkTextOnPage(myElement)) {
-            MobileElement list = (MobileElement) driver.get().findElement(By.id("org.lds.ldstools.alpha:id/recycler_view"));
+//            System.out.println(getSourceOfPage());
+            MobileElement list = (MobileElement) driver.get().findElement(By.id("org.lds.ldstools.alpha:id/recyclerView"));
             MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                     + "new UiSelector().text(\"" + myElement + "\"));"));
 

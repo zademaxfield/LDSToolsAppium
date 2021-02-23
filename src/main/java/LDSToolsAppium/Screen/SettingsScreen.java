@@ -302,12 +302,14 @@ public class SettingsScreen extends BasePage {
 
     // ********* Development - Temple *********
     //Reset All Temple Preferences
-    @AndroidFindBy(xpath = "//*[contains(@text, 'Reset All Temple Preferences')]")
+//    @AndroidFindBy(xpath = "//*[contains(@text, 'Reset All Temple Preferences')]")
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Reset Temple Dev Settings')]")
     @iOSXCUITFindBy(accessibility = "Reset Temple Databases")
     public  MobileElement resetAllTempelPreferences;
 
     //Override temple recommend expiration
-    @AndroidFindBy(xpath = "//*[contains(@text, 'Override temple recommend expiration')]")
+//    @AndroidFindBy(xpath = "//*[contains(@text, 'Override temple recommend expiration')]")
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Temple Recommend Expiration')]")
     @iOSXCUITFindBy(accessibility = "Set Temple Recommend Expiration")
     public  MobileElement overrideTempleRecommendExpiration;
 

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
     public void templeSimple() throws Exception {
         String pageSource;
 
@@ -58,7 +58,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= {"all", "all1", "jft"})
+    @Test (groups= {"all", "all1"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -114,7 +114,7 @@ public class TemplesScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
 
-        myTemple.enableTempleRecommendReminder("0", mySettings.active, mySettings.temple6Weeks);
+        myTemple.enableTempleRecommendReminder("5", mySettings.active, mySettings.temple6Weeks);
 
         //Check the temple reminder
         Thread.sleep(6000);

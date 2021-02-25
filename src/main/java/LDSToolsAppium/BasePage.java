@@ -335,7 +335,7 @@ public class BasePage extends BaseDriver {
     public void scrollTextIntoViewAndroid(String myText, int numberOfScrolls) throws Exception {
         int myCounter = 1;
         int myLoopStatus = 0;
-        
+
         if (!checkForTextPageSource(myText)) {
 
             while (myLoopStatus == 0) {

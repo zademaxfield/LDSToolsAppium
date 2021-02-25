@@ -277,6 +277,36 @@ public class BasePage extends BaseDriver {
 
         if (!checkTextOnPage(myElement)) {
 //            System.out.println(getSourceOfPage());
+            MobileElement list = (MobileElement) driver.get().findElement(By.id("org.lds.ldstools.alpha:id/recycler_view"));
+            MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+                    + "new UiSelector().text(\"" + myElement + "\"));"));
+
+            while (myLoopStatus == 0) {
+                System.out.println("OVERFLOW SCROLL: " + myCounter);
+                radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+                        + "new UiSelector().text(\"" + myElement + "\"));"));
+
+
+                if (radioGroup.isDisplayed()) {
+                    myLoopStatus = 1;
+                }
+
+                if (myCounter > 5) {
+                    myLoopStatus = 1;
+                }
+
+                myCounter++;
+            }
+            Assert.assertNotNull(radioGroup.getLocation());
+        }
+    }
+
+    public void scrollToTextRecyclerViewSettings(String myElement) throws Exception {
+        int myCounter = 1;
+        int myLoopStatus = 0;
+
+        if (!checkTextOnPage(myElement)) {
+//            System.out.println(getSourceOfPage());
             MobileElement list = (MobileElement) driver.get().findElement(By.id("org.lds.ldstools.alpha:id/recyclerView"));
             MobileElement radioGroup = (MobileElement) list.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
                     + "new UiSelector().text(\"" + myElement + "\"));"));

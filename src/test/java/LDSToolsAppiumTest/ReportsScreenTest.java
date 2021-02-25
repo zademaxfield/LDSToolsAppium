@@ -438,11 +438,14 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(2000);
 
         if (!getRunningOS().equals("ios")) {
+//            System.out.println(myBasePage.getSourceOfPage());
             myBasePage.scrollToTextRecyclerView("Youth Recommend Status");
         } else {
             myBasePage.scrollToTextiOS("Youth Recommend Status");
         }
 
+//        System.out.println(myBasePage.getSourceOfPage());
+        Thread.sleep(2000);
         myReports.youthRecommendStatusReport.click();
         Thread.sleep(2000);
 
@@ -507,7 +510,7 @@ public class ReportsScreenTest extends BaseDriver {
         pageSource = myBasePage.getSourceOfPage();
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Thomas", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Lambert", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Manu", pageSource, "Contains"));
 
     }
 

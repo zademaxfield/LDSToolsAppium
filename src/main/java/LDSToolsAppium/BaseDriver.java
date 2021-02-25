@@ -449,6 +449,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("automationName","espresso");
 //            capabilities.setCapability("forceEspressoRebuild",true);
             capabilities.setCapability("fullReset", false);
+//            capabilities.setCapability("noReset", false);
 //            capabilities.setCapability("appPackage", myAppPackage);
             capabilities.setCapability("newCommandTimeout", 5000);
 

@@ -270,13 +270,14 @@ public class TemplesScreen extends BasePage {
             myMenu.selectMenu(myMenu.settings);
 
             //Scroll down and Reset Temple Preferences
-            myMenu.scrollToTextRecyclerView("Temple Recommend Status");
+            myMenu.scrollToTextRecyclerViewSettings("Temple Recommend Status");
 //            myMenu.scrollToText("Temple Recommend Status");
             mySettings.resetAllTempelPreferences.click();
             Thread.sleep(2000);
 
             //Set the Recommend Status
             mySettings.templeRecommendStatus.click();
+            myBasePage.waitForElement(recommendStatus);
             recommendStatus.click();
             Thread.sleep(2000);
 
@@ -293,7 +294,9 @@ public class TemplesScreen extends BasePage {
             Thread.sleep(2000);
             myMenu.selectMenu(myMenu.settings);
 
-            myBasePage.scrollToTextGeneral("Show Temple Recommend Expiration");
+            myBasePage.scrollDownAndroidUIAutomator("0");
+//            myBasePage.scrollToTextGeneral("Show Temple Recommend Expiration");
+            myBasePage.scrollToTextRecyclerViewSettings("Show Temple Recommend Expiration");
             mySettings.templeShowTempleRecommendExpiration.click();
             mySettings.templeRecommendReminder.click();
 

@@ -294,12 +294,18 @@ public class TemplesScreen extends BasePage {
             Thread.sleep(2000);
             myMenu.selectMenu(myMenu.settings);
 
-            myBasePage.scrollDownAndroidUIAutomator("0");
-//            myBasePage.scrollToTextGeneral("Show Temple Recommend Expiration");
-            myBasePage.scrollToTextRecyclerViewSettings("Show Temple Recommend Expiration");
+//            myBasePage.scrollDownAndroidUIAutomator("0");
+//            myBasePage.scrollToTextRecyclerViewSettings("Show Temple Recommend Expiration");
+
+
+            myBasePage.scrollTextIntoViewAndroid("Show Temple Recommend Expiration", 3);
+
+
+
             mySettings.templeShowTempleRecommendExpiration.click();
             mySettings.templeRecommendReminder.click();
 
+            myBasePage.checkForElement(numberOfWeeks);
             numberOfWeeks.click();
 
             myBasePage.backButton.click();

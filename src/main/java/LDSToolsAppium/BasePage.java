@@ -331,6 +331,43 @@ public class BasePage extends BaseDriver {
         }
     }
 
+
+    public void scrollTextIntoViewAndroid(String myText, int numberOfScrolls) throws Exception {
+        int myCounter = 1;
+        int myLoopStatus = 0;
+        
+        if (!checkForTextPageSource(myText)) {
+
+            while (myLoopStatus == 0) {
+//                System.out.println("Scroll Text Into View Android Counter: " + myCounter);
+
+                try {
+                    driver.get().findElement(MobileBy.AndroidUIAutomator(
+                            "new UiScrollable(new UiSelector().scrollable(true)).scrollForward()"));
+                } catch (InvalidSelectorException e) {
+                    // ignore
+                }
+
+
+                Thread.sleep(500);
+
+                if (checkForTextPageSource(myText)) {
+                    myLoopStatus = 1;
+                }
+
+                if (myCounter > numberOfScrolls) {
+                    myLoopStatus = 1;
+                }
+
+                myCounter++;
+            }
+
+        }
+    }
+
+
+
+
     public void scrollToTextNavMenu(String myElement) throws Exception {
         int myCounter = 1;
         int myLoopStatus = 0;
@@ -370,9 +407,6 @@ public class BasePage extends BaseDriver {
 
             }
         }
-
-
-
     }
 
     public void scrollUpAndroidUIAutomator(String myInstance) throws Exception {
@@ -538,6 +572,18 @@ public class BasePage extends BaseDriver {
         scrollObject.put("direction", "up");
         js.executeScript("mobile: scroll", scrollObject);
 
+    }
+
+    public boolean checkForTextPageSource(String textToCheck) throws Exception {
+        String pageSource;
+        boolean found;
+        pageSource = getSourceOfPage();
+        if (pageSource.contains(textToCheck)) {
+            found = true;
+        } else {
+            found = false;
+        }
+        return found;
     }
 
 

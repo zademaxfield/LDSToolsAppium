@@ -14,15 +14,15 @@
 
         <groups>
             <run>
-<!--                <include name="jft"/>-->
-                <include name="all"/>
+                <include name="jft"/>
+<!--                <include name="all"/>-->
             </run>
         </groups>
 
         <classes>
 <!--            <class name="LDSToolsAppium.BaseDriver"/>-->
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
-            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

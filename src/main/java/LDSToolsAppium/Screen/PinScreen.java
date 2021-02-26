@@ -65,7 +65,8 @@ public class PinScreen extends BasePage {
     public MobileElement pinDisableFaceID;
 
     // Disable Touch ID
-    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Disable Touch ID'")
+//    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Disable Touch ID'")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Disable Security'")
     public MobileElement pinDisableTouchID;
 
 

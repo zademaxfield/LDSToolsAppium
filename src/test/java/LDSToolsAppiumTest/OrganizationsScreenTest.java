@@ -515,7 +515,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         if(getRunningOS().equals("ios")) {
             myBasePage.waitForElementThenClick(myBasePage.backAltButton);
         }
-        System.out.println(myBasePage.getSourceOfPage());
+//        System.out.println(myBasePage.getSourceOfPage());
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
         Thread.sleep(1000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);

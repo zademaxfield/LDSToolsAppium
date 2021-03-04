@@ -296,13 +296,12 @@ public class DirectoryScreen extends BasePage {
 //            System.out.println(myBase.getSourceOfPage());
         }
         myBase.waitForElementThenClick(directorySort);
-//        directorySort.click();
-//        Thread.sleep(2000);
-//        System.out.println(getSourceOfPage());
-        myBase.waitForElementThenClick(sortIndividual);
-//        sortIndividual.click();
 
-        //
+
+        if (myBase.getOS().equalsIgnoreCase("ios")) {
+            myBase.waitForElementThenClick(sortIndividual);
+        }
+
         if (tempMyUser.contains("tools")) {
             String[] parts = myUser.split(", ");
             String part1 = parts[0];

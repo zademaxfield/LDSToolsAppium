@@ -35,7 +35,7 @@ public class WhatsNewScreenTest extends BaseDriver {
 
         myWhatsNew.whatsNewDone.click();
 
-        
+
         // Click on Later then Directory
         if (!myBasePage.getOS().equals("ios")) {
             Thread.sleep(2000);

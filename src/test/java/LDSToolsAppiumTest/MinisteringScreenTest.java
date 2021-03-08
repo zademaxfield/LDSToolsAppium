@@ -101,8 +101,8 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
     @Test(groups = {"all3", "all"})
-    public void ministeringBasic_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        ministeringBasicSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    public void ministeringBasic_SUNDAY_SCHOOL_PRESIDENT() throws Exception {
+        ministeringBasicSub("SUNDAY_SCHOOL_PRESIDENT");
     }
 
     @Test(groups = {"all4", "all"})
@@ -226,7 +226,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "jft"})
+    @Test (groups = {"all4", "all"})
     public void ministeringUnassignedHouseholds_BISHOP() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("BISHOP");
     }
@@ -281,7 +281,7 @@ public class MinisteringScreenTest extends BaseDriver {
         ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all1", "all"})
+    @Test(groups = {"all1", "all", "jft"})
     public void ministeringUnassignedHouseholds_ELDERS_QUORUM_SECRETARY() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("ELDERS_QUORUM_SECRETARY");
     }
@@ -312,8 +312,8 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
     @Test(groups = {"all3", "all"})
-    public void ministeringUnassignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        ministeringUnassignedHouseholdsCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    public void ministeringUnassignedHouseholds_SUNDAY_SCHOOL_PRESIDENT() throws Exception {
+        ministeringUnassignedHouseholdsCheckSub("SUNDAY_SCHOOL_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
@@ -525,8 +525,8 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
     @Test(groups = {"all3", "all"})
-    public void ministeringAssignedHouseholds_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        ministeringAssignedHouseholdsSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    public void ministeringAssignedHouseholds_SUNDAY_SCHOOL_PRESIDENT() throws Exception {
+        ministeringAssignedHouseholdsSub("SUNDAY_SCHOOL_PRESIDENT");
     }
 
     @Test(groups = {"all4", "all"})
@@ -696,8 +696,8 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
     @Test(groups = {"all2", "all"})
-    public void companionshipsElders_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        companionshipsEldersSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    public void companionshipsElders_SUNDAY_SCHOOL_PRESIDENT() throws Exception {
+        companionshipsEldersSub("SUNDAY_SCHOOL_PRESIDENT");
     }
 
     @Test(groups = {"all1", "all"})
@@ -902,8 +902,8 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
     @Test(groups = {"all2", "all"})
-    public void unassignedSisters_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        unassignedSistersSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    public void unassignedSisters_SUNDAY_SCHOOL_PRESIDENT() throws Exception {
+        unassignedSistersSub("SUNDAY_SCHOOL_PRESIDENT");
     }
 
     @Test(groups = {"all3", "all"})
@@ -1097,8 +1097,8 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
     @Test(groups = {"all3", "all"})
-    public void ministeringAssignedSisters_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        ministeringAssignedSistersSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    public void ministeringAssignedSisters_SUNDAY_SCHOOL_PRESIDENT() throws Exception {
+        ministeringAssignedSistersSub("SUNDAY_SCHOOL_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})

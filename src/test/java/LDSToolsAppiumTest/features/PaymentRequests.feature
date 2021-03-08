@@ -8,7 +8,7 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
     Then the payment request should be processed with information of <member> <payee> <purpose> <account> <addReceipt> <salesTaxAmount> <category> <categoryAmount>
     Examples:
       | member      | payee               | purpose     | account   | addReceipt  | salesTaxAmount  | category      | categoryAmount |
-      | "MEMBER1"   | "myself"            | "Primary"   | "US-USD"  | "fileName"  | ".25"           | "Primary"     | "2.00"         |
+      | "BISHOP"    | "myself"            | "Primary"   | "US-USD"  | "fileName"  | ".25"           | "Primary"     | "2.00"         |
 #      | "MEMBER1"   | "myself"           | "Primary"   | "US-USD"  | "picture"   | ".25"           | "Primary"     | "2.00"         |
 #      | "MEMBER1"   | "Other Person"     | "Primary"   | "US-USD"  | "fileName"  | ".25"           | "Primary"     | "2.00"         |
 #      | "MEMBER1"   | "add other payee"  | "Primary"   | "US-USD"  | "fileName"  | ".25"           | "Primary"     | "2.00"         |

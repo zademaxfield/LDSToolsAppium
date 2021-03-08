@@ -111,7 +111,7 @@ public class LoginPageTest extends BaseDriver {
     }
 
     // ******************* Invalid Password Tests *******************
-    @Test (groups = {"all3", "all", "login"})
+    @Test (groups = {"all3", "all", "login", "jft"})
     public void invalidPasswordTest1() throws Exception {
         invalidCheck("zmaxfield", "<login>");
     }
@@ -332,7 +332,8 @@ public class LoginPageTest extends BaseDriver {
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
 
         if (getRunningOS().equalsIgnoreCase("ios")) {
-            myBasePage.waitForText("Having trouble signing in");
+//            myBasePage.waitForText("Having trouble signing in");
+            myBasePage.waitForText("Sign-In Failed");
         } else {
             myBasePage.waitForText("your username");
         }

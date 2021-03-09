@@ -582,7 +582,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("connectHardwareKeyboard", false);
             capabilities.setCapability("customSnapshotTimeout", 500);
             capabilities.setCapability("snapshotMaxDepth", 100);
-//            capabilities.setCapability("fullReset", true);ƒ
+//            capabilities.setCapability("fullReset", true);
 
 //            capabilities.setCapability("wdaConnectionTimeout", 5000000);
 //            capabilities.setCapability("appium:waitForQuiescence", false);

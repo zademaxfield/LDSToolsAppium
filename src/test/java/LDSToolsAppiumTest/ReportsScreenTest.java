@@ -805,6 +805,7 @@ public class ReportsScreenTest extends BaseDriver {
             Thread.sleep(2000);
         } else {
             myBasePage.scrollToTextiOS("Unit Statistics");
+            Thread.sleep(1000);
         }
 
         myReports.unitStatisticsReport.click();

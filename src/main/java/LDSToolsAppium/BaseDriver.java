@@ -446,9 +446,13 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             capabilities.setCapability("udid", testDevice);
             capabilities.setCapability("platformName", "android");
             capabilities.setCapability("automationName","uiautomator2");
+            capabilities.setCapability("noSign", true);
 //            capabilities.setCapability("automationName","espresso");
 //            capabilities.setCapability("forceEspressoRebuild",true);
-            capabilities.setCapability("fullReset", false);
+//            capabilities.setCapability("espressoServerLaunchTimeout",500000);
+
+            capabilities.setCapability("fullReset", true);
+//            capabilities.setCapability("autoLaunch", false);
 //            capabilities.setCapability("noReset", false);
 //            capabilities.setCapability("appPackage", myAppPackage);
             capabilities.setCapability("newCommandTimeout", 5000);
@@ -459,7 +463,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("normalizeTagNames", true);
 
             capabilities.setCapability("deviceReadyTimeout", 60);
-            capabilities.setCapability("noSign", true);
+
 //            capabilities.setCapability("gpsEnabled", true);
 
 

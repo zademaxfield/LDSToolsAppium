@@ -1384,5 +1384,15 @@ public class BasePage extends BaseDriver {
 
     }
 
+    public void androidSpinnerList() throws Exception {
+        int counter = 0;
+        List<MobileElement> spinnerList = driver.get().findElements(By.id("org.lds.ldstools.alpha:id/categoryAutoCompleteTextView"));
+        for (MobileElement spinnerText : spinnerList) {
+            spinnerText = spinnerList.get(counter);
+            System.out.println(spinnerText.getText());
+            counter++;
+        }
+     }
+
 
 }

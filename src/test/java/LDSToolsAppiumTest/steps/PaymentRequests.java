@@ -100,6 +100,7 @@ public class PaymentRequests extends BaseDriver {
     public void categorySub(String salesTaxAmount) throws Exception {
         myFinance.paymentRequestsCategoryGroup1Spinner.click();
         System.out.println(myBasePage.getSourceOfPage());
+        myBasePage.androidSpinnerList();
         driver.get().findElement(By.name("Category_1")).click();
         Thread.sleep(5000);
     }

@@ -45,7 +45,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all", "login", "smoke", "smoke3"})
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "jft"})
     public void validateLoginPageLinks() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -84,7 +84,7 @@ public class LoginPageTest extends BaseDriver {
 //        Assert.assertTrue(myPageSource.contains("In this Notice"));
 
             if (myBasePage.getOS().equals("ios")) {
-                myLoginPage.doneButton.click();
+//                myLoginPage.doneButton.click();
             } else {
                 driver.get().navigate().back();
             }
@@ -96,12 +96,12 @@ public class LoginPageTest extends BaseDriver {
             myPageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myPageSource.contains("Terms of Use"));
             Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
-            Assert.assertTrue(myPageSource.contains("By using this site"));
+//            Assert.assertTrue(myPageSource.contains("By using this site"));
 
 
-            if (myBasePage.getOS().equals("ios")) {
-                myLoginPage.doneButton.click();
-            }
+//            if (myBasePage.getOS().equals("ios")) {
+//                myLoginPage.doneButton.click();
+//            }
         } else {
             driver.get().navigate().back();
         }
@@ -111,7 +111,7 @@ public class LoginPageTest extends BaseDriver {
     }
 
     // ******************* Invalid Password Tests *******************
-    @Test (groups = {"all3", "all", "login", "jft"})
+    @Test (groups = {"all3", "all", "login"})
     public void invalidPasswordTest1() throws Exception {
         invalidCheck("zmaxfield", "<login>");
     }

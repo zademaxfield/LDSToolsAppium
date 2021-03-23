@@ -90,7 +90,8 @@ public class LoginPageScreen extends BasePage {
 
     //Trouble Signing In?
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/ldsAccountLoginForgotCredentialsButton")
-    @iOSXCUITFindBy(accessibility = "Having trouble signing in?")
+//    @iOSXCUITFindBy(accessibility = "Having trouble signing in?")
+    @iOSXCUITFindBy(accessibility = "Need help signing in?")
     public  MobileElement troubleSigningIn;
 
     //Privacy Notice

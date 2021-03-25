@@ -159,6 +159,7 @@ public class HelperMethods extends BaseDriver {
         } else {
 
             while(!myBasePage.checkForElement(myLoginPage.titleMemberToolsSTAGE)|| myCounter > 4) {
+                System.out.println(myBasePage.getSourceOfPage());
                 myLoginPage.titleMemberTools.click();
                 myCounter++;
             }

@@ -450,6 +450,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("automationName","espresso");
 //            capabilities.setCapability("forceEspressoRebuild",true);
 //            capabilities.setCapability("espressoServerLaunchTimeout",500000);
+//            capabilities.setCapability("espressoBuildConfig","/Users/zmaxfield/Documents/workspace/qa-membertools-all/AppUnderTest/espressConfig.json");
 
             capabilities.setCapability("fullReset", true);
 //            capabilities.setCapability("autoLaunch", false);

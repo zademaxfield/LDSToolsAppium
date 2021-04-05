@@ -159,7 +159,7 @@ public class HelperMethods extends BaseDriver {
         } else {
 
             while(!myBasePage.checkForElement(myLoginPage.titleMemberToolsSTAGE)|| myCounter > 4) {
-                System.out.println(myBasePage.getSourceOfPage());
+//                System.out.println(myBasePage.getSourceOfPage());
                 myLoginPage.titleMemberTools.click();
                 myCounter++;
             }
@@ -1238,7 +1238,8 @@ public class HelperMethods extends BaseDriver {
 
         System.out.println("Checking for Touch ID");
 //        myCheck = myBase.checkElementExists("Disable Touch ID");
-        myCheck = pageSource.contains("Disable Touch ID");
+//        myCheck = pageSource.contains("Disable Touch ID");
+        myCheck = pageSource.contains("Disable Security");
 //        if (myBasePage.checkForElement(myWhatsNew.usePassword)) //Samsung phones need this
 //            myWhatsNew.usePassword.click();
 

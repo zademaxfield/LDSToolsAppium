@@ -26,7 +26,6 @@ public class LoginPageScreen extends BasePage {
     //Member Tools Heading
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Member Tools']")
 //    @AndroidFindBy(xpath = "//*[@text='Member Tools']")
-//    @AndroidFindBy(accessibility = "Member Tools" )
     public MobileElement titleMemberTools;
 
     //Member Tools Heading STAGE

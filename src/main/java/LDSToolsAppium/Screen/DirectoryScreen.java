@@ -323,7 +323,11 @@ public class DirectoryScreen extends BasePage {
         String tempMyUser = myUser.toLowerCase();
 
         directorySort.click();
-        sortHousehold.click();
+        if (getOS().equalsIgnoreCase("ios")) {
+            sortHousehold.click();
+        }
+
+
 
         //
         if (tempMyUser.contains("tools")) {

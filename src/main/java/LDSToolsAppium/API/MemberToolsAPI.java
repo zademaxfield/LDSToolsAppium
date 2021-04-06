@@ -406,7 +406,7 @@ public class MemberToolsAPI {
 
     //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getReportJson (String unitNumber, String proxyLogin) throws IOException {
-        proxyLogin = "kroqbandit";
+//        proxyLogin = "kroqbandit";
         String responseData = "";
         File organizationFile = new File("ConfigFiles/reports" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();

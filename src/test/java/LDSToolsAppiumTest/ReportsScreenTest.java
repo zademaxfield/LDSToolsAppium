@@ -15,7 +15,7 @@ import java.util.List;
 public class ReportsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"all1", "all", "smoke", "smoke1", "report", "jft"})
+    @Test (groups = {"all1", "all", "smoke", "smoke1", "report"})
     public void reportsBasic_BISHOP() throws Exception {
         reportsBasicCheckSub("BISHOP");
     }
@@ -308,7 +308,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all2", "all", "report"})
+    @Test (groups = {"all2", "all", "report", "jft"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
@@ -366,11 +366,12 @@ public class ReportsScreenTest extends BaseDriver {
         checkActionAndInterviewApi("Bishopric Counselor Youth Interviews","kroqbandit", "21628");
         myBasePage.backButton.click();
 
+        //TODO: Need to check if the report exists
         //Young Men Approaching Mission Age
-        myReports.youngMenApproachingMissionAgeReport.click();
-        Thread.sleep(2000);
-        checkActionAndInterviewApi("Young Men Approaching Mission Age","kroqbandit", "21628");
-        myBasePage.backButton.click();
+//        myReports.youngMenApproachingMissionAgeReport.click();
+//        Thread.sleep(2000);
+//        checkActionAndInterviewApi("Young Men Approaching Mission Age","kroqbandit", "21628");
+//        myBasePage.backButton.click();
 
         //Men Who Have Not Served a Mission
         myReports.menWhoHaveNotServedaMissionReport.click();

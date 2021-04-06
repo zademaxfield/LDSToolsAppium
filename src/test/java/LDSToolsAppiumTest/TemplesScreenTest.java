@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2"})
     public void templeSimple() throws Exception {
         String pageSource;
 
@@ -171,7 +171,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all4"})
+    @Test (groups= { "all", "all4", "jft"})
     public void templeRecommendReminderGoItThanks() throws Exception {
         String pageSource;
 

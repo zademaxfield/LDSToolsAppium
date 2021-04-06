@@ -299,9 +299,8 @@ public class TemplesScreen extends BasePage {
 //            myBasePage.scrollToTextRecyclerViewSettings("Show Temple Recommend Expiration");
 
 
-            myBasePage.scrollTextIntoViewAndroid("Show Temple Recommend Expiration", 3);
-
-
+//            myBasePage.scrollTextIntoViewAndroid("Show Temple Recommend Expiration", 4);
+            myBasePage.scrollTextIntoViewAndroid("Remind me", 4);
 
             mySettings.templeShowTempleRecommendExpiration.click();
             mySettings.templeRecommendReminder.click();

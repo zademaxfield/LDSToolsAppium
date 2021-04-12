@@ -25,7 +25,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke2", "smoke", "all2", "all"})
+    @Test(groups = {"smoke2", "smoke", "all2", "all", "jft"})
     public void directoryScreenTest_BISHOP() throws Exception {
         directoryScreenSub("BISHOP");
     }
@@ -110,10 +110,10 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("WOMEN_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all3", "all"})
-    public void directoryScreenTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        directoryScreenSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
-    }
+//    @Test(groups = {"all3", "all"})
+//    public void directoryScreenTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+//        directoryScreenSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+//    }
 
 
     @Test(groups = {"all4", "all"})
@@ -324,7 +324,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryMemberInfoHousehold() throws Exception {
 
         // ********* Constructor **********

@@ -20,7 +20,7 @@ import java.util.List;
 public class OrganizationsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test (groups = {"smoke1", "smoke", "all1", "all"})
     public void organizationTest_BISHOP() throws Exception {
         organizationTestCheckSub("BISHOP");
     }
@@ -45,7 +45,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "jft"})
     public void organizationTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
         organizationTestCheckSub("WARD_EXECUTIVE_SECRETARY");
     }
@@ -235,10 +235,10 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("WOMEN_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all1", "all"})
-    public void organizationStakeHighPriestQuorum_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
-        organizationStakeHighPriestQuorumCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
-    }
+//    @Test(groups = {"all1", "all"})
+//    public void organizationStakeHighPriestQuorum_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+//        organizationStakeHighPriestQuorumCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+//    }
 
     @Test(groups = {"all4", "all"})
     public void organizationStakeHighPriestQuorum_WARD_MISSION_LEADER() throws Exception {

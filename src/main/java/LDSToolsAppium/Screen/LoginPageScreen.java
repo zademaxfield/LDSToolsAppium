@@ -98,12 +98,14 @@ public class LoginPageScreen extends BasePage {
     //Privacy Notice
 //    @AndroidFindBy(xpath = "//*[contains(@text, 'Privacy Policy (Updated 2018-09-01)')]")
     @AndroidFindBy(xpath = "//*[contains(@text, 'Privacy Policy')]")
-    @iOSXCUITFindBy(accessibility = "Privacy Notice (Updated 2018-09-01)")
+//    @iOSXCUITFindBy(accessibility = "Privacy Notice (Updated 2018-09-01)")
+    @iOSXCUITFindBy(accessibility = "Privacy Notice (Updated 2021-04-06)")
     public  MobileElement privacyNotice;
 
     //Terms of Use
     @AndroidFindBy(xpath = "//*[contains(@text, 'Terms of Use (Updated 2018-09-01)')]")
-    @iOSXCUITFindBy(accessibility = "Terms of Use (Updated 2018-09-01)")
+//    @iOSXCUITFindBy(accessibility = "Terms of Use (Updated 2018-09-01)")
+    @iOSXCUITFindBy(accessibility = "Terms of Use (Updated 2021-04-13)")
     public  MobileElement termsOfUse;
 
     //Cancel Button

@@ -7,11 +7,14 @@ import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.FinanceScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppiumTest.HelperMethods;
+import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+
+import io.appium.java_client.InteractsWithFiles.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +45,10 @@ public class PaymentRequests extends BaseDriver {
     @When("a payment request is filled out for {string} {string} {string} {string} {string} {string} {string}")
     public void a_payment_request_is_filled_out_for(String payee, String purpose, String account, String addReceipt, String salesTaxAmount, String category, String categoryAmount) throws Exception {
         myFinance.paymentRequestsAdd.click();
+//        System.out.println(myBasePage.getSourceOfPage());
         choosePayee(payee);
         choosePurpose(purpose, account);
-//        addReceiptToPaymentRequest(addReceipt);
+        addReceiptToPaymentRequest(addReceipt);
         categorySub(salesTaxAmount);
     }
 
@@ -72,11 +76,17 @@ public class PaymentRequests extends BaseDriver {
                     myFinance.paymentRequestsAddPayeeFab.click();
                 }
         }
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myFinance.paymentRequestsSelectThisPayee.click();
+        }
     }
 
     public void choosePurpose(String purpose, String account) throws Exception {
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myFinance.paymentRequestsAddPurpose.click();
+        }
+
         myFinance.paymentRequestsPurpose.setValue(purpose);
-        //TODO: Account I cannot change the account for some reason
 
         myFinance.paymentRequestsPurposeAddButton.click();
     }

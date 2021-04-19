@@ -58,6 +58,7 @@ public class LoginPageTest extends BaseDriver {
 //        Thread.sleep(2000);
 
         myLoginPage.troubleSigningIn.click();
+        Thread.sleep(4000);
         myBasePage.waitForText("Account");
         myLoginPage.accountRecoveryPage.isDisplayed();
         myPageSource = myBasePage.getSourceOfPage();
@@ -80,7 +81,7 @@ public class LoginPageTest extends BaseDriver {
 //        myBasePage.waitForText("Privacy Notice");
             myPageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myPageSource.contains("Privacy Notice"));
-            Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
+            Assert.assertTrue(myPageSource.contains("Updated 2021-04-06"));
 //        Assert.assertTrue(myPageSource.contains("In this Notice"));
 
             if (myBasePage.getOS().equals("ios")) {
@@ -95,7 +96,7 @@ public class LoginPageTest extends BaseDriver {
             myBasePage.waitForText("Terms of Use");
             myPageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myPageSource.contains("Terms of Use"));
-            Assert.assertTrue(myPageSource.contains("Updated 2018-09-01"));
+            Assert.assertTrue(myPageSource.contains("Updated 2021-04-13"));
 //            Assert.assertTrue(myPageSource.contains("By using this site"));
 
 

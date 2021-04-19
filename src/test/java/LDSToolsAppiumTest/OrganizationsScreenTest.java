@@ -20,7 +20,7 @@ import java.util.List;
 public class OrganizationsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"smoke1", "smoke", "all1", "all"})
+    @Test (groups = {"smoke1", "smoke", "all1", "all", "jft"})
     public void organizationTest_BISHOP() throws Exception {
         organizationTestCheckSub("BISHOP");
     }
@@ -45,7 +45,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("WARD_ASSISTANT_CLERK");
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void organizationTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
         organizationTestCheckSub("WARD_EXECUTIVE_SECRETARY");
     }
@@ -501,6 +501,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
 
         myOrg.eldersQuorumOrg.click();
+        myBasePage.waitForElement(myOrg.eldersQuorumPresidency);
         myOrg.eldersQuorumPresidency.click();
 //        eldersQuorumData();
 
@@ -514,6 +515,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         if(getRunningOS().equals("ios")) {
             myBasePage.waitForElementThenClick(myBasePage.backAltButton);
+            Thread.sleep(1000);
         }
 //        System.out.println(myBasePage.getSourceOfPage());
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
@@ -560,6 +562,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         List<String> androidList = new ArrayList<String>();
 
         myOrg.reliefSocietyOrg.click();
+        myBasePage.waitForElement(myOrg.reliefSocietyPresidency);
         myOrg.reliefSocietyPresidency.click();
 //        reliefSocietyData();
 

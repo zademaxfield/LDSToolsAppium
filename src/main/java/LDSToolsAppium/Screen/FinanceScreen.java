@@ -23,33 +23,28 @@ public class FinanceScreen extends BasePage {
 
     // ****************** Finance Main Screen ******************
     //Payment Requests
-    //TODO: iOS code
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Payment Requests']")
     @iOSXCUITFindBy(accessibility = "Payment Requests")
     public MobileElement financePaymentRequests;
 
     //Add Payment Requests
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/newPaymentRequestFab")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "New Payment Request")
     public MobileElement paymentRequestsAdd;
 
     //Add Myself
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/addMyselfButton")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "Add Myself")
     public MobileElement paymentRequestsAddMyself;
 
     //Add Other Payee
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/addOtherButton")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "Add Other Payee")
     public MobileElement paymentRequestsAddOther;
 
     //Search
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterEditText")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "Search")
     public MobileElement paymentRequestsSearch;
 
     //Add Payee Fab
@@ -58,10 +53,19 @@ public class FinanceScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Payment Requests")
     public MobileElement paymentRequestsAddPayeeFab;
 
+
+
+    //Select this payee
+    @iOSXCUITFindBy(accessibility = "Select this Payee")
+    public MobileElement paymentRequestsSelectThisPayee;
+
+    //Add Purpose
+    @iOSXCUITFindBy(accessibility = "Add Purpose")
+    public MobileElement paymentRequestsAddPurpose;
+
     //Purpose
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/purposeEditText")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeTextField'")
     public MobileElement paymentRequestsPurpose;
 
     //Account
@@ -71,9 +75,8 @@ public class FinanceScreen extends BasePage {
     public MobileElement paymentRequestsAccount;
 
     //Purpose page add button
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/fab")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "OK")
     public MobileElement paymentRequestsPurposeAddButton;
 
 
@@ -81,21 +84,18 @@ public class FinanceScreen extends BasePage {
     //Payment Information
 
     //Add Receipt
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/addReceiptTopButton")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "receipt")
     public MobileElement paymentRequestsAddReceipt;
 
     //Take a Picture
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/takePhotoTextView")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "Take a picture")
     public MobileElement paymentRequestsTakeAPicture;
 
     //Choose a file
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/chooseFileTextView")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "Choose a file")
     public MobileElement paymentRequestsChooseAFile;
 
     //Camera Button

@@ -44,12 +44,12 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-<!--    <test name="Android All Test 2 - Samsung Galaxy Note 8" thread-count="1" parallel="false" >-->
+<!--    <test name="Android All Test 2 - Samsung Galaxy A20s" thread-count="1" parallel="false" >-->
 <!--        <parameter name="os" value="android" />-->
 <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
 <!--        &lt;!&ndash;        <parameter name="fileName" value="ldstools-beta.apk" />&ndash;&gt;-->
 <!--&lt;!&ndash;                <parameter name="fileName" value="ldstools-release.apk" />&ndash;&gt;-->
-<!--        <parameter name="testDevice" value="ce061716cae890d10d7e" />-->
+<!--        <parameter name="testDevice" value="R9TN80AQ57J" />-->
 <!--        &lt;!&ndash;<parameter name="testDevice" value="STF-Pool" />&ndash;&gt;-->
 <!--        <parameter name="startSleepTime" value="90000" />-->
 <!--        <parameter name="systemPort" value="8202" />-->
@@ -181,7 +181,7 @@
         </classes>
     </test>
 
-    <test name="Android All -Samsung Galaxy Note 8 - Cucumber Tests 3" thread-count="1" parallel="false">
+    <test name="Android All -Samsung Galaxy A20s - Cucumber Tests 3" thread-count="1" parallel="false">
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
         <parameter name="testDevice" value="R38M803MWGM" />

@@ -5,6 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
@@ -276,7 +277,10 @@ public class ListsScreen extends BasePage {
             Thread.sleep(2000);
 
         } else {
+            listsAddMemberName.sendKeys("    ");
             listsAddMemberName.sendKeys(memberToAdd);
+//            listsAddMemberName.setValue(memberToAdd);
+            Thread.sleep(20000);
 //            driver.get().findElement(By.xpath("//*[@text='" + memberToClickOn + "']"));
             elementX = listsAddMemberName.getLocation().getX();
             elementY = listsAddMemberName.getLocation().getY();

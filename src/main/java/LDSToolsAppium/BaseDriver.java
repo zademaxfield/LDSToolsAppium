@@ -478,7 +478,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("appium:unlockKey", "1133");
 
 //            capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
-//            capabilities.setCapability("maxTypingFrequency", "8");
+            capabilities.setCapability("maxTypingFrequency", "8");
 //            capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
             capabilities.setCapability("androidInstallTimeout", "90000");
 //            capabilities.setCapability("unicodeKeyboard", "true");

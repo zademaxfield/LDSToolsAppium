@@ -88,6 +88,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
         File reportsDirectory = new File ("src/test/java/Reports");
         File screenshotDirectory = new File ("screenshot");
+        File configFiles = new File ("ConfigFiles");
 
         LOGGER.info("LOGGER: Start clean directories");
         System.out.println("Start clean directories");
@@ -97,6 +98,17 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        File[] configFileList = configFiles.listFiles();
+
+        if (configFileList != null) {
+            for (File oneFile : configFileList ) {
+                if (oneFile.getName().endsWith(".json")) {
+                    oneFile.delete();
+                }
+            }
+        }
+
     }
 
     //    @BeforeTest(alwaysRun = true)

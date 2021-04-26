@@ -108,7 +108,6 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
                 }
             }
         }
-
     }
 
     //    @BeforeTest(alwaysRun = true)

@@ -374,7 +374,8 @@ public class SettingsScreen extends BasePage {
 
     // 6 Weeks
     @AndroidFindBy(xpath = "//*[contains(@text, \"6 weeks\")]")
-    @iOSXCUITFindBy(iOSNsPredicate = "name == '6 weeks before expiration'")
+//    @iOSXCUITFindBy(iOSNsPredicate = "name == '6 weeks before expiration'")
+    @iOSXCUITFindBy(accessibility = "6 weeks before expiration")
     public MobileElement temple6Weeks;
 
     // 8 Weeks

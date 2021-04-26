@@ -246,6 +246,7 @@ public class TemplesScreen extends BasePage {
             myMenu.selectMenu(myMenu.settings);
             mySettings.templeRecommendReminder.click();
 
+            Thread.sleep(2000);
             numberOfWeeks.click();
 
             myMenu.selectMenu(myMenu.temples);

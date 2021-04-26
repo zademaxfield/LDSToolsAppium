@@ -1,210 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Android All Tests" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
-<!--    <listeners>-->
-<!--        <listener class-name="LDSToolsAppium.RetryListener"/>-->
-<!--        <listener class-name= "LDSToolsAppium.CustomReporter" />-->
-<!--        <listener class-name="LDSToolsAppium.TestListener" />-->
-<!--    </listeners>-->
+    <listeners>
+        <listener class-name="LDSToolsAppium.RetryListener"/>
+        <listener class-name= "LDSToolsAppium.CustomReporter" />
+        <listener class-name="LDSToolsAppium.TestListener" />
+    </listeners>
 
-<!--    <test name="Android All Test 1 - Samsung Galaxy S9 plus" thread-count="1" parallel="false" >-->
-<!--        <parameter name="os" value="android" />-->
-<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
-<!--&lt;!&ndash;        <parameter name="fileName" value="ldstools-beta.apk" />&ndash;&gt;-->
-<!--&lt;!&ndash;        <parameter name="fileName" value="ldstools-release.apk" />&ndash;&gt;-->
-<!--        <parameter name="testDevice" value="364c5930534f3098" />-->
-<!--        &lt;!&ndash;<parameter name="testDevice" value="STF-Pool" />&ndash;&gt;-->
-<!--        <parameter name="startSleepTime" value="0200" />-->
-<!--        <parameter name="systemPort" value="8251" />-->
-
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="all1"/>-->
-<!--            </run>-->
-<!--        </groups>-->
-
-<!--        <classes>-->
-<!--            <class name="LDSToolsAppium.BaseDriver" />-->
-
-<!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.HeaderTest" />-->
-<!--            <class name="LDSToolsAppiumTest.LoginPageTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.PinScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.ReportsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.TemplesScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.ListsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-
-<!--    <test name="Android All Test 2 - Samsung Galaxy A20s" thread-count="1" parallel="false" >-->
-<!--        <parameter name="os" value="android" />-->
-<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
-<!--        &lt;!&ndash;        <parameter name="fileName" value="ldstools-beta.apk" />&ndash;&gt;-->
-<!--&lt;!&ndash;                <parameter name="fileName" value="ldstools-release.apk" />&ndash;&gt;-->
-<!--        <parameter name="testDevice" value="R9TN80AQ57J" />-->
-<!--        &lt;!&ndash;<parameter name="testDevice" value="STF-Pool" />&ndash;&gt;-->
-<!--        <parameter name="startSleepTime" value="90000" />-->
-<!--        <parameter name="systemPort" value="8202" />-->
-
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="all2"/>-->
-<!--            </run>-->
-<!--        </groups>-->
-
-<!--        <classes>-->
-<!--            <class name="LDSToolsAppium.BaseDriver" />-->
-
-<!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.HeaderTest" />-->
-<!--            <class name="LDSToolsAppiumTest.LoginPageTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.PinScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.ReportsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.TemplesScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.ListsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-
-<!--    <test name="Android All Test 3 - Pixel 4 XL" thread-count="1" parallel="false" >-->
-<!--        <parameter name="os" value="android" />-->
-<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
-<!--        &lt;!&ndash;        <parameter name="fileName" value="ldstools-beta.apk" />&ndash;&gt;-->
-<!--&lt;!&ndash;                <parameter name="fileName" value="ldstools-release.apk" />&ndash;&gt;-->
-<!--        <parameter name="testDevice" value="99051FFBA000S7" />-->
-<!--        &lt;!&ndash;<parameter name="testDevice" value="STF-Pool" />&ndash;&gt;-->
-<!--        <parameter name="startSleepTime" value="180000" />-->
-<!--        <parameter name="systemPort" value="8203" />-->
-
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="all3"/>-->
-<!--            </run>-->
-<!--        </groups>-->
-
-<!--        <classes>-->
-<!--            <class name="LDSToolsAppium.BaseDriver" />-->
-
-<!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.HeaderTest" />-->
-<!--            <class name="LDSToolsAppiumTest.LoginPageTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.PinScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.ReportsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.TemplesScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.ListsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-
-<!--    <test name="Android All Test 4 - Samsung Galaxy Note 10" thread-count="1" parallel="false" >-->
-<!--        <parameter name="os" value="android" />-->
-<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
-<!--        &lt;!&ndash;        <parameter name="fileName" value="ldstools-beta.apk" />&ndash;&gt;-->
-<!--&lt;!&ndash;                <parameter name="fileName" value="ldstools-release.apk" />&ndash;&gt;-->
-<!--        <parameter name="testDevice" value="R38M803MWGM" />-->
-<!--        &lt;!&ndash;<parameter name="testDevice" value="STF-Pool" />&ndash;&gt;-->
-<!--        <parameter name="startSleepTime" value="240000" />-->
-<!--        <parameter name="systemPort" value="8204" />-->
-
-<!--        <groups>-->
-<!--            <run>-->
-<!--                <include name="all4"/>-->
-<!--            </run>-->
-<!--        </groups>-->
-
-<!--        <classes>-->
-<!--            <class name="LDSToolsAppium.BaseDriver" />-->
-
-<!--            <class name="LDSToolsAppiumTest.CalendarScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.HeaderTest" />-->
-<!--            <class name="LDSToolsAppiumTest.LoginPageTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.PinScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.ReportsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.TemplesScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.ListsScreenTest" />-->
-<!--            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
-
-    <test name="Android All - Samsung Galaxy Note 10 - Cucumber Tests 1" thread-count="1" parallel="false">
+    <test name="Android All Test 1 - Samsung Galaxy S9 plus" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
-<!--        <parameter name="testDevice" value="09251FDD4003MU" />-->
-        <parameter name="testDevice" value="R38M803MWGM" />
-        <parameter name="startSleepTime" value="0200" />
-        <parameter name="systemPort" value="8205" />
-
-        <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll1"> </class>
-        </classes>
-    </test>
-
-    <test name="Android All - Pixel 4 XL - Cucumber Tests 2" thread-count="1" parallel="false">
-        <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-<!--        <parameter name="testDevice" value="RFCN80KVV5P" />-->
-        <parameter name="testDevice" value="99051FFBA000S7" />
-        <parameter name="startSleepTime" value="90000" />
-        <parameter name="systemPort" value="8305" />
-
-        <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll2"> </class>
-        </classes>
-    </test>
-
-    <test name="Android All -Samsung Galaxy A20s - Cucumber Tests 3" thread-count="1" parallel="false">
-        <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <parameter name="testDevice" value="R38M803MWGM" />
-        <parameter name="startSleepTime" value="180000" />
-        <parameter name="systemPort" value="8205" />
-
-        <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll3"> </class>
-        </classes>
-    </test>
-
-    <test name="Android All - Samsung Galaxy S9 plus - Cucumber Tests 1" thread-count="1" parallel="false">
-        <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
+<!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
+<!--        <parameter name="fileName" value="ldstools-release.apk" />-->
         <parameter name="testDevice" value="364c5930534f3098" />
-        <parameter name="startSleepTime" value="270000" />
-        <parameter name="systemPort" value="8205" />
+        <!--<parameter name="testDevice" value="STF-Pool" />-->
+        <parameter name="startSleepTime" value="0200" />
+        <parameter name="systemPort" value="8251" />
+
+        <groups>
+            <run>
+                <include name="all1"/>
+            </run>
+        </groups>
 
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll4"> </class>
+            <class name="LDSToolsAppium.BaseDriver" />
+
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.ListsScreenTest" />
+            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
         </classes>
     </test>
 
+    <test name="Android All Test 2 - Samsung Galaxy A20s" thread-count="1" parallel="false" >
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
+<!--                <parameter name="fileName" value="ldstools-release.apk" />-->
+        <parameter name="testDevice" value="R9TN80AQ57J" />
+        <!--<parameter name="testDevice" value="STF-Pool" />-->
+        <parameter name="startSleepTime" value="90000" />
+        <parameter name="systemPort" value="8202" />
 
+        <groups>
+            <run>
+                <include name="all2"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppium.BaseDriver" />
+
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.ListsScreenTest" />
+            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
+        </classes>
+    </test>
+
+    <test name="Android All Test 3 - Pixel 4 XL" thread-count="1" parallel="false" >
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
+<!--                <parameter name="fileName" value="ldstools-release.apk" />-->
+        <parameter name="testDevice" value="99051FFBA000S7" />
+        <!--<parameter name="testDevice" value="STF-Pool" />-->
+        <parameter name="startSleepTime" value="180000" />
+        <parameter name="systemPort" value="8203" />
+
+        <groups>
+            <run>
+                <include name="all3"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppium.BaseDriver" />
+
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.ListsScreenTest" />
+            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
+        </classes>
+    </test>
+
+    <test name="Android All Test 4 - Samsung Galaxy Note 10" thread-count="1" parallel="false" >
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
+<!--                <parameter name="fileName" value="ldstools-release.apk" />-->
+        <parameter name="testDevice" value="R38M803MWGM" />
+        <!--<parameter name="testDevice" value="STF-Pool" />-->
+        <parameter name="startSleepTime" value="240000" />
+        <parameter name="systemPort" value="8204" />
+
+        <groups>
+            <run>
+                <include name="all4"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppium.BaseDriver" />
+
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.HeaderTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.ListsScreenTest" />
+            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
+        </classes>
+    </test>
+
+<!--    <test name="Android All - Samsung Galaxy Note 10 - Cucumber Tests" thread-count="1" parallel="false">-->
+<!--        <parameter name="os" value="android" />-->
+<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+<!--&lt;!&ndash;        <parameter name="testDevice" value="09251FDD4003MU" />&ndash;&gt;-->
+<!--        <parameter name="testDevice" value="R38M803MWGM" />-->
+<!--        <parameter name="startSleepTime" value="0200" />-->
+<!--        <parameter name="systemPort" value="8205" />-->
+
+<!--        <classes>-->
+<!--            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll"> </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>

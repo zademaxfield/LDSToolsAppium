@@ -31,52 +31,22 @@ public class APITest {
     List<String> memberList = new ArrayList<String>();
     MemberToolsAPI apiTest = new MemberToolsAPI();
     List<String> reportNameToCheck = new ArrayList<>();
+    String rawData;
 
     String unitNumber = "21628";
     String proxyLogin = "kroqbandit";
 
     String accessToken;
     String idToken;
-    final private String charset = StandardCharsets.UTF_8.name();
-    final private MediaType applicationJson = MediaType.get("application/json;charset=" + charset);
-    final String jsonPW = "{\"username\": \"zmaxfield\",\"password\":\"B@b00nSp172020\"}";
+
 
     @Test
-    public void apiAuth() {
+    public void apiInfoTestStuff() throws Exception {
 
+//        memberList = apiTest.getReportNames("kroqbandit", "21628");
+        rawData = apiTest.getApiInfoTEST(unitNumber, proxyLogin);
 
-
-
-        Response resp = RestAssured.given()
-                .formParam("client_id", "ZIUuB0qsmr8Kasdt")
-                .formParam("client_secret", "GZ7ohMinlb5QoN0v0zHgXmUFKOKLcMkC")
-                .formParam("grant_type", "client_credentials")
-                .formParam("scope", "openid")
-                .post("https://ident-int.churchofjesuschrist.org/sso/oauth2/access_token");
-
-        System.out.println("****************************");
-        System.out.println(resp.jsonPath().prettify());
-        System.out.println("****************************");
-        accessToken = resp.jsonPath().get("access_token");
-        idToken = resp.jsonPath().get("id_token");
-
-        Response resp1 = RestAssured.given()
-                .auth()
-                .oauth2(accessToken)
-                .log()
-                .all()
-                .header("Authorization" , "Bearer " + idToken)
-                .header("User-Agent", "Member Tools API Testing")
-                .get("https://mobileauth-int.churchofjesuschrist.org/v1/mobile/login");
-//                .get("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/organizations?units=" + unitNumber);
-
-        System.out.println(resp1.getBody().asString());
-        System.out.println(resp1.jsonPath().prettify());
-
-
-
-
-
+//        memberList = apiTest.getReportNames("bradyduck", "111074");
 
 
     }
@@ -119,7 +89,7 @@ public class APITest {
 //        }
 //
 //    }
-//
+
 //    @Test
 //    public void ReportNameCheckElders() throws Exception {
 //        reportNameToCheck.clear();
@@ -154,5 +124,51 @@ public class APITest {
 ////        }
 //
 //    }
+
+
+
+
+
+
+
+
+
+    //    final private String charset = StandardCharsets.UTF_8.name();
+//    final private MediaType applicationJson = MediaType.get("application/json;charset=" + charset);
+
+
+
+
+
+
+//    @Test
+//    public void apiAuth() {
+//        Response resp = RestAssured.given()
+//                .formParam("client_id", "ZIUuB0qsmr8Kasdt")
+//                .formParam("client_secret", "GZ7ohMinlb5QoN0v0zHgXmUFKOKLcMkC")
+//                .formParam("grant_type", "client_credentials")
+//                .formParam("scope", "openid")
+//                .post("https://ident-int.churchofjesuschrist.org/sso/oauth2/access_token");
+//
+//        System.out.println("****************************");
+//        System.out.println(resp.jsonPath().prettify());
+//        System.out.println("****************************");
+//        accessToken = resp.jsonPath().get("access_token");
+//        idToken = resp.jsonPath().get("id_token");
+//
+//        Response resp1 = RestAssured.given()
+//                .auth()
+//                .oauth2(accessToken)
+//                .log()
+//                .all()
+//                .header("Authorization" , "Bearer " + idToken)
+//                .header("User-Agent", "Member Tools API Testing")
+//                .get("https://mobileauth-int.churchofjesuschrist.org/v1/mobile/login");
+////                .get("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/organizations?units=" + unitNumber);
+//
+//        System.out.println(resp1.getBody().asString());
+//        System.out.println(resp1.jsonPath().prettify());
+//    }
+
 
 }

@@ -444,6 +444,32 @@ public class MemberToolsAPI {
         return responseData;
     }
 
+
+    public String getApiInfoTEST (String unitNumber, String proxyLogin) throws IOException {
+        String responseData = "";
+
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/reports?units="+ unitNumber, proxyLogin );
+
+
+
+        try (Response response = httpClient.newCall(request).execute()) {
+            assert response.body() != null;
+            responseData = response.body().string();
+            System.out.println("CODE: " + response.code());
+            System.out.println("Message: " + response.message());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("*******************************************");
+        System.out.println(responseData);
+        System.out.println("*******************************************");
+
+
+        return responseData;
+    }
+
     //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getReportUnitStatsJson (String unitNumber, String proxyLogin) throws IOException {
         proxyLogin = "kroqbandit";

@@ -26,4 +26,8 @@
 /ConfigFiles/.DS_Store
 /screenshot/9f34459e-0525-49a7-b35f-2c9cab41ccc5/
 /src/main/java/LDSToolsAppium/.DS_Store
-/src/test/java/Reports/Android Just For Testing Suite/
+/src/test/java/Reports/Android Just For Testing Suite
+/.DS_Store
+/.idea/misc.xml
+/src/test/.DS_Store
+/src/test/java/.DS_Store

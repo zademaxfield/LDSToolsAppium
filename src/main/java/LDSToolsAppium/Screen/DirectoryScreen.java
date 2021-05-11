@@ -66,7 +66,8 @@ public class DirectoryScreen extends BasePage {
     //Sort Button
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/filterMenuImageButton")
     //@AndroidFindBy(xpath = "//*[@resource-id='filterMenuImageButton']")
-    @iOSXCUITFindBy(accessibility = "Sort")
+//    @iOSXCUITFindBy(accessibility = "Sort")
+    @iOSXCUITFindBy(accessibility = "Sort Options")
     public  MobileElement directorySort;
 
     //Households
@@ -293,8 +294,10 @@ public class DirectoryScreen extends BasePage {
 
         if (myBase.getOS().equalsIgnoreCase("ios")) {
             myBase.scrollDownIOS();
+//            myBase.scrollUpIOS();
 //            System.out.println(myBase.getSourceOfPage());
         }
+
         myBase.waitForElementThenClick(directorySort);
 
 

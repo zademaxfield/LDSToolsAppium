@@ -25,7 +25,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke2", "smoke", "all2", "all", "jft"})
+    @Test(groups = {"smoke2", "smoke", "all2", "all"})
     public void directoryScreenTest_BISHOP() throws Exception {
         directoryScreenSub("BISHOP");
     }
@@ -652,7 +652,7 @@ public class DirectoryScreenTest extends BaseDriver {
 //        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("AhNae, Atonio");
+        myDirectory.searchAndClick("Alo, Taleni");
 
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
 
@@ -663,7 +663,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 //    @Test(groups = {"needUpdate"})
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryLatLongNoGPSNoCalling() throws Exception {
         String pageSource;
 
@@ -677,7 +677,7 @@ public class DirectoryScreenTest extends BaseDriver {
 //        myHelper.loginUAT("LDSTools5", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("AhNae, Atonio");
+        myDirectory.searchAndClick("Alo, Taleni");
 
         //Get all info
         pageSource = myDirectory.getDirectoryUserData();

@@ -507,7 +507,7 @@ public class HelperMethods extends BaseDriver {
             mySettings.proxyDone.click();
             Thread.sleep(1000);
             myBasePage.waitForElementThenClick(myBasePage.backButton);
-//            Thread.sleep(500);
+            Thread.sleep(500);
 //            System.out.println(myBasePage.getSourceOfPage());
             myBasePage.waitForElementThenClick(myBasePage.backAltButton);
 

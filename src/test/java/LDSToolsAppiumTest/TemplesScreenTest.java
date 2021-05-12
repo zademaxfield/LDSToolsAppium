@@ -171,7 +171,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
     }
 
-    @Test (groups= { "all", "all4", "jft"})
+    @Test (groups= { "all", "all4"})
     public void templeRecommendReminderGoItThanks() throws Exception {
         String pageSource;
 
@@ -210,7 +210,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all1"})
+    @Test (groups= { "all", "all1", "jft"})
     public void templeNearestTemples() throws Exception {
         String pageSource;
 
@@ -243,11 +243,21 @@ public class TemplesScreenTest extends BaseDriver {
         Thread.sleep(8000);
         pageSource = myBasePage.getSourceOfPage();
 
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            Assert.assertTrue(myBasePage.checkNoCaseList("Oakland", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Sacramento", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Fresno", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Reno", pageSource, "Contains"));
+        } else {
+            Assert.assertTrue(myBasePage.checkNoCaseList("Oquirrh", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Jordan", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Draper", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Timpanogos", pageSource, "Contains"));
+        }
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Oquirrh", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Jordan", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Draper", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Timpanogos", pageSource, "Contains"));
+
+
+
 
 
     }

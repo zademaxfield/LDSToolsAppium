@@ -8,8 +8,8 @@
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-        | leader                            | memberRecord              | can        |
-        | "BISHOP"                          | "White, Koty Lucas"       | "true"     |
+        | leader   | memberRecord        | can    |
+        | "BISHOP" | "White, Koty Lucas" | "true" |
 
 
     @all @all3
@@ -38,7 +38,7 @@
       | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
       | "WARD_MISSION_LEADER"             | "White, Koty Lucas"       | "true"     |
 
-    @all @all3
+    @all @all3 @jft
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -53,30 +53,30 @@
         | "STAKE_EXECUTIVE_SECRETARY"         | "White, Koty Lucas"       | "false"    | "Auburn Hills"   |
 
 
-    @all @all3 @jft
+    @all @all3
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
       Then the <memberRecord> for People Being Taught will be displayed
       And the members record for People Being Taught <can> be edited
       Examples:
-        | leader                            | memberRecord              | can        |
-#        | "BISHOP"                          | "Mulaudzi, Naome"         | "true"     |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Sosa, Monique"           | "true"     |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Faber, Tesla"            | "true"     |
-#        | "WARD_CLERK"                      | "Anibal, Meury"           | "true"     |
-        | "WARD_EXECUTIVE_SECRETARY"        | "Pettengill, Wyatt"       | "true"     |
-#        | "ELDERS_QUORUM_PRESIDENT"         | "Shepherd, Camden"        | "true"     |
-#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Faber, Tesla"            | "false"    |
-#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Mulaudzi, Naome"         | "false"    |
-#        | "ELDERS_QUORUM_SECRETARY"         | "Mulaudzi, Naome"         | "false"    |
-#        | "RELIEF_SOCIETY_PRESIDENT"        | "Sosa, Monique"           | "true"     |
-#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Faber, Tesla"            | "false"    |
-#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Anibal, Meury"           | "false"    |
-        | "YOUNG_WOMEN_PRESIDENT"           | "Pettengill, Wyatt"       | "false"    |
-#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Shepherd, Camden"        | "false"    |
-#        | "SUNDAY_SCHOOL_PRESIDENT"         | "Faber, Tesla"            | "false"    |
-#        | "WARD_MISSION_LEADER"             | "Mulaudzi, Naome"         | "true"     |
+        | leader                            | memberRecord     | can     |
+        | "BISHOP"                          | "Bray, Sidney"   | "true"  |
+        | "BISHOPRIC_SECOND_COUNSELOR"      | "Arnold, Pryde"  | "true"  |
+        | "BISHOPRIC_SECOND_COUNSELOR"      | "Brown, Maurice" | "true"  |
+        | "WARD_CLERK"                      | "Buzo, Robert"   | "true"  |
+#        | "WARD_EXECUTIVE_SECRETARY"        | "Cubbage, Ron"   | "true"  |
+        | "ELDERS_QUORUM_PRESIDENT"         | "May, Melida"    | "true"  |
+        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Saft, Jolan"    | "false" |
+        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bray, Sidney"   | "false" |
+        | "ELDERS_QUORUM_SECRETARY"         | "Arnold, Pryde"  | "false" |
+        | "RELIEF_SOCIETY_PRESIDENT"        | "Brown, Maurice" | "true"  |
+        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Buzo, Robert"   | "false" |
+        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Cubbage, Ron"   | "false" |
+        | "YOUNG_WOMEN_PRESIDENT"           | "May, Melida"    | "false" |
+        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Saft, Jolan"    | "false" |
+        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bray, Sidney"   | "false" |
+        | "WARD_MISSION_LEADER"             | "Arnold, Pryde"  | "true"  |
 
     @all @all3
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
@@ -85,12 +85,12 @@
       Then the <memberRecord> for People Being Taught will be displayed
       And the members record for People Being Taught <can> be edited
       Examples:
-        | leader                              | memberRecord              | can        | unit             |
-        | "STAKE_PRESIDENT"                   | "Corum, Will"             | "false"    | "Newton"         |
-        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Corum, Will"             | "false"    | "Newton"         |
-        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Cesar"                   | "false"    | "Hutchinson"     |
-        | "STAKE_CLERK"                       | "Casas, Charlotte"        | "false"    | "Pratt"          |
-        | "STAKE_EXECUTIVE_SECRETARY"         | "Thrash, Tori"             | "false"    | "Auburn Hills"  |
+        | leader                             | memberRecord       | can     | unit           |
+        | "STAKE_PRESIDENT"                  | "Corum, Will"      | "false" | "Newton"       |
+        | "STAKE_PRESIDENT_FIRST_COUNSELOR"  | "Corum, Will"      | "false" | "Newton"       |
+        | "STAKE_PRESIDENT_SECOND_COUNSELOR" | "Cesar"            | "false" | "Hutchinson"   |
+        | "STAKE_CLERK"                      | "Casas, Charlotte" | "false" | "Pratt"        |
+        | "STAKE_EXECUTIVE_SECRETARY"        | "Thrash, Tori"     | "false" | "Auburn Hills" |
 
 
 #    Scenario: As a BISHOP check the quick card for New Members

@@ -450,14 +450,24 @@ public class MemberToolsAPI {
 
         OkHttpClient httpClient = loginCred();
         Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/reports?units="+ unitNumber, proxyLogin );
-
+        Headers resHeader;
 
 
         try (Response response = httpClient.newCall(request).execute()) {
+
             assert response.body() != null;
             responseData = response.body().string();
             System.out.println("CODE: " + response.code());
             System.out.println("Message: " + response.message());
+
+            System.out.println("*******************************************");
+            resHeader = response.headers();
+            for (int i = 0; i < resHeader.size(); i++) {
+                System.out.println(resHeader.name(i) + ": " + resHeader.value(i));
+            }
+            System.out.println("*******************************************");
+
+
 
         } catch (IOException e) {
             e.printStackTrace();

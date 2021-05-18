@@ -371,15 +371,14 @@ public class DirectoryScreenTest extends BaseDriver {
         checkMemberInfoKenRyan();
     }
 
-    @Test(groups = {"goat"}, invocationCount = 20)
+    @Test(groups = {"goat", "jft"}, invocationCount = 10)
     public void directoryLoginTest() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
 
-        myHelper.proxyLogin("fitzpatrickkb");
-//        myHelper.proxyLoginProd("fitzpatrickkb");
+        myHelper.proxyLogin("kroqbandit");
         myHelper.enterPin("1", "1", "3", "3");
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.scrollDownIOS();
@@ -638,7 +637,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void directoryLatLongNoGPS() throws Exception {
         String pageSource;
 

@@ -192,6 +192,7 @@ public class ProgressRecord extends BaseDriver {
 
 
     public void searchForMemberAndClick(String memberRecord) throws Exception {
+//        System.out.println(myBasePage.getSourceOfPage());
         myReports.prSearchField.sendKeys(memberRecord);
         Thread.sleep(2000);
         selectProgressRecordMember(memberRecord);

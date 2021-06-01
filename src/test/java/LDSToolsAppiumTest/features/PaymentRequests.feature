@@ -4,14 +4,12 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
   @jft
   Scenario Outline: As a member enter in a new payment request - Choose file
     Given a <member> is on the Finance page
-    When a payment request is filled out for <payee> <purpose> <account> <addReceipt> <salesTaxAmount> <category> <categoryAmount>
-    Then the payment request should be processed with information of <member> <payee> <purpose> <account> <addReceipt> <salesTaxAmount> <category> <categoryAmount>
+    When a payment request is filled out for <payee> <purpose> <account> <addReceipt> <category> <categoryAmount>
+    Then the payment request should be processed with information of <member> <payee> <purpose> <account> <addReceipt> <category> <categoryAmount>
     Examples:
-      | member      | payee               | purpose     | account   | addReceipt  | salesTaxAmount  | category      | categoryAmount |
-      | "BISHOP"    | "myself"            | "Primary"   | "US-USD"  | "fileName"  | ".25"           | "Primary"     | "2.00"         |
-#      | "MEMBER1"   | "myself"           | "Primary"   | "US-USD"  | "picture"   | ".25"           | "Primary"     | "2.00"         |
-#      | "MEMBER1"   | "Other Person"     | "Primary"   | "US-USD"  | "fileName"  | ".25"           | "Primary"     | "2.00"         |
-#      | "MEMBER1"   | "add other payee"  | "Primary"   | "US-USD"  | "fileName"  | ".25"           | "Primary"     | "2.00"         |
+      | member   | payee    | purpose    | account | addReceipt | category     | categoryAmount |
+      | "BISHOP" | "myself" | "Test One" | "test"  | "picture"  | "Activities" | "555"          |
+
 
   Scenario: As a member add a payment request with multiple categories
     Given a "BISHOP" is on the Finance page

@@ -1,17 +1,17 @@
 @ProgressRecord
   Feature: Progress Record tests - Used to be Missionary Progress Record
 
-    @smoke
+    @smoke @jft
     Scenario Outline: SMOKE as a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-        | leader   | memberRecord        | can    |
-        | "BISHOP" | "White, Koty Lucas" | "true" |
+        | leader   | memberRecord          | can    |
+        | "BISHOP" | "Cox, Troy Christian" | "true" |
 
-
+      
     @all @all3
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
@@ -19,38 +19,38 @@
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-      | leader                            | memberRecord              | can        |
-      | "BISHOP"                          | "White, Koty Lucas"       | "true"     |
-      | "BISHOPRIC_SECOND_COUNSELOR"      | "White, Koty Lucas"       | "true"     |
-      | "BISHOPRIC_SECOND_COUNSELOR"      | "White, Koty Lucas"       | "true"     |
-      | "WARD_CLERK"                      | "Johnson, Jasean Marvin"  | "true"     |
-      | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann"  | "true"     |
-      | "ELDERS_QUORUM_PRESIDENT"         | "Perry, Keegan Krue"      | "true"     |
-      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
-      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"             | "false"    |
-      | "ELDERS_QUORUM_SECRETARY"         | "White, Koty Lucas"       | "false"    |
-      | "RELIEF_SOCIETY_PRESIDENT"        | "White, Koty Lucas"       | "true"     |
-      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin"  | "false"    |
-      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann"  | "false"    |
-      | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"      | "false"    |
-      | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "White, Koty Lucas"       | "false"    |
-      | "SUNDAY_SCHOOL_PRESIDENT"         | "White, Koty Lucas"       | "false"    |
-      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "White, Koty Lucas"       | "false"    |
-      | "WARD_MISSION_LEADER"             | "White, Koty Lucas"       | "true"     |
+        | leader                            | memberRecord             | can     |
+        | "BISHOP"                          | "Cox, Troy Christian"    | "true"  |
+        | "BISHOPRIC_SECOND_COUNSELOR"      | "Cox, Troy Christian"    | "true"  |
+        | "BISHOPRIC_SECOND_COUNSELOR"      | "Cox, Troy Christian"    | "true"  |
+        | "WARD_CLERK"                      | "Johnson, Jasean Marvin" | "true"  |
+        | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann" | "true"  |
+        | "ELDERS_QUORUM_PRESIDENT"         | "Perry, Keegan Krue"     | "true"  |
+        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Cox, Troy Christian"    | "false" |
+        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"            | "false" |
+        | "ELDERS_QUORUM_SECRETARY"         | "Cox, Troy Christian"    | "false" |
+        | "RELIEF_SOCIETY_PRESIDENT"        | "Cox, Troy Christian"    | "true"  |
+        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin" | "false" |
+        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann" | "false" |
+        | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"     | "false" |
+        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Cox, Troy Christian"    | "false" |
+        | "SUNDAY_SCHOOL_PRESIDENT"         | "Cox, Troy Christian"    | "false" |
+        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Cox, Troy Christian"    | "false" |
+        | "WARD_MISSION_LEADER"             | "Cox, Troy Christian"    | "true"  |
 
-    @all @all3 @jft
+    @all @all3
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-        | leader                              | memberRecord              | can        | unit             |
-        | "STAKE_PRESIDENT"                   | "Evans, Ava"              | "false"    | "Maize"          |
-        | "STAKE_PRESIDENT_FIRST_COUNSELOR"   | "Walker, Steph"           | "false"    | "Newton"         |
-        | "STAKE_PRESIDENT_SECOND_COUNSELOR"  | "Lopez, Jordan"           | "false"    | "Wellington"     |
-        | "STAKE_CLERK"                       | "Studd, Blu Lee"          | "false"    | "Pratt"          |
-        | "STAKE_EXECUTIVE_SECRETARY"         | "White, Koty Lucas"       | "false"    | "Auburn Hills"   |
+        | leader                             | memberRecord          | can     | unit           |
+        | "STAKE_PRESIDENT"                  | "Evans, Ava"          | "false" | "Maize"        |
+        | "STAKE_PRESIDENT_FIRST_COUNSELOR"  | "Walker, Steph"       | "false" | "Newton"       |
+        | "STAKE_PRESIDENT_SECOND_COUNSELOR" | "Lopez, Jordan"       | "false" | "Wellington"   |
+        | "STAKE_CLERK"                      | "Studd, Blu Lee"      | "false" | "Pratt"        |
+        | "STAKE_EXECUTIVE_SECRETARY"        | "Cox, Troy Christian" | "false" | "Auburn Hills" |
 
 
     @all @all3

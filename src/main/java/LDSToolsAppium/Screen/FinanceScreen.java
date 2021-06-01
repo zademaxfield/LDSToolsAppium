@@ -98,6 +98,10 @@ public class FinanceScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Choose a file")
     public MobileElement paymentRequestsChooseAFile;
 
+    //Photo Gallery
+    @iOSXCUITFindBy(accessibility = "Photo Gallery")
+    public MobileElement paymentRequestsPhotoGallery;
+
     //Camera Button
     //TODO: iOS code
     @AndroidFindBy(id = "com.google.android.GoogleCamera:id/shutter_button")
@@ -107,15 +111,21 @@ public class FinanceScreen extends BasePage {
 
     //Category Top View Group
     //Category
-    //TODO: iOS code
     @AndroidFindBy(xpath = "//android.view.ViewGroup[2]//android.widget.Spinner")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "Category: Select Category")
     public MobileElement paymentRequestsCategoryGroup1Spinner;
 
+    //Category iOS
+    @iOSXCUITFindBy(accessibility = "Category")
+    public MobileElement paymentRequestsCategoryiOS;
+
+    //Amount iOS
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
+    public MobileElement paymentRequestsAmountiOS;
+
     //Amount
-    //TODO: iOS code
     @AndroidFindBy(xpath = "//android.view.ViewGroup[2]//android.widget.EditText")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "Amount")
     public MobileElement paymentRequestsCategoryGroup1Amount;
 
     //Category2
@@ -129,5 +139,72 @@ public class FinanceScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.view.ViewGroup[3]//android.widget.EditText")
     @iOSXCUITFindBy(accessibility = "Payment Requests")
     public MobileElement paymentRequestsCategoryGroup2Amount;
+
+
+
+
+    //Amount key 1
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/oneButton")
+    public MobileElement paymentRequestsKey1;
+
+    //Amount key 2
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/twoButton")
+    public MobileElement paymentRequestsKey2;
+
+    //Amount key 3
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/threeButton")
+    public MobileElement paymentRequestsKey3;
+
+    //Amount key 4
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/fourButton")
+    public MobileElement paymentRequestsKey4;
+
+    //Amount key 5
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/fiveButton")
+    public MobileElement paymentRequestsKey5;
+
+    //Amount key 6
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/sixButton")
+    public MobileElement paymentRequestsKey6;
+
+    //Amount key 7
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/sevenButton")
+    public MobileElement paymentRequestsKey7;
+
+    //Amount key 8
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/eightButton")
+    public MobileElement paymentRequestsKey8;
+
+    //Amount key 9
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/nineButton")
+    public MobileElement paymentRequestsKey9;
+
+    //Amount key 0
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/zeroButton")
+    public MobileElement paymentRequestsKey0;
+
+    //Amount key Delete
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/deleteButton")
+    public MobileElement paymentRequestsKeyDelete;
+
+    //Amount key Enter
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/enterButton")
+    public MobileElement paymentRequestsKeyEnter;
+
+
+
+    //Add Category Button
+    //TODO: iOS code
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/button")
+    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    public MobileElement paymentRequestsAddCategory;
+
+
+    //Save Button
+    //TODO: iOS code
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/saveButton")
+    @iOSXCUITFindBy(accessibility = "Save")
+    public MobileElement paymentRequestsSaveButton;
+
 
 }

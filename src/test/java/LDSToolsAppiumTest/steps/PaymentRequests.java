@@ -76,6 +76,68 @@ public class PaymentRequests extends BaseDriver {
     }
 
 
+    @When("a payment request is filled out with the categories and amounts of {string} {string} {string} {string} {string} {string}")
+    public void aPaymentRequestIsFilledOutWithTheCategoriesAndAmountsOf(String cat1, String amount1, String cat2, String amount2, String cat3, String amount3) throws Exception {
+        LOGGER.info("a payment request is filled out with the categories and amounts of " + cat1 + " " + amount1 + " " + cat2 + " " + amount2 + " " + cat3 + " " + amount3);
+        myFinance.paymentRequestsAdd.click();
+        choosePayee("myself");
+        choosePurpose("Multiple Cats", "test");
+        addReceiptToPaymentRequest("picture");
+
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            categorySub(cat1);
+            categoryAmountSub(amount1);
+
+            myFinance.paymentRequestsAddCategory.click();
+
+            categorySub(cat2);
+            categoryAmountSub(amount2);
+
+            myFinance.paymentRequestsAddCategory.click();
+
+            categorySub(cat3);
+            categoryAmountSub(amount3);
+        } else {
+            categorySub(cat1);
+            categoryAmountSub(amount1);
+
+            myFinance.paymentRequestsAddCategory.click();
+
+            categorySub2(cat2);
+            categoryAmountSub2(amount2);
+
+            myFinance.paymentRequestsAddCategory.click();
+
+            categorySub3(cat3);
+            categoryAmountSub3(amount3);
+        }
+
+
+    }
+
+    @Then("the payment request will show the multiple categories")
+    public void thePaymentRequestWillShowTheMultipleCategories() throws Exception {
+        LOGGER.info("the payment request will show the multiple categories");
+        Thread.sleep(3000);
+        pageSource = myBasePage.getSourceOfPage();
+//        System.out.println(pageSource);
+
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            Assert.assertTrue(myBasePage.checkNoCaseList("Activities", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Primary", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Sunday School", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkTextOnPage("$12.34"));
+            Assert.assertTrue(myBasePage.checkTextOnPage("$43.21"));
+            Assert.assertTrue(myBasePage.checkTextOnPage("$458.93"));
+
+
+        } else {
+            Assert.assertTrue(myBasePage.checkNoCaseList("12", pageSource, "Contains"));
+
+        }
+    }
+
+
     public void choosePayee(String payee) throws Exception {
         switch(payee) {
             case "myself":
@@ -138,7 +200,10 @@ public class PaymentRequests extends BaseDriver {
         int x;
         int y;
 
-        myFinance.paymentRequestsCategoryGroup1Spinner.click();
+        if (myBasePage.checkForElement(myFinance.paymentRequestsCategoryGroup1Spinner)) {
+            myFinance.paymentRequestsCategoryGroup1Spinner.click();
+        }
+
 
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myFinance.paymentRequestsCategoryiOS.click();
@@ -154,6 +219,34 @@ public class PaymentRequests extends BaseDriver {
         }
     }
 
+    public void categorySub2(String category) throws Exception {
+        int x;
+        int y;
+
+        myFinance.paymentRequestsCategoryGroup2Spinner.click();
+        x = myFinance.paymentRequestsCategoryGroup2Spinner.getLocation().getX();
+        y = myFinance.paymentRequestsCategoryGroup2Spinner.getLocation().getY();
+
+        TouchAction action = new TouchAction(driver.get())
+                .press(PointOption.point(x + 60, y + 350))
+                .release();
+        action.perform();
+    }
+
+    public void categorySub3(String category) throws Exception {
+        int x;
+        int y;
+
+        myFinance.paymentRequestsCategoryGroup3Spinner.click();
+        x = myFinance.paymentRequestsCategoryGroup3Spinner.getLocation().getX();
+        y = myFinance.paymentRequestsCategoryGroup3Spinner.getLocation().getY();
+
+        TouchAction action = new TouchAction(driver.get())
+                .press(PointOption.point(x + 60, y + 350))
+                .release();
+        action.perform();
+    }
+
     public void categoryAmountSub(String categoryAmount) throws Exception {
         myFinance.paymentRequestsCategoryGroup1Amount.click();
 
@@ -166,8 +259,24 @@ public class PaymentRequests extends BaseDriver {
             }
             myFinance.paymentRequestsKeyEnter.click();
         }
-
     }
+
+    public void categoryAmountSub2(String categoryAmount) throws Exception {
+        myFinance.paymentRequestsCategoryGroup2Amount.click();
+        for (int i = 0; i < categoryAmount.length(); i++ ) {
+            enterInAmount(categoryAmount.charAt(i));
+        }
+        myFinance.paymentRequestsKeyEnter.click();
+    }
+
+    public void categoryAmountSub3(String categoryAmount) throws Exception {
+        myFinance.paymentRequestsCategoryGroup3Amount.click();
+        for (int i = 0; i < categoryAmount.length(); i++ ) {
+            enterInAmount(categoryAmount.charAt(i));
+        }
+        myFinance.paymentRequestsKeyEnter.click();
+    }
+
 
     public void enterInAmount(Character categoryAmount) throws Exception {
         switch(categoryAmount) {
@@ -207,7 +316,6 @@ public class PaymentRequests extends BaseDriver {
         }
 
     }
-
 
 
 

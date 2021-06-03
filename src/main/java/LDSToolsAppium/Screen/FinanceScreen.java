@@ -141,6 +141,19 @@ public class FinanceScreen extends BasePage {
     public MobileElement paymentRequestsCategoryGroup2Amount;
 
 
+    //Category3
+    //TODO: iOS code
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[4]//android.widget.Spinner")
+    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    public MobileElement paymentRequestsCategoryGroup3Spinner;
+
+    //Amount3
+    //TODO: iOS code
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[4]//android.widget.EditText")
+    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    public MobileElement paymentRequestsCategoryGroup3Amount;
+
+
 
 
     //Amount key 1
@@ -194,14 +207,12 @@ public class FinanceScreen extends BasePage {
 
 
     //Add Category Button
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/button")
-    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    @iOSXCUITFindBy(accessibility = "Add category and amount")
     public MobileElement paymentRequestsAddCategory;
 
 
     //Save Button
-    //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/saveButton")
     @iOSXCUITFindBy(accessibility = "Save")
     public MobileElement paymentRequestsSaveButton;

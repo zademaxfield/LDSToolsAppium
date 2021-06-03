@@ -1,7 +1,7 @@
 @PaymentRequests
 Feature: Payment Requests - be able to submit a payment from Member Tools
 
-  @jft
+
   Scenario Outline: As a member enter in a new payment request - Choose file
     Given a <member> is on the Finance page
     When a payment request is filled out for <payee> <purpose> <account> <addReceipt> <category> <categoryAmount>
@@ -10,10 +10,10 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
       | member   | payee    | purpose    | account | addReceipt | category     | categoryAmount |
       | "BISHOP" | "myself" | "Test One" | "test"  | "picture"  | "Activities" | "555"          |
 
-
+  @jft
   Scenario: As a member add a payment request with multiple categories
     Given a "BISHOP" is on the Finance page
-    When a payment request is filled out with the categories and amounts of cat1 amount1, cat2 amount2, cat3 amount3
+    When a payment request is filled out with the categories and amounts of "Activities" "1234" "Primary" "4321" "Sunday School" "45893"
     Then the payment request will show the multiple categories
 
 

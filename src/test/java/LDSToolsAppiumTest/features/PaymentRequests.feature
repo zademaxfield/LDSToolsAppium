@@ -10,13 +10,13 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
       | member   | payee    | purpose    | account | addReceipt | category     | categoryAmount |
       | "BISHOP" | "myself" | "Test One" | "test"  | "picture"  | "Activities" | "555"          |
 
-  @jft
+
   Scenario: As a member add a payment request with multiple categories
     Given a "BISHOP" is on the Finance page
     When a payment request is filled out with the categories and amounts of "Activities" "1234" "Primary" "4321" "Sunday School" "45893"
     Then the payment request will show the multiple categories
 
-
+  @jft
   Scenario: As a member edit a payment request
     Given a "BISHOP" is on the Finance page and has a payment request that is not finished
     When an unfinished payment request is selected

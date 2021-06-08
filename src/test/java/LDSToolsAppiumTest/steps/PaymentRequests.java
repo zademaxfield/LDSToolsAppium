@@ -138,6 +138,36 @@ public class PaymentRequests extends BaseDriver {
     }
 
 
+    @Given("a {string} is on the Finance page and has a payment request that is not finished")
+    public void aIsOnTheFinancePageAndHasAPaymentRequestThatIsNotFinished(String member) throws Exception {
+        LOGGER.info("a " + member + " is on the Finance page and has a payment request that is not finished");
+        a_is_on_the_Finance_page(member);
+        a_payment_request_is_filled_out_for("myself", "Test One", "test", "picture", "Activities", "7792");
+        Thread.sleep(2000);
+        myBasePage.backButton.click();
+        Thread.sleep(2000);
+        myMenu.selectMenu(myMenu.directory);
+
+    }
+
+    @When("an unfinished payment request is selected")
+    public void anUnfinishedPaymentRequestIsSelected() throws Exception {
+        LOGGER.info("an unfinished payment request is selected");
+        myMenu.selectMenu(myMenu.finance);
+        myFinance.financePaymentRequests.click();
+        System.out.println(myBasePage.getSourceOfPage());
+        //Select payment
+    }
+
+    @Then("the member will finish the payment request")
+    public void theMemberWillFinishThePaymentRequest() throws Exception {
+        LOGGER.info("the member will finish the payment request");
+        //Finish payment
+
+
+    }
+
+
     public void choosePayee(String payee) throws Exception {
         switch(payee) {
             case "myself":

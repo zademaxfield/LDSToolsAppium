@@ -157,19 +157,19 @@
     </test>
 
 
-    <test name="Android Smoke Test 5 - Samsung Galaxy Note 10 - Cucumber Tests" thread-count="2" parallel="true">
-        <parameter name="os" value="android" />
-        <parameter name="fileName" value="ldstools-alpha.apk" />
-        <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-<!--        <parameter name="fileName" value="ldstools-release.apk" />-->
-        <parameter name="testDevice" value="R38M803MWGM" />
-        <parameter name="startSleepTime" value="180000" />
-        <parameter name="systemPort" value="8205" />
+<!--    <test name="Android Smoke Test 5 - Samsung Galaxy Note 10 - Cucumber Tests" thread-count="2" parallel="true">-->
+<!--        <parameter name="os" value="android" />-->
+<!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+<!--        &lt;!&ndash;        <parameter name="fileName" value="ldstools-beta.apk" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <parameter name="fileName" value="ldstools-release.apk" />&ndash;&gt;-->
+<!--        <parameter name="testDevice" value="R38M803MWGM" />-->
+<!--        <parameter name="startSleepTime" value="180000" />-->
+<!--        <parameter name="systemPort" value="8205" />-->
 
-        <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke"> </class>
-        </classes>
-    </test>
+<!--        <classes>-->
+<!--            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke"> </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 
 

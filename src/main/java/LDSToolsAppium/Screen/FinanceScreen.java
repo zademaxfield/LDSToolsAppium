@@ -217,5 +217,13 @@ public class FinanceScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Save")
     public MobileElement paymentRequestsSaveButton;
 
+    //No Button
+    @iOSXCUITFindBy(accessibility = "No")
+    public MobileElement paymentRequestsNoButton;
+
+    //Yes Button
+    @iOSXCUITFindBy(accessibility = "Yes")
+    public MobileElement paymentRequestsYesButton;
+
 
 }

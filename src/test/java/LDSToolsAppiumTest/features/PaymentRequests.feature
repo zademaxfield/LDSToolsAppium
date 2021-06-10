@@ -16,16 +16,16 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
     When a payment request is filled out with the categories and amounts of "Activities" "1234" "Primary" "4321" "Sunday School" "45893"
     Then the payment request will show the multiple categories
 
-  @jft
+
   Scenario: As a member edit a payment request
     Given a "BISHOP" is on the Finance page and has a payment request that is not finished
     When an unfinished payment request is selected
     Then the member will finish the payment request
 
-#  This may not be possible
-  Scenario: Try to enter an Invalid amount
+  @jft
+  Scenario: Enter in very large purpose
     Given a "BISHOP" is on the Finance page
-    When $#@%^&%$&#$^%$@ is entered in as a category amount
+    When "Look,  strange women lying on their backs in ponds handing out swords... that's no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from  some farcical aquatic ceremony. Look,  strange women lying on their backs in ponds handing out swords... that's no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from  some farcical aquatic ceremony." is entered in the purpose
     Then Some error should happen
 
   Scenario: Too large of amount
@@ -33,14 +33,15 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
     When 500,000,000,000 is entered in as a category amount
     Then Some error should happen
 
-  Scenario: Enter in very large purpose
-    Given a "BISHOP" is on the Finance page
-    When "Look,  strange women lying on their backs in ponds handing out swords... that's no basis for a system of government.  Supreme executive power derives from a mandate from the masses, not from  some farcical aquatic ceremony." is entered in the purpose
-    Then Some error should happen
-
   Scenario: Start payment request then remove
     Given a "BISHOP" is on the Finance page
     When a payment request is started then canceled
     Then the payment request should show up on the payment request page
+
+  #  This may not be possible
+  Scenario: Try to enter an Invalid amount
+    Given a "BISHOP" is on the Finance page
+    When $#@%^&%$&#$^%$@ is entered in as a category amount
+    Then Some error should happen
 
 #  Scenario: As a leader check status of payment request?

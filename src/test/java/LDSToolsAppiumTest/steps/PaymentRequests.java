@@ -146,6 +146,13 @@ public class PaymentRequests extends BaseDriver {
         Thread.sleep(2000);
         myBasePage.backButton.click();
         Thread.sleep(2000);
+        myBasePage.backButton.click();
+        Thread.sleep(2000);
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myFinance.paymentRequestsYesButton.click();
+            Thread.sleep(1000);
+            myBasePage.backButton.click();
+        }
         myMenu.selectMenu(myMenu.directory);
 
     }
@@ -164,6 +171,28 @@ public class PaymentRequests extends BaseDriver {
         LOGGER.info("the member will finish the payment request");
         //Finish payment
 
+
+    }
+
+
+    @When("{string} is entered in the purpose")
+    public void isEnteredInThePurpose(String purpose) throws Exception {
+        LOGGER.info(purpose + " is entered in the purpose");
+        myFinance.paymentRequestsAdd.click();
+//        System.out.println(myBasePage.getSourceOfPage());
+        choosePayee("myself");
+        choosePurpose(purpose, "TEST 1234");
+        addReceiptToPaymentRequest("picture");
+        categorySub("Activities");
+        categoryAmountSub("4567");
+        myFinance.paymentRequestsSaveButton.click();
+
+    }
+
+    @Then("Some error should happen")
+    public void someErrorShouldHappen() throws Exception {
+        LOGGER.info("Some error should happen");
+        Thread.sleep(20000);
 
     }
 

@@ -277,10 +277,16 @@ public class ListsScreen extends BasePage {
             Thread.sleep(2000);
 
         } else {
-            listsAddMemberName.sendKeys("    ");
+//            listsAddMemberName.sendKeys("    ");
+            elementX = listsAddMemberName.getLocation().getX();
+            elementY = listsAddMemberName.getLocation().getY();
+
+            TouchAction nameField = new TouchAction(driver.get()).press(PointOption.point(elementX, elementY)).release();
+            nameField.perform();
+
             listsAddMemberName.sendKeys(memberToAdd);
 //            listsAddMemberName.setValue(memberToAdd);
-            Thread.sleep(20000);
+            Thread.sleep(4000);
 //            driver.get().findElement(By.xpath("//*[@text='" + memberToClickOn + "']"));
             elementX = listsAddMemberName.getLocation().getX();
             elementY = listsAddMemberName.getLocation().getY();

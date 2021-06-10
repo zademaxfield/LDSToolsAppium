@@ -15,7 +15,7 @@ import java.util.List;
 public class MissionaryScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test (groups = {"smoke3", "smoke", "all3", "all"})
     public void missionaryTest_BISHOP() throws Exception {
         missionaryTestCheckSub("BISHOP");
     }
@@ -266,7 +266,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;
 

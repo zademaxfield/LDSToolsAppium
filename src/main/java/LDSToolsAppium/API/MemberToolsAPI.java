@@ -186,7 +186,7 @@ public class MemberToolsAPI {
     }
 
     public List<String> getChildOrganizationMembers(String organizationName, String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+//        proxyLogin = "kroqbandit";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();

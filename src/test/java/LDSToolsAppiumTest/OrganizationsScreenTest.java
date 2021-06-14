@@ -20,7 +20,7 @@ import java.util.List;
 public class OrganizationsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"smoke1", "smoke", "all1", "all", "jft"})
+    @Test (groups = {"smoke1", "smoke", "all1", "all"})
     public void organizationTest_BISHOP() throws Exception {
         organizationTestCheckSub("BISHOP");
     }
@@ -55,7 +55,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("MEMBER1");
     }
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "jft"})
     public void organizationTest_MEMBER2() throws Exception {
         organizationTestCheckSub("MEMBER2");
     }
@@ -567,6 +567,11 @@ public class OrganizationsScreenTest extends BaseDriver {
 //        reliefSocietyData();
 
         myList = apiTest.getChildOrganizationMembers("Relief Society Presidency", userName, "21628");
+
+        //The following members are marked private.
+        if (rights <= 3) {
+            myList.remove("Rodriguez, Erika");
+        }
         myBasePage.apiCheckData(myList);
 
 

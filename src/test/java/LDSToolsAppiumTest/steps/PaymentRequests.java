@@ -44,12 +44,14 @@ public class PaymentRequests extends BaseDriver {
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         myMenu.selectMenu(myMenu.finance);
+        Thread.sleep(1000);
         myFinance.financePaymentRequests.click();
     }
 
     @When("a payment request is filled out for {string} {string} {string} {string} {string} {string}")
     public void a_payment_request_is_filled_out_for(String payee, String purpose, String account, String addReceipt, String category, String categoryAmount) throws Exception {
         LOGGER.info("a payment request is filled out for " + payee + " " + purpose + " " + account + " " + addReceipt + " " + category + " " + categoryAmount);
+        Thread.sleep(1000);
         myFinance.paymentRequestsAdd.click();
 //        System.out.println(myBasePage.getSourceOfPage());
         choosePayee(payee);
@@ -57,6 +59,7 @@ public class PaymentRequests extends BaseDriver {
         addReceiptToPaymentRequest(addReceipt);
         categorySub(category);
         categoryAmountSub(categoryAmount);
+        Thread.sleep(2000);
         myFinance.paymentRequestsSaveButton.click();
     }
 
@@ -64,7 +67,9 @@ public class PaymentRequests extends BaseDriver {
     @Then("the payment request should be processed with information of {string} {string} {string} {string} {string} {string} {string}")
     public void the_payment_request_should_be_processed_with_information_of(String member, String payee, String purpose, String account, String addReceipt, String category, String categoryAmount) throws Exception {
         LOGGER.info("the payment request should be processed with information of " + payee + " " + purpose + " " + account + " " + addReceipt + " " + category + " " + categoryAmount);
+        Thread.sleep(5000);
         pageSource = myBasePage.getSourceOfPage();
+//        System.out.println(pageSource);
 //        Assert.assertTrue(myBasePage.checkNoCaseList(member, pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList(payee, pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList(purpose, pageSource, "Contains"));
@@ -221,7 +226,10 @@ public class PaymentRequests extends BaseDriver {
     }
 
     public void choosePurpose(String purpose, String account) throws Exception {
+
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myBasePage.waitForElement(myFinance.paymentRequestsAddPurpose);
+            Thread.sleep(1000);
             myFinance.paymentRequestsAddPurpose.click();
         }
 
@@ -231,12 +239,14 @@ public class PaymentRequests extends BaseDriver {
     }
 
     public void addReceiptToPaymentRequest(String addReceipt) throws Exception {
+        Thread.sleep(2000);
         myFinance.paymentRequestsAddReceipt.click();
 
         if (addReceipt.equalsIgnoreCase("picture")) {
             //ios crashes when you try to take a picture
             if (myBasePage.getOS().equalsIgnoreCase("ios")) {
 //                myFinance.paymentRequestsTakeAPicture.click();
+                Thread.sleep(3000);
                 myFinance.paymentRequestsPhotoGallery.click();
                 Thread.sleep(5000);
                 driver.get().findElement(By.xpath("//XCUIElementTypeImage[3]")).click();
@@ -265,14 +275,16 @@ public class PaymentRequests extends BaseDriver {
 
 
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            Thread.sleep(2000);
             myFinance.paymentRequestsCategoryiOS.click();
+            Thread.sleep(2000);
             driver.get().findElement(By.id(category)).click();
         } else {
             x = myFinance.paymentRequestsCategoryGroup1Spinner.getLocation().getX();
             y = myFinance.paymentRequestsCategoryGroup1Spinner.getLocation().getY();
 
             TouchAction action = new TouchAction(driver.get())
-                    .press(PointOption.point(x + 60, y + 350))
+                    .press(PointOption.point(x + 60, y + 250))
                     .release();
             action.perform();
         }
@@ -307,6 +319,7 @@ public class PaymentRequests extends BaseDriver {
     }
 
     public void categoryAmountSub(String categoryAmount) throws Exception {
+        Thread.sleep(2000);
         myFinance.paymentRequestsCategoryGroup1Amount.click();
 
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {

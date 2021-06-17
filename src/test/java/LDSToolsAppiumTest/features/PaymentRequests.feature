@@ -1,15 +1,16 @@
 @PaymentRequests
 Feature: Payment Requests - be able to submit a payment from Member Tools
 
-
+  @jft
   Scenario Outline: As a member enter in a new payment request - Choose file
     Given a <member> is on the Finance page
     When a payment request is filled out for <payee> <purpose> <account> <addReceipt> <category> <categoryAmount>
     Then the payment request should be processed with information of <member> <payee> <purpose> <account> <addReceipt> <category> <categoryAmount>
     Examples:
-      | member   | payee    | purpose    | account | addReceipt | category     | categoryAmount |
-      | "BISHOP" | "myself" | "Test One" | "test"  | "picture"  | "Activities" | "555"          |
-
+      | member                     | payee    | purpose        | account | addReceipt | category         | categoryAmount |
+      | "BISHOP"                   | "myself" | "Test One"     | "test"  | "picture"  | "Activities"     | "555"          |
+      | "ELDERS_QUORUM_PRESIDENT"  | "myself" | "EQ Pres Test" | "test"  | "picture"  | "Elders Quorum"  | "8365"         |
+      | "RELIEF_SOCIETY_PRESIDENT" | "myself" | "RS Pres Test" | "test"  | "picture"  | "Relief Society" | "11653"        |
 
   Scenario: As a member add a payment request with multiple categories
     Given a "BISHOP" is on the Finance page
@@ -22,7 +23,7 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
     When an unfinished payment request is selected
     Then the member will finish the payment request
 
-  @jft
+
   Scenario: Enter in very large purpose
     Given a "BISHOP" is on the Finance page
     When "Look,  strange women lying on their backs in ponds handing out swords... that's no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from  some farcical aquatic ceremony. Look,  strange women lying on their backs in ponds handing out swords... that's no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from  some farcical aquatic ceremony." is entered in the purpose

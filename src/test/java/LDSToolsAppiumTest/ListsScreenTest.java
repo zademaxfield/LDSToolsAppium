@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class ListsScreenTest extends BaseDriver {
 
-    @Test(groups = {"smoke3", "smoke", "all3", "all", "jft"})
+    @Test(groups = {"smoke3", "smoke", "all3", "all", "daily", "daily1", "jft"})
     public void listsSimpleTest() throws Exception {
         String pageSource;
         String numberOfListMembers;

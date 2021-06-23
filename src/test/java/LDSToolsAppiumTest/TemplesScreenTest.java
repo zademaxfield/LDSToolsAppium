@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "jft"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily3", "jft"})
     public void templeSimple() throws Exception {
         String pageSource;
 
@@ -58,7 +58,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= {"all", "all1"})
+    @Test (groups= {"all", "all1", "daily", "daily4"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -210,7 +210,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all1"})
+    @Test (groups= { "all", "all1", "daily", "daily2"})
     public void templeNearestTemples() throws Exception {
         String pageSource;
 
@@ -262,7 +262,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all2"})
+    @Test (groups= { "all", "all2", "daily", "daily3"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 
@@ -314,7 +314,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all3"})
+    @Test (groups= { "all", "all3", "daily", "daily4"})
     public void templeSearch() throws Exception {
         String pageSource;
 
@@ -349,7 +349,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all4"})
+    @Test (groups= { "all", "all4", "daily", "daily1"})
     public void templeSearchNewYork() throws Exception {
         String pageSource;
 
@@ -387,7 +387,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all4"})
+    @Test (groups= { "all", "all4", "daily", "daily2"})
     public void templeOrdinanceSchedule() throws Exception {
         String pageSource;
 

@@ -15,7 +15,7 @@ import java.awt.*;
 
 public class WhatsNewScreenTest extends BaseDriver {
 
-    @Test (groups = {"all1", "all", "smoke", "smoke1", "jft"})
+    @Test (groups = {"all1", "all", "smoke", "smoke1", "daily", "daily1", "jft"})
     public void whatsNewSimple() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();

@@ -15,7 +15,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily1"})
     public void ministeringBasic_BISHOP() throws Exception {
         ministeringBasicSub("BISHOP");
     }
@@ -226,7 +226,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all4", "all", "daily", "daily2"})
     public void ministeringUnassignedHouseholds_BISHOP() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("BISHOP");
     }
@@ -439,7 +439,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all"})
+    @Test (groups = {"all2", "all", "daily", "daily3"})
     public void ministeringAssignedHouseholds_BISHOP() throws Exception {
         ministeringAssignedHouseholdsSub("BISHOP");
     }
@@ -610,7 +610,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all", "smoke", "smoke3"})
+    @Test (groups = {"all3", "all", "smoke", "smoke3", "daily", "daily4"})
     public void companionshipsElders_BISHOP() throws Exception {
         companionshipsEldersSub("BISHOP");
     }
@@ -816,7 +816,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all1", "all"})
+    @Test (groups = {"all1", "all", "daily", "daily1"})
     public void unassignedSisters_BISHOP() throws Exception {
         unassignedSistersSub("BISHOP");
     }
@@ -1011,7 +1011,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4", "jft"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "daily", "daily2", "jft"})
     public void ministeringAssignedSisters_BISHOP() throws Exception {
         ministeringAssignedSistersSub("BISHOP");
     }
@@ -1186,7 +1186,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all4", "all", "daily", "daily3"})
     public void companionshipsSisters_BISHOP() throws Exception {
         companionshipsSistersSub("BISHOP");
     }

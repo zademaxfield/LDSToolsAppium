@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Android daily Test Cucmber" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="4">
+
+        <test name="Android daily Samsung Galaxy Note 10 - Cucumber Tests" thread-count="2" parallel="true">
+        <parameter name="os" value="android" />
+        <parameter name="fileName" value="ldstools-alpha.apk" />
+        <parameter name="testDevice" value="R38M803MWGM" />
+        <parameter name="startSleepTime" value="180000" />
+        <parameter name="systemPort" value="8205" />
+
+        <classes>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerDaily"> </class>
+        </classes>
+    </test>
+
+</suite>

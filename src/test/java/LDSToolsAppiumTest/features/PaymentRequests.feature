@@ -1,7 +1,7 @@
 @PaymentRequests
 Feature: Payment Requests - be able to submit a payment from Member Tools
 
-  @jft
+  @daily @daily2 @smoke @all @jft
   Scenario Outline: As a member enter in a new payment request - Choose file
     Given a <member> is on the Finance page
     When a payment request is filled out for <payee> <purpose> <account> <addReceipt> <category> <categoryAmount>
@@ -9,22 +9,23 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
     Examples:
       | member                     | payee    | purpose                 | account | addReceipt | category         | categoryAmount |
       | "BISHOP"                   | "myself" | "Test One"              | "test"  | "picture"  | "Activities"     | "555"          |
-      | "ELDERS_QUORUM_PRESIDENT"  | "myself" | "EQ Pres Test"          | "test"  | "picture"  | "Elders Quorum"  | "8365"         |
-      | "RELIEF_SOCIETY_PRESIDENT" | "myself" | "RS Pres Test"          | "test"  | "picture"  | "Relief Society" | "11653"        |
-      | "YOUNG_WOMEN_PRESIDENT"    | "myself" | "Young Women Pres Test" | "test"  | "picture"  | "Young Women"    | "3319"         |
+#      | "ELDERS_QUORUM_PRESIDENT"  | "myself" | "EQ Pres Test"          | "test"  | "picture"  | "Elders Quorum"  | "8365"         |
+#      | "RELIEF_SOCIETY_PRESIDENT" | "myself" | "RS Pres Test"          | "test"  | "picture"  | "Relief Society" | "11653"        |
+#      | "YOUNG_WOMEN_PRESIDENT"    | "myself" | "Young Women Pres Test" | "test"  | "picture"  | "Young Women"    | "3319"         |
 
+  @all @daily
   Scenario: As a member add a payment request with multiple categories
     Given a "BISHOP" is on the Finance page
     When a payment request is filled out with the categories and amounts of "Activities" "1234" "Primary" "4321" "Sunday School" "45893"
     Then the payment request will show the multiple categories
 
-
+  @all @daily
   Scenario: As a member edit a payment request
     Given a "BISHOP" is on the Finance page and has a payment request that is not finished
     When an unfinished payment request is selected
     Then the member will finish the payment request
 
-
+  @all @daily
   Scenario: Enter in very large purpose
     Given a "BISHOP" is on the Finance page
     When "Look,  strange women lying on their backs in ponds handing out swords... that's no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from  some farcical aquatic ceremony. Look,  strange women lying on their backs in ponds handing out swords... that's no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from  some farcical aquatic ceremony." is entered in the purpose

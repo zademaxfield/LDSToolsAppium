@@ -15,7 +15,7 @@ public class LoginPageTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all", "login"})
+    @Test (groups = {"all2", "all", "login", "daily", "daily1"})
     public void validateLoginPage() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -45,7 +45,7 @@ public class LoginPageTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all3", "all", "login", "smoke", "smoke3"})
+    @Test (groups = {"all3", "all", "login", "smoke", "smoke3", "daily", "daily1"})
     public void validateLoginPageLinks() throws Exception {
         String myPageSource;
         BasePage myBasePage = new BasePage(driver);

@@ -25,7 +25,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke2", "smoke", "all2", "all"})
+    @Test(groups = {"smoke2", "smoke", "all2", "all", "daily", "daily4", "jft"})
     public void directoryScreenTest_BISHOP() throws Exception {
         directoryScreenSub("BISHOP");
     }
@@ -90,7 +90,7 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
-    @Test(groups = {"all3", "all", "jft"})
+    @Test(groups = {"all3", "all"})
     public void directoryScreenTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         directoryScreenSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
@@ -324,7 +324,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "daily", "daily1"})
     public void directoryMemberInfoHousehold() throws Exception {
 
         // ********* Constructor **********
@@ -351,7 +351,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
     }
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "daily", "daily2"})
     public void directoryMemberInfoIndividual() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods();
@@ -637,7 +637,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "daily", "daily3"})
     public void directoryLatLongNoGPS() throws Exception {
         String pageSource;
 
@@ -662,7 +662,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 //    @Test(groups = {"needUpdate"})
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "daily", "daily4"})
     public void directoryLatLongNoGPSNoCalling() throws Exception {
         String pageSource;
 
@@ -695,7 +695,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "daily", "daily1"})
     public void directoryLatLongCheckLocation() throws Exception {
 
         // ********* Constructor **********

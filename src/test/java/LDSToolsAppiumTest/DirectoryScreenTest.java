@@ -85,12 +85,12 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all", "jft"})
+    @Test(groups = {"all2", "all"})
     public void directoryScreenTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         directoryScreenSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "jft"})
     public void directoryScreenTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         directoryScreenSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }

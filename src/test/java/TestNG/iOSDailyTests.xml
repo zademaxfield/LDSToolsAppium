@@ -40,16 +40,5 @@
         </classes>
     </test>
 
-<!--    <test name="iOS iPhone 12 - Cucumber Test" thread-count="2" parallel="true">-->
-<!--        <parameter name="os" value="ios" />-->
-<!--        <parameter name="fileName" value="LDS Tools.app" />-->
-<!--        <parameter name="testDevice" value="iPhone 12" />-->
-<!--        <parameter name="startSleepTime" value="2000" />-->
-<!--        <parameter name="systemPort" value="8202" />-->
-
-<!--        <classes>-->
-<!--            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerdaily"> </class>-->
-<!--        </classes>-->
-<!--    </test>-->
 
 </suite>

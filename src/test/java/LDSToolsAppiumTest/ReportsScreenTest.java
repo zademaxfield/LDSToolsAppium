@@ -15,7 +15,7 @@ import java.util.List;
 public class ReportsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"all1", "all", "smoke", "smoke1", "report", "daily", "daily1"})
+    @Test (groups = {"all1", "all", "smoke", "smoke1", "report", "daily", "daily1", "jft"})
     public void reportsBasic_BISHOP() throws Exception {
         reportsBasicCheckSub("BISHOP");
     }
@@ -419,7 +419,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
     //There is no API for this
-    @Test (groups = {"all3", "all", "report", "daily", "daily4", "jft"})
+    @Test (groups = {"all3", "all", "report", "daily", "daily4"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
 
@@ -831,7 +831,10 @@ public class ReportsScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
 
-        myBasePage.scrollDownTEST(500);
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myBasePage.scrollDownAndroidUIAutomator("0");
+        }
+        
 
         myReports.templeRecommendStatusReport.click();
         Thread.sleep(1000);

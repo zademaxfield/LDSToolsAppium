@@ -233,12 +233,13 @@ public class TemplesScreen extends BasePage {
 
 
             //Set the number of Days until expired
-            myBasePage.scrollDownToTextIOS("Set Temple Recommend Expiration");
+//            myBasePage.scrollDownToTextIOS("Set Temple Recommend Expiration");
             mySettings.overrideTempleRecommendExpiration.click();
             mySettings.templeDaysUntilExpiration.setValue(numberOfDays);
             mySettings.alertOK.click();
 
             myBasePage.backButton.click();
+            Thread.sleep(1000);
             myBasePage.backButton.click();
 
 

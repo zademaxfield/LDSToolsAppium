@@ -52,7 +52,7 @@
 #        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "true"     |
 #        | "WARD_MISSION_LEADER"             | "true"     |
 
-    @MQA-3519 @all @smoke @all1 @jft @daily @daily2
+    @MQA-3519 @all @smoke @all1 @daily @daily2 @jft
     Scenario: As a Bishopric member I should be able to mark a members attendance
       Given a member of the bishopric logs in and is on the Class and Quorum Attendance page
       When week one is marked attended

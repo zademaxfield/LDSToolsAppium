@@ -99,8 +99,8 @@ public class ClassAndQuorum extends BaseDriver {
     @When("week one is marked attended")
     public void weekOneIsMarkedAttended() throws Exception {
         LOGGER.info("week one is marked attended");
-        clearAllAttendance("Mara, Alma Vida");
-        searchClassAndQuorum("Mara, Alma Vida");
+        clearAllAttendance("Anderson, Lisa");
+        searchClassAndQuorum("Anderson, Lisa");
         getWeekElement("week1", "main").click();
     }
 
@@ -110,7 +110,7 @@ public class ClassAndQuorum extends BaseDriver {
         LOGGER.info("week one will have a check mark");
         myBasePage.backButton.click();
         myReports.classAndQuorumAttendanceReport.click();
-        searchClassAndQuorum("Mara, Alma Vida");
+        searchClassAndQuorum("Anderson, Lisa");
         Assert.assertTrue(getWeekAttendanceStatus("week1", "main").equalsIgnoreCase("attended"));
         //Clean Up
         getWeekElement("week1", "main").click();

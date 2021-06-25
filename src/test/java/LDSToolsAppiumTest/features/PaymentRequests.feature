@@ -2,7 +2,7 @@
 Feature: Payment Requests - be able to submit a payment from Member Tools
 
   @daily @daily2 @smoke @all @jft
-  Scenario Outline: As a member enter in a new payment request - Choose file
+  Scenario Outline: As a member enter in a new payment request
     Given a <member> is on the Finance page
     When a payment request is filled out for <payee> <purpose> <account> <addReceipt> <category> <categoryAmount>
     Then the payment request should be processed with information of <member> <payee> <purpose> <account> <addReceipt> <category> <categoryAmount>

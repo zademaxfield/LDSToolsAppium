@@ -254,7 +254,9 @@ public class PaymentRequests extends BaseDriver {
             } else {
                 myFinance.paymentRequestsTakeAPicture.click();
                 //Need to hit the button twice
+                Thread.sleep(500);
                 myFinance.paymentRequestsCameraButton.click();
+                Thread.sleep(500);
                 myFinance.paymentRequestsCameraButton.click();
             }
         } else {

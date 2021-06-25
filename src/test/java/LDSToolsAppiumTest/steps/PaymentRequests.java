@@ -8,6 +8,7 @@ import LDSToolsAppium.Screen.FinanceScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppiumTest.HelperMethods;
 import com.google.common.collect.ImmutableMap;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -255,9 +256,13 @@ public class PaymentRequests extends BaseDriver {
                 myFinance.paymentRequestsTakeAPicture.click();
                 //Need to hit the button twice
                 Thread.sleep(500);
+
                 myFinance.paymentRequestsCameraButton.click();
                 Thread.sleep(500);
-                myFinance.paymentRequestsCameraButton.click();
+//                System.out.println(myBasePage.getSourceOfPage());
+//                myFinance.paymentRequestsCameraButton.click();
+                myFinance.paymentRequestsCameraButtonOK.click();
+
             }
         } else {
             //TODO: need a way to upload files to the device then choose the file here.

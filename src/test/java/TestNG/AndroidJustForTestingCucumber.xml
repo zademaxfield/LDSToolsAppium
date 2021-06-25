@@ -5,7 +5,7 @@
         <parameter name="os" value="android" />
         <parameter name="fileName" value="ldstools-alpha.apk" />
 <!--        <parameter name="testDevice" value="09251FDD4003MU" />-->
-        <parameter name="testDevice" value="09251FDD4003MU" />
+        <parameter name="testDevice" value="RFCN80KVV5P" />
 <!--        <parameter name="testDevice" value="emulator-5554" />-->
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8555" />

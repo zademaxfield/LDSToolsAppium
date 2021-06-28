@@ -99,7 +99,9 @@ public class ClassAndQuorum extends BaseDriver {
     @When("week one is marked attended")
     public void weekOneIsMarkedAttended() throws Exception {
         LOGGER.info("week one is marked attended");
+        Thread.sleep(1000);
         clearAllAttendance("Anderson, Lisa");
+        Thread.sleep(1000);
         searchClassAndQuorum("Anderson, Lisa");
         getWeekElement("week1", "main").click();
     }

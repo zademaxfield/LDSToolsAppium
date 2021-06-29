@@ -265,8 +265,8 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
     //TODO: Update for Social Media
-    @Test(groups = {"needUpdate"})
-//    @Test(groups = {"all4", "all", "daily", "daily1", "jft"})
+//    @Test(groups = {"needUpdate"})
+    @Test(groups = {"all4", "all", "daily", "daily1", "jft"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;
 

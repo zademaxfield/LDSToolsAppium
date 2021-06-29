@@ -65,6 +65,8 @@ public class SacramentAttendance extends BaseDriver {
             sacToEnter.setValue(valueToEnter);
             myBasePage.keyboardReturn.click();
         } else {
+            Thread.sleep(2000);
+            System.out.println(myBasePage.getSourceOfPage());
             myReports.sacramentAttendanceDialogEditField.setValue(valueToEnter);
             myReports.sacramentAttendanceDialogOk.click();
             Thread.sleep(2000);

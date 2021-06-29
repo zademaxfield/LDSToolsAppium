@@ -257,6 +257,7 @@ public class PaymentRequests extends BaseDriver {
                 //Need to hit the button twice
                 Thread.sleep(500);
 
+//                System.out.println(myBasePage.getSourceOfPage());
                 myFinance.paymentRequestsCameraButton.click();
                 Thread.sleep(500);
 //                System.out.println(myBasePage.getSourceOfPage());

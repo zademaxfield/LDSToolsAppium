@@ -226,7 +226,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "daily", "daily2", "jft"})
+    @Test (groups = {"all4", "all", "daily", "daily2"})
     public void ministeringUnassignedHouseholds_BISHOP() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("BISHOP");
     }
@@ -1011,7 +1011,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4", "daily", "daily2"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "daily", "daily2", "jft"})
     public void ministeringAssignedSisters_BISHOP() throws Exception {
         ministeringAssignedSistersSub("BISHOP");
     }
@@ -1138,7 +1138,7 @@ public class MinisteringScreenTest extends BaseDriver {
                 Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {
                 pageSource = myBasePage.getSourceOfPage();
-                Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
+                Assert.assertTrue(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
                 Assert.assertFalse(myBasePage.checkNoCaseList("Binks", pageSource, "Contains"));
             }
 

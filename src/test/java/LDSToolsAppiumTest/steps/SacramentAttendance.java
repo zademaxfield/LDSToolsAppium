@@ -58,6 +58,7 @@ public class SacramentAttendance extends BaseDriver {
 //            System.out.println(myBasePage.getSourceOfPage());
             myBasePage.scrollUpIOS();
         }
+        Thread.sleep(2000);
         clickElement(fieldToEnter);
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             sacToEnter = getSunday(fieldToEnter);

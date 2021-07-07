@@ -28,7 +28,9 @@
                 <configuration>
                     <suiteXmlFiles>
                         <!-- TestNG suite XML files -->
-                        <suiteXmlFile>src/test/java/TestNG/AndroidJustForTesting.xml</suiteXmlFile>
+<!--                        <suiteXmlFile>src/test/java/TestNG/AndroidJustForTesting.xml</suiteXmlFile>-->
+                        <!--suppress UnresolvedMavenProperty -->
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

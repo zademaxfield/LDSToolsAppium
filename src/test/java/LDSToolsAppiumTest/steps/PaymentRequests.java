@@ -53,6 +53,7 @@ public class PaymentRequests extends BaseDriver {
     public void a_payment_request_is_filled_out_for(String payee, String purpose, String account, String addReceipt, String category, String categoryAmount) throws Exception {
         LOGGER.info("a payment request is filled out for " + payee + " " + purpose + " " + account + " " + addReceipt + " " + category + " " + categoryAmount);
         Thread.sleep(1000);
+//        System.out.println(myBasePage.getSourceOfPage());
         myFinance.paymentRequestsAdd.click();
 //        System.out.println(myBasePage.getSourceOfPage());
         choosePayee(payee);

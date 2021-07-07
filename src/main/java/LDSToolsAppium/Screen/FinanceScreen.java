@@ -29,7 +29,7 @@ public class FinanceScreen extends BasePage {
 
     //Add Payment Requests
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/newPaymentRequestFab")
-    @iOSXCUITFindBy(accessibility = "New Payment Request")
+    @iOSXCUITFindBy(accessibility = "＋ New Payment Request")
     public MobileElement paymentRequestsAdd;
 
     //Add Myself
@@ -60,7 +60,7 @@ public class FinanceScreen extends BasePage {
     public MobileElement paymentRequestsSelectThisPayee;
 
     //Add Purpose
-    @iOSXCUITFindBy(accessibility = "Add Purpose")
+    @iOSXCUITFindBy(accessibility = "＋ Add Purpose")
     public MobileElement paymentRequestsAddPurpose;
 
     //Purpose

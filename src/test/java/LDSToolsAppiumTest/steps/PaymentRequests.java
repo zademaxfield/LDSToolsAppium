@@ -248,9 +248,9 @@ public class PaymentRequests extends BaseDriver {
             //ios crashes when you try to take a picture
             if (myBasePage.getOS().equalsIgnoreCase("ios")) {
 //                myFinance.paymentRequestsTakeAPicture.click();
-                Thread.sleep(3000);
-                myFinance.paymentRequestsPhotoGallery.click();
                 Thread.sleep(5000);
+                myFinance.paymentRequestsPhotoGallery.click();
+                Thread.sleep(12000);
                 driver.get().findElement(By.xpath("//XCUIElementTypeImage[3]")).click();
 
             } else {

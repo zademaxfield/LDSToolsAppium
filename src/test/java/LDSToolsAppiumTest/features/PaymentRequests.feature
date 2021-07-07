@@ -1,7 +1,7 @@
 @PaymentRequests
 Feature: Payment Requests - be able to submit a payment from Member Tools
 
-  @MQA-4818 @MQA-4817 @daily @daily2 @smoke @all @jft
+  @MQA-4818 @MQA-4817 @daily @daily2 @smoke @all
   Scenario Outline: As a member enter in a new payment request
     Given a <member> is on the Finance page
     When a payment request is filled out for <payee> <purpose> <account> <addReceipt> <category> <categoryAmount>
@@ -13,7 +13,7 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
 #      | "RELIEF_SOCIETY_PRESIDENT" | "myself" | "RS Pres Test"          | "test"  | "picture"  | "Relief Society" | "11653"        |
 #      | "YOUNG_WOMEN_PRESIDENT"    | "myself" | "Young Women Pres Test" | "test"  | "picture"  | "Young Women"    | "3319"         |
 
-  @MQA-4819 @MQA-4817 @all @daily
+  @MQA-4819 @MQA-4817 @all @daily @jft
   Scenario: As a member add a payment request with multiple categories
     Given a "BISHOP" is on the Finance page
     When a payment request is filled out with the categories and amounts of "Activities" "1234" "Primary" "4321" "Sunday School" "45893"

@@ -213,7 +213,7 @@ public class FinanceScreen extends BasePage {
 
     //Add Category Button
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/button")
-    @iOSXCUITFindBy(accessibility = "Add category and amount")
+    @iOSXCUITFindBy(accessibility = "＋ Add category and amount")
     public MobileElement paymentRequestsAddCategory;
 
 

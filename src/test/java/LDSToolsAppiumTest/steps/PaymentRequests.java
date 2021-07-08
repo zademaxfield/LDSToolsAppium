@@ -111,10 +111,13 @@ public class PaymentRequests extends BaseDriver {
             myFinance.paymentRequestsAddCategory.click();
 
             categorySub2(cat2);
+            Thread.sleep(2000);
             categoryAmountSub2(amount2);
 
             myFinance.paymentRequestsAddCategory.click();
 
+            myBasePage.scrollUp(500);
+            Thread.sleep(2000);
             categorySub3(cat3);
             categoryAmountSub3(amount3);
         }

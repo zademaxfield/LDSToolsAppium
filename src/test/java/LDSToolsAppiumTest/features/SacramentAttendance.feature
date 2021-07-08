@@ -11,7 +11,7 @@
       When "159" is entered in the "First Date Field"
       Then I should see "159" in the "First Date Field"
 
-    @MQA-3184 @all @all4 @all @daily @jft
+    @MQA-3184 @all @all4 @all @daily
     Scenario: As a Ward Clerk enter a number and have it saved
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When "77" is entered in the "First Date Field"
@@ -28,7 +28,7 @@
       When a "27" is entered using the counter
       Then I should see "27"
 
-    @MQA-3187 @all @androidOnly @all4 @all @daily
+    @MQA-3187 @all @androidOnly @all4 @all @jft
     Scenario: In the counter use the next section several times
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When a 27 35 5 48 is entered using the counter and next section

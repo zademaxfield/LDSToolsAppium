@@ -181,6 +181,7 @@ public class SacramentAttendance extends BaseDriver {
     @When("a {int} {int} {int} {int} is entered using the counter and next section")
     public void aIsEnteredUsingTheCounterAndNextSection(int firstNumber, int secondNumber, int thirdNumber, int fourthNumber) throws Exception {
         LOGGER.info("a " + firstNumber + secondNumber + thirdNumber + fourthNumber + " is entered using the counter and next section");
+        Thread.sleep(2000);
         myReports.sacramentAttendanceCounterIcon.click();
         counterPressAdd(firstNumber);
         myReports.sacramentAttendanceCounterNextSection.click();

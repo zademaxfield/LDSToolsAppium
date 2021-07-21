@@ -227,7 +227,7 @@ public class TemplesScreen extends BasePage {
 
             //Set the Temple Recommend Status
             mySettings.templeRecommendStatus.click();
-            ///Thread.sleep(2000);
+            Thread.sleep(2000);
             recommendStatus.click();
             Thread.sleep(2000);
 

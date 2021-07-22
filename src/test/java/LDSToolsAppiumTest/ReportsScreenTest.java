@@ -274,7 +274,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "report", "daily", "daily2", "jft"})
+    @Test (groups = {"all4", "all", "report", "daily", "daily2"})
     public void reportsActionAndInterviewBugCheck() throws Exception {
         String pageSource;
 
@@ -421,7 +421,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
     //There is no API for this
-    @Test (groups = {"all3", "all", "report", "daily", "daily4"})
+    @Test (groups = {"all3", "all", "report", "daily", "daily4", "jft"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
 
@@ -455,8 +455,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Andrews", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Arce", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Natalie", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("2021", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Limited-Use", pageSource, "Contains"));
 
@@ -783,7 +783,7 @@ public class ReportsScreenTest extends BaseDriver {
 //        myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
         //Just take the first 5 members in the list
-        for (int i = 0; i < 4; i++ ) {
+        for (int i = 0; i < 3; i++ ) {
             shortList.add(memberList.get(i));
         }
         myBasePage.apiCheckData(shortList);

@@ -58,7 +58,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= {"all", "all1", "daily", "daily4", "jft"})
+    @Test (groups= {"all", "all1", "daily", "daily4"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -349,7 +349,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all4", "daily", "daily1"})
+    @Test (groups= { "all", "all4", "daily", "daily1", "jft"})
     public void templeSearchNewYork() throws Exception {
         String pageSource;
 

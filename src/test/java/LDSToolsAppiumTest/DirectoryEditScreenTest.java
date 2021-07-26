@@ -10,13 +10,8 @@ import org.testng.annotations.Test;
 
 public class DirectoryEditScreenTest extends BaseDriver {
 
-    //1 = Bishopric
-    //2 = Ward Council
-    //3 = Special?
-    //4 = No Calling
-
     //TODO: Need to update
-    @Test(groups = {"needUpdate"})
+    @Test(groups = {"needUpdate", "jft"})
 //    @Test(groups = {"smoke4", "smoke", "all2", "all", "jft"})
     public void editCurrentUser() throws Exception {
         String pageSource;

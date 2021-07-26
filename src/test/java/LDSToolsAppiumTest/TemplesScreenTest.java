@@ -368,6 +368,7 @@ public class TemplesScreenTest extends BaseDriver {
         myMenu.selectMenu(myMenu.temples);
 //        System.out.println(myBasePage.getSourceOfPage());
         myTemple.yesRemindMe.click();
+        Thread.sleep(2000);
         myTemple.chooseDifferentTab(myTemple.allTab);
 
         myTemple.searchTemple.setValue("New York");

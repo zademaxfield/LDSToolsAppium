@@ -1,6 +1,7 @@
 package LDSToolsAppium;
 
 
+import LDSToolsAppium.Screen.DirectoryScreen;
 import io.appium.java_client.*;
 
 
@@ -96,7 +97,7 @@ public class BasePage extends BaseDriver {
 
     //Menu Title
     @AndroidFindBy(xpath = "//*[@resource-id=\"ab_toolbar\"]//android.widget.TextView")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar/XCUIElementTypeStaticText/XCUIElementTypeStaticText")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar//XCUIElementTypeStaticText")
     public MobileElement menuTitle;
 
     //Return Key
@@ -1138,8 +1139,10 @@ public class BasePage extends BaseDriver {
     }
 
     public void pressBackToRoot() throws Exception {
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
         Boolean backButtonCheck;
         String myMenuTitle;
+
         int myCounter = 1;
         //backButtonCheck = checkElementExistsByXpath("TopBack");
         backButtonCheck = checkForElement(backButton);
@@ -1147,6 +1150,14 @@ public class BasePage extends BaseDriver {
 
         while ((backButtonCheck) && (myCounter < 9 ))  {
             Thread.sleep(1000);
+
+//            System.out.println(getSourceOfPage());
+            if (checkForElement(myDirectory.searchCancel)) {
+                System.out.println("Check for cancel");
+                waitForElementThenClick(myDirectory.searchCancel);
+            }
+
+
             System.out.println("Pressing Back Key " + myCounter);
 //            if (getOS().equals("ios")) {
 //                backButton.click();

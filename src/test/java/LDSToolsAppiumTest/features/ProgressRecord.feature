@@ -1,7 +1,7 @@
 @ProgressRecord
   Feature: Progress Record tests - Used to be Missionary Progress Record
 
-    @smoke @all @daily @jft
+    @smoke @all @daily
     Scenario Outline: SMOKE as a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -39,7 +39,7 @@
 #        | "WARD_MISSION_LEADER"             | "Cox, Troy Christian"    | "true"  |
 
     @all @all3 @all @daily
-    Scenario Outline: As a leader I should have access to the New Members under Progress Record
+    Scenario Outline: As a STAKE leader I should have access to the New Members under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
       Then the <memberRecord> will be displayed
@@ -60,8 +60,8 @@
       Then the <memberRecord> for People Being Taught will be displayed
       And the members record for People Being Taught <can> be edited
       Examples:
-        | leader                            | memberRecord     | can     |
-        | "BISHOP"                          | "Bray, Sidney"   | "true"  |
+        | leader   | memberRecord     | can    |
+        | "BISHOP" | "Dowling, Kelly" | "true" |
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Arnold, Pryde"  | "true"  |
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Brown, Maurice" | "true"  |
 #        | "WARD_CLERK"                      | "Buzo, Robert"   | "true"  |
@@ -78,15 +78,15 @@
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bray, Sidney"   | "false" |
 #        | "WARD_MISSION_LEADER"             | "Arnold, Pryde"  | "true"  |
 
-    @all @all3 @all @daily
-    Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
+    @all @all3 @all @daily @jft
+    Scenario Outline: As a STAKE leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
       Then the <memberRecord> for People Being Taught will be displayed
       And the members record for People Being Taught <can> be edited
       Examples:
-        | leader                             | memberRecord       | can     | unit           |
-        | "STAKE_PRESIDENT"                  | "Corum, Will"      | "false" | "Newton"       |
+        | leader            | memberRecord     | can     | unit     |
+        | "STAKE_PRESIDENT" | "Goodson, Jamie" | "false" | "Newton" |
 #        | "STAKE_PRESIDENT_FIRST_COUNSELOR"  | "Corum, Will"      | "false" | "Newton"       |
 #        | "STAKE_PRESIDENT_SECOND_COUNSELOR" | "Cesar"            | "false" | "Hutchinson"   |
 #        | "STAKE_CLERK"                      | "Casas, Charlotte" | "false" | "Pratt"        |

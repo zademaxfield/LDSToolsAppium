@@ -10,9 +10,8 @@ import org.testng.annotations.Test;
 
 public class DirectoryEditScreenTest extends BaseDriver {
 
-    //TODO: Need to update
-    @Test(groups = {"needUpdate", "jft"})
-//    @Test(groups = {"smoke4", "smoke", "all2", "all", "jft"})
+    
+    @Test(groups = {"smoke4", "smoke", "all2", "all", "daily", "daily1", "jft"})
     public void editCurrentUser() throws Exception {
         String pageSource;
 
@@ -66,6 +65,9 @@ public class DirectoryEditScreenTest extends BaseDriver {
         //myHelper.runSync();
         myMenu.menuLogOut();
 //        myHelper.loginUAT("LDSTools44", "password1");
+        Thread.sleep(20000);
+
+
         myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 

@@ -96,7 +96,8 @@ public class BasePage extends BaseDriver {
     public MobileElement alertCheck;
 
     //Menu Title
-    @AndroidFindBy(xpath = "//*[@resource-id=\"ab_toolbar\"]//android.widget.TextView")
+//    @AndroidFindBy(xpath = "//*[@resource-id=\"ab_toolbar\"]//android.widget.TextView")
+    @AndroidFindBy(xpath = "//*[@resource-id='org.lds.ldstools.alpha:id/toolbar']//android.widget.TextView")
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeNavigationBar//XCUIElementTypeStaticText")
     public MobileElement menuTitle;
 
@@ -1132,7 +1133,10 @@ public class BasePage extends BaseDriver {
             //System.out.println("End of Back To Root");
             Thread.sleep(3000);
             //System.out.println("Start of Search Collapse");
-            searchCollapse.click();
+            if (checkForElement(searchCollapse)) {
+                searchCollapse.click();
+            }
+
             //System.out.println("End of Search Collapse");
         }
         Thread.sleep(2000);
@@ -1169,6 +1173,7 @@ public class BasePage extends BaseDriver {
 
             Thread.sleep(2000);
             System.out.println("Back Key pressed");
+//            System.out.println(getSourceOfPage());
             //System.out.println("Checking for back key....");
             //backButtonCheck = checkElementExistsByXpath("TopBack");
             //backButtonCheck = checkElementExistsByXpath("NewBackButton");

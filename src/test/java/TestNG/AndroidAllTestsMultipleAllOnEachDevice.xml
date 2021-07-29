@@ -4,9 +4,9 @@
 
     <test name="Android All Test - Samsung Galaxy S9 plus" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
-        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-master.apk" />
 <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-                <parameter name="fileName" value="ldstools-release.apk" />
+<!--        <parameter name="fileName" value="ldstools-release.apk" />-->
         <parameter name="testDevice" value="364c5930534f3098" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="0200" />
@@ -41,9 +41,9 @@
 
     <test name="Android All Test - Samsung Galaxy A20s" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
-        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-master.apk" />
 <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-                <parameter name="fileName" value="ldstools-release.apk" />
+<!--                <parameter name="fileName" value="ldstools-release.apk" />-->
         <parameter name="testDevice" value="R9TN80AQ57J" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="60000" />
@@ -78,9 +78,9 @@
 
     <test name="Android All Test - Pixel 2 XL" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
-        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-master.apk" />
 <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-        <parameter name="fileName" value="ldstools-release.apk" />
+<!--        <parameter name="fileName" value="ldstools-release.apk" />-->
         <parameter name="testDevice" value="710KPFX0305667" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="120000" />
@@ -115,9 +115,9 @@
 
     <test name="Android All Test - Pixel 3 XL" thread-count="1" parallel="false" >
         <parameter name="os" value="android" />
-        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <parameter name="fileName" value="ldstools-master.apk" />
 <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
-        <parameter name="fileName" value="ldstools-release.apk" />
+<!--        <parameter name="fileName" value="ldstools-release.apk" />-->
         <parameter name="testDevice" value="89UY0C037" />
         <!--<parameter name="testDevice" value="STF-Pool" />-->
         <parameter name="startSleepTime" value="180000" />
@@ -154,7 +154,7 @@
 
     <test name="Android All Test 5 - Pixel 3 XL - Cucumber Tests" thread-count="2" parallel="true">
         <parameter name="os" value="android" />
-        <!--        <parameter name="fileName" value="ldstools-alpha.apk" />-->
+        <!--       <parameter name="fileName" value="ldstools-master.apk" />-->
         <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
         <parameter name="fileName" value="ldstools-release.apk" />
         <parameter name="testDevice" value="89UY0C037" />

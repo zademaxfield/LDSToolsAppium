@@ -435,19 +435,22 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             DesiredCapabilities capabilities = new DesiredCapabilities();
 
             capabilities.setCapability("app", app.getAbsolutePath());
-            if (fileName.contains("android-mobile-dev")) {
-                capabilities.setCapability("appPackage", "org.lds.dev"); // *** ALPHA ***
-                myAppPackage = "org.lds.dev";
-            } else {
-                if (fileName.contains("alpha")) {
-                    capabilities.setCapability("appPackage", "org.lds.ldstools.alpha"); // *** ALPHA ***
-//                    capabilities.setCapability("appPackage", "io.appium.espressoserver.test"); // *** ALPHA ***
-                    myAppPackage = "org.lds.ldstools.alpha";
-                } else {
-                    capabilities.setCapability("appPackage", "org.lds.ldstools"); //*** BETA and RELEASE ***
-                    myAppPackage = "org.lds.ldstools";
-                }
-            }
+            myAppPackage = "org.lds.ldstools.alpha";
+
+//            if (fileName.contains("android-mobile-dev")) {
+//                capabilities.setCapability("appPackage", "org.lds.dev"); // *** ALPHA ***
+//                myAppPackage = "org.lds.dev";
+//            } else {
+//                if (fileName.contains("master")) {
+//                    capabilities.setCapability("appPackage", "org.lds.ldstools.alpha"); // *** ALPHA ***
+////                    capabilities.setCapability("appPackage", "io.appium.espressoserver.test"); // *** ALPHA ***
+//                    myAppPackage = "org.lds.ldstools.alpha";
+//                } else {
+//                    capabilities.setCapability("appPackage", "org.lds.ldstools"); //*** BETA and RELEASE ***
+//                    myAppPackage = "org.lds.ldstools";
+//                }
+//            }
+
 //            capabilities.setCapability("appPackage", "io.appium.espressoserver.test"); // *** ALPHA ***
 //            myAppPackage = "org.lds.ldstools.alpha";
 
@@ -471,7 +474,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
 
             capabilities.setCapability("appWaitActivity", "org.lds.ldstools.ux.auth.AuthenticationSignInActivity");
-//            capabilities.setCapability("appWaitDuration", "40000");
+//            capabilities.setCapability("appWaitActivity", "org.lds.ldstools.ux.main.MainActivity");
+            capabilities.setCapability("appWaitDuration", "300000");
 //            capabilities.setCapability("normalizeTagNames", true);
 
             capabilities.setCapability("deviceReadyTimeout", 60);

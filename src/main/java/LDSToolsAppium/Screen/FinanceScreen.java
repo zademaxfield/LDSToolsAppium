@@ -68,6 +68,17 @@ public class FinanceScreen extends BasePage {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeTextField'")
     public MobileElement paymentRequestsPurpose;
 
+    //Purpose Counter
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/textinput_counter")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeTextField'")
+    public MobileElement paymentRequestsCounter;
+
+    //Purpose submit button
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/submitButton")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeTextField'")
+    public MobileElement paymentRequestsPurposeSubmit;
+
+
     //Account
     //TODO: iOS code
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/accountAutoCompleteTextView")

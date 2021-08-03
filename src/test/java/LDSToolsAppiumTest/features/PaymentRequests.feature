@@ -29,7 +29,8 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
   Scenario: Enter in very large purpose
     Given a "BISHOP" is on the Finance page
     When "Look,  strange women lying on their backs in ponds handing out swords... that's no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from  some farcical aquatic ceremony. Look,  strange women lying on their backs in ponds handing out swords... that's no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from  some farcical aquatic ceremony." is entered in the purpose
-    Then Some error should happen
+#    When "Small test should fail" is entered in the purpose
+    Then Some purpose error should happen
 
 #  Scenario: Too large of amount
 #    Given a "BISHOP" is on the Finance page

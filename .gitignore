@@ -21,7 +21,6 @@
 /src/test/java/Reports/testng-reports.css
 /src/test/java/Reports/testng-reports.js
 /src/test/java/Reports/testng-results.xml
-/src/test/java/Reports/junitreports/
 /src/test/java/Reports/old
 /ConfigFiles/.DS_Store
 /screenshot/9f34459e-0525-49a7-b35f-2c9cab41ccc5/
@@ -29,5 +28,4 @@
 /src/test/java/Reports/Android Just For Testing Suite
 /.DS_Store
 /.idea/misc.xml
-/src/test/.DS_Store
-/src/test/java/.DS_Store
+

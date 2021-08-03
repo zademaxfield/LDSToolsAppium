@@ -189,21 +189,32 @@ public class PaymentRequests extends BaseDriver {
     public void isEnteredInThePurpose(String purpose) throws Exception {
         LOGGER.info(purpose + " is entered in the purpose");
         myFinance.paymentRequestsAdd.click();
-//        System.out.println(myBasePage.getSourceOfPage());
+
         choosePayee("myself");
-        choosePurpose(purpose, "TEST 1234");
-        addReceiptToPaymentRequest("picture");
-        categorySub("Activities");
-        categoryAmountSub("4567");
-        myFinance.paymentRequestsSaveButton.click();
+//        choosePurpose(purpose, "TEST 1234");
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myBasePage.waitForElement(myFinance.paymentRequestsAddPurpose);
+            Thread.sleep(1000);
+            myFinance.paymentRequestsAddPurpose.click();
+        }
+
+        myFinance.paymentRequestsPurpose.setValue(purpose);
+        Thread.sleep(2000);
+//        System.out.println(myBasePage.getSourceOfPage());
+//        Thread.sleep(2000);
+//        addReceiptToPaymentRequest("picture");
+//        categorySub("Activities");
+//        categoryAmountSub("4567");
+//        myFinance.paymentRequestsSaveButton.click();
 
     }
 
-    @Then("Some error should happen")
+    @Then("Some purpose error should happen")
     public void someErrorShouldHappen() throws Exception {
-        LOGGER.info("Some error should happen");
-        Thread.sleep(20000);
-
+        LOGGER.info("Some purpose error should happen");
+        //This may be android only stuff
+//        Assert.assertTrue(myFinance.paymentRequestsPurposeSubmit.getAttribute("enabled").equalsIgnoreCase("false"));
+        Assert.assertTrue(myFinance.paymentRequestsCounter.getText().contains("445"));
     }
 
 

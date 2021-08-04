@@ -8,47 +8,47 @@
       Then the class and quorum attendance <memberRecord> will be displayed
       And the attendance <can> be edited
       Examples:
-      | leader                            | memberRecord                | can        |
-      | "BISHOP"                          | "Bryson, David"             | "true"     |
-#      | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"             | "true"     |
-#      | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"             | "true"     |
-#      | "WARD_CLERK"                      | "Bryson, David"             | "true"     |
-#      | "WARD_EXECUTIVE_SECRETARY"        | "Bryson, David"             | "true"     |
-#      | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"             | "true"     |
-#      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     |
-#      | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bryson, David"             | "true"     |
-#      | "ELDERS_QUORUM_SECRETARY"         | "Bryson, David"             | "true"     |
-#      | "RELIEF_SOCIETY_PRESIDENT"        | "Borden, Shirley"           | "true"     |
-#      | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Borden, Shirley"           | "true"     |
-#      | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Borden, Shirley"           | "true"     |
-#      | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"             | "true"     |
-#      | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"             | "true"     |
-#      | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"             | "true"     |
+        | leader                            | memberRecord      | can    |
+        | "BISHOP"                          | "Bryson, David"   | "true" |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"   | "true" |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"   | "true" |
+#        | "WARD_CLERK"                      | "Bryson, David"   | "true" |
+#        | "WARD_EXECUTIVE_SECRETARY"        | "Bryson, David"   | "true" |
+#        | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"   | "true" |
+##      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     |
+#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bryson, David"   | "true" |
+#        | "ELDERS_QUORUM_SECRETARY"         | "Bryson, David"   | "true" |
+#        | "RELIEF_SOCIETY_PRESIDENT"        | "Borden, Shirley" | "true" |
+##        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Borden, Shirley" | "true" |
+#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Borden, Shirley" | "true" |
+#        | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"   | "true" |
+#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"   | "true" |
+#        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"   | "true" |
 #      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     | No Sunday School First Counselor
 #      | "WARD_MISSION_LEADER"             | "Bryson, David"             | "true"     | No Ward Mission Leader for this Ward right now
 
 
-    @MQA-3518 @all @smoke @all1 @daily @daily2
+    @MQA-3518 @all @smoke @all1 @daily @daily2 @jft
     Scenario Outline: Check edit rights in the API
       Given a <leader> account checks the Class and Quorum Attendance for the API
       Then the editable field is <status>
       Examples:
         | leader                            | status     |
         | "BISHOP"                          | "true"     |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "true"     |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "true"     |
-#        | "WARD_CLERK"                      | "true"     |
-#        | "WARD_EXECUTIVE_SECRETARY"        | "true"     |
-#        | "ELDERS_QUORUM_PRESIDENT"         | "true"     |
+        | "BISHOPRIC_SECOND_COUNSELOR"      | "true"     |
+        | "BISHOPRIC_SECOND_COUNSELOR"      | "true"     |
+        | "WARD_CLERK"                      | "true"     |
+        | "WARD_EXECUTIVE_SECRETARY"        | "true"     |
+        | "ELDERS_QUORUM_PRESIDENT"         | "true"     |
 #        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "true"     |
-#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "true"     |
-#        | "ELDERS_QUORUM_SECRETARY"         | "true"     |
-#        | "RELIEF_SOCIETY_PRESIDENT"        | "true"     |
+        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "true"     |
+        | "ELDERS_QUORUM_SECRETARY"         | "true"     |
+        | "RELIEF_SOCIETY_PRESIDENT"        | "true"     |
 #        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "true"     |
-#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "true"     |
-#        | "YOUNG_WOMEN_PRESIDENT"           | "true"     |
-#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "true"     |
-#        | "SUNDAY_SCHOOL_PRESIDENT"         | "true"     |
+        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "true"     |
+        | "YOUNG_WOMEN_PRESIDENT"           | "true"     |
+        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "true"     |
+        | "SUNDAY_SCHOOL_PRESIDENT"         | "true"     |
 #        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "true"     |
 #        | "WARD_MISSION_LEADER"             | "true"     |
 
@@ -93,11 +93,11 @@
 #        | "WARD_CLERK"                      | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
 #        | "WARD_EXECUTIVE_SECRETARY"        | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
 #        | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
-#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+##        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
 #        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
 #        | "ELDERS_QUORUM_SECRETARY"         | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
 #        | "RELIEF_SOCIETY_PRESIDENT"        | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
-#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+##        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
 #        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
 #        | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"      |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"      |

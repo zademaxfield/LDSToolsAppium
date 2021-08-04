@@ -273,13 +273,24 @@ public class PaymentRequests extends BaseDriver {
                 Thread.sleep(500);
 
 //                System.out.println(myBasePage.getSourceOfPage());
-                myBasePage.waitForElement(myFinance.paymentRequestsCameraButton);
-                myFinance.paymentRequestsCameraButton.click();
-                Thread.sleep(500);
+                if (myBasePage.checkForElement(myFinance.paymentRequestsCameraButton)) {
+                    myFinance.paymentRequestsCameraButton.click();
+                    Thread.sleep(500);
 //                System.out.println(myBasePage.getSourceOfPage());
 //                myFinance.paymentRequestsCameraButton.click();
-                myBasePage.waitForElement(myFinance.paymentRequestsCameraButtonOK);
-                myFinance.paymentRequestsCameraButtonOK.click();
+                    myBasePage.waitForElement(myFinance.paymentRequestsCameraButtonOK);
+                    myFinance.paymentRequestsCameraButtonOK.click();
+                }
+
+                if (myBasePage.checkForElement(myFinance.paymentRequestsCameraButton2)) {
+                    myFinance.paymentRequestsCameraButton2.click();
+                    Thread.sleep(500);
+//                System.out.println(myBasePage.getSourceOfPage());
+//                myFinance.paymentRequestsCameraButton.click();
+                    myBasePage.waitForElement(myFinance.paymentRequestsCameraButtonOK);
+                    myFinance.paymentRequestsCameraButtonOK.click();
+                }
+
 
             }
         } else {

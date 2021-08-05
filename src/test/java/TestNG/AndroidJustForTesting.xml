@@ -24,10 +24,14 @@
 <!--            <class name="LDSToolsAppium.BaseDriver"/>-->
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
 <<<<<<< HEAD
+<<<<<<< HEAD
             <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
 =======
             <class name="LDSToolsAppiumTest.ReportsScreenTest" />
 >>>>>>> ecc9591 (Update with UAT data)
+=======
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+>>>>>>> bf41d3f95d9b1987906d1f1b0527c93d24d351c3
         </classes>
     </test > <!-- Default test -->
 </suite> <!-- Default suite -->

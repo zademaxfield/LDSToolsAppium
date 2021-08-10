@@ -6,6 +6,8 @@ import LDSToolsAppium.API.TestWam2CredentialsManager;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.*;
 
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -26,7 +28,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class MemberToolsAPI {
+@CucumberOptions()
+public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
     Response householdAPI = null;
 
@@ -442,6 +445,32 @@ public class MemberToolsAPI {
         }
 
         return responseData;
+    }
+
+
+    public int getApiResponseCode (String apiService, String proxyLogin) throws IOException {
+        int responseCode = 0;
+
+        OkHttpClient httpClient = loginCred();
+//        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/reports?units="+ unitNumber, proxyLogin );
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/"+apiService, proxyLogin);
+        Headers resHeader;
+
+
+        try (Response response = httpClient.newCall(request).execute()) {
+            assert response.body() != null;
+//            responseData = response.body().string();
+            responseCode = response.code();
+            System.out.println("CODE: " + response.code());
+            System.out.println("Message: " + response.message());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return responseCode;
     }
 
 

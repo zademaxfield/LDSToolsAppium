@@ -42,9 +42,19 @@ public class APITest {
 
     @Test
     public void apiInfoTestStuff() throws Exception {
+        int codeTest = 0;
 
 //        memberList = apiTest.getReportNames("kroqbandit", "21628");
-        rawData = apiTest.getApiInfoTEST(unitNumber, proxyLogin);
+//        rawData = apiTest.getApiInfoTEST(unitNumber, proxyLogin);
+
+        apiTest.getApiResponseCode("reports?units=21628", "kroqbandit");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/reports/access", "21628", "kroqbandit");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/user", "21628", "kroqbandit");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/units", "21628", "kroqbandit");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/subscriptions", "21628", "kroqbandit");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/referrals", "21628", "kroqbandit");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/temples", "21628", "kroqbandit");
+//        System.out.println("Code: " + codeTest);
 
 //        memberList = apiTest.getReportNames("bradyduck", "111074");
 

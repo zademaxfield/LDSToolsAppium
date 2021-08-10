@@ -22,6 +22,7 @@ import org.openqa.selenium.By;
 import io.appium.java_client.InteractsWithFiles.*;
 import org.testng.Assert;
 
+import java.awt.desktop.SystemEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -212,9 +213,18 @@ public class PaymentRequests extends BaseDriver {
     @Then("Some purpose error should happen")
     public void someErrorShouldHappen() throws Exception {
         LOGGER.info("Some purpose error should happen");
+        String purposeCheck = "";
         //This may be android only stuff
 //        Assert.assertTrue(myFinance.paymentRequestsPurposeSubmit.getAttribute("enabled").equalsIgnoreCase("false"));
-        Assert.assertTrue(myFinance.paymentRequestsCounter.getText().contains("445"));
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+//            purposeCheck = myFinance.paymentRequestsAddPurpose.getText();
+            purposeCheck = myFinance.paymentRequestsAddPurpose.getAttribute("value").toString();
+            System.out.println(purposeCheck);
+            System.out.println("LENGTH: " + purposeCheck.length());
+        } else {
+            Assert.assertTrue(myFinance.paymentRequestsCounter.getText().contains("445"));
+        }
+
     }
 
 

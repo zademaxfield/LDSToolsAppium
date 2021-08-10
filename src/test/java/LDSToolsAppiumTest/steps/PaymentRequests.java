@@ -218,9 +218,10 @@ public class PaymentRequests extends BaseDriver {
 //        Assert.assertTrue(myFinance.paymentRequestsPurposeSubmit.getAttribute("enabled").equalsIgnoreCase("false"));
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
 //            purposeCheck = myFinance.paymentRequestsAddPurpose.getText();
-            purposeCheck = myFinance.paymentRequestsAddPurpose.getAttribute("value").toString();
-            System.out.println(purposeCheck);
-            System.out.println("LENGTH: " + purposeCheck.length());
+            purposeCheck = myFinance.paymentRequestsPurpose.getAttribute("value").toString();
+//            System.out.println(purposeCheck);
+//            System.out.println("LENGTH: " + purposeCheck.length());
+            Assert.assertEquals(purposeCheck.length(), 100);
         } else {
             Assert.assertTrue(myFinance.paymentRequestsCounter.getText().contains("445"));
         }

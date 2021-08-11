@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -112,6 +113,10 @@ public class FinanceScreen extends BasePage {
     //Photo Gallery
     @iOSXCUITFindBy(accessibility = "Photo Gallery")
     public MobileElement paymentRequestsPhotoGallery;
+
+    //Image to select
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeImage[3]")
+    public MobileElement paymentRequestsImageToSelect;
 
     //Camera Button
     //TODO: iOS code

@@ -29,7 +29,7 @@
 
 
 
-#This is tested in another test. 
+#This is tested in another test.
 #    @MQA-3518 @all @smoke @all1 @daily @daily2 @jft
 #    Scenario Outline: Check edit rights in the API
 #      Given a <leader> account checks the Class and Quorum Attendance for the API

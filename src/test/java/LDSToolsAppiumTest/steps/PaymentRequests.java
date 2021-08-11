@@ -269,6 +269,7 @@ public class PaymentRequests extends BaseDriver {
         Thread.sleep(2000);
         myFinance.paymentRequestsAddReceipt.click();
 
+
         if (addReceipt.equalsIgnoreCase("picture")) {
             //ios crashes when you try to take a picture
             if (myBasePage.getOS().equalsIgnoreCase("ios")) {
@@ -276,7 +277,8 @@ public class PaymentRequests extends BaseDriver {
                 Thread.sleep(5000);
                 myFinance.paymentRequestsPhotoGallery.click();
                 Thread.sleep(12000);
-                driver.get().findElement(By.xpath("//XCUIElementTypeImage[3]")).click();
+                myBasePage.waitForElement(myFinance.paymentRequestsImageToSelect);
+                myFinance.paymentRequestsImageToSelect.click();
 
             } else {
                 myFinance.paymentRequestsTakeAPicture.click();

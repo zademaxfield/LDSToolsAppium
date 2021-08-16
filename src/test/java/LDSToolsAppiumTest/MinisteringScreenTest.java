@@ -15,7 +15,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily1", "jft"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily1"})
     public void ministeringBasic_BISHOP() throws Exception {
         ministeringBasicSub("BISHOP");
     }
@@ -226,7 +226,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "daily", "daily2"})
+    @Test (groups = {"all4", "all", "daily", "daily2" })
     public void ministeringUnassignedHouseholds_BISHOP() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("BISHOP");
     }
@@ -439,7 +439,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all", "daily", "daily3"})
+    @Test (groups = {"all2", "all", "daily", "daily3", "jft"})
     public void ministeringAssignedHouseholds_BISHOP() throws Exception {
         ministeringAssignedHouseholdsSub("BISHOP");
     }
@@ -560,7 +560,7 @@ public class MinisteringScreenTest extends BaseDriver {
             //For some reason the pageSource is broken for this page in iOS.
             if (getRunningOS().equalsIgnoreCase("ios")) {
                 pageSource = myBasePage.getSourceOfPage();
-                Assert.assertTrue(pageSource.contains("Adams"));
+                Assert.assertTrue(pageSource.contains("Anderson"));
                 Assert.assertFalse(pageSource.contains("Skywalker"));
             } else {
                 pageSource = myBasePage.getSourceOfPage();

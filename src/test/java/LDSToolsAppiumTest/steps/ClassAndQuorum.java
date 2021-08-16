@@ -161,6 +161,7 @@ public class ClassAndQuorum extends BaseDriver {
         searchClassAndQuorum("Rickett, Dylan");
         getWeekElement("week1", "main").click();
         Thread.sleep(500);
+//        System.out.println(myBasePage.getSourceOfPage());
         getWeekElement("week3", "main").click();
         myBasePage.backButton.click();
         myReports.classAndQuorumAttendanceReport.click();

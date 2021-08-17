@@ -15,7 +15,7 @@
 #        | "WARD_CLERK"                      | "Bryson, David"   | "true" |
 #        | "WARD_EXECUTIVE_SECRETARY"        | "Bryson, David"   | "true" |
 #        | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"   | "true" |
-##      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     |
+##      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"    | "true"     |
 #        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bryson, David"   | "true" |
 #        | "ELDERS_QUORUM_SECRETARY"         | "Bryson, David"   | "true" |
 #        | "RELIEF_SOCIETY_PRESIDENT"        | "Borden, Shirley" | "true" |
@@ -23,7 +23,7 @@
 #        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Borden, Shirley" | "true" |
 #        | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"   | "true" |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"   | "true" |
-#        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"   | "true" |
+        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"   | "true" |
 #      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     | No Sunday School First Counselor
 #      | "WARD_MISSION_LEADER"             | "Bryson, David"             | "true"     | No Ward Mission Leader for this Ward right now
 

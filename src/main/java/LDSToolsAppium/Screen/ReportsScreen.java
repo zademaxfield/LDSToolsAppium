@@ -108,10 +108,15 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Progress Record")
     public MobileElement progressRecordReport;
 
-    //Progress Record
+    //Class and Quorum Attendance
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Class and Quorum Attendance']")
     @iOSXCUITFindBy(accessibility = "Class and Quorum Attendance")
     public MobileElement classAndQuorumAttendanceReport;
+
+    //Ordinances
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ordinances']")
+    @iOSXCUITFindBy(accessibility = "Record Ordination")
+    public MobileElement ordinancesReport;
 
 
 
@@ -552,6 +557,37 @@ public class ReportsScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Primary']")
     @iOSXCUITFindBy(accessibility = "Primary")
     public  MobileElement classAndQuorumFilterPrimary;
+
+
+
+
+    //*************************************************************************************
+    //************************************* Ordinances ************************************
+    //*************************************************************************************
+
+
+    //Ordinances- Add
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/fab")
+    @iOSXCUITFindBy(accessibility = "Add")
+    public  MobileElement ordinancesAdd;
+
+    //Ordinances-Filter
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/iconImageView")
+    @iOSXCUITFindBy(accessibility = "Filter")
+    public  MobileElement ordinancesFilter;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

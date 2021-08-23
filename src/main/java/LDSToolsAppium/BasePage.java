@@ -770,13 +770,13 @@ public class BasePage extends BaseDriver {
     }
 
     public void waitForElementThenClick(MobileElement myElement) {
-        WebDriverWait wait = new WebDriverWait(driver.get(), 30);
+        WebDriverWait wait = new WebDriverWait(driver.get(), 60);
         wait.until(ExpectedConditions.elementToBeClickable(myElement));
         myElement.click();
     }
 
     public void waitForElement(MobileElement myElement) {
-        WebDriverWait wait = new WebDriverWait(driver.get(), 30);
+        WebDriverWait wait = new WebDriverWait(driver.get(), 60);
         wait.until(ExpectedConditions.visibilityOf(myElement));
     }
 

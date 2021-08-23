@@ -558,7 +558,7 @@ public class MinisteringScreenTest extends BaseDriver {
             Thread.sleep(2000);
 
             //For some reason the pageSource is broken for this page in iOS.
-            if (getRunningOS().equalsIgnoreCase("ios")) {`
+            if (getRunningOS().equalsIgnoreCase("ios")) {
                 pageSource = myBasePage.getSourceOfPage();
                 Assert.assertTrue(pageSource.contains("Anderson"));
                 Assert.assertFalse(pageSource.contains("Skywalker"));

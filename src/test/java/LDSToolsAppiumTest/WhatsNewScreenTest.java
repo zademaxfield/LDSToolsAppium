@@ -29,11 +29,7 @@ public class WhatsNewScreenTest extends BaseDriver {
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Photo Downloading", pageSource, "Contains"));
-        //TODO: Change when closer to 4.5.0
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Record Ordinances", pageSource, "Contains"));
-
-
+        Assert.assertTrue(myBasePage.checkNoCaseList("Record Ordinances", pageSource, "Contains"));
         myWhatsNew.whatsNewDone.click();
 
 

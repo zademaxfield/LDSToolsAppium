@@ -15,7 +15,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily1"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily1", "jft"})
     public void ministeringBasic_BISHOP() throws Exception {
         ministeringBasicSub("BISHOP");
     }
@@ -439,7 +439,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all", "daily", "daily3", "jft"})
+    @Test (groups = {"all2", "all", "daily", "daily3"})
     public void ministeringAssignedHouseholds_BISHOP() throws Exception {
         ministeringAssignedHouseholdsSub("BISHOP");
     }

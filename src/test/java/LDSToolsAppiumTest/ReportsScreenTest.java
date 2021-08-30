@@ -15,7 +15,7 @@ import java.util.List;
 public class ReportsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"all1", "all", "smoke", "smoke1", "report", "daily", "daily1"})
+    @Test (groups = {"all1", "all", "smoke", "smoke1", "report", "daily", "daily1", "jft"})
     public void reportsBasic_BISHOP() throws Exception {
         reportsBasicCheckSub("BISHOP");
     }
@@ -421,7 +421,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
     //There is no API for this
-    @Test (groups = {"all3", "all", "report", "daily", "daily4", "jft"})
+    @Test (groups = {"all3", "all", "report", "daily", "daily4"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
 
@@ -756,7 +756,8 @@ public class ReportsScreenTest extends BaseDriver {
             myReports.selectSort(myReports.femaleSort);
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Adams, Ascencion", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Maegan", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Organa, Leia", pageSource, "Contains"));
         }
 

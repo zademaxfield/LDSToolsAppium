@@ -1,12 +1,6 @@
 {
   "toolsVersions": {
-    "gradle": "6.7.1",
-    "androidGradlePlugin": "4.2.0",
-    "compileSdk": 30,
-    "buildTools": "30.0.3",
-    "minSdk": 21,
-    "targetSdk": 30,
-    "kotlin": "1.5.0"
+
   },
   "additionalAppDependencies": [
     "com.google.android.material:material:1.2.1",

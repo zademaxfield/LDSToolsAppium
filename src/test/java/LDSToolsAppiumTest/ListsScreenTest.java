@@ -41,7 +41,7 @@ public class ListsScreenTest extends BaseDriver {
         myLists.listsOk.click();
 
         //Add a member to the list
-        myLists.addMemberToList("lovell, heather", "Lovell, Heather");
+        myLists.addMemberToList("read, mary", "Lovell, Heather");
 //        System.out.println(myBase.getSourceOfPage());
         myBase.waitForElementThenClick(myLists.listsBackButton);
 
@@ -56,8 +56,8 @@ public class ListsScreenTest extends BaseDriver {
         myLists.selectListName("New Automated List");
         Thread.sleep(4000);
         pageSource = myBase.getSourceOfPage();
-        Assert.assertTrue(myBase.checkNoCaseList("Lovell", pageSource, "Contains"));
-        Assert.assertTrue(myBase.checkNoCaseList("Heather", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("read", pageSource, "Contains"));
+        Assert.assertTrue(myBase.checkNoCaseList("mary", pageSource, "Contains"));
         myBase.backButton.click();
         Thread.sleep(2000);
 

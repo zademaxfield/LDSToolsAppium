@@ -56,6 +56,7 @@
 #  Scenario: No internet
 #  Scenario: Record same ordination at the same time?
 #  Scenario: Set date to year of 1900
+#  Scenario: Check candidates all are showing up?
 
 
 

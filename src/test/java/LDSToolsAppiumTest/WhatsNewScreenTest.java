@@ -29,7 +29,12 @@ public class WhatsNewScreenTest extends BaseDriver {
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Record Ordinances", pageSource, "Contains"));
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            Assert.assertTrue(myBasePage.checkNoCaseList("Returned Missionaries", pageSource, "Contains"));
+        } else {
+            Assert.assertTrue(myBasePage.checkNoCaseList("Record Ordinances", pageSource, "Contains"));
+        }
+
         myWhatsNew.whatsNewDone.click();
 
 

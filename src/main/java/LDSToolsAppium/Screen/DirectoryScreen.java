@@ -411,9 +411,12 @@ public class DirectoryScreen extends BasePage {
                 checkForLabel = false;
             }
 
+            scrollDownIOS();
+//            System.out.println(myBasePage.getSourceOfPage());
             checkForLabel = checkForElement(memebershipInformation);
             if (checkForLabel) {
                 memebershipInformation.click();
+//                scrollUpIOS();
                 pageSource = pageSource + getSourceOfPage();
                 scrollDownIOS();
                 pageSource = pageSource + getSourceOfPage();

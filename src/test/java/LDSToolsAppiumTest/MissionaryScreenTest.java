@@ -203,7 +203,7 @@ public class MissionaryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all4", "all", "daily", "daily2"})
+    @Test(groups = {"all4", "all", "daily", "daily2", "jft"})
     public void missionaryOtherUnits() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods();
@@ -265,7 +265,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
     //TODO: Update for Social Media
-    @Test(groups = {"needUpdate", "jft"})
+    @Test(groups = {"needUpdate"})
 //    @Test(groups = {"all4", "all", "daily", "daily1", "jft"})
     public void missionaryReferralTest() throws Exception {
         //String pageSource;

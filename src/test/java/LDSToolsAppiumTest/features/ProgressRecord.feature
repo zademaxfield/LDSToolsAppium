@@ -1,7 +1,7 @@
 @ProgressRecord
   Feature: Progress Record tests - Used to be Missionary Progress Record
 
-    @MQA-5156 @MQA-2225 @smoke @all @daily
+    @MQA-5156 @MQA-2225 @smoke @all @daily @jft
     Scenario Outline: SMOKE as a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -9,7 +9,7 @@
       And the members record <can> be edited
       Examples:
         | leader   | memberRecord          | can    |
-        | "BISHOP" | "Cox, Troy Christian" | "true" |
+        | "BISHOP" | "Chaney, Dustin John" | "true" |
 
 
     @MQA-3193 @MQA-2225 @all @all3 @all @daily
@@ -20,23 +20,23 @@
       And the members record <can> be edited
       Examples:
         | leader                            | memberRecord             | can     |
-        | "BISHOP"                          | "Cox, Troy Christian"    | "true"  |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Cox, Troy Christian"    | "true"  |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Cox, Troy Christian"    | "true"  |
+        | "BISHOP"                          | "Chaney, Dustin John"    | "true"  |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Chaney, Destin John"    | "true"  |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Chaney, Destin John"    | "true"  |
 #        | "WARD_CLERK"                      | "Johnson, Jasean Marvin" | "true"  |
 #        | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann" | "true"  |
 #        | "ELDERS_QUORUM_PRESIDENT"         | "Perry, Keegan Krue"     | "true"  |
-#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Cox, Troy Christian"    | "false" |
+#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Chaney, Destin John"    | "false" |
 #        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"            | "false" |
-#        | "ELDERS_QUORUM_SECRETARY"         | "Cox, Troy Christian"    | "false" |
-#        | "RELIEF_SOCIETY_PRESIDENT"        | "Cox, Troy Christian"    | "true"  |
+#        | "ELDERS_QUORUM_SECRETARY"         | "Chaney, Destin John"    | "false" |
+#        | "RELIEF_SOCIETY_PRESIDENT"        | "Chaney, Destin John"    | "true"  |
 #        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin" | "false" |
 #        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann" | "false" |
 #        | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"     | "false" |
-#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Cox, Troy Christian"    | "false" |
-#        | "SUNDAY_SCHOOL_PRESIDENT"         | "Cox, Troy Christian"    | "false" |
-#        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Cox, Troy Christian"    | "false" |
-#        | "WARD_MISSION_LEADER"             | "Cox, Troy Christian"    | "true"  |
+#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Chaney, Destin John"    | "false" |
+#        | "SUNDAY_SCHOOL_PRESIDENT"         | "Chaney, Destin John"    | "false" |
+#        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Chaney, Destin John"    | "false" |
+#        | "WARD_MISSION_LEADER"             | "Chaney, Destin John"    | "true"  |
 
     @MQA-5157 @MQA-2225 @all @all3 @all @daily
     Scenario Outline: As a STAKE leader I should have access to the New Members under Progress Record
@@ -50,7 +50,7 @@
 #        | "STAKE_PRESIDENT_FIRST_COUNSELOR"  | "Walker, Steph"       | "false" | "Newton"       |
 #        | "STAKE_PRESIDENT_SECOND_COUNSELOR" | "Lopez, Jordan"       | "false" | "Wellington"   |
 #        | "STAKE_CLERK"                      | "Studd, Blu Lee"      | "false" | "Pratt"        |
-#        | "STAKE_EXECUTIVE_SECRETARY"        | "Cox, Troy Christian" | "false" | "Auburn Hills" |
+#        | "STAKE_EXECUTIVE_SECRETARY"        | "Chaney, Destin John" | "false" | "Auburn Hills" |
 
 
     @MQA-3194 @MQA-2225 @all @all3 @all @daily
@@ -78,7 +78,7 @@
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bray, Sidney"   | "false" |
 #        | "WARD_MISSION_LEADER"             | "Arnold, Pryde"  | "true"  |
 
-    @MQA-5158 @MQA-2225 @all @all3 @all @daily @jft
+    @MQA-5158 @MQA-2225 @all @all3 @all @daily
     Scenario Outline: As a STAKE leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab

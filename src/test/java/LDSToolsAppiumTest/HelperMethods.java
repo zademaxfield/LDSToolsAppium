@@ -801,7 +801,7 @@ public class HelperMethods extends BaseDriver {
         if (!myBasePage.getOS().equals("ios")) {
             Thread.sleep(2000);
             checkForLater();
-            Thread.sleep(2000);
+            Thread.sleep(8000);
 
 //            LOGGER.info(getSourceOfPage());
             myBasePage.waitForElement(myMenuScreen.directory);

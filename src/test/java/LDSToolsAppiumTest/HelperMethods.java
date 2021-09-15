@@ -1276,13 +1276,14 @@ public class HelperMethods extends BaseDriver {
         }
 
         if (!myBasePage.getOS().equalsIgnoreCase("ios")) {
-            myCheck = pageSource.contains("Allow");
+//            myCheck = pageSource.contains("Allow");
+            myCheck = myBasePage.checkForElement(myPin.pinAlertDialogAllow);
             if (myCheck) {
                 myPin.pinAlertDialogAllow.click();
                 pageSource = myBasePage.getSourceOfPage();
             }
 
-            myCheck = pageSource.contains("Allow");
+            myCheck = myBasePage.checkForElement(myPin.pinAlertDialogAllow);
             if (myCheck) {
                 myPin.pinAlertDialogAllow.click();
             }

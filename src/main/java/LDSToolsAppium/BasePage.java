@@ -776,7 +776,7 @@ public class BasePage extends BaseDriver {
     }
 
     public void waitForElement(MobileElement myElement) {
-        WebDriverWait wait = new WebDriverWait(driver.get(), 300);
+        WebDriverWait wait = new WebDriverWait(driver.get(), 360);
         wait.until(ExpectedConditions.visibilityOf(myElement));
     }
 

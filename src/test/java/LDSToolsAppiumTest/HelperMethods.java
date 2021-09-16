@@ -803,7 +803,9 @@ public class HelperMethods extends BaseDriver {
             checkForLater();
             Thread.sleep(8000);
 
-//            LOGGER.info(getSourceOfPage());
+            if (!myBasePage.checkForElement(myMenuScreen.directory)) {
+                myMenuScreen.drawerButton.click();
+            }
             myBasePage.waitForElement(myMenuScreen.directory);
             myMenuScreen.organizations.click();
             Thread.sleep(1000);

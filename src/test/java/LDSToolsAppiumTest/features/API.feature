@@ -52,3 +52,10 @@
 #        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "true"     |
 #        | "WARD_MISSION_LEADER"             | "true"     |
 
+    @jft
+    Scenario: Check the creation and deleting of lists
+      Given a member creates a list
+      Then the new list will be displayed
+      And the list is deleted
+      Then the list will not be displayed
+

@@ -6,11 +6,13 @@ import LDSToolsAppium.Screen.DirectoryScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.ReportsScreen;
 import LDSToolsAppiumTest.HelperMethods;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class API {
@@ -18,7 +20,9 @@ public class API {
     HelperMethods myHelper = new HelperMethods();
     MemberToolsAPI apiTest = new MemberToolsAPI();
     List<String> memberList = new ArrayList<String>();
+    int responseCode;
     int urlStatus;
+    HashMap<String, String> listMap = new HashMap<>();
 
 
     @Given("a {string} account checks the Class and Quorum Attendance right")
@@ -52,6 +56,30 @@ public class API {
         if (status.equalsIgnoreCase("Error")) {
             Assert.assertTrue(urlStatus >= 400);
         }
+    }
+
+    @Given("a member creates a list")
+    public void aMemberCreatesAList() throws Exception {
+        responseCode = apiTest.postListTest("ee4a2b31-a913-442a-9cef-70722cb55f3c", "TEST API",51, "50eff3b6-10c2-4caf-9c18-f070e41fc1ca");
+        Assert.assertEquals(responseCode, 200);
+    }
+
+    @Then("the new list will be displayed")
+    public void theNewListWillBeDisplayed() throws Exception {
+        listMap = apiTest.getListNames("kroqbandit");
+        Assert.assertTrue(listMap.containsKey("TEST API"));
+    }
+
+    @And("the list is deleted")
+    public void theListIsDeleted() throws Exception {
+        responseCode = apiTest.listDelete("TEST API", "kroqbandit");
+        Assert.assertEquals(responseCode, 200);
+    }
+
+    @Then("the list will not be displayed")
+    public void theListWillNotBeDisplayed() throws Exception {
+        listMap = apiTest.getListNames("kroqbandit");
+        Assert.assertFalse(listMap.containsKey("TEST API"));
     }
 
 

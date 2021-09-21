@@ -1,8 +1,6 @@
 package LDSToolsAppium.API;
 
-import LDSToolsAppium.API.TestAuthenticationInterceptor;
-import LDSToolsAppium.API.TestAuthenticationManager;
-import LDSToolsAppium.API.TestWam2CredentialsManager;
+
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.*;
 
@@ -13,20 +11,21 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 
 import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.io.FileUtils;
-import org.jsoup.select.Evaluator;
+import org.json.JSONObject;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
+
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.lang.reflect.Type;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Stream;
+
+
 
 @CucumberOptions()
 public class MemberToolsAPI extends AbstractTestNGCucumberTests {
@@ -669,6 +668,138 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
         return responseData;
     }
 
+
+
+
+
+
+
+    public int postListTest(String listMembers, String listName, int listSort, String listOwner) throws IOException {
+        int responseData = 0;
+        String json;
+//        String json = "{" +
+//                "  \"members\": [" +
+//                "      \"ee4a2b31-a913-442a-9cef-70722cb55f3c\"" +
+//                "  ]," +
+//                "  \"name\": \"TEST API\"," +
+//                "  \"removed\": false," +
+//                "  \"sort\": 51," +
+//                "  \"uuid\": \"50eff3b6-10c2-4caf-9c18-f070e41fc1ca\"" +
+//                "}";
+
+        JSONObject jsonPost = new JSONObject();
+        jsonPost.put("members", new String[] {listMembers});
+        jsonPost.put("name", listName);
+        jsonPost.put("removed",false);
+        jsonPost.put("sort", listSort);
+        jsonPost.put("uuid", listOwner);
+
+        json = jsonPost.toString();
+
+        System.out.println(json);
+
+
+
+
+        RequestBody body = RequestBody.create(
+                MediaType.parse("application/json"), json);
+
+        StringBuilder contentBuilder = new StringBuilder();
+
+        OkHttpClient httpClient = loginCred();
+        Request request = new Request.Builder()
+                .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/lists")
+                .addHeader("X-Proxy-User" , "kroqbandit")
+                .post(body)
+                .build();
+
+
+        try (Response response = httpClient.newCall(request).execute()) {
+//            assert response.body() != null;
+//            responseData = response.body().string();
+            System.out.println("Response: "  + response.code());
+            responseData = response.code();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return responseData;
+    }
+
+
+    public int listDelete(String listName, String proxyUser) throws Exception {
+        int responseData = 0;
+        String listUuid = "";
+        HashMap<String, String> listMap = new HashMap<>();
+
+        listMap = getListNames(proxyUser);
+
+        if (listMap.containsKey(listName)) {
+            listUuid = listMap.get(listName);
+            System.out.println("UUID: " + listUuid);
+        }
+
+        OkHttpClient httpClient = loginCred();
+        Request request = new Request.Builder()
+                .delete()
+                .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/lists/" + listUuid)
+                .addHeader("X-Proxy-User" , "kroqbandit")
+                .build();
+
+
+        try (Response response = httpClient.newCall(request).execute()) {
+            System.out.println("Response: "  + response.code());
+            responseData = response.code();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return responseData;
+    }
+
+
+
+
+
+    public String getListsFromProxy(String proxyLogin) throws IOException {
+        String responseData = "";
+        File organizationFile = new File("ConfigFiles/lists" + proxyLogin + ".json");
+        StringBuilder contentBuilder = new StringBuilder();
+
+        OkHttpClient httpClient = loginCred();
+
+        Request request = new Request.Builder()
+                .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/lists")
+                .addHeader("X-Proxy-User" , proxyLogin)
+                .build();
+
+        try (Response response = httpClient.newCall(request).execute()) {
+            assert response.body() != null;
+            responseData = response.body().string();
+            try  {
+//                    FileWriter myWriter = new FileWriter("organization.json");
+                FileWriter myWriter = new FileWriter(organizationFile);
+                myWriter.write(responseData);
+                myWriter.flush();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return responseData;
+    }
+
+
+
+
+
+
     //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getClassQuorumJson(String unitNumber, String proxyLogin) throws IOException {
         String responseData = "";
@@ -696,37 +827,46 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
             e.printStackTrace();
         }
 
-
-
-
-//        if (!organizationFile.exists()) {
-//            try (Response response = httpClient.newCall(request).execute()) {
-//                assert response.body() != null;
-//                responseData = response.body().string();
-//                try  {
-////                    FileWriter myWriter = new FileWriter("organization.json");
-//                    FileWriter myWriter = new FileWriter(organizationFile);
-//                    myWriter.write(responseData);
-//                    myWriter.flush();
-//
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        } else {
-//            try {
-//                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/classquorum" + unitNumber + ".json")), StandardCharsets.UTF_8);
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-
         return responseData;
     }
+
+    public HashMap<String, String> getListNames(String proxyLogin) throws Exception {
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiLists myApiLists = new ApiLists();
+        ArrayList<String> listNames = new ArrayList<String>();
+        Type apiLists = new TypeToken<ArrayList<ApiLists>>(){}.getType();
+        HashMap<String, String> listMap = new HashMap<>();
+
+
+        responseData = getListsFromProxy(proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myApiLists = gson.fromJson(jsonElement, ApiLists.class);
+//            System.out.println(myApiLists);
+
+
+        } else if (jsonElement instanceof JsonArray) {
+//            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiLists> testGetList = gson.fromJson(jsonElement, apiLists);
+            for(ApiLists list : testGetList) {
+               listMap.put(list.getName(), list.getUuid());
+            }
+        }
+
+        return listMap;
+    }
+
+
+
+
+
+
 
 
     public List<String> getCovenantPathNames(String proxyLogin, String unitNumber, String progressRecordType) throws Exception {

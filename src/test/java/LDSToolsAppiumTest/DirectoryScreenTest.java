@@ -662,7 +662,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 //    @Test(groups = {"needUpdate"})
-    @Test(groups = {"all3", "all", "daily", "daily4", "jft"})
+    @Test(groups = {"all3", "all", "daily", "daily4"})
     public void directoryLatLongNoGPSNoCalling() throws Exception {
         String pageSource;
 
@@ -695,7 +695,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all", "daily", "daily1"})
+    @Test(groups = {"all3", "all", "daily", "daily1", "jft"})
     public void directoryLatLongCheckLocation() throws Exception {
 
         // ********* Constructor **********
@@ -710,12 +710,12 @@ public class DirectoryScreenTest extends BaseDriver {
 //        myDirectory.searchAndClick("Pipi, Mafoe");
 
         if (myBasePage.getOS().contains("ios")) {
-            myDirectory.searchAndClickHousehold("Pipi, Mafoe & Lalotoa");
+            myDirectory.searchAndClickHousehold("Pipi, Itagia");
 //            myBasePage.clickByTextContains("Pipi");
 //            myBasePage.scrollDownIOS();
             myBasePage.scrollToTextGeneral("Adjust Household Location");
         } else {
-            myDirectory.searchAndClickHousehold("Pipi, Mafoe");
+            myDirectory.searchAndClickHousehold("Pipi, Itagia");
         }
 
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsAdjustHouseholdLocationLowerCase));

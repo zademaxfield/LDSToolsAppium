@@ -19,12 +19,8 @@ import java.nio.file.Files;
 
 import java.nio.file.Paths;
 import java.time.Duration;
-import java.util.ArrayList;
+import java.util.*;
 import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-
 
 
 @CucumberOptions()
@@ -669,6 +665,46 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
 
+    //TODO: Need a file check for the date then delete if older than 3 or so days?
+    public String getFinanceExpenses(String unitNumber, String proxyLogin) throws IOException {
+        String responseData = "";
+        File organizationFile = new File("ConfigFiles/expenses" + unitNumber + ".json");
+        StringBuilder contentBuilder = new StringBuilder();
+
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/finances/expenses?units="+ unitNumber, proxyLogin );
+
+        if (!organizationFile.exists()) {
+            try (Response response = httpClient.newCall(request).execute()) {
+                assert response.body() != null;
+                responseData = response.body().string();
+                try  {
+//                    FileWriter myWriter = new FileWriter("organization.json");
+                    FileWriter myWriter = new FileWriter(organizationFile);
+                    myWriter.write(responseData);
+                    myWriter.flush();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/expenses" + unitNumber + ".json")), StandardCharsets.UTF_8);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return responseData;
+    }
+
+
 
 
 
@@ -863,7 +899,54 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
 
+    public Map<String, Object> getExpenses(String proxyLogin, String unitNumber, String purposeSearch) throws Exception {
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiFinance myFinance = new ApiFinance();
+//        HashMap myMap = new HashMap();
+        Map<String, Object> myMap = new HashMap<>();
+//        ArrayList<String> memberNames = new ArrayList<String>();
+        List<String> foundExpense = null;
+        Type apiFinance = new TypeToken<ArrayList<ApiFinance>>(){}.getType();
+        responseData = getFinanceExpenses(unitNumber, proxyLogin);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
 
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+            myFinance = gson.fromJson(jsonElement, ApiFinance.class);
+
+
+        } else if (jsonElement instanceof JsonArray) {
+//            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiFinance> testExpenses = gson.fromJson(jsonElement, apiFinance);
+            for(ApiFinance unit : testExpenses) {
+                List<Expense> myExpenses = unit.getExpenses();
+                for (Expense myFinanceRequest: myExpenses) {
+                    if (myFinanceRequest.getPurpose().equalsIgnoreCase(purposeSearch)) {
+//                        System.out.println(myFinanceRequest.getPurpose());
+                        myMap.put("prupose", myFinanceRequest.getPurpose());
+                        myMap.put("id", myFinanceRequest.getId());
+                        myMap.put("date", myFinanceRequest.getDate());
+                        myMap.put("receiptCount", myFinanceRequest.getReceiptCount());
+                        myMap.put("payeeId", myFinanceRequest.getPayee().getId());
+                        myMap.put("payeeName", myFinanceRequest.getPayee().getName());
+                        myMap.put("unitNumber", myFinanceRequest.getUnitNumber());
+                        myMap.put("type", myFinanceRequest.getType());
+                        List<Charge> myCharge = myFinanceRequest.getCharges();
+                        for (Charge chargeData : myCharge) {
+                            myMap.put("categoryId", chargeData.getCategoryId());
+                            myMap.put("amount", chargeData.getAmount());
+                        }
+                    }
+                }
+            }
+        }
+
+        return myMap;
+    }
 
 
 

@@ -1,10 +1,12 @@
 package LDSToolsAppium;
 
 import LDSToolsAppium.API.MemberToolsAPI;
+import LDSToolsAppium.API.ApiFinance;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import io.cucumber.datatable.dependency.com.fasterxml.jackson.databind.util.TypeKey;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
@@ -18,11 +20,10 @@ import io.restassured.path.json.JsonPath;
 import java.awt.*;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
 
-import java.util.Base64;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
@@ -48,23 +49,32 @@ public class APITest {
         int codeTest = 0;
         int responseCode = 0;
 
+        Map<String, Object> myMap = new HashMap<>();
+        myMap = apiTest.getExpenses("kroqbandit", "21628", "Qqqqqqqqqqqqq");
+
+        for (String mapKey: myMap.keySet()) {
+            String key = mapKey.toString();
+            String value = myMap.get(mapKey).toString();
+            System.out.println(key + " - " + value);
+        }
+
 //        memberList = apiTest.getReportNames("kroqbandit", "21628");
 //        rawData = apiTest.getApiInfoTEST(unitNumber, proxyLogin);
 
 //        apiTest.getApiResponseCode("reports?units=21628", "kroqbandit");
 
-        //List Tests
-        responseCode = apiTest.postListTest("ee4a2b31-a913-442a-9cef-70722cb55f3c", "TEST API",51, "50eff3b6-10c2-4caf-9c18-f070e41fc1ca");
-        Assert.assertEquals(responseCode, 200);
-
-        listMap = apiTest.getListNames("kroqbandit");
-        Assert.assertTrue(listMap.containsKey("TEST API"));
-
-        responseCode = apiTest.listDelete("TEST API", "kroqbandit");
-        Assert.assertEquals(responseCode, 200);
-
-        listMap = apiTest.getListNames("kroqbandit");
-        Assert.assertFalse(listMap.containsKey("TEST API"));
+//        //List Tests
+//        responseCode = apiTest.postListTest("ee4a2b31-a913-442a-9cef-70722cb55f3c", "TEST API",51, "50eff3b6-10c2-4caf-9c18-f070e41fc1ca");
+//        Assert.assertEquals(responseCode, 200);
+//
+//        listMap = apiTest.getListNames("kroqbandit");
+//        Assert.assertTrue(listMap.containsKey("TEST API"));
+//
+//        responseCode = apiTest.listDelete("TEST API", "kroqbandit");
+//        Assert.assertEquals(responseCode, 200);
+//
+//        listMap = apiTest.getListNames("kroqbandit");
+//        Assert.assertFalse(listMap.containsKey("TEST API"));
 
 
 

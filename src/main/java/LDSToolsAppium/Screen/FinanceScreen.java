@@ -243,6 +243,12 @@ public class FinanceScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Save")
     public MobileElement paymentRequestsSaveButton;
 
+
+    //Submit Button
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/submitButton")
+    @iOSXCUITFindBy(accessibility = "Submit")
+    public MobileElement paymentRequestsSubmitButton;
+
     //No Button
     @iOSXCUITFindBy(accessibility = "No")
     public MobileElement paymentRequestsNoButton;

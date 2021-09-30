@@ -23,9 +23,7 @@ import io.appium.java_client.InteractsWithFiles.*;
 import org.testng.Assert;
 
 import java.awt.desktop.SystemEventListener;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class PaymentRequests extends BaseDriver {
     BasePage myBasePage = new BasePage(driver);
@@ -36,6 +34,7 @@ public class PaymentRequests extends BaseDriver {
     MemberToolsAPI apiTest = new MemberToolsAPI();
     List<String> memberList = new ArrayList<String>();
     String pageSource;
+    String payeeName = "";
 
 
     @Given("a {string} is on the Finance page")
@@ -64,6 +63,18 @@ public class PaymentRequests extends BaseDriver {
         categoryAmountSub(categoryAmount);
         Thread.sleep(2000);
         myFinance.paymentRequestsSaveButton.click();
+//        System.out.println(myBasePage.getSourceOfPage());
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            payeeName = driver.get().findElement(By.xpath("//XCUIElementTypeTable/XCUIElementTypeCell[2]/XCUIElementTypeStaticText[1]")).getAttribute("name");
+        } else {
+            payeeName = driver.get().findElement(By.id("org.lds.ldstools.alpha:id/nameTextView")).getText();
+//            System.out.println(payeeName);
+        }
+
+        myFinance.paymentRequestsSubmitButton.click();
+
+        //Todo: Should have a better way to do this.
+        Thread.sleep(20000);
     }
 
 
@@ -75,11 +86,30 @@ public class PaymentRequests extends BaseDriver {
 //        System.out.println(pageSource);
 //        Assert.assertTrue(myBasePage.checkNoCaseList(member, pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList(payee, pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList(purpose, pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList(account, pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList(purpose, pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList(account, pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList(addReceipt, pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList(category, pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList(categoryAmount, pageSource, "Contains"));
+
+
+        Map<String, Object> myMap = new HashMap<>();
+        myMap = apiTest.getExpenses("kroqbandit", "21628", purpose);
+
+//        Assert.assertEquals(payee, myMap.get("payeeName").toString());
+        if (myMap.containsKey("amount")) {
+            Assert.assertEquals(categoryAmount, myMap.get("amount").toString());
+
+
+            //Have to do a contains because the api has the last name and the app doesn't
+            Assert.assertTrue(myMap.get("payeeName").toString().contains(payeeName));
+        }
+
+
+        //Todo: need category lookup
+        //Todo: delete payment request - API delete is not working
+
+
 
     }
 

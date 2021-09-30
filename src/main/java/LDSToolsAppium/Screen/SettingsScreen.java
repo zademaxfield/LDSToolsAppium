@@ -388,7 +388,7 @@ public class SettingsScreen extends BasePage {
 
     //Temple Recommend Reminder
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Remind me']")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[contains(@name, \"Temple Recommend Reminder\")]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, \"Temple Recommend Reminder\")]")
     public MobileElement templeRecommendReminder;
 
 

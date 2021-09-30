@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily3", "jft"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily3"})
     public void templeSimple() throws Exception {
         String pageSource;
 
@@ -58,7 +58,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= {"all", "all1", "daily", "daily4"})
+    @Test (groups= {"all", "all1", "daily", "daily4", "jft"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 

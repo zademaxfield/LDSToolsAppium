@@ -209,41 +209,47 @@ public class HelperMethods extends BaseDriver {
 
 
         if (myBasePage.getOS().equals("ios")) {
-            boolean syncChecker = true;
-            int syncCounter = 1;
-            LOGGER.info("Check for failed to download");
-
-            while (syncChecker) {
-                LOGGER.info("Sync Checker: " + syncCounter);
-                pageSource = myBasePage.getSourceOfPage();
-                Assert.assertFalse(pageSource.contains("Failed to download."));
-                Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable"));
-
-                if (pageSource.contains("passcode")) {
-                    LOGGER.info("Found Passcode");
-                    syncChecker = false;
-                }
-
-                if (syncCounter >= 5 ) {
-                    syncChecker = false;
-                }
-                syncCounter++;
-
-                Thread.sleep(1000);
-
-            }
-
-            LOGGER.info("Done checking for failed to download");
+            unavailableCheck();
+//            boolean syncChecker = true;
+//            int syncCounter = 1;
+//            LOGGER.info("Check for failed to download");
+//
+//            while (syncChecker) {
+//                LOGGER.info("Sync Checker: " + syncCounter);
+//                pageSource = myBasePage.getSourceOfPage();
+//                Assert.assertFalse(pageSource.contains("Failed to download."));
+//                Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable"));
+//                Assert.assertFalse(pageSource.contains("Error"));
+//
+//                if (pageSource.contains("passcode")) {
+//                    LOGGER.info("Found Passcode");
+//                    syncChecker = false;
+//                }
+//
+//                if (syncCounter >= 5 ) {
+//                    syncChecker = false;
+//                }
+//                syncCounter++;
+//
+//                Thread.sleep(1000);
+//
+//            }
+//
+//            LOGGER.info("Done checking for failed to download");
+//
+//            myBasePage.waitForText("passcode");
+//            LOGGER.info("Text found: Passcode");
 
             myBasePage.waitForText("passcode");
             LOGGER.info("Text found: Passcode");
+
         } else {
             myBasePage.waitUnitlTextIsGone("Authenticating");
-//            unavailableCheck();
+            unavailableCheck();
 
 
-            myBasePage.waitForText("Updating");
-            Thread.sleep(1000);
+//            myBasePage.waitForText("Updating");
+//            Thread.sleep(1000);
             myBasePage.waitUnitlTextIsGone("Updating");
             Thread.sleep(1000);
             myBasePage.waitUnitlTextIsGone("Updating");
@@ -262,15 +268,34 @@ public class HelperMethods extends BaseDriver {
     public void unavailableCheck() throws Exception {
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
-        pageSource = myBasePage.getSourceOfPage();
-        if (pageSource.contains("Member Tools Services are unavailable")) {
-            // Comment for extra debug ... this could fill up your email
-            if (!getRunningOS().equalsIgnoreCase("ios")) {
-                System.out.println("Sending Android Logs");
-                sendAndroidLog();
-            }
+        boolean syncChecker = true;
+        int syncCounter = 1;
+        LOGGER.info("Check for failed to download");
+
+        while (syncChecker) {
+            LOGGER.info("Sync Checker: " + syncCounter);
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertFalse(pageSource.contains("Failed to download."));
             Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable"));
+            Assert.assertFalse(pageSource.contains("Error"));
+
+            if (pageSource.contains("passcode")) {
+                LOGGER.info("Found Passcode");
+                syncChecker = false;
+            }
+
+            if (syncCounter >= 5 ) {
+                syncChecker = false;
+            }
+            syncCounter++;
+
+            Thread.sleep(1000);
+
         }
+
+        LOGGER.info("Done checking for failed to download");
+
+
     }
 
 

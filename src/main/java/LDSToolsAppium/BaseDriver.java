@@ -267,7 +267,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         }
 
         if(getRunningOS().equals("ios")) {
-            Thread.sleep(2000);
+            Thread.sleep(4000);
             System.out.println("Start Reset App");
 //            driver.removeApp("org.lds.ldstools");
 ////            driver.installApp(driver.getCapabilities().getCapability("app").toString());
@@ -284,13 +284,16 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
         } else {
             Thread.sleep(2000);
+            System.out.println("Rest App");
             getDriver().resetApp();
+
 //            getDriver().quit();
-//            driver.resetApp();
+//            getDriver().resetApp();
 //            System.out.println("Clear App");
 //            adbCommand("clearApp");
 //            Thread.sleep(5000);
-//            driver.launchApp();
+//            getDriver().launchApp();
+//            getDriver().resetApp();
             Thread.sleep(5000);
             System.out.println("SERIAL NUMBER: " + deviceSerial);
         }

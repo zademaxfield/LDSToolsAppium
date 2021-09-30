@@ -58,7 +58,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= {"all", "all1", "daily", "daily4", "jft"})
+    @Test (groups= {"all", "all1", "daily", "daily4"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
 
@@ -262,7 +262,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all2", "daily", "daily3"})
+    @Test (groups= { "all", "all2", "daily", "daily3", "jft"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 
@@ -309,7 +309,7 @@ public class TemplesScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkNoCaseList("Aba", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Abidjan", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Accra", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Adelaide", pageSource, "Contains"));
+//        Assert.assertTrue(myBasePage.checkNoCaseList("Adelaide", pageSource, "Contains"));
 
 
     }

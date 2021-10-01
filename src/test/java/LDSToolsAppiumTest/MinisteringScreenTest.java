@@ -226,7 +226,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "daily", "daily2", "jft" })
+    @Test (groups = {"all4", "all", "daily", "daily2"})
     public void ministeringUnassignedHouseholds_BISHOP() throws Exception {
         ministeringUnassignedHouseholdsCheckSub("BISHOP");
     }
@@ -816,7 +816,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all1", "all", "daily", "daily1"})
+    @Test (groups = {"all1", "all", "daily", "daily1", "jft" })
     public void unassignedSisters_BISHOP() throws Exception {
         unassignedSistersSub("BISHOP");
     }
@@ -948,7 +948,7 @@ public class MinisteringScreenTest extends BaseDriver {
                 //For some reason the pageSource is broken for this page in iOS.
                 if (getRunningOS().equalsIgnoreCase("ios")) {
                     pageSource = myBasePage.getSourceOfPage();
-                    Assert.assertTrue(pageSource.contains("Adams"));
+                    Assert.assertTrue(pageSource.contains("Arabia"));
                     Assert.assertFalse(pageSource.contains("Skywalker"));
                 } else {
                     pageSource = myBasePage.getSourceOfPage();

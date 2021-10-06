@@ -1,7 +1,7 @@
 @ClassAndQuorum
   Feature: Class and Quorum Attendance tests
 
-    @MQA-3517 @MQA-2225 @all @all1 @daily @daily2 @jft
+    @MQA-3517 @MQA-2225 @all @all1 @daily @daily2
     Scenario Outline: As a leader I should have access to Class and Quorum Attendance reports
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecord> is searched for
@@ -74,7 +74,7 @@
       When a member record is selected
       Then the individual attendance should be displayed
 
-    @MQA-3522 @all @all1 @daily @daily1
+    @MQA-3522 @all @all1 @daily @daily1 @jft
     Scenario Outline: As a leader I should be able to search for members in Class and Quorum Attendance
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecordElder> is searched for
@@ -88,8 +88,8 @@
       When a <memberRecordPrimary> is searched for
       Then the member <memberRecordPrimary> will <willPrimary> be displayed
       Examples:
-        | leader                            | memberRecordElder     | willElder  | memberRecordRS         | willRS  | memberRecordAaronic    | willAaronic  | memberRecordYW    | willYW    | memberRecordPrimary  | willPrimary  |
-        | "BISHOP"                          | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
+        | leader   | memberRecordElder | willElder | memberRecordRS   | willRS | memberRecordAaronic | willAaronic | memberRecordYW     | willYW | memberRecordPrimary | willPrimary |
+        | "BISHOP" | "Bryson, David"   | "true"    | "Anderson, Lisa" | "true" | "Crumby, Traevon"   | "true"      | "Chappell, Audrey" | "true" | "Sosa, Kailey"      | "true"      |
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
 #        | "WARD_CLERK"                      | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |

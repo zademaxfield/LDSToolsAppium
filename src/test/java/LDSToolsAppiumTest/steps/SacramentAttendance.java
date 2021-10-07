@@ -133,9 +133,11 @@ public class SacramentAttendance extends BaseDriver {
             sacToEnter.clear();
 //            Thread.sleep(2000);
             sacToEnter.setValue("0");
-            myBasePage.keyboardReturn.click();
-            Thread.sleep(2000);
+            myBasePage.waitForElement(myReports.sacramentAttendanceCounterIcon);
+//            myBasePage.keyboardReturn.click();
+//            Thread.sleep(2000);
         }
+//        System.out.println(myBasePage.getSourceOfPage());
         myReports.sacramentAttendanceCounterIcon.click();
         counterPressAdd(counterTotal);
         iShouldSee(counterNumber);
@@ -159,8 +161,9 @@ public class SacramentAttendance extends BaseDriver {
             sacToEnter.clear();
 //            Thread.sleep(2000);
             sacToEnter.setValue("0");
-            myBasePage.keyboardReturn.click();
-            Thread.sleep(2000);
+            myBasePage.waitForElement(myReports.sacramentAttendanceCounterIcon);
+//            myBasePage.keyboardReturn.click();
+//            Thread.sleep(2000);
         }
         myReports.sacramentAttendanceCounterIcon.click();
         counterPressAdd(counterTotal);

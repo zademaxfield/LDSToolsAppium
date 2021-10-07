@@ -35,6 +35,7 @@ public class PaymentRequests extends BaseDriver {
     List<String> memberList = new ArrayList<String>();
     String pageSource;
     String payeeName = "";
+    String purpose = "";
 
 
     @Given("a {string} is on the Finance page")
@@ -56,6 +57,7 @@ public class PaymentRequests extends BaseDriver {
 //        System.out.println(myBasePage.getSourceOfPage());
         myFinance.paymentRequestsAdd.click();
 //        System.out.println(myBasePage.getSourceOfPage());
+        purpose = purpose + Math.random();
         choosePayee(payee);
         choosePurpose(purpose, account);
         addReceiptToPaymentRequest(addReceipt);
@@ -79,7 +81,7 @@ public class PaymentRequests extends BaseDriver {
 
 
     @Then("the payment request should be processed with information of {string} {string} {string} {string} {string} {string} {string}")
-    public void the_payment_request_should_be_processed_with_information_of(String member, String payee, String purpose, String account, String addReceipt, String category, String categoryAmount) throws Exception {
+    public void the_payment_request_should_be_processed_with_information_of(String member, String payee, String purposeOrig, String account, String addReceipt, String category, String categoryAmount) throws Exception {
         LOGGER.info("the payment request should be processed with information of " + payee + " " + purpose + " " + account + " " + addReceipt + " " + category + " " + categoryAmount);
         Thread.sleep(5000);
         pageSource = myBasePage.getSourceOfPage();

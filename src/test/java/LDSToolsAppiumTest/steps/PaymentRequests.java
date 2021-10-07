@@ -183,7 +183,7 @@ public class PaymentRequests extends BaseDriver {
     public void aIsOnTheFinancePageAndHasAPaymentRequestThatIsNotFinished(String member) throws Exception {
         LOGGER.info("a " + member + " is on the Finance page and has a payment request that is not finished");
         a_is_on_the_Finance_page(member);
-        a_payment_request_is_filled_out_for("myself", "Test One", "test", "picture", "Activities", "7792");
+        a_payment_request_is_filled_out_for_and_saved("myself", "Test One", "test", "picture", "Activities", "7792");
         Thread.sleep(2000);
         myBasePage.backButton.click();
         Thread.sleep(2000);
@@ -466,6 +466,22 @@ public class PaymentRequests extends BaseDriver {
 
         }
 
+    }
+
+
+    public void a_payment_request_is_filled_out_for_and_saved(String payee, String purpose, String account, String addReceipt, String category, String categoryAmount) throws Exception {
+        LOGGER.info("a payment request is filled out for " + payee + " " + purpose + " " + account + " " + addReceipt + " " + category + " " + categoryAmount);
+        Thread.sleep(1000);
+//        System.out.println(myBasePage.getSourceOfPage());
+        myFinance.paymentRequestsAdd.click();
+//        System.out.println(myBasePage.getSourceOfPage());
+        choosePayee(payee);
+        choosePurpose(purpose, account);
+        addReceiptToPaymentRequest(addReceipt);
+        categorySub(category);
+        categoryAmountSub(categoryAmount);
+        Thread.sleep(2000);
+        myFinance.paymentRequestsSaveButton.click();
     }
 
 

@@ -16,7 +16,7 @@ import org.jsoup.nodes.Element;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-import java.io.File;
+import java.io.*;
 import java.util.*;
 
 
@@ -152,12 +152,9 @@ public class HelperMethods extends BaseDriver {
 
         byte[] decodeBytes = Base64.decodeBase64("QkBiMDBuU3AxNzIwMjA=");
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-
 //            iosDeepLink(proxyUserName);
             loginName = "zmaxfield/stage/" + proxyUserName;
-
         } else {
-
             while(!myBasePage.checkForElement(myLoginPage.titleMemberToolsSTAGE)|| myCounter > 4) {
 //                System.out.println(myBasePage.getSourceOfPage());
                 myLoginPage.titleMemberTools.click();
@@ -194,7 +191,7 @@ public class HelperMethods extends BaseDriver {
         myLoginPage.loginName.sendKeys(loginName);
         myLoginPage.passWord.sendKeys(new String(decodeBytes));
         myLoginPage.signInButton.click();
-        Thread.sleep(1000);
+        Thread.sleep(500);
 
         long startTime = System.nanoTime();
 
@@ -202,7 +199,7 @@ public class HelperMethods extends BaseDriver {
         myBasePage.waitUnitlTextIsGone("Sign In");
         LOGGER.info("Check for Sign In over ------ Check for Sync");
 
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
 
 //        unavailableCheck();
 
@@ -210,36 +207,6 @@ public class HelperMethods extends BaseDriver {
 
         if (myBasePage.getOS().equals("ios")) {
             unavailableCheck();
-//            boolean syncChecker = true;
-//            int syncCounter = 1;
-//            LOGGER.info("Check for failed to download");
-//
-//            while (syncChecker) {
-//                LOGGER.info("Sync Checker: " + syncCounter);
-//                pageSource = myBasePage.getSourceOfPage();
-//                Assert.assertFalse(pageSource.contains("Failed to download."));
-//                Assert.assertFalse(pageSource.contains("Member Tools Services are unavailable"));
-//                Assert.assertFalse(pageSource.contains("Error"));
-//
-//                if (pageSource.contains("passcode")) {
-//                    LOGGER.info("Found Passcode");
-//                    syncChecker = false;
-//                }
-//
-//                if (syncCounter >= 5 ) {
-//                    syncChecker = false;
-//                }
-//                syncCounter++;
-//
-//                Thread.sleep(1000);
-//
-//            }
-//
-//            LOGGER.info("Done checking for failed to download");
-//
-//            myBasePage.waitForText("passcode");
-//            LOGGER.info("Text found: Passcode");
-
             myBasePage.waitForText("passcode");
             LOGGER.info("Text found: Passcode");
 
@@ -247,9 +214,6 @@ public class HelperMethods extends BaseDriver {
             myBasePage.waitUnitlTextIsGone("Authenticating");
             unavailableCheck();
 
-
-//            myBasePage.waitForText("Updating");
-//            Thread.sleep(1000);
             myBasePage.waitUnitlTextIsGone("Updating");
             Thread.sleep(1000);
             myBasePage.waitUnitlTextIsGone("Updating");
@@ -261,8 +225,19 @@ public class HelperMethods extends BaseDriver {
         duration = duration / 1000000;
         LOGGER.info("Done waiting for Text to disappear: Sync Took: " + duration);
 
+        syncTimeWriter(duration);
 
         Thread.sleep(1000);
+    }
+
+    public void syncTimeWriter( long duration) throws Exception {
+        try(FileWriter fw = new FileWriter("screenshot/syncTime.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw)) {
+            out.println(duration);
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+        }
     }
 
     public void unavailableCheck() throws Exception {
@@ -284,12 +259,17 @@ public class HelperMethods extends BaseDriver {
                 syncChecker = false;
             }
 
+            if (pageSource.contains("PIN")) {
+                LOGGER.info("Found PIN");
+                syncChecker = false;
+            }
+
             if (syncCounter >= 5 ) {
                 syncChecker = false;
             }
             syncCounter++;
 
-            Thread.sleep(1000);
+            Thread.sleep(500);
 
         }
 

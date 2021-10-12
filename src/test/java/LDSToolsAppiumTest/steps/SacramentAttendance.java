@@ -75,7 +75,11 @@ public class SacramentAttendance extends BaseDriver {
         iShouldSee(valueToEnter);
         myBasePage.backButton.click();
 //        System.out.println(myBasePage.getSourceOfPage());
-        Thread.sleep(5000);
+        Thread.sleep(500);
+        if (!myBasePage.checkForElement(myReports.sacramentAttendanceReport)) {
+            myBasePage.scrollDownAndroidUIAutomator("0");
+        }
+        myBasePage.waitForElement(myReports.sacramentAttendanceReport);
         myReports.sacramentAttendanceReport.click();
         Thread.sleep(5000);
     }

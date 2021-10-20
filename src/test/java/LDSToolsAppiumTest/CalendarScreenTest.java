@@ -50,7 +50,7 @@ public class CalendarScreenTest extends BaseDriver {
         calendarSimpleSub("MEMBER1");
     }
 
-    @Test (groups = {"all1", "all"})
+    @Test (groups = {"all1", "all", "daily", "daily2"})
     public void calendarSimple_ELDERS_QUORUM_PRESIDENT() throws Exception {
         calendarSimpleSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -70,7 +70,7 @@ public class CalendarScreenTest extends BaseDriver {
         calendarSimpleSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test (groups = {"all1", "all"})
+    @Test (groups = {"all1", "all", "daily", "daily3"})
     public void calendarSimple_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         calendarSimpleSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -85,7 +85,7 @@ public class CalendarScreenTest extends BaseDriver {
         calendarSimpleSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test (groups = {"all2", "all"})
+    @Test (groups = {"all2", "all", "daily", "daily4"})
     public void calendarSimple_YOUNG_WOMEN_PRESIDENT() throws Exception {
         calendarSimpleSub("YOUNG_WOMEN_PRESIDENT");
     }

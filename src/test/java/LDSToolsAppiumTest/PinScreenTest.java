@@ -57,7 +57,7 @@ public class PinScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all", "daily", "daily2"})
+    @Test (groups = {"all3", "all", "daily", "daily2", "jft"})
     public void pinNoMatchTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -97,7 +97,7 @@ public class PinScreenTest extends BaseDriver {
 
 
     //TODO: Android bug MMA-3502
-    @Test (groups = {"all4", "all", "jft"})
+    @Test (groups = {"all4", "all"})
     public void pinSequentialTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);

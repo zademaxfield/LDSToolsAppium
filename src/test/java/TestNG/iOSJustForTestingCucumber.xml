@@ -11,7 +11,7 @@
         <parameter name="systemPort" value="8251" />
 
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.PaymentRequestsRunner"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.ProgressRecordRunner"> </class>
         </classes>
     </test>
 </suite>

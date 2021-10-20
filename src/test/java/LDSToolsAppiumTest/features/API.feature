@@ -2,28 +2,29 @@
   Feature: API tests
 
     @jft
-    Scenario Outline: Check the status code for the API
+    Scenario Outline: Check <url> status code for <member>
       Given a <member> goes to the <url>
       Then the status should be <status>
       Examples:
-        | member    | url                   | status    |
-        | "BISHOP"  | "user"                | "Success" |
-        | "BISHOP"  | "units"               | "Success" |
-        | "BISHOP"  | "reports?units=21628" | "Success" |
-        | "BISHOP"  | "subscriptions"       | "Success" |
-        | "BISHOP"  | "reports/access"      | "Success" |
-        | "BISHOP"  | "referrals"           | "Success" |
-        | "BISHOP"  | "temples"             | "Success" |
-        | "BISHOP"  | "finances/accounts"   | "Success" |
-        | "MEMBER1" | "user"                | "Success" |
-        | "MEMBER1" | "units"               | "Success" |
-        | "MEMBER1" | "reports?units=21628" | "Error"   |
-        | "MEMBER1" | "subscriptions"       | "Success" |
-        | "MEMBER1" | "reports/access"      | "Success" |
-        | "MEMBER1" | "referrals"           | "Success" |
-        | "MEMBER1" | "temples"             | "Success" |
-        | "MEMBER1" | "finances/accounts"   | "Success" |
-
+        | member    | url                                 | status    |
+        | "BISHOP"  | "user"                              | "Success" |
+        | "BISHOP"  | "units"                             | "Success" |
+        | "BISHOP"  | "reports?units=21628"               | "Success" |
+        | "BISHOP"  | "subscriptions"                     | "Success" |
+        | "BISHOP"  | "reports/access"                    | "Success" |
+        | "BISHOP"  | "referrals"                         | "Success" |
+        | "BISHOP"  | "temples"                           | "Success" |
+        | "BISHOP"  | "finances/accounts"                 | "Success" |
+        | "BISHOP"  | "calendars?timeZone=America/Denver" | "Success" |
+        | "MEMBER1" | "user"                              | "Success" |
+        | "MEMBER1" | "units"                             | "Success" |
+        | "MEMBER1" | "reports?units=21628"               | "Error"   |
+        | "MEMBER1" | "subscriptions"                     | "Success" |
+        | "MEMBER1" | "reports/access"                    | "Success" |
+        | "MEMBER1" | "referrals"                         | "Success" |
+        | "MEMBER1" | "temples"                           | "Success" |
+        | "MEMBER1" | "finances/accounts"                 | "Success" |
+        | "MEMBER1" | "calendars?timeZone=America/Denver" | "Success" |
 
     #    @MQA-3518 @all @smoke @all1 @daily @daily2
     @jft

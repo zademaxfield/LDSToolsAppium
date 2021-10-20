@@ -274,7 +274,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "report", "daily", "daily2"})
+    @Test (groups = {"all4", "all", "report", "daily", "daily2", "jft"})
     public void reportsActionAndInterviewBugCheck() throws Exception {
         String pageSource;
 
@@ -310,7 +310,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all2", "all", "report", "daily", "daily3", "jft"})
+    @Test (groups = {"all2", "all", "report", "daily", "daily3"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();

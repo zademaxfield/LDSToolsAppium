@@ -65,7 +65,7 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "daily", "daily2"})
     public void directoryScreenTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         directoryScreenSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -85,7 +85,7 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "daily", "daily3"})
     public void directoryScreenTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         directoryScreenSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -100,7 +100,7 @@ public class DirectoryScreenTest extends BaseDriver {
         directoryScreenSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all1", "all"})
+    @Test(groups = {"all1", "all", "daily", "daily4"})
     public void directoryScreenTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
         directoryScreenSub("YOUNG_WOMEN_PRESIDENT");
     }

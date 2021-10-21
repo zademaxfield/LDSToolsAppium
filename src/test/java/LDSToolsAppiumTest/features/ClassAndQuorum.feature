@@ -14,14 +14,14 @@
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"   | "true" |
 #        | "WARD_CLERK"                      | "Bryson, David"   | "true" |
 #        | "WARD_EXECUTIVE_SECRETARY"        | "Bryson, David"   | "true" |
-#        | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"   | "true" |
+        | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"   | "true" |
 ##      | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"    | "true"     |
 #        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bryson, David"   | "true" |
 #        | "ELDERS_QUORUM_SECRETARY"         | "Bryson, David"   | "true" |
-#        | "RELIEF_SOCIETY_PRESIDENT"        | "Borden, Shirley" | "true" |
+        | "RELIEF_SOCIETY_PRESIDENT"        | "Borden, Shirley" | "true" |
 ##        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Borden, Shirley" | "true" |
 #        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Borden, Shirley" | "true" |
-#        | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"   | "true" |
+        | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"   | "true" |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"   | "true" |
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"   | "true" |
 #      | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"             | "true"     | No Sunday School First Counselor
@@ -74,7 +74,7 @@
       When a member record is selected
       Then the individual attendance should be displayed
 
-    @MQA-3522 @all @all1 @daily @daily1 
+    @MQA-3522 @all @all1 @daily @daily1
     Scenario Outline: As a leader I should be able to search for members in Class and Quorum Attendance
       Given a <leader> logs in and is on the Class and Quorum Attendance page
       When a <memberRecordElder> is searched for
@@ -88,20 +88,20 @@
       When a <memberRecordPrimary> is searched for
       Then the member <memberRecordPrimary> will <willPrimary> be displayed
       Examples:
-        | leader   | memberRecordElder | willElder | memberRecordRS   | willRS | memberRecordAaronic | willAaronic | memberRecordYW     | willYW | memberRecordPrimary | willPrimary |
-        | "BISHOP" | "Bryson, David"   | "true"    | "Anderson, Lisa" | "true" | "Crumby, Traevon"   | "true"      | "Chappell, Audrey" | "true" | "Sosa, Kailey"      | "true"      |
+        | leader                     | memberRecordElder | willElder | memberRecordRS        | willRS  | memberRecordAaronic | willAaronic | memberRecordYW     | willYW  | memberRecordPrimary | willPrimary |
+        | "BISHOP"                   | "Bryson, David"   | "true"    | "Anderson, Lisa"      | "true"  | "Crumby, Traevon"   | "true"      | "Chappell, Audrey" | "true"  | "Sosa, Kailey"      | "true"      |
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
 #        | "WARD_CLERK"                      | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
 #        | "WARD_EXECUTIVE_SECRETARY"        | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"       |
-#        | "ELDERS_QUORUM_PRESIDENT"         | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+        | "ELDERS_QUORUM_PRESIDENT"  | "Bryson, David"   | "true"    | "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"   | "false"     | "Chappell, Audrey" | "false" | "Sosa, Kailey"      | "false"     |
 ##        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
 #        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
 #        | "ELDERS_QUORUM_SECRETARY"         | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
-#        | "RELIEF_SOCIETY_PRESIDENT"        | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
+        | "RELIEF_SOCIETY_PRESIDENT" | "Bryson, David"   | "false"   | "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"   | "false"     | "Chappell, Audrey" | "false" | "Sosa, Kailey"      | "false"     |
 ##        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
 #        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "false"   | "Sosa, Kailey"       | "false"      |
-#        | "YOUNG_WOMEN_PRESIDENT"           | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"      |
+        | "YOUNG_WOMEN_PRESIDENT"    | "Bryson, David"   | "false"   | "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"   | "false"     | "Chappell, Audrey" | "true"  | "Sosa, Kailey"      | "true"      |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Bryson, David"       | "false"    |  "Adams, Maegan Fudge" | "false" | "Crumby, Traevon"      | "false"      |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "true"      |
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "false"      |
 #        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Bryson, David"       | "true"     |  "Adams, Maegan Fudge" | "true"  | "Crumby, Traevon"      | "true"       |"Chappell, Audrey" | "true"    | "Sosa, Kailey"       | "false"      |

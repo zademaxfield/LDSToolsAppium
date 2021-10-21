@@ -9,9 +9,9 @@ Feature: Payment Requests - be able to submit a payment from Member Tools
     Examples:
       | member                     | payee    | purpose                 | account | addReceipt | category         | categoryAmount |
       | "BISHOP"                   | "myself" | "Test One"              | "test"  | "picture"  | "Activities"     | "555"          |
-#      | "ELDERS_QUORUM_PRESIDENT"  | "myself" | "EQ Pres Test"          | "test"  | "picture"  | "Elders Quorum"  | "8365"         |
-#      | "RELIEF_SOCIETY_PRESIDENT" | "myself" | "RS Pres Test"          | "test"  | "picture"  | "Relief Society" | "11653"        |
-#      | "YOUNG_WOMEN_PRESIDENT"    | "myself" | "Young Women Pres Test" | "test"  | "picture"  | "Young Women"    | "3319"         |
+      | "ELDERS_QUORUM_PRESIDENT"  | "myself" | "EQ Pres Test"          | "test"  | "picture"  | "Elders Quorum"  | "8365"         |
+      | "RELIEF_SOCIETY_PRESIDENT" | "myself" | "RS Pres Test"          | "test"  | "picture"  | "Relief Society" | "11653"        |
+      | "YOUNG_WOMEN_PRESIDENT"    | "myself" | "Young Women Pres Test" | "test"  | "picture"  | "Young Women"    | "3319"         |
 
   @MQA-4819 @MQA-4817 @broken
   Scenario: As a member add a payment request with multiple categories

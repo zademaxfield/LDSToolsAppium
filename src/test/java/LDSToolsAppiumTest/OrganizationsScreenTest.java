@@ -60,7 +60,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all1", "all"})
+    @Test(groups = {"all1", "all", "daily", "daily1"})
     public void organizationTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -80,7 +80,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all1", "all"})
+    @Test(groups = {"all1", "all", "daily", "daily2"})
     public void organizationTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         organizationTestCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -95,7 +95,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "daily", "daily4"})
     public void organizationTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
         organizationTestCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
@@ -190,7 +190,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "daily", "daily1"})
     public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_PRESIDENT() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -210,7 +210,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all2", "all"})
+    @Test(groups = {"all2", "all", "daily", "daily2"})
     public void organizationStakeHighPriestQuorum_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -225,7 +225,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all3", "all"})
+    @Test(groups = {"all3", "all", "daily", "daily3"})
     public void organizationStakeHighPriestQuorum_YOUNG_WOMEN_PRESIDENT() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("YOUNG_WOMEN_PRESIDENT");
     }

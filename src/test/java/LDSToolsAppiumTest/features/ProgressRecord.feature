@@ -25,14 +25,14 @@
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Chaney, Destin John"    | "true"  |
 #        | "WARD_CLERK"                      | "Johnson, Jasean Marvin" | "true"  |
 #        | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann" | "true"  |
-#        | "ELDERS_QUORUM_PRESIDENT"         | "Perry, Keegan Krue"     | "true"  |
+        | "ELDERS_QUORUM_PRESIDENT"         | "Chaney, Dustin John"      | "true"  |
 #        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Chaney, Destin John"    | "false" |
 #        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"            | "false" |
 #        | "ELDERS_QUORUM_SECRETARY"         | "Chaney, Destin John"    | "false" |
-#        | "RELIEF_SOCIETY_PRESIDENT"        | "Chaney, Destin John"    | "true"  |
+        | "RELIEF_SOCIETY_PRESIDENT"        | "Chaney, Destin John"    | "true"  |
 #        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin" | "false" |
 #        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann" | "false" |
-#        | "YOUNG_WOMEN_PRESIDENT"           | "Perry, Keegan Krue"     | "false" |
+        | "YOUNG_WOMEN_PRESIDENT"           | "Chaney, Dustin John"     | "false" |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Chaney, Destin John"    | "false" |
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Chaney, Destin John"    | "false" |
 #        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Chaney, Destin John"    | "false" |
@@ -60,20 +60,20 @@
       Then the <memberRecord> for People Being Taught will be displayed
       And the members record for People Being Taught <can> be edited
       Examples:
-        | leader   | memberRecord  | can    |
-        | "BISHOP" | "Saft, Jolan" | "true" |
+        | leader                     | memberRecord  | can     |
+        | "BISHOP"                   | "Saft, Jolan" | "true"  |
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Arnold, Pryde"  | "true"  |
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Brown, Maurice" | "true"  |
 #        | "WARD_CLERK"                      | "Buzo, Robert"   | "true"  |
 ##        | "WARD_EXECUTIVE_SECRETARY"        | "Cubbage, Ron"   | "true"  |
-#        | "ELDERS_QUORUM_PRESIDENT"         | "May, Melida"    | "true"  |
+        | "ELDERS_QUORUM_PRESIDENT"  | "Saft, Jolan" | "true"  |
 #        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Saft, Jolan"    | "false" |
 #        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bray, Sidney"   | "false" |
 #        | "ELDERS_QUORUM_SECRETARY"         | "Arnold, Pryde"  | "false" |
-#        | "RELIEF_SOCIETY_PRESIDENT"        | "Brown, Maurice" | "true"  |
+        | "RELIEF_SOCIETY_PRESIDENT" | "Saft, Jolan" | "true"  |
 #        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Buzo, Robert"   | "false" |
 #        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Cubbage, Ron"   | "false" |
-#        | "YOUNG_WOMEN_PRESIDENT"           | "May, Melida"    | "false" |
+        | "YOUNG_WOMEN_PRESIDENT"    | "Saft, Jolan" | "false" |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Saft, Jolan"    | "false" |
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bray, Sidney"   | "false" |
 #        | "WARD_MISSION_LEADER"             | "Arnold, Pryde"  | "true"  |

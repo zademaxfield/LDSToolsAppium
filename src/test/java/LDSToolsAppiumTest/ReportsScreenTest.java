@@ -55,7 +55,7 @@ public class ReportsScreenTest extends BaseDriver {
         reportsBasicCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all1", "all"})
+    @Test(groups = {"all1", "all", "daily", "daily2"})
     public void missionaryTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         reportsBasicCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -75,7 +75,7 @@ public class ReportsScreenTest extends BaseDriver {
         reportsBasicCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all1", "all"})
+    @Test(groups = {"all1", "all", "daily", "daily3"})
     public void missionaryTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         reportsBasicCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -90,7 +90,7 @@ public class ReportsScreenTest extends BaseDriver {
         reportsBasicCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all4", "all"})
+    @Test(groups = {"all4", "all", "daily", "daily4"})
     public void missionaryTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
         reportsBasicCheckSub("YOUNG_WOMEN_PRESIDENT");
     }

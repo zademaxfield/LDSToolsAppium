@@ -12,33 +12,33 @@
         | "BISHOP" | "Chaney, Dustin John" | "true" |
 
 
-    @MQA-3193 @MQA-2225 @all @all3 @all @daily
+    @MQA-3193 @MQA-2225 @all @all3 @all @daily @jft
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-        | leader                            | memberRecord             | can     |
-        | "BISHOP"                          | "Chaney, Dustin John"    | "true"  |
+        | leader                    | memberRecord          | can     |
+        | "BISHOP"                   | "Chaney, Dustin John" | "true"  |
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Chaney, Destin John"    | "true"  |
 #        | "BISHOPRIC_SECOND_COUNSELOR"      | "Chaney, Destin John"    | "true"  |
 #        | "WARD_CLERK"                      | "Johnson, Jasean Marvin" | "true"  |
 #        | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann" | "true"  |
-        | "ELDERS_QUORUM_PRESIDENT"         | "Chaney, Dustin John"      | "true"  |
-#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Chaney, Destin John"    | "false" |
+        | "ELDERS_QUORUM_PRESIDENT" | "Chaney, Dustin John" | "false" |
+#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Chaney, Dustin John"    | "false" |
 #        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"            | "false" |
 #        | "ELDERS_QUORUM_SECRETARY"         | "Chaney, Destin John"    | "false" |
-        | "RELIEF_SOCIETY_PRESIDENT"        | "Chaney, Destin John"    | "true"  |
+        | "RELIEF_SOCIETY_PRESIDENT" | "Chaney, Dustin John" | "true"  |
 #        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin" | "false" |
 #        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann" | "false" |
-        | "YOUNG_WOMEN_PRESIDENT"           | "Chaney, Dustin John"     | "false" |
-#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Chaney, Destin John"    | "false" |
+        | "YOUNG_WOMEN_PRESIDENT"    | "Chaney, Dustin John" | "false" |
+#        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Chaney, Dustin John"   | "false" |
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Chaney, Destin John"    | "false" |
 #        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Chaney, Destin John"    | "false" |
 #        | "WARD_MISSION_LEADER"             | "Chaney, Destin John"    | "true"  |
 
-    @MQA-5157 @MQA-2225 @all @all3 @all @daily @jft
+    @MQA-5157 @MQA-2225 @all @all3 @all @daily
     Scenario Outline: As a STAKE leader I should have access to the New Members under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -78,7 +78,7 @@
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bray, Sidney"   | "false" |
 #        | "WARD_MISSION_LEADER"             | "Arnold, Pryde"  | "true"  |
 
-    @MQA-5158 @MQA-2225 @all @all3 @all @daily @jft
+    @MQA-5158 @MQA-2225 @all @all3 @all @daily
     Scenario Outline: As a STAKE leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab

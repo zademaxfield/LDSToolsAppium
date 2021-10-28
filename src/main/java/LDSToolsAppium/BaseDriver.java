@@ -599,7 +599,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             //capabilities.setCapability("allowTouchIdEnroll", true);
             capabilities.setCapability("appium:maxTypingFrequency", 20);
 //            capabilities.setCapability("sendKeyStrategy", "grouped");
-//            capabilities.setCapability("interKeyDelay", 2000);
+            capabilities.setCapability("interKeyDelay", 500);
             //capabilities.setCapability("appPackage", myAppPackage);
             //capabilities.setCapability("simpleIsVisibleCheck", true);
 //            capabilities.setCapability("connectHardwareKeyboard", false);

@@ -72,6 +72,7 @@ public class ProgressRecord extends BaseDriver {
     public void aMemberRecordIsSelectedUnderTheNewMembersTab(String memberRecord) throws Exception {
         LOGGER.info("a " + memberRecord + " is selected under the New Members tab");
         myBasePage.waitForElement(myReports.prNewMembers);
+        Thread.sleep(500);
         myReports.prNewMembers.click();
         searchForMemberAndClick(memberRecord);
     }

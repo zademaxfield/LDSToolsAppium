@@ -32,6 +32,23 @@ public class API {
         memberList = apiTest.getClassAndQuorumRights(callingRights[1], "21628");
     }
 
+    @Given("a {string} account checks the Reports")
+    public void aMemberAccountChecksTheReports(String memberCalling) throws Exception {
+        String[] callingRights;
+        callingRights = myHelper.getMemberNameFromList(memberCalling, "Centinela 1st");
+        urlStatus = apiTest.getApiResponseCode( "reports?units=21628" , callingRights[1] );
+    }
+
+    @Then("the Reports {string} are visible")
+    public void theReportsStatusAreVisible(String status) {
+        if (status.equalsIgnoreCase("true")) {
+            Assert.assertTrue(urlStatus >= 200 && urlStatus <= 299);
+        }
+        if (status.equalsIgnoreCase("false")) {
+            Assert.assertTrue(urlStatus >= 400);
+        }
+    }
+
 
     @Then("the Class and Quorum editable field is {string}")
     public void theClassAndQuorumEditableFieldIsStatus(String status) throws Exception {
@@ -47,6 +64,8 @@ public class API {
         callingRights = myHelper.getMemberNameFromList(member, "Centinela 1st");
         urlStatus = apiTest.getApiResponseCode( url, callingRights[1] );
     }
+
+
 
     @Then("the status should be {string}")
     public void theStatusShouldBeStatus(String status) throws Exception {
@@ -81,6 +100,8 @@ public class API {
         listMap = apiTest.getListNames("kroqbandit");
         Assert.assertFalse(listMap.containsKey("TEST API"));
     }
+
+
 
 
 //    public API() {

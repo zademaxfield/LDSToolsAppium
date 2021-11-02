@@ -115,7 +115,7 @@ public class ReportsScreen extends BasePage {
 
     //Ordinances
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ordinances']")
-    @iOSXCUITFindBy(accessibility = "Record Ordination")
+    @iOSXCUITFindBy(accessibility = "Ordinances")
     public MobileElement ordinancesReport;
 
 

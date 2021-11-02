@@ -52,6 +52,7 @@ public class RecordOrdinances extends BaseDriver {
         LOGGER.info("a Aaronic Priesthood Ordination is submitted for " + memberRecord + " with " + priesthoodOffice + " and the " + ordDate + " by " + officiator);
 //Switching to compose might be something like this. 
 //        ((JavascriptExecutor) driver.get()).executeScript("mobile: getComposSource");
+
         System.out.println(myBasePage.getSourceOfPage());
         myReports.ordinancesAdd.click();
 

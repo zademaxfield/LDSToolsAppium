@@ -14,7 +14,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.support.PageFactory;
-import org.springframework.ui.context.Theme;
+//import org.springframework.ui.context.Theme;
 
 
 import java.time.Duration;

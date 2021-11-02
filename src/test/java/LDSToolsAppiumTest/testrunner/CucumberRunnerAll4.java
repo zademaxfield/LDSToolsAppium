@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/java/LDSToolsAppiumTest/features",
         glue = {"LDSToolsAppiumTest.steps"},
-        tags = {"@all4"},
+        tags = "@all4",
         plugin = {
                 "pretty",
                 "html:src/test/java/Reports/cucumber-reports/cucumber-pretty",

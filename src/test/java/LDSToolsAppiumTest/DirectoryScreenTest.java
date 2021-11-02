@@ -721,7 +721,6 @@ public class DirectoryScreenTest extends BaseDriver {
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsAdjustHouseholdLocationLowerCase));
 //        Assert.assertFalse(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
 
-
     }
 
     //TODO: LAT - Long Need to update user and use new api

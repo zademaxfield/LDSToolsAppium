@@ -577,18 +577,90 @@ public class ReportsScreen extends BasePage {
     public  MobileElement ordinancesFilter;
 
 
+    //Record Aaronic Priesthood Ordination
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Record Aaronic Priesthood Ordination")
+    public  MobileElement ordinancesAaronicPriesthood;
 
+    //Submit Melchizedek Priesthood Ordination
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Submit Melchizedek Priesthood Ordination")
+    public  MobileElement ordinancesMelchizedekPriesthood;
 
+    //Ordination Search for Member
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Search")
+    public  MobileElement ordinancesSearch;
 
+    //Ordination Select Priesthood Office
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Priesthood Office")
+    public  MobileElement ordinancesPriesthoodOffice;
 
+    //Ordination Deacon
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Deacon")
+    public  MobileElement ordinancesDeacon;
 
+    //Ordination Teacher
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Teacher")
+    public  MobileElement ordinancesTeacher;
 
+    //Ordination Priest
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Priest")
+    public  MobileElement ordinancesPriest;
 
+    //Ordination Elder
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Elder")
+    public  MobileElement ordinancesElder;
 
+    //Ordination High Priest
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "High Priest")
+    public  MobileElement ordinancesHighPriest;
 
+    //Ordination Date Picker
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Date Picker")
+    public  MobileElement ordinancesDatePicker;
 
+    //Ordination Officiator
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Officiator")
+    public  MobileElement ordinancesOfficiator;
 
+    //Ordination Member of Ward or Branch
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Member of Ward or Branch")
+    public  MobileElement ordinancesMemberOfWardOrBranch;
 
+    //Ordination Member Outside of Ward or Branch
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Member Outside of Ward or Branch")
+    public  MobileElement ordinancesMemberOutsideOfWardOrBranch;
+
+    //Ordination Switch Bishop has interviewed...
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeSwitch'")
+    public  MobileElement ordinancesMemberBishopInterviewSwitch;
+
+    //Ordination Record Button
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Record")
+    public  MobileElement ordinancesRecord;
+
+    //Ordination Submit Button
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Record")
+    public  MobileElement ordinancesSubmit;
+
+    //Ordination Cancel Button
+    @AndroidFindBy(id = "update")
+    @iOSXCUITFindBy(accessibility = "Cancel")
+    public  MobileElement ordinancesCancel;
 
 
     public void saveMissonaryProgressFilter() throws Exception {

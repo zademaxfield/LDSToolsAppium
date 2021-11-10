@@ -56,6 +56,26 @@ public class RecordOrdinances extends BaseDriver {
         System.out.println(myBasePage.getSourceOfPage());
         myReports.ordinancesAdd.click();
 
+        if (priesthoodOffice.equals("Aaronic")) {
+            //Search for Member
+            myReports.ordinancesAaronicPriesthood.click();
+            searchAndClickMember(memberRecord);
+            selectPriesthoodOffice(priesthoodOffice);
+            //TODO: Ordination Date
+            myReports.ordinancesOfficiator.click();
+            searchAndClickMember(officiator);
+            myReports.ordinancesRecord.click();
+
+        } else {
+            //Melchizedek
+            myReports.ordinancesMelchizedekPriesthood.click();
+            searchAndClickMember(memberRecord);
+            selectPriesthoodOffice(priesthoodOffice);
+            //TODO: Ordination Date
+            myReports.ordinancesMemberBishopInterviewSwitch.click();
+            myReports.ordinancesSubmit.click();
+        }
+
 
     }
 
@@ -64,4 +84,44 @@ public class RecordOrdinances extends BaseDriver {
         LOGGER.info("the Ordination should be updated");
         //check the info, need the member record and priesthood office. Date maybe?
     }
+
+
+    public void searchAndClickMember(String memberRecord) throws Exception {
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myReports.ordinancesSearch.setValue(memberRecord);
+            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@name=" + memberRecord + "]")).click();
+        } else {
+            //Android code goes here
+        }
+
+    }
+
+    public void selectPriesthoodOffice(String priesthoodOffice) throws Exception {
+        myReports.ordinancesPriesthoodOffice.click();
+        switch(priesthoodOffice) {
+            case "Deacon":
+                myReports.ordinancesDeacon.click();
+                break;
+            case "Teacher":
+                myReports.ordinancesTeacher.click();
+                break;
+            case "Priest":
+                myReports.ordinancesPriest.click();
+                break;
+            case "Elder":
+                myReports.ordinancesElder.click();
+                break;
+            case "High Priest":
+                myReports.ordinancesHighPriest.click();
+                break;
+            default:
+                System.out.println("Office Not Found! ");
+        }
+    }
+
+
+
+
+
+
 }

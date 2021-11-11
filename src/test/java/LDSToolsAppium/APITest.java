@@ -48,15 +48,19 @@ public class APITest {
     public void apiInfoTestStuff() throws Exception {
         int codeTest = 0;
         int responseCode = 0;
+//
+//        Map<String, Object> myMap = new HashMap<>();
+//        myMap = apiTest.getExpenses("kroqbandit", "21628", "Qqqqqqqqqqqqq");
+//
+//        for (String mapKey: myMap.keySet()) {
+//            String key = mapKey.toString();
+//            String value = myMap.get(mapKey).toString();
+//            System.out.println(key + " - " + value);
+//        }
 
-        Map<String, Object> myMap = new HashMap<>();
-        myMap = apiTest.getExpenses("kroqbandit", "21628", "Qqqqqqqqqqqqq");
 
-        for (String mapKey: myMap.keySet()) {
-            String key = mapKey.toString();
-            String value = myMap.get(mapKey).toString();
-            System.out.println(key + " - " + value);
-        }
+        rawData = apiTest.getNameFromUuid("7d42e28a-08b7-4a0f-bb8c-f94fb902a86d","kroqbandit", "21628", "personal");
+        System.out.println(rawData);
 
 //        memberList = apiTest.getReportNames("kroqbandit", "21628");
 //        rawData = apiTest.getApiInfoTEST(unitNumber, proxyLogin);

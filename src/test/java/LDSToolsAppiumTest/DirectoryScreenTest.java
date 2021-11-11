@@ -268,7 +268,7 @@ public class DirectoryScreenTest extends BaseDriver {
         if (getRunningOS().equals("ios")) {
             myBasePage.rightsCheckNewRights("(75)", 5, rights, pageSource);
             //Temple Recommend
-            myBasePage.rightsCheckNewRights("November 2021", 6, rights, pageSource);
+            myBasePage.rightsCheckNewRights("October 2023", 6, rights, pageSource);
         } else {
             myBasePage.rightsCheckNewRights("- 75", 5, rights, pageSource);
             //Temple Recommend

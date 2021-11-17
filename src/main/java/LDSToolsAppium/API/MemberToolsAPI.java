@@ -11,6 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 
 import org.apache.commons.codec.binary.Base64;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -1216,6 +1217,171 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
         return memberName;
 
+    }
+
+    //This is to get the ordinances
+    //TODO: make this return MAP to get all info?
+    public List<String> getPersonalInfoFromName( String memberToFind, String unitNumber, String proxyLogin) throws IOException {
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/households?units=" + unitNumber, proxyLogin );
+        JsonParser parser = new JsonParser();
+        String responseData;
+//        String myPositions = "";
+        ArrayList<String> myPositions = new ArrayList<String>();
+        Gson gson = new Gson();
+
+        Type apiHousehold = new TypeToken<ArrayList<ApiHousehold>>(){}.getType();
+
+
+        ArrayList<String> memberNames = new ArrayList<String>();
+
+        responseData = getHouseholdJson(unitNumber, proxyLogin);
+
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+//        System.out.println("Json element to String GET NAME FROM UUID: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+//            System.out.println("Name: " + ((JsonObject) jsonElement).get("name").getAsString());
+        } else if (jsonElement instanceof JsonArray) {
+//            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiHousehold> testHouseHold = gson.fromJson(jsonElement, apiHousehold);
+
+            for (ApiHousehold household : testHouseHold) {
+//                System.out.println(household.getDisplayName());
+//                System.out.println(household.getUuid());
+                for (Member searchForMember : household.getMembers()) {
+//                    System.out.println("Household: uuid - Search For Member: " + searchForMember.getUuid());
+//                    System.out.println("Household: Display Name - Search For Member: " + searchForMember.getDisplayName());
+                    if (searchForMember.getDisplayName().contains(memberToFind)) {
+                        memberNames.add(searchForMember.getUuid());
+                        memberNames.add(searchForMember.getDisplayName());
+                        memberNames.add(searchForMember.getPriesthood());
+                        if ((searchForMember.getOrdinances() != null)) {
+                            for(Ordinance ordinances : searchForMember.getOrdinances()) {
+                                memberNames.add(ordinances.getDate());
+                                memberNames.add(ordinances.getType());
+                                memberNames.add(ordinances.getOfficiator());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return memberNames;
+    }
+
+    public String getUdidFromName( String memberToFind, String unitNumber, String proxyLogin) throws IOException {
+        OkHttpClient httpClient = loginCred();
+        Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/households?units=" + unitNumber, proxyLogin );
+        JsonParser parser = new JsonParser();
+        String responseData;
+//        String myPositions = "";
+        ArrayList<String> myPositions = new ArrayList<String>();
+        Gson gson = new Gson();
+
+        Type apiHousehold = new TypeToken<ArrayList<ApiHousehold>>(){}.getType();
+
+
+        String memberName = "";
+
+        responseData = getHouseholdJson(unitNumber, proxyLogin);
+
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+//        System.out.println("Json element to String GET NAME FROM UUID: " + jsonElement.toString());
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+//            System.out.println("Name: " + ((JsonObject) jsonElement).get("name").getAsString());
+        } else if (jsonElement instanceof JsonArray) {
+//            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiHousehold> testHouseHold = gson.fromJson(jsonElement, apiHousehold);
+
+            for (ApiHousehold household : testHouseHold) {
+//                System.out.println(household.getDisplayName());
+//                System.out.println(household.getUuid());
+                for (Member searchForMember : household.getMembers()) {
+//                    System.out.println("Household: uuid - Search For Member: " + searchForMember.getUuid());
+//                    System.out.println("Household: Display Name - Search For Member: " + searchForMember.getDisplayName());
+                    if (searchForMember.getDisplayName().contains(memberToFind)) {
+                        memberName = searchForMember.getUuid();
+                    }
+                }
+            }
+        }
+
+        return memberName;
+    }
+
+//TODO: This needs help
+    public int ordinanceDelete(String memberName, String proxyUnit, String proxyLogin) throws Exception {
+        int responseData = 0;
+        String json;
+        String listUuid = "";
+        String memberUdid = "";
+
+        //        String json = "{" +
+//                "  \"members\": [" +
+//                "      \"ee4a2b31-a913-442a-9cef-70722cb55f3c\"" +
+//                "  ]," +
+//                "  \"name\": \"TEST API\"," +
+//                "  \"removed\": false," +
+//                "  \"sort\": 51," +
+//                "  \"uuid\": \"50eff3b6-10c2-4caf-9c18-f070e41fc1ca\"" +
+//                "}";
+
+        memberUdid = getUdidFromName(memberName, proxyUnit, proxyLogin);
+
+        JSONObject ordinances = new JSONObject();
+        ordinances.put("type", "ORDAIN_PRIEST");
+
+        JSONArray ordArray = new JSONArray();
+        ordArray.put(ordinances);
+
+        JSONObject jsonPost = new JSONObject();
+//        jsonPost.put("memberUuid", memberUdid);
+        jsonPost.put("ordinances", ordArray);
+
+
+        JSONArray membersArray = new JSONArray();
+        membersArray.put(jsonPost);
+
+        JSONObject jsonMain = new JSONObject();
+        jsonMain.put("members", membersArray);
+        jsonMain.put("memberUuid", memberUdid);
+
+
+
+        json = jsonMain.toString();
+
+        System.out.println(json);
+
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), json);
+
+        StringBuilder contentBuilder = new StringBuilder();
+
+
+
+        OkHttpClient httpClient = loginCred();
+        Request request = new Request.Builder()
+                .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/admin/ordinances/priesthood")
+                .addHeader("X-Proxy-User" , "kroqbandit")
+                .post(body)
+                .build();
+
+
+        try (Response response = httpClient.newCall(request).execute()) {
+            System.out.println("Response: "  + response.code());
+            responseData = response.code();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return responseData;
     }
 
 

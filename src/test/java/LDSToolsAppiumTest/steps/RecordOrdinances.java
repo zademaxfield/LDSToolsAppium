@@ -33,6 +33,8 @@ public class RecordOrdinances extends BaseDriver {
     DirectoryScreen myDirectory = new DirectoryScreen(driver);
     MemberToolsAPI apiTest = new MemberToolsAPI();
     String pageSource;
+    String proxyUnit = "21628";
+    String proxyLogin = "kroqbandit";
 
 
     @Given("a {string} logs in and is on the Record Ordination page")
@@ -53,16 +55,21 @@ public class RecordOrdinances extends BaseDriver {
 //Switching to compose might be something like this. 
 //        ((JavascriptExecutor) driver.get()).executeScript("mobile: getComposSource");
 
-        System.out.println(myBasePage.getSourceOfPage());
+//        driver.get().setSetting("driver", "compose");
+//        System.out.println(myBasePage.getSourceOfPage());
+//        driver.get().setSetting("driver", "uiautomator2");
+
+
         myReports.ordinancesAdd.click();
 
-        if (priesthoodOffice.equals("Aaronic")) {
+        if ((priesthoodOffice.equals("Priest")) || (priesthoodOffice.equals("Teacher")) || (priesthoodOffice.equals("Deacon"))) {
             //Search for Member
             myReports.ordinancesAaronicPriesthood.click();
             searchAndClickMember(memberRecord);
             selectPriesthoodOffice(priesthoodOffice);
             //TODO: Ordination Date
             myReports.ordinancesOfficiator.click();
+            myReports.ordinancesMemberOfWardOrBranch.click();
             searchAndClickMember(officiator);
             myReports.ordinancesRecord.click();
 
@@ -76,20 +83,41 @@ public class RecordOrdinances extends BaseDriver {
             myReports.ordinancesSubmit.click();
         }
 
+        myBasePage.waitForText("Success");
 
+
+    }
+
+    @Then("the Ordination should be updated with {string} , {string} , {string} and {string}")
+    public void theOrdinationShouldBeUpdatedWithMemberRecordPriesthoodOfficeDateAndOfficiator(String memberRecord, String priesthoodOffice, String ordDate, String officiator) throws Exception {
+        LOGGER.info("the Ordination should be updated with " + memberRecord + ", " + priesthoodOffice + ", " + ordDate + " and " + officiator);
+        List<String> memberList = new ArrayList<String>();
+        memberList = apiTest.getPersonalInfoFromName( memberRecord, proxyUnit, proxyLogin);
+        System.out.println(memberList);
+        Assert.assertTrue(memberList.contains(memberRecord));
+        Assert.assertTrue(memberList.contains(priesthoodOffice));
+        //TODO: Ordination Date
+        Assert.assertTrue(memberList.contains(officiator));
+
+        ordinanceCleanUp(memberRecord, proxyUnit, proxyLogin);
     }
 
     @Then("the Ordination should be updated")
     public void theOrdinationShouldBeUpdated() throws Exception {
         LOGGER.info("the Ordination should be updated");
         //check the info, need the member record and priesthood office. Date maybe?
+
+    }
+
+    public void ordinanceCleanUp(String memberName, String proxyUnit, String proxyLogin) throws Exception {
+        apiTest.ordinanceDelete(memberName, proxyUnit, proxyLogin);
     }
 
 
     public void searchAndClickMember(String memberRecord) throws Exception {
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myReports.ordinancesSearch.setValue(memberRecord);
-            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@name=" + memberRecord + "]")).click();
+            driver.get().findElement(By.xpath("//XCUIElementTypeStaticText[@name='" + memberRecord + "']")).click();
         } else {
             //Android code goes here
         }
@@ -118,9 +146,6 @@ public class RecordOrdinances extends BaseDriver {
                 System.out.println("Office Not Found! ");
         }
     }
-
-
-
 
 
 

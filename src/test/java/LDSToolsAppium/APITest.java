@@ -58,9 +58,14 @@ public class APITest {
 //            System.out.println(key + " - " + value);
 //        }
 
+        //Ordiance Stuff
+//        memberList = apiTest.getPersonalInfoFromName( "Adams, Dewayne", "21628", "kroqbandit");
+//        System.out.println(memberList);
+//        apiTest.ordinanceDelete("Austin, Joseph", "21628", "kroqbandit");
 
-        rawData = apiTest.getNameFromUuid("7d42e28a-08b7-4a0f-bb8c-f94fb902a86d","kroqbandit", "21628", "personal");
-        System.out.println(rawData);
+        apiTest.ordinanceDelete("Barba, Cristian Jesus", "21628", "kroqbandit");
+
+
 
 //        memberList = apiTest.getReportNames("kroqbandit", "21628");
 //        rawData = apiTest.getApiInfoTEST(unitNumber, proxyLogin);

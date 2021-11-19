@@ -322,7 +322,7 @@ public class CalendarScreenTest extends BaseDriver {
     //    @Test (groups = {"all4", "all", "smoke", "smoke4"})
 //    public void calendarSimple_BISHOP() throws Exception {
 //        HelperMethods myHelper = new HelperMethods();
-//        myHelper.proxyLogin("kroqbandit");
+//        myHelper.proxyLogin("mbthomas74");
 //        myHelper.enterPin("1", "1", "3", "3");
 //        calendarCheck();
 //    }

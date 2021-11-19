@@ -286,7 +286,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
 //        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -318,7 +318,7 @@ public class ReportsScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
 
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -329,13 +329,13 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.childrenApproachingBaptismAgeReport.click();
         Thread.sleep(2000);
 
-        checkActionAndInterviewApi("Children Approaching Baptism Age","kroqbandit", "21628");
+        checkActionAndInterviewApi("Children Approaching Baptism Age","mbthomas74", "21628");
         myBasePage.backButton.click();
 
         //Unbaptized Members
         myReports.unbaptizedMembersReport.click();
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Unbaptized Members","kroqbandit", "21628");
+        checkActionAndInterviewApi("Unbaptized Members","mbthomas74", "21628");
         myBasePage.backButton.click();
 
 
@@ -343,7 +343,7 @@ public class ReportsScreenTest extends BaseDriver {
 //        myBasePage.scrollToText("Overdue Aaronic Priesthood Ordinations");
         myReports.overdueAaronicPriesthoodOrdinationsReport.click();
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Overdue Aaronic Priesthood Ordinations","kroqbandit", "21628");
+        checkActionAndInterviewApi("Overdue Aaronic Priesthood Ordinations","mbthomas74", "21628");
         myBasePage.backButton.click();
 
         //Young Single Adult Interview
@@ -353,39 +353,39 @@ public class ReportsScreenTest extends BaseDriver {
 //        myBasePage.scrollDownTEST(1000);
         myReports.youngSingleAdultInterviewsReport.click();
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Young Single Adult Interviews","kroqbandit", "21628");
+        checkActionAndInterviewApi("Young Single Adult Interviews","mbthomas74", "21628");
         myBasePage.backButton.click();
 
         //Bishops Youth Interviews
         myReports.bishopsYouthInterviewsReport.click();
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Bishop’s Youth Interviews","kroqbandit", "21628");
+        checkActionAndInterviewApi("Bishop’s Youth Interviews","mbthomas74", "21628");
         myBasePage.backButton.click();
 
         //Bishops Counselor Youth Interviews
         myReports.bishopricCounselorYouthInterviewsReport.click();
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Bishopric Counselor Youth Interviews","kroqbandit", "21628");
+        checkActionAndInterviewApi("Bishopric Counselor Youth Interviews","mbthomas74", "21628");
         myBasePage.backButton.click();
 
         //TODO: Need to check if the report exists
         //Young Men Approaching Mission Age
 //        myReports.youngMenApproachingMissionAgeReport.click();
 //        Thread.sleep(2000);
-//        checkActionAndInterviewApi("Young Men Approaching Mission Age","kroqbandit", "21628");
+//        checkActionAndInterviewApi("Young Men Approaching Mission Age","mbthomas74", "21628");
 //        myBasePage.backButton.click();
 
         //Men Who Have Not Served a Mission
         myReports.menWhoHaveNotServedaMissionReport.click();
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Men Who Have Not Served a Mission","kroqbandit", "21628");
+        checkActionAndInterviewApi("Men Who Have Not Served a Mission","mbthomas74", "21628");
         myBasePage.backButton.click();
 
 
         //Potential Missionary Couples
         myReports.potentialMissionaryCouplesReport.click();
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Potential Missionary Couples","kroqbandit", "21628");
+        checkActionAndInterviewApi("Potential Missionary Couples","mbthomas74", "21628");
         myBasePage.backButton.click();
 
     }
@@ -433,7 +433,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
 //        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -653,7 +653,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedOutReport.click();
         Thread.sleep(2000);
 
-        memberList = apiTest.getNamesFromMembersMovedOut("kroqbandit", "21628");
+        memberList = apiTest.getNamesFromMembersMovedOut("mbthomas74", "21628");
 
         //Just take the first 5 members in the list
         for (int i = 0; i < 4; i++ ) {
@@ -780,7 +780,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
 
         pageSource = myBasePage.getSourceOfPage();
-        memberList = apiTest.getNewMembers("kroqbandit", "21628");
+        memberList = apiTest.getNewMembers("mbthomas74", "21628");
         java.util.Collections.sort(memberList);
 //        myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
@@ -817,7 +817,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
 
-        memberList = apiTest.getReportUnitStatsNumbers("kroqbandit", "21628");
+        memberList = apiTest.getReportUnitStatsNumbers("mbthomas74", "21628");
         myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
 //        myBasePage.rightsCheck("21", 3, rights, pageSource);

@@ -37,7 +37,7 @@ public class PrayerRoll extends BaseDriver {
     @Given("a member is on their Temple Page")
     public void aMemberIsOnTheirTemplePage() throws Exception {
         LOGGER.info("a member is on their Temple Page");
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
         myMenu.selectMenu(myMenu.temples);
         myBasePage.waitForElementThenClick(myTemple.yesRemindMe);
@@ -83,7 +83,7 @@ public class PrayerRoll extends BaseDriver {
     @Given("a member is on the prayer roll page")
     public void aMemberIsOnThePrayerRollPage() throws Exception {
         LOGGER.info("a member is on the prayer roll page");
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
         myMenu.selectMenu(myMenu.temples);
         myBasePage.waitForElementThenClick(myTemple.yesRemindMe);

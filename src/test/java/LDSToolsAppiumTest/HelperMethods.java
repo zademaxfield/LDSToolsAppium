@@ -1305,7 +1305,7 @@ public class HelperMethods extends BaseDriver {
         //Enable Developer Settings and set the Network Environment to UAT
         LoginPageScreen myLoginPage = new LoginPageScreen(driver);
         BasePage myBasePage = new BasePage(driver);
-        String myTemp = "kroqbandit";
+        String myTemp = "mbthomas74";
 
         if (myBasePage.checkForElement(myBasePage.allowButton)) {
             myBasePage.allowButton.click();

@@ -1366,7 +1366,7 @@ public class MinisteringScreenTest extends BaseDriver {
 //    @Test (groups = {"all2", "all", "smoke", "smoke2"})
 //    public void ministeringBasic_BISHOP() throws Exception {
 //        HelperMethods myHelper = new HelperMethods();
-//        myHelper.proxyLogin("kroqbandit");
+//        myHelper.proxyLogin("mbthomas74");
 //        myHelper.enterPin("1", "1", "3", "3");
 //        ministeringBasicCheck(1);
 //    }
@@ -1654,7 +1654,7 @@ public class MinisteringScreenTest extends BaseDriver {
     //    @Test (groups = {"all4", "all"})
 //    public void ministeringUnassignedHouseholds_BISHOP() throws Exception {
 //        HelperMethods myHelper = new HelperMethods();
-//        myHelper.proxyLogin("kroqbandit");
+//        myHelper.proxyLogin("mbthomas74");
 //        myHelper.enterPin("1", "1", "3", "3");
 //        ministeringUnassignedHouseholdsCheck(1);
 //    }

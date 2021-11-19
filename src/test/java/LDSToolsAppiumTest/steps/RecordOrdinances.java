@@ -34,7 +34,7 @@ public class RecordOrdinances extends BaseDriver {
     MemberToolsAPI apiTest = new MemberToolsAPI();
     String pageSource;
     String proxyUnit = "21628";
-    String proxyLogin = "kroqbandit";
+    String proxyLogin = "mbthomas74";
 
 
     @Given("a {string} logs in and is on the Record Ordination page")

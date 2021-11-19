@@ -18,7 +18,7 @@ public class PinScreenTest extends BaseDriver {
         PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
 
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
 //        myHelper.loginUAT("LDSTools3", "toolstester");
 
         myHelper.checkForAlertsBeforePin();
@@ -61,7 +61,7 @@ public class PinScreenTest extends BaseDriver {
     public void pinNoMatchTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
 
 
 //        if (!getRunningOS().equals("ios")) {
@@ -101,7 +101,7 @@ public class PinScreenTest extends BaseDriver {
     public void pinSequentialTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
 //        myHelper.loginUAT("LDSTools3", "toolstester");
 //        myHelper.loginUAT("LDSTools5", "toolstester");
 

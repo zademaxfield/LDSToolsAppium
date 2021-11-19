@@ -141,15 +141,15 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
         //Check Assigned Missionaries
-        memberList = apiTest.getAssignedMissionaries("kroqbandit", "21628");
+        memberList = apiTest.getAssignedMissionaries("mbthomas74", "21628");
         myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
         //Check Serving Missionaries
-        memberList = apiTest.getServingMissionaries("kroqbandit", "21628");
+        memberList = apiTest.getServingMissionaries("mbthomas74", "21628");
         myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
         //Check Ward Missionaries
-        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "kroqbandit", "21628");
+        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "mbthomas74", "21628");
         if (getRunningOS().equalsIgnoreCase("ios")) {
             memberListIos = myBasePage.swapLastNameCommaFirstName(memberList);
             memberList = memberListIos;
@@ -185,15 +185,15 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
         //Check Assigned Missionaries
-        memberList = apiTest.getAssignedMissionaries("kroqbandit", "21628");
+        memberList = apiTest.getAssignedMissionaries("mbthomas74", "21628");
         myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
         //Check Serving Missionaries
-        memberList = apiTest.getServingMissionaries("kroqbandit", "21628");
+        memberList = apiTest.getServingMissionaries("mbthomas74", "21628");
         myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
         //Check Ward Missionaries
-        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "kroqbandit", "21628");
+        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "mbthomas74", "21628");
         if (getRunningOS().equalsIgnoreCase("ios")) {
             memberListIos = myBasePage.swapLastNameCommaFirstName(memberList);
             memberList = memberListIos;
@@ -213,7 +213,7 @@ public class MissionaryScreenTest extends BaseDriver {
 
 
         //Login and enter in PIN
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.missionary);
@@ -527,15 +527,15 @@ public class MissionaryScreenTest extends BaseDriver {
         pageSource = myMissionary.getMissionaryPage();
 
         //Check Assigned Missionaries
-        memberList = apiTest.getAssignedMissionaries("kroqbandit", unitNumber);
+        memberList = apiTest.getAssignedMissionaries("mbthomas74", unitNumber);
         myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
         //Check Serving Missionaries
-        memberList = apiTest.getServingMissionaries("kroqbandit", unitNumber);
+        memberList = apiTest.getServingMissionaries("mbthomas74", unitNumber);
         myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
         //Check Ward Missionaries
-        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "kroqbandit", unitNumber);
+        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "mbthomas74", unitNumber);
         if (getRunningOS().equalsIgnoreCase("ios")) {
             memberListIos = myBasePage.swapLastNameCommaFirstName(memberList);
             memberList = memberListIos;

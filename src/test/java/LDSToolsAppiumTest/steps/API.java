@@ -85,19 +85,19 @@ public class API {
 
     @Then("the new list will be displayed")
     public void theNewListWillBeDisplayed() throws Exception {
-        listMap = apiTest.getListNames("kroqbandit");
+        listMap = apiTest.getListNames("mbthomas74");
         Assert.assertTrue(listMap.containsKey("TEST API"));
     }
 
     @And("the list is deleted")
     public void theListIsDeleted() throws Exception {
-        responseCode = apiTest.listDelete("TEST API", "kroqbandit");
+        responseCode = apiTest.listDelete("TEST API", "mbthomas74");
         Assert.assertEquals(responseCode, 200);
     }
 
     @Then("the list will not be displayed")
     public void theListWillNotBeDisplayed() throws Exception {
-        listMap = apiTest.getListNames("kroqbandit");
+        listMap = apiTest.getListNames("mbthomas74");
         Assert.assertFalse(listMap.containsKey("TEST API"));
     }
 

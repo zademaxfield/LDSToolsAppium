@@ -334,7 +334,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Login and enter in PIN
 //        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
 
         if (myBasePage.getOS().contains("ios")) {
@@ -359,7 +359,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
         //Login and enter in PIN
 //        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Search and click on Aaron Jane
@@ -378,7 +378,7 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
         String pageSource;
 
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.scrollDownIOS();
@@ -1015,7 +1015,7 @@ public class DirectoryScreenTest extends BaseDriver {
 //    @Test(groups = {"smoke2", "smoke", "all2", "all"})
 //    public void directoryScreenTest_BISHOP() throws Exception {
 //        HelperMethods myHelper = new HelperMethods();
-//        myHelper.proxyLogin("kroqbandit");
+//        myHelper.proxyLogin("mbthomas74");
 //        myHelper.enterPin("1", "1", "3", "3");
 //        directoryJanDickson(1);
 //    }

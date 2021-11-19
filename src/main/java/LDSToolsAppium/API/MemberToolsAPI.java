@@ -66,16 +66,22 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
                 .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/organizations?units=21628")
 //                .url("https://identity-util-service-int.churchofjesuschrist.org/api/checkSession")
 //                .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/user")
-                .addHeader("X-Proxy-User" , "kroqbandit")
+                .addHeader("X-Proxy-User" , "mbthomas74")
                 .build();
         return request;
     }
 
     public Request requestProxyURL(String apiUrl, String proxyUser ) {
-//        proxyUser = "kroqbandit";
         Request request = new Request.Builder()
                 .url(apiUrl)
                 .addHeader("X-Proxy-User" , proxyUser)
+                .build();
+        return request;
+    }
+
+    public Request requestURLNoProxyUser(String apiUrl ) {
+        Request request = new Request.Builder()
+                .url(apiUrl)
                 .build();
         return request;
     }
@@ -147,7 +153,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getOrganizationMembers(String organizationName, String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -185,7 +191,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getChildOrganizationMembers(String organizationName, String proxyLogin, String unitNumber) throws Exception {
-//        proxyLogin = "kroqbandit";
+//        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -232,7 +238,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
     //This is for 2nd level child orgs like - Priests Quorum Presidency
     public List<String> getChild2OrganizationMembers(String organizationName, String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -282,7 +288,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getChildOrganizationClasses(String organizationName, String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -323,7 +329,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
     //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getOrganizationJson (String unitNumber, String proxyLogin) throws IOException {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         String responseData = "";
         File organizationFile = new File("ConfigFiles/organization" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
@@ -361,10 +367,49 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
         return responseData;
     }
 
+    //TODO: Need a file check for the date then delete if older than 3 or so days?
+    public String getUserAccountsJson (String unitNumber) throws IOException {
+        String responseData = "";
+        File organizationFile = new File("ConfigFiles/accounts" + unitNumber + ".json");
+        StringBuilder contentBuilder = new StringBuilder();
+
+        OkHttpClient httpClient = loginCred();
+        Request request = requestURLNoProxyUser("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/admin/users/accounts?units="+ unitNumber );
+
+        if (!organizationFile.exists()) {
+            try (Response response = httpClient.newCall(request).execute()) {
+                assert response.body() != null;
+                responseData = response.body().string();
+                try  {
+//                    FileWriter myWriter = new FileWriter("organization.json");
+                    FileWriter myWriter = new FileWriter(organizationFile);
+                    myWriter.write(responseData);
+                    myWriter.flush();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/accounts" + unitNumber + ".json")), StandardCharsets.UTF_8);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return responseData;
+    }
+
 
 
     public String getHouseholdJson (String unitNumber, String proxyLogin) throws IOException {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         String responseData = "";
         File householdFile = new File("ConfigFiles/households" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
@@ -405,7 +450,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
     //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getReportJson (String unitNumber, String proxyLogin) throws IOException {
-//        proxyLogin = "kroqbandit";
+//        proxyLogin = "mbthomas74";
         String responseData = "";
         File organizationFile = new File("ConfigFiles/reports" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
@@ -507,7 +552,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
     //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getReportUnitStatsJson (String unitNumber, String proxyLogin) throws IOException {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         String responseData = "";
         File organizationFile = new File("ConfigFiles/reportsUnitStats" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
@@ -547,7 +592,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
     //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getReportsActionAndInterview(String unitNumber, String proxyLogin) throws IOException {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         String responseData = "";
         File organizationFile = new File("ConfigFiles/reportsActionAndInterview" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
@@ -587,7 +632,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
     //TODO: Need a file check for the date then delete if older than 3 or so days?
     public String getMissionaryJson (String unitNumber, String proxyLogin) throws IOException {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         String responseData = "";
         File organizationFile = new File("ConfigFiles/missionary" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
@@ -746,7 +791,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
         OkHttpClient httpClient = loginCred();
         Request request = new Request.Builder()
                 .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/lists")
-                .addHeader("X-Proxy-User" , "kroqbandit")
+                .addHeader("X-Proxy-User" , "mbthomas74")
                 .post(body)
                 .build();
 
@@ -781,7 +826,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
         Request request = new Request.Builder()
                 .delete()
                 .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/lists/" + listUuid)
-                .addHeader("X-Proxy-User" , "kroqbandit")
+                .addHeader("X-Proxy-User" , "mbthomas74")
                 .build();
 
 
@@ -1153,7 +1198,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
 
     public String getNameFromUuid( String uuidPersonal, String unitNumber, String proxyLogin, String returnType) throws IOException {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         OkHttpClient httpClient = loginCred();
         Request request = requestProxyURL("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/households?units=" + unitNumber, proxyLogin );
         JsonParser parser = new JsonParser();
@@ -1368,7 +1413,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
         OkHttpClient httpClient = loginCred();
         Request request = new Request.Builder()
                 .url("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/admin/ordinances/priesthood")
-                .addHeader("X-Proxy-User" , "kroqbandit")
+                .addHeader("X-Proxy-User" , "mbthomas74")
                 .post(body)
                 .build();
 
@@ -1387,7 +1432,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
     //This will return a list of reports
     public List<String> getReportNames(String proxyLogin, String unitNumber) throws Exception {
-//        proxyLogin = "kroqbandit";
+//        proxyLogin = "mbthomas74";
 //        unitNumber = "21628";
         JsonParser parser = new JsonParser();
         String responseData;
@@ -1429,7 +1474,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getNamesFromActionInterviewReports(String reportName, String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1478,7 +1523,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getNamesFromMembersMovedOut(String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1522,7 +1567,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getNamesTempleRecommendStatusActive(String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1563,7 +1608,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getNamesTempleRecommendStatusAll(String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1604,7 +1649,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getNewMembers(String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1641,7 +1686,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getNamesFromNewMembers(String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1685,7 +1730,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
 
     public List<String> getInfoFromMinisteringBrothers(String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1746,7 +1791,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
     //This will get the first 6 Unit Stat Numbers
     public List<String> getReportUnitStatsNumbers(String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1797,7 +1842,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getNamesActionAndInterviewReports(String reportToGet, String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1854,7 +1899,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
 
     public List<String> getAssignedMissionaries(String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1906,7 +1951,7 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     public List<String> getServingMissionaries(String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "kroqbandit";
+        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();

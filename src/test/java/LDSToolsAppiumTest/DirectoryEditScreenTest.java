@@ -177,7 +177,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         //Login and enter in PIN
 //        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
 
 //        myDirectory.searchAndClick("Tools, LDS44");
@@ -214,7 +214,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         myMenu.menuLogOut();
 //        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
 
         listsDirectoryUnit();
@@ -243,7 +243,7 @@ public class DirectoryEditScreenTest extends BaseDriver {
 
         myMenu.menuLogOut();
 //        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
         myHelper.enterPin("1", "1", "3", "3");
 
 //        listsDirectoryUnit();

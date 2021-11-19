@@ -36,7 +36,7 @@ public class APITest {
     String rawData;
 
     String unitNumber = "21628";
-    String proxyLogin = "kroqbandit";
+    String proxyLogin = "mbthomas74";
 
     String accessToken;
     String idToken;
@@ -50,7 +50,7 @@ public class APITest {
         int responseCode = 0;
 //
 //        Map<String, Object> myMap = new HashMap<>();
-//        myMap = apiTest.getExpenses("kroqbandit", "21628", "Qqqqqqqqqqqqq");
+//        myMap = apiTest.getExpenses("mbthomas74", "21628", "Qqqqqqqqqqqqq");
 //
 //        for (String mapKey: myMap.keySet()) {
 //            String key = mapKey.toString();
@@ -59,42 +59,45 @@ public class APITest {
 //        }
 
         //Ordiance Stuff
-//        memberList = apiTest.getPersonalInfoFromName( "Adams, Dewayne", "21628", "kroqbandit");
+//        memberList = apiTest.getPersonalInfoFromName( "Adams, Dewayne", "21628", "mbthomas74");
 //        System.out.println(memberList);
-//        apiTest.ordinanceDelete("Austin, Joseph", "21628", "kroqbandit");
+//        apiTest.ordinanceDelete("Austin, Joseph", "21628", "mbthomas74");
 
-        apiTest.ordinanceDelete("Barba, Cristian Jesus", "21628", "kroqbandit");
+//        apiTest.ordinanceDelete("Barba, Cristian Jesus", "21628", "mbthomas74");
+
+
+        apiTest.getUserAccountsJson("21628");
 
 
 
-//        memberList = apiTest.getReportNames("kroqbandit", "21628");
+//        memberList = apiTest.getReportNames("mbthomas74", "21628");
 //        rawData = apiTest.getApiInfoTEST(unitNumber, proxyLogin);
 
-//        apiTest.getApiResponseCode("reports?units=21628", "kroqbandit");
+//        apiTest.getApiResponseCode("reports?units=21628", "mbthomas74");
 
 //        //List Tests
 //        responseCode = apiTest.postListTest("ee4a2b31-a913-442a-9cef-70722cb55f3c", "TEST API",51, "50eff3b6-10c2-4caf-9c18-f070e41fc1ca");
 //        Assert.assertEquals(responseCode, 200);
 //
-//        listMap = apiTest.getListNames("kroqbandit");
+//        listMap = apiTest.getListNames("mbthomas74");
 //        Assert.assertTrue(listMap.containsKey("TEST API"));
 //
-//        responseCode = apiTest.listDelete("TEST API", "kroqbandit");
+//        responseCode = apiTest.listDelete("TEST API", "mbthomas74");
 //        Assert.assertEquals(responseCode, 200);
 //
-//        listMap = apiTest.getListNames("kroqbandit");
+//        listMap = apiTest.getListNames("mbthomas74");
 //        Assert.assertFalse(listMap.containsKey("TEST API"));
 
 
 
 
 
-//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/reports/access", "21628", "kroqbandit");
-//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/user", "21628", "kroqbandit");
-//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/units", "21628", "kroqbandit");
-//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/subscriptions", "21628", "kroqbandit");
-//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/referrals", "21628", "kroqbandit");
-//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/temples", "21628", "kroqbandit");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/reports/access", "21628", "mbthomas74");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/user", "21628", "mbthomas74");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/units", "21628", "mbthomas74");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/subscriptions", "21628", "mbthomas74");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/referrals", "21628", "mbthomas74");
+//        apiTest.getApiResponseCode("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/temples", "21628", "mbthomas74");
 //        System.out.println("Code: " + codeTest);
 
 //        memberList = apiTest.getReportNames("bradyduck", "111074");
@@ -131,7 +134,7 @@ public class APITest {
 //        reportNameToCheck.add("MISSIONARY_PROGRESS_RECORD");
 //
 //
-//        memberList = apiTest.getReportNames("kroqbandit", "21628");
+//        memberList = apiTest.getReportNames("mbthomas74", "21628");
 //
 //        System.out.println("Report Name Check Bishop");
 //        for(String reportName: reportNameToCheck) {

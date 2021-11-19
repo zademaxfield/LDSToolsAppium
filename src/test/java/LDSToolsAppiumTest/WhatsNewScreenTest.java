@@ -23,7 +23,7 @@ public class WhatsNewScreenTest extends BaseDriver {
         WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
 
-        myHelper.proxyLogin("kroqbandit");
+        myHelper.proxyLogin("mbthomas74");
 
         myHelper.enterPinKeepWhatsNew("1", "1", "3", "3");
         Thread.sleep(2000);

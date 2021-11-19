@@ -19,22 +19,22 @@ public class MemberToolsAPITest {
         List<String> memberList = new ArrayList<String>();
 
         //Get report list
-        memberList = apiTest.getReportNames("kroqbandit", "21628");
+        memberList = apiTest.getReportNames("mbthomas74", "21628");
         //Get members from Action and Interview Reports
-//        memberList = apiTest.getNamesFromActionInterviewReports("Unbaptized Members", "kroqbandit", "21628");
+//        memberList = apiTest.getNamesFromActionInterviewReports("Unbaptized Members", "mbthomas74", "21628");
         //Get Members from Members Moved Out
 
         //Unit Stats
-//        memberList = apiTest.getReportUnitStatsNumbers("kroqbandit", "21628");
-        memberList = apiTest.getReportUnitStatsNumbers("kroqbandit", "21628");
+//        memberList = apiTest.getReportUnitStatsNumbers("mbthomas74", "21628");
+        memberList = apiTest.getReportUnitStatsNumbers("mbthomas74", "21628");
 
         //Temple Recommend Status - Sort of works this is looking a the unit stats.
-//        memberList = apiTest.getNamesTempleRecommendStatusActive("kroqbandit", "21628");
-//        memberList = apiTest.getNamesTempleRecommendStatusAll("kroqbandit", "21628");
+//        memberList = apiTest.getNamesTempleRecommendStatusActive("mbthomas74", "21628");
+//        memberList = apiTest.getNamesTempleRecommendStatusAll("mbthomas74", "21628");
 
         //Reports New Members
-//        memberList = apiTest.getNewMembers("kroqbandit", "21628");
-//        memberList = apiTest.getNewMembers("kroqbandit", "21628");
+//        memberList = apiTest.getNewMembers("mbthomas74", "21628");
+//        memberList = apiTest.getNewMembers("mbthomas74", "21628");
 
 
         //One Work - Covenant Path
@@ -47,51 +47,51 @@ public class MemberToolsAPITest {
 //        int sacMissed = apiTest.getCovenantPathUserSacramentMissed("extractor", "111074", "Doramus, Barbara");
 
         //Class and Quorum
-//        memberList = apiTest.getClassAndQuorum("kroqbandit", "21628", "2020-12-06");
-//        memberList = apiTest.getClassAndQuorumRights("kroqbandit", "21628");
+//        memberList = apiTest.getClassAndQuorum("mbthomas74", "21628", "2020-12-06");
+//        memberList = apiTest.getClassAndQuorumRights("mbthomas74", "21628");
 
 
         //Action and Interview Tests
-//        memberList = apiTest.getNamesActionAndInterviewReports("Children Approaching Baptism Age","kroqbandit", "21628");
-//        memberList = apiTest.getNamesActionAndInterviewReports("Unbaptized Members","kroqbandit", "21628");
-//        memberList = apiTest.getNamesActionAndInterviewReports("Overdue Aaronic Priesthood Ordinations","kroqbandit", "21628");
-//        memberList = apiTest.getNamesActionAndInterviewReports("Young Single Adult Interviews","kroqbandit", "21628");
-//        memberList = apiTest.getNamesActionAndInterviewReports("Bishop’s Youth Interviews","kroqbandit", "21628");
-//        memberList = apiTest.getNamesActionAndInterviewReports("Bishopric Counselor Youth Interviews","kroqbandit", "21628");
-//        memberList = apiTest.getNamesActionAndInterviewReports("Young Men Approaching Mission Age","kroqbandit", "21628");
-//        memberList = apiTest.getNamesActionAndInterviewReports("Men Who Have Not Served a Mission","kroqbandit", "21628");
-//        memberList = apiTest.getNamesActionAndInterviewReports("Potential Missionary Couples","kroqbandit", "21628");
+//        memberList = apiTest.getNamesActionAndInterviewReports("Children Approaching Baptism Age","mbthomas74", "21628");
+//        memberList = apiTest.getNamesActionAndInterviewReports("Unbaptized Members","mbthomas74", "21628");
+//        memberList = apiTest.getNamesActionAndInterviewReports("Overdue Aaronic Priesthood Ordinations","mbthomas74", "21628");
+//        memberList = apiTest.getNamesActionAndInterviewReports("Young Single Adult Interviews","mbthomas74", "21628");
+//        memberList = apiTest.getNamesActionAndInterviewReports("Bishop’s Youth Interviews","mbthomas74", "21628");
+//        memberList = apiTest.getNamesActionAndInterviewReports("Bishopric Counselor Youth Interviews","mbthomas74", "21628");
+//        memberList = apiTest.getNamesActionAndInterviewReports("Young Men Approaching Mission Age","mbthomas74", "21628");
+//        memberList = apiTest.getNamesActionAndInterviewReports("Men Who Have Not Served a Mission","mbthomas74", "21628");
+//        memberList = apiTest.getNamesActionAndInterviewReports("Potential Missionary Couples","mbthomas74", "21628");
 
 
         //Get Assigned Missionaries
-//        memberList = apiTest.getAssignedMissionaries("kroqbandit", "21628");
+//        memberList = apiTest.getAssignedMissionaries("mbthomas74", "21628");
         //Get Service Missionaries
-//        memberList = apiTest.getServingMissionaries("kroqbandit", "21628");
+//        memberList = apiTest.getServingMissionaries("mbthomas74", "21628");
         //Get Ward Missionaries
-//        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "kroqbandit", "21628");
+//        memberList = apiTest.getOrganizationMembers("Ward Missionaries", "mbthomas74", "21628");
         //Get Bishopric
-//        memberList = apiTest.getOrganizationMembers("Bishopric", "kroqbandit", "21628");
+//        memberList = apiTest.getOrganizationMembers("Bishopric", "mbthomas74", "21628");
 
         //Get Members from New Members
-//        memberList = apiTest.getNamesFromNewMembers("kroqbandit", "21628");
+//        memberList = apiTest.getNamesFromNewMembers("mbthomas74", "21628");
 
         //Get Ministering Brother info
         //TODO: needs work
-//        memberList = apiTest.getInfoFromMinisteringBrothers("kroqbandit", "21628");
+//        memberList = apiTest.getInfoFromMinisteringBrothers("mbthomas74", "21628");
 
 
 
 
-//        memberList = apiTest.getChildOrganizationMembers("Unassigned Teachers", "kroqbandit", "21628");
-//        memberList = apiTest.getChildOrganizationClasses("Other Callings", "kroqbandit", "21628");
+//        memberList = apiTest.getChildOrganizationMembers("Unassigned Teachers", "mbthomas74", "21628");
+//        memberList = apiTest.getChildOrganizationClasses("Other Callings", "mbthomas74", "21628");
 
-//        memberList = apiTest.getChildOrganizationClasses("Young Women" , "kroqbandit", "21628");
-//        memberList = apiTest.getChildOrganizationMembers("Elders Quorum", "kroqbandit", "21628"); //Doesn't give member list
-//        memberList = apiTest.getOrganizationMembers("Elders Quorum", "kroqbandit", "21628"); //Doesn't give member list
+//        memberList = apiTest.getChildOrganizationClasses("Young Women" , "mbthomas74", "21628");
+//        memberList = apiTest.getChildOrganizationMembers("Elders Quorum", "mbthomas74", "21628"); //Doesn't give member list
+//        memberList = apiTest.getOrganizationMembers("Elders Quorum", "mbthomas74", "21628"); //Doesn't give member list
 
 
-//        memberList = apiTest.getOrganizationMembers("Bishopric", "kroqbandit", "21628");
-//        new MemberToolsAPI().getOrganizationMembers("Elders Quorum Presidency", "kroqbandit", "21628");
+//        memberList = apiTest.getOrganizationMembers("Bishopric", "mbthomas74", "21628");
+//        new MemberToolsAPI().getOrganizationMembers("Elders Quorum Presidency", "mbthomas74", "21628");
 
         System.out.println("LIST!");
         for (String memberName : memberList) {

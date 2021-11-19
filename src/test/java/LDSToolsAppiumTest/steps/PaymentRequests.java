@@ -96,7 +96,7 @@ public class PaymentRequests extends BaseDriver {
 
 
         Map<String, Object> myMap = new HashMap<>();
-        myMap = apiTest.getExpenses("kroqbandit", "21628", purpose);
+        myMap = apiTest.getExpenses("mbthomas74", "21628", purpose);
 
 //        Assert.assertEquals(payee, myMap.get("payeeName").toString());
         if (myMap.containsKey("amount")) {

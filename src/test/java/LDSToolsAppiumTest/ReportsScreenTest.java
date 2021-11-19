@@ -147,11 +147,12 @@ public class ReportsScreenTest extends BaseDriver {
             }
 
             //Todo: change to an api call per user
+            //Todo: Update Move in - Move out
             myBasePage.rightsCheckNewRights("Action and Interview List", 4, rights, pageSource);
             myBasePage.rightsCheckNewRights("Birthday List", 4, rights, pageSource);
             myBasePage.rightsCheckNewRights("Ministering", 4, rights, pageSource);
-            myBasePage.rightsCheckNewRights("Members Moved In", 4, rights, pageSource);
-            myBasePage.rightsCheckNewRights("Members Moved Out", 4, rights, pageSource);
+//            myBasePage.rightsCheckNewRights("Members Moved In", 4, rights, pageSource);
+//            myBasePage.rightsCheckNewRights("Members Moved Out", 4, rights, pageSource);
             myBasePage.rightsCheckNewRights("Members with Callings", 4, rights, pageSource);
             myBasePage.rightsCheckNewRights("Members without Callings", 4, rights, pageSource);
             // myBasePage.rightsCheck("Missionary Progress Record", 2, rights, pageSource);
@@ -162,8 +163,8 @@ public class ReportsScreenTest extends BaseDriver {
             myBasePage.rightsCheckNewRights("Youth Recommend Status", 6, rights, pageSource);
 
 
-            getMembersMovedInReport(rights);
-            getMembersMovedOutReport(rights);
+//            getMembersMovedInReport(rights);
+//            getMembersMovedOutReport(rights);
             getMembersWithCallings(rights);
             getMembersWithOutCallings(rights);
             getNewMembers(rights);

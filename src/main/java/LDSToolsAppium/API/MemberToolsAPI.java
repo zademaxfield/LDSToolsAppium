@@ -368,40 +368,40 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
     //TODO: Need a file check for the date then delete if older than 3 or so days?
-    public String getUserAccountsJson (String unitNumber) throws IOException {
+    public String getUserAccountsJson (String unitNumber, String position) throws IOException {
         String responseData = "";
         File organizationFile = new File("ConfigFiles/accounts" + unitNumber + ".json");
         StringBuilder contentBuilder = new StringBuilder();
 
         OkHttpClient httpClient = loginCred();
-        Request request = requestURLNoProxyUser("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/admin/users/accounts?units="+ unitNumber );
+        Request request = requestURLNoProxyUser("https://wam-membertools-api-stage.churchofjesuschrist.org/api/v4/admin/users/accounts?positions=" + position + "&units="+ unitNumber );
 
-        if (!organizationFile.exists()) {
+//        if (!organizationFile.exists()) {
             try (Response response = httpClient.newCall(request).execute()) {
                 assert response.body() != null;
                 responseData = response.body().string();
-                try  {
-//                    FileWriter myWriter = new FileWriter("organization.json");
-                    FileWriter myWriter = new FileWriter(organizationFile);
-                    myWriter.write(responseData);
-                    myWriter.flush();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/accounts" + unitNumber + ".json")), StandardCharsets.UTF_8);
+//                try  {
+////                    FileWriter myWriter = new FileWriter("organization.json");
+//                    FileWriter myWriter = new FileWriter(organizationFile);
+//                    myWriter.write(responseData);
+//                    myWriter.flush();
+//
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-        }
+//        } else {
+//            try {
+//                responseData = new String(Files.readAllBytes(Paths.get("ConfigFiles/accounts" + unitNumber + ".json")), StandardCharsets.UTF_8);
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//        }
 
         return responseData;
     }
@@ -987,6 +987,49 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
                             myMap.put("amount", chargeData.getAmount());
                         }
                     }
+                }
+            }
+        }
+
+        return myMap;
+    }
+
+
+    public Map<String, Object> getAccounts(String unitNumber, String accountPosition) throws Exception {
+        JsonParser parser = new JsonParser();
+        String responseData;
+        Gson gson = new Gson();
+        ApiAccount myAccount = new ApiAccount();
+
+
+        Map<String, Object> myMap = new HashMap<>();
+
+        List<String> foundExpense = null;
+        Type apiAccount = new TypeToken<ArrayList<ApiAccount>>(){}.getType();
+        responseData = getUserAccountsJson(unitNumber, accountPosition);
+//        System.out.println("Response String: " + responseData);
+        JsonElement jsonElement = parser.parse(responseData);
+
+        if (jsonElement instanceof JsonObject) {
+//            System.out.println("JSON Object!");
+//            myAccount = gson.fromJson(jsonElement, ApiAccount.class);
+
+
+        } else if (jsonElement instanceof JsonArray) {
+            System.out.println("JSON Array!");
+            JsonArray jsonData = jsonElement.getAsJsonArray();
+            List<ApiAccount> testAccount = gson.fromJson(jsonElement, apiAccount);
+            for(ApiAccount foundMember : testAccount) {
+                int myCounter = 1;
+                myMap.put("ldsAccountId", foundMember.getLdsAccountId());
+                myMap.put("username", foundMember.getUsername());
+                myMap.put("member", foundMember.getMember());
+                myMap.put("homeUnits", foundMember.getHomeUnits());
+                for(PositionAccount positions: foundMember.getPositions()) {
+                    myMap.put("id" + myCounter, positions.getId());
+                    myMap.put("type" + myCounter, positions.getType());
+                    myMap.put("unitNumber" + myCounter, positions.getUnitNumber());
+                    myCounter++;
                 }
             }
         }

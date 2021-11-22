@@ -272,7 +272,7 @@ public class DirectoryScreenTest extends BaseDriver {
         } else {
             myBasePage.rightsCheckNewRights("- 75", 5, rights, pageSource);
             //Temple Recommend
-            myBasePage.rightsCheckNewRights("Nov 2021", 6, rights, pageSource);
+            myBasePage.rightsCheckNewRights("Oct 2023", 6, rights, pageSource);
         }
 
 

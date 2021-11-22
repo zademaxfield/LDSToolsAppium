@@ -49,7 +49,7 @@ public class APITest {
         int codeTest = 0;
         int responseCode = 0;
 //
-//        Map<String, Object> myMap = new HashMap<>();
+        Map<String, Object> myMap = new HashMap<>();
 //        myMap = apiTest.getExpenses("mbthomas74", "21628", "Qqqqqqqqqqqqq");
 //
 //        for (String mapKey: myMap.keySet()) {
@@ -66,7 +66,10 @@ public class APITest {
 //        apiTest.ordinanceDelete("Barba, Cristian Jesus", "21628", "mbthomas74");
 
 
-        apiTest.getUserAccountsJson("21628");
+//        apiTest.getUserAccountsJson("21628", "4");
+        myMap = apiTest.getAccounts("21628", "4");
+        System.out.println(myMap);
+        System.out.println("Username: " + myMap.get("username"));
 
 
 

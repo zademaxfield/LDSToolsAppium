@@ -8,8 +8,9 @@
 <!--        <parameter name="fileName" value="ldstools-beta.apk" />-->
 <!--        <parameter name="fileName" value="ldstools-release.apk" />-->
 <!--        <parameter name="testDevice" value="HT69D0204296" />-->
-        <parameter name="testDevice" value="09251FDD4003MU" />
-<!--        <parameter name="testDevice" value="emulator-5554" />-->
+<!--        <parameter name="testDevice" value="09251FDD4003MU" />-->
+<!--        <parameter name="testDevice" value="RFCN80KVV5P" />-->
+        <parameter name="testDevice" value="emulator-5554" />
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8251" />
 

@@ -28,6 +28,9 @@ import java.lang.reflect.Method;
 import java.net.Socket;
 import java.net.SocketException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
@@ -90,6 +93,9 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         File screenshotDirectory = new File ("screenshot");
         File configFiles = new File ("ConfigFiles");
 
+        Path reportsAndroidDirectory = Paths.get("src/test/java/Reports/Android");
+        Path reportsiOSDirectory = Paths.get("src/test/java/Reports/iOS");
+
         LOGGER.info("LOGGER: Start clean directories");
         System.out.println("Start clean directories");
         try {
@@ -108,6 +114,9 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
                 }
             }
         }
+        Files.createDirectories(reportsAndroidDirectory);
+        Files.createDirectories(reportsiOSDirectory);
+
     }
 
     //    @BeforeTest(alwaysRun = true)

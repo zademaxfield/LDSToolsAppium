@@ -24,6 +24,12 @@ public class CalendarsScreen extends BasePage {
 
     // ****************** Calendars Main Screen ******************
 
+    //Main Title
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Calendar']")
+    @iOSXCUITFindBy(accessibility = "Calendar")
+    public MobileElement calendarTitle;
+
+
     //Edit Button
     @iOSXCUITFindBy(accessibility = "Edit")
     public MobileElement calendarEdit;
@@ -62,7 +68,7 @@ public class CalendarsScreen extends BasePage {
     public MobileElement calendarsSubscriptionsDone;
 
     //Subscriptions Cancel
-    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/menu_item_cancel")
+    @AndroidFindBy(accessibility = "Close")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public MobileElement calendarsSubscriptionsCancel;
 

@@ -9,10 +9,10 @@
 <!--        <parameter name="fileName" value="ldstools-release.apk" />-->
 <!--        <parameter name="testDevice" value="HT69D0204296" />-->
 <!--        <parameter name="testDevice" value="09251FDD4003MU" />-->
-<!--        <parameter name="testDevice" value="RFCN80KVV5P" />-->
-        <parameter name="testDevice" value="emulator-5554" />
+        <parameter name="testDevice" value="R5CN3032NSW" />
+<!--        <parameter name="testDevice" value="emulator-5554" />-->
         <parameter name="startSleepTime" value="0200" />
-        <parameter name="systemPort" value="8251" />
+        <parameter name="systemPort" value="8277" />
 
         <groups>
             <run>
@@ -24,7 +24,7 @@
         <classes>
 <!--            <class name="LDSToolsAppium.BaseDriver"/>-->
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
-            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
 
         </classes>
     </test > <!-- Default test -->

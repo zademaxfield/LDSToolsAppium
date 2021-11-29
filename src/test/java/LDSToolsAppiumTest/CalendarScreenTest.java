@@ -13,6 +13,47 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
+    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3", "jft"})
+    public void calendarScreenCheck() throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        CalendarsScreen myCalendar = new CalendarsScreen(driver);
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList("BISHOP", "Centinela 1st");
+
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+        myMenu.selectMenu(myMenu.calendar);
+        myBasePage.waitForElement(myCalendar.calendarTitle);
+        Assert.assertTrue(myCalendar.calendarTitle.isDisplayed());
+
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myCalendar.calendarEdit.click();
+        } else {
+            myCalendar.calendarMoreOptions.click();
+            myCalendar.calendarsToDisplay.click();
+        }
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(pageSource.contains("Calendars to display"));
+        Assert.assertTrue(pageSource.contains("All calendars"));
+        Assert.assertTrue(myCalendar.calendarSubscriptions.isDisplayed());
+
+        myCalendar.calendarSubscriptions.click();
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(pageSource.contains("All calendars"));
+        Assert.assertTrue(myCalendar.calendarsSubscriptionsDone.isDisplayed());
+        Assert.assertTrue(myCalendar.calendarsSubscriptionsCancel.isDisplayed());
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            Assert.assertTrue(pageSource.contains("Subscriptions"));
+        } else {
+            Assert.assertTrue(pageSource.contains("Calendar"));
+        }
+    }
 
 
     @Test (groups = {"all4", "all", "smoke", "smoke4", "daily", "daily1"})
@@ -131,7 +172,7 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
     //Todo: need a check to make sure all calendars are selected.
-    @Test (groups = {"all", "all3", "daily", "daily2", "jft"})
+    @Test (groups = {"all", "all3", "daily", "daily2"})
     public void calenderDisplayType() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();

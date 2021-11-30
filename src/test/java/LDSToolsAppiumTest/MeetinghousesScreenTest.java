@@ -73,6 +73,10 @@ public class MeetinghousesScreenTest extends BaseDriver {
         }
 
 
+        myMeetinghouses.meetinghouseSearch("Paris");
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(pageSource.contains("Meetinghouses"));
+
     }
 
     public void selectMapType(MobileElement mapElement) throws Exception {

@@ -65,12 +65,14 @@ public class MeetinghousesScreen extends BasePage {
     public MobileElement meetinghousesMapTypes;
 
         //Map Types - Road
-        @AndroidFindBy(xpath = "//android.widget.TextView[@text='Road']/following-sibling::android.widget.RadioButton")
+//        @AndroidFindBy(xpath = "//android.widget.TextView[@text='Road']/following-sibling::android.widget.RadioButton")
+        @AndroidFindBy(xpath = "//android.widget.TextView[@text='Road']")
         @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Road')]")
         public MobileElement meetinghousesMapTypesRoad;
 
         //Map Types - Satellite
-        @AndroidFindBy(xpath = "//android.widget.TextView[@text='Satelite']/following-sibling::android.widget.RadioButton")
+//        @AndroidFindBy(xpath = "//android.widget.TextView[@text='Satelite']/following-sibling::android.widget.RadioButton")
+        @AndroidFindBy(xpath = "//android.widget.TextView[@text='Satellite']")
         @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[contains(@name, 'Satellite')]")
         public MobileElement meetinghousesMapTypesSatellite;
 
@@ -134,7 +136,7 @@ public class MeetinghousesScreen extends BasePage {
             keyboardSearchButton.click();
         } else {
             meetinghousesSearchButton.click();
-            System.out.println(getSourceOfPage());
+//            System.out.println(getSourceOfPage());
             meetinghousesSearchField.sendKeys(searchText);
             driver.get().getKeyboard().pressKey(Keys.ENTER);
         }

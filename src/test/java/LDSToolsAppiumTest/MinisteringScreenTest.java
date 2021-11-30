@@ -553,6 +553,7 @@ public class MinisteringScreenTest extends BaseDriver {
         if (rights >= 4 ) {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringBrothersReport.click();
+            myBasePage.waitForElement(myMinistering.assignedHouseholds);
             myMinistering.assignedHouseholds.click();
 
             Thread.sleep(2000);

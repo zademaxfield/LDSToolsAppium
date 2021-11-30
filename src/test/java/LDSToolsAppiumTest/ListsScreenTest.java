@@ -2,6 +2,7 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
+import LDSToolsAppium.Screen.CalendarsScreen;
 import LDSToolsAppium.Screen.ListsScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import org.testng.Assert;
@@ -9,6 +10,7 @@ import org.testng.annotations.Test;
 
 
 public class ListsScreenTest extends BaseDriver {
+
 
     @Test(groups = {"smoke3", "smoke", "all3", "all", "daily", "daily1", "jft"})
     public void listsSimpleTest() throws Exception {

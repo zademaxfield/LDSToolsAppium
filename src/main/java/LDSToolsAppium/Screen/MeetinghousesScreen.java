@@ -39,7 +39,8 @@ public class MeetinghousesScreen extends BasePage {
 
     //Allow access to your location - Android Permissions Dialog
 //    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/permission_allow_button")
-    @AndroidFindBy(xpath = "//android.widget.Button[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"allow\")]")
+//    @AndroidFindBy(xpath = "//android.widget.Button[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), \"allow\")]")
+    @AndroidFindBy(xpath = "//android.widget.Button[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'while using')]")
     public MobileElement meetinghousesAllowAndroidPermissions;
 
 

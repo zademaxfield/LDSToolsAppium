@@ -2,6 +2,7 @@ package LDSToolsAppiumTest;
 
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
+import LDSToolsAppium.Screen.CalendarsScreen;
 import LDSToolsAppium.Screen.MeetinghousesScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import io.appium.java_client.AppiumDriver;
@@ -12,6 +13,82 @@ import org.testng.annotations.Test;
 
 
 public class MeetinghousesScreenTest extends BaseDriver {
+
+    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3", "jft"})
+    public void meetinghouseScreenCheck() throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MeetinghousesScreen myMeetinghouses = new MeetinghousesScreen(driver);
+
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList("BISHOP", "Centinela 1st");
+
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+        myMenu.selectMenu(myMenu.meetinghouses);
+
+        if (myBasePage.checkForElement(myMeetinghouses.meetinghousesAllow)) {
+            myMeetinghouses.meetinghousesAllow.click();
+            Thread.sleep(5000);
+        }
+
+        if (!getRunningOS().equals("ios")) {
+            driver.get().switchTo().alert();
+
+            myMeetinghouses.meetinghousesAllowAndroidPermissions.click();
+        }
+
+        Assert.assertTrue(myMeetinghouses.meetinghousesCurrentLocation.isDisplayed());
+        myMeetinghouses.meetinghousesCurrentLocation.click();
+        Thread.sleep(4000);
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myMeetinghouses.meetinghousesMoreOptions.click();
+        }
+        myMeetinghouses.meetinghousesMapTypes.click();
+
+        Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesRoad.isDisplayed());
+        Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesSatellite.isDisplayed());
+
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesHybrid.isDisplayed());
+            Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesSatelliteFlyover.isDisplayed());
+            Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesHybridFlyover.isDisplayed());
+            Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesHybridCancel.isDisplayed());
+            myMeetinghouses.meetinghousesMapTypesHybridCancel.click();
+        } else {
+            myMeetinghouses.meetinghousesMapTypesRoad.click();
+        }
+
+        selectMapType(myMeetinghouses.meetinghousesMapTypesRoad);
+        selectMapType(myMeetinghouses.meetinghousesMapTypesSatellite);
+
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            selectMapType(myMeetinghouses.meetinghousesMapTypesHybrid);
+            selectMapType(myMeetinghouses.meetinghousesMapTypesSatelliteFlyover);
+            selectMapType(myMeetinghouses.meetinghousesMapTypesHybridFlyover);
+        }
+
+
+    }
+
+    public void selectMapType(MobileElement mapElement) throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        MeetinghousesScreen myMeetinghouses = new MeetinghousesScreen(driver);
+
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myMeetinghouses.meetinghousesMoreOptions.click();
+        }
+        myMeetinghouses.meetinghousesMapTypes.click();
+        mapElement.click();
+        Thread.sleep(2000);
+        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertTrue(pageSource.contains("Meetinghouses"));
+    }
 
 
     //TODO: iOS has problems with this test

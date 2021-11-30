@@ -10,9 +10,79 @@ import org.testng.annotations.Test;
 
 public class DirectoryEditScreenTest extends BaseDriver {
 
+    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3", "jft"})
+    public void directoryEditScreenCheck() throws Exception {
+        String pageSource;
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        DirectoryScreen myDirectory = new DirectoryScreen(driver);
+        DirectoryEditScreen myEditDirectory = new DirectoryEditScreen(driver);
+
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList("BISHOP", "Centinela 1st");
+
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+
+        myDirectory.searchAndClick("Beeson, Adam");
+
+        Assert.assertTrue(myDirectory.directoryEdit.isDisplayed());
+        myEditDirectory.editUserOpen();
+
+        Assert.assertTrue(myEditDirectory.directoryEditHouseholdPhone.isDisplayed());
+        Assert.assertTrue(myEditDirectory.directoryEditPersonalPhone.isDisplayed());
+        Assert.assertTrue(myEditDirectory.directoryEditPersonalEmail.isDisplayed());
+        Assert.assertTrue(myEditDirectory.directoryEditHouseholdEmail.isDisplayed());
+
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myEditDirectory.householdVisibilityLimit.click();
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(pageSource.contains("STAKE VISIBILITY"));
+            Assert.assertTrue(pageSource.contains("WARD VISIBILITY"));
+            Assert.assertTrue(pageSource.contains("PRIVATE"));
+            myEditDirectory.stakeVisibility.click();
+//            myEditDirectory.visiblityCancel.click();
+
+
+            myEditDirectory.personalVisibility.click();
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(pageSource.contains("Image"));
+            Assert.assertTrue(pageSource.contains("Phone"));
+            Assert.assertTrue(pageSource.contains("Email"));
+//            myEditDirectory.cancelButton.click();
+            myEditDirectory.doneButton.click();
+
+            Thread.sleep(2000);
+
+            myEditDirectory.householdVisibility.click();
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(pageSource.contains("Image"));
+            Assert.assertTrue(pageSource.contains("Phone"));
+            Assert.assertTrue(pageSource.contains("Email"));
+            Assert.assertTrue(pageSource.contains("Address"));
+            Assert.assertTrue(pageSource.contains("Show on Map"));
+//            myEditDirectory.cancelButton.click();
+            myEditDirectory.doneButton.click();
+
+        } else {
+            myEditDirectory.directoryPrivacyTab.click();
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(pageSource.contains("Image"));
+            Assert.assertTrue(pageSource.contains("Phone"));
+            Assert.assertTrue(pageSource.contains("Email"));
+//            myEditDirectory.visiblityCancel.click();
+            myEditDirectory.menuSave.click();
+        }
+    }
+
+
+
+
+
     //TODO: Need to update sometimes fails. Timing issue?
     @Test(groups = {"needUpdate"})
-//    @Test(groups = {"smoke4", "smoke", "all2", "all", "daily", "daily1", "jft"})
+//    @Test(groups = {"smoke4", "smoke", "all2", "all", "daily", "daily1"})
     public void editCurrentUser() throws Exception {
         String pageSource;
 

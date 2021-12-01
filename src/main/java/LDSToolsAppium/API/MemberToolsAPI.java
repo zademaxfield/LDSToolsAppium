@@ -1772,8 +1772,8 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 
 
 
-    public List<String> getInfoFromMinisteringBrothers(String proxyLogin, String unitNumber) throws Exception {
-        proxyLogin = "mbthomas74";
+    public List<String> getInfoFromMinisteringBrothers(String proxyLogin, String unitNumber, String reportType) throws Exception {
+//        proxyLogin = "mbthomas74";
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
@@ -1793,31 +1793,28 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 //            System.out.println("JSON Object!");
             myReport = gson.fromJson(jsonElement, ApiReports.class);
 
-
-            for (ReportMinisteringBrother ministeringBrother : myReport.getMinisteringBrothers()) {
-                System.out.println("Unit Number: " + ministeringBrother.getDistricts().toString());
-                for (ReportDistrict myDistrict : ministeringBrother.getDistricts()) {
-                    System.out.println("District Name: " + myDistrict.getName());
-                    // Send district name
-                    if (myDistrict.getCompanionships() != null) {
-                        for (ReportCompanionship myCompanionship : myDistrict.getCompanionships()) {
-                            System.out.println("Uuid: " + myCompanionship.getUuid());
-                            //Send Companionship?
-                            System.out.println("Companions: " + myCompanionship.getCompanions());
-                            for (ReportCompanion myCompanion : myCompanionship.getCompanions()) {
-                                System.out.println("Companion: " + myCompanion.getUuid());
-                                memberNames.add(getNameFromUuid( myCompanion.getUuid(), unitNumber, proxyLogin, "personal"));
-                                //Send Companion
-                            }
-                        }
+            if (reportType.equalsIgnoreCase("brothers")) {
+                for (ReportMinisteringBrother ministeringBrother : myReport.getMinisteringBrothers()) {
+//                    System.out.println("Unit Number: " + ministeringBrother.getDistricts().toString());
+                    for (ReportDistrict myDistrict : ministeringBrother.getDistricts()) {
+//                    System.out.println("District Name: " + myDistrict.getName());
+                        // Send district name
+                        memberNames.add(myDistrict.getName());
                     }
-
-
                 }
-
-//                memberNames.add(getNameFromUuid( newMember.getUuid(), unitNumber, proxyLogin, "personal"));
-
+            } else {
+                for (ReportMinisteringSister ministeringSister : myReport.getMinisteringSisters()) {
+//                    System.out.println("Unit Number: " + ministeringSister.getDistricts().toString());
+                    for (ReportDistrict_ myDistrict : ministeringSister.getDistricts()) {
+//                    System.out.println("District Name: " + myDistrict.getName());
+                        // Send district name
+                        memberNames.add(myDistrict.getName());
+                    }
+                }
             }
+
+
+
 
         } else if (jsonElement instanceof JsonArray) {
 //                System.out.println("JSON Array!");

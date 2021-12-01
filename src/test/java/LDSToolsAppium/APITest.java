@@ -66,12 +66,16 @@ public class APITest {
 //        apiTest.ordinanceDelete("Barba, Cristian Jesus", "21628", "mbthomas74");
 
 
-//        apiTest.getUserAccountsJson("21628", "4");
-        myMap = apiTest.getAccounts("21628", "4");
-        System.out.println(myMap);
-        System.out.println("Username: " + myMap.get("username"));
+        //Accounts!!
+//        myMap = apiTest.getAccounts("21628", "4");
+//        System.out.println(myMap);
+//        System.out.println("Username: " + myMap.get("username"));
 
 
+        memberList = apiTest.getInfoFromMinisteringBrothers("mbthomas74",  "21628", "sisters");
+        for (String reportName: memberList) {
+            System.out.println("Report Name: " + reportName);
+        }
 
 //        memberList = apiTest.getReportNames("mbthomas74", "21628");
 //        rawData = apiTest.getApiInfoTEST(unitNumber, proxyLogin);

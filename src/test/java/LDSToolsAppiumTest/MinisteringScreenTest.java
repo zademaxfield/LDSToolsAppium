@@ -1,5 +1,6 @@
 package LDSToolsAppiumTest;
 
+import LDSToolsAppium.API.MemberToolsAPI;
 import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
@@ -10,8 +11,76 @@ import org.openqa.selenium.ScreenOrientation;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MinisteringScreenTest extends BaseDriver {
+
+
+    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily4", "jft"})
+    public void ministeringScreenCheck() throws Exception {
+        String pageSource;
+        List<String> memberList = new ArrayList<String>();
+        BasePage myBasePage = new BasePage(driver);
+        MenuScreen myMenu = new MenuScreen(driver);
+        MemberToolsAPI apiTest = new MemberToolsAPI();
+        MinisteringScreen myMinistering = new MinisteringScreen(driver);
+
+        String[] callingRights;
+        HelperMethods myHelper = new HelperMethods();
+        callingRights = myHelper.getMemberNameFromList("BISHOP", "Centinela 1st");
+
+        myHelper.proxyLogin(callingRights[1]);
+        myHelper.enterPin("1", "1", "3", "3");
+
+
+        myMenu.selectMenu(myMenu.reports);
+        Thread.sleep(2000);
+        pageSource = myBasePage.getSourceOfPage();
+
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Brothers", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Ministering Sisters", pageSource, "Contains"));
+
+
+        myMinistering.ministeringBrothersReport.click();
+
+        Thread.sleep(2000);
+        memberList = apiTest.getInfoFromMinisteringBrothers("mbthomas74",  "21628", "brothers");
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Companionships Interviewed", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Assigned Households", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Households", pageSource, "Contains"));
+
+        for(String ministeringReport: memberList) {
+            Assert.assertTrue(pageSource.contains(ministeringReport));
+        }
+
+
+        myBasePage.backButton.click();
+        Thread.sleep(1000);
+
+        myMinistering.ministeringSistersReport.click();
+
+        Thread.sleep(2000);
+        memberList = apiTest.getInfoFromMinisteringBrothers("mbthomas74",  "21628", "sisters");
+        pageSource = myBasePage.getSourceOfPage();
+
+        Assert.assertTrue(myBasePage.checkNoCaseList("Companionships Interviewed", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Assigned Sisters", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Unassigned Sisters", pageSource, "Contains"));
+
+        for(String ministeringReport: memberList) {
+            Assert.assertTrue(pageSource.contains(ministeringReport));
+        }
+
+        myBasePage.backButton.click();
+
+
+    }
+
 
 
 
@@ -439,7 +508,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all2", "all", "daily", "daily3", "jft"})
+    @Test (groups = {"all2", "all", "daily", "daily3"})
     public void ministeringAssignedHouseholds_BISHOP() throws Exception {
         ministeringAssignedHouseholdsSub("BISHOP");
     }

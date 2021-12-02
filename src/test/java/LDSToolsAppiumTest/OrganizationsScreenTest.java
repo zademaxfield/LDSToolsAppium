@@ -60,7 +60,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all1", "all", "daily", "daily1"})
+    @Test(groups = {"all1", "all", "daily", "daily1", "jft"})
     public void organizationTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -190,7 +190,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all", "daily", "daily1", "jft"})
+    @Test(groups = {"all2", "all", "daily", "daily1"})
     public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_PRESIDENT() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -359,7 +359,8 @@ public class OrganizationsScreenTest extends BaseDriver {
         //Data from android list
         ArrayList<String> androidList = new ArrayList<>();
 
-        myOrg.bishopricOrg.click();
+        myBasePage.waitForElementThenClick(myOrg.bishopricOrg);
+//        myOrg.bishopricOrg.click();
 
 
 
@@ -496,11 +497,8 @@ public class OrganizationsScreenTest extends BaseDriver {
         List<String> myList = new ArrayList<String>();
 
 
-
-        myOrg.eldersQuorumOrg.click();
-        myBasePage.waitForElement(myOrg.eldersQuorumPresidency);
-        myOrg.eldersQuorumPresidency.click();
-//        eldersQuorumData();
+        myBasePage.waitForElementThenClick(myOrg.eldersQuorumOrg);
+        myBasePage.waitForElementThenClick(myOrg.eldersQuorumPresidency);
 
         myList = apiTest.getChildOrganizationMembers("Elders Quorum Presidency", userName, "21628");
         //The following members are marked private.
@@ -558,10 +556,8 @@ public class OrganizationsScreenTest extends BaseDriver {
         //Data from android list
         List<String> androidList = new ArrayList<String>();
 
-        myOrg.reliefSocietyOrg.click();
-        myBasePage.waitForElement(myOrg.reliefSocietyPresidency);
-        myOrg.reliefSocietyPresidency.click();
-//        reliefSocietyData();
+        myBasePage.waitForElementThenClick(myOrg.reliefSocietyOrg);
+        myBasePage.waitForElementThenClick(myOrg.reliefSocietyPresidency);
 
         myList = apiTest.getChildOrganizationMembers("Relief Society Presidency", userName, "21628");
 
@@ -617,8 +613,8 @@ public class OrganizationsScreenTest extends BaseDriver {
         //Data from Web page
         List<String> myList = new ArrayList<String>();
 
+        myBasePage.waitForElementThenClick(myOrg.youngMenOrg);
 
-        myOrg.youngMenOrg.click();
 
         // Priests Quorum Presidency
 //        myOrg.priestsQuorum.click();
@@ -737,8 +733,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         //Data from Web page
         List<String> myList = new ArrayList<String>();
 
-
-        myOrg.youngWomenOrg.click();
+        myBasePage.waitForElementThenClick(myOrg.youngWomenOrg);
         Thread.sleep(1000);
 
         // Young Women Presidency
@@ -803,7 +798,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         List<String> myList = new ArrayList<String>();
         List<String> childOrgs = new ArrayList<>();
 
-        myOrg.sundaySchoolOrg.click();
+        myBasePage.waitForElementThenClick(myOrg.sundaySchoolOrg);
         Thread.sleep(1000);
         childOrgs = apiTest.getChildOrganizationClasses("Sunday School", userName, "21628");
 

@@ -135,9 +135,8 @@ public class MissionaryScreenTest extends BaseDriver {
 
         myMenu.selectMenu(myMenu.missionary);
 
-        myMissionary.sendReferralButton.click();
-        Thread.sleep(3000);
-        myMissionary.cancelReferralButton.click();
+        myBasePage.waitForElementThenClick(myMissionary.sendReferralButton);
+        myBasePage.waitForElementThenClick(myMissionary.cancelReferralButton);
         pageSource = myMissionary.getMissionaryPage();
 
         //Check Assigned Missionaries

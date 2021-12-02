@@ -60,7 +60,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all1", "all", "daily", "daily1", "jft"})
+    @Test(groups = {"all1", "all", "daily", "daily1"})
     public void organizationTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -190,7 +190,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationStakeHighPriestQuorumCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all2", "all", "daily", "daily1"})
+    @Test(groups = {"all2", "all", "daily", "daily1", "jft"})
     public void organizationStakeHighPriestQuorum_ELDERS_QUORUM_PRESIDENT() throws Exception {
         organizationStakeHighPriestQuorumCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -264,10 +264,9 @@ public class OrganizationsScreenTest extends BaseDriver {
         String pageSource;
 
         myMenu.selectMenu(myMenu.organizations);
-        Thread.sleep(2000);
-        myOrg.organizationsDropdown.click();
-        myOrg.inglewoodStake.click();
-        myOrg.highPriestsQuorumOrg.click();
+        myBasePage.waitForElementThenClick(myOrg.organizationsDropdown);
+        myBasePage.waitForElementThenClick(myOrg.inglewoodStake);
+        myBasePage.waitForElementThenClick(myOrg.highPriestsQuorumOrg);
         Thread.sleep(2000);
 
         pageSource = myBasePage.getSourceOfPage();

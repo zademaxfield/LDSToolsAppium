@@ -195,12 +195,9 @@ public class TemplesScreen extends BasePage {
         BasePage myBasePage = new BasePage(driver);
 
         if (myBasePage.getOS().contains("ios")) {
-
             templePullDown.click();
         }
-
-        myElement.click();
-
+        waitForElementThenClick(myElement);
     }
 
 
@@ -216,31 +213,32 @@ public class TemplesScreen extends BasePage {
             myMenu.selectMenu(myMenu.help);
 
             if (myScanner.scannerCheckForText("Developer Settings") ) {
-                myLoginPage.developerButton.click();
+                myBasePage.waitForElementThenClick(myLoginPage.developerButton);
             } else {
                 for (int x = 1; x <= 5; x++) {
-                    myLoginPage.enterDeveloperButton.click();
+                    myBasePage.waitForElementThenClick(myLoginPage.enterDeveloperButton);
                 }
             }
 
             //Thread.sleep(2000);
 
             //Set the Temple Recommend Status
-            mySettings.templeRecommendStatus.click();
+            myBasePage.waitForElementThenClick(mySettings.templeRecommendStatus);
             Thread.sleep(2000);
-            recommendStatus.click();
+            myBasePage.waitForElementThenClick(recommendStatus);
             Thread.sleep(2000);
 
 
             //Set the number of Days until expired
 //            myBasePage.scrollDownToTextIOS("Set Temple Recommend Expiration");
-            mySettings.overrideTempleRecommendExpiration.click();
+            myBasePage.waitForElementThenClick(mySettings.overrideTempleRecommendExpiration);
             mySettings.templeDaysUntilExpiration.setValue(numberOfDays);
-            mySettings.alertOK.click();
+            myBasePage.waitForElementThenClick(mySettings.alertOK);
 
-            myBasePage.backButton.click();
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
             Thread.sleep(1000);
-            myBasePage.backButton.click();
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
+
 
 
             //Open Settings
@@ -248,7 +246,7 @@ public class TemplesScreen extends BasePage {
             myMenu.selectMenu(myMenu.settings);
 
 //            System.out.println(myBasePage.getSourceOfPage());
-            mySettings.templeRecommendReminder.click();
+            myBasePage.waitForElementThenClick(mySettings.templeRecommendReminder);
 
             Thread.sleep(2000);
             numberOfWeeks.click();

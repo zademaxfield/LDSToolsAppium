@@ -311,7 +311,7 @@ public class ReportsScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups = {"all2", "all", "report", "daily", "daily3"})
+    @Test (groups = {"all2", "all", "report", "daily", "daily3", "jft"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
@@ -324,17 +324,19 @@ public class ReportsScreenTest extends BaseDriver {
 
 
         myMenu.selectMenu(myMenu.reports);
-        myReports.actionAndInterviewListReport.click();
+        myBasePage.waitForElementThenClick(myReports.actionAndInterviewListReport);
+//        myReports.actionAndInterviewListReport.click();
 
         //Children Approaching Baptism Age
-        myReports.childrenApproachingBaptismAgeReport.click();
+        myBasePage.waitForElementThenClick(myReports.childrenApproachingBaptismAgeReport);
+//        myReports.childrenApproachingBaptismAgeReport.click();
         Thread.sleep(2000);
 
         checkActionAndInterviewApi("Children Approaching Baptism Age","mbthomas74", "21628");
         myBasePage.backButton.click();
 
         //Unbaptized Members
-        myReports.unbaptizedMembersReport.click();
+        myBasePage.waitForElementThenClick(myReports.unbaptizedMembersReport);
         Thread.sleep(2000);
         checkActionAndInterviewApi("Unbaptized Members","mbthomas74", "21628");
         myBasePage.backButton.click();
@@ -342,7 +344,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         //Overdue Aaronic Priesthood Ordinations
 //        myBasePage.scrollToText("Overdue Aaronic Priesthood Ordinations");
-        myReports.overdueAaronicPriesthoodOrdinationsReport.click();
+        myBasePage.waitForElementThenClick(myReports.overdueAaronicPriesthoodOrdinationsReport);
         Thread.sleep(2000);
         checkActionAndInterviewApi("Overdue Aaronic Priesthood Ordinations","mbthomas74", "21628");
         myBasePage.backButton.click();
@@ -352,19 +354,19 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(2000);
         myBasePage.scrollToTextSwipe("Young Single Adult Interview");
 //        myBasePage.scrollDownTEST(1000);
-        myReports.youngSingleAdultInterviewsReport.click();
+        myBasePage.waitForElementThenClick(myReports.youngSingleAdultInterviewsReport);
         Thread.sleep(2000);
         checkActionAndInterviewApi("Young Single Adult Interviews","mbthomas74", "21628");
         myBasePage.backButton.click();
 
         //Bishops Youth Interviews
-        myReports.bishopsYouthInterviewsReport.click();
+        myBasePage.waitForElementThenClick(myReports.bishopsYouthInterviewsReport);
         Thread.sleep(2000);
         checkActionAndInterviewApi("Bishop’s Youth Interviews","mbthomas74", "21628");
         myBasePage.backButton.click();
 
         //Bishops Counselor Youth Interviews
-        myReports.bishopricCounselorYouthInterviewsReport.click();
+        myBasePage.waitForElementThenClick(myReports.bishopricCounselorYouthInterviewsReport);
         Thread.sleep(2000);
         checkActionAndInterviewApi("Bishopric Counselor Youth Interviews","mbthomas74", "21628");
         myBasePage.backButton.click();
@@ -377,14 +379,14 @@ public class ReportsScreenTest extends BaseDriver {
 //        myBasePage.backButton.click();
 
         //Men Who Have Not Served a Mission
-        myReports.menWhoHaveNotServedaMissionReport.click();
+        myBasePage.waitForElementThenClick(myReports.menWhoHaveNotServedaMissionReport);
         Thread.sleep(2000);
         checkActionAndInterviewApi("Men Who Have Not Served a Mission","mbthomas74", "21628");
         myBasePage.backButton.click();
 
 
         //Potential Missionary Couples
-        myReports.potentialMissionaryCouplesReport.click();
+        myBasePage.waitForElementThenClick(myReports.potentialMissionaryCouplesReport);
         Thread.sleep(2000);
         checkActionAndInterviewApi("Potential Missionary Couples","mbthomas74", "21628");
         myBasePage.backButton.click();
@@ -422,7 +424,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
     //There is no API for this
-    @Test (groups = {"all3", "all", "report", "daily", "daily4", "jft"})
+    @Test (groups = {"all3", "all", "report", "daily", "daily4"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
 
@@ -457,8 +459,8 @@ public class ReportsScreenTest extends BaseDriver {
         pageSource = myBasePage.getSourceOfPage();
 
         //TEST
-        Assert.assertTrue(myBasePage.checkNoCaseList("Andrews", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Auton", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Batimana", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Laeci", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("2021", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Limited-Use", pageSource, "Contains"));
 

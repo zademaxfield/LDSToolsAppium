@@ -545,7 +545,6 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
                 //myUdid = deviceUDID();
             }
 
-            //TODO: Add support for headless simulator
             if (testDevice.contains("FBSIM")) {
 
                 String[] parts = testDevice.split("-");
@@ -606,9 +605,10 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             capabilities.setCapability("appium:nativeInstrumentsLib", false);
             capabilities.setCapability("appium:clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);
-            capabilities.setCapability("appium:maxTypingFrequency", 20);
+//            capabilities.setCapability("appium:maxTypingFrequency", 20);
 //            capabilities.setCapability("sendKeyStrategy", "grouped");
-            capabilities.setCapability("interKeyDelay", 100);
+
+//            capabilities.setCapability("interKeyDelay", 50);
             //capabilities.setCapability("appPackage", myAppPackage);
             //capabilities.setCapability("simpleIsVisibleCheck", true);
 //            capabilities.setCapability("connectHardwareKeyboard", false);

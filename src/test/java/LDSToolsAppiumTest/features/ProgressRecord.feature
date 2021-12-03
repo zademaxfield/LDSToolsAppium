@@ -47,10 +47,10 @@
       Examples:
         | leader            | memberRecord             | can     | unit    |
         | "STAKE_PRESIDENT" | "Hanneman, Daniel James" | "false" | "Maize" |
-#        | "STAKE_PRESIDENT_FIRST_COUNSELOR"  | "Walker, Steph"       | "false" | "Newton"       |
-#        | "STAKE_PRESIDENT_SECOND_COUNSELOR" | "Lopez, Jordan"       | "false" | "Wellington"   |
-#        | "STAKE_CLERK"                      | "Studd, Blu Lee"      | "false" | "Pratt"        |
-#        | "STAKE_EXECUTIVE_SECRETARY"        | "Chaney, Destin John" | "false" | "Auburn Hills" |
+        | "STAKE_PRESIDENT_FIRST_COUNSELOR"  | "Walker, Steph"       | "false" | "Newton"       |
+        | "STAKE_PRESIDENT_SECOND_COUNSELOR" | "Lopez, Jordan"       | "false" | "Wellington"   |
+        | "STAKE_CLERK"                      | "Studd, Blu Lee"      | "false" | "Pratt"        |
+        | "STAKE_EXECUTIVE_SECRETARY"        | "Chaney, Destin John" | "false" | "Auburn Hills" |
 
 
     @MQA-3194 @MQA-2225 @all @all3 @all @daily

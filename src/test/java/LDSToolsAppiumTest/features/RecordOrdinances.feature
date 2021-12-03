@@ -5,22 +5,14 @@
     #Officator - Member of Household, Member of Ward or Branch, Member Outside of Ward or Branch
     #Other Date
     #Do a random leader instead of BISHOP?
-    @jft
+    @MQA-5387 @MQA-2225 @jft
     Scenario Outline: As a leader Record Priesthood Ordination - Aaronic
       Given a <leader> logs in and is on the Record Ordination page
       When a Aaronic Priesthood Ordination is submitted for <memberRecord> with <priesthoodOffice> and the <date> by <officiator>
       Then the Ordination should be updated with <memberRecord> , <priesthoodOffice> , <date> and <officiator>
       Examples:
-        | leader   | memberRecord            | priesthoodOffice | date            | officiator       |
-        | "BISHOP" | "Barba, Cristian Jesus" | "Priest"         | "Current date?" | "Young, Gregory" |
-#        | "BISHOP" | "Some, Member " | "priest"         | "Current date?" | "Member of Ward"      |
-#        | "BISHOP" | "Some, Member " | "priest"         | "Current date?" | "Outside of Ward"     |
-#        | "BISHOP" | "Some, Member " | "teacher"        | "Current date?" | "Member of household" |
-#        | "BISHOP" | "Some, Member " | "teacher"        | "Current date?" | "Member of Ward"      |
-#        | "BISHOP" | "Some, Member " | "teacher"        | "Current date?" | "Outside of Ward"     |
-#        | "BISHOP" | "Some, Member " | "deacon"         | "Current date?" | "Member of household" |
-#        | "BISHOP" | "Some, Member " | "deacon"         | "Current date?" | "Member of Ward"      |
-#        | "BISHOP" | "Some, Member " | "deacon"         | "Current date?" | "Outside of Ward"     |
+        | leader   | memberRecord            | priesthoodOffice | date           | officiator       |
+        | "BISHOP" | "Barba, Cristian Jesus" | "Priest"         | "Current date" | "Young, Gregory" |
 
 
     Scenario: Submit Priesthood Ordination - Melchizedek - Elders

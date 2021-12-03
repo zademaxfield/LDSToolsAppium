@@ -664,7 +664,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         Thread.sleep(2000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
-
+        Thread.sleep(2000);
         // Deacons Quorum
         myBasePage.waitForElementThenClick(myOrg.deaconsQuorum);
         Thread.sleep(1000);
@@ -675,7 +675,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         myBasePage.apiCheckData(myList);
         Thread.sleep(2000);
         myBasePage.waitForElementThenClick(myBasePage.backAltButton);
-
+        Thread.sleep(2000);
 
         // Deacons Quorum Adult Leaders
         myBasePage.waitForElementThenClick(myOrg.deaconsQuorumAdultLeaders);

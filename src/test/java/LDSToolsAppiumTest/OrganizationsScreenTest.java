@@ -20,7 +20,7 @@ import java.util.List;
 public class OrganizationsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"smoke1", "smoke", "all1", "all", "daily", "daily3"})
+    @Test (groups = {"smoke1", "smoke", "all1", "all", "daily", "daily3", "jft"})
     public void organizationTest_BISHOP() throws Exception {
         organizationTestCheckSub("BISHOP");
     }
@@ -80,7 +80,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all1", "all", "daily", "daily2"})
+    @Test(groups = {"all1", "all", "daily", "daily2", "jft"})
     public void organizationTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         organizationTestCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -648,6 +648,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         // Teachers Quorum Presidency
         myBasePage.waitForElementThenClick(myOrg.teachersQuorum);
+        Thread.sleep(1000);
         myBasePage.waitForElementThenClick(myOrg.teachersQuorumPresidency);
         myList = apiTest.getChild2OrganizationMembers("Teachers Quorum Presidency", userName, "21628");
         myBasePage.apiCheckData(myList);
@@ -666,6 +667,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         // Deacons Quorum
         myBasePage.waitForElementThenClick(myOrg.deaconsQuorum);
+        Thread.sleep(1000);
         myBasePage.waitForElementThenClick(myOrg.deaconsQuorumPresidency);
 //        myOrg.deaconsQuorum.click();
 //        myOrg.deaconsQuorumPresidency.click();
@@ -746,6 +748,7 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         // Young Women 12-18
         myBasePage.waitForElementThenClick(myOrg.youngWomen12to18);
+        Thread.sleep(1000);
         myBasePage.waitForElementThenClick(myOrg.youngWomenClassPresidency);
 //        myOrg.youngWomen12to18.click();
 //        myOrg.youngWomenClassPresidency.click();

@@ -60,7 +60,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("MEMBER2");
     }
 
-    @Test(groups = {"all1", "all", "daily", "daily1", "jft"})
+    @Test(groups = {"all1", "all", "daily", "daily1"})
     public void organizationTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
         organizationTestCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
@@ -80,7 +80,7 @@ public class OrganizationsScreenTest extends BaseDriver {
         organizationTestCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all1", "all", "daily", "daily2", "jft"})
+    @Test(groups = {"all1", "all", "daily", "daily2"})
     public void organizationTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         organizationTestCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }

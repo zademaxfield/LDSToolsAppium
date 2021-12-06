@@ -709,7 +709,8 @@ public class HelperMethods extends BaseDriver {
 //                System.out.println(myBasePage.getSourceOfPage());
                 myPin.pinDisableTouchID.click();
                 Thread.sleep(1000);
-                myPin.alertOK.click();
+                myBasePage.waitForElementThenClick(myPin.alertOK);
+//                myPin.alertOK.click();
             }
 
             if (myCounter >= 3) {

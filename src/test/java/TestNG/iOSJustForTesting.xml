@@ -9,7 +9,6 @@
         <parameter name="testDevice" value="iPhone 12" />
 <!--        <parameter name="testDevice" value="FBSIM-iPhone 12" />-->
 <!--        <parameter name="testDevice" value="FBSIM-iPhone 11" />-->
-        <!--<parameter name="testDevice" value="REAL-ZiphoneX" />-->
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8266" />
         

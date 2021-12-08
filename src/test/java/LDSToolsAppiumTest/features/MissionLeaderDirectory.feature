@@ -16,6 +16,12 @@
     When they check their Mission under Directory
     Then they should see a list of their missionaries
 
+  @MQA-5400 @MQA-2223  @jft
+  Scenario: Mission President companion see all mission
+    Given a Mission President companion logs in
+    When they check their Mission under Directory
+    Then they should see a list of their missionaries
+
   @MQA-5397 @MQA-2223
   Scenario: Mission President contacts missionary
     Given a Mission President logs in
@@ -28,30 +34,31 @@
     When the Whats New Page is displayed
     Then the missionary opt in will be displayed
 
-  @MQA-5399 @MQA-2223
-  Scenario: Missionary sign up in Settings
-    Given a returned missionary logs in
-    When the Settings page is selected
-    Then the missionary opt in will be displayed
-
-  @MQA-5400 @MQA-2223
-  Scenario: Returned Missionary remove Mission President access
-    Given a returned missionary logs in
-    When the Mission President is truned off
-    Then the Mission President will not see the Returned Missionary
-
-  @MQA-5400 @MQA-2223
-  Scenario: Mission President companion see all mission
-    Given a Mission President companion logs in
-    When they check their Mission under Directory
-    Then they should see a list of their missionaries
-
-    #Need setup?
+      #Need setup?
   @MQA-5400 @MQA-2223
   Scenario: Mission President viewing a Return Missionary info marked private
     Given a Mission President logs in
     When they check their Mission under Directory
     Then the Returned Missionary info should be marked private
+
+
+  @MQA-5400 @MQA-2223
+  Scenario: Returned Missionary remove Mission President access
+    Given a returned missionary logs in
+    When the Mission President is turned off
+    Then the Mission President will not see the Returned Missionary
+
+
+
+
+
+
+    #There is a bug in iOS MMIP-6309
+  @MQA-5399 @MQA-2223
+  Scenario: Missionary sign up in Settings
+    Given a returned missionary logs in
+    When the Settings page is selected
+    Then the missionary opt in will be displayed
 
 
 #  Scenario: Mission President divorce or widow can companion see Returned Missionaries ## Not sure what happens here

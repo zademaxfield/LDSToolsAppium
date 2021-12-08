@@ -37,7 +37,8 @@ public class DirectoryScreen extends BasePage {
     public MobileElement directoryDropdown;
 
     //Unit Selected
-    @AndroidFindBy(xpath = "//android.view.ViewGroup[@resouce-id='ab_toolbar']/android.widget.TextView[2]")
+//    @AndroidFindBy(xpath = "//android.view.ViewGroup[@resouce-id='ab_toolbar']/android.widget.TextView[2]")
+    @AndroidFindBy(id = "org.lds.ldstools.alpha:id/drop_arrow" )
     @iOSXCUITFindBy(xpath = "//*[@name='LDS_Tools.DirectoryView']//XCUIElementTypeStaticText[2]")
     public MobileElement unitSelected;
 
@@ -641,6 +642,22 @@ public class DirectoryScreen extends BasePage {
         return myReturnStatus;
     }
 
+
+
+    public void chooseUnit(String myUnit) throws Exception {
+        BasePage myBase = new BasePage(driver);
+        MissionaryScreen myMissionary = new MissionaryScreen(driver);
+
+        //Choose different Unit
+        unitSelected.click();
+        Thread.sleep(2000);
+        if (myBase.getOS().equalsIgnoreCase("ios")) {
+            driver.get().findElement(By.xpath("//*[contains(@name,'" + myUnit + "')]")).click();
+        } else {
+            driver.get().findElement(By.xpath("//*[contains(@text,'" + myUnit + "')]")).click();
+        }
+
+    }
 
 
 

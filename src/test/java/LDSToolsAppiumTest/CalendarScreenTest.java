@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3", "jft"})
+    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3"})
     public void calendarScreenCheck() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -172,7 +172,7 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
     //Todo: need a check to make sure all calendars are selected.
-    @Test (groups = {"all", "all3", "daily", "daily2"})
+    @Test (groups = {"all", "all3", "daily", "daily2", "jft"})
     public void calenderDisplayType() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();

@@ -67,15 +67,15 @@ public class APITest {
 
 
         //Accounts!!
-//        myMap = apiTest.getAccounts("21628", "4");
-//        System.out.println(myMap);
-//        System.out.println("Username: " + myMap.get("username"));
+        myMap = apiTest.getAccounts("111856", "216");
+        System.out.println(myMap);
+        System.out.println("Username: " + myMap.get("username"));
 
 
-        memberList = apiTest.getInfoFromMinisteringBrothers("mbthomas74",  "21628", "sisters");
-        for (String reportName: memberList) {
-            System.out.println("Report Name: " + reportName);
-        }
+//        memberList = apiTest.getInfoFromMinisteringBrothers("mbthomas74",  "21628", "sisters");
+//        for (String reportName: memberList) {
+//            System.out.println("Report Name: " + reportName);
+//        }
 
 //        memberList = apiTest.getReportNames("mbthomas74", "21628");
 //        rawData = apiTest.getApiInfoTEST(unitNumber, proxyLogin);

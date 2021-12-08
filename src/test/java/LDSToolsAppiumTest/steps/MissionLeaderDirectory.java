@@ -85,6 +85,8 @@ public class MissionLeaderDirectory extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
     }
 
+
+
     @When("the Settings page is selected")
     public void theSettingsPageIsSelected() throws Exception {
         myMenu.selectMenu(myMenu.settings);
@@ -94,8 +96,21 @@ public class MissionLeaderDirectory extends BaseDriver {
             //select ios menu but it doesn't always show up.
 
         }
+    }
 
+    @Then("the Returned Missionary info should be marked private")
+    public void theReturnedMissionaryInfoShouldBeMarkedPrivate()  throws Exception {
+        pageSource = myBasePage.getSourceOfPage();
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            Assert.assertTrue(pageSource.contains("Orange items"));
+            Assert.assertTrue(pageSource.contains("private"));
+            Assert.assertTrue(pageSource.contains("do not share"));
+        } else {
+            //No way to test in ios yet
 
+        }
 
     }
+
+
 }

@@ -140,7 +140,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
         Thread.sleep(startSleepTime);
 
         //Get Random Port Number
-        myPort = getRandomPort();
+        myPort = getRandomPort(4500, 4999);
 
 
         //System.out.println("OS: " + os);
@@ -436,6 +436,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             }
 
             mySystemPort = systemPort;
+            mySystemPort = getRandomPort(8500, 8999);
 
             // set up appium
             File classpathRoot = new File(System.getProperty("user.dir"));
@@ -528,6 +529,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             int tempPort;
 
             tempPort = myPort + 1000;
+            tempPort = getRandomPort(8500, 8999);
             //webDriverPort = String.valueOf(tempPort);
             //webDriverURL = webDriverURL + webDriverPort;
 
@@ -630,6 +632,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("shouldUseTestManagerForVisibilityDetection", true);
 //            capabilities.setCapability("simpleIsVisibleCheck", true);
 
+            capabilities.setCapability("wdaLocalPort", tempPort);
 
             if (myUdid != null) {
                 capabilities.setCapability("xcodeOrgId", "U3SP4KMCK6");
@@ -646,14 +649,14 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //        return driver;
     }
 
-    private int getRandomPort() throws Exception {
+    private int getRandomPort(int lowPort, int highPort) throws Exception {
         //System.out.println("OS: " + os );
         //System.out.println("File Name: " + fileName);
         //String myUdid = "";
         Random randomPort = new Random();
         int myPort;
-        int lowPort = 4500;
-        int highPort = 4999;
+//        int lowPort = 4500;
+//        int highPort = 4999;
         //Random randomSleep = new Random();
         //int sleepTime = 1000;
         //int lowSleep = 1000;

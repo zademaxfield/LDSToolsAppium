@@ -16,7 +16,7 @@
     When they check their Mission under Directory
     Then they should see a list of their missionaries
 
-  @MQA-5400 @MQA-2223  @jft
+  @MQA-5400 @MQA-2223
   Scenario: Mission President companion see all mission
     Given a Mission President companion logs in
     When they check their Mission under Directory
@@ -34,11 +34,11 @@
     When the Whats New Page is displayed
     Then the missionary opt in will be displayed
 
-      #Need setup?
-  @MQA-5400 @MQA-2223
+
+  @MQA-5400 @MQA-2223  @jft
   Scenario: Mission President viewing a Return Missionary info marked private
     Given a Mission President logs in
-    When they check their Mission under Directory
+    When they select a missionary under their mission
     Then the Returned Missionary info should be marked private
 
 

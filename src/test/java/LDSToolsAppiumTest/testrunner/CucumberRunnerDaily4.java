@@ -10,10 +10,10 @@ import io.cucumber.testng.CucumberOptions;
         tags = "@daily4",
         plugin = {
                 "pretty",
-                "html:src/test/java/Reports/cucumber-reports/cucumber-pretty.html",
-                "json:src/test/java/Reports/cucumber-reports/CucumberTestReport.json",
-                "junit:src/test/java/Reports/cucumber-reports/CucumberTestReport.xml",
-                "rerun:src/test/java/Reports/cucumber-reports/rerun.txt"
+                "html:src/test/java/Reports/cucumber-reports4/cucumber-pretty.html",
+                "json:src/test/java/Reports/cucumber-reports4/CucumberTestReport.json",
+                "junit:src/test/java/Reports/cucumber-reports4/CucumberTestReport.xml",
+                "rerun:src/test/java/Reports/cucumber-reports4/rerun.txt"
         })
 public class CucumberRunnerDaily4 extends BaseDriver {
 

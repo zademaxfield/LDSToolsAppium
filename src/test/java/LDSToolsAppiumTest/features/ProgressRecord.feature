@@ -1,7 +1,7 @@
 @ProgressRecord
   Feature: Progress Record tests - Used to be Missionary Progress Record
 
-    @MQA-5156 @MQA-2225 @smoke @all @daily
+    @MQA-5156 @MQA-2225 @smoke @smoke4 @all @all4 @daily @daily4
     Scenario Outline: SMOKE as a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -12,7 +12,7 @@
         | "BISHOP" | "Chaney, Dustin John" | "true" |
 
 
-    @MQA-3193 @MQA-2225 @all @all3 @all @daily @jft
+    @MQA-3193 @MQA-2225 @all @all3 @all @daily @daily3 @jft
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -38,7 +38,7 @@
 #        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Chaney, Destin John"    | "false" |
 #        | "WARD_MISSION_LEADER"             | "Chaney, Destin John"    | "true"  |
 
-    @MQA-5157 @MQA-2225 @all @all3 @all @daily
+    @MQA-5157 @MQA-2225 @all @all3 @all @daily @daily3
     Scenario Outline: As a STAKE leader I should have access to the New Members under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -53,7 +53,7 @@
         | "STAKE_EXECUTIVE_SECRETARY"        | "Chaney, Destin John" | "false" | "Auburn Hills" |
 
 
-    @MQA-3194 @MQA-2225 @all @all3 @all @daily
+    @MQA-3194 @MQA-2225 @all @all1 @all @daily @daily1
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
@@ -78,7 +78,7 @@
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bray, Sidney"   | "false" |
 #        | "WARD_MISSION_LEADER"             | "Arnold, Pryde"  | "true"  |
 
-    @MQA-5158 @MQA-2225 @all @all3 @all @daily
+    @MQA-5158 @MQA-2225 @all @all4 @all @daily @daily4
     Scenario Outline: As a STAKE leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab

@@ -49,10 +49,6 @@
     Then the Mission President will not see the Returned Missionary
 
 
-
-
-
-
     #There is a bug in iOS MMIP-6309
   @MQA-5399 @MQA-2223
   Scenario: Missionary sign up in Settings
@@ -60,12 +56,14 @@
     When the Settings page is selected
     Then the missionary opt in will be displayed
 
+#  Scenario: Email form check
+
 
 #  Scenario: Mission President divorce or widow can companion see Returned Missionaries ## Not sure what happens here
 #  Scenario: Notification test - part of other tests?
 #  Scenario: Full size photos
 #  Scenario: New Missionary notification Jeremymunoz2013
-#  Scenario: Email form
+
 
 
 

@@ -7,16 +7,53 @@
         <listener class-name="LDSToolsAppium.TestListener" />
     </listeners>
 
-    <test name="iOS daily Test - iPhone 12" >
+    <test name="iOS Daily Test - iPhone 12" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <parameter name="testDevice" value="iPhone 12" />
+        <parameter name="testDevice" value="HEADLESS-iPhone 12" />
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8251" />
 
         <groups>
             <run>
-                <include name="daily"/>
+                <include name="daily1"/>
+                <include name="daily3"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="LDSToolsAppium.BaseDriver" />
+
+            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryEditScreenTest" />
+            <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
+            <class name="LDSToolsAppiumTest.LoginPageTest" />
+            <class name="LDSToolsAppiumTest.MinisteringScreenTest" />
+            <class name="LDSToolsAppiumTest.OrganizationsScreenTest" />
+            <class name="LDSToolsAppiumTest.PinScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
+            <class name="LDSToolsAppiumTest.WhatsNewScreenTest" />
+            <class name="LDSToolsAppiumTest.TemplesScreenTest" />
+            <class name="LDSToolsAppiumTest.QuarterlyScreenTest" />
+            <class name="LDSToolsAppiumTest.MissionaryScreenTest" />
+            <class name="LDSToolsAppiumTest.ListsScreenTest" />
+            <class name="LDSToolsAppiumTest.MeetinghousesScreenTest" />
+        </classes>
+    </test>
+
+    <test name="iOS Daily Test - iPhone 11" thread-count="1" parallel="false" >
+        <parameter name="os" value="ios" />
+        <parameter name="fileName" value="LDS Tools.app" />
+        <!--        <parameter name="testDevice" value="FBSIM-iPhone 11" />-->
+        <!--        <parameter name="testDevice" value="iPhone 11" />-->
+        <parameter name="testDevice" value="HEADLESS-iPhone 11" />
+        <parameter name="startSleepTime" value="60000" />
+        <parameter name="systemPort" value="8202" />
+
+        <groups>
+            <run>
+                <include name="daily2"/>
+                <include name="daily4"/>
             </run>
         </groups>
 

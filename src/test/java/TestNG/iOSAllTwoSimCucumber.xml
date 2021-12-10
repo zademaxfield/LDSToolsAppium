@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="iOS Smoke Test Cucumber" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="2">
+<suite name="iOS All Test Cucumber" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="2">
 
-    <test name="iOS Smoke Test - iPhone 12" thread-count="1" parallel="false" >
+    <test name="iOS All Test - iPhone 12" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
 <!--        <parameter name="testDevice" value="FBSIM-iPhone 12" />-->
@@ -12,12 +12,12 @@
         <parameter name="systemPort" value="8251" />
 
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke1"> </class>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke3"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll1"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll2"> </class>
         </classes>
     </test>
 
-    <test name="iOS Smoke Test - iPhone 11" thread-count="1" parallel="false" >
+    <test name="iOS All Test - iPhone 11" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
 <!--        <parameter name="testDevice" value="FBSIM-iPhone 11" />-->
@@ -27,8 +27,8 @@
         <parameter name="systemPort" value="8202" />
 
         <classes>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke2"> </class>
-            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerSmoke4"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll3"> </class>
+            <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerAll4"> </class>
         </classes>
     </test>
 

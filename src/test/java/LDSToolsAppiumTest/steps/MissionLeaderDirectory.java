@@ -5,11 +5,15 @@ import LDSToolsAppium.BaseDriver;
 import LDSToolsAppium.BasePage;
 import LDSToolsAppium.Screen.*;
 import LDSToolsAppiumTest.HelperMethods;
-import io.cucumber.java.an.E;
+import io.appium.java_client.MobileElement;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MissionLeaderDirectory extends BaseDriver {
     BasePage myBasePage = new BasePage(driver);
@@ -107,10 +111,63 @@ public class MissionLeaderDirectory extends BaseDriver {
             Assert.assertTrue(pageSource.contains("do not share"));
         } else {
             //No way to test in ios yet
-
         }
-
     }
 
+//    Todo: Choose between settings and Whats New
+//          Choosing whats new because of settings bug in iOS
+    public void toggleMissionLeaderAccess(String onOrOff) throws Exception {
+        String toggleStatus;
+        List<MobileElement> toggleButton = new ArrayList<>();
+//        toggleButton = driver.get().findElements(By.xpath("//android.widget.TextView[@resource-id='org.lds.ldstools.alpha:id/secondaryTextView']/following-sibling::org.lds.ldstools.alpha:id/switchView"));
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myMenu.selectMenu(myMenu.settings);
+            myBasePage.scrollToTextGeneral("Refresh Data"); //This might need to be something different
+            toggleButton = driver.get().findElements(By.xpath("//android.widget.TextView[@resource-id='org.lds.ldstools.alpha:id/secondaryTextView']/following-sibling::org.lds.ldstools.alpha:id/switchView"));
+        } else {
+            myMenu.selectMenu(myMenu.help);
+            myWhatsNew.helpWhatsNew.click();
+            toggleButton = driver.get().findElements(By.xpath("//XCUIElementTypeSwitch"));
+        }
+
+        for (MobileElement missionLeaderButton: toggleButton) {
+            if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+                toggleStatus = missionLeaderButton.getAttribute("value");
+            } else {
+                toggleStatus = missionLeaderButton.getAttribute("checked");
+            }
+
+            if (onOrOff.equalsIgnoreCase("on")) {
+                if (toggleStatus.equalsIgnoreCase("true")) {
+                    System.out.println("Button is on - nothing to do");
+                } else {
+                    System.out.println("Button is off - turning on");
+                    missionLeaderButton.click();
+                }
+            } else {
+                if (toggleStatus.equalsIgnoreCase("true")) {
+                    System.out.println("Button is on - turning off");
+                    missionLeaderButton.click();
+                } else {
+                    System.out.println("Button is off - nothing to do");
+                }
+            }
+        }
+    }
+
+
+    @Given("a returned missionary logs in and Mission Leader is turned off")
+    public void aReturnedMissionaryLogsInAndMissionLeaderIsTurnedOff() throws Exception {
+        myHelper.proxyLogin("sariahelizabethrobinson");
+        myHelper.enterPin("1", "1", "3", "3");
+        toggleMissionLeaderAccess("on");
+    }
+
+    @When("the Mission President logs in")
+    public void theMissionPresidentLogsIn() throws Exception {
+        myHelper.proxyLogin("tdlarkin");
+        myHelper.enterPin("1", "1", "3", "3");
+        myDirectory.chooseUnit("Ukraine");
+    }
 
 }

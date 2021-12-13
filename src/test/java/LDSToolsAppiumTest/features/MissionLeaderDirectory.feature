@@ -43,9 +43,9 @@
 
 
   @MQA-5400 @MQA-2223
-  Scenario: Returned Missionary remove Mission President access
-    Given a returned missionary logs in
-    When the Mission President is turned off
+  Scenario: Returned Missionary add and remove Mission President access
+    Given a returned missionary logs in and Mission Leader is turned off
+    When the Mission President logs in
     Then the Mission President will not see the Returned Missionary
 
 

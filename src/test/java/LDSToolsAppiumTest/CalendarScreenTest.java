@@ -172,7 +172,7 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
     //Todo: need a check to make sure all calendars are selected.
-    @Test (groups = {"all", "all3", "daily", "daily2", "jft"})
+    @Test (groups = {"all", "all3", "daily", "daily2"})
     public void calenderDisplayType() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
@@ -185,7 +185,7 @@ public class CalendarScreenTest extends BaseDriver {
         //Login - need the sleep on slower devices
         Thread.sleep(20000);
 
-        myHelper.proxyLogin("Jackiecarranza1");
+        myHelper.proxyLogin("sungah");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Go to Calendar
@@ -223,7 +223,7 @@ public class CalendarScreenTest extends BaseDriver {
 
 
     //Todo: need a check to make sure all calendars are selected. Check iOS!
-    @Test (groups = {"all", "all4", "daily", "daily3" })
+    @Test (groups = {"all", "all4", "daily", "daily3", "jft" })
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
@@ -236,7 +236,7 @@ public class CalendarScreenTest extends BaseDriver {
         //Login - need the sleep on slower devices
         Thread.sleep(20000);
 
-        myHelper.proxyLogin("Jackiecarranza1");
+        myHelper.proxyLogin("sungah");
         myHelper.enterPin("1", "1", "3", "3");
 
         //Go to Calendar

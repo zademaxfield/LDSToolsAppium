@@ -25,7 +25,7 @@
         <classes>
 <!--            <class name="LDSToolsAppium.BaseDriver"/>-->
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
-            <class name="LDSToolsAppiumTest.CalendarScreenTest" />
+            <class name="LDSToolsAppiumTest.ReportsScreenTest" />
 
         </classes>
     </test > <!-- Default test -->

@@ -275,7 +275,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "report", "daily", "daily2"})
+    @Test (groups = {"all4", "all", "report", "daily", "daily2", "jft"})
     public void reportsActionAndInterviewBugCheck() throws Exception {
         String pageSource;
 
@@ -305,13 +305,13 @@ public class ReportsScreenTest extends BaseDriver {
 
         Assert.assertTrue(myBasePage.checkNoCaseList("Action and Interview List", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Birthday List", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Members Moved In", pageSource, "Contains"));
-
+        Assert.assertTrue(myBasePage.checkNoCaseList("Move In and Out Report", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Move Records In and Out", pageSource, "Contains"));
 
 
     }
 
-    @Test (groups = {"all2", "all", "report", "daily", "daily3", "jft"})
+    @Test (groups = {"all2", "all", "report", "daily", "daily3"})
     public void reportsActionAndInterviewReports() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();

@@ -24,7 +24,7 @@ public class FinanceScreen extends BasePage {
 
     // ****************** Finance Main Screen ******************
     //Payment Requests
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Payment Requests']")
+    @AndroidFindBy(xpath = "//android.view.View[@text='Payment Requests']")
     @iOSXCUITFindBy(accessibility = "Payment Requests")
     public MobileElement financePaymentRequests;
 
@@ -129,6 +129,16 @@ public class FinanceScreen extends BasePage {
     @AndroidFindBy(xpath = "//*[contains(@text, 'picture')]")
     @iOSXCUITFindBy(accessibility = "Payment Requests")
     public MobileElement paymentRequestsCameraButton2;
+
+    //Camera Button #3
+    //TODO: iOS code
+    @AndroidFindBy(xpath = "//*[@content-desc='Take photo']")
+    @iOSXCUITFindBy(accessibility = "Payment Requests")
+    public MobileElement paymentRequestsCameraButton3;
+
+    //Camera Done
+    @AndroidFindBy(xpath = "//*[@content-desc='Done']")
+    public MobileElement paymentRequestsCameraButtonDone;
 
     //Camera OK
     @AndroidFindBy(xpath = "//*[@text='OK']")

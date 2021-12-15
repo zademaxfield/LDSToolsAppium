@@ -47,6 +47,7 @@ public class PaymentRequests extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
         myMenu.selectMenu(myMenu.finance);
         Thread.sleep(1000);
+//        System.out.println(myBasePage.getSourceOfPage());
         myFinance.financePaymentRequests.click();
     }
 
@@ -334,6 +335,14 @@ public class PaymentRequests extends BaseDriver {
 //                myFinance.paymentRequestsCameraButton.click();
                     myBasePage.waitForElement(myFinance.paymentRequestsCameraButtonOK);
                     myFinance.paymentRequestsCameraButtonOK.click();
+                }
+
+                if (myBasePage.checkForElement(myFinance.paymentRequestsCameraButton3)) {
+                    myFinance.paymentRequestsCameraButton3.click();
+                    Thread.sleep(500);
+//                    System.out.println(myBasePage.getSourceOfPage());
+                    myBasePage.waitForElement(myFinance.paymentRequestsCameraButtonDone);
+                    myFinance.paymentRequestsCameraButtonDone.click();
                 }
 
 

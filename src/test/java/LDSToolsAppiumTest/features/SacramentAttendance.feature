@@ -5,7 +5,7 @@
     As a Ward Council member
     Sacrament Attendance should not be displayed
 
-    @MQA-3183 @all @all1 @smoke @smoke1 @all @daily @daily1
+    @MQA-3183 @all @all1 @smoke @smoke3 @all @daily @daily3
     Scenario: As a Bishop enter a number and have it saved
       Given a "BISHOP" is on the Sacrament Attendance page
       When "159" is entered in the "First Date Field"

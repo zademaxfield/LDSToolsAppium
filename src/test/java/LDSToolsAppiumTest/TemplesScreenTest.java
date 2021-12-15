@@ -210,7 +210,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all1", "daily", "daily2", "jft"})
+    @Test (groups= { "all", "all1", "daily", "daily2"})
     public void templeNearestTemples() throws Exception {
         String pageSource;
 
@@ -385,7 +385,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all4", "daily", "daily2"})
+    @Test (groups= { "all", "all4", "daily", "daily2", "jft"})
     public void templeOrdinanceSchedule() throws Exception {
         String pageSource;
 

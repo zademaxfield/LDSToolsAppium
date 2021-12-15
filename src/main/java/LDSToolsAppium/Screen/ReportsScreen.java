@@ -103,8 +103,9 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Sacrament Attendance")
     public MobileElement sacramentAttendanceReport;
 
-    //Progress Record
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Progress Record']")
+    //Progress Record - renamed to Covenant Path Progress
+//    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Progress Record']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Covenant Path Progress']")
     @iOSXCUITFindBy(accessibility = "Progress Record")
     public MobileElement progressRecordReport;
 

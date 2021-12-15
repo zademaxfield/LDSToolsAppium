@@ -39,6 +39,7 @@ public class ProgressRecord extends BaseDriver {
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         myMenu.selectMenu(myMenu.reports);
+//        System.out.println(myBasePage.getSourceOfPage());
         if (!myBasePage.checkForElement(myReports.progressRecordReport)) {
             myBasePage.scrollDownAndroidUIAutomator("0");
         }

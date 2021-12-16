@@ -245,7 +245,7 @@ public class CalendarScreenTest extends BaseDriver {
 
 
         //Scroll to Stake Presidency Interviews in case it is off the screen
-        myBasePage.scrollToTextGeneral("FHE");
+        myBasePage.scrollToTextGeneral("Mission Prep Class");
 
         //Check the page source to see Stake Presidency Interviews
         pageSource = myBasePage.getSourceOfPage();
@@ -254,8 +254,8 @@ public class CalendarScreenTest extends BaseDriver {
 //            pageSource = pageSource + myBasePage.getSourceOfPageIDB();
 //            pageSource = pageSource + myBasePage.getSourceOfPage();
 //        }
-//        System.out.println(pageSource);
-        Assert.assertTrue(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
+        System.out.println(pageSource);
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mission Prep Class", pageSource, "contains"));
 
         editCalendar();
 
@@ -270,13 +270,15 @@ public class CalendarScreenTest extends BaseDriver {
         myBasePage.waitUnitlTextIsGone("Syncing");
         if (getRunningOS().equals("ios")) {
             myCalendar.calendarDone.click();
+            Thread.sleep(2000);
         } else {
             myBasePage.backButton.click();
         }
 
+//        myBasePage.scrollUp(500);
         //Check the page source for Stake Event
-        pageSource = myBasePage.getSourceOfPage();
-        Assert.assertFalse(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
+//        pageSource = myBasePage.getSourceOfPage();
+        Assert.assertFalse(myBasePage.checkNoCaseList("Mission Prep Class", pageSource, "contains"));
 
 
         //Clean up
@@ -309,7 +311,7 @@ public class CalendarScreenTest extends BaseDriver {
         pageSource = pageSource + myBasePage.getSourceOfPage();
         myBasePage.scrollDownTEST(500);
         pageSource = pageSource + myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mission Prep Class", pageSource, "contains"));
 
 
 

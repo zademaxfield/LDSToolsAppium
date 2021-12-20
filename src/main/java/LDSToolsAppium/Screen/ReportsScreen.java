@@ -106,7 +106,7 @@ public class ReportsScreen extends BasePage {
     //Progress Record - renamed to Covenant Path Progress
 //    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Progress Record']")
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Covenant Path Progress']")
-    @iOSXCUITFindBy(accessibility = "Progress Record")
+    @iOSXCUITFindBy(accessibility = "Covenant Path Progress")
     public MobileElement progressRecordReport;
 
     //Class and Quorum Attendance

@@ -595,7 +595,7 @@ public class BasePage extends BaseDriver {
     public boolean checkTextOnPage(String myElement) {
         boolean myReturnStatus;
         List<MobileElement> options = null;
-        options = driver.get().findElements(By.xpath("//*[contains(text(), '" + myElement + "')]"));
+        options = driver.get().findElements(By.xpath("//*[contains(@text, '" + myElement + "')]"));
 
         if (options.isEmpty()) {
             myReturnStatus = false;

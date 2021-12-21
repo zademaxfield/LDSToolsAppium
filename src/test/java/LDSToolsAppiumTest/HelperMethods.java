@@ -147,6 +147,8 @@ public class HelperMethods extends BaseDriver {
 
 
         if (myBasePage.checkForElement(myBasePage.allowButton)) {
+//            System.out.println(myBasePage.getSourceOfPage());
+//            Thread.sleep(2000);
             myBasePage.allowButton.click();
         }
 

@@ -49,7 +49,9 @@ public class PrayerRoll extends BaseDriver {
     public void thePrayerRollButtonIsPressed() throws Exception {
         LOGGER.info("the prayer roll button is pressed");
 //        System.out.println(myBasePage.getSourceOfPage());
-        myTemple.prayerRollButton.click();
+        myBasePage.waitForElementThenClick(myTemple.prayerRollButton);
+//        myTemple.prayerRollButton.click();
+        Thread.sleep(500);
     }
 
     @Then("I should see the prayer roll page")

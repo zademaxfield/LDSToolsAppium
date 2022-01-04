@@ -403,6 +403,7 @@ public class SacramentAttendance extends BaseDriver {
 
     public String checkForEnabled(MobileElement elementToCheck) throws Exception {
         String returnStatus;
+        Thread.sleep(500);
         returnStatus = elementToCheck.getAttribute("enabled");
         return  returnStatus;
     }

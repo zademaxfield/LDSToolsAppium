@@ -35,7 +35,8 @@ public class WhatsNewScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("Record Ordinances", pageSource, "Contains"));
         }
 
-        myWhatsNew.whatsNewDone.click();
+        myBasePage.waitForElementThenClick(myWhatsNew.whatsNewDone);
+//        myWhatsNew.whatsNewDone.click();
 
 
         // Click on Later then Directory

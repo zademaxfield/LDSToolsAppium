@@ -208,6 +208,7 @@ public class MissionaryScreenTest extends BaseDriver {
         HelperMethods myHelper = new HelperMethods();
         MenuScreen myMenu = new MenuScreen(driver);
         MissionaryScreen myMissionary = new MissionaryScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
         String unitNumber;
 
 
@@ -216,9 +217,11 @@ public class MissionaryScreenTest extends BaseDriver {
         myHelper.enterPin("1", "1", "3", "3");
 
         myMenu.selectMenu(myMenu.missionary);
-        myMissionary.sendReferralButton.click();
-        Thread.sleep(3000);
-        myMissionary.cancelReferralButton.click();
+        myBasePage.waitForElementThenClick(myMissionary.sendReferralButton);
+//        myMissionary.sendReferralButton.click();
+//        Thread.sleep(3000);
+        myBasePage.waitForElementThenClick(myMissionary.cancelReferralButton);
+//        myMissionary.cancelReferralButton.click();
 
 
         //Centinela 1st Ward

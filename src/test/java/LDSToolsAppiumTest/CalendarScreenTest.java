@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3"})
+    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3", "jft"})
     public void calendarScreenCheck() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -28,6 +28,7 @@ public class CalendarScreenTest extends BaseDriver {
 
 
         myMenu.selectMenu(myMenu.calendar);
+        Thread.sleep(500);
         myBasePage.waitForElement(myCalendar.calendarTitle);
         Assert.assertTrue(myCalendar.calendarTitle.isDisplayed());
 
@@ -223,7 +224,7 @@ public class CalendarScreenTest extends BaseDriver {
 
 
     //Todo: need a check to make sure all calendars are selected. Check iOS!
-    @Test (groups = {"all", "all4", "daily", "daily3", "jft" })
+    @Test (groups = {"all", "all4", "daily", "daily3" })
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();

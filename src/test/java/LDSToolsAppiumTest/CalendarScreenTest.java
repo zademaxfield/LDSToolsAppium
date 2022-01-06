@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3", "jft"})
+    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3"})
     public void calendarScreenCheck() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -224,7 +224,8 @@ public class CalendarScreenTest extends BaseDriver {
 
 
     //Todo: need a check to make sure all calendars are selected. Check iOS!
-    @Test (groups = {"all", "all4", "daily", "daily3" })
+    //Todo: need to refactor this test to be better
+    @Test (groups = {"all", "all4", "daily", "daily3" , "jft"})
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
@@ -235,7 +236,7 @@ public class CalendarScreenTest extends BaseDriver {
         CalendarsScreen myCalendar = new CalendarsScreen(driver);
 
         //Login - need the sleep on slower devices
-        Thread.sleep(20000);
+//        Thread.sleep(20000);
 
         myHelper.proxyLogin("sungah");
         myHelper.enterPin("1", "1", "3", "3");
@@ -255,7 +256,7 @@ public class CalendarScreenTest extends BaseDriver {
 //            pageSource = pageSource + myBasePage.getSourceOfPageIDB();
 //            pageSource = pageSource + myBasePage.getSourceOfPage();
 //        }
-        System.out.println(pageSource);
+//        System.out.println(pageSource);
         Assert.assertTrue(myBasePage.checkNoCaseList("Mission Prep Class", pageSource, "contains"));
 
         editCalendar();
@@ -276,9 +277,9 @@ public class CalendarScreenTest extends BaseDriver {
             myBasePage.backButton.click();
         }
 
-//        myBasePage.scrollUp(500);
+        myBasePage.scrollUp(500);
         //Check the page source for Stake Event
-//        pageSource = myBasePage.getSourceOfPage();
+        pageSource = myBasePage.getSourceOfPage();
         Assert.assertFalse(myBasePage.checkNoCaseList("Mission Prep Class", pageSource, "contains"));
 
 
@@ -305,13 +306,16 @@ public class CalendarScreenTest extends BaseDriver {
 
         Thread.sleep(2000);
         //Check the page source to see Stake Presidency Interviews
+        myBasePage.scrollToTextGeneral("Mission Prep Class");
         pageSource = myBasePage.getSourceOfPage();
-        myBasePage.scrollUp(500);
-        pageSource = pageSource + myBasePage.getSourceOfPage();
-        myBasePage.scrollDownTEST(500);
-        pageSource = pageSource + myBasePage.getSourceOfPage();
-        myBasePage.scrollDownTEST(500);
-        pageSource = pageSource + myBasePage.getSourceOfPage();
+//        myBasePage.scrollUp(500);
+//        pageSource = pageSource + myBasePage.getSourceOfPage();
+//        myBasePage.scrollDownAndroidUIAutomator("0");
+////        myBasePage.scrollDownTEST(500);
+//        pageSource = pageSource + myBasePage.getSourceOfPage();
+////        myBasePage.scrollDownTEST(500);
+//        myBasePage.scrollDownAndroidUIAutomator("0");
+//        pageSource = pageSource + myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("Mission Prep Class", pageSource, "contains"));
 
 

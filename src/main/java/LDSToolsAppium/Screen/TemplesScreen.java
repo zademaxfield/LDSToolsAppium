@@ -220,9 +220,13 @@ public class TemplesScreen extends BasePage {
                 }
             }
 
-            //Thread.sleep(2000);
+
 
             //Set the Temple Recommend Status
+//            System.out.println(myBasePage.getSourceOfPage());
+            if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+                myBasePage.scrollDownToTextIOS("Set Temple Recommend Status");
+            }
             myBasePage.waitForElementThenClick(mySettings.templeRecommendStatus);
             Thread.sleep(2000);
             myBasePage.waitForElementThenClick(recommendStatus);

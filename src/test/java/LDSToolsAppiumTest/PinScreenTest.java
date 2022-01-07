@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class PinScreenTest extends BaseDriver {
 
-    @Test (groups = {"all1", "all", "daily", "daily1"})
+    @Test (groups = {"all1", "all", "daily", "daily1", "jft"})
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -57,7 +57,7 @@ public class PinScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all", "daily", "daily2", "jft"})
+    @Test (groups = {"all3", "all", "daily", "daily2"})
     public void pinNoMatchTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);

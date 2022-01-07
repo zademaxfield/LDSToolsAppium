@@ -276,7 +276,7 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "report", "daily", "daily2", "jft"})
+    @Test (groups = {"all4", "all", "report", "daily", "daily2"})
     public void reportsActionAndInterviewBugCheck() throws Exception {
         String pageSource;
 
@@ -425,7 +425,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
     //There is no API for this
-    @Test (groups = {"all3", "all", "report", "daily", "daily4"})
+    @Test (groups = {"all3", "all", "report", "daily", "daily4", "jft"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
 
@@ -461,7 +461,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         //TEST
         Assert.assertTrue(myBasePage.checkNoCaseList("Batimana", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Laeci", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Alexis", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("2021", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Limited-Use", pageSource, "Contains"));
 

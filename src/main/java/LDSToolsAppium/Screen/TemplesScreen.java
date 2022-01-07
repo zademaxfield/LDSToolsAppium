@@ -195,7 +195,7 @@ public class TemplesScreen extends BasePage {
         BasePage myBasePage = new BasePage(driver);
 
         if (myBasePage.getOS().contains("ios")) {
-            templePullDown.click();
+            waitForElementThenClick(templePullDown);
         }
         waitForElementThenClick(myElement);
     }

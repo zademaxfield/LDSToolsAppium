@@ -173,59 +173,40 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
     //Todo: need a check to make sure all calendars are selected.
-    @Test (groups = {"all", "all3", "daily", "daily2"})
+    @Test (groups = {"all", "all3", "daily", "daily2", "jft"})
     public void calenderDisplayType() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
-        PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
         MenuScreen myMenu = new MenuScreen(driver);
-        CalendarsScreen myCalendar = new CalendarsScreen(driver);
-
-        //Login - need the sleep on slower devices
-        Thread.sleep(20000);
 
         myHelper.proxyLogin("sungah");
         myHelper.enterPin("1", "1", "3", "3");
-
         //Go to Calendar
         myMenu.selectMenu(myMenu.calendar);
         Thread.sleep(2000);
-
-
         //Scroll to Stake Presidency Interviews in case it is off the screen
-        myBasePage.scrollToTextGeneral("FHE");
-
+        myBasePage.scrollToTextGeneral("Mission Prep Class");
         //Check the page source to see Stake Presidency Interviews
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
-
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mission Prep Class", pageSource, "contains"));
         //Turn off West Jordan YSA Stake Calendar
         checkOrUncheckCalendarItem("Stake Calendar", "check");
-
-
         //Search for Stake Presidency Interviews - Should not be found.
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertFalse(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
-
-
+        Assert.assertFalse(myBasePage.checkNoCaseList("Mission Prep Class", pageSource, "contains"));
         //Turn on West Jordan YSA Stake Calendar
         checkOrUncheckCalendarItem("Stake Calendar", "uncheck");
-
-
         //Search for Stake Presidency Interviews - make sure it is displayed
-        myBasePage.scrollToTextGeneral("FHE");
+        myBasePage.scrollToTextGeneral("Mission Prep Class");
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("FHE", pageSource, "contains"));
-
-
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mission Prep Class", pageSource, "contains"));
     }
 
 
     //Todo: need a check to make sure all calendars are selected. Check iOS!
     //Todo: need to refactor this test to be better
-    @Test (groups = {"all", "all4", "daily", "daily3" , "jft"})
+    @Test (groups = {"all", "all4", "daily", "daily3" })
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();

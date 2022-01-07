@@ -40,7 +40,7 @@ public class Lists extends BaseDriver  {
     }
 
     @When("I add a List {string}")
-    public void iAddAList(String listName) {
+    public void iAddAList(String listName) throws Exception {
         myBasePage.waitForElementThenClick(myLists.listsAddList);
         myLists.listsName.sendKeys(listName);
         myLists.listsOk.click();

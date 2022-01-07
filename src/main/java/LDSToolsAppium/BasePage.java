@@ -769,8 +769,9 @@ public class BasePage extends BaseDriver {
         //System.out.println("Stop Checking for Element");
     }
 
-    public void waitForElementThenClick(MobileElement myElement) {
+    public void waitForElementThenClick(MobileElement myElement) throws Exception {
         WebDriverWait wait = new WebDriverWait(driver.get(), 60);
+        Thread.sleep(200);
         wait.until(ExpectedConditions.elementToBeClickable(myElement));
         myElement.click();
     }

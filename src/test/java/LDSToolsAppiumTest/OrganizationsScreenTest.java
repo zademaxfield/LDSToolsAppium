@@ -265,7 +265,9 @@ public class OrganizationsScreenTest extends BaseDriver {
 
         myMenu.selectMenu(myMenu.organizations);
         myBasePage.waitForElementThenClick(myOrg.organizationsDropdown);
+        Thread.sleep(500);
         myBasePage.waitForElementThenClick(myOrg.inglewoodStake);
+        Thread.sleep(500);
         myBasePage.waitForElementThenClick(myOrg.highPriestsQuorumOrg);
         Thread.sleep(2000);
 

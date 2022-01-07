@@ -793,7 +793,8 @@ public class MinisteringScreenTest extends BaseDriver {
 
         if (rights >= 4) {
             myMenu.selectMenu(myMenu.reports);
-            myMinistering.ministeringBrothersReport.click();
+            myBasePage.waitForElementThenClick(myMinistering.ministeringBrothersReport);
+//            myMinistering.ministeringBrothersReport.click();
 
 
             myMinistering.validateDistrict("EQ President");

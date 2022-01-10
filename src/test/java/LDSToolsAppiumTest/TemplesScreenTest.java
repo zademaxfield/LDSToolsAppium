@@ -14,10 +14,9 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily3"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily3", "jft"})
     public void templeSimple() throws Exception {
         String pageSource;
-
         HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
@@ -26,71 +25,47 @@ public class TemplesScreenTest extends BaseDriver {
         //Login
         myHelper.proxyLogin("mykalikat");
         myHelper.enterPin("1", "1", "3", "3");
-
         //Go to Temple
         myMenu.selectMenu(myMenu.temples);
-        System.out.println(myBasePage.getSourceOfPage());
         myBasePage.waitForElementThenClick(myTemple.yesRemindMe);
         myBasePage.waitForText("Los Angeles");
         pageSource = myBasePage.getSourceOfPage();
-
         if (myBasePage.getOS().equalsIgnoreCase("android")) {
             myBasePage.scrollDownAndroidUIAutomator("1");
             pageSource = pageSource + myBasePage.getSourceOfPage();
         }
-
-
-
         //This is for debug
-//        System.out.println(pageSource);
-
         Assert.assertTrue(myBasePage.checkNoCaseList("Los Angeles California Temple", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("310-474-5569", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("LANGE-OFF@ChurchofJesusChrist.org", pageSource, "Contains"));
-
         Assert.assertTrue(myBasePage.checkNoCaseList("10777 Santa Monica Blvd", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Los Angeles CA", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("90025-4718", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("United States", pageSource, "Contains"));
-
-
-
     }
 
 
     @Test (groups= {"all", "all1", "daily", "daily4"})
     public void templeRecommendReminder25Days() throws Exception {
         String pageSource;
-
         HelperMethods myHelper = new HelperMethods();
-        PinScreen myPinScreen = new PinScreen(driver);
         BasePage myBasePage = new BasePage(driver);
-        WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
-        MenuScreen myMenu = new MenuScreen(driver);
         TemplesScreen myTemple = new TemplesScreen(driver);
         SettingsScreen mySettings = new SettingsScreen(driver);
 
-
         myHelper.proxyLogin("adambee");
-//        myHelper.loginUAT("ngibpc1", "password1");
         myHelper.enterPin("1", "1", "3", "3");
-
         //Bug making this wrong
         myTemple.enableTempleRecommendReminder("25", mySettings.active, mySettings.temple4Weeks);
-
         //Check the temple reminder
         Thread.sleep(6000);
 //        Assert.assertTrue(myBasePage.checkForElement(myTemple.remindMeLater));
         Assert.assertTrue(myBasePage.checkForElement(myTemple.contactBishopric));
         Assert.assertTrue(myBasePage.checkForElement(myTemple.gotItThanks));
-
-        myTemple.contactBishopric.click();
-
-
+        myBasePage.waitForElementThenClick(myTemple.contactBishopric);
         //Verify Bishopric
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
-//        System.out.println(pageSource);
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishop", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Bishopric First Counselor", pageSource, "Contains"));
         Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
@@ -311,7 +286,7 @@ public class TemplesScreenTest extends BaseDriver {
 
     }
 
-    @Test (groups= { "all", "all3", "daily", "daily4", "jft"})
+    @Test (groups= { "all", "all3", "daily", "daily4"})
     public void templeSearch() throws Exception {
         String pageSource;
 

@@ -186,7 +186,7 @@ public class PaymentRequests extends BaseDriver {
     public void aIsOnTheFinancePageAndHasAPaymentRequestThatIsNotFinished(String member) throws Exception {
         LOGGER.info("a " + member + " is on the Finance page and has a payment request that is not finished");
         a_is_on_the_Finance_page(member);
-        a_payment_request_is_filled_out_for_and_saved("myself", "Test One", "test", "picture", "Activities", "7792");
+        a_payment_request_is_filled_out_for_and_saved("myself", "Test One", "test", "picture", "FSY", "7792");
         Thread.sleep(2000);
         myBasePage.backButton.click();
         Thread.sleep(2000);
@@ -222,8 +222,8 @@ public class PaymentRequests extends BaseDriver {
     @When("{string} is entered in the purpose")
     public void isEnteredInThePurpose(String purpose) throws Exception {
         LOGGER.info(purpose + " is entered in the purpose");
-        myFinance.paymentRequestsAdd.click();
-
+        Thread.sleep(500);
+        myBasePage.waitForElementThenClick(myFinance.paymentRequestsAdd);
         choosePayee("myself");
 //        choosePurpose(purpose, "TEST 1234");
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
@@ -265,10 +265,10 @@ public class PaymentRequests extends BaseDriver {
     public void choosePayee(String payee) throws Exception {
         switch(payee) {
             case "myself":
-                myFinance.paymentRequestsAddMyself.click();
+                myBasePage.waitForElementThenClick(myFinance.paymentRequestsAddMyself);
                 break;
             case "add other payee":
-                myFinance.paymentRequestsAddOther.click();
+                myBasePage.waitForElementThenClick(myFinance.paymentRequestsAddOther);
                 //TODO: Need more code here....
                 break;
             default:
@@ -277,30 +277,28 @@ public class PaymentRequests extends BaseDriver {
                     //TODO: iOS code
                 } else {
                     driver.get().findElement(By.xpath("//android.widget.TextView[@text='" + payee + "']")).click();
-                    myFinance.paymentRequestsAddPayeeFab.click();
+                    myBasePage.waitForElementThenClick(myFinance.paymentRequestsAddPayeeFab);
                 }
         }
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-            myFinance.paymentRequestsSelectThisPayee.click();
+            myBasePage.waitForElementThenClick(myFinance.paymentRequestsSelectThisPayee);
         }
     }
 
     public void choosePurpose(String purpose, String account) throws Exception {
-
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.waitForElement(myFinance.paymentRequestsAddPurpose);
-            Thread.sleep(1000);
-            myFinance.paymentRequestsAddPurpose.click();
+            Thread.sleep(500);
+            myBasePage.waitForElementThenClick(myFinance.paymentRequestsAddPurpose);
         }
-
         myFinance.paymentRequestsPurpose.setValue(purpose);
+        myBasePage.waitForElementThenClick(myFinance.paymentRequestsPurposeAddButton);
 
-        myFinance.paymentRequestsPurposeAddButton.click();
     }
 
     public void addReceiptToPaymentRequest(String addReceipt) throws Exception {
         Thread.sleep(2000);
-        myFinance.paymentRequestsAddReceipt.click();
+        myBasePage.waitForElementThenClick(myFinance.paymentRequestsAddReceipt);
 
 
         if (addReceipt.equalsIgnoreCase("picture")) {

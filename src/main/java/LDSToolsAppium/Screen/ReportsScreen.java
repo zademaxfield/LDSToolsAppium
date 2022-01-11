@@ -380,7 +380,7 @@ public class ReportsScreen extends BasePage {
 
     //People being taught
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='PEOPLE BEING TAUGHT']")
-    @iOSXCUITFindBy(accessibility = "People being taught")
+    @iOSXCUITFindBy(accessibility = "People Being Taught")
     public  MobileElement prPeopleBeingTaught;
 
     //Search Field

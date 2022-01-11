@@ -43,7 +43,7 @@ public class ProgressRecord extends BaseDriver {
         if (!myBasePage.checkForElement(myReports.progressRecordReport)) {
             myBasePage.scrollDownAndroidUIAutomator("0");
         }
-        myReports.progressRecordReport.click();
+        myBasePage.waitForElementThenClick(myReports.progressRecordReport);
     }
 
     @When("the New Members tab is selected")
@@ -65,8 +65,7 @@ public class ProgressRecord extends BaseDriver {
         if (!myBasePage.checkForElement(myReports.progressRecordReport)) {
             myBasePage.scrollDownAndroidUIAutomator("0");
         }
-        myReports.progressRecordReport.click();
-
+        myBasePage.waitForElementThenClick(myReports.progressRecordReport);
     }
 
     @When("a {string} is selected under the New Members tab")
@@ -82,7 +81,7 @@ public class ProgressRecord extends BaseDriver {
     public void aMemberRecordIsSelectedUnderThePeopleBeingTaughtTab(String memberRecord) throws Exception {
         LOGGER.info("a " + memberRecord + " is selected under the People being taught");
         myBasePage.waitForElement(myReports.prNewMembers);
-        myReports.prPeopleBeingTaught.click();
+        myBasePage.waitForElementThenClick(myReports.prPeopleBeingTaught);
         searchForMemberAndClick(memberRecord);
     }
 

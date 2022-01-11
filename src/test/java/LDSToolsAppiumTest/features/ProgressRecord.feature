@@ -1,7 +1,7 @@
 @ProgressRecord
   Feature: Progress Record tests - Used to be Missionary Progress Record
 
-    @MQA-5156 @MQA-2225 @smoke @smoke4 @all @all4 @daily @daily4 @jft
+    @MQA-5156 @MQA-2225 @smoke @smoke4 @all @all4 @daily @daily4
     Scenario Outline: SMOKE as a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
@@ -53,7 +53,7 @@
         | "STAKE_EXECUTIVE_SECRETARY"        | "Chaney, Destin John" | "false" | "Auburn Hills" |
 
 
-    @MQA-3194 @MQA-2225 @all @all1 @all @daily @daily1
+    @MQA-3194 @MQA-2225 @all @all1 @all @daily @daily1 @jft
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab

@@ -195,7 +195,6 @@ public class TemplesScreenTest extends BaseDriver {
         TemplesScreen myTemple = new TemplesScreen(driver);
 
 //        driver.get().setLocation(new Location(40.61222818077769, -111.95469497658807, 10));
-//        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
@@ -226,12 +225,6 @@ public class TemplesScreenTest extends BaseDriver {
             Assert.assertTrue(myBasePage.checkNoCaseList("Draper", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Timpanogos", pageSource, "Contains"));
         }
-
-
-
-
-
-
     }
 
     @Test (groups= { "all", "all2", "daily", "daily3"})

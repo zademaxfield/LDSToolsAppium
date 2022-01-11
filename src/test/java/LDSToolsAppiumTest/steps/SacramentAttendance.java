@@ -45,7 +45,7 @@ public class SacramentAttendance extends BaseDriver {
         if (!myBasePage.checkForElement(myReports.sacramentAttendanceReport)) {
             myBasePage.scrollDownAndroidUIAutomator("0");
         }
-        myReports.sacramentAttendanceReport.click();
+        myBasePage.waitForElementThenClick(myReports.sacramentAttendanceReport);
     }
 
     @When("{string} is entered in the {string}")
@@ -97,6 +97,7 @@ public class SacramentAttendance extends BaseDriver {
         Thread.sleep(2000);
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             myBasePage.scrollDownIOS();
+            myBasePage.scrollUpIOS();
         }
         String textFromElement = getTextFromElement(fieldToCheck);
         Assert.assertTrue(textToCheck.contains(textFromElement));

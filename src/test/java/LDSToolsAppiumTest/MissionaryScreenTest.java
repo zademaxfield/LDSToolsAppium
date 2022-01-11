@@ -218,11 +218,8 @@ public class MissionaryScreenTest extends BaseDriver {
 
         myMenu.selectMenu(myMenu.missionary);
         myBasePage.waitForElementThenClick(myMissionary.sendReferralButton);
-//        myMissionary.sendReferralButton.click();
-//        Thread.sleep(3000);
+        Thread.sleep(500);
         myBasePage.waitForElementThenClick(myMissionary.cancelReferralButton);
-//        myMissionary.cancelReferralButton.click();
-
 
         //Centinela 1st Ward
         unitNumber = "21628";

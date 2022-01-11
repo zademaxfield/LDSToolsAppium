@@ -41,7 +41,7 @@ public class ClassAndQuorum extends BaseDriver {
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         myMenu.selectMenu(myMenu.reports);
-        myReports.classAndQuorumAttendanceReport.click();
+        myBasePage.waitForElementThenClick(myReports.classAndQuorumAttendanceReport);
     }
 
     @When("a {string} is searched for")
@@ -93,7 +93,7 @@ public class ClassAndQuorum extends BaseDriver {
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         myMenu.selectMenu(myMenu.reports);
-        myReports.classAndQuorumAttendanceReport.click();
+        myBasePage.waitForElementThenClick(myReports.classAndQuorumAttendanceReport);
     }
 
     @When("week one is marked attended")
@@ -141,15 +141,15 @@ public class ClassAndQuorum extends BaseDriver {
     @When("I select a class")
     public void iSelectAClass() throws Exception {
         LOGGER.info("I select a class");
-        myReports.classAndQuorumFilterAaronic.click();
-        myReports.classAndQuorumFilterDeaconsQuorum.click();
+        myBasePage.waitForElementThenClick(myReports.classAndQuorumFilterAaronic);
+        myBasePage.waitForElementThenClick(myReports.classAndQuorumFilterDeaconsQuorum);
     }
 
     @Then("The class list will be displayed")
     public void theClassListWillBeDisplayed() throws Exception {
         LOGGER.info("The class list will be displayed");
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(pageSource.contains("Auton, James"));
+        Assert.assertTrue(pageSource.contains("Andrews"));
         Assert.assertTrue(pageSource.contains("Male"));
         Assert.assertTrue(pageSource.contains("Deacons"));
     }
@@ -159,12 +159,14 @@ public class ClassAndQuorum extends BaseDriver {
         LOGGER.info("a member record is selected");
         clearAllAttendance("Rickett, Dylan");
         searchClassAndQuorum("Rickett, Dylan");
+        Thread.sleep(500);
         getWeekElement("week1", "main").click();
         Thread.sleep(500);
 //        System.out.println(myBasePage.getSourceOfPage());
         getWeekElement("week3", "main").click();
+        Thread.sleep(500);
         myBasePage.backButton.click();
-        myReports.classAndQuorumAttendanceReport.click();
+        myBasePage.waitForElementThenClick(myReports.classAndQuorumAttendanceReport);
         searchClassAndQuorum("Rickett, Dylan");
         Thread.sleep(500);
         clickMemberRecord("Rickett, Dylan");
@@ -179,8 +181,11 @@ public class ClassAndQuorum extends BaseDriver {
         Assert.assertTrue(getWeekAttendanceStatus("week3", "detail").equalsIgnoreCase("attended"));
         Assert.assertTrue(getWeekAttendanceStatus("week4", "detail").equalsIgnoreCase("not attended"));
         //Clean Up
+        Thread.sleep(500);
         getWeekElement("week1", "detail").click();
+        Thread.sleep(500);
         getWeekElement("week3", "detail").click();
+        Thread.sleep(500);
         myBasePage.backButton.click();
         Thread.sleep(1000);
         myBasePage.backButton.click();

@@ -19,24 +19,24 @@
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-        | leader                    | memberRecord          | can     |
+        | leader                     | memberRecord          | can     |
         | "BISHOP"                   | "Chaney, Dustin John" | "true"  |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Chaney, Destin John"    | "true"  |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Chaney, Destin John"    | "true"  |
-#        | "WARD_CLERK"                      | "Johnson, Jasean Marvin" | "true"  |
-#        | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann" | "true"  |
-        | "ELDERS_QUORUM_PRESIDENT" | "Chaney, Dustin John" | "false" |
-#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Chaney, Dustin John"    | "false" |
-#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"            | "false" |
-#        | "ELDERS_QUORUM_SECRETARY"         | "Chaney, Destin John"    | "false" |
+        | "ELDERS_QUORUM_PRESIDENT"  | "Chaney, Dustin John" | "false" |
         | "RELIEF_SOCIETY_PRESIDENT" | "Chaney, Dustin John" | "true"  |
-#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin" | "false" |
-#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann" | "false" |
         | "YOUNG_WOMEN_PRESIDENT"    | "Chaney, Dustin John" | "false" |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Chaney, Dustin John"   | "false" |
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Chaney, Destin John"    | "false" |
 #        | "SUNDAY_SCHOOL_FIRST_COUNSELOR"   | "Chaney, Destin John"    | "false" |
 #        | "WARD_MISSION_LEADER"             | "Chaney, Destin John"    | "true"  |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Chaney, Destin John"    | "true"  |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Chaney, Destin John"    | "true"  |
+#        | "WARD_CLERK"                      | "Johnson, Jasean Marvin" | "true"  |
+#        | "WARD_EXECUTIVE_SECRETARY"        | "Johnson, Sophia Joeann" | "true"  |
+#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Chaney, Dustin John"    | "false" |
+#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Ramon Anaya"            | "false" |
+#        | "ELDERS_QUORUM_SECRETARY"         | "Chaney, Destin John"    | "false" |
+#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Johnson, Jasean Marvin" | "false" |
+#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Johnson, Sophia Joeann" | "false" |
 
     @MQA-5157 @MQA-2225 @all @all3 @all @daily @daily3
     Scenario Outline: As a STAKE leader I should have access to the New Members under Progress Record
@@ -45,15 +45,15 @@
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-        | leader            | memberRecord             | can     | unit    |
-        | "STAKE_PRESIDENT" | "Hanneman, Daniel James" | "false" | "Maize" |
-        | "STAKE_PRESIDENT_FIRST_COUNSELOR"  | "Walker, Steph"       | "false" | "Newton"       |
-        | "STAKE_PRESIDENT_SECOND_COUNSELOR" | "Lopez, Jordan"       | "false" | "Wellington"   |
-        | "STAKE_CLERK"                      | "Studd, Blu Lee"      | "false" | "Pratt"        |
-        | "STAKE_EXECUTIVE_SECRETARY"        | "Chaney, Destin John" | "false" | "Auburn Hills" |
+        | leader                             | memberRecord             | can     | unit           |
+        | "STAKE_PRESIDENT"                  | "Hanneman, Daniel James" | "false" | "Maize"        |
+        | "STAKE_PRESIDENT_FIRST_COUNSELOR"  | "Smith, Barbara Aletha"  | "false" | "Newton"       |
+#        | "STAKE_PRESIDENT_SECOND_COUNSELOR" | "Richards, Gabe"         | "false" | "Wellington"   |
+#        | "STAKE_CLERK"                      | "Davis, Keith"           | "false" | "Valley"       |
+#        | "STAKE_EXECUTIVE_SECRETARY"        | "Chaney, Dustin John"    | "false" | "Auburn Hills" |
 
 
-    @MQA-3194 @MQA-2225 @all @all1 @all @daily @daily1 @jft
+    @MQA-3194 @MQA-2225 @all @all1 @all @daily @daily1
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
@@ -62,23 +62,23 @@
       Examples:
         | leader                     | memberRecord  | can     |
         | "BISHOP"                   | "Saft, Jolan" | "true"  |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Arnold, Pryde"  | "true"  |
-#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Brown, Maurice" | "true"  |
-#        | "WARD_CLERK"                      | "Buzo, Robert"   | "true"  |
-##        | "WARD_EXECUTIVE_SECRETARY"        | "Cubbage, Ron"   | "true"  |
         | "ELDERS_QUORUM_PRESIDENT"  | "Saft, Jolan" | "true"  |
-#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Saft, Jolan"    | "false" |
-#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bray, Sidney"   | "false" |
-#        | "ELDERS_QUORUM_SECRETARY"         | "Arnold, Pryde"  | "false" |
         | "RELIEF_SOCIETY_PRESIDENT" | "Saft, Jolan" | "true"  |
-#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Buzo, Robert"   | "false" |
-#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Cubbage, Ron"   | "false" |
         | "YOUNG_WOMEN_PRESIDENT"    | "Saft, Jolan" | "false" |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Saft, Jolan"    | "false" |
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bray, Sidney"   | "false" |
 #        | "WARD_MISSION_LEADER"             | "Arnold, Pryde"  | "true"  |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Arnold, Pryde"  | "true"  |
+#        | "BISHOPRIC_SECOND_COUNSELOR"      | "Brown, Maurice" | "true"  |
+#        | "WARD_CLERK"                      | "Buzo, Robert"   | "true"  |
+##        | "WARD_EXECUTIVE_SECRETARY"        | "Cubbage, Ron"   | "true"  |
+#        | "ELDERS_QUORUM_FIRST_COUNSELOR"   | "Saft, Jolan"    | "false" |
+#        | "ELDERS_QUORUM_SECOND_COUNSELOR"  | "Bray, Sidney"   | "false" |
+#        | "ELDERS_QUORUM_SECRETARY"         | "Arnold, Pryde"  | "false" |
+#        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Buzo, Robert"   | "false" |
+#        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Cubbage, Ron"   | "false" |
 
-    @MQA-5158 @MQA-2225 @all @all4 @all @daily @daily4
+    @MQA-5158 @MQA-2225 @all @all4 @all @daily @daily4  @jft
     Scenario Outline: As a STAKE leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab

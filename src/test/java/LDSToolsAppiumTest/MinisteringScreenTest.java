@@ -681,7 +681,7 @@ public class MinisteringScreenTest extends BaseDriver {
 
 
 
-    @Test (groups = {"all3", "all", "smoke", "smoke3", "daily", "daily4", "jft"})
+    @Test (groups = {"all3", "all", "smoke", "smoke3", "daily", "daily4"})
     public void companionshipsElders_BISHOP() throws Exception {
         companionshipsEldersSub("BISHOP");
     }
@@ -948,7 +948,7 @@ public class MinisteringScreenTest extends BaseDriver {
         unassignedSistersSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all1", "all", "daily", "daily2"})
+    @Test(groups = {"all1", "all", "daily", "daily2", "jft"})
     public void unassignedSisters_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         unassignedSistersSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -963,7 +963,7 @@ public class MinisteringScreenTest extends BaseDriver {
         unassignedSistersSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
-    @Test(groups = {"all4", "all", "daily", "daily4"})
+    @Test(groups = {"all4", "all"})
     public void unassignedSisters_YOUNG_WOMEN_PRESIDENT() throws Exception {
         unassignedSistersSub("YOUNG_WOMEN_PRESIDENT");
     }
@@ -1002,33 +1002,19 @@ public class MinisteringScreenTest extends BaseDriver {
             myMenu.selectMenu(myMenu.reports);
             myMinistering.ministeringSistersReport.click();
             Thread.sleep(2000);
-//
-//            if (calling.equals("elders") || (calling.equals("wardcouncil"))) {
-//                if (getRunningOS().equals("ios")) {
-//                    myMinistering.unassignedSisters.click();
-//                    Thread.sleep(2000);
-//                    pageSource = myBasePage.getSourceOfPage();
-//                    Assert.assertTrue(pageSource.contains("Adams"));
-//                    Assert.assertFalse(pageSource.contains("Skywalker"));
-//                } else {
-//                    pageSource = myBasePage.getSourceOfPage();
-//                    Assert.assertFalse(myBasePage.checkNoCaseList("Unassigned Households", pageSource, "Contains"));
-//                }
-//            } else {
-                myMinistering.unassignedSisters.click();
-                Thread.sleep(2000);
-                //For some reason the pageSource is broken for this page in iOS.
-                if (getRunningOS().equalsIgnoreCase("ios")) {
-                    pageSource = myBasePage.getSourceOfPage();
-                    Assert.assertTrue(pageSource.contains("Arabia"));
-                    Assert.assertFalse(pageSource.contains("Skywalker"));
-                } else {
-                    pageSource = myBasePage.getSourceOfPage();
-                    Assert.assertTrue(myBasePage.checkNoCaseList("Ayon", pageSource, "Contains"));
-                    Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
-                }
 
-//            }
+            myMinistering.unassignedSisters.click();
+            Thread.sleep(2000);
+            //For some reason the pageSource is broken for this page in iOS.
+            if (getRunningOS().equalsIgnoreCase("ios")) {
+                pageSource = myBasePage.getSourceOfPage();
+                Assert.assertTrue(pageSource.contains("Arabia"));
+                Assert.assertFalse(pageSource.contains("Skywalker"));
+            } else {
+                pageSource = myBasePage.getSourceOfPage();
+                Assert.assertTrue(myBasePage.checkNoCaseList("Ayon", pageSource, "Contains"));
+                Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker", pageSource, "Contains"));
+            }
         }
 
         if (rights == 4){

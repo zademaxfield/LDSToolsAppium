@@ -22,7 +22,7 @@
 <!--                <parameter name="testDevice" value="iPhone 11" />-->
         <parameter name="testDevice" value="HEADLESS-iPhone 11" />
         <parameter name="startSleepTime" value="60000" />
-        <parameter name="systemPort" value="8202" />
+        <parameter name="systemPort" value="8225" />
 
         <classes>
             <class name="LDSToolsAppiumTest.testrunner.CucumberRunnerDaily2"> </class>

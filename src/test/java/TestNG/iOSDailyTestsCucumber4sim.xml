@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="iOS daily Test Suite" configfailurepolicy="continue" verbose="2">
-    <test name="iOS Daily iPhone 12 - Cucumber Test" thread-count="2" parallel="true">
+<suite name="iOS daily Test Suite" configfailurepolicy="continue" verbose="2" parallel="tests" thread-count="4">
+    <test name="iOS Daily iPhone 12 - Cucumber Test" thread-count="1" parallel="false">
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
         <parameter name="testDevice" value="HEADLESS-iPhone 12" />
@@ -25,7 +25,7 @@
         </classes>
     </test>
 
-    <test name="iOS Daily iPhone 13 - Cucumber Test" thread-count="2" parallel="true">
+    <test name="iOS Daily iPhone 13 - Cucumber Test" thread-count="1" parallel="false">
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
         <parameter name="testDevice" value="HEADLESS-iPhone 13" />

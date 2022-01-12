@@ -10,7 +10,8 @@
     <test name="iOS Daily Test - iPhone 12" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <parameter name="testDevice" value="HEADLESS-iPhone 12" />
+<!--        <parameter name="testDevice" value="HEADLESS-iPhone 12" />-->
+        <parameter name="testDevice" value="iPhone 12" />
         <parameter name="startSleepTime" value="0200" />
         <parameter name="systemPort" value="8251" />
 
@@ -44,9 +45,8 @@
     <test name="iOS Daily Test - iPhone 11" thread-count="1" parallel="false" >
         <parameter name="os" value="ios" />
         <parameter name="fileName" value="LDS Tools.app" />
-        <!--        <parameter name="testDevice" value="FBSIM-iPhone 11" />-->
-        <!--        <parameter name="testDevice" value="iPhone 11" />-->
-        <parameter name="testDevice" value="HEADLESS-iPhone 11" />
+        <parameter name="testDevice" value="iPhone 11" />
+<!--        <parameter name="testDevice" value="HEADLESS-iPhone 11" />-->
         <parameter name="startSleepTime" value="60000" />
         <parameter name="systemPort" value="8202" />
 

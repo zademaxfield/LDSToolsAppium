@@ -52,6 +52,17 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Members Moved Out")
     public MobileElement membersMovedOutReport;
 
+    //Move In and Out Report
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Move In and Out Report']")
+    @iOSXCUITFindBy(accessibility = "Move In and Out Report")
+    public MobileElement moveInAndOutReport;
+
+    //Move Records In and Out
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Move Records In and Out']")
+    @iOSXCUITFindBy(accessibility = "Move Records In and Out")
+    public MobileElement moveRecordsInAndOut;
+
+
     //Members with Callings
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Members with Callings']")
     @iOSXCUITFindBy(accessibility = "Members with Callings")
@@ -662,6 +673,85 @@ public class ReportsScreen extends BasePage {
     @AndroidFindBy(id = "update")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement ordinancesCancel;
+
+
+    // **************************************** Move In and Out ****************************************
+    //Main Move in and out page
+    //In Tab
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc='Move record in'][1]")
+    @iOSXCUITFindBy(accessibility = "In")
+    public  MobileElement moveRecordsInTab;
+
+    //Out Tab
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc='Move record out'][1]")
+    @iOSXCUITFindBy(accessibility = "Out")
+    public  MobileElement moveRecordsOutTab;
+
+    //In Button
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc='Move record in'][2]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Inbox' AND type == 'XCUIElementTypeButton'")
+    public  MobileElement moveRecordsInButton;
+
+    //Out Button
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc='Move record out'][2]")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Outbox' AND type == 'XCUIElementTypeButton'")
+    public  MobileElement moveRecordsOutButton;
+
+    //MRN
+    @AndroidFindBy(xpath = "//android.view.View[@text='MRN']")
+    @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeTextView'")
+    public  MobileElement moveRecordsMRNField;
+
+    //More Options Switch
+    @AndroidFindBy(xpath = "//android.widget.Switch")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@name='More Search Options'][2]")
+    public  MobileElement moveRecordsMoreSearchOptions;
+
+    //Name
+    @AndroidFindBy(xpath = "//android.view.View[@text='Name']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[@name='Name']//XCUIElementTypeTextView")
+    public  MobileElement moveRecordsName;
+
+    //Birth Date
+    @AndroidFindBy(xpath = "//android.view.View[@text='Birth Date']")
+    @iOSXCUITFindBy(accessibility = "Date Picker")
+    public  MobileElement moveRecordsBirthDate;
+
+        //Birth Date Edit Button
+        @AndroidFindBy(id = "org.lds.ldstools.alpha:id/mtrl_picker_header_toggle")
+        public  MobileElement moveRecordsBirthDateEditButton;
+
+        //Birth Date Edit Field
+        @AndroidFindBy(id = "org.lds.ldstools.alpha:id/textinput_placeholder")
+        public  MobileElement moveRecordsBirthDateEditField;
+
+        //Birth Date Cancel
+        @AndroidFindBy(id = "org.lds.ldstools.alpha:id/cancel_button")
+        public  MobileElement moveRecordsBirthDateCancelButton;
+
+        //Birth Date OK
+        @AndroidFindBy(id = "org.lds.ldstools.alpha:id/confirm_button")
+        public  MobileElement moveRecordsBirthDateOkButton;
+
+    //Gender
+    @AndroidFindBy(xpath = "//android.view.View[@text='Gender']")
+    @iOSXCUITFindBy(accessibility = "/XCUIElementTypeStaticText[@name='Optional']")
+    public  MobileElement moveRecordsGender;
+
+    //Country
+    @AndroidFindBy(xpath = "//android.view.View[@text='Country']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[@name='Country, Optional']")
+    public  MobileElement moveRecordsCountry;
+
+
+    //Next
+    @AndroidFindBy(xpath = "//android.view.View[@text='Next']")
+    @iOSXCUITFindBy(accessibility = "Next")
+    public  MobileElement moveRecordsNext;
+    
+
+
+
 
 
     public void saveMissonaryProgressFilter() throws Exception {

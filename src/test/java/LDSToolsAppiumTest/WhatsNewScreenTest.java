@@ -40,16 +40,16 @@ public class WhatsNewScreenTest extends BaseDriver {
 
 
         // Click on Later then Directory
-        if (!myBasePage.getOS().equals("ios")) {
-            Thread.sleep(2000);
-            myHelper.checkForLater();
-            Thread.sleep(2000);
-            myBasePage.waitForElement(myMenu.directory);
-            myMenu.organizations.click();
-            Thread.sleep(1000);
-            myMenu.selectMenu(myMenu.directory);
-            Thread.sleep(2000);
-        }
+//        if (!myBasePage.getOS().equals("ios")) {
+//            Thread.sleep(2000);
+//            myHelper.checkForLater();
+//            Thread.sleep(2000);
+//            myBasePage.waitForElement(myMenu.directory);
+//            myMenu.organizations.click();
+//            Thread.sleep(1000);
+//            myMenu.selectMenu(myMenu.directory);
+//            Thread.sleep(2000);
+//        }
 
     }
 

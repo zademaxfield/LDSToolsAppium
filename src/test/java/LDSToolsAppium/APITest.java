@@ -36,6 +36,7 @@ public class APITest {
     String rawData;
 
 //    111074 - AburnHill
+//    258598 - Fagamalo 2ndas
     String unitNumber = "21628";
     String proxyLogin = "mbthomas74";
 
@@ -68,7 +69,7 @@ public class APITest {
 
 
         //Accounts!!
-        myMap = apiTest.getAccounts("111074", "138");
+        myMap = apiTest.getAccounts("258598", "54");
         System.out.println(myMap);
         System.out.println("Username: " + myMap.get("username"));
 

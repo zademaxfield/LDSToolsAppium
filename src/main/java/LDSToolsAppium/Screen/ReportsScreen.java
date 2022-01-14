@@ -748,7 +748,7 @@ public class ReportsScreen extends BasePage {
     @AndroidFindBy(xpath = "//android.view.View[@text='Next']")
     @iOSXCUITFindBy(accessibility = "Next")
     public  MobileElement moveRecordsNext;
-    
+
 
 
 

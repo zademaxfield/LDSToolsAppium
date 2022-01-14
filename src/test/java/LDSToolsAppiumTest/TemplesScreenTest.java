@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TemplesScreenTest extends BaseDriver {
 
-    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily3", "jft"})
+    @Test (groups = {"all2", "all", "smoke", "smoke2", "daily", "daily3"})
     public void templeSimple() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
@@ -185,7 +185,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all1", "daily", "daily2"})
+    @Test (groups= { "all", "all1", "daily", "daily2", "jft"})
     public void templeNearestTemples() throws Exception {
         String pageSource;
 

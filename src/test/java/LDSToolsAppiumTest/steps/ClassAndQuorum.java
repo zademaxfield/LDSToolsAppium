@@ -103,6 +103,7 @@ public class ClassAndQuorum extends BaseDriver {
         clearAllAttendance("Anderson, Lisa");
         Thread.sleep(1000);
         searchClassAndQuorum("Anderson, Lisa");
+        Thread.sleep(500);
         getWeekElement("week1", "main").click();
     }
 
@@ -111,10 +112,11 @@ public class ClassAndQuorum extends BaseDriver {
     public void weekOneWillHaveACheckMark() throws Exception {
         LOGGER.info("week one will have a check mark");
         myBasePage.backButton.click();
-        myReports.classAndQuorumAttendanceReport.click();
+        myBasePage.waitForElementThenClick(myReports.classAndQuorumAttendanceReport);
         searchClassAndQuorum("Anderson, Lisa");
         Assert.assertTrue(getWeekAttendanceStatus("week1", "main").equalsIgnoreCase("attended"));
         //Clean Up
+        Thread.sleep(500);
         getWeekElement("week1", "main").click();
         myBasePage.backButton.click();
     }
@@ -285,7 +287,7 @@ public class ClassAndQuorum extends BaseDriver {
 
 
         myBasePage.backButton.click();
-        myReports.classAndQuorumAttendanceReport.click();
+        myBasePage.waitForElementThenClick(myReports.classAndQuorumAttendanceReport);
     }
 
     public List<String> getVisibleDates() throws Exception {

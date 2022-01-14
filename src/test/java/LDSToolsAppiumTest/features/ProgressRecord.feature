@@ -12,16 +12,16 @@
         | "BISHOP" | "Chaney, Dustin John" | "true" |
 
 
-    @MQA-3193 @MQA-2225 @all @all3 @all @daily @daily3
+    @MQA-3193 @MQA-2225 @all @all3 @all @daily @daily3  @jft
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-        | leader                     | memberRecord          | can     |
+        | leader                    | memberRecord          | can    |
         | "BISHOP"                   | "Chaney, Dustin John" | "true"  |
-        | "ELDERS_QUORUM_PRESIDENT"  | "Chaney, Dustin John" | "false" |
+        | "ELDERS_QUORUM_PRESIDENT" | "Chaney, Dustin John" | "true" |
         | "RELIEF_SOCIETY_PRESIDENT" | "Chaney, Dustin John" | "true"  |
         | "YOUNG_WOMEN_PRESIDENT"    | "Chaney, Dustin John" | "false" |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Chaney, Dustin John"   | "false" |
@@ -78,7 +78,7 @@
 #        | "RELIEF_SOCIETY_FIRST_COUNSELOR"  | "Buzo, Robert"   | "false" |
 #        | "RELIEF_SOCIETY_SECOND_COUNSELOR" | "Cubbage, Ron"   | "false" |
 
-    @MQA-5158 @MQA-2225 @all @all4 @all @daily @daily4  @jft
+    @MQA-5158 @MQA-2225 @all @all4 @all @daily @daily4
     Scenario Outline: As a STAKE leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in selects a <unit> and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab

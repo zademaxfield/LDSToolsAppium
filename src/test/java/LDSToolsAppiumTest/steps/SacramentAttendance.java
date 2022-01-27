@@ -46,6 +46,8 @@ public class SacramentAttendance extends BaseDriver {
             myBasePage.scrollDownAndroidUIAutomator("0");
         }
         myBasePage.waitForElementThenClick(myReports.sacramentAttendanceReport);
+        cleanup();
+        myBasePage.waitForElementThenClick(myReports.sacramentAttendanceReport);
     }
 
     @When("{string} is entered in the {string}")

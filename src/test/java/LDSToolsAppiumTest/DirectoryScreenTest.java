@@ -25,7 +25,7 @@ public class DirectoryScreenTest extends BaseDriver {
 
 
 
-    @Test(groups = {"smoke2", "smoke", "all2", "all", "daily", "daily4", "jft"})
+    @Test(groups = {"smoke2", "smoke", "all2", "all", "daily", "daily4"})
     public void directoryScreenTest_BISHOP() throws Exception {
         directoryScreenSub("BISHOP");
     }
@@ -647,11 +647,11 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login as Bishop
-        myHelper.proxyLogin("mafoep");
+        myHelper.proxyLogin("galok");
 //        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.enterPin("1", "1", "3", "3");
 
-        myDirectory.searchAndClick("Alo, Taleni");
+        myDirectory.searchAndClick("Alapati, James");
 
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsHouseholdLocationMissing));
 
@@ -695,7 +695,7 @@ public class DirectoryScreenTest extends BaseDriver {
     }
 
 
-    @Test(groups = {"all3", "all", "daily", "daily1"})
+    @Test(groups = {"all3", "all", "daily", "daily1", "jft"})
     public void directoryLatLongCheckLocation() throws Exception {
 
         // ********* Constructor **********
@@ -704,18 +704,18 @@ public class DirectoryScreenTest extends BaseDriver {
         BasePage myBasePage = new BasePage(driver);
 
         //Login as Bishop
-        myHelper.proxyLogin("mafoep");
+        myHelper.proxyLogin("galok");
         myHelper.enterPin("1", "1", "3", "3");
 
 //        myDirectory.searchAndClick("Pipi, Mafoe");
 
         if (myBasePage.getOS().contains("ios")) {
-            myDirectory.searchAndClickHousehold("Pipi, Itagia");
+            myDirectory.searchAndClickHousehold("Alapati, James");
 //            myBasePage.clickByTextContains("Pipi");
 //            myBasePage.scrollDownIOS();
             myBasePage.scrollToTextGeneral("Adjust Household Location");
         } else {
-            myDirectory.searchAndClickHousehold("Pipi, Itagia");
+            myDirectory.searchAndClickHousehold("Alapati, James");
         }
 
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsAdjustHouseholdLocationLowerCase));

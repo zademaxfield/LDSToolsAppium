@@ -1000,10 +1000,10 @@ public class MinisteringScreenTest extends BaseDriver {
 
         if (rights >= 4) {
             myMenu.selectMenu(myMenu.reports);
-            myMinistering.ministeringSistersReport.click();
+            myBasePage.waitForElementThenClick(myMinistering.ministeringSistersReport);
             Thread.sleep(2000);
 
-            myMinistering.unassignedSisters.click();
+            myBasePage.waitForElementThenClick(myMinistering.unassignedSisters);
             Thread.sleep(2000);
             //For some reason the pageSource is broken for this page in iOS.
             if (getRunningOS().equalsIgnoreCase("ios")) {

@@ -253,8 +253,9 @@ public class TemplesScreenTest extends BaseDriver {
 
 
         if (myBasePage.getOS().equalsIgnoreCase("android")) {
-            Thread.sleep(5000);
+            Thread.sleep(10000);
             System.out.println("Scroll UP!!!!");
+            myBasePage.scrollUpAndroidUIAutomator("2");
             myBasePage.scrollUpAndroidUIAutomator("2");
             myBasePage.scrollUpAndroidUIAutomator("2");
             myBasePage.scrollUpAndroidUIAutomator("2");

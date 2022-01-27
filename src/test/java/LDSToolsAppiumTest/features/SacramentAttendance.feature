@@ -22,7 +22,7 @@
       Given a "ELDERS_QUORUM_PRESIDENT" is on the Reports page
       Then I should not see "Sacrament Attendance"
 
-    @MQA-3186 @all @all2 @all @daily @daily2  @jft
+    @MQA-3186 @all @all2 @all @daily @daily2
     Scenario: Enter Sacrament Attendance using the counter
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When a "27" is entered using the counter
@@ -34,7 +34,7 @@
       When a 27 35 5 48 is entered using the counter and next section
       Then I should see "115"
 
-    @MQA-3188 @all @all3 @all @daily @daily3
+    @MQA-3188 @all @all3 @all @daily @daily3  @jft
     Scenario: On the Sacrament counter use both plus and minus
       Given a "WARD_CLERK" is on the Sacrament Attendance page
       When a "38" is entered using the counter without saving

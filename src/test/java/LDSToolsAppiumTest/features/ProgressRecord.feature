@@ -12,16 +12,16 @@
         | "BISHOP" | "Chaney, Dustin John" | "true" |
 
 
-    @MQA-3193 @MQA-2225 @all @all3 @all @daily @daily3  @jft
+    @MQA-3193 @MQA-2225 @all @all3 @all @daily @daily3
     Scenario Outline: As a leader I should have access to the New Members under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the New Members tab
       Then the <memberRecord> will be displayed
       And the members record <can> be edited
       Examples:
-        | leader                    | memberRecord          | can    |
+        | leader                     | memberRecord          | can     |
         | "BISHOP"                   | "Chaney, Dustin John" | "true"  |
-        | "ELDERS_QUORUM_PRESIDENT" | "Chaney, Dustin John" | "true" |
+        | "ELDERS_QUORUM_PRESIDENT"  | "Chaney, Dustin John" | "true"  |
         | "RELIEF_SOCIETY_PRESIDENT" | "Chaney, Dustin John" | "true"  |
         | "YOUNG_WOMEN_PRESIDENT"    | "Chaney, Dustin John" | "false" |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Chaney, Dustin John"   | "false" |
@@ -53,18 +53,18 @@
 #        | "STAKE_EXECUTIVE_SECRETARY"        | "Chaney, Dustin John"    | "false" | "Auburn Hills" |
 
 
-    @MQA-3194 @MQA-2225 @all @all1 @all @daily @daily1
+    @MQA-3194 @MQA-2225 @all @all1 @all @daily @daily1  @jft
     Scenario Outline: As a leader I should have access to the People Being Taught under Progress Record
       Given a <leader> logs in and is on the Progress Record Page
       When a <memberRecord> is selected under the People Being Taught tab
       Then the <memberRecord> for People Being Taught will be displayed
       And the members record for People Being Taught <can> be edited
       Examples:
-        | leader                     | memberRecord  | can     |
-        | "BISHOP"                   | "Saft, Jolan" | "true"  |
-        | "ELDERS_QUORUM_PRESIDENT"  | "Saft, Jolan" | "true"  |
-        | "RELIEF_SOCIETY_PRESIDENT" | "Saft, Jolan" | "true"  |
-        | "YOUNG_WOMEN_PRESIDENT"    | "Saft, Jolan" | "false" |
+        | leader                     | memberRecord | can     |
+        | "BISHOP"                   | "Pike, Eric" | "true"  |
+        | "ELDERS_QUORUM_PRESIDENT"  | "Pike, Eric" | "true"  |
+        | "RELIEF_SOCIETY_PRESIDENT" | "Pike, Eric" | "true"  |
+        | "YOUNG_WOMEN_PRESIDENT"    | "Pike, Eric" | "false" |
 #        | "YOUNG_WOMEN_SECOND_COUNSELOR"    | "Saft, Jolan"    | "false" |
 #        | "SUNDAY_SCHOOL_PRESIDENT"         | "Bray, Sidney"   | "false" |
 #        | "WARD_MISSION_LEADER"             | "Arnold, Pryde"  | "true"  |

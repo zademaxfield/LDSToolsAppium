@@ -185,7 +185,7 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all1", "daily", "daily2"})
+    @Test (groups= { "all", "all1", "daily", "daily2", "jft"})
     public void templeNearestTemples() throws Exception {
         String pageSource;
 
@@ -227,7 +227,7 @@ public class TemplesScreenTest extends BaseDriver {
         }
     }
 
-    @Test (groups= { "all", "all2", "daily", "daily3", "jft"})
+    @Test (groups= { "all", "all2", "daily", "daily3"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 
@@ -333,7 +333,7 @@ public class TemplesScreenTest extends BaseDriver {
 
         myMenu.selectMenu(myMenu.temples);
 //        System.out.println(myBasePage.getSourceOfPage());
-        myTemple.yesRemindMe.click();
+        myBasePage.waitForElementThenClick(myTemple.yesRemindMe);
         Thread.sleep(2000);
         myTemple.chooseDifferentTab(myTemple.allTab);
 

@@ -710,12 +710,12 @@ public class DirectoryScreenTest extends BaseDriver {
 //        myDirectory.searchAndClick("Pipi, Mafoe");
 
         if (myBasePage.getOS().contains("ios")) {
-            myDirectory.searchAndClickHousehold("Alapati, James");
+            myDirectory.searchAndClickHousehold("Loion, Leone");
 //            myBasePage.clickByTextContains("Pipi");
 //            myBasePage.scrollDownIOS();
             myBasePage.scrollToTextGeneral("Adjust Household Location");
         } else {
-            myDirectory.searchAndClickHousehold("Alapati, James");
+            myDirectory.searchAndClickHousehold("Loion, Leone");
         }
 
         Assert.assertTrue(myBasePage.checkForElement(myDirectory.gpsAdjustHouseholdLocationLowerCase));

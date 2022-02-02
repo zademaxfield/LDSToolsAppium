@@ -198,6 +198,11 @@ public class TemplesScreenTest extends BaseDriver {
         myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
+//        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+//            Location loc = new Location(33.3230, -122.0322, 221);
+//            driver.get().setLocation(loc);
+//        }
+
 
         myMenu.selectMenu(myMenu.temples);
         myBasePage.waitForElementThenClick(myTemple.yesRemindMe);

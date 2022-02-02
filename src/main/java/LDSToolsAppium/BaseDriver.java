@@ -633,6 +633,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability("simpleIsVisibleCheck", true);
 
             capabilities.setCapability("wdaLocalPort", tempPort);
+            capabilities.setCapability("locationServicesEnabled", true);
 
             if (myUdid != null) {
                 capabilities.setCapability("xcodeOrgId", "U3SP4KMCK6");

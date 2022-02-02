@@ -211,15 +211,19 @@ public class TemplesScreenTest extends BaseDriver {
             myBasePage.waitForElementThenClick(myBasePage.allowWhileUsingApp);
         }
 
-        Thread.sleep(8000);
-        pageSource = myBasePage.getSourceOfPage();
+//        Thread.sleep(12000);
+//        pageSource = myBasePage.getSourceOfPage();
 
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myBasePage.waitForText("Oakland");
+            pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Oakland", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Sacramento", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Fresno", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Reno", pageSource, "Contains"));
         } else {
+            myBasePage.waitForText("Oquirrh");
+            pageSource = myBasePage.getSourceOfPage();
             Assert.assertTrue(myBasePage.checkNoCaseList("Oquirrh", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Jordan", pageSource, "Contains"));
             Assert.assertTrue(myBasePage.checkNoCaseList("Draper", pageSource, "Contains"));

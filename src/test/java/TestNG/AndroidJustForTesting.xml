@@ -25,7 +25,6 @@
         </groups>
 
         <classes>
-<!--            <class name="LDSToolsAppium.BaseDriver"/>-->
 <!--            <class name="LDSToolsAppiumTest.testrunner.SacramentAttendanceRunner"> </class>-->
             <class name="LDSToolsAppiumTest.DirectoryScreenTest" />
 

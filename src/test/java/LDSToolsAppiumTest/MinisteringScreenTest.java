@@ -948,7 +948,7 @@ public class MinisteringScreenTest extends BaseDriver {
         unassignedSistersSub("ELDERS_QUORUM_SECRETARY");
     }
 
-    @Test(groups = {"all1", "all", "daily", "daily2", "jft"})
+    @Test(groups = {"all1", "all", "daily", "daily2"})
     public void unassignedSisters_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         unassignedSistersSub("RELIEF_SOCIETY_PRESIDENT");
     }
@@ -1069,7 +1069,7 @@ public class MinisteringScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4", "daily", "daily2"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "daily", "daily2", "jft"})
     public void ministeringAssignedSisters_BISHOP() throws Exception {
         ministeringAssignedSistersSub("BISHOP");
     }

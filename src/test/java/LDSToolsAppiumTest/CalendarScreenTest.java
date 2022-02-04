@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 public class CalendarScreenTest extends BaseDriver {
 
-    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3", "jft"})
+    @Test (groups = {"all3", "all", "smoke", "smoke4", "daily", "daily3"})
     public void calendarScreenCheck() throws Exception {
         String pageSource;
         BasePage myBasePage = new BasePage(driver);
@@ -57,7 +57,7 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4", "daily", "daily1"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "daily", "daily1", "jft"})
     public void calendarSimple_BISHOP() throws Exception {
         calendarSimpleSub("BISHOP");
     }

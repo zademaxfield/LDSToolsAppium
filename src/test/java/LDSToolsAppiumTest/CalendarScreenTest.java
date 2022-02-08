@@ -33,17 +33,17 @@ public class CalendarScreenTest extends BaseDriver {
         Assert.assertTrue(myCalendar.calendarTitle.isDisplayed());
 
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-            myCalendar.calendarEdit.click();
+            myBasePage.waitForElementThenClick(myCalendar.calendarEdit);
         } else {
-            myCalendar.calendarMoreOptions.click();
-            myCalendar.calendarsToDisplay.click();
+            myBasePage.waitForElementThenClick(myCalendar.calendarMoreOptions);
+            myBasePage.waitForElementThenClick(myCalendar.calendarsToDisplay);
         }
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(pageSource.contains("Calendars to display"));
         Assert.assertTrue(pageSource.contains("All calendars"));
         Assert.assertTrue(myCalendar.calendarSubscriptions.isDisplayed());
 
-        myCalendar.calendarSubscriptions.click();
+        myBasePage.waitForElementThenClick(myCalendar.calendarSubscriptions);
         pageSource = myBasePage.getSourceOfPage();
 
         Assert.assertTrue(pageSource.contains("All calendars"));
@@ -57,7 +57,7 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups = {"all4", "all", "smoke", "smoke4", "daily", "daily1", "jft"})
+    @Test (groups = {"all4", "all", "smoke", "smoke4", "daily", "daily1"})
     public void calendarSimple_BISHOP() throws Exception {
         calendarSimpleSub("BISHOP");
     }
@@ -206,7 +206,7 @@ public class CalendarScreenTest extends BaseDriver {
 
     //Todo: need a check to make sure all calendars are selected. Check iOS!
     //Todo: need to refactor this test to be better
-    @Test (groups = {"all", "all4", "daily", "daily3" })
+    @Test (groups = {"all", "all4", "daily", "daily3", "jft"})
     public void calenderSubscriptions() throws Exception {
         String pageSource;
         HelperMethods myHelper = new HelperMethods();
@@ -216,68 +216,48 @@ public class CalendarScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         CalendarsScreen myCalendar = new CalendarsScreen(driver);
 
-        //Login - need the sleep on slower devices
-//        Thread.sleep(20000);
-
         myHelper.proxyLogin("sungah");
         myHelper.enterPin("1", "1", "3", "3");
-
         //Go to Calendar
         myMenu.selectMenu(myMenu.calendar);
         Thread.sleep(2000);
-
-
-        //Scroll to Stake Presidency Interviews in case it is off the screen
-//        myBasePage.scrollToTextGeneral("Mission Prep Class");
-        myBasePage.scrollToTextGeneral("Family Home Evening");
-
-        //Check the page source to see Stake Presidency Interviews
+        myBasePage.scrollToTextGeneral("Temple Closed");
         pageSource = myBasePage.getSourceOfPage();
-//        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-//            Thread.sleep(10000);
-//            pageSource = pageSource + myBasePage.getSourceOfPageIDB();
-//            pageSource = pageSource + myBasePage.getSourceOfPage();
-//        }
-//        System.out.println(pageSource);
-        Assert.assertTrue(myBasePage.checkNoCaseList("Family Home Evening", pageSource, "contains"));
-
+        Assert.assertTrue(myBasePage.checkNoCaseList("Temple Closed", pageSource, "contains"));
         editCalendar();
-
         Thread.sleep(1000);
-        myCalendar.calendarSubscriptions.click();
-
+        myBasePage.waitForElementThenClick(myCalendar.calendarSubscriptions);
         myBasePage.scrollDownAndroidUIAutomator("0");
         myCalendar.checkCalendarToDisplay("Stake Calendar", "check");
-
-        myCalendar.calendarsSubscriptionsDone.click();
-
+        myBasePage.waitForElementThenClick(myCalendar.calendarsSubscriptionsDone);
         myBasePage.waitUnitlTextIsGone("Syncing");
         if (getRunningOS().equals("ios")) {
-            myCalendar.calendarDone.click();
+            myBasePage.waitForElementThenClick(myCalendar.calendarDone);
             Thread.sleep(2000);
         } else {
-            myBasePage.backButton.click();
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
         }
 
         myBasePage.scrollUp(500);
         //Check the page source for Stake Event
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertFalse(myBasePage.checkNoCaseList("Family Home Evening", pageSource, "contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("Temple Closed", pageSource, "contains"));
 
 
         //Clean up
         editCalendar();
         Thread.sleep(1000);
-        myCalendar.calendarSubscriptions.click();
+        myBasePage.waitForElementThenClick(myCalendar.calendarSubscriptions);
 
         myBasePage.scrollDownAndroidUIAutomator("0");
         myCalendar.checkCalendarToDisplay("Stake Calendar", "uncheck");
 
-        myCalendar.calendarsSubscriptionsDone.click();
+        myBasePage.waitForElementThenClick(myCalendar.calendarsSubscriptionsDone);
+
 
         myBasePage.waitUnitlTextIsGone("Syncing");
         if (getRunningOS().equals("ios")) {
-            myCalendar.calendarDone.click();
+            myBasePage.waitForElementThenClick(myCalendar.calendarDone);
             Thread.sleep(1000);
             myBasePage.scrollUpIOS();
             Thread.sleep(1000);
@@ -285,22 +265,14 @@ public class CalendarScreenTest extends BaseDriver {
             Thread.sleep(1000);
             myBasePage.scrollUpIOS();
         } else {
-            myBasePage.backButton.click();
+            myBasePage.waitForElementThenClick(myBasePage.backButton);
         }
 
         Thread.sleep(2000);
         //Check the page source to see Stake Presidency Interviews
-        myBasePage.scrollToTextGeneral("Family Home Evening");
+        myBasePage.scrollToTextGeneral("Temple Closed");
         pageSource = myBasePage.getSourceOfPage();
-//        myBasePage.scrollUp(500);
-//        pageSource = pageSource + myBasePage.getSourceOfPage();
-//        myBasePage.scrollDownAndroidUIAutomator("0");
-////        myBasePage.scrollDownTEST(500);
-//        pageSource = pageSource + myBasePage.getSourceOfPage();
-////        myBasePage.scrollDownTEST(500);
-//        myBasePage.scrollDownAndroidUIAutomator("0");
-//        pageSource = pageSource + myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Family Home Evening", pageSource, "contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Temple Closed", pageSource, "contains"));
 
 
     }

@@ -132,11 +132,9 @@ public class MeetinghousesScreen extends BasePage {
         if (getOS().equals("ios")) {
             meetinghousesSearchField.sendKeys(searchText);
             Thread.sleep(2000);
-//            meetinghousesSearchField.sendKeys("\n");
-            keyboardSearchButton.click();
+            waitForElementThenClick(keyboardSearchButton);
         } else {
-            meetinghousesSearchButton.click();
-//            System.out.println(getSourceOfPage());
+            waitForElementThenClick(meetinghousesSearchButton);
             meetinghousesSearchField.sendKeys(searchText);
             driver.get().getKeyboard().pressKey(Keys.ENTER);
         }

@@ -32,23 +32,22 @@ public class MeetinghousesScreenTest extends BaseDriver {
         myMenu.selectMenu(myMenu.meetinghouses);
 
         if (myBasePage.checkForElement(myMeetinghouses.meetinghousesAllow)) {
-            myMeetinghouses.meetinghousesAllow.click();
+            myBasePage.waitForElementThenClick(myMeetinghouses.meetinghousesAllow);
             Thread.sleep(5000);
         }
 
         if (!getRunningOS().equals("ios")) {
             driver.get().switchTo().alert();
-
-            myMeetinghouses.meetinghousesAllowAndroidPermissions.click();
+            myBasePage.waitForElementThenClick(myMeetinghouses.meetinghousesAllowAndroidPermissions);
         }
 
         Assert.assertTrue(myMeetinghouses.meetinghousesCurrentLocation.isDisplayed());
-        myMeetinghouses.meetinghousesCurrentLocation.click();
+        myBasePage.waitForElementThenClick(myMeetinghouses.meetinghousesCurrentLocation);
         Thread.sleep(4000);
         if (myBasePage.getOS().equalsIgnoreCase("android")) {
-            myMeetinghouses.meetinghousesMoreOptions.click();
+            myBasePage.waitForElementThenClick(myMeetinghouses.meetinghousesMoreOptions);
         }
-        myMeetinghouses.meetinghousesMapTypes.click();
+        myBasePage.waitForElementThenClick(myMeetinghouses.meetinghousesMapTypes);
 
         Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesRoad.isDisplayed());
         Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesSatellite.isDisplayed());
@@ -58,9 +57,9 @@ public class MeetinghousesScreenTest extends BaseDriver {
             Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesSatelliteFlyover.isDisplayed());
             Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesHybridFlyover.isDisplayed());
             Assert.assertTrue(myMeetinghouses.meetinghousesMapTypesHybridCancel.isDisplayed());
-            myMeetinghouses.meetinghousesMapTypesHybridCancel.click();
+            myBasePage.waitForElementThenClick(myMeetinghouses.meetinghousesMapTypesHybridCancel);
         } else {
-            myMeetinghouses.meetinghousesMapTypesRoad.click();
+            myBasePage.waitForElementThenClick(myMeetinghouses.meetinghousesMapTypesRoad);
         }
 
         selectMapType(myMeetinghouses.meetinghousesMapTypesRoad);
@@ -85,10 +84,10 @@ public class MeetinghousesScreenTest extends BaseDriver {
         MeetinghousesScreen myMeetinghouses = new MeetinghousesScreen(driver);
 
         if (myBasePage.getOS().equalsIgnoreCase("android")) {
-            myMeetinghouses.meetinghousesMoreOptions.click();
+            myBasePage.waitForElementThenClick(myMeetinghouses.meetinghousesMoreOptions);
         }
-        myMeetinghouses.meetinghousesMapTypes.click();
-        mapElement.click();
+        myBasePage.waitForElementThenClick(myMeetinghouses.meetinghousesMapTypes);
+        myBasePage.waitForElementThenClick(mapElement);
         Thread.sleep(2000);
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(pageSource.contains("Meetinghouses"));

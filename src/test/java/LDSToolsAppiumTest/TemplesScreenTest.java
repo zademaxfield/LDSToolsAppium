@@ -236,7 +236,7 @@ public class TemplesScreenTest extends BaseDriver {
         }
     }
 
-    @Test (groups= { "all", "all2", "daily", "daily3", "jft"})
+    @Test (groups= { "all", "all2", "daily", "daily3"})
     public void templeAllTemples() throws Exception {
         String pageSource;
 
@@ -363,39 +363,33 @@ public class TemplesScreenTest extends BaseDriver {
     }
 
 
-    @Test (groups= { "all", "all4", "daily", "daily2"})
+    @Test (groups= { "all", "all4", "daily", "daily2", "jft"})
     public void templeOrdinanceSchedule() throws Exception {
         String pageSource;
-
-
         HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
         TemplesScreen myTemple = new TemplesScreen(driver);
 
-
-
-
-
-//        myHelper.loginUAT("LDSTools3", "toolstester");
         myHelper.proxyLogin("adambee");
         myHelper.enterPin("1", "1", "3", "3");
 
 
         myMenu.selectMenu(myMenu.temples);
-        myTemple.yesRemindMe.click();
+        myBasePage.waitForElementThenClick(myTemple.yesRemindMe);
+
 
 
         if (myBasePage.checkForElement(myTemple.gotItThanks)) {
-            myTemple.gotItThanks.click();
+            myBasePage.waitForElementThenClick(myTemple.gotItThanks);
         }
 
         //Ordinance schedule is off for COVID
-//`        System.out.println(myBasePage.getSourceOfPage());
+//        System.out.println(myBasePage.getSourceOfPage());
 //        myTemple.ordinanceScheduleButton.click();
 //
 //        checkOrdinanceDate();
-//        checkTempleDates(10);`
+//        checkTempleDates(10);
 
 
     }

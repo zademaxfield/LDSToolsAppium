@@ -873,7 +873,7 @@ public class ReportsScreenTest extends BaseDriver {
             Assert.assertFalse(pageSource.contains("Maul, Darth"));
         } else {
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Batimana", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Maul, Darth", pageSource, "Contains"));
         }
 

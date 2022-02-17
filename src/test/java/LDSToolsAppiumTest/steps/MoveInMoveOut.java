@@ -64,13 +64,19 @@ public class MoveInMoveOut extends BaseDriver {
         myReports.moveRecordsMRNField.setValue("00004179234");
         Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsNext));
         myBasePage.waitForElementThenClick(myReports.moveRecordsNext);
+
+        //iOS has a select household member's page for one member - this may go away or Android might use this.
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsNext));
+            myBasePage.waitForElementThenClick(myReports.moveRecordsNext);
+        }
         //Moving Records In
         myBasePage.waitForText("Wydner, Bruce Jr.");
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(pageSource.contains("Wydner, Bruce Jr."));
         Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsAddressSelector));
         Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsLocateOnMap));
-        Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsCountry));
+        Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsCountry2));
         Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsAddress1));
         Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsAddress2));
         if (myBasePage.getOS().equalsIgnoreCase("android")) {
@@ -86,10 +92,17 @@ public class MoveInMoveOut extends BaseDriver {
         //Review
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(pageSource.contains("Wydner, Bruce Jr."));
-        Assert.assertTrue(pageSource.contains("000-0417-9234"));
-        Assert.assertTrue(pageSource.contains("Male - 42"));
-        Assert.assertTrue(pageSource.contains("Head of Household"));
-        Assert.assertTrue(pageSource.contains("Address will remain the same after the move"));
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            Assert.assertTrue(pageSource.contains("ADDRESS UNCHANGING"));
+        } else {
+            Assert.assertTrue(pageSource.contains("000-0417-9234"));
+            Assert.assertTrue(pageSource.contains("Male - 42"));
+            Assert.assertTrue(pageSource.contains("Head of Household"));
+            Assert.assertTrue(pageSource.contains("Address will remain the same after the move"));
+        }
+
+
+
         Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsMoveRecordsIn));
         Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsDiscardMove));
         myBasePage.waitForElementThenClick(myReports.moveRecordsDiscardMove);

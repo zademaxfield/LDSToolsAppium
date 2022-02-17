@@ -1,7 +1,7 @@
 @MoveRecordsInAndOut
 Feature: Test moving records in and out of a unit
 
-  @jft
+  @MQA-5655 @MQA-2225 @all @smoke @smoke2 @all2 @daily @daily2 @jft
   Scenario: Move in elements check
     Given a "BISHOP" logs in and is on Move Records In and Out page for "Elements Checker"
     When move in is selected

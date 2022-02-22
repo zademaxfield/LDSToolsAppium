@@ -1961,22 +1961,22 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 //            System.out.println("JSON Object!");
             myMissionary = gson.fromJson(jsonElement, ApiMissionary.class);
 
-
-            for (Assigned assignedMissionary : myMissionary.getAssigned()) {
+            if (myMissionary.getAssigned() != null) {
+                for (Assigned assignedMissionary : myMissionary.getAssigned()) {
 //                System.out.println("Assigned: " + assignedMissionary.getMission().toString() );
 //                System.out.println("Unit Numbers: " + assignedMissionary.getUnitNumbers().toString());
 //                System.out.println("Area ID: " + assignedMissionary.getAreaId().toString());
 //                System.out.println("Email: " + assignedMissionary.getEmail().toString());
 //                System.out.println("Phone: " + assignedMissionary.getPhone().toString());
 
-                for (Missionary missionaries : assignedMissionary.getMissionaries()) {
+                    for (Missionary missionaries : assignedMissionary.getMissionaries()) {
 //                    System.out.println("Missionaries Display Name: " + missionaries.getDisplayName());
 //                    System.out.println("Missionaries Preferred Name: " + missionaries.getPreferredName());
-                    memberNames.add(missionaries.getPreferredName());
+                        memberNames.add(missionaries.getPreferredName());
+                    }
                 }
-//                memberNames.add(assignedMissionary.getMissionaries()));
-
             }
+
 
         } else if (jsonElement instanceof JsonArray) {
 //                System.out.println("JSON Array!");

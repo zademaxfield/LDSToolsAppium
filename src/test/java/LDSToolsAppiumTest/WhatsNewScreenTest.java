@@ -30,9 +30,9 @@ public class WhatsNewScreenTest extends BaseDriver {
         pageSource = myBasePage.getSourceOfPage();
         Assert.assertTrue(myBasePage.checkNoCaseList("What's New", pageSource, "Contains"));
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
-            Assert.assertTrue(myBasePage.checkNoCaseList("Returned Missionaries", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Moving Records", pageSource, "Contains"));
         } else {
-            Assert.assertTrue(myBasePage.checkNoCaseList("Record Ordinances", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Moving Records", pageSource, "Contains"));
         }
 
         myBasePage.waitForElementThenClick(myWhatsNew.whatsNewDone);

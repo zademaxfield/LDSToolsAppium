@@ -789,10 +789,15 @@ public class ReportsScreenTest extends BaseDriver {
 //        myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
         //Just take the first 5 members in the list
-        for (int i = 0; i < 3; i++ ) {
-            shortList.add(memberList.get(i));
+        if (memberList.isEmpty()) {
+            System.out.println("No new members!");
+        } else {
+            for (int i = 0; i < 3; i++ ) {
+                shortList.add(memberList.get(i));
+            }
+            myBasePage.apiCheckData(shortList);
         }
-        myBasePage.apiCheckData(shortList);
+
 
 
 

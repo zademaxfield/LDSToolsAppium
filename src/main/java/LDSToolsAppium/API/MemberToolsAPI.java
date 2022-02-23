@@ -1712,10 +1712,12 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
 //            System.out.println("JSON Object!");
             myReport = gson.fromJson(jsonElement, ApiReports.class);
 
-
-            for (ReportNewMember myNewMember : myReport.getNewMembers()) {
-                memberNames.add(getNameFromUuid( myNewMember.getUuid(), unitNumber, proxyLogin, "personal"));
+            if (myReport.getNewMembers() != null ) {
+                for (ReportNewMember myNewMember : myReport.getNewMembers()) {
+                    memberNames.add(getNameFromUuid( myNewMember.getUuid(), unitNumber, proxyLogin, "personal"));
+                }
             }
+
 
         } else if (jsonElement instanceof JsonArray) {
 //                System.out.println("JSON Array!");

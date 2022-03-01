@@ -68,6 +68,7 @@ public class MoveInMoveOut extends BaseDriver {
         //iOS has a select household member's page for one member - this may go away or Android might use this.
         if (myBasePage.getOS().equalsIgnoreCase("ios")) {
             Assert.assertTrue(myBasePage.checkForElement(myReports.moveRecordsNext));
+            Thread.sleep(500);
             myBasePage.waitForElementThenClick(myReports.moveRecordsNext);
         }
         //Moving Records In

@@ -50,7 +50,58 @@ public class APITest {
     public void apiInfoTestStuff() throws Exception {
         int codeTest = 0;
         int responseCode = 0;
-//
+        List<String> callingAndLoginName = new ArrayList<String>();
+        Map<String, String> unitMap = new HashMap<String, String>();
+        unitMap.put("4", "BISHOP");
+        unitMap.put("54", "BISHOPRIC_FIRST_COUNSELOR");
+        unitMap.put("55", "BISHOPRIC_SECOND_COUNSELOR");
+        unitMap.put("56", "WARD_EXECUTIVE_SECRETARY");
+        unitMap.put("57", "WARD_CLERK");
+        unitMap.put("58", "WARD_ASSISTANT_CLERK");
+        unitMap.put("138", "ELDERS_QUORUM_PRESIDENT");
+        unitMap.put("139", "ELDERS_QUORUM_FIRST_COUNSELOR");
+        unitMap.put("140", "ELDERS_QUORUM_SECOND_COUNSELOR");
+        unitMap.put("143", "ELDERS_QUORUM_SECRETARY");
+        unitMap.put("141", "RELIEF_SOCIETY_PRESIDENT");
+        unitMap.put("144", "RELIEF_SOCIETY_FIRST_COUNSELOR");
+        unitMap.put("145", "RELIEF_SOCIETY_SECOND_COUNSELOR");
+        unitMap.put("146", "RELIEF_SOCIETY_SECRETARY");
+        unitMap.put("162", "PRIESTS_QUORUM_ADVISER");
+        unitMap.put("163", "TEACHERS_QUORUM_ADVISER");
+        unitMap.put("183", "DEACONS_QUORUM_ADVISER");
+        unitMap.put("164", "YOUNG_WOMEN_PRESIDENT");
+        unitMap.put("184", "YOUNG_WOMEN_FIRST_COUNSELOR");
+        unitMap.put("185", "YOUNG_WOMEN_SECOND_COUNSELOR");
+        unitMap.put("186", "YOUNG_WOMEN_SECRETARY");
+        unitMap.put("204", "SUNDAY_SCHOOL_PRESIDENT");
+        unitMap.put("205", "SUNDAY_SCHOOL_FIRST_COUNSELOR");
+        unitMap.put("206", "SUNDAY_SCHOOL_SECOND_COUNSELOR");
+        unitMap.put("207", "SUNDAY_SCHOOL_SECRETARY");
+        unitMap.put("221", "WARD_MISSION_LEADER");
+
+        //Accounts!!
+//        memberList = apiTest.getAccounts("39373", "183");
+//        for (String myUsername: memberList) {
+//            System.out.println("LIST NAME: " + myUsername);
+//        }
+
+        for (String callingId: unitMap.keySet()) {
+            memberList = apiTest.getAccounts("39373", callingId);
+//            System.out.println("Calling: " + unitMap.get(callingId) );
+            for (String myUsername: memberList) {
+//                System.out.println("Calling Username: " + myUsername);
+                callingAndLoginName.add(unitMap.get(callingId)  + "," + myUsername );
+            }
+        }
+
+        for (String loginWithCalling : callingAndLoginName) {
+            System.out.println(loginWithCalling);
+        }
+
+
+
+
+
         Map<String, Object> myMap = new HashMap<>();
 //        myMap = apiTest.getExpenses("mbthomas74", "21628", "Qqqqqqqqqqqqq");
 //
@@ -68,10 +119,7 @@ public class APITest {
 //        apiTest.ordinanceDelete("Barba, Cristian Jesus", "21628", "mbthomas74");
 
 
-        //Accounts!!
-        myMap = apiTest.getAccounts("501409", "94");
-        System.out.println(myMap);
-        System.out.println("Username: " + myMap.get("username"));
+
 
 
 //        memberList = apiTest.getInfoFromMinisteringBrothers("mbthomas74",  "21628", "sisters");

@@ -114,6 +114,7 @@ public class ReportsScreenTest extends BaseDriver {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
         callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
+//        callingRights = myHelper.getMemberNameFromList(callingForMember, "Maplewood 2nd");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         reportsBasicCheckSubCheckNewRights(Integer.parseInt(callingRights[2]), callingRights[1]);

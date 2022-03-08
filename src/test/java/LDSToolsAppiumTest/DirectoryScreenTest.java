@@ -371,7 +371,7 @@ public class DirectoryScreenTest extends BaseDriver {
         checkMemberInfoKenRyan();
     }
 
-    @Test(groups = {"goat"}, invocationCount = 10)
+    @Test(groups = {"goat"}, invocationCount = 100)
     public void directoryLoginTest() throws Exception {
         // ********* Constructor **********
         HelperMethods myHelper = new HelperMethods();
@@ -948,7 +948,7 @@ public class DirectoryScreenTest extends BaseDriver {
 //    }
 
 
-    @Test(groups = {"goat"})
+    @Test(groups = {"notUsed"})
     public void testJunitReport() throws Exception {
         MemberToolsAPI myApi = new MemberToolsAPI();
 //        myApi.toolsService();

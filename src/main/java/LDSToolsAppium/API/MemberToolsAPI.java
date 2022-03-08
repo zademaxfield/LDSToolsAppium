@@ -995,14 +995,15 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
     }
 
 
-    public Map<String, Object> getAccounts(String unitNumber, String accountPosition) throws Exception {
+    public List<String> getAccounts(String unitNumber, String accountPosition) throws Exception {
         JsonParser parser = new JsonParser();
         String responseData;
         Gson gson = new Gson();
         ApiAccount myAccount = new ApiAccount();
-
+        ArrayList<String> memberNames = new ArrayList<String>();
 
         Map<String, Object> myMap = new HashMap<>();
+        int accountInt = Integer.parseInt(accountPosition);
 
         List<String> foundExpense = null;
         Type apiAccount = new TypeToken<ArrayList<ApiAccount>>(){}.getType();
@@ -1026,6 +1027,9 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
                 myMap.put("member", foundMember.getMember());
                 myMap.put("homeUnits", foundMember.getHomeUnits());
                 for(PositionAccount positions: foundMember.getPositions()) {
+                    if (positions.getId().equals(accountInt)) {
+                        memberNames.add(foundMember.getUsername());
+                    }
                     myMap.put("id" + myCounter, positions.getId());
                     myMap.put("type" + myCounter, positions.getType());
                     myMap.put("unitNumber" + myCounter, positions.getUnitNumber());
@@ -1033,8 +1037,11 @@ public class MemberToolsAPI extends AbstractTestNGCucumberTests {
                 }
             }
         }
+//        for (String myUsername: memberNames) {
+//            System.out.println("LIST NAME: " + myUsername);
+//        }
 
-        return myMap;
+        return memberNames;
     }
 
 

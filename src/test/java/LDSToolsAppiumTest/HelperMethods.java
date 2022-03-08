@@ -1364,6 +1364,10 @@ public class HelperMethods extends BaseDriver {
             sc = new Scanner(new File("src/main/java/LDSToolsAppium/Units/callings_members_AuburnHills.csv"));
         }
 
+        if (unit.equalsIgnoreCase("Maplewood 2nd")) {
+            sc = new Scanner(new File("src/main/java/LDSToolsAppium/Units/callings_members_Maplewood2nd.csv"));
+        }
+
 
         while (sc.hasNext()) {
             memberList.add(sc.nextLine());

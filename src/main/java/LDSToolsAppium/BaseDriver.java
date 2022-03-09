@@ -62,6 +62,9 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
     public String stfURL = "http://10.109.45.146:7100";
     public String testDevice = "";
 
+    public String memberLogin = "dsoneil";
+    public String unitNumber = "39373";
+
     public String androidAppPackage = "org.lds.ldstools.alpha";
 
     public ThreadLocal<String> dataTestName = new ThreadLocal<>();

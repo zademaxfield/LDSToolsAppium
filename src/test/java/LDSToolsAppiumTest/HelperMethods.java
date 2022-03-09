@@ -1343,7 +1343,7 @@ public class HelperMethods extends BaseDriver {
                 LOGGER.info("Calling: " + calling);
                 LOGGER.info("Login Name: " + loginName);
                 LOGGER.info("rights: " + rights);
-
+                memberLogin = loginName;
             }
         }
 
@@ -1358,14 +1358,17 @@ public class HelperMethods extends BaseDriver {
 
         if (unit.equalsIgnoreCase("Centinela 1st")) {
             sc = new Scanner(new File("src/main/java/LDSToolsAppium/Units/callings_members_Centinela1st.csv"));
+            unitNumber = "21628";
         }
 
         if (unit.equalsIgnoreCase("Auburn Hills")) {
             sc = new Scanner(new File("src/main/java/LDSToolsAppium/Units/callings_members_AuburnHills.csv"));
+            unitNumber = "111074";
         }
 
         if (unit.equalsIgnoreCase("Maplewood 2nd")) {
             sc = new Scanner(new File("src/main/java/LDSToolsAppium/Units/callings_members_Maplewood2nd.csv"));
+            unitNumber = "39373";
         }
 
 

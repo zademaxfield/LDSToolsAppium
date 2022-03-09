@@ -21,100 +21,100 @@ public class ReportsScreenTest extends BaseDriver {
     }
 
     @Test (groups = {"all2", "all"})
-    public void missionaryTest_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
+    public void reportsBasic_BISHOPRIC_FIRST_COUNSELOR() throws Exception {
         reportsBasicCheckSub("BISHOPRIC_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all3", "all"})
-    public void missionaryTest_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
+    public void reportsBasic_BISHOPRIC_SECOND_COUNSELOR() throws Exception {
         reportsBasicCheckSub("BISHOPRIC_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all4", "all"})
-    public void missionaryTest_WARD_CLERK() throws Exception {
+    public void reportsBasic_WARD_CLERK() throws Exception {
         reportsBasicCheckSub("WARD_CLERK");
     }
 
     @Test(groups = {"all1", "all"})
-    public void missionaryTest_WARD_ASSISTANT_CLERK() throws Exception {
+    public void reportsBasic_WARD_ASSISTANT_CLERK() throws Exception {
         reportsBasicCheckSub("WARD_ASSISTANT_CLERK");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_WARD_EXECUTIVE_SECRETARY() throws Exception {
+    public void reportsBasic_WARD_EXECUTIVE_SECRETARY() throws Exception {
         reportsBasicCheckSub("WARD_EXECUTIVE_SECRETARY");
     }
 
     @Test(groups = {"all3", "all"})
-    public void missionaryTest_MEMBER1() throws Exception {
+    public void reportsBasic_MEMBER1() throws Exception {
         reportsBasicCheckSub("MEMBER1");
     }
 
     @Test(groups = {"all4", "all"})
-    public void missionaryTest_MEMBER2() throws Exception {
+    public void reportsBasic_MEMBER2() throws Exception {
         reportsBasicCheckSub("MEMBER2");
     }
 
     @Test(groups = {"all1", "all", "daily", "daily2"})
-    public void missionaryTest_ELDERS_QUORUM_PRESIDENT() throws Exception {
+    public void reportsBasic_ELDERS_QUORUM_PRESIDENT() throws Exception {
         reportsBasicCheckSub("ELDERS_QUORUM_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
+    public void reportsBasic_ELDERS_QUORUM_FIRST_COUNSELOR() throws Exception {
         reportsBasicCheckSub("ELDERS_QUORUM_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all3", "all"})
-    public void missionaryTest_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
+    public void reportsBasic_ELDERS_QUORUM_SECOND_COUNSELOR() throws Exception {
         reportsBasicCheckSub("ELDERS_QUORUM_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all4", "all"})
-    public void missionaryTest_ELDERS_QUORUM_SECRETARY() throws Exception {
+    public void reportsBasic_ELDERS_QUORUM_SECRETARY() throws Exception {
         reportsBasicCheckSub("ELDERS_QUORUM_SECRETARY");
     }
 
     @Test(groups = {"all1", "all", "daily", "daily3"})
-    public void missionaryTest_RELIEF_SOCIETY_PRESIDENT() throws Exception {
+    public void reportsBasic_RELIEF_SOCIETY_PRESIDENT() throws Exception {
         reportsBasicCheckSub("RELIEF_SOCIETY_PRESIDENT");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
+    public void reportsBasic_RELIEF_SOCIETY_FIRST_COUNSELOR() throws Exception {
         reportsBasicCheckSub("RELIEF_SOCIETY_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all3", "all"})
-    public void missionaryTest_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
+    public void reportsBasic_RELIEF_SOCIETY_SECOND_COUNSELOR() throws Exception {
         reportsBasicCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all4", "all", "daily", "daily4"})
-    public void missionaryTest_YOUNG_WOMEN_PRESIDENT() throws Exception {
+    public void reportsBasic_YOUNG_WOMEN_PRESIDENT() throws Exception {
         reportsBasicCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
 
     @Test(groups = {"all1", "all"})
-    public void missionaryTest_WOMEN_SECOND_COUNSELOR() throws Exception {
+    public void reportsBasic_WOMEN_SECOND_COUNSELOR() throws Exception {
         reportsBasicCheckSub("WOMEN_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
-    public void missionaryTest_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+    public void reportsBasic_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
         reportsBasicCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 
     @Test(groups = {"all3", "all"})
-    public void missionaryTest_WARD_MISSION_LEADER() throws Exception {
+    public void reportsBasic_WARD_MISSION_LEADER() throws Exception {
         reportsBasicCheckSub("WARD_MISSION_LEADER");
     }
 
     public void reportsBasicCheckSub(String callingForMember) throws Exception {
         String[] callingRights;
         HelperMethods myHelper = new HelperMethods();
-        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
-//        callingRights = myHelper.getMemberNameFromList(callingForMember, "Maplewood 2nd");
+//        callingRights = myHelper.getMemberNameFromList(callingForMember, "Centinela 1st");
+        callingRights = myHelper.getMemberNameFromList(callingForMember, "Maplewood 2nd");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
         reportsBasicCheckSubCheckNewRights(Integer.parseInt(callingRights[2]), callingRights[1]);
@@ -158,7 +158,7 @@ public class ReportsScreenTest extends BaseDriver {
             myBasePage.rightsCheckNewRights("Members with Callings", 4, rights, pageSource);
             myBasePage.rightsCheckNewRights("Members without Callings", 4, rights, pageSource);
             // myBasePage.rightsCheck("Missionary Progress Record", 2, rights, pageSource);
-            myBasePage.rightsCheckNewRights("New Members", 4, rights, pageSource);
+//            myBasePage.rightsCheckNewRights("New Members", 4, rights, pageSource);
             myBasePage.rightsCheckNewRights("Temple Recommend Status", 6, rights, pageSource);
             myBasePage.rightsCheckNewRights("Unit Statistics", 4, rights, pageSource);
             myBasePage.rightsCheckNewRights("Quarterly Report", 4, rights, pageSource);
@@ -169,7 +169,7 @@ public class ReportsScreenTest extends BaseDriver {
 //            getMembersMovedOutReport(rights);
             getMembersWithCallings(rights);
             getMembersWithOutCallings(rights);
-            getNewMembers(rights);
+//            getNewMembers(rights);
             getUnitStats(rights);
 
             //Bishopric Only Reports
@@ -334,13 +334,13 @@ public class ReportsScreenTest extends BaseDriver {
 //        myReports.childrenApproachingBaptismAgeReport.click();
         Thread.sleep(2000);
 
-        checkActionAndInterviewApi("Children Approaching Baptism Age","mbthomas74", "21628");
+        checkActionAndInterviewApi("Children Approaching Baptism Age",memberLogin, unitNumber);
         myBasePage.backButton.click();
 
         //Unbaptized Members
         myBasePage.waitForElementThenClick(myReports.unbaptizedMembersReport);
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Unbaptized Members","mbthomas74", "21628");
+        checkActionAndInterviewApi("Unbaptized Members",memberLogin, unitNumber);
         myBasePage.backButton.click();
 
 
@@ -348,7 +348,7 @@ public class ReportsScreenTest extends BaseDriver {
 //        myBasePage.scrollToText("Overdue Aaronic Priesthood Ordinations");
         myBasePage.waitForElementThenClick(myReports.overdueAaronicPriesthoodOrdinationsReport);
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Overdue Aaronic Priesthood Ordinations","mbthomas74", "21628");
+        checkActionAndInterviewApi("Overdue Aaronic Priesthood Ordinations",memberLogin,unitNumber);
         myBasePage.backButton.click();
 
         //Young Single Adult Interview
@@ -358,39 +358,39 @@ public class ReportsScreenTest extends BaseDriver {
 //        myBasePage.scrollDownTEST(1000);
         myBasePage.waitForElementThenClick(myReports.youngSingleAdultInterviewsReport);
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Young Single Adult Interviews","mbthomas74", "21628");
+        checkActionAndInterviewApi("Young Single Adult Interviews",memberLogin, unitNumber);
         myBasePage.backButton.click();
 
         //Bishops Youth Interviews
         myBasePage.waitForElementThenClick(myReports.bishopsYouthInterviewsReport);
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Bishop’s Youth Interviews","mbthomas74", "21628");
+        checkActionAndInterviewApi("Bishop’s Youth Interviews",memberLogin, unitNumber);
         myBasePage.backButton.click();
 
         //Bishops Counselor Youth Interviews
         myBasePage.waitForElementThenClick(myReports.bishopricCounselorYouthInterviewsReport);
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Bishopric Counselor Youth Interviews","mbthomas74", "21628");
+        checkActionAndInterviewApi("Bishopric Counselor Youth Interviews",memberLogin, unitNumber);
         myBasePage.backButton.click();
 
         //TODO: Need to check if the report exists
         //Young Men Approaching Mission Age
 //        myReports.youngMenApproachingMissionAgeReport.click();
 //        Thread.sleep(2000);
-//        checkActionAndInterviewApi("Young Men Approaching Mission Age","mbthomas74", "21628");
+//        checkActionAndInterviewApi("Young Men Approaching Mission Age",memberLogin, unitNumber);
 //        myBasePage.backButton.click();
 
         //Men Who Have Not Served a Mission
         myBasePage.waitForElementThenClick(myReports.menWhoHaveNotServedaMissionReport);
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Men Who Have Not Served a Mission","mbthomas74", "21628");
+        checkActionAndInterviewApi("Men Who Have Not Served a Mission",memberLogin, unitNumber);
         myBasePage.backButton.click();
 
 
         //Potential Missionary Couples
         myBasePage.waitForElementThenClick(myReports.potentialMissionaryCouplesReport);
         Thread.sleep(2000);
-        checkActionAndInterviewApi("Potential Missionary Couples","mbthomas74", "21628");
+        checkActionAndInterviewApi("Potential Missionary Couples",memberLogin, unitNumber);
         myBasePage.backButton.click();
 
     }
@@ -658,7 +658,7 @@ public class ReportsScreenTest extends BaseDriver {
         myReports.membersMovedOutReport.click();
         Thread.sleep(2000);
 
-        memberList = apiTest.getNamesFromMembersMovedOut("mbthomas74", "21628");
+        memberList = apiTest.getNamesFromMembersMovedOut(memberLogin, unitNumber);
 
         //Just take the first 5 members in the list
         for (int i = 0; i < 4; i++ ) {
@@ -684,19 +684,20 @@ public class ReportsScreenTest extends BaseDriver {
 
 //        myBasePage.waitForText("Ahmanson");
 
+        //Todo: check ios
         //This is broken for iOS right now
         if (!getRunningOS().equalsIgnoreCase("ios")) {
             pageSource = myBasePage.getSourceOfPage();
 //        System.out.println(pageSource);
-            Assert.assertTrue(myBasePage.checkNoCaseList("Anderson", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Greeter", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Allen", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Colby", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Skywalker, Anakin", pageSource, "Equals"));
 
             myReports.selectSort(myReports.organizationSort);
             Thread.sleep(3000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Thomas", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Mark", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Workman", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Twitchell", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Obi-Wan", pageSource, "Equals"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Kenobi", pageSource, "Equals"));
 
@@ -704,16 +705,16 @@ public class ReportsScreenTest extends BaseDriver {
             myReports.selectSort(myReports.durationSort);
             Thread.sleep(3000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Resource", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Talanoa", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Pratt", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("John", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Amidala, Padme", pageSource, "Contains"));
 
 
             myReports.selectSort(myReports.notSetApartSort);
             Thread.sleep(3000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Deacons", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Ryan", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Clerk", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Nielson", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("P0, C3", pageSource, "Contains"));
         }
 
@@ -744,25 +745,25 @@ public class ReportsScreenTest extends BaseDriver {
         if (!getRunningOS().equalsIgnoreCase("ios")) {
             pageSource = myBasePage.getSourceOfPage();
 
-            Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Dewayne", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Britney", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Allen", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Agba", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Fadi", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("D2, R2", pageSource, "Contains"));
 
 
             myReports.selectSort(myReports.maleSort);
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Adams, Dewayne", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Aleman, Hector", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Amos, Jason", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Agba, Nicholas Ugochukwu", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Binks, Jarjar", pageSource, "Contains"));
 
 
             myReports.selectSort(myReports.femaleSort);
             Thread.sleep(2000);
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
-            Assert.assertTrue(myBasePage.checkNoCaseList("Lisa", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Allen", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Tonya", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Organa, Leia", pageSource, "Contains"));
         }
 
@@ -785,7 +786,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
 
         pageSource = myBasePage.getSourceOfPage();
-        memberList = apiTest.getNewMembers("mbthomas74", "21628");
+        memberList = apiTest.getNewMembers(memberLogin, unitNumber);
         java.util.Collections.sort(memberList);
 //        myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
@@ -827,7 +828,7 @@ public class ReportsScreenTest extends BaseDriver {
         Thread.sleep(1000);
         pageSource = myBasePage.getSourceOfPage();
 
-        memberList = apiTest.getReportUnitStatsNumbers("mbthomas74", "21628");
+        memberList = apiTest.getReportUnitStatsNumbers(memberLogin, unitNumber);
         myBasePage.apiCheckDataPageSource(memberList, pageSource);
 
 //        myBasePage.rightsCheck("21", 3, rights, pageSource);
@@ -860,7 +861,7 @@ public class ReportsScreenTest extends BaseDriver {
             Assert.assertFalse(pageSource.contains("Ahsoka, Tano"));
         } else {
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Adams", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Allen", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Ahsoka, Tano", pageSource, "Contains"));
         }
 
@@ -879,7 +880,7 @@ public class ReportsScreenTest extends BaseDriver {
             Assert.assertFalse(pageSource.contains("Maul, Darth"));
         } else {
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Alvaira", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Allen", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Maul, Darth", pageSource, "Contains"));
         }
 
@@ -913,7 +914,7 @@ public class ReportsScreenTest extends BaseDriver {
             Assert.assertFalse(pageSource.contains("Jinn, Qui-Gon"));
         } else {
             pageSource = myBasePage.getSourceOfPage();
-            Assert.assertTrue(myBasePage.checkNoCaseList("Johnston", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Agba", pageSource, "Contains"));
             Assert.assertFalse(myBasePage.checkNoCaseList("Jinn, Qui-Gon", pageSource, "Contains"));
         }
 

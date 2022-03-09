@@ -15,7 +15,7 @@ import java.util.List;
 public class ReportsScreenTest extends BaseDriver {
 
 
-    @Test (groups = {"all1", "all", "smoke", "smoke1", "report", "daily", "daily1", "jft"})
+    @Test (groups = {"all1", "all", "smoke", "smoke1", "report", "daily", "daily1"})
     public void reportsBasic_BISHOP() throws Exception {
         reportsBasicCheckSub("BISHOP");
     }
@@ -289,13 +289,13 @@ public class ReportsScreenTest extends BaseDriver {
 
 
 //        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.proxyLogin("mbthomas74");
+        myHelper.proxyLogin("dsoneil");
         myHelper.enterPin("1", "1", "3", "3");
 
 
         myMenu.selectMenu(myMenu.reports);
-        myReports.actionAndInterviewListReport.click();
-        myReports.childrenApproachingBaptismAgeReport.click();
+        myBasePage.waitForElementThenClick(myReports.actionAndInterviewListReport);
+        myBasePage.waitForElementThenClick(myReports.childrenApproachingBaptismAgeReport);
 
         Thread.sleep(2000);
         myBasePage.backButton.click();
@@ -321,7 +321,7 @@ public class ReportsScreenTest extends BaseDriver {
         MenuScreen myMenu = new MenuScreen(driver);
         ReportsScreen myReports = new ReportsScreen(driver);
 
-        myHelper.proxyLogin("mbthomas74");
+        myHelper.proxyLogin("dsoneil");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -426,7 +426,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
     //There is no API for this
-    @Test (groups = {"all3", "all", "report", "daily", "daily4"})
+    @Test (groups = {"all3", "all", "report", "daily", "daily4", "jft"})
     public void reportsYouthRecommendStatus() throws Exception {
         String pageSource;
 
@@ -438,7 +438,7 @@ public class ReportsScreenTest extends BaseDriver {
 
 
 //        myHelper.loginUAT("LDSTools3", "toolstester");
-        myHelper.proxyLogin("mbthomas74");
+        myHelper.proxyLogin("dsoneil");
         myHelper.enterPin("1", "1", "3", "3");
 
 
@@ -461,9 +461,7 @@ public class ReportsScreenTest extends BaseDriver {
         pageSource = myBasePage.getSourceOfPage();
 
         //TEST
-        Assert.assertTrue(myBasePage.checkNoCaseList("Batimana", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
-//        Assert.assertTrue(myBasePage.checkNoCaseList("2021", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Conteh", pageSource, "Contains"));
         Assert.assertTrue(myBasePage.checkNoCaseList("Limited-Use", pageSource, "Contains"));
 
         //TODO: Need a way to test this for iOS. iOS does this very different.
@@ -490,8 +488,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Callahan", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Batimana", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Conteh", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Lucas", pageSource, "Contains"));
 
     }
 
@@ -504,7 +502,7 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-//        Assert.assertTrue(myBasePage.checkNoCaseList("Lesa", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Expiring", pageSource, "Contains"));
 //        Assert.assertTrue(myBasePage.checkNoCaseList("Sisilia", pageSource, "Contains"));
 
     }
@@ -518,8 +516,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Johnston", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Fonua", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Odibi", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Oliva", pageSource, "Contains"));
 
     }
 
@@ -532,8 +530,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Auton", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("James", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Davis", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mary", pageSource, "Contains"));
 
     }
 
@@ -546,8 +544,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Jose", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("Barba", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("McCombs", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Petry", pageSource, "Contains"));
 
     }
 
@@ -560,8 +558,8 @@ public class ReportsScreenTest extends BaseDriver {
 
         pageSource = myBasePage.getSourceOfPage();
 
-        Assert.assertTrue(myBasePage.checkNoCaseList("Auton", pageSource, "Contains"));
-        Assert.assertTrue(myBasePage.checkNoCaseList("James", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Davis", pageSource, "Contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("Mary", pageSource, "Contains"));
 
     }
 

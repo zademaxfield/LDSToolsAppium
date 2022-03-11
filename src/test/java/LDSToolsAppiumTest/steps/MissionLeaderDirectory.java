@@ -14,6 +14,7 @@ import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class MissionLeaderDirectory extends BaseDriver {
     BasePage myBasePage = new BasePage(driver);
@@ -25,11 +26,13 @@ public class MissionLeaderDirectory extends BaseDriver {
     WhatsNewScreen myWhatsNew = new WhatsNewScreen(driver);
     String pageSource;
 
-    @Given("a Mission President logs in")
-    public void aMissionPresidentLogsIn() throws Exception {
-        myHelper.proxyLogin("kumfy");
+    @Given("a member {string} logs in")
+    public void aMemberLogsIn(String memberLogin) throws Exception {
+        LOGGER.info("a member " + memberLogin + "logs in");
+        myHelper.proxyLogin(memberLogin);
         myHelper.enterPin("1", "1", "3", "3");
     }
+
 
     @When("they check their Mission under Directory")
     public void theyCheckTheirMissionUnderDirectory() throws Exception {
@@ -63,11 +66,6 @@ public class MissionLeaderDirectory extends BaseDriver {
         Assert.assertTrue(pageSource.contains("zachary@compguy.com"));
     }
 
-    @Given("a returned missionary logs in")
-    public void aReturnedMissionaryLogsIn() throws Exception {
-        myHelper.proxyLogin("zsgallafent");
-        myHelper.enterPin("1", "1", "3", "3");
-    }
 
     @When("the Whats New Page is displayed")
     public void theWhatsNewPageIsDisplayed() throws Exception {
@@ -78,9 +76,10 @@ public class MissionLeaderDirectory extends BaseDriver {
     @Then("the missionary opt in will be displayed")
     public void theMissionaryOptInWillBeDisplayed() throws Exception {
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(pageSource.contains("Former Mission Leader"));
+//        Assert.assertTrue(pageSource.contains("Former Mission Leader"));
         Assert.assertTrue(pageSource.contains("Ukraine"));
         Assert.assertTrue(pageSource.contains("Kumferman"));
+        Assert.assertTrue(pageSource.contains("Rizley"));
     }
 
     @Given("a Mission President companion logs in")
@@ -98,7 +97,8 @@ public class MissionLeaderDirectory extends BaseDriver {
             myBasePage.scrollToTextGeneral("Mission Leader Access");
         } else {
             //select ios menu but it doesn't always show up.
-
+            myBasePage.waitForElementThenClick(mySettings.missionLeaderLimitedVisibility);
+//            System.out.println(myBasePage.getSourceOfPage());
         }
     }
 
@@ -114,8 +114,7 @@ public class MissionLeaderDirectory extends BaseDriver {
         }
     }
 
-//    Todo: Choose between settings and Whats New
-//          Choosing whats new because of settings bug in iOS
+
     public void toggleMissionLeaderAccess(String onOrOff) throws Exception {
         String toggleStatus;
         List<MobileElement> toggleButton = new ArrayList<>();
@@ -123,10 +122,12 @@ public class MissionLeaderDirectory extends BaseDriver {
         if (myBasePage.getOS().equalsIgnoreCase("android")) {
             myMenu.selectMenu(myMenu.settings);
             myBasePage.scrollToTextGeneral("Refresh Data"); //This might need to be something different
-            toggleButton = driver.get().findElements(By.xpath("//android.widget.TextView[@resource-id='org.lds.ldstools.alpha:id/secondaryTextView']/following-sibling::org.lds.ldstools.alpha:id/switchView"));
+//            toggleButton = driver.get().findElements(By.xpath("//android.widget.TextView[@resource-id='org.lds.ldstools.alpha:id/secondaryTextView']/following-sibling::org.lds.ldstools.alpha:id/switchView"));
+            toggleButton = driver.get().findElements(By.xpath("//android.widget.TextView[contains(@text, 'Texas Houston')]/following-sibling::android.widget.Switch"));
         } else {
-            myMenu.selectMenu(myMenu.help);
-            myWhatsNew.helpWhatsNew.click();
+            myMenu.selectMenu(myMenu.settings);
+            myBasePage.waitForElementThenClick(mySettings.missionLeaderLimitedVisibility);
+            Thread.sleep(2000);
             toggleButton = driver.get().findElements(By.xpath("//XCUIElementTypeSwitch"));
         }
 
@@ -138,19 +139,39 @@ public class MissionLeaderDirectory extends BaseDriver {
             }
 
             if (onOrOff.equalsIgnoreCase("on")) {
-                if (toggleStatus.equalsIgnoreCase("true")) {
-                    System.out.println("Button is on - nothing to do");
+                if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+                    if (toggleStatus.equalsIgnoreCase("1")) {
+                        System.out.println("Button is on - nothing to do");
+                    } else {
+                        System.out.println("Button is off - turning on");
+                        missionLeaderButton.click();
+                    }
                 } else {
-                    System.out.println("Button is off - turning on");
-                    missionLeaderButton.click();
+                    if (toggleStatus.equalsIgnoreCase("true")) {
+                        System.out.println("Button is on - nothing to do");
+                    } else {
+                        System.out.println("Button is off - turning on");
+                        missionLeaderButton.click();
+                    }
                 }
+
             } else {
-                if (toggleStatus.equalsIgnoreCase("true")) {
-                    System.out.println("Button is on - turning off");
-                    missionLeaderButton.click();
+                if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+                    if (toggleStatus.equalsIgnoreCase("1")) {
+                        System.out.println("Button is on - turning off");
+                        missionLeaderButton.click();
+                    } else {
+                        System.out.println("Button is off - nothing to do");
+                    }
                 } else {
-                    System.out.println("Button is off - nothing to do");
+                    if (toggleStatus.equalsIgnoreCase("true")) {
+                        System.out.println("Button is on - turning off");
+                        missionLeaderButton.click();
+                    } else {
+                        System.out.println("Button is off - nothing to do");
+                    }
                 }
+
             }
         }
     }
@@ -160,14 +181,64 @@ public class MissionLeaderDirectory extends BaseDriver {
     public void aReturnedMissionaryLogsInAndMissionLeaderIsTurnedOff() throws Exception {
         myHelper.proxyLogin("sariahelizabethrobinson");
         myHelper.enterPin("1", "1", "3", "3");
-        toggleMissionLeaderAccess("on");
+        toggleMissionLeaderAccess("off");
+        //Need a long sleep to make sure the buttons are off.
+        Thread.sleep(10000);
+        myBasePage.waitForElementThenClick(myBasePage.backButton);
+        if (myBasePage.getOS().equalsIgnoreCase("android")) {
+            myMenu.selectMenu(myMenu.settings);
+        }
+        myBasePage.waitForElementThenClick(mySettings.signOut);
+        myBasePage.waitForElementThenClick(myBasePage.alertOK);
     }
 
-    @When("the Mission President logs in")
-    public void theMissionPresidentLogsIn() throws Exception {
-        myHelper.proxyLogin("tdlarkin");
-        myHelper.enterPin("1", "1", "3", "3");
-        myDirectory.chooseUnit("Ukraine");
+
+
+    @Then("the Mission President will not see the Returned Missionary")
+    public void theMissionPresidentWillNotSeeTheReturnedMissionary() throws Exception {
+//        System.out.println(myBasePage.getSourceOfPage());
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myDirectory.chooseUnit("Texas Houston East Mission 2020 - 2023");
+        } else {
+            myDirectory.chooseUnit("Texas Houston East Mission 2020-2023");
+        }
+
+        Thread.sleep(1000);
+        Assert.assertFalse(searchForMemberCheckResultsMissionary("Robinson, Sariah"));
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            myBasePage.waitForElementThenClick(myBasePage.cancel);
+        }
+        myMenu.selectMenu(myMenu.settings);
+        myBasePage.waitForElementThenClick(mySettings.signOut);
+        myBasePage.waitForElementThenClick(myBasePage.alertOK);
+        cleanUpForRemove();
     }
+
+    public void cleanUpForRemove() throws Exception {
+        myHelper.proxyLogin("sariahelizabethrobinson");
+        myHelper.enterPin("1", "1", "3", "3");
+        toggleMissionLeaderAccess("on");
+
+    }
+
+    public Boolean searchForMemberCheckResultsMissionary(String myUser) throws Exception {
+        String tempMyUser = myUser.toLowerCase();
+        Boolean myReturnStatus;
+        List<MobileElement> options;
+        myDirectory.searchBar.sendKeys(myUser);
+
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            options= driver.get().findElements(By.xpath("//XCUIElementTypeStaticText[@value='" + myUser + "']"));
+        } else {
+            options= driver.get().findElements(By.xpath("//android.widget.TextView[@text='" + myUser + "']"));
+        }
+        myReturnStatus = !options.isEmpty();
+        return myReturnStatus;
+
+    }
+
+
+
+
 
 }

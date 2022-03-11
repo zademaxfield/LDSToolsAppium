@@ -627,8 +627,9 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             capabilities.setCapability("appium:waitForQuiescence", false);
 
 
-            //Change this to false for more debug
-//            capabilities.setCapability("showIOSLog", false);
+            //Change this to true for more debug
+//            capabilities.setCapability("showIOSLog", true);
+
 
 
 //            capabilities.setCapability("includeNonModalElements", true);

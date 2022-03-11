@@ -90,18 +90,48 @@ public class ReportsScreenTest extends BaseDriver {
         reportsBasicCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
     }
 
+    @Test(groups = {"all3", "all"})
+    public void reportsBasic_RELIEF_SOCIETY_SECRETARY() throws Exception {
+        reportsBasicCheckSub("RELIEF_SOCIETY_SECOND_COUNSELOR");
+    }
+
     @Test(groups = {"all4", "all", "daily", "daily4"})
     public void reportsBasic_YOUNG_WOMEN_PRESIDENT() throws Exception {
         reportsBasicCheckSub("YOUNG_WOMEN_PRESIDENT");
     }
 
     @Test(groups = {"all1", "all"})
-    public void reportsBasic_WOMEN_SECOND_COUNSELOR() throws Exception {
+    public void reportsBasic_YOUNG_WOMEN_FIRST_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("WOMEN_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all1", "all"})
+    public void reportsBasic_YOUNG_WOMEN_SECOND_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("WOMEN_SECOND_COUNSELOR");
+    }
+
+    @Test(groups = {"all1", "all"})
+    public void reportsBasic_YOUNG_WOMEN_SECRETARY() throws Exception {
         reportsBasicCheckSub("WOMEN_SECOND_COUNSELOR");
     }
 
     @Test(groups = {"all2", "all"})
+    public void reportsBasic_SUNDAY_SCHOOL_PRESIDENT() throws Exception {
+        reportsBasicCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
     public void reportsBasic_SUNDAY_SCHOOL_FIRST_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void reportsBasic_SUNDAY_SCHOOL_SECOND_COUNSELOR() throws Exception {
+        reportsBasicCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
+    }
+
+    @Test(groups = {"all2", "all"})
+    public void reportsBasic_SUNDAY_SCHOOL_SECRETARY() throws Exception {
         reportsBasicCheckSub("SUNDAY_SCHOOL_FIRST_COUNSELOR");
     }
 

@@ -396,4 +396,12 @@ public class SettingsScreen extends BasePage {
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/button2")
     @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement dialogCancel;
+
+    // ******************** Mission Leader Limited Visibility ***************************
+
+    //Mission Leader Limited Visibility
+    @iOSXCUITFindBy(accessibility = "Mission Leader Limited Visibility")
+    public  MobileElement missionLeaderLimitedVisibility;
+
+
 }

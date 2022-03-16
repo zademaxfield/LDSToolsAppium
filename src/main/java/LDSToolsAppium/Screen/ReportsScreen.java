@@ -17,9 +17,9 @@ import java.time.Duration;
 
 
 public class ReportsScreen extends BasePage {
-    public ThreadLocal<AppiumDriver> driver;
+
     public ReportsScreen(ThreadLocal<AppiumDriver> driver) {
-        super(BaseDriver.driver );
+        super(driver );
         Duration myDuration = Duration.ofSeconds(10);
         PageFactory.initElements(new AppiumFieldDecorator(driver.get(), myDuration), this);
     }

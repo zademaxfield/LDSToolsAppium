@@ -61,8 +61,7 @@ public class LDSToolsApp {
     }
 
     //Reports Screen
-    public ReportsScreen reportsScreen() { return new ReportsScreen(driver);
-    }
+    public ReportsScreen reportsScreen() { return new ReportsScreen(driver); }
 
     //Ministering Screen
     public MinisteringScreen ministeringScreen() { return new MinisteringScreen(driver);

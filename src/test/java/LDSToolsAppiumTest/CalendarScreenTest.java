@@ -6,9 +6,12 @@ import LDSToolsAppium.Screen.CalendarsScreen;
 import LDSToolsAppium.Screen.MenuScreen;
 import LDSToolsAppium.Screen.PinScreen;
 import LDSToolsAppium.Screen.WhatsNewScreen;
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class CalendarScreenTest extends BaseDriver {
@@ -158,7 +161,6 @@ public class CalendarScreenTest extends BaseDriver {
 //        pageSource = myBasePage.getSourceOfPage();
 //        System.out.println(pageSource);
 
-        //TODO: Need to find out why iOS cannot see calendar items.
         if (getRunningOS().equalsIgnoreCase("ios")) {
 //            myBasePage.scrollDownIOS();
 //            pageSource = myBasePage.getSourceOfPageIDB();
@@ -185,22 +187,24 @@ public class CalendarScreenTest extends BaseDriver {
         //Go to Calendar
         myMenu.selectMenu(myMenu.calendar);
         Thread.sleep(2000);
+        selectAllCalendar();
+        Thread.sleep(2000);
         //Scroll to Stake Presidency Interviews in case it is off the screen
-        myBasePage.scrollToTextGeneral("Temple Closed");
+        myBasePage.scrollToTextGeneral("High Council");
         //Check the page source to see Stake Presidency Interviews
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Temple Closed", pageSource, "contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("High Council", pageSource, "contains"));
         //Turn off West Jordan YSA Stake Calendar
         checkOrUncheckCalendarItem("Stake Calendar", "check");
         //Search for Stake Presidency Interviews - Should not be found.
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertFalse(myBasePage.checkNoCaseList("Temple Closed", pageSource, "contains"));
+        Assert.assertFalse(myBasePage.checkNoCaseList("High Council", pageSource, "contains"));
         //Turn on West Jordan YSA Stake Calendar
         checkOrUncheckCalendarItem("Stake Calendar", "uncheck");
         //Search for Stake Presidency Interviews - make sure it is displayed
-        myBasePage.scrollToTextGeneral("Temple Closed");
+        myBasePage.scrollToTextGeneral("High Council");
         pageSource = myBasePage.getSourceOfPage();
-        Assert.assertTrue(myBasePage.checkNoCaseList("Temple Closed", pageSource, "contains"));
+        Assert.assertTrue(myBasePage.checkNoCaseList("High Council", pageSource, "contains"));
     }
 
 
@@ -287,6 +291,35 @@ public class CalendarScreenTest extends BaseDriver {
             myCalendar.calendarMoreOptions.click();
             myCalendar.calendarsToDisplay.click();
         }
+    }
+
+    private void selectAllCalendar() throws Exception {
+        CalendarsScreen myCalendar = new CalendarsScreen(driver);
+        BasePage myBasePage = new BasePage(driver);
+        editCalendar();
+
+        if (myBasePage.getOS().equalsIgnoreCase("ios")) {
+            if (myBasePage.checkForElement(myCalendar.calendarsSelectAll)) {
+                myCalendar.calendarsSelectAll.click();
+            }
+        } else {
+            List<MobileElement> checkBox = driver.get().findElements(By.xpath("//android.widget.CheckBox"));
+            for (MobileElement boxStatus : checkBox ) {
+                if (boxStatus.getAttribute("checked").equals(false)) {
+                    boxStatus.click();
+                }
+            }
+        }
+
+
+
+        if (getRunningOS().contains("ios")) {
+            myCalendar.calendarDone.click();
+        } else {
+            myBasePage.backButton.click();
+        }
+
+        Thread.sleep(2000);
     }
 
 

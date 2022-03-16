@@ -60,6 +60,11 @@ public class CalendarsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "Select None")
     public MobileElement calendarsSelectNone;
 
+    //Select All Button
+    @AndroidFindBy(id ="menu_calendars_select_all")
+    @iOSXCUITFindBy(accessibility = "Select All")
+    public MobileElement calendarsSelectAll;
+
 
 
     //Subscriptions Done

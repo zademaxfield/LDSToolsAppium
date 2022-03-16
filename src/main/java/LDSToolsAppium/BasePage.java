@@ -798,7 +798,6 @@ public class BasePage extends BaseDriver {
 
     }
 
-    //TODO: Need a faster way to do this.
     public boolean checkForElement(MobileElement myElement ) {
         try {
             WebDriverWait wait = new WebDriverWait(driver.get(), 1);
@@ -922,8 +921,6 @@ public class BasePage extends BaseDriver {
         String pageSource = null;
         pageSource = getSourceOfPage();
 
-        //TODO: Scroll?
-
         for (String apiUser : jsonList) {
             System.out.println("API Data: "  + apiUser);
             Assert.assertTrue(checkNoCaseList(apiUser, pageSource, "Contains"));
@@ -948,7 +945,6 @@ public class BasePage extends BaseDriver {
             //System.out.println("*************************************");
             for(String oneUser : myList){
                 System.out.println("USER: " + oneUser);
-                //TODO: When "Out of Unit" bug is fixed remove the check
                 if ((oneUser.contains("Jr")) || (oneUser.contains("Salvador")) || (oneUser.contains("Junior") || (oneUser.contains("Farley")
                         || (oneUser.contains("Raymundo") || (oneUser.contains("Sarwar") ||(oneUser.contains("Dylan") || (oneUser.contains("Siteni")
                         || (oneUser.contains("Ah Kam") || (oneUser.contains("Peterson") || (oneUser.contains("Latu") ||(oneUser.contains("Morgan")

@@ -409,55 +409,42 @@ public class ReportsScreen extends BasePage {
 
 
     // ************ Sacrament Attendance Page
-    //Todo: need to add ios
+
     //Sacrament Attendance First Week
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week1EditText")
-    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceFirstWeek;
 
-    //Todo: need to add ios
+
     //Sacrament Attendance Second Week
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week2EditText")
-    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceSecondWeek;
 
-    //Todo: need to add ios
+
     //Sacrament Attendance Third Week
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week3EditText")
-    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceThirdWeek;
 
-    //Todo: need to add ios
+
     //Sacrament Attendance Fourth Week
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week4EditText")
-    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceFourthWeek;
 
-    //Todo: need to add ios
     //Sacrament Attendance Fifth Week
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/week5EditText")
-    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceFifthWeek;
 
-    //Todo: need to add ios
     //Sacrament Attendance Dialog Edit Field
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/editText")
-    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceDialogEditField;
 
-    //Todo: need to add ios
     //Sacrament Attendance Cancel
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/button2")
-    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceDialogCancel;
 
-    //Todo: need to add ios
     //Sacrament Attendance Ok
     @AndroidFindBy(xpath = "//android.widget.Button[@text='OK']")
-    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceDialogOk;
 
-    //Todo: need to add ios
     //Sacrament Attendance Counter Icon
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/text_input_end_icon")
     @iOSXCUITFindBy(accessibility = "sacramentCounterIcon")
@@ -477,13 +464,11 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(accessibility = "remove")
     public  MobileElement sacramentAttendanceMinusButton;
 
-    //Todo: need to add ios
+
     //Sacrament Attendance Next Section
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/sectionButton")
-    @iOSXCUITFindBy(accessibility = "Cancel")
     public  MobileElement sacramentAttendanceCounterNextSection;
 
-    //Todo: need to add ios
     //Sacrament Attendance Counter Save Button
     @AndroidFindBy(id = "org.lds.ldstools.alpha:id/saveButton")
     @iOSXCUITFindBy(accessibility = "Save")
@@ -697,7 +682,6 @@ public class ReportsScreen extends BasePage {
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Outbox' AND type == 'XCUIElementTypeButton'")
     public  MobileElement moveRecordsOutButton;
 
-    //Todo: need iOS
     //Cancel Button
     @AndroidFindBy(accessibility = "Navigate up")
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeTextView'")

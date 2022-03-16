@@ -76,7 +76,6 @@ public class MemberToolsAPITest {
 //        memberList = apiTest.getNamesFromNewMembers("mbthomas74", "21628");
 
         //Get Ministering Brother info
-        //TODO: needs work
 //        memberList = apiTest.getInfoFromMinisteringBrothers("mbthomas74", "21628");
 
 

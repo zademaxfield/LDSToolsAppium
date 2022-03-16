@@ -181,7 +181,6 @@ public class MinisteringScreen extends BasePage {
         BasePage myBase = new BasePage(driver);
         String myPageSource;
 
-        //Todo: Need a way to swipe to the end of the Android list.
         myPageSource = getSourceOfPage();
         if (myBase.getOS().equalsIgnoreCase("android"))  {
             myBase.scrollUpAndroidUIAutomator("0");

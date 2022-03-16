@@ -1866,7 +1866,6 @@ public class LDSWeb {
 		myElementCheck = checkElementExists("AlertSomethingWrong", "xpath");
 		
 		//Check to see if the page loaded
-		//TODO: Need to have a few samples for each report or file with last know good data
 		if (myElementCheck == true ) {
 			System.out.println(myReport + " " + subReport +" Page did not load... Skipping");
 			foundUsers.clear();
@@ -1924,7 +1923,6 @@ public class LDSWeb {
 		myElementCheck = checkElementExists("AlertSomethingWrong", "xpath");
 		
 		//Check to see if the page loaded
-		//TODO: Need to have a few samples for each report or file with last know good data
 		if (myElementCheck == true ) {
 			System.out.println(myReport + " " + subReport +" Page did not load... Skipping");
 			foundUsers.clear();

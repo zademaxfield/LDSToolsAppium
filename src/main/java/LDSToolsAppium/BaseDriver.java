@@ -443,7 +443,6 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
             // set up appium
             File classpathRoot = new File(System.getProperty("user.dir"));
-            //TODO: Need a better path
 //            File appDir = new File(classpathRoot, "../../../Selenium");
             File appDir = new File(classpathRoot, "/AppUnderTest");
             File app = new File(appDir, fileName);
@@ -491,7 +490,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 
             capabilities.setCapability("appWaitActivity", "org.lds.ldstools.ux.auth.AuthenticationSignInActivity");
 //            capabilities.setCapability("appWaitActivity", "org.lds.ldstools.ux.main.MainActivity");
-            capabilities.setCapability("appWaitDuration", "300000");
+            capabilities.setCapability("appWaitDuration", 300000);
 //            capabilities.setCapability("normalizeTagNames", true);
 
             capabilities.setCapability("deviceReadyTimeout", 60);
@@ -511,7 +510,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
 //            capabilities.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
             capabilities.setCapability("maxTypingFrequency", "8");
 //            capabilities.setCapability("appActivity", "org.lds.ldstools.alpha.org.lds.ldstools.ui.activity.StartupActivity");
-            capabilities.setCapability("androidInstallTimeout", "90000");
+            capabilities.setCapability("androidInstallTimeout", 90000);
 //            capabilities.setCapability("unicodeKeyboard", "true");
 //            capabilities.setCapability("resetKeyboard", "true");
 
@@ -605,9 +604,9 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             capabilities.setCapability("appium:noReset", false);
             capabilities.setCapability("appium:newCommandTimeout", 600);
             capabilities.setCapability("appium:app", app.getAbsolutePath());
-            capabilities.setCapability("appium:launchTimeout", 900000);
+            capabilities.setCapability("launchTimeout", 900000);
             capabilities.setCapability("appium:platformVersion", "15.2");
-            capabilities.setCapability("appium:nativeInstrumentsLib", false);
+            capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("appium:clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);
 //            capabilities.setCapability("appium:maxTypingFrequency", 20);
@@ -617,8 +616,8 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             //capabilities.setCapability("appPackage", myAppPackage);
             //capabilities.setCapability("simpleIsVisibleCheck", true);
 //            capabilities.setCapability("connectHardwareKeyboard", false);
-            capabilities.setCapability("customSnapshotTimeout", 500);
-            capabilities.setCapability("snapshotMaxDepth", 100);
+            capabilities.setCapability("appium:customSnapshotTimeout", 500);
+            capabilities.setCapability("appium:snapshotMaxDepth", 100);
 //            capabilities.setCapability("fullReset", true);
 
 //            capabilities.setCapability("wdaConnectionTimeout", 5000000);

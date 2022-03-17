@@ -174,7 +174,6 @@ public class CalendarScreenTest extends BaseDriver {
         }
     }
 
-    //Todo: need a check to make sure all calendars are selected.
     @Test (groups = {"all", "all3", "daily", "daily2", "jft"})
     public void calenderDisplayType() throws Exception {
         String pageSource;

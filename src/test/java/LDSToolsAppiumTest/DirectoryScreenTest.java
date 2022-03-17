@@ -817,10 +817,6 @@ public class DirectoryScreenTest extends BaseDriver {
                 Assert.assertFalse(myBasePage.checkNoCaseList("Adjust Household Location", pageSource, "Contains"));
             }
         }
-
-
-
-
     }
 
     private void resetLatLong(String headOfHouseId, String unitNumber) {

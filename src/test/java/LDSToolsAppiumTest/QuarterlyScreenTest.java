@@ -16,13 +16,11 @@ import java.util.List;
 
 public class QuarterlyScreenTest extends BaseDriver {
 
-    //TODO: Need to update user
-    @Test(groups = {"needUpdate"})
-//    @Test (dataProvider = "Members", groups = {"all1", "all", "smoke", "smoke1", "jft"} )
-    public void quarterlyReportBasic(String userName, String passWord, String rightsString, String calling) throws Exception {
+    //TODO: Need API tests
+    @Test ( groups = {"all3", "all", "daily", "daily3", "smoke", "smoke3", "jft"} )
+    public void quarterlyReportBasic() throws Exception {
         String pageSource;
-        int rights = Integer.parseInt(rightsString);
-
+        int rights;
         HelperMethods myHelper = new HelperMethods();
         BasePage myBasePage = new BasePage(driver);
         MenuScreen myMenu = new MenuScreen(driver);
@@ -30,56 +28,23 @@ public class QuarterlyScreenTest extends BaseDriver {
         QuarterlyReportScreen myQuarterly = new QuarterlyReportScreen(driver);
 
 
-        myHelper.loginUAT(userName, passWord);
+        myHelper.proxyLogin("mbthomas74");
+        rights = 8;
         myHelper.enterPin("1", "1", "3", "3");
 
-        if (rights <= 3) {
-            myWeb.quarterlyReportLogIn( userName, passWord);
 
+
+        if (rights >= 4) {
             myMenu.selectMenu(myMenu.reports);
-            if (!myBasePage.checkForElement(myReport.quarterlyReport)) {
-                myBasePage.scrollToTextRecyclerView("Quarterly Report");
-            }
-            myReport.quarterlyReport.click();
+            myBasePage.waitForElementThenClick(myReport.quarterlyReport);
 
-            //Quarterly Report Indicators
-            myQuarterly.indicatorsOfConversionAndChurchGrowth.click();
-            Thread.sleep(2000);
-            checkQuarterlyReport("Indicators");
-            myBasePage.backButton.click();
-
-            //Quarterly Report Members
-            myQuarterly.membersFamilies.click();
-            Thread.sleep(2000);
-            checkQuarterlyReport("Members");
-            myBasePage.backButton.click();
-
-            //Quarterly Report Adults
-            myQuarterly.adults.click();
-            Thread.sleep(2000);
-            checkQuarterlyReport("Adults");
-            myBasePage.backButton.click();
-
-            //Quarterly Report Youth
-            myQuarterly.youth.click();
-            Thread.sleep(2000);
-            checkQuarterlyReport("Youth");
-            myBasePage.backButton.click();
-
-            //Quarterly Report Children
-            myQuarterly.children.click();
-            Thread.sleep(2000);
-            checkQuarterlyReport("Children");
-            myBasePage.backButton.click();
-
-            //Quarterly Report Converts
-            myQuarterly.convertsPast12Months.click();
-            Thread.sleep(2000);
-            checkQuarterlyReport("Converts");
-            myBasePage.backButton.click();
-
-
-            myWeb.tearDown();
+            pageSource = myBasePage.getSourceOfPage();
+            Assert.assertTrue(myBasePage.checkNoCaseList("Indicators", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Members", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Adults", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Youth", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Children", pageSource, "Contains"));
+            Assert.assertTrue(myBasePage.checkNoCaseList("Converts", pageSource, "Contains"));
 
         } else {
             pageSource = myBasePage.getSourceOfPage();
@@ -87,26 +52,6 @@ public class QuarterlyScreenTest extends BaseDriver {
         }
     }
 
-    public void checkQuarterlyReport(String myReport) throws Exception {
-        String pageSource;
-        List<String> myList;
-        //ArrayList<String> androidList = new ArrayList<>();
-        BasePage myBasePage = new BasePage(driver);
-
-        pageSource = myBasePage.getSourceOfPage();
-        myBasePage.scrollDownTEST(200);
-        pageSource = pageSource + myBasePage.getSourceOfPage();
-
-        myList = myWeb.getQuarterlyReportsDetails(myReport);
-
-        for(String reportData : myList){
-            System.out.println("Data to test: " + reportData);
-            Assert.assertTrue(myBasePage.checkNoCaseList(reportData, pageSource, "Contains"));
-        }
-
-
-       // myBasePage.compareWebData(myList, androidList, true);
-    }
 
 
 

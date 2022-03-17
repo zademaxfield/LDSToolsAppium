@@ -44,7 +44,7 @@ public class RecordOrdinances extends BaseDriver {
         callingRights = myHelper.getMemberNameFromList(memberCalling, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
-        myMenu.selectMenu(myMenu.reports);
+        myMenu.selectMenu(myMenu.manageRecord);
         myReports.ordinancesReport.click();
     }
 
@@ -56,10 +56,7 @@ public class RecordOrdinances extends BaseDriver {
 //        ((JavascriptExecutor) driver.get()).executeScript("mobile: getComposSource");
 
 //        driver.get().setSetting("driver", "compose");
-//        System.out.println(myBasePage.getSourceOfPage());
-//        driver.get().setSetting("driver", "uiautomator2");
-
-
+        System.out.println(myBasePage.getSourceOfPage());
         myReports.ordinancesAdd.click();
 
         if ((priesthoodOffice.equals("Priest")) || (priesthoodOffice.equals("Teacher")) || (priesthoodOffice.equals("Deacon"))) {

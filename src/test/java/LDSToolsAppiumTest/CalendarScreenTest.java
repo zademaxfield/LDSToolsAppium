@@ -207,8 +207,6 @@ public class CalendarScreenTest extends BaseDriver {
     }
 
 
-    //Todo: need a check to make sure all calendars are selected. Check iOS!
-    //Todo: need to refactor this test to be better
     @Test (groups = {"all", "all4", "daily", "daily3"})
     public void calenderSubscriptions() throws Exception {
         String pageSource;

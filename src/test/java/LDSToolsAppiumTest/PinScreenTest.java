@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class PinScreenTest extends BaseDriver {
 
-    @Test (groups = {"all1", "all", "daily", "daily1", "jft"})
+    @Test (groups = {"all1", "all", "daily", "daily1"})
     public void pinRepeatTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -95,9 +95,7 @@ public class PinScreenTest extends BaseDriver {
 
     }
 
-
-    //TODO: Android bug MMA-3502
-    @Test (groups = {"all4", "all"})
+    @Test (groups = {"all4", "all", "jft"})
     public void pinSequentialTest() throws Exception {
         HelperMethods myHelper = new HelperMethods();
         PinScreen myPinScreen = new PinScreen(driver);
@@ -119,7 +117,6 @@ public class PinScreenTest extends BaseDriver {
 
     }
 
-    //TODO: Android bug MMA-3502
     @Test (groups = {"all1", "all"})
     public void pinSequentialTestNonLeader() throws Exception {
         HelperMethods myHelper = new HelperMethods();

@@ -58,7 +58,7 @@ public class ReportsScreen extends BasePage {
     public MobileElement moveInAndOutReport;
 
     //Move Records In and Out
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Move Records In and Out']")
+    @AndroidFindBy(xpath = "//*[@text='Move Records In and Out']")
     @iOSXCUITFindBy(accessibility = "Move Records In and Out")
     public MobileElement moveRecordsInAndOut;
 
@@ -126,8 +126,8 @@ public class ReportsScreen extends BasePage {
     public MobileElement classAndQuorumAttendanceReport;
 
     //Ordinances
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Ordinances']")
-    @iOSXCUITFindBy(accessibility = "Ordinances")
+    @AndroidFindBy(xpath = "//*[@text='Record Ordinances']")
+    @iOSXCUITFindBy(accessibility = "Record Ordinances")
     public MobileElement ordinancesReport;
 
 

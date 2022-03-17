@@ -41,6 +41,12 @@ public class MenuScreen extends BasePage {
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Reports'")
     public  MobileElement reports;
 
+
+    //Manage Records
+    @AndroidFindBy(xpath = "//*[@text='Manage Records']")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == 'Manage Records'")
+    public  MobileElement manageRecord;
+
     //Lists
     @AndroidFindBy(xpath = "//*[@text='Lists']")
     @iOSXCUITFindBy(iOSNsPredicate = "name == 'Lists'")

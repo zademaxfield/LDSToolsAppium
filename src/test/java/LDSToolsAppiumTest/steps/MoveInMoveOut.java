@@ -32,7 +32,8 @@ public class MoveInMoveOut extends BaseDriver {
         callingRights = myHelper.getMemberNameFromList(memberCalling, "Centinela 1st");
         myHelper.proxyLogin(callingRights[1]);
         myHelper.enterPin("1", "1", "3", "3");
-        myMenu.selectMenu(myMenu.reports);
+//        myMenu.selectMenu(myMenu.reports);
+        myMenu.selectMenu(myMenu.manageRecord);
         myBasePage.waitForElementThenClick(myReports.moveRecordsInAndOut);
     }
 

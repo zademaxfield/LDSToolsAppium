@@ -605,7 +605,7 @@ public class BaseDriver extends AbstractTestNGCucumberTests {
             capabilities.setCapability("appium:newCommandTimeout", 600);
             capabilities.setCapability("appium:app", app.getAbsolutePath());
             capabilities.setCapability("launchTimeout", 900000);
-            capabilities.setCapability("appium:platformVersion", "15.2");
+            capabilities.setCapability("appium:platformVersion", "15.4");
             capabilities.setCapability("nativeInstrumentsLib", false);
             capabilities.setCapability("appium:clearSystemFiles", true);
             //capabilities.setCapability("allowTouchIdEnroll", true);
